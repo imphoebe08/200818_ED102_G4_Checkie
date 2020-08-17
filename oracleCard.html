@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap-grid.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/chatbot.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/header.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/chatbot.css"/>
+    <link rel="stylesheet" href="./css/fullpage.min.css">
+    <link rel="stylesheet" href="./css/oracleCard.css">
+    
+    <title>oracleCard</title>
+</head>
+<body>
+<div id="oracleCard">
+ 
+    <div class="top">
+        <div class="navbar">
+            <a href="./index.html" class="navbar__item logo"><img src="./img/navbar/cklogo.png" alt class="desktop_logo"><img src="./img/navbar/cklogo2.png" alt class="mobile_logo"></a>
+            <div class="navbar__menu">
+                <a class="navbar__item navbar__link" href="./csMain.html">預約諮詢</a>
+                <a class="navbar__item navbar__link" href="./coCalender.html">線上諮商</a>
+                <a class="navbar__item navbar__link" href="acMain.html">活動報名</a>
+                <a class="navbar__item navbar__link" href="atMain.html">專欄文章</a>
+                <a class="navbar__item navbar__link" href="oracleCard.html">神諭卡</a>
+                <a class="navbar__item navbar__link" href="test.html">心理評估測驗</a>
+
+            </div>
+
+            <ul class="navbar__sign">
+                <li><button class="navbar__sign__item" id="signup">加入會員</button></li><li> ｜</li>
+                <li><button class="navbar__sign__item" id="signin">登入</button></li>
+            </ul>
+
+            <span class="hamburger hamburger--collapse navbar__item" id="js-navbar-toggle">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </span>  
+        </div>
+    </div>
+
+    <!------註冊登入會員----->
+
+    <div class="signup_overlay signup_overlay-none" id="signup_overlay">
+        <div class="container" id="container">
+            <span class="container_close" id ="close">&times;</span>
+            <div class="form-container sign-up-container">
+                <form action="#">
+                    <h3>加入會員</h3>
+                    <span>請填寫以下資訊完成註冊</span>
+                    <input type="text" placeholder="Name" />
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button>註冊</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="#">
+                    <h3>登入會員</h3>
+                    <span>請輸入您的帳號密碼</span>
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <a href="#">忘記密碼？</a>
+                    <button>登入</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h3>歡迎回來！</h3>
+                        <p>登入會員享有更多服務</p>
+                        <button class="ghost" id="signIn">登入會員</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h3>歡迎加入Checkie！</h3>
+                        <p>為生命帶來一些新的可能，<br>只需簡單完成申請</p>
+                        <button class="ghost" id="signUp">加入會員</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------ chatbot ------>
+
+    <button class="circle" type="button">
+        
+        <span class="icon-elements">
+        </span>
+    </button>
+    <div class="modal-wrapper">
+        
+        <div class="modal-header">
+            <span class="title">Checkie線上客服</span>
+            <p>您好！很高興為您服務</p>
+        </div>
+
+        <div class="modal-chatbox">
+            <span class="reply" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+            <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+            <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+            <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+        </div>
+        <form action="">
+        <div class="modal-inputbox">
+            <input class="modal-input" type="text" placeholder="輸入您的問題...">
+            <input class="modal-input_submit" type="button" value="送出">
+        </div>
+        </form>
+    </div>
+
+  <div class="oracleCardInner" id="fullpage">
+
+    <section class="oracleCardBanner page page1 section">
+      <div class="oracleCardBox">
+        <div class="title">
+          <h1>什麼是神諭卡</h1>
+        </div>
+        <div class="txt">
+          <p>神諭卡可以協助我們與自我潛意識進行交流，主要的目的是用來傳遞與接收訊息，我們可以選擇自己有感覺的牌卡，與牌卡進行互動。神諭卡會因為個案的人、事、物不同，而傳遞不同的消息，牌卡不會告訴你「Yes」Or 「No」，但是會給予您相對應的建議。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="oracleCardStep page page2 section">
+      <div class="oracleCardStepBox">
+        <div class="title">
+          <h2>如何使用神諭卡</h2>
+        </div>
+        <div class="step">
+          <ol>
+            <li>
+              <h3>Step1</h3>
+              <h5>選擇喜歡的牌卡</h5>
+              <p>按照自己今天的直覺，選擇一副喜歡的牌卡。</p>
+              <a href=""></a>
+            </li>
+            <li>
+              <h3>Step2</h3>
+              <h5>默念三次問題</h5>
+              <p>在心中默念三次問題，問題最好是開放式問題。如：我該怎麼辦，這類邀請建議的問題。</p>
+              <a href=""></a>
+            </li>
+            <li>
+              <h3>Step3</h3>
+              <h5>依直覺選取牌卡</h5>
+              <p>不要想太多，按照直覺選取有感應的牌卡，再依照直覺解讀牌卡即可。</p>
+              <a href=""></a>
+            </li>
+          </ol>
+        </div>
+        <div class="cardBtn">
+          <button id="cardBtn">開始抽牌</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="oracleCardStepOne page page3 section">
+      <div class="oracleCardStepOneBox">
+        <div class="title">
+          <h2>Step1. 選擇喜歡的牌卡</h2>
+        </div>
+        <div class="cards col-12">
+          <div class="item col-3 col-sm-3 col-md-3 col-lg-2">
+            <div class="itemImg sameSet">
+              <img src="./img/oracleCard/card1.png" alt="">
+            </div>
+            <div class="itemImgBack sameSet">
+              <img src="./img/oracleCard/card2.png" alt="">
+              <div class="cardTxt">
+                <h2></h2>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="item col-3 col-sm-3 col-md-3 col-lg-2">
+            <div class="itemImg sameSet">
+              <img src="./img/oracleCard/card2.png" alt="">
+            </div>
+            <div class="itemImgBack sameSet">
+              <img src="./img/oracleCard/card1.png" alt="">
+              <div class="cardTxt">
+                <h2></h2>
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="item col-3 col-sm-3 col-md-3 col-lg-2">
+            <div class="itemImg sameSet">
+              <img src="./img/oracleCard/card3.png" alt="">
+            </div>
+            <div class="itemImgBack sameSet">
+              <img src="./img/oracleCard/card1.png" alt="">
+              <div class="cardTxt">
+                <h2></h2>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+
+
+  </div>
+</div>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script src="./js/vender/fullpage.js"></script>
+<script src="./js/oracleCard.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,368 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: 400;
+  font-family: "Noto Sans TC", sans-serif;
+  margin: 0;
+}
+
+.acRelate .acRelateCard {
+  display: inline-block;
+  width: 350px;
+  height: 400px;
+  border-radius: 30px;
+  -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+          box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+  overflow: hidden;
+}
+
+.acRelate .acRelateCard a {
+  display: inline-block;
+  width: 100%;
+}
+
+.acRelate .acRelateCard a img {
+  width: 100%;
+}
+
+.acRelate .acRelateCard_text {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.acRelate .acRelateCard_text img {
+  width: 20px;
+  height: 20px;
+  margin-left: 3%;
+  cursor: pointer;
+}
+
+.acRelate .acRelateCard_text .acRelateCard_time {
+  margin: 0 15% 0 5%;
+}
+
+.acRelate .acRelateCard_title {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 30px;
+}
+
+.acRelate .acRelateCard_category {
+  margin-left: 3%;
+  color: maroon;
+}
+
+input:focus {
+  outline: none;
+}
+
+h2 {
+  font-size: 36px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+h4 {
+  font-size: 28px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+h5 {
+  font-size: 24px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+h6 {
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+p {
+  font-size: 16px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  line-height: 2;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  margin: 30px 50px;
+  -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+          box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+}
+
+.acSelf-Banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.acSelf-Banner_pic {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.acSelf-Banner_pic img {
+  width: 100%;
+}
+
+.acSelf-btns .acSelf-btns-markshare {
+  margin-left: 3%;
+  display: inline-block;
+  width: 80%;
+  vertical-align: bottom;
+}
+
+.acSelf-btns .acSelf-btns-markshare #acSelf-btns_share {
+  width: 30px;
+  height: 30px;
+  margin: 10px 10px 0 0;
+}
+
+.acSelf-btns .acSelf-btns-markshare #acSelf-btns_save {
+  width: 30px;
+  height: 30px;
+  margin: 10px 10px 0 0;
+}
+
+.acSelf-btns .acSelf-btns_apply {
+  display: inline-block;
+  width: 120px;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #fff;
+  cursor: pointer;
+  background-color: #FFA492;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+.acSelf-btns .acSelf-btns_apply:hover {
+  background-color: transparent;
+  color: #FFA492;
+}
+
+@media screen and (max-width: 986px) {
+  .acSelf-btns {
+    text-align: unset;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .acSelf-btns .acSelf-btns-markshare {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  .acSelf-btns .acSelf-btns_apply {
+    margin-right: 5px;
+  }
+}
+
+.acInfo-title {
+  border-bottom: 1px solid lightgrey;
+  margin: 30px 30px;
+}
+
+.acInfo {
+  margin: 0px 30px;
+}
+
+.acInfo_pic {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.acInfo_pic .acInfo_pic--1 {
+  width: 40%;
+  height: 100%;
+  margin: 5% 5% 0 0;
+}
+
+.acInfo_pic .acInfo_pic--2 {
+  width: 40%;
+  height: 100%;
+  margin: 10% 5% 0 0;
+}
+
+.acTeacher-title {
+  border-bottom: 1px solid lightgrey;
+  margin: 30px 30px;
+}
+
+.acTeacher {
+  margin: 0px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.acTeacher_intro {
+  margin: auto 0;
+}
+
+.acTeacher_pic {
+  margin-right: 4%;
+}
+
+.acTeacher_pic img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.acLocation-title {
+  border-bottom: 1px solid lightgrey;
+  margin: 30px 30px;
+}
+
+.acLocation {
+  border-top: 1px solid lightgray;
+  margin: 10px 30px;
+}
+
+.acAttension .acAttension-title {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.acAttension #acAttension_arrow {
+  border-bottom: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.acAttension .acAttension_arrow--up {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background-color: white;
+}
+
+.acAttension .acAttension_arrow--down {
+  -webkit-transform: rotate(225deg) translate(-28px, -28px);
+          transform: rotate(225deg) translate(-28px, -28px);
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.acAttension .acAttension-text {
+  border: 1px solid lightgray;
+  padding: 30px 80px;
+  margin: 30px;
+  border-radius: 30px;
+  display: none;
+}
+
+.acRelate {
+  background-color: #F5F5F5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-bottom: 50px;
+  margin-top: 30px;
+}
+
+.acRelate .acRelate-title {
+  text-align: center;
+  margin: 30px 30px;
+}
+
+.acRelate .acRelateCard {
+  border-radius: 30px;
+  width: 300px;
+  height: 350px;
+  margin: 10px;
+}
+
+.acRelate .owl-carousel {
+  text-align: center;
+}
+/*# sourceMappingURL=acSelf.css.map */

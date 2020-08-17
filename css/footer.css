@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: 400;
+  font-family: "Noto Sans TC", sans-serif;
+  margin: 0;
+}
+
+footer {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  background-color: #fdd1c89f;
+}
+
+footer .footer_socialmedia {
+  margin: 10px auto 0;
+  width: 300px;
+  height: 50px;
+}
+
+footer .footer_socialmedia .socialmedia_link {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+footer .footer_socialmedia .socialmedia_link img.black {
+  width: 100%;
+}
+
+footer .footer_socialmedia .socialmedia_link img.pink {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  display: block;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+footer .footer_socialmedia .socialmedia_link:hover img.black {
+  opacity: 0;
+}
+
+footer .footer_socialmedia .socialmedia_link:hover img.pink {
+  opacity: 1;
+}
+
+footer p {
+  font-size: 16px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  line-height: 2;
+  font-size: 12px;
+  display: inline-block;
+  padding-right: 5px;
+  margin: 0;
+}
+
+footer .footer_address {
+  display: inline-block;
+  width: 100%;
+}
+
+footer .footer_address h6 {
+  padding-right: 5px;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  font-size: 12px;
+  display: inline-block;
+  font-weight: 500;
+  margin: 0;
+}
+/*# sourceMappingURL=footer.css.map */

@@ -1,0 +1,857 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: 400;
+  font-family: "Noto Sans TC", sans-serif;
+  margin: 0;
+}
+
+.csMain *, .csCounselor-cards * {
+  margin: 0;
+  padding: 0;
+}
+
+.csMain h1, .csCounselor-cards h1 {
+  font-size: 40px;
+  line-height: 1.8;
+  letter-spacing: 1.5px;
+}
+
+.csMain h2, .csCounselor-cards h2 {
+  font-size: 36px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+.csMain h3, .csCounselor-cards h3 {
+  font-size: 32px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+.csMain h4, .csCounselor-cards h4 {
+  font-size: 28px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+.csMain h5, .csCounselor-cards h5 {
+  font-size: 24px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+.csMain h6, .csCounselor-cards h6 {
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+.csMain p, .csCounselor-cards p {
+  font-size: 16px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  line-height: 2;
+}
+
+.csMain .small, .csCounselor-cards .small {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.csMain .article, .csCounselor-cards .article {
+  margin: 20px;
+  width: 500px;
+}
+
+.csMain .button, .csCounselor-cards .button {
+  margin: 10px;
+  width: 120px;
+  padding: 10px 10px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #fff;
+  cursor: pointer;
+  background-color: #FFA492;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+.csMain .button:hover, .csCounselor-cards .button:hover {
+  background-color: transparent;
+  color: #FFA492;
+}
+
+.csMain .button2, .csCounselor-cards .button2 {
+  margin: 10px;
+  width: 120px;
+  padding: 10px 10px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #91D0EB;
+  color: #fff;
+  cursor: pointer;
+  background-color: #91D0EB;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+.csMain .button2:hover, .csCounselor-cards .button2:hover {
+  background-color: transparent;
+  color: #91D0EB;
+}
+
+.csMain .button2-1, .csCounselor-cards .button2-1 {
+  margin: 10px;
+  width: 150px;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #91D0EB;
+  color: #91D0EB;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+.csMain .button2-1:hover, .csCounselor-cards .button2-1:hover {
+  background-color: #91D0EB;
+  color: #fff;
+}
+
+.csMain .button3, .csCounselor-cards .button3 {
+  margin: 10px;
+  width: 80px;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #91D0EB;
+  color: #91D0EB;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+.csMain .button3:hover, .csCounselor-cards .button3:hover {
+  background-color: #91D0EB;
+  color: #fff;
+}
+
+.csMain .button3-1, .csCounselor-cards .button3-1 {
+  margin: 10px;
+  display: inline-block;
+  width: 80px;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #FFA492;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+  border-radius: 10px;
+}
+
+.csMain .button3-1:hover, .csCounselor-cards .button3-1:hover {
+  background-color: #FFA492;
+  color: #fff;
+}
+
+.csMain .button4, .csCounselor-cards .button4 {
+  display: inline-block;
+  width: 250px;
+  padding: 15px 10px;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #91D0EB;
+  color: #91D0EB;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+.csMain .button4:hover, .csCounselor-cards .button4:hover {
+  background-color: #91D0EB;
+  color: #fff;
+}
+
+.csMain .box, .csCounselor-cards .box {
+  display: inline-block;
+  margin: 0 30px;
+  width: 350px;
+  height: 400px;
+  border-radius: 30px;
+  -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+          box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+  overflow: hidden;
+}
+
+.csMain .box img, .csCounselor-cards .box img {
+  width: 100%;
+}
+
+.csMain .time, .csCounselor-cards .time {
+  border: 1px solid green;
+  display: block;
+  height: 30px;
+  position: relative;
+}
+
+.csMain .time p, .csCounselor-cards .time p {
+  font-size: 16px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  line-height: 2;
+  font-size: 14px;
+  float: right;
+}
+
+.csSelf * {
+  margin: 0;
+  padding: 0;
+}
+
+.csSelf h1 {
+  font-size: 40px;
+  line-height: 1.8;
+  letter-spacing: 1.5px;
+}
+
+.csSelf h2 {
+  font-size: 36px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+.csSelf h3 {
+  font-size: 32px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+.csSelf h4 {
+  font-size: 28px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+.csSelf h5 {
+  font-size: 24px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+.csSelf h6 {
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+.csSelf p {
+  font-size: 16px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  line-height: 2;
+}
+
+.csSelf .small {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.csSelf .article {
+  margin: 20px;
+  width: 500px;
+}
+
+.csSelf .button {
+  margin: 10px;
+  width: 120px;
+  padding: 10px 10px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #fff;
+  cursor: pointer;
+  background-color: #FFA492;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+.csSelf .button:hover {
+  background-color: transparent;
+  color: #FFA492;
+}
+
+.csSelf .button2 {
+  margin: 10px;
+  width: 120px;
+  padding: 10px 10px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #91D0EB;
+  color: #fff;
+  cursor: pointer;
+  background-color: #91D0EB;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+.csSelf .button2:hover {
+  background-color: transparent;
+  color: #91D0EB;
+}
+
+.csSelf .button2-1 {
+  margin: 10px;
+  width: 150px;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #91D0EB;
+  color: #91D0EB;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+.csSelf .button2-1:hover {
+  background-color: #91D0EB;
+  color: #fff;
+}
+
+.csSelf .button3 {
+  margin: 10px;
+  width: 80px;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #91D0EB;
+  color: #91D0EB;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+.csSelf .button3:hover {
+  background-color: #91D0EB;
+  color: #fff;
+}
+
+.csSelf .button3-1 {
+  margin: 10px;
+  display: inline-block;
+  width: 80px;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #FFA492;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+  border-radius: 10px;
+}
+
+.csSelf .button3-1:hover {
+  background-color: #FFA492;
+  color: #fff;
+}
+
+.csSelf .button4 {
+  display: inline-block;
+  width: 250px;
+  padding: 15px 10px;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #91D0EB;
+  color: #91D0EB;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+.csSelf .button4:hover {
+  background-color: #91D0EB;
+  color: #fff;
+}
+
+.csSelf .box {
+  display: inline-block;
+  margin: 0 30px;
+  width: 350px;
+  height: 400px;
+  border-radius: 30px;
+  -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+          box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+  overflow: hidden;
+}
+
+.csSelf .box img {
+  width: 100%;
+}
+
+.csSelf .time {
+  border: 1px solid green;
+  display: block;
+  height: 30px;
+  position: relative;
+}
+
+.csSelf .time p {
+  font-size: 16px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  line-height: 2;
+  font-size: 14px;
+  float: right;
+}
+
+.csMain {
+  z-index: 50;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.csMain #cleanSelect {
+  position: absolute;
+  right: 15%;
+  top: 10px;
+}
+
+.csMain .checkbox-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap row;
+          flex-flow: nowrap row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.csMain .checkbox-form span {
+  width: 120px;
+  height: 4px;
+  margin: 20px 10px;
+  text-align: center;
+}
+
+.csMain .checkbox-form span + select {
+  margin: 20px auto;
+}
+
+.csMain .checkbox-form input {
+  display: none;
+}
+
+.csMain .checkbox-form input:checked + label {
+  background-color: pink;
+  color: #fff;
+}
+
+.csMain .checkbox-form label.button3-1 {
+  margin: 10px;
+  display: inline-block;
+  width: 80px;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #FFA492;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+  border-radius: 10px;
+  height: 40px;
+  width: 120px;
+  padding: 0;
+  line-height: 40px;
+}
+
+.csMain .checkbox-form label.button3-1:hover {
+  background-color: #FFA492;
+  color: #fff;
+}
+
+.csCounselor-cards {
+  width: 100%;
+  height: 700px;
+  padding: 50px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.csCounselor-cards #csC-countCards {
+  text-align: center;
+}
+
+.csCounselor-cards .csC-changeSlide {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap row;
+          flex-flow: nowrap row;
+  position: absolute;
+  bottom: 0;
+}
+
+.csCounselor-cards .csC-changeSlide #pre,
+.csCounselor-cards .csC-changeSlide #next {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 80px;
+          flex: 1 0 80px;
+  max-width: 120px;
+  margin: 20px;
+  width: 80px;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #FFA492;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+  outline: none;
+}
+
+.csCounselor-cards .csC-changeSlide #pre:hover,
+.csCounselor-cards .csC-changeSlide #next:hover {
+  background-color: #FFA492;
+  color: #fff;
+}
+
+.csCounselor-cards .csCounselor-gallery {
+  width: 100%;
+  height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap row;
+          flex-flow: nowrap row;
+  position: absolute;
+  left: 0%;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card {
+  min-width: 350px;
+  border: 1px solid black;
+  margin: 10px 40px;
+  padding: 10px;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  -webkit-transform: scale(0.85);
+          transform: scale(0.85);
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card.bigger {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csCounselor-image {
+  width: 100%;
+  height: 40%;
+  cursor: pointer;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csCounselor-image img {
+  max-height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__name {
+  text-align: center;
+  width: 100%;
+  font-size: 24px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-type_title {
+  text-align: left;
+  width: 100%;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-type_tag {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px 0;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-type_tag span {
+  text-align: center;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info {
+  width: 100%;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info .csC-doctor__list > li p {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info .csC-doctor__list > li .csS-list > li {
+  display: block;
+  line-height: 1.5em;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info .csC-doctor__list > li .csS-list > li i {
+  display: inline-block;
+  font-size: 10px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  padding-right: 5px;
+  vertical-align: middle;
+  color: #65b391;
+}
+
+@media (max-width: 1000px) {
+  .csMain .checkbox-form {
+    width: 100%;
+  }
+  .csMain .checkbox-form span {
+    width: 80px;
+    height: 30px;
+    text-align: center;
+  }
+  .csMain .checkbox-form span + select {
+    margin: 10px auto;
+  }
+  .csMain .checkbox-form label.button3-1 {
+    width: 80px;
+  }
+}
+
+@media (max-width: 576px) {
+  .csMain {
+    position: absolute;
+    right: -120px;
+    height: 500px;
+    width: 120px;
+    border: 1px solid red;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+  }
+  .csMain.slideIn {
+    -webkit-animation: slideIn 1s ease forwards;
+            animation: slideIn 1s ease forwards;
+  }
+  .csMain.slideOut {
+    -webkit-animation: slideOut 1s ease forwards;
+            animation: slideOut 1s ease forwards;
+  }
+  .csMain #cleanSelect {
+    position: absolute;
+    right: 15%;
+    top: 90%;
+  }
+  .csMain .checkbox-form {
+    width: 120px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: nowrap column;
+            flex-flow: nowrap column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .csMain .checkbox-form span {
+    width: 120px;
+    height: 5px;
+    margin: 5px 0 15px;
+    text-align: center;
+  }
+  .csMain .checkbox-form span + select {
+    margin: 10px auto;
+  }
+  .csMain .checkbox-form #openForm {
+    position: absolute;
+    -webkit-writing-mode: vertical-lr;
+        -ms-writing-mode: tb-lr;
+            writing-mode: vertical-lr;
+    height: 90px;
+    width: 30px;
+    line-height: 30px;
+    border: 1px solid red;
+    right: 119px;
+    top: 10%;
+    cursor: pointer;
+  }
+  .csMain .checkbox-form label.button3-1 {
+    margin: 5px;
+    height: 24px;
+    width: 80px;
+    padding: 5px;
+    line-height: 14px;
+    font-size: 12px;
+  }
+}
+
+@-webkit-keyframes slideIn {
+  from {
+    right: -120px;
+  }
+  to {
+    right: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    right: -120px;
+  }
+  to {
+    right: 0;
+  }
+}
+
+@-webkit-keyframes slideOut {
+  from {
+    right: 0;
+  }
+  to {
+    right: -120px;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    right: 0;
+  }
+  to {
+    right: -120px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-fluid.csMain .csCounselor-cards .csCounselor-gallery .csCounselor-card {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+  .container-fluid.csMain .csCounselor-cards .csCounselor-gallery .csCounselor-card.bigger {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  .container-fluid.csMain .csCounselor-cards .csC-changeSlide {
+    bottom: 10%;
+  }
+}
+/*# sourceMappingURL=csMain.css.map */

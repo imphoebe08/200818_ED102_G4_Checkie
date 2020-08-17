@@ -1,0 +1,236 @@
+@import '../csMain/style';
+
+.csSelf {
+    display: block;
+    border: 1px solid rgb(8, 8, 8);
+    max-width: 1200px;
+
+    .csS-info {
+        border: 1px solid rgb(238, 23, 23);
+        padding: 20px;
+
+        .csS-info__image {
+            text-align: center;
+            padding: 20px;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .csS-info__intro {
+            border: 1px solid rgb(9, 11, 15);
+
+            div.row {
+                height: 100%;
+
+                .intro-left {
+
+                    .intro-left__top {
+                        h2 {
+                            display: inline-block;
+                            width: 100%;
+                            padding-left: 50px;
+                            margin-top: 50px;
+                        }
+
+                        h4 {
+                            display: inline-block;
+                            width: 100%;
+                            padding-left: 50px;
+                            margin: 20px 0;
+                        }
+
+                        .csS-skills {
+                            display: flex;
+                            width: 100%;
+                            justify-content: center;
+
+                            a {
+                                text-decoration: none;
+                                text-align: center;
+                                margin: 0 10px;
+                            }
+                        }
+                    }
+
+                    .intro-left__bottom {
+                        margin-top: 30px;
+                    }
+                }
+
+                .intro-right {
+                    background-color: rgba(240, 240, 240, 0.404);
+
+                    .list-wrapper>li {
+                        margin: 12px 0 0;
+
+                        p {
+                            cursor: pointer;
+                            font-weight: 700;
+                        }
+
+                        .csS-list>li {
+                            display: inline-block;
+                            line-height: 1.5em;
+
+                            i {
+                                display: inline-block;
+                                font-size: 10px;
+                                transform: scale(0.8);
+                                padding-right: 5px;
+                                vertical-align: middle;
+                                color: rgb(101, 179, 145);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .csS-buttons {
+            div.row {
+                margin: 20px 0px;
+                justify-content: flex-end;
+
+                button {
+                    max-width: 120px;
+                }
+            }
+
+        }
+    }
+
+    >h1 {
+        display: block;
+        padding-top: 50px;
+        height: 150px;
+        line-height: 100px;
+    }
+
+    .csS-art {
+        flex-flow: nowrap row;
+        justify-content: space-between;
+
+        .csS-art__card {
+            overflow: hidden;
+            flex-basis: 300px;
+            flex: 1 0;
+            border-radius: 1rem;
+            border: 1px solid $color-pink;
+            margin: 10px;
+
+            a {
+                display: block;
+                cursor: pointer;
+
+                img {
+                    width: 100%;
+                    height: 300px;
+                    object-fit: cover;
+                }
+            }
+
+            .card-Info {
+                padding: 10px;
+
+                .card-Info__times>img {
+                    width: 14px;
+                    height: 14px;
+                    vertical-align: middle;
+                    margin-right: 5px;
+                }
+            }
+
+            p {
+                line-height: 1.5em;
+                padding: 5px 0;
+                padding: 10px;
+                cursor: pointer;
+            }
+
+            .card-tag {
+                flex-flow: nowrap row;
+                margin: 20px 0;
+
+                a {
+                    flex: 1 0 80px;
+                    max-width: 120px;
+                    text-decoration: none;
+                    text-align: center;
+                    margin: 0 10px;
+                }
+
+            }
+
+            .card-share {
+                display: flex;
+                width: 100%;
+                height: 30px;
+                justify-content: flex-end;
+                flex-flow: nowrap row;
+                align-items: center;
+
+                a {
+                    margin: 5px;
+
+                    img {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .csS-act {
+        margin: 10px 20px;
+
+        img {
+            width: 100%;
+            border-radius: 20px;
+        }
+    }
+}
+
+@media (max-width: 1140px) {
+    .csSelf .csS-art {
+        flex-flow: nowrap column;
+        justify-content: space-between;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .csS-info__intro {
+        order: 2;
+    }
+
+    .csS-buttons {
+        order: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .csSelf .csS-info .csS-buttons {
+        div.row {
+            justify-content: center;
+
+            button {
+                margin: 10px;
+                padding: 0;
+                height: 40px;
+                flex: 0 0 40%;
+            }
+        }
+
+    }
+}
+
+@media (max-width: 375px) {
+    .csSelf>.csS-art>.csS-art__card>.card-tag>a {
+        font-size: 14px;
+    }
+}

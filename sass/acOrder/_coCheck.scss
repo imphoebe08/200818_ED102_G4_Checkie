@@ -1,0 +1,70 @@
+.coCheck>.container-lg {
+    // border: 1px solid red;
+    .row {
+        //border: solid 3px rgb(223, 20, 193);
+        .col {
+            //border: 2px solid rgb(237, 124, 4);
+            .row {
+                //border: 1px solid blue;
+                .co-block--border {
+                    //border: 2px solid rgb(31, 199, 211);
+                }
+            }
+        }
+    }
+}
+
+.coCheck-main--style {
+    margin-bottom: 100px;
+}
+
+@media all and (min-width: 576px) {
+    .co-card--style {
+        // background-color: darkred;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
+    }
+}
+
+.co-block {
+    //border: hotpink solid 1px;
+    padding: 15px;
+    .pic_content {
+        margin: 0 auto;
+        // border: green 1px solid;
+        width: 80%;
+        img {
+            width: 100%;
+        }
+    }
+    .row {
+        margin: 10px;
+    }
+}
+
+.coCheck>.coCheck-footer {
+    background-color: white;
+    box-shadow: 0 -3px 15px rgba(75, 83, 94, 0.3);
+    // border: firebrick solid 1px;
+    margin-top: 10px;
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+    .co-button {
+        // border: indigo solid 1px;
+        .co-button--flex {
+            // border: firebrick solid 1px;
+            button {
+                width: 100%;
+                margin: 0 auto;
+                border: none;
+                padding: 5px;
+            }
+        }
+        .co-copyRight {
+            text-align: center;
+            // border: indigo solid 1px;
+            margin: 5px auto;
+        }
+    }
+}

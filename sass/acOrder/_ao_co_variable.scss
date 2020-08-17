@@ -1,0 +1,50 @@
+@mixin flex($justify:null, $align:null, $direction:null, $wrap:null) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+}
+
+@mixin co-counselor($w, $m, $ma, $h:null) {
+    width: $w;
+    height: $w;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: $m $ma;
+    cursor: pointer;
+    img {
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+        transition: .2s all ease-in;
+        &:hover {
+            width: $h;
+            height: $h;
+        }
+    }
+}
+
+@mixin table($fontSize, $m, $w) {
+    font-size: $fontSize;
+    margin: $m;
+    width: $w;
+    border-collapse: separate;
+}
+
+// @mixin inputStyle ($h, $w, $fontSize, $background, $border:null, $color, $placeholder) {
+//     background-color: $background;
+//     // padding: 5px;
+//     border: $border;
+//     border-radius: 2px;
+//     outline: none;
+//     width: $w;
+//     height: $h;
+//     // margin: 7px 0;
+//     font-size: $fontSize;
+//     letter-spacing: 0.5;
+//     color: $color;
+//     &::placeholder {
+//         color: $placeholder;
+//     }
+// }

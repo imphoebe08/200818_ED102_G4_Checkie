@@ -1,0 +1,68 @@
+* {
+  outline: 1px solid red;
+}
+
+.blank {
+  height: 11.11vw;
+}
+
+.seBanner {
+  width: 100%;
+}
+
+.seBanner .seBanner_pic {
+  height: 50vh;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.seClassTitle {
+  display: inline-block;
+  padding: 0 11.11vw;
+}
+
+.seClassTitle .seClassTitle-content_title {
+  color: #01a687;
+  font-size: 2vw;
+  line-height: 5.5vw;
+}
+
+.seClassTitle .seClassTitle-content_detail {
+  float: left;
+  width: 27.6vw;
+}
+
+.seClassTitle .seClassTitle-content_pic {
+  float: left;
+  width: 48.3vw;
+  height: 33.33vw;
+  margin-top: 0.7vw;
+  margin-top: calc(11.11vw - 1.1vw);
+  position: relative;
+}
+
+.seClassTitle .seClassTitle-content_pic .seClassTitle-content-pic_img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transition: all 0.8s linear;
+  transition: all 0.8s linear;
+  z-index: 1;
+}
+
+.seClassTitle .seClassTitle-content_pic .seClassTitle-content-pic_img > img {
+  width: 100%;
+  height: 100%;
+}
+
+.seClassTitle .seClassTitle-content_pic .seClassTitle-content-pic_ColorBlock {
+  position: absolute;
+  top: 2.22vw;
+  left: 1.11vw;
+  width: 100%;
+  height: 100%;
+  background: rgba(145, 208, 235, 0.9);
+  -webkit-transition: all 0.6s linear;
+  transition: all 0.6s linear;
+}
+/*# sourceMappingURL=atSelf.css.map */

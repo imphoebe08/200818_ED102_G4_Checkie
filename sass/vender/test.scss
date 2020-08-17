@@ -1,0 +1,101 @@
+@import './reset';
+@import './var';
+@import './variable';
+
+input{
+    outline: none;
+}
+#qsBox{
+    border-radius: 30px;
+    width: 90vw;
+    margin: 0 auto;
+    background-color: rgb(235, 245, 255);
+}
+
+.qsAsk{
+    background-color: rgb(197, 221, 248);
+    border-radius: 0 24px 24px 24px;
+    width: fit-content;
+    padding: 14px 21px 14px 21px;
+    margin:30px 0;
+}
+
+.askContent{
+    display: flex;
+    .askPic{
+        width: 50px;
+        height: 50px;
+        margin: 20px;
+        border-radius: 50%;
+        background-color: grey;
+
+    }
+}
+
+.ansButton--start{
+    text-align: center;
+    
+    .qsStart{
+        @include btn-more($bw, $color-pink, $fontsize)
+    }
+}
+
+.qsAns{
+    background-color: pink;
+    border-radius: 24px 0px 24px 24px;
+    width: fit-content;
+    padding: 14px 21px 14px 21px;
+    margin:30px 0;
+}
+.ansContent{
+    width: fit-content;
+    display: flex;
+    margin-left:auto ;
+    
+    .ansPic{
+        width: 50px;
+        height: 50px;
+        margin: 20px;
+        border-radius: 50%;
+        background-color: grey;
+
+    }
+}
+
+.ansButtons-grades{
+    text-align: center;
+    .qsQrades{
+        width: 50px;
+        padding: 13px 10px;
+        margin: 0px 5px;
+        font-size: $fontsize + 2px;
+        font-weight: 400;
+        text-align: center;
+        border-radius: 50%;
+        border: 2px solid $color-pink;
+        color: $color-pink;
+        cursor: pointer;
+        background-color: transparent;
+        transition: .2s all ease-in;
+        &:hover {
+            background-color: $color-pink;
+            color:#fff ;
+        }
+    }
+}
+
+.text_skip{
+    @include  btn-more($bw, $color-pink, $fontsize);
+    position: sticky;
+    left:85%;
+    margin: 20px;
+}
+
+.test_submit{
+    @include  btn-more($bw, $color-pink, $fontsize);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 20px 0;
+
+}

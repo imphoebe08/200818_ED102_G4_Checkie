@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: 400;
+  font-family: "Noto Sans TC", sans-serif;
+  margin: 0;
+}
+
+.circle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #91D0EB;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  position: fixed;
+  bottom: 30px;
+  right: 15px;
+  -webkit-transition: -webkit-transform 200ms ease-in-out;
+  transition: -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  outline: none;
+  z-index: 100;
+}
+
+.circle:hover {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+}
+
+.icon-elements {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background-color: white;
+  width: 30px;
+  height: 22px;
+  border-radius: 3px;
+  position: relative;
+  top: 15px;
+  -webkit-transition: width 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  transition: width 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, width 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, width 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+}
+
+.icon-elements:before {
+  content: "";
+  width: 20px;
+  height: 10px;
+  background: white;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  -webkit-transform: skewY(49deg) rotate(-70deg);
+          transform: skewY(49deg) rotate(-70deg);
+}
+
+.js-icon-active {
+  background-color: white;
+  width: 2px;
+  height: 30px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.js-icon-active:before {
+  background: white;
+  -webkit-transform: skew(0deg) rotate(0deg);
+          transform: skew(0deg) rotate(0deg);
+  height: 2px;
+  width: 30px;
+  top: 14px;
+  left: -14px;
+}
+
+.modal-wrapper {
+  background-color: #fff;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.16);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.16);
+  width: 300px;
+  height: 400px;
+  position: fixed;
+  right: 20px;
+  opacity: 0;
+  bottom: 80px;
+  -webkit-transition: opacity 200ms ease-out,bottom 200ms ease-out;
+  transition: opacity 200ms ease-out,bottom 200ms ease-out;
+  border-radius: 15px;
+  overflow: hidden;
+  display: none;
+  z-index: 99;
+}
+
+.modal-header {
+  background-color: #91d0ebc5;
+  width: 100%;
+  height: 60px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  text-align: center;
+  -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+          box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+}
+
+.modal-header .title {
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  padding-top: 10px;
+  font-weight: 500;
+  position: relative;
+  color: #fff;
+}
+
+.modal-header .title:before {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 25px;
+  background-image: url(/img/navbar/logo-icon.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  position: absolute;
+  top: 13px;
+  left: -26px;
+}
+
+.modal-header p {
+  font-size: 16px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  line-height: 2;
+  font-size: 12px;
+  margin: 0;
+  color: white;
+}
+
+.modal-chatbox {
+  height: 280px;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  overflow-y: scroll;
+}
+
+.reply, .self {
+  width: 200px;
+  background: #91D0EB;
+  color: #fff;
+  border-radius: 9px;
+  padding: 8px 10px;
+  display: inline-block;
+  max-width: calc(100% - 20px);
+  margin: 15px 0 10px;
+  position: relative;
+  clear: both;
+  font-weight: 400;
+}
+
+.reply:before, .self:before {
+  content: attr(data-time);
+  color: #cccccc;
+  left: 4px;
+  font-size: 12px;
+  top: -15px;
+  position: absolute;
+}
+
+.reply.reply, .self.reply {
+  margin-right: auto;
+  float: left;
+}
+
+.reply.self, .self.self {
+  float: right;
+  background: #FFA492;
+  margin-left: auto;
+}
+
+.reply.self:before, .self.self:before {
+  right: 4px;
+  left: auto;
+}
+
+.modal-inputbox {
+  display: inline-block;
+  width: 100%;
+  margin: 15px 5px;
+}
+
+.modal-input {
+  display: inline-block;
+  width: 240px;
+  height: 30px;
+  border: 1px solid #E6E7F0;
+  font-size: 14px;
+  font-weight: 300;
+  border-radius: 5px;
+}
+
+input::-webkit-input-placeholder {
+  color: #CACEDB;
+}
+
+input:-ms-input-placeholder {
+  color: #CACEDB;
+}
+
+input::-ms-input-placeholder {
+  color: #CACEDB;
+}
+
+input::placeholder {
+  color: #CACEDB;
+}
+
+.modal-input_submit {
+  display: inline-block;
+  border: none;
+  border-radius: 20px;
+  background-color: #FFA492;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px 8px;
+}
+
+.modal-input_submit:hover {
+  background-color: #ff795f;
+}
+
+.js-modal-active {
+  display: block;
+  opacity: 1;
+  bottom: 100px;
+}
+/*# sourceMappingURL=chatbot.css.map */

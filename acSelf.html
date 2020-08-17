@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活動介紹</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap-grid.min.css">
+    <!-- 自定義 -->
+    <link rel="stylesheet" type="text/css" href="./css/header.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/chatbot.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/footer.css"/>
+    <link rel="stylesheet" href="./css/acSelf.css">
+</head>
+<body>
+<!------導覽列------>
+<header>
+    <div class="top">
+        <div class="navbar">
+            <a href="./index.html" class="navbar__item logo"><img src="./img/navbar/cklogo.png" alt class="desktop_logo"><img src="./img/navbar/cklogo2.png" alt class="mobile_logo"></a>
+            <div class="navbar__menu">
+                <a class="navbar__item navbar__link" href="csMain.html">預約諮詢</a>
+                <a class="navbar__item navbar__link" href="chatRoom.html">線上諮商</a>
+                <a class="navbar__item navbar__link" href="acMain.html">活動報名</a>
+                <a class="navbar__item navbar__link" href="atMain.html">專欄文章</a>
+                <a class="navbar__item navbar__link" href="oracleCard.html">神諭卡</a>
+                <a class="navbar__item navbar__link" href="test.html">心理評估測驗</a>
+
+            </div>
+
+            <ul class="navbar__sign">
+                <li><button class="navbar__sign__item" id="signup">加入會員</button></li><li> ｜</li>
+                <li><button class="navbar__sign__item" id="signin">登入</button></li>
+            </ul>
+
+            <span class="hamburger hamburger--collapse navbar__item" id="js-navbar-toggle">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </span>  
+        </div>
+    </div>
+
+    <!------註冊登入會員----->
+
+    <div class="signup_overlay signup_overlay-none" id="signup_overlay">
+        <div class="container" id="container">
+            <span class="container_close" id ="close">&times;</span>
+            <div class="form-container sign-up-container">
+                <form action="#">
+                    <h3>加入會員</h3>
+                    <span>請填寫以下資訊完成註冊</span>
+                    <input type="text" placeholder="Name" />
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button>註冊</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="#">
+                    <h3>登入會員</h3>
+                    <span>請輸入您的帳號密碼</span>
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <a href="#">忘記密碼？</a>
+                    <button>登入</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h3>歡迎回來！</h3>
+                        <p>登入會員享有更多服務</p>
+                        <button class="ghost" id="signIn">登入會員</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h3>歡迎加入Checkie！</h3>
+                        <p>為生命帶來一些新的可能，<br>只需簡單完成申請</p>
+                        <button class="ghost" id="signUp">加入會員</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------ chatbot ------>
+
+    <button class="circle" type="button">
+        
+        <span class="icon-elements">
+        </span>
+    </button>
+    <div class="modal-wrapper">
+        
+        <div class="modal-header">
+            <span class="title">Checkie線上客服</span>
+            <p>您好！很高興為您服務</p>
+        </div>
+
+        <div class="modal-chatbox">
+            <span class="reply" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+            <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+            <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+            <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+        </div>
+        <form action="">
+        <div class="modal-inputbox">
+            <input class="modal-input" type="text" placeholder="輸入您的問題...">
+            <input class="modal-input_submit" type="button" value="送出">
+        </div>
+        </form>
+    </div>
+</header>
+
+    <main class="acSelf fluid">
+        <div class="acSelf-Banner">
+            <div class="acSelf-Banner_pic col-xl-7 col-sm-12"><img src="./img/acSelf/活動內頁Banner.jpg" alt=""></div>
+            <div class="acSelf-Banner_intro col-xl-5 col-sm-12">
+                <h5>藝文</h5><br>
+                <h5>插畫家與牠：談繪本創作與寵物療癒</h5>
+                <br>
+                <br>
+                <h6>活動時間：</h6>
+                <p>2020-08-29(六) 10:00 ~ 2020-08-30(日) 17:00</p><br>
+                <h6>活動地點：</h6>
+                <p><a href="https://goo.gl/maps/beao5HYxaUkrLHQ3A">台灣台北市八德路二段366巷</a></p><br>
+                <h6>相關連結：</h6>
+                <p><a href="https://www.facebook.com/Double.J.GO.GE">創新課程行銷聯盟</a></p><br>
+                <h6>費用：</h6><br>
+                <p>$450/人</p>
+
+
+            </div>
+        </div>
+        <div class="acSelf-btns">
+            <div class="acSelf-btns-markshare">
+                <input type="image"  name="acSelf-btns_share"  id="acSelf-btns_share" src="./img/icon/share.png">
+                <input  type="image"  name="acSelf-btns_save"  id="acSelf-btns_save" src="./img/icon/bookmark.png">
+
+            </div>
+            <label for="acSelf-btns_apply"></label>
+            <a href="./aoCheck.html"><input type="button" name="acSelf-btns_apply" id="acSelf-btns_apply" class="acSelf-btns_apply" value="立即報名"></a>
+        </div>
+
+        <h4 class="acInfo-title">活動介紹</h4>
+        <div class="acInfo">
+            <div class="acInfo_content col-12">
+                <p>插畫家與牠：談繪本創作與寵物療癒</p><br>
+                <p>「當我因為愛人而感到太過痛苦時，愛動物成了我排解痛苦的方式。」 
+                    插畫家-邱宇晴透過親身分享自己的心路歷程與創作發展，一起來談談，當藝術創作者受心靈之苦時，寵物如何成為最重要的力量來源，療癒創傷，並且促使插畫家繪出動人的故事。</p>
+            </div>
+            <div class="acInfo_pic col-12">
+                <img class="acInfo_pic--1 col-xl-5 col-12" src="./img/acSelf/活動介紹圖1.jpg" alt="">
+                <img class="acInfo_pic--2 col-xl-5 col-12" src="./img/acSelf/活動介紹圖2.jpg" alt="">
+            </div>
+        </div>
+        <h4 class="acTeacher-title">講師介紹</h4>
+        <div class="acTeacher">
+            <div class="acTeacher_pic col-xl-4 col-12">
+                <img src="./img/acSelf/活動老師.jpg" alt="">
+                <h6 style="text-align: center;">插畫家｜邱宇晴</h6>
+            </div>
+            <div class="acTeacher_intro col-xl-7 col-12">
+                <p>Facebook ｜ https://www.facebook.com/dollyruins/<br>
+                    Instagram｜https://www.instagram.com/dollyruins/</p><br><br>
+                <p>「療癒是我創作中最大的主題，就和毀滅同等重要。」<br>
+                    展覽期間、地點   ｜08/02-08/30  嗯！Café  </p><br><br>
+                <p>本次展覽展出插畫家邱宇晴近期所創作的寵物療癒繪本原作，包含數張草稿及完稿，讓觀眾透過最真實的筆觸與用色，一同進入一段寵物療癒創傷、救贖人心的繪本故事。</p>
+            </div>
+        </div>
+        <h4 class="acLocation-title">活動地點</h4>
+        <div class="acLocation">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.625749049438!2d121.54380391498823!3d25.04677184393333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abdc8272b0cf%3A0xf3338068dc86748d!2zMTA15Y-w5YyX5biC5p2-5bGx5Y2A5YWr5b636Lev5LqM5q61MzY25be3!5e0!3m2!1szh-TW!2stw!4v1596938021053!5m2!1szh-TW!2stw" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+        <div class="acAttension">
+            <p class="acAttension-title">活動注意事項</p>
+            <div id="acAttension_arrow" class="acAttension_arrow--up"></div>
+            <div class="acAttension-text">
+                <p>
+                    1.開課前七天，將發送開課通知(簡訊、email)，憑此通知現場報到。<br>
+                    2.學員肖像、姓名以及課程之錄影、相片，除主辦單位基於宣傳用途之播放、展出或登載行為外，不另作其他用途<br>
+                    3.為維護品質，內容不可錄影、錄音拍照需經過講師同意，本課程謝絕旁聽，以免影響活動進行。<br>
+                    4.課程內容電子檔案版權所有、不可公開、僅供個人使用、翻印必究。<br>
+                    5.課程中將有專人為學員進行課程拍照記錄，照片也將提供給學員留存，故報名課程者視為同意肖像露出；若有疑慮者，請主動告知主辦單位。 <br>
+                    6.學員肖像、姓名以及課程之錄影、相片，除主辦單位基於宣傳用途之播放、展出或登載行為外，不另作其他用途<br>
+                    7.完成報名繳費之學員，視為同意以上聲明。<br>
+                    
+                    【退費規則】<br>
+                    因事不克參加者，在課程未開始前，可申請轉讓或是退費。退費原則如下：<br>
+                    1.因「個人因素」不克參加者，可申請轉讓(請親朋好友代替出席)；課程開始前七個工作天內，欲取消報名者，將不得退費。<br>
+                    主辦單位保有延後或調整日期之權利，已報名者若無法繼續參加，將個別通知並全額退費。<br>
+                    如有任何未盡之處，主辦單位將另行公告。<br>
+                    
+                    【防疫措施重要事項】<br>
+                    1.開課前1個月有出入國記錄者，配合政府請自主健康管理，且確保每位參與課程學員的健康安全考量，若有疑問報名前請先洽課程單位。<br>
+                    2.上課前將進行雙手酒精消毒，並實施體溫量測，配合課程、活動量額溫，若體溫超過 37.5 度者，不予以進入教室，並請盡速前往就醫，另視特殊狀況協助後續相關課程處理。<br>
+                    3.參加課程請自行攜帶口罩。<br>
+                    4.由於疫情關係，報名後請提早於開課前2週確認是否出席，因開課前七個工作天內以及開課後，課程將不予退費且有權取消參加者參加後續其他活動之資格。<br>
+                    5.新型冠狀病毒(武漢肺炎/Novel coronavirus/COVID-19)疫情尚未減緩，課程將根據疫情狀況做活動的調整，最新消息將另行公告。<br>
+                        
+                </p>
+            </div>
+        </div>
+        <div id="acRelate" class="acRelate">
+            <p class="acRelate-title col-12">您可能會喜歡這些活動</p>
+            <div class="owl-carousel owl-theme">
+                <ac-relate-card></ac-relate-card>
+                <ac-relate-card></ac-relate-card>
+                <ac-relate-card></ac-relate-card>
+                <ac-relate-card></ac-relate-card>
+                <ac-relate-card></ac-relate-card>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer_socialmedia">
+            <a class="socialmedia_link" href=""><img src="./img/icon/mail.png" alt class="black"><img src="./img/icon/mailhover.png" alt class="pink"></a>
+            <a class="socialmedia_link" href=""><img src="./img/icon/line.png" alt class="black"><img src="./img/icon/linehover.png" alt class="pink"></a>
+            <a class="socialmedia_link" href=""><img src="./img/icon/facebook.png" alt class="black"><img src="./img/icon/facebookhover.png" alt class="pink"></a>
+        </div>
+
+        <div class="footer_address">
+            <h6>Checkie心理諮商中心</h6>
+            <h6>電話：</h6>
+            <p>(03)301-1021</p>
+            <h6>地址：</h6>
+            <p>320桃園市中壢區中大路300號</p>
+        </div>
+            <p>Copyright © 2015 Checkie Psychological Counseling Center. All Rights Reserved</p>
+    </footer>
+    <!-- 函式庫 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- Header & Footer -->
+    <script src="./js/header.js"></script>
+    <script src="./js/chatbot.js"></script>
+    <!-- 活動小卡Vue -->
+    <script src="./js/acSelf_acRelateCard.js"></script>
+
+    <!-- 注意事項箭頭 -->
+    <script>
+    $(document).ready(function(){
+        
+        $("#acAttension_arrow").on("click", function(){
+            $("#acAttension_arrow").toggleClass("acAttension_arrow--down");
+
+            $(".acAttension-text").slideToggle(500,"linear");
+        });
+    })
+    </script>
+
+    <script>
+    $('.owl-carousel').owlCarousel({
+        loop:false,
+        touchDrag:true,
+        autoplay:false,
+        autoplayTimeout: 2000,
+        autoplayHoverPause:false,
+        responsive:{
+            0: {
+                items:1,
+            },
+            768:{
+                items:2,
+            },
+            1180:{
+                items:3,
+            }
+        }
+    });
+    </script>
+
+</body>
+</html>

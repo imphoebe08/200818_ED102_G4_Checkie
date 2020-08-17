@@ -1,0 +1,43 @@
+.co-review {
+    text-align: center;
+    .button {
+        border: saddlebrown solid 1px;
+    }
+}
+
+.cos-counselor-review {
+    >div {
+        // border: coral solid 1px;
+        padding: 10px 10px;
+        .co-counselor-pic {
+            // border: slateblue solid 1px;
+            .co-counselor-content {
+                @include co-counselor(200px, 0px, auto, 220px);
+            }
+        }
+        .co-counselor-text {
+            color: rgb(152, 152, 152);
+            // border: solid rgb(68, 93, 233) 1px;
+            >div {
+                padding-top: 0px;
+                // align-items: center !important;
+                >div {
+                    padding: 5px 0;
+                    // border: springgreen solid 1px;
+                }
+            }
+        }
+        .co-counselor-order {
+            padding: 5%;
+            >div {
+                >div {
+                    // border: cadetblue solid 1px;
+                    >div {
+                        padding: 5px 0;
+                    }
+                }
+            }
+        }
+    }
+    // border: solid saddlebrown 1px;
+}

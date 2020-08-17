@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>問券機器人樣式</title>
+    <link rel="stylesheet" href="./css/test.css">
+</head>
+<body>
+    
+    <input type="button" value="SKIP" class="text_skip">
+    <form action="">
+
+        <div id="qsBox">
+            <ask-content questions="您好，歡迎來到Checkie。"></ask-content>
+            
+            <ask-content questions="請問您願意填寫心理評估表嗎？如果願意，請您選擇開始測驗，若不願意可以點按右上角的SKIP終止測驗。"></ask-content>
+            
+            <div class="ansButton--start">
+                <input class="qsStart" type="button" value="開始測驗">
+            </div>
+            
+            <ans-content answers="好的，我願意開始測驗。"></ans-content>
+            <ask-content questions="請依照問題及您自身的狀況，從一到五之間選擇最符合您狀況的狀態。"></ask-content>
+            
+            <!-- 第一題 -->
+            <ask-content questions="您對目前家庭關係的滿意度為何？"></ask-content>
+            <ans-buttons-grades></ans-buttons-grades>
+            <ans-content answers="五分。"></ans-content>
+            
+            <!-- 第二題 -->
+            <ask-content questions="您對自己在家庭關係中的滿意度為何？"></ask-content>
+            <ans-buttons-grades></ans-buttons-grades>
+            <ans-content answers="五分。"></ans-content>
+    
+            <!-- 第三題 -->
+            <ask-content questions="您對自己目前的人際關係滿意度為何？"></ask-content>
+            <ans-buttons-grades></ans-buttons-grades>
+            <ans-content answers="五分。"></ans-content>
+            
+            <!-- 第四題 -->
+            <ask-content questions="您對人際交際的狀況給自己幾分？"></ask-content>
+            <ans-buttons-grades></ans-buttons-grades>
+            <ans-content answers="五分。"></ans-content>
+    
+            <!-- 第五題 -->
+            <ask-content questions="您目前感覺外界環境給你的壓力程度為何？"></ask-content>
+            <ans-buttons-grades></ans-buttons-grades>
+            <ans-content answers="五分。"></ans-content>
+    
+            <!-- 第六題 -->
+            <ask-content questions="您是否能承受目前所有的壓力？"></ask-content>
+            <ans-buttons-grades></ans-buttons-grades>
+            <ans-content answers="五分。"></ans-content>
+    
+            <!-- 第七題 -->
+            <ask-content questions="您是否能承受當前大部分感受到的壓力？"></ask-content>
+            <ans-buttons-grades></ans-buttons-grades>
+            <ans-content answers="五分。"></ans-content>
+    
+            <!-- 第八題 -->
+            <ask-content questions="您對自己目前的人生歷程滿意嗎？"></ask-content>
+            <ans-buttons-grades></ans-buttons-grades>
+            <ans-content answers="五分。"></ans-content>
+    
+            <!-- 第九題 -->
+            <ask-content questions="您對自己目前的人生歷程滿意嗎？"></ask-content>
+            <ans-buttons-grades></ans-buttons-grades>
+            <ans-content answers="五分。"></ans-content>
+    
+            <!-- 第十題 -->
+            <ask-content questions="您對自己未來的生人規劃清楚嗎？"></ask-content>
+            <ans-buttons-grades></ans-buttons-grades>
+            <ans-content answers="五分。"></ans-content>
+    
+            <!-- 第十一題 -->
+            <ask-content questions="您對於目前的感情狀態滿意嗎？"></ask-content>
+            <ans-buttons-grades></ans-buttons-grades>
+            <ans-content answers="五分。"></ans-content>
+        </div>
+    </form>
+    <input type="submit" class="test_submit" value="完成測驗">
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
+    <script src="./js/text.js"></script>
+</body>
+</html>

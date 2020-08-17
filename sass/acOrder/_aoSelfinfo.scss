@@ -1,0 +1,81 @@
+.ao-title {
+    // border: #322f2a solid 1px;
+    padding: 15px;
+    h5,
+    h6 {
+        text-align: center;
+    }
+}
+
+.ao-block_content {
+    .list_content {
+        padding: 10px;
+    }
+    // border: violet solid 1px;
+    >div {
+        >div {
+            >div {
+                padding: 12px 0;
+            }
+        }
+    }
+    .ao-order_item {
+        border-top: 1px solid #ccc;
+        margin-top: 15px;
+        padding: 10px 10px;
+        @include flex(space-between);
+    }
+}
+
+.cos-selfForm_item--border {
+    margin-top: 15px;
+    border-top: #ccc solid 1px;
+}
+
+.checkbox--style {
+    padding: 5px;
+    position: absolute;
+    opacity: 0;
+    &+label {
+        // text-align: top;
+        position: relative;
+        cursor: pointer;
+        // padding: 5px 0;
+        a {
+            text-decoration: none;
+            color: $color-blue;
+        }
+    }
+    &+label:before {
+        margin-top: 5px;
+        content: '';
+        margin-right: 6px;
+        display: inline-block;
+        vertical-align: text-top;
+        width: 16px;
+        height: 16px;
+        background: white;
+        border: $color-blue solid 1px;
+        border-radius: 2px;
+    }
+    &:hover+label:before {
+        border: $color-blue solid 3px;
+    }
+    &:focus+label:before {
+        box-shadow: 0 0 4px rgba(106, 106, 106, 0.495);
+    }
+    &:checked+label:before {
+        background: $color-blue;
+    }
+    &:checked+label:after {
+        content: '';
+        position: absolute;
+        left: 3px;
+        top: 7px;
+        background: white;
+        width: 2px;
+        height: 2px;
+        box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+        transform: rotate(45deg);
+    }
+}

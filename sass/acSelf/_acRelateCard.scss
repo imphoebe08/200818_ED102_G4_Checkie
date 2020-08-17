@@ -1,0 +1,42 @@
+.acRelate{
+            
+    .acRelateCard{
+        display: inline-block;
+        width: 350px;
+        height: 400px;
+        border-radius: $border-radius;
+        box-shadow: $boxshadow;
+        overflow: hidden;
+                    
+        a{
+            display: inline-block;
+            width: 100%;
+            img{
+                width: 100%;
+            }
+        }
+    }    
+
+    .acRelateCard_text{
+        margin-top: 10px;
+        display: flex;
+        img{
+            width: 20px;
+            height: 20px;
+            margin-left: 3%;
+            cursor: pointer;
+        }
+        .acRelateCard_time{
+            margin: 0 15% 0 5%;
+        }
+    }
+    
+    .acRelateCard_title{
+        border-bottom: 1px solid lightgray;
+        padding-bottom: 30px;
+    }
+    .acRelateCard_category{
+        margin-left: 3%;
+        color: maroon;
+    }
+}

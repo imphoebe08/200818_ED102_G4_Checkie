@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>諮商師內頁 | CHECKIE</title>
+    <link rel="stylesheet" href="css/csSelf.css">
+    <link rel="stylesheet"
+        href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap-grid.min.css'>
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+    <link rel="stylesheet" type="text/css" href="./css/header.css" />
+    <link rel="stylesheet" type="text/css" href="./css/chatbot.css" />
+    <link rel="stylesheet" type="text/css" href="./css/footer.css" />
+</head>
+
+<body>
+    <!------導覽列------>
+    <header>
+        <div class="top">
+            <div class="navbar">
+                <a href="index.html" class="navbar__item logo"><img src="./img/navbar/cklogo.png" alt class="desktop_logo"><img src="./img/navbar/cklogo2.png" alt class="mobile_logo"></a>
+                <div class="navbar__menu">
+                    <a class="navbar__item navbar__link" href="csMain.html">預約諮詢</a>
+                    <a class="navbar__item navbar__link" href="chatRoom.html">線上諮商</a>
+                    <a class="navbar__item navbar__link" href="acMain.html">活動報名</a>
+                    <a class="navbar__item navbar__link" href="atMain.html">專欄文章</a>
+                    <a class="navbar__item navbar__link" href="oracleCard.html">神諭卡</a>
+                    <a class="navbar__item navbar__link" href="test.html">心理評估測驗</a>
+    
+                </div>
+    
+                <ul class="navbar__sign">
+                    <li><button class="navbar__sign__item" id="signup">加入會員</button></li><li> ｜</li>
+                    <li><button class="navbar__sign__item" id="signin">登入</button></li>
+                </ul>
+    
+                <span class="hamburger hamburger--collapse navbar__item" id="js-navbar-toggle">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </span>  
+            </div>
+        </div>
+    
+        <!------註冊登入會員----->
+    
+        <div class="signup_overlay signup_overlay-none" id="signup_overlay">
+            <div class="container" id="container">
+                <span class="container_close" id ="close">&times;</span>
+                <div class="form-container sign-up-container">
+                    <form action="#">
+                        <h3>加入會員</h3>
+                        <span>請填寫以下資訊完成註冊</span>
+                        <input type="text" placeholder="Name" />
+                        <input type="email" placeholder="Email" />
+                        <input type="password" placeholder="Password" />
+                        <button>註冊</button>
+                    </form>
+                </div>
+                <div class="form-container sign-in-container">
+                    <form action="#">
+                        <h3>登入會員</h3>
+                        <span>請輸入您的帳號密碼</span>
+                        <input type="email" placeholder="Email" />
+                        <input type="password" placeholder="Password" />
+                        <a href="#">忘記密碼？</a>
+                        <button>登入</button>
+                    </form>
+                </div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-left">
+                            <h3>歡迎回來！</h3>
+                            <p>登入會員享有更多服務</p>
+                            <button class="ghost" id="signIn">登入會員</button>
+                        </div>
+                        <div class="overlay-panel overlay-right">
+                            <h3>歡迎加入Checkie！</h3>
+                            <p>為生命帶來一些新的可能，<br>只需簡單完成申請</p>
+                            <button class="ghost" id="signUp">加入會員</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!------ chatbot ------>
+    
+        <button class="circle" type="button">
+            
+            <span class="icon-elements">
+            </span>
+        </button>
+        <div class="modal-wrapper">
+            
+            <div class="modal-header">
+                <span class="title">Checkie線上客服</span>
+                <p>您好！很高興為您服務</p>
+            </div>
+    
+            <div class="modal-chatbox">
+                <span class="reply" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+                <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+                <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+                <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+            </div>
+            <form action="">
+            <div class="modal-inputbox">
+                <input class="modal-input" type="text" placeholder="輸入您的問題...">
+                <input class="modal-input_submit" type="button" value="送出">
+            </div>
+            </form>
+        </div>
+    </header>
+
+
+    <div id="app" class="container-fluid csSelf">
+        <div class="row csS-info">
+            <div class="col-md-5 csS-info__image">
+                <img class="img-responsive" src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg">
+            </div>
+            <div class="col-md-7 csS-info__intro">
+                <div class="row">
+                    <div class="col-md-6 intro-left">
+                        <div class="intro-left__top">
+                            <h2>蔡醫師</h2>
+                            <h4>醫師專長</h4>
+                            <div class="csS-skills">
+                                <a href="" class="button3">頭痛</a>
+                                <a href="" class="button3">憂鬱</a>
+                            </div>
+                        </div>
+                        <div class="intro-left__bottom">
+                            <canvas id="myChart" width="300" height="300"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6 intro-right">
+                        <ul class="list-wrapper">
+                            <li>
+                                <p class="js-list-toggle">經歷</p>
+                                <ul class="csS-list js-item-toggle">
+                                    <li class="small"><i class="fas fa-circle"></i>新光醫院精神科病房主任</li>
+                                    <li class="small"><i class="fas fa-circle"></i>新光醫院精神科主治醫師</li>
+                                    <li class="small"><i class="fas fa-circle"></i>國家衛生研究院台灣成癮次專科醫師訓練</li>
+                                    <li class="small"><i class="fas fa-circle"></i>新光醫院精神科臨床研究員醫師</li>
+                                    <li class="small"><i class="fas fa-circle"></i>新光醫院精神科總醫師</li>
+                                    <li class="small"><i class="fas fa-circle"></i>新光醫院精神科住院醫師</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <p class="js-list-toggle">學歷</p>
+                                <ul class="csS-list js-item-toggle">
+                                    <li class="small"><i class="fas fa-circle"></i>台大醫學院腦與心智科學研究所碩士</li>
+                                    <li class="small"><i class="fas fa-circle"></i>台北醫學大學醫學系醫學士</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p class="js-list-toggle">榮譽事蹟</p>
+                                <ul class="csS-list js-item-toggle">
+                                    <li class="small"><i class="fas fa-circle"></i>台灣老年精神醫學會副秘書長暨培訓與教育委員會委員</li>
+                                    <li class="small"><i class="fas fa-circle"></i>台灣自殺防治學會秘書長</li>
+                                    <li class="small"><i class="fas fa-circle"></i>輔仁大學醫學系兼任講師</li>
+                                    <li class="small"><i class="fas fa-circle"></i>台灣臨床失智症學會推薦失智症診療醫師</li>
+                                    <li class="small"><i class="fas fa-circle"></i>台灣心理腫瘤醫學學會政策發展委員會委員</li>
+                                    <li class="small"><i class="fas fa-circle"></i>輔仁大學醫學系臨床教學認真老師</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p class="js-list-toggle">教職</p>
+                                <ul class="csS-list js-item-toggle">
+                                    <li class="small"><i class="fas fa-circle"></i>教育部講師</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p class="js-list-toggle">專科證書</p>
+                                <ul class="csS-list js-item-toggle">
+                                    <li class="small"><i class="fas fa-circle"></i>台灣老年精神醫學專科醫師</li>
+                                    <li class="small"><i class="fas fa-circle"></i>台灣精神科專科醫師</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 csS-buttons">
+                <div class="row">
+                    <button type="button" class="button3-1 col-2" @click="openOrderPage">現場諮商</button>
+                    <button type="button" class="button3-1 col-2" @click="openOrderPage">語音諮商</button>
+                    <button type="button" class="button3-1 col-2" @click="openOrderPage">視訊諮商</button>
+                    <button type="button" class="button3-1 col-2">線上諮商</button>
+                </div>
+            </div>
+        </div>
+
+        <h1>醫師撰寫專欄</h1>
+
+        <div class="row csS-art">
+            <cssart-layout></cssart-layout>
+            <cssart-layout></cssart-layout>
+            <cssart-layout></cssart-layout>
+        </div>
+
+        <div class="row justify-content-center csS-act">
+            <img class="img-responsive"
+                src="https://www.dowdslove.url.tw/wp-content/uploads/2018/06/%E4%BC%B4%E4%BE%B6%E5%B0%88%E5%B1%AC%E5%85%AC%E7%9B%8A%E6%B8%9B%E9%A1%8D%E8%AB%AE%E5%95%86%E6%96%B9%E6%A1%88-wp-1.jpg">
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer_socialmedia">
+            <a class="socialmedia_link" href=""><img src="./img/icon/mail.png" alt class="black"><img
+                    src="./img/icon/mailhover.png" alt class="pink"></a>
+            <a class="socialmedia_link" href=""><img src="./img/icon/line.png" alt class="black"><img
+                    src="./img/icon/linehover.png" alt class="pink"></a>
+            <a class="socialmedia_link" href=""><img src="./img/icon/facebook.png" alt class="black"><img
+                    src="./img/icon/facebookhover.png" alt class="pink"></a>
+        </div>
+
+        <div class="footer_address">
+            <h6>Checkie心理諮商中心</h6>
+            <h6>電話：</h6>
+            <p>(03)301-1021</p>
+            <h6>地址：</h6>
+            <p>320桃園市中壢區中大路300號</p>
+        </div>
+        <p>Copyright © 2015 Checkie Psychological Counseling Center. All Rights Reserved</p>
+    </footer>
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js'></script>
+    <script src='./js/csSelf.js'></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/chatbot.js"></script>
+</body>
+
+</html>

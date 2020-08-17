@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>chatRoom</title>
+</head>
+<body>
+    <div id="chatRoom">
+        <div class="chatRoom_block">
+            <div class="chatRoom-left_block">
+                <h2>聊天室</h2>
+                <div class="chatRoom-left_body">
+                    <!-- 帶資料 -->
+                    <div class="chatRoom-item_block">
+                        <a href="javascript:void(0)">
+                            <div class="chatRoom-img_block">
+                                <img :src="Cinfor.img">
+                            </div>
+                            <div class="chatRoom-simple_content">
+                                <div class="chatRoom-simple_name">{{Cinfor.name}}</div>
+                                <div class="chatRoom-simple_last_content">{{Cinfor.last_content}}</div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- vue -->
+                </div>
+            </div>
+            <div class="chatRoom-right_block">
+                <div class="chatRoom-right_topblock">
+                </div>
+                <div class="chatRoom-right_contentblock">
+                    <div class="chatRoom-right_contentbody">
+
+                    </div>
+                    <div class="chatRoom-right_form">
+                        <form action="post">
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/chatRoom.js"></script>
+</body>
+</html>

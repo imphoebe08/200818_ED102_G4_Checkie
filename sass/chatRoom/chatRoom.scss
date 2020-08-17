@@ -1,0 +1,21 @@
+#chatRoom{
+    .chatRoom_block{
+        max-width: 1200px;
+        height: 100vh;
+        .chatRoom-left_block{
+            width: 30%;
+            height: 100%;
+            h2{
+                @include h2;
+                text-align: center;
+            }
+            .chatRoom-left_body{
+                width: 100%;
+                overflow-y: scroll;
+                
+            }
+        }
+
+    }
+
+}

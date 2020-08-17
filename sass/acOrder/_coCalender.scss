@@ -1,0 +1,136 @@
+.co-ao--allStyle {
+    margin-top: 40px;
+}
+
+.co-ao-board--style {
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
+}
+
+.co-stepper-header {
+    // border: violet solid 5px;
+}
+
+.step-head {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    // border: yellow solid 3px;
+    position: relative;
+}
+
+.step-head-step {
+    flex-basis: 175px;
+    // border: chocolate solid 2px;
+    text-align: center;
+}
+
+.step-head-step_item {
+    min-width: 25px;
+    // border: solid 1px chartreuse;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 5px auto 10px auto;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    transition: .3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.step-head-step--complete {
+    background-color: $color-blue;
+    color: white;
+}
+
+.step-head-step--incomplete {
+    background-color: rgb(187, 187, 187);
+    color: white;
+}
+
+.c-driver {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    max-width: 100%;
+    height: 0;
+    max-height: 0;
+    border: solid #eee 1px;
+    margin: -18px -60px 0;
+}
+
+// .step-head-step {
+//     border: blue solid 6px;
+// }
+// .cocoCalender>.container-lg {
+//     // border: 1px solid red;
+//     .row {
+//         //border: solid 3px rgb(223, 20, 193);
+//         .col {
+//             //border: 2px solid rgb(237, 124, 4);
+//             .row {
+//                 //border: 1px solid blue;
+//                 .co-block--border {
+//                     //border: 2px solid rgb(31, 199, 211);
+//                 }
+//             }
+//         }
+//     }
+// }
+@media only screen and (max-width: 991px) {
+    .co-ao-board--style {
+        margin: 10px 1px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .step-head-step {
+        flex-basis: 75px;
+    }
+    .c-driver {
+        margin: -5px -20px 0;
+    }
+    .step-head-step_text {
+        border: crimson solid 2px;
+        display: none;
+    }
+}
+
+.co-button--style {
+    @include flex(space-between);
+}
+
+.co-counselor {
+    @include flex(center);
+    // border: solid saddlebrown 1px;
+    .co-counselor-pic {
+        display: inline-block;
+        @include co-counselor(80px, 0px, 0px, 90px);
+    }
+    .co-counselor-text {
+        // border: solid rgb(68, 93, 233) 1px;
+        line-height: 80px;
+        vertical-align: top;
+        >div {
+            color: rgb(152, 152, 152);
+            display: inline-block;
+        }
+    }
+}
+
+.co-button--style {
+    margin-bottom: 10px;
+}
+
+.button4 {
+    display: inline-block;
+    @include btn-paypage (250px, $color-blue, $fontsize);
+}
+
+@media only screen and (max-width: 575px) {
+    .button4 {
+        @include btn-paypage (120px, $color-blue, $fontsize);
+    }
+}

@@ -1,0 +1,124 @@
+@import '../vender/reset';
+@import '../vender/var';
+@import '../vender/variable';
+@import './acSelectCard';
+@import './acCommentList';
+// @import './acSearch--open';
+
+
+button:focus{
+    outline: none;
+}
+a{
+    text-decoration: none;
+}
+$border: 1px solid $color-pink;
+
+h1{
+    @include h1;
+}
+h6{
+    @include h6;
+    margin: 10px 3%;
+}
+body{
+    // border: $border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.acMain{
+    // border: $border;
+    padding: 0;
+    
+}
+    .acBanner{
+        // border: 1px solid blue;
+        width: 100vw;
+        // z-index: -1;
+        max-height: 480px;
+        overflow: hidden;
+    }
+    .owl-height{
+        min-width: 30%;
+    }
+    .owl-theme .owl-dots{
+        position: absolute;
+        bottom: 0;
+        right: 50%;
+        transform: translateX(50%);;
+    }
+    .owl-carousel .owl-nav{
+        color: white;
+        font-size: 50px;
+
+        button.owl-prev{
+            // background-color: grey;
+            position: absolute;
+            top: 50%;
+            left: 3%;
+            transform: translateY(-50%);
+        }
+
+        button.owl-next{
+            // background-color: grey;
+            position: absolute;
+            top: 50%;
+            right: 3%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .acSearch{
+        // border: 1px solid red;
+        display: flex;
+        margin-top: 3%;
+
+        ul{
+            margin: auto 0;
+            li{
+                // border: 1px solid yellow;
+                width: fit-content;
+                display: inline-block;
+                margin-left: 10px;
+                a{
+                    text-decoration: none;
+                    color: grey;
+                }
+            }
+        }
+
+        .btnSearch{
+            margin-left: auto;
+            margin-right: 3%;
+            @include btn-more($bw, $color-pink, $fontsize);
+        }
+    }
+    .acSelect{
+        // border: 1px solid green;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .acSelectCard{
+            border:$border;
+            border-radius: $border-radius;
+            width: 300px;
+            height: 350px;
+            margin: 10px;
+            flex-wrap: wrap;
+        }
+        .acSelect-wrapper_btnMore{
+            text-align: center;
+            margin: 20px 0;
+            .acSelectMore{
+                @include btn-more($bw, $color-pink, $fontsize);
+
+            
+            }
+        }
+    }
+    .acComment{
+        // border: $border;
+        margin-bottom: 20px;
+
+    }

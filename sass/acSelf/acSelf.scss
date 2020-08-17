@@ -1,0 +1,210 @@
+@import '../vender/reset';
+@import '../vender/var';
+@import '../vender/variable';
+@import './acRelateCard';
+
+$border-bottom: 1px solid lightgrey;
+$title-margin: 30px 30px;
+$content-margin: 0px 30px;
+
+input:focus{
+    outline: none;
+}
+
+h2{
+    @include h2;
+}
+h3{
+    @include h3;
+}
+h4{
+    @include h4;
+}
+h5{
+    @include h5;
+}
+h6{
+    @include h6;
+}
+p{
+    @include p;
+}
+a{
+    text-decoration: none;
+}
+main{
+    // border: 1px solid blue;
+    margin:30px 50px;
+    box-shadow: $boxshadow;
+}
+.acSelf-Banner{
+    // border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+    .acSelf-Banner_pic{
+        // border: 1px solid chartreuse;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        img{
+            width: 100%;
+        }
+    }
+    .acSelf-Banner_intro{
+            // border: 1px solid yellow;
+        }
+.acSelf-btns{
+    // border: 1px solid red;
+
+
+    .acSelf-btns-markshare{
+        margin-left: 3%;
+        display: inline-block;
+        width: 80%;
+        vertical-align: bottom;
+            #acSelf-btns_share{
+                width: 30px;
+                height: 30px;
+                margin: 10px 10px 0 0;
+            }
+            #acSelf-btns_save{
+                width: 30px;
+                height: 30px;
+                margin: 10px 10px 0 0;
+            }
+        
+    }
+    .acSelf-btns_apply{
+        display: inline-block;
+        @include btn-modules($bw, $color-pink, $fontsize);
+    }
+    // 按鈕RWD
+}
+@media screen and (max-width: 986px){
+    .acSelf-btns{
+        // border: 1px solid red;
+        text-align: unset;
+        display: flex;
+        .acSelf-btns-markshare{
+            flex-grow: 1;
+        }
+        .acSelf-btns_apply{
+            margin-right:5px;
+        }
+    }
+}
+
+.acInfo-title{
+    border-bottom: $border-bottom;
+    margin:$title-margin;
+}
+
+.acInfo{
+    margin: $content-margin;
+}
+.acInfo_pic{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+
+    .acInfo_pic--1{
+        width: 40%;
+        height: 100%;
+        margin: 5% 5% 0 0;
+    }
+
+    .acInfo_pic--2{
+        width: 40%;
+        height: 100%;
+        margin: 10% 5% 0 0;
+    }
+}
+
+.acTeacher-title{
+    border-bottom: $border-bottom;
+    margin:$title-margin;
+}
+.acTeacher{
+    margin: $content-margin;
+    display: flex;
+    flex-wrap: wrap;
+}
+.acTeacher_intro{
+    margin: auto 0;
+}
+.acTeacher_pic{
+    margin-right: 4%;
+    img{
+        width: 100%;
+        border-radius: 50%;
+    }
+}
+
+.acLocation-title{
+    border-bottom: $border-bottom;
+    margin: $title-margin;
+}
+.acLocation{
+    border-top: 1px solid lightgray;
+    margin: 10px 30px;
+}
+.acAttension{
+    .acAttension-title{
+        text-align: center;
+        margin-top: 50px;
+    }
+    #acAttension_arrow{
+        border-bottom: 1px solid lightgrey;
+        border-right: 1px solid lightgrey ;
+        width: 20px;
+        height: 20px;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+    .acAttension_arrow--up{
+        transform: rotate(45deg);
+        background-color: white;
+    }
+
+    .acAttension_arrow--down{
+        transform: rotate(225deg) translate(-28px, -28px);
+        transition: transform 0.5s;
+
+    }
+    .acAttension-text{
+        border: 1px solid lightgray;
+        padding: 30px 80px;
+        margin: 30px;
+        border-radius: $border-radius;
+        display: none;
+    }
+}
+
+.acRelate{
+    background-color: #F5F5F5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-bottom: 50px;
+    margin-top: 30px;
+    
+    .acRelate-title{
+        text-align: center;
+        margin: $title-margin;
+    }
+
+    .acRelateCard{
+        border-radius: $border-radius;
+        width: 300px;
+        height: 350px;
+        margin:10px
+        
+    }
+    .owl-carousel{
+        // border: 1px solid red;
+        text-align: center;
+    }
+}
+

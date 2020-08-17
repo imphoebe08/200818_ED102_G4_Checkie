@@ -1,0 +1,115 @@
+.co-billing,
+.ao-billing {
+    .co-billing-block {
+        margin: 15px;
+        // border: turquoise solid 1px;
+        .co-billing_button {
+            margin-bottom: 10px;
+            box-shadow: 0px 0px 7px #ccc;
+            display: flex;
+            justify-content: space-between;
+            border: #ccc solid 1px;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 15px;
+            border-radius: 3px;
+            div:nth-child(2) {
+                padding: 0 5px;
+                border-radius: 3px;
+                cursor: pointer;
+                color: steelblue;
+                &:hover {
+                    transition: all .2s linear;
+                    background-color: rgb(124, 164, 196);
+                    color: white;
+                }
+            }
+        }
+        >div {
+            width: 100%;
+            .co-billing_list {
+                width: 100%;
+                border-bottom: #ccc solid 1px;
+                tr {
+                    height: 30px;
+                    text-align: left;
+                    line-height: 30px;
+                    th {
+                        padding: 10px 15px;
+                        background-color: #ccc;
+                    }
+                    th:nth-child(1) {
+                        // border: steelblue solid 1px;
+                        width: 45%;
+                    }
+                    th:nth-child(2) {
+                        // border: tomato solid 1px;
+                        width: 15%;
+                    }
+                    th:nth-child(3) {
+                        // border: turquoise solid 1px;
+                        width: 20%;
+                    }
+                    th:nth-child(4) {
+                        width: 20%;
+                    }
+                    td {
+                        padding: 15px;
+                    }
+                }
+            }
+            .co-billing_title {
+                width: 100%;
+                // border: violet solid 1px;
+                text-align: right;
+                margin: 20px 0px;
+                span:nth-child(2) {
+                    margin: 0 15px;
+                    color: steelblue;
+                }
+            }
+        }
+        .co-billing-block_title {
+            padding: 5px 0;
+        }
+        .co-billing-payment {
+            margin: 20px 0;
+            color: rgb(148, 148, 148);
+            border: #ccc solid 1px;
+            border-radius: 3px;
+            .co-billing-title {
+                padding: 15px;
+                border-bottom: #ccc solid 1px;
+            }
+            .co-billing_method {
+                padding: 15px 6%;
+                border-bottom: #ccc solid 1px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .co-billing_list {
+        tr {
+            height: 30px;
+            text-align: left;
+            line-height: 30px;
+            th {
+                display: none;
+            }
+            td {
+                padding: 0 !important;
+                text-align: center;
+                display: block;
+                &:before {
+                    text-align: center;
+                    background-color: #ccc;
+                    content: attr(data-title);
+                    display: block;
+                }
+            }
+        }
+    }
+}

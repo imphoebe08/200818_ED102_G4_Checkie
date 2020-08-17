@@ -1,0 +1,162 @@
+.aoCheck>.container-lg {
+    // border: 1px solid red;
+    .row {
+        //border: solid 3px rgb(223, 20, 193);
+        .col {
+            //border: 2px solid rgb(237, 124, 4);
+            .row {
+                //border: 1px solid blue;
+                .ao-block--border {
+                    //border: 2px solid rgb(31, 199, 211);
+                }
+            }
+        }
+    }
+}
+
+.aoCheck-main--style {
+    margin-bottom: 100px;
+}
+
+@media all and (min-width: 576px) {
+    .ao-card--style {
+        // background-color: darkred;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
+    }
+}
+
+.ao-block {
+    // border: hotpink solid 1px;
+    padding: 15px;
+    >div {
+        padding: 15px;
+        .ao-block_content {
+            // margin: 0 auto;
+            .pic_content {
+                margin: 0 auto;
+                // border: green 1px solid;
+                width: 100%;
+                img {
+                    width: 100%;
+                }
+            }
+            .intro_content {
+                >div {
+                    margin: 10px 0;
+                    // border: darkgoldenrod solid 3px;
+                    >div {
+                        // border: darkorchid solid 5px;
+                        margin: 8px 0;
+                        span {
+                            // border: darkorchid solid 1px;
+                            @include p;
+                            // padding-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ao-block {
+    .ao-ticket_block {
+        .ticket_block-bgc {
+            width: 100%;
+            background-color: rgba(229, 236, 238, 0.701);
+            display: flex;
+            justify-content: space-between;
+            .ticket_block {
+                margin: 20px;
+                vertical-align: top;
+            }
+            .ticket_block-colorDec {
+                height: 100%;
+                width: 2%;
+                background-color: $color-blue;
+            }
+            .ticket_block-info {
+                border: #b22222 solid 1px;
+                width: 70%;
+                >span {
+                    @include p;
+                    >button {
+                        border: none;
+                        color: $color-blue;
+                    }
+                }
+                >div {
+                    >span {
+                        @include p;
+                    }
+                    span:nth-child(3) {
+                        color: $color-blue;
+                    }
+                }
+            }
+            .ticket_block_button {
+                border-radius: 30px;
+                overflow: hidden;
+                width: 60px;
+                // border: goldenrod solid 1px;
+                >button {
+                    font-size: 20px;
+                    color: white;
+                    height: 40px;
+                    cursor: pointer;
+                    border: none;
+                    background-color: $color-blue;
+                    width: 100%;
+                    background-color: none;
+                    display: block;
+                    &:active {
+                        box-shadow: inset 0px 0px 10px #6895a96b;
+                    }
+                }
+                .ticket_button-add {
+                    border-radius: 70px 70px 0 0;
+                }
+                .ticket_button-min {
+                    border-radius: 0px 0px 70px 70px;
+                }
+            }
+        }
+    }
+}
+
+.aoCheck-footer {
+    background-color: white;
+    box-shadow: 0 -3px 15px rgba(75, 83, 94, 0.3);
+    // border: firebrick solid 1px;
+    margin-top: 10px;
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+    .ao-sign {
+        // border: indigo solid 1px;
+        .ao-sign--flex {
+            // border: firebrick solid 1px;
+            .ao-sign_text {
+                display: flex;
+                justify-content: center;
+                // border: yellowgreen solid 1px;
+                span {
+                    // border: violet solid 1px;
+                    @include p;
+                }
+            }
+            button {
+                width: 100%;
+                margin: 0 auto;
+                border: none;
+                padding: 5px;
+            }
+        }
+        .ao-copyRight {
+            text-align: center;
+            // border: indigo solid 1px;
+            margin: 5px auto;
+        }
+    }
+}

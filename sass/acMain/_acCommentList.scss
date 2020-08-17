@@ -1,0 +1,23 @@
+.acCommentList{
+    display: flex;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 30px;
+    .acCommentList_img{
+        // border: 1px solid red;
+        height: fit-content;
+        overflow: hidden;
+        margin-bottom: 20px;
+        img{
+            width: 100%;
+            border-radius: 50%;
+        }
+    }
+    .acCommentList-text{
+        margin: auto 0;
+        p{
+            padding: 0 3%;
+            line-height: 1.5rem;
+        }
+
+    }
+}

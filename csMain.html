@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>諮商師 | CHECKIE</title>
+    <link rel="stylesheet" href="css/csMain.css">
+    <link rel="stylesheet"
+        href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap-grid.min.css'>
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+    <link rel="stylesheet" type="text/css" href="./css/header.css" />
+    <link rel="stylesheet" type="text/css" href="./css/chatbot.css" />
+    <link rel="stylesheet" type="text/css" href="./css/footer.css" />
+</head>
+
+<body>
+    <!------導覽列------>
+    <header>
+        <div class="top">
+            <div class="navbar">
+                <a href="index.html" class="navbar__item logo"><img src="./img/navbar/cklogo.png" alt class="desktop_logo"><img src="./img/navbar/cklogo2.png" alt class="mobile_logo"></a>
+                <div class="navbar__menu">
+                    <a class="navbar__item navbar__link" href="csMain.html">預約諮詢</a>
+                    <a class="navbar__item navbar__link" href="chatRoom.html">線上諮商</a>
+                    <a class="navbar__item navbar__link" href="acMain.html">活動報名</a>
+                    <a class="navbar__item navbar__link" href="atMain.html">專欄文章</a>
+                    <a class="navbar__item navbar__link" href="oracleCard.html">神諭卡</a>
+                    <a class="navbar__item navbar__link" href="test.html">心理評估測驗</a>
+    
+                </div>
+    
+                <ul class="navbar__sign">
+                    <li><button class="navbar__sign__item" id="signup">加入會員</button></li><li> ｜</li>
+                    <li><button class="navbar__sign__item" id="signin">登入</button></li>
+                </ul>
+    
+                <span class="hamburger hamburger--collapse navbar__item" id="js-navbar-toggle">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </span>  
+            </div>
+        </div>
+    
+        <!------註冊登入會員----->
+    
+        <div class="signup_overlay signup_overlay-none" id="signup_overlay">
+            <div class="container" id="container">
+                <span class="container_close" id ="close">&times;</span>
+                <div class="form-container sign-up-container">
+                    <form action="#">
+                        <h3>加入會員</h3>
+                        <span>請填寫以下資訊完成註冊</span>
+                        <input type="text" placeholder="Name" />
+                        <input type="email" placeholder="Email" />
+                        <input type="password" placeholder="Password" />
+                        <button>註冊</button>
+                    </form>
+                </div>
+                <div class="form-container sign-in-container">
+                    <form action="#">
+                        <h3>登入會員</h3>
+                        <span>請輸入您的帳號密碼</span>
+                        <input type="email" placeholder="Email" />
+                        <input type="password" placeholder="Password" />
+                        <a href="#">忘記密碼？</a>
+                        <button>登入</button>
+                    </form>
+                </div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-left">
+                            <h3>歡迎回來！</h3>
+                            <p>登入會員享有更多服務</p>
+                            <button class="ghost" id="signIn">登入會員</button>
+                        </div>
+                        <div class="overlay-panel overlay-right">
+                            <h3>歡迎加入Checkie！</h3>
+                            <p>為生命帶來一些新的可能，<br>只需簡單完成申請</p>
+                            <button class="ghost" id="signUp">加入會員</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!------ chatbot ------>
+    
+        <button class="circle" type="button">
+            
+            <span class="icon-elements">
+            </span>
+        </button>
+        <div class="modal-wrapper">
+            
+            <div class="modal-header">
+                <span class="title">Checkie線上客服</span>
+                <p>您好！很高興為您服務</p>
+            </div>
+    
+            <div class="modal-chatbox">
+                <span class="reply" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+                <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+                <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+                <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+            </div>
+            <form action="">
+            <div class="modal-inputbox">
+                <input class="modal-input" type="text" placeholder="輸入您的問題...">
+                <input class="modal-input_submit" type="button" value="送出">
+            </div>
+            </form>
+        </div>
+    </header>
+
+
+    <div id="app">
+        <div class="csMain">
+            <div class="checkbox-form">
+                <span v-if="screenWidth < 576" id="openForm" @click="slideToggle">搜尋篩選</span>
+                <button type="button" id="cleanSelect" @click="cleanSelect">清除重選</button>
+                <span>性別篩選</span>
+                <input type="checkbox" name="csGender[]" value="male" id="male" v-model="csGender">
+                <label for="male" class="button3-1">男</label>
+                <input type="checkbox" name="csGender[]" value="female" id="female" v-model="csGender">
+                <label for="female" class="button3-1">女</label>
+                <span v-if="screenWidth > 576"></span>
+                <span v-if="screenWidth > 576"></span>
+                <span v-if="screenWidth > 576"></span>
+            </div>
+            <div class="checkbox-form">
+                <span>地區篩選</span>
+                <input type="checkbox" name="csPosition[]" value="north" id="north" v-model="csPosition">
+                <label for="north" class="button3-1">北</label>
+                <input type="checkbox" name="csPosition[]" value="center" id="center" v-model="csPosition">
+                <label for="center" class="button3-1">中</label>
+                <input type="checkbox" name="csPosition[]" value="south" id="south" v-model="csPosition">
+                <label for="south" class="button3-1">南</label>
+                <span v-if="screenWidth > 576"></span>
+                <span v-if="screenWidth > 576"></span>
+            </div>
+            <div class="checkbox-form">
+                <span>專長篩選</span>
+                <input type="checkbox" name="csProblem[]" value="problem1" id="problem1" v-model="csProblem">
+                <label for="problem1" class="button3-1">問題一一</label>
+
+                <input type="checkbox" name="csProblem[]" value="problem2" id="problem2" v-model="csProblem">
+                <label for="problem2" class="button3-1">問題二二</label>
+
+                <input type="checkbox" name="csProblem[]" value="problem3" id="problem3" v-model="csProblem">
+                <label for="problem3" class="button3-1">問題三三</label>
+
+                <input type="checkbox" name="csProblem[]" value="problem4" id="problem4" v-model="csProblem">
+                <label for="problem4" class="button3-1">問題四四</label>
+
+                <input type="checkbox" name="csProblem[]" value="problem5" id="problem5" v-model="csProblem">
+                <label for="problem5" class="button3-1">問題五五</label>
+            </div>
+        </div>
+        <div class="csCounselor-cards">
+            <p id="csC-countCards">總共有{{countCards}}位符合您需求的諮商師</p>
+            <ul class="csCounselor-gallery">
+                <cscounselor-layout v-for="item in countCards"></cscounselor-layout>
+            </ul>
+            <div class="csC-changeSlide">
+                <button id="pre" class="button3-1">前一位</button>
+                <button id="next" class="button3-1">後一位</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer_socialmedia">
+            <a class="socialmedia_link" href=""><img src="./img/icon/mail.png" alt class="black"><img
+                    src="./img/icon/mailhover.png" alt class="pink"></a>
+            <a class="socialmedia_link" href=""><img src="./img/icon/line.png" alt class="black"><img
+                    src="./img/icon/linehover.png" alt class="pink"></a>
+            <a class="socialmedia_link" href=""><img src="./img/icon/facebook.png" alt class="black"><img
+                    src="./img/icon/facebookhover.png" alt class="pink"></a>
+        </div>
+
+        <div class="footer_address">
+            <h6>Checkie心理諮商中心</h6>
+            <h6>電話：</h6>
+            <p>(03)301-1021</p>
+            <h6>地址：</h6>
+            <p>320桃園市中壢區中大路300號</p>
+        </div>
+        <p>Copyright © 2015 Checkie Psychological Counseling Center. All Rights Reserved</p>
+    </footer>
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js'></script>
+    <script src='./js/csMain.js'></script>
+    <script src="./js/header.js"></script>
+    <script src="./js/chatbot.js"></script>
+</body>
+
+</html>
