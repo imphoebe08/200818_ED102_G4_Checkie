@@ -59,8 +59,8 @@ body {
 
 .acSelect .acSelectCard {
   display: inline-block;
-  width: 350px;
-  height: 400px;
+  width: 350px !important;
+  height: 400px !important;
   border-radius: 30px;
   -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
           box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
@@ -70,6 +70,7 @@ body {
 .acSelect .acSelectCard a {
   display: inline-block;
   width: 100%;
+  color: maroon;
 }
 
 .acSelect .acSelectCard a img {
@@ -86,12 +87,19 @@ body {
 .acSelect .acSelectCard_text img {
   width: 20px;
   height: 20px;
-  margin-left: 3%;
   cursor: pointer;
 }
 
+.acSelect .acSelectCard_text .acSelectCard-time_icon {
+  margin-left: 4%;
+}
+
+.acSelect .acSelectCard_text .acSelectCard_icon {
+  margin-left: 15%;
+}
+
 .acSelect .acSelectCard_text .acSelectCard_time {
-  margin: 0 15% 0 5%;
+  margin: 0 15% 0 3%;
 }
 
 .acSelect .acSelectCard_title {
@@ -99,9 +107,41 @@ body {
   padding-bottom: 30px;
 }
 
-.acSelect .acSelectCard_category {
-  margin-left: 3%;
-  color: maroon;
+.acSelect .acSelectCard_bottomBlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 4%;
+}
+
+.acSelect .acSelectCard_bottomBlock .acSelectCard_person {
+  display: inline-block;
+}
+
+.acSelect .acSelectCard_bottomBlock #acSelectCard_register {
+  display: inline-block;
+  width: 100px;
+  padding: 10px 10px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #FFA492;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.acSelect .acSelectCard_bottomBlock #acSelectCard_register:hover {
+  background-color: #FFA492;
+  color: #fff;
 }
 
 .acCommentList {
@@ -168,7 +208,7 @@ body {
 
 .acBanner {
   width: 100vw;
-  max-height: 480px;
+  max-height: 50vh;
   overflow: hidden;
 }
 

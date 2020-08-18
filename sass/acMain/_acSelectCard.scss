@@ -39,8 +39,8 @@ $space:300px;
             
     .acSelectCard{
         display: inline-block;
-        width: 350px;
-        height: 400px;
+        width: 350px !important; 
+        height: 400px !important;
         border-radius: $border-radius;
         box-shadow: $boxshadow;
         overflow: hidden;
@@ -48,6 +48,7 @@ $space:300px;
         a{
             display: inline-block;
             width: 100%;
+            color: maroon;
             img{
                 width: 100%;
             }
@@ -60,11 +61,17 @@ $space:300px;
         img{
             width: 20px;
             height: 20px;
-            margin-left: 3%;
             cursor: pointer;
         }
+        .acSelectCard-time_icon{
+            margin-left: 4%;
+        }
+        .acSelectCard_icon{
+            margin-left: 15%;
+        }
+        
         .acSelectCard_time{
-            margin: 0 15% 0 5%;
+            margin: 0 15% 0 3%;
         }
     }
     
@@ -72,8 +79,19 @@ $space:300px;
         border-bottom: 1px solid lightgray;
         padding-bottom: 30px;
     }
-    .acSelectCard_category{
-        margin-left: 3%;
-        color: maroon;
+    .acSelectCard_bottomBlock{
+        display: flex;
+        justify-content: space-between;
+        padding-left: 4%;
+        .acSelectCard_person{
+            display: inline-block;
+        }
+        #acSelectCard_register{
+            display: inline-block;
+            @include btn-more(100px, $color-pink, 14px);
+            padding: 5px;
+            margin-right: 10px
+        }
     }
+
 }
