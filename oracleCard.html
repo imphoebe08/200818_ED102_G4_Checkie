@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="./css/chatbot.css"/>
     <link rel="stylesheet" href="./css/fullpage.min.css">
     <link rel="stylesheet" href="./css/oracleCard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     
     <title>oracleCard</title>
 </head>
@@ -161,17 +162,17 @@
     </section>
 
     <section class="oracleCardStepOne page page3 section">
-      <div class="oracleCardStepOneBox">
+      <div class="oracleCardStepOneBox"  id="cutScreen">
         <div class="title">
           <h2>Step1. 選擇喜歡的牌卡</h2>
         </div>
         <div class="cards col-12">
           <div class="item col-3 col-sm-3 col-md-3 col-lg-2">
             <div class="itemImg sameSet">
-              <img src="./img/oracleCard/card1.png" alt="">
+              <img src="./img/oracleCard/card1.png"  crossOrigin="anonymous" alt="">
             </div>
             <div class="itemImgBack sameSet">
-              <img src="./img/oracleCard/card2.png" alt="">
+              <img src="./img/oracleCard/card2.png" crossOrigin="anonymous" alt="">
               <div class="cardTxt">
                 <h2></h2>
                 <p></p>
@@ -180,10 +181,10 @@
           </div>
           <div class="item col-3 col-sm-3 col-md-3 col-lg-2">
             <div class="itemImg sameSet">
-              <img src="./img/oracleCard/card2.png" alt="">
+              <img src="./img/oracleCard/card2.png" crossOrigin="anonymous" alt="">
             </div>
             <div class="itemImgBack sameSet">
-              <img src="./img/oracleCard/card1.png" alt="">
+              <img src="./img/oracleCard/card1.png" crossOrigin="anonymous" alt="">
               <div class="cardTxt">
                 <h2></h2>
                 <p></p>
@@ -192,10 +193,10 @@
           </div>
           <div class="item col-3 col-sm-3 col-md-3 col-lg-2">
             <div class="itemImg sameSet">
-              <img src="./img/oracleCard/card3.png" alt="">
+              <img src="./img/oracleCard/card3.png" crossOrigin="anonymous" alt="">
             </div>
             <div class="itemImgBack sameSet">
-              <img src="./img/oracleCard/card1.png" alt="">
+              <img src="./img/oracleCard/card1.png" crossOrigin="anonymous" alt="">
               <div class="cardTxt">
                 <h2></h2>
                 <p></p>
@@ -203,6 +204,8 @@
             </div>
           </div>
         </div>
+        <a href="javascript:getScreenshot()" id="getPhoto">get photo</a>
+        <div id="cutPhoto"></div>
       </div>
       
     </section>
@@ -212,6 +215,7 @@
 </div>
 
   
+<!-- <script src="./js/html2canvas.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
 <script src="./js/vender/fullpage.js"></script>
 <script src="./js/oracleCard.js"></script>

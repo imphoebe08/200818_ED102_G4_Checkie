@@ -33,7 +33,7 @@ new Vue({
             </div>
             
             <!-- 卡片文字 -->
-            <h6 class="acSelectCard_title"><a href="./ac_content.html">信念探索團：親密關係</a></h6>
+            <h6 class="acSelectCard_title"><a href="./acSelf.html">信念探索團：親密關係</a></h6>
 
             <div class="acSelectCard_bottomBlock">
             <p class="acSelectCard_person"> 剩餘名額：10人<p>

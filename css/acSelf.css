@@ -59,8 +59,6 @@ body {
 
 .acRelate .acRelateCard {
   display: inline-block;
-  width: 350px;
-  height: 400px;
   border-radius: 30px;
   -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
           box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
@@ -404,12 +402,13 @@ main {
 
 .acRelate .acRelateCard {
   border-radius: 30px;
+<<<<<<< HEAD
+=======
+  width: 350px;
+  height: 400px;
+>>>>>>> 5506602e86ba400dbc0b261bb031ec99c768142b
   margin: 10px;
   width: 350px;
   height: 400px;
-}
-
-.acRelate .owl-carousel {
-  text-align: center;
 }
 /*# sourceMappingURL=acSelf.css.map */

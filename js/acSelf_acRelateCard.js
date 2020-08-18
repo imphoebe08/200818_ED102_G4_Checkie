@@ -26,9 +26,9 @@ new Vue({
             
             <!-- 卡片文字 -->
             <h6 class="acRelateCard_title"><a href="./ac_content.html">信念探索團：親密關係</a></h6>
-            <div class="acRelateCard_bottomBlock">
-            <p class="acRelateCard_person"> 剩餘名額：10人<p>
-            <input id="acRelateCard_register" type="button" value="立即報名" class="acRelateCard_register">
+            <div class="acSelectCard_bottomBlock">
+            <p class="acSelectCard_person"> 剩餘名額：10人<p>
+            <input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register">
             </div>
         </div>
             `,
