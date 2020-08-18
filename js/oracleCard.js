@@ -50,7 +50,14 @@ function doFirst(){
 
 window.addEventListener('load',doFirst);
 
-
+function getScreenshot(){
+  html2canvas($('#cutScreen'),{
+    onrendered: function(canvas){
+      // $('#cutPhoto').html("");
+      $('#cutPhoto').append(canvas);
+    }
+  });
+}
 
 
 
