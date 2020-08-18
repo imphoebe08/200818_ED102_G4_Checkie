@@ -1,21 +1,97 @@
-// #chatRoom{
-//     .chatRoom_block{
-//         max-width: 1200px;
-//         height: 100vh;
-//         .chatRoom-left_block{
-//             width: 30%;
-//             height: 100%;
-//             h2{
-//                 @include h2;
-//                 text-align: center;
-//             }
-//             .chatRoom-left_body{
-//                 width: 100%;
-//                 overflow-y: scroll;
-                
-//             }
-//         }
+@import '../vender/reset';
+@import '../vender/var';
+@import '../vender/variable';
 
-//     }
+$border-bottom: 1px solid lightgrey;
+$title-margin: 30px 30px;
+$content-margin: 0px 30px;
 
-// }
+input:focus{
+    outline: none;
+}
+
+h2{
+    @include h2;
+}
+h3{
+    @include h3;
+}
+h4{
+    @include h4;
+}
+h5{
+    @include h5;
+}
+h6{
+    @include h6;
+}
+p{
+    @include p;
+}
+
+
+main{
+    // border: 1px solid blue;
+    margin:30px 50px;
+    box-shadow: $boxshadow;
+    #chatRoom{
+        display: flex;
+        .chatRoom_left{
+            border: 1px solid red; 
+            width: 30%;
+            .chatRomm_userPic{
+                border: 1px solid red;
+                width: 300px;
+                height: 300px;
+                overflow: hidden;
+                border-radius: 50%;
+                margin: 30px auto;
+            }
+        .chatRoom_userInfo{
+            text-align: center;
+            margin: 10px 0;
+        }
+        .chatRoom_drChatbox{
+            border: 1px solid black;
+            box-shadow: $boxshadow;
+            display: flex;
+            .chatRoom_drPic{
+                border: 1px solid darkgray;
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 5px 8% 5px 5%;
+                img{
+                    width: 100%;
+                }
+            }
+            .chatRoom_light{
+                border: 1px solid red;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                margin: auto 0 auto 5%;
+            }
+            h5{
+                margin: auto 0;
+            }
+            .chatRoom_more{
+                width: 20px;
+                height: 20px;
+                margin: auto 10px;
+                cursor: pointer;
+                img{
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+        .chatRoom_right{
+            border: 1px solid blue;
+            width: 70%;
+        }
+
+    }
+}
