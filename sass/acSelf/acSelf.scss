@@ -197,13 +197,11 @@ main{
 
     .acRelateCard{
         border-radius: $border-radius;
-        width: 300px;
-        height: 350px;
-        margin:10px
-        
+        margin:10px;
+        width: 350px; 
+        height: 400px;
     }
     .owl-carousel{
-        // border: 1px solid red;
         text-align: center;
     }
 }

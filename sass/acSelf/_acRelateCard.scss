@@ -2,7 +2,7 @@
             
     .acRelateCard{
         display: inline-block;
-        width: 350px;
+        width: 350px; 
         height: 400px;
         border-radius: $border-radius;
         box-shadow: $boxshadow;
@@ -11,6 +11,7 @@
         a{
             display: inline-block;
             width: 100%;
+            color: maroon;
             img{
                 width: 100%;
             }
@@ -23,20 +24,42 @@
         img{
             width: 20px;
             height: 20px;
-            margin-left: 3%;
             cursor: pointer;
         }
+        .acRelateCard-time_icon{
+            margin-left: 4%;
+        }
+        .acRelateCard_icon{
+            display: flex;
+            margin-left: auto;
+            margin-right: 4%
+        }     
         .acRelateCard_time{
-            margin: 0 15% 0 5%;
+            margin: 0 15% 0 3%;
         }
     }
     
     .acRelateCard_title{
         border-bottom: 1px solid lightgray;
-        padding-bottom: 30px;
+        padding-bottom: 10px;
+        text-align: left;
+        margin-left:4%;
     }
-    .acRelateCard_category{
-        margin-left: 3%;
-        color: maroon;
+    .acRelateCard_bottomBlock{
+        display: flex;
+        justify-content: space-between;
+        padding-left: 4%;
+        padding-top: 5px;
+        .acRelateCard_person{
+            display: inline-block;
+        }
+        #acRelateCard_register{
+            display: inline-block;
+            @include btn-more(100px, $color-pink, 14px);
+            padding: 5px;
+            margin-right: 10px
+        }
     }
+
 }
+

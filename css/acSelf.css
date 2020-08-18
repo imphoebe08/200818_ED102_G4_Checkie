@@ -70,6 +70,7 @@ body {
 .acRelate .acRelateCard a {
   display: inline-block;
   width: 100%;
+  color: maroon;
 }
 
 .acRelate .acRelateCard a img {
@@ -86,22 +87,68 @@ body {
 .acRelate .acRelateCard_text img {
   width: 20px;
   height: 20px;
-  margin-left: 3%;
   cursor: pointer;
 }
 
+.acRelate .acRelateCard_text .acRelateCard-time_icon {
+  margin-left: 4%;
+}
+
+.acRelate .acRelateCard_text .acRelateCard_icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+  margin-right: 4%;
+}
+
 .acRelate .acRelateCard_text .acRelateCard_time {
-  margin: 0 15% 0 5%;
+  margin: 0 15% 0 3%;
 }
 
 .acRelate .acRelateCard_title {
   border-bottom: 1px solid lightgray;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
+  text-align: left;
+  margin-left: 4%;
 }
 
-.acRelate .acRelateCard_category {
-  margin-left: 3%;
-  color: maroon;
+.acRelate .acRelateCard_bottomBlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 4%;
+  padding-top: 5px;
+}
+
+.acRelate .acRelateCard_bottomBlock .acRelateCard_person {
+  display: inline-block;
+}
+
+.acRelate .acRelateCard_bottomBlock #acRelateCard_register {
+  display: inline-block;
+  width: 100px;
+  padding: 10px 10px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #FFA492;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.acRelate .acRelateCard_bottomBlock #acRelateCard_register:hover {
+  background-color: #FFA492;
+  color: #fff;
 }
 
 input:focus {
@@ -357,9 +404,9 @@ main {
 
 .acRelate .acRelateCard {
   border-radius: 30px;
-  width: 300px;
-  height: 350px;
   margin: 10px;
+  width: 350px;
+  height: 400px;
 }
 
 .acRelate .owl-carousel {
