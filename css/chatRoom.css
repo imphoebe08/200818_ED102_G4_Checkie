@@ -272,6 +272,8 @@ main #chatRoom .chatRoom_right .chatRoom_text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  z-index: 999;
+  background-color: #ebe5e5;
 }
 
 main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_innertext {
@@ -279,6 +281,7 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_innertext {
   width: 88%;
   min-height: 70%;
   margin: 20px;
+  background-color: white;
 }
 
 main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {

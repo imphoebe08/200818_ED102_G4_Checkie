@@ -163,11 +163,14 @@ main{
                 border-top: 3px solid darkgrey;
                 height: 20%;
                 display: flex;
+                z-index: 999;
+                background-color: rgb(235, 229, 229);
                 .chatRoom_innertext{
                     border: 5px solid darkgray;
                     width: 88%;
                     min-height: 70%;
                     margin: 20px;
+                    background-color: white;
                 }
                 .chatRoom_send{
                     width: 5%;
