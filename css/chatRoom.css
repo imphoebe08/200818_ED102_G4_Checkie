@@ -127,6 +127,10 @@ main #chatRoom .chatRoom_left .chatRomm_userPic {
   margin: 30px auto;
 }
 
+main #chatRoom .chatRoom_left .chatRomm_userPic img {
+  width: 100%;
+}
+
 main #chatRoom .chatRoom_left .chatRoom_userInfo {
   text-align: center;
   margin: 10px 0;
@@ -139,12 +143,13 @@ main #chatRoom .chatRoom_left .chatRoom_drChatbox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 10px 0;
 }
 
 main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_drPic {
   border: 1px solid darkgray;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   overflow: hidden;
   margin: 5px 8% 5px 5%;
@@ -156,8 +161,8 @@ main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_drPic img {
 
 main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_light {
   background-color: green;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   margin: auto 0 auto 5%;
 }
@@ -180,6 +185,34 @@ main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_more img {
 main #chatRoom .chatRoom_right {
   width: 70%;
   max-height: 90vh;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_drInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid lightgray;
+  -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+          box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+  display: none;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_drInfo .doctor {
+  width: 80px;
+  height: 80px;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  margin-left: 30%;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_drInfo h4 {
+  margin: auto 5%;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_drInfo .more {
+  width: 30px;
+  height: 30px;
+  margin: auto 0;
 }
 
 main #chatRoom .chatRoom_right .chatRoom_conver {
@@ -289,9 +322,6 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_innertext {
 
 main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   width: 5%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
   margin: auto 0;
 }
 /*# sourceMappingURL=chatRoom.css.map */
