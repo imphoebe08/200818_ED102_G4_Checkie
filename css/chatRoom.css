@@ -103,6 +103,7 @@ main {
   margin: 30px 50px;
   -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
           box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+  min-height: 90vh;
 }
 
 main #chatRoom {
@@ -112,12 +113,12 @@ main #chatRoom {
 }
 
 main #chatRoom .chatRoom_left {
-  border: 1px solid red;
+  border-right: 3px solid grey;
   width: 30%;
+  min-height: 90vh;
 }
 
 main #chatRoom .chatRoom_left .chatRomm_userPic {
-  border: 1px solid red;
   width: 300px;
   height: 300px;
   overflow: hidden;
@@ -131,7 +132,7 @@ main #chatRoom .chatRoom_left .chatRoom_userInfo {
 }
 
 main #chatRoom .chatRoom_left .chatRoom_drChatbox {
-  border: 1px solid black;
+  border: 1px solid lightgrey;
   -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
           box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
   display: -webkit-box;
@@ -153,7 +154,7 @@ main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_drPic img {
 }
 
 main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_light {
-  border: 1px solid red;
+  background-color: green;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -176,7 +177,115 @@ main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_more img {
 }
 
 main #chatRoom .chatRoom_right {
-  border: 1px solid blue;
   width: 70%;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_conver {
+  height: 80%;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_userConver {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_userConver .chatRoom_conver--userPic {
+  width: 80px;
+  height: 80px;
+  margin: 20px;
+  border-radius: 50%;
+  border: 1px solid darkgrey;
+  overflow: hidden;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_userConver .chatRoom_conver--userPic img {
+  width: 100%;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_userConver .chatRoom_conver--userText {
+  background-color: #c5ddf8;
+  border-radius: 0 24px 24px 24px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 25px 21px 25px 21px;
+  margin: 30px 0;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_userConver .chatRoom_conver--more {
+  display: block;
+  width: 20px;
+  position: relative;
+  top: 90px;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_drConver {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: auto;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_drConver .chatRoom_conver--drText {
+  background-color: #c5ddf8;
+  border-radius: 0 24px 24px 24px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 25px 21px 25px 21px;
+  margin: 30px 0;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_drConver .chatRoom_conver--drPic {
+  width: 80px;
+  height: 80px;
+  margin: 20px;
+  border-radius: 50%;
+  border: 1px solid darkgrey;
+  overflow: hidden;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_drConver .chatRoom_conver--drPic img {
+  width: 100%;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_drConver .chatRoom_conver--more {
+  display: block;
+  width: 20px;
+  position: relative;
+  top: 90px;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_text {
+  border-top: 3px solid darkgrey;
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_innertext {
+  border: 5px solid darkgray;
+  width: 88%;
+  min-height: 70%;
+  margin: 20px;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
+  width: 5%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 20px;
 }
 /*# sourceMappingURL=chatRoom.css.map */
