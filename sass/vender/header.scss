@@ -1,5 +1,5 @@
-@import 'var.scss';
-@import 'variable.scss';
+@import '../vender/var';
+@import '../vender/variable';
 
 
 .hamburger {
@@ -238,7 +238,7 @@ header{
     height: 100vh;
     width: 100vw;
     //background-color: rgba(22, 22, 22, 0.85);
-    background-color: #ffcbbfcc;
+    background-color: #ffcbbf;
     transition: background-color .4s; 
 }
 
@@ -304,7 +304,7 @@ header{
               height: 2px;
               width: 100%;
               left: 0;
-              bottom: 0;
+              bottom: 20px;
               background-color: $color-pink;
               visibility: hidden;
               transform: scaleX(0);
