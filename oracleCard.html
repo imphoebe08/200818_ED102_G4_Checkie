@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="./css/chatbot.css"/>
     <link rel="stylesheet" href="./css/fullpage.min.css">
     <link rel="stylesheet" href="./css/oracleCard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     
     <title>oracleCard</title>
 </head>
@@ -161,7 +162,7 @@
     </section>
 
     <section class="oracleCardStepOne page page3 section">
-      <div class="oracleCardStepOneBox">
+      <div class="oracleCardStepOneBox"  id="cutScreen">
         <div class="title">
           <h2>Step1. 選擇喜歡的牌卡</h2>
         </div>
@@ -203,6 +204,8 @@
             </div>
           </div>
         </div>
+        <a href="javascript:getScreenshot()" id="getPhoto">get photo</a>
+        <div id="cutPhoto"></div>
       </div>
       
     </section>
