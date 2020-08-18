@@ -1,1 +1,182 @@
-/* No CSS *//*# sourceMappingURL=chatRoom.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: 400;
+  font-family: "Noto Sans TC", sans-serif;
+  margin: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+h2 {
+  font-size: 36px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+h4 {
+  font-size: 28px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+h5 {
+  font-size: 24px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+h6 {
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+}
+
+p {
+  font-size: 16px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  line-height: 2;
+}
+
+main {
+  margin: 30px 50px;
+  -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+          box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+}
+
+main #chatRoom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main #chatRoom .chatRoom_left {
+  border: 1px solid red;
+  width: 30%;
+}
+
+main #chatRoom .chatRoom_left .chatRomm_userPic {
+  border: 1px solid red;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 30px auto;
+}
+
+main #chatRoom .chatRoom_left .chatRoom_userInfo {
+  text-align: center;
+  margin: 10px 0;
+}
+
+main #chatRoom .chatRoom_left .chatRoom_drChatbox {
+  border: 1px solid black;
+  -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+          box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_drPic {
+  border: 1px solid darkgray;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 5px 8% 5px 5%;
+}
+
+main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_drPic img {
+  width: 100%;
+}
+
+main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_light {
+  border: 1px solid red;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: auto 0 auto 5%;
+}
+
+main #chatRoom .chatRoom_left .chatRoom_drChatbox h5 {
+  margin: auto 0;
+}
+
+main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_more {
+  width: 20px;
+  height: 20px;
+  margin: auto 10px;
+  cursor: pointer;
+}
+
+main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_more img {
+  height: 100%;
+}
+
+main #chatRoom .chatRoom_right {
+  border: 1px solid blue;
+  width: 70%;
+}
+/*# sourceMappingURL=chatRoom.css.map */
