@@ -98,9 +98,9 @@ main{
             .chatRoom_conver{
                 // border: 1px solid red;
                 height: 80%;
-                .chatRoom_userConver{
+                .chatRoom_drConver{
                     display: flex;
-                    .chatRoom_conver--userPic{
+                    .chatRoom_conver--drPic{
                         width: 80px;
                         height: 80px;
                         margin: 20px;
@@ -111,7 +111,7 @@ main{
                             width: 100%;
                         }
                     }
-                    .chatRoom_conver--userText{
+                    .chatRoom_conver--drText{
                         background-color: rgb(197, 221, 248);
                         border-radius: 0 24px 24px 24px;
                         width: fit-content;
@@ -126,13 +126,13 @@ main{
                         top: 90px;
                     }
                 }
-                .chatRoom_drConver{
+                .chatRoom_userConver{
                     display: flex;
                     width: fit-content;
                     margin-left: auto;
                     
 
-                    .chatRoom_conver--drText{
+                    .chatRoom_conver--userText{
                         background-color: rgb(197, 221, 248);
                         border-radius: 0 24px 24px 24px;
                         width: fit-content;
@@ -140,7 +140,7 @@ main{
                         margin:30px 0;
                         height: fit-content;
                 }
-                    .chatRoom_conver--drPic{
+                    .chatRoom_conver--userPic{
                         width: 80px;
                         height: 80px;
                         margin: 20px;
