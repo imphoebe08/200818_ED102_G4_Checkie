@@ -103,7 +103,7 @@ main {
   margin: 30px 50px;
   -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
           box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-  min-height: 90vh;
+  max-height: 90vh;
 }
 
 main #chatRoom {
@@ -115,7 +115,8 @@ main #chatRoom {
 main #chatRoom .chatRoom_left {
   border-right: 3px solid grey;
   width: 30%;
-  min-height: 90vh;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 main #chatRoom .chatRoom_left .chatRomm_userPic {
@@ -178,10 +179,12 @@ main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_more img {
 
 main #chatRoom .chatRoom_right {
   width: 70%;
+  max-height: 90vh;
 }
 
 main #chatRoom .chatRoom_right .chatRoom_conver {
   height: 80%;
+  overflow-y: auto;
 }
 
 main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_drConver {
@@ -234,7 +237,7 @@ main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_userConver {
 }
 
 main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_userConver .chatRoom_conver--userText {
-  background-color: #c5ddf8;
+  background-color: pink;
   border-radius: 0 24px 24px 24px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -289,6 +292,6 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  margin-top: 20px;
+  margin: auto 0;
 }
 /*# sourceMappingURL=chatRoom.css.map */

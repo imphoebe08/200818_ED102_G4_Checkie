@@ -34,13 +34,14 @@ main{
     // border: 1px solid blue;
     margin:30px 50px;
     box-shadow: $boxshadow;
-    min-height: 90vh;
+    max-height: 90vh;
     #chatRoom{
         display: flex;
         .chatRoom_left{
             border-right: 3px solid grey;
             width: 30%;
-            min-height: 90vh;
+            max-height: 90vh;
+            overflow-y: auto;
             .chatRomm_userPic{
                 // border: 1px solid red;
                 width: 300px;
@@ -94,10 +95,12 @@ main{
         .chatRoom_right{
             // border: 1px solid blue;
             width: 70%;
+            max-height: 90vh;
 
             .chatRoom_conver{
                 // border: 1px solid red;
                 height: 80%;
+                overflow-y: auto;
                 .chatRoom_drConver{
                     display: flex;
                     .chatRoom_conver--drPic{
@@ -133,7 +136,7 @@ main{
                     
 
                     .chatRoom_conver--userText{
-                        background-color: rgb(197, 221, 248);
+                        background-color:pink;
                         border-radius: 0 24px 24px 24px;
                         width: fit-content;
                         padding: 25px 21px 25px 21px;
@@ -175,7 +178,7 @@ main{
                 .chatRoom_send{
                     width: 5%;
                     height: fit-content;
-                    margin-top:20px
+                    margin: auto 0;
                 }
             }
         }
