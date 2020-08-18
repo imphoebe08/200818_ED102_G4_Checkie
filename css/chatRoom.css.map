@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../sass/chatRoom/chatRoom.scss"
+    ],
+    "names": [],
+    "file": "chatRoom.css"
+}
