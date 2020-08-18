@@ -123,14 +123,13 @@
             </div>
 
             <div id="acSearch" class="acSearch container-sm container-md">
-                <ul>
+                <ul class="acSearch_ul">
                     <li v-for="(num,index) in title" @click="category_click(index)"><a href="javascript:void(0)">{{num}}</a></li>
                     
                 </ul>
                 
             </div>
-
-            <h1 class="asSelect_title container-sm container-md">{{now_title}}</h1>
+            <!-- <h1 class="asSelect_title container-sm container-md">{{now_title}}</h1> -->
 
             <div id="acSelect" class="acSelect container-sm container-md">
                 <ac-select-card   v-for="num in nums"></ac-select-card>
