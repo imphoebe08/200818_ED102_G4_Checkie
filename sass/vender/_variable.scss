@@ -55,14 +55,13 @@ body{
     line-height: 2;
 }
 
-//(大)立即預約、立即報名、抽卡、開始測驗
-@mixin btn-modules($color-pink) {
-
-        display: inline-block;
-        padding: 10px 25px;
-        font-size: $fontsize*1.25;
+//(大)立即預約、立即報名按鈕、抽卡、開始測驗
+@mixin btn-modules($bw, $color-pink, $fontsize) {
+    
+        width: $bw;
+        padding: 10px 10px;
+        font-size: $fontsize;
         font-weight: 500;
-        letter-spacing:0.8px ;
         text-align: center;
         border-radius: $border-radius;
         border: 2px solid $color-pink;
@@ -70,22 +69,19 @@ body{
         cursor: pointer;
         background-color: $color-pink;
         transition: .2s all ease-in;
-         &:hover {
-             background-color: darken($color-pink, 15%);
-             border:2px solid darken($color-pink, 15%);
-            
-        }
-         &:focus{
-             display: none;
+        &:hover {
+            // background-color: darken($color-pink, 10%);
+            background-color:transparent;
+            color:$color-pink ;
         }
     
 }
 
-//(小) skip、暸解更多、諮商選項(現場電話視訊...)、分數按鈕
-@mixin btn-more($color-pink, $fontsize) {
-
-    display: inline-block;
-    padding: 10px 15px;
+//(小) 暸解更多、諮商選項(現場電話視訊...)按鈕、活動小卡立即報名
+@mixin btn-more($bw, $color-pink, $fontsize) {
+    
+    width: $bw;
+    padding: 10px 10px;
     font-size: $fontsize;
     font-weight: 400;
     text-align: center;
@@ -95,63 +91,33 @@ body{
     cursor: pointer;
     background-color: transparent;
     transition: .2s all ease-in;
-     &:hover {
-         background-color: $color-pink;
-         color:#fff ;
-    }
-
-     &:focus{
-         display: none;
+    &:hover {
+        background-color: $color-pink;
+        color:#fff ;
     }
 
 }
 
-//付款頁面按鈕(上一部、重新選擇)
-@mixin btn-prepay($bw, $fontsize) {
+//付款頁面按鈕(上下一步、確定付款...)
+@mixin btn-paypage($bw, $color-pink, $fontsize) {
     
     width: $bw;
-    display: inline-block;
-    padding: 15px 30px;
+    padding: 15px 10px;
     font-size: $fontsize + 2px;
-    font-weight: 500;
+    font-weight: 400;
     text-align: center;
-    border-radius: $border-radius;
-    border: 2px solid rgb(214, 214, 214);
+    border-radius: 10px;
+    border: 2px solid $color-pink;
+    color: $color-pink;
+    cursor: pointer;
     background-color: transparent;
-    color: rgb(196, 196, 196);
-    cursor: pointer;
     transition: .2s all ease-in;
-
     &:hover {
-        background-color: rgb(235, 235, 235);
-   
+        background-color: $color-pink;
+        color:#fff ;
     }
 
 }
-
-//付款頁面按鈕(下一步、確定付款)
-@mixin btn-nextpay($bw, $color-blue, $fontsize) {
-    
-    width: $bw;
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: $fontsize + 2px;
-    font-weight: 500;
-    text-align: center;
-    border-radius: $border-radius;
-    border: 2px solid $color-blue;
-    background-color: $color-blue;
-    color: #fff;
-    cursor: pointer;
-    transition: .2s all ease-in;
-
-    &:hover {
-        background-color: darken($color-blue, 15%);
-        border:2px solid darken($color-blue, 15%);
-    }
-
-}
-
 
 
 
