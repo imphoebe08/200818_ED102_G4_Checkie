@@ -66,3 +66,18 @@ new Vue({
     },
 })
 
+
+// 活動Title變更（取消使用）
+// new Vue({
+//     el:"#acMain",
+
+//     data:{
+//         title:["精選活動","講座","療癒","戶外","藝文"],
+//         now_title:"精選活動",
+//     },
+//     methods: {
+//         category_click(data){
+//             this.now_title=this.title[data];
+//         }
+//     },
+// })
