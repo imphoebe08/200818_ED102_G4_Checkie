@@ -49,6 +49,9 @@ main{
                 overflow: hidden;
                 border-radius: 50%;
                 margin: 30px auto;
+                img{
+                    width: 100%;
+                }
             }
         .chatRoom_userInfo{
             text-align: center;
@@ -58,10 +61,11 @@ main{
             border: 1px solid lightgrey;
             box-shadow: $boxshadow;
             display: flex;
+            padding: 10px 0;
             .chatRoom_drPic{
                 border: 1px solid darkgray;
-                width: 80px;
-                height: 80px;
+                width: 60px;
+                height: 60px;
                 border-radius: 50%;
                 overflow: hidden;
                 margin: 5px 5% 5px 5%;
@@ -72,8 +76,8 @@ main{
             .chatRoom_light{
                 // border: 1px solid red;
                 background-color: green;
-                width: 20px;
-                height: 20px;
+                width: 10px;
+                height: 10px;
                 border-radius: 50%;
                 margin: auto 0 auto 5%;
             }
@@ -94,11 +98,33 @@ main{
             }
         }
     }
-
-        .chatRoom_right{
-            // border: 1px solid blue;
-            width: 70%;
-            max-height: 90vh;
+    .chatRoom_right{
+        // border: 1px solid blue;
+        width: 70%;
+        max-height: 90vh;
+    // -----------手機＆平板RWD用-------------
+        .chatRoom_drInfo{
+                display: flex;
+                border: 1px solid lightgray;
+                box-shadow: $boxshadow;
+                display: none;
+                .doctor{
+                    width: 80px;
+                    height: 80px;
+                    border: 1px solid lightgray;
+                    border-radius: 50%;
+                    margin-left:30% ;
+                }
+                h4{
+                    margin: auto 5%;
+                }
+                .more{
+                    width: 30px;
+                    height: 30px;
+                    margin: auto 0;
+                }
+            }
+//-------------------------------
 
             .chatRoom_conver{
                 // border: 1px solid red;
@@ -180,7 +206,6 @@ main{
                 }
                 .chatRoom_send{
                     width: 5%;
-                    height: fit-content;
                     margin: auto 0;
                 }
             }
