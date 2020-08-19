@@ -115,53 +115,54 @@
     </header>
 
 
-    <div id="app">
-        <div class="csMain">
-            <div class="checkbox-form">
-                <span v-if="screenWidth < 576" id="openForm" @click="slideToggle">搜尋篩選</span>
-                <button type="button" id="cleanSelect" @click="cleanSelect">清除重選</button>
-                <span>性別篩選</span>
-                <input type="checkbox" name="csGender[]" value="male" id="male" v-model="csGender">
-                <label for="male" class="button3-1">男</label>
-                <input type="checkbox" name="csGender[]" value="female" id="female" v-model="csGender">
-                <label for="female" class="button3-1">女</label>
-                <span v-if="screenWidth > 576"></span>
-                <span v-if="screenWidth > 576"></span>
-                <span v-if="screenWidth > 576"></span>
-            </div>
-            <div class="checkbox-form">
-                <span>地區篩選</span>
-                <input type="checkbox" name="csPosition[]" value="north" id="north" v-model="csPosition">
-                <label for="north" class="button3-1">北</label>
-                <input type="checkbox" name="csPosition[]" value="center" id="center" v-model="csPosition">
-                <label for="center" class="button3-1">中</label>
-                <input type="checkbox" name="csPosition[]" value="south" id="south" v-model="csPosition">
-                <label for="south" class="button3-1">南</label>
-                <span v-if="screenWidth > 576"></span>
-                <span v-if="screenWidth > 576"></span>
-            </div>
-            <div class="checkbox-form">
-                <span>專長篩選</span>
-                <input type="checkbox" name="csProblem[]" value="problem1" id="problem1" v-model="csProblem">
-                <label for="problem1" class="button3-1">問題一一</label>
-
-                <input type="checkbox" name="csProblem[]" value="problem2" id="problem2" v-model="csProblem">
-                <label for="problem2" class="button3-1">問題二二</label>
-
-                <input type="checkbox" name="csProblem[]" value="problem3" id="problem3" v-model="csProblem">
-                <label for="problem3" class="button3-1">問題三三</label>
-
-                <input type="checkbox" name="csProblem[]" value="problem4" id="problem4" v-model="csProblem">
-                <label for="problem4" class="button3-1">問題四四</label>
-
-                <input type="checkbox" name="csProblem[]" value="problem5" id="problem5" v-model="csProblem">
-                <label for="problem5" class="button3-1">問題五五</label>
+    <div id="appCsMain">
+        <div class="csMain-container" id="csMainContainer" @click="clickWhite">
+            <div class="csMain">
+                <div class="checkbox-form">
+                    <span v-if="screenWidth < 576" id="openForm" @click="slideToggle">搜尋篩選</span>
+                    <span>性別篩選</span>
+                    <input type="checkbox" name="csGender[]" value="male" id="male" v-model="csGender">
+                    <label for="male" class="button3-1">男</label>
+                    <input type="checkbox" name="csGender[]" value="female" id="female" v-model="csGender">
+                    <label for="female" class="button3-1">女</label>
+                    <span v-if="screenWidth > 576"></span>
+                    <span v-if="screenWidth > 576"></span>
+                    <span v-if="screenWidth > 576"></span>
+                </div>
+                <div class="checkbox-form">
+                    <span>地區篩選</span>
+                    <input type="checkbox" name="csPosition[]" value="north" id="north" v-model="csPosition">
+                    <label for="north" class="button3-1">北</label>
+                    <input type="checkbox" name="csPosition[]" value="center" id="center" v-model="csPosition">
+                    <label for="center" class="button3-1">中</label>
+                    <input type="checkbox" name="csPosition[]" value="south" id="south" v-model="csPosition">
+                    <label for="south" class="button3-1">南</label>
+                    <span v-if="screenWidth > 576"></span>
+                    <span v-if="screenWidth > 576"></span>
+                </div>
+                <div class="checkbox-form">
+                    <span>專長篩選</span>
+                    <input type="checkbox" name="csProblem[]" value="problem1" id="problem1" v-model="csProblem">
+                    <label for="problem1" class="button3-1">問題一一</label>
+        
+                    <input type="checkbox" name="csProblem[]" value="problem2" id="problem2" v-model="csProblem">
+                    <label for="problem2" class="button3-1">問題二二</label>
+        
+                    <input type="checkbox" name="csProblem[]" value="problem3" id="problem3" v-model="csProblem">
+                    <label for="problem3" class="button3-1">問題三三</label>
+        
+                    <input type="checkbox" name="csProblem[]" value="problem4" id="problem4" v-model="csProblem">
+                    <label for="problem4" class="button3-1">問題四四</label>
+        
+                    <input type="checkbox" name="csProblem[]" value="problem5" id="problem5" v-model="csProblem">
+                    <label for="problem5" class="button3-1">問題五五</label>
+                </div>
             </div>
         </div>
         <div class="csCounselor-cards">
             <p id="csC-countCards">總共有{{countCards}}位符合您需求的諮商師</p>
             <ul class="csCounselor-gallery">
-                <cscounselor-layout v-for="item in countCards"></cscounselor-layout>
+                <cscounselor-layout v-for="item in countCards" :key="item"></cscounselor-layout>
             </ul>
             <div class="csC-changeSlide">
                 <button id="pre" class="button3-1">前一位</button>
