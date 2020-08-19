@@ -123,7 +123,7 @@ $(function(){
         .addTo(controller);
 
         // inCard
-
+    var btn =TweenMax.to('.inBanner_bgImg', 1, {zIndex: "-1"});
     var t5 = TweenMax.to('.inBanner-circle', 2, {backgroundImage: "linear-gradient(135deg,  #fff1eb,   #ace0f9)"});
     // 下面這個是大圈圈 因為有兩層 所以多寫一個css
     var t6 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 2, {backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg,  #fff1eb,   #ace0f9)"});
@@ -131,7 +131,7 @@ $(function(){
             triggerElement: "#inCard",
             offset: 0,
             triggerHook: .5
-        }).setTween([t5,t6])
+        }).setTween([t5,t6,btn])
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
 
@@ -161,28 +161,53 @@ $(function(){
         }).setTween([t9,t10])
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
+        
 
-        // 圈圈結束
+    // card_t1.fromTo('.inCard_body>div', 1, {
+    //     scale:0,
+    //     rotationX: 200,
+    // },{scale:1,rotationX: 360,})
 
-    var card_t1 = new TimelineMax();
 
-    card_t1.fromTo('.inCard_body>div', 1, {
-        scale:0,
-        rotationX: 200,
-    },{scale:1,rotationX: 360,})
-    // .fromTo('.inCard_body>div:nth-child(2)', .5, {
-    //     scale:0,
-    //     rotationX: 200,
-    // },{scale:1,rotationX: 360,}).fromTo('.inCard_body>div:nth-child(3)', .5, {
-    //     scale:0,
-    //     rotationX: 200,
-    // },{scale:1,rotationX: 360,}).fromTo('.inCard_body>div:nth-child(4)', .5, {
-    //     scale:0,
-    //     rotationX: 200,
-    // },{scale:1,rotationX: 360,}).fromTo('.inCard_body>div:nth-child(5)', .5, {
-    //     scale:0,
-    //     rotationX: 200,
-    // },{scale:1,rotationX: 360,});
+
+
+
+    var a = 0;
+    function card(){
+
+        $(".inCard_body>div").css("transformOrigin","top center -1000px")
+        var win_scroll = $(window).scrollTop();
+        var inCard = $("#inCard").offset().top;
+        var win_H = $(window).height();
+        if(win_scroll > inCard-0.1*win_H  && a==0){
+            $(".inCard").on("wheel",function(e){
+                e.preventDefault();
+                
+            })
+            var card_t1 = new TimelineMax();
+            card_t1.fromTo('.inCard_body>div', 1, {
+                scale:0,
+                rotationX: 200,
+            },{scale:1,rotationX: 360,})
+            a++;
+            
+            
+            
+        }
+        $(".inCard_body>div").css("transformOrigin","unset")
+    }
+    // 圈圈結束
+    $(window).scroll(function(e){
+        card()
+    })
+
+
+
+    
+    });
+
     
 
-    });
+
+
+    

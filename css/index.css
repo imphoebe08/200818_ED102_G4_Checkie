@@ -483,11 +483,10 @@ p {
 
 .inCard .inCard_block .inCard_body > div {
   position: absolute;
-  transform: translateY(-50%) perspective(900px);
+  transform: translateY(-50%) perspective(900px) scale(0);
   width: 300px;
   height: 480px;
   top: 50%;
-  transform-origin: top center -1000px;
 }
 
 .inCard .inCard_block .inCard_body > div > a {
