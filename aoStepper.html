@@ -219,7 +219,7 @@
                                                 <div>
                                                     <label for="memName">真實姓名<span>*</span></label>
                                                 </div>
-                                                <input type="text" class="form-control" name="memName" id="memName" placeholder="" required="yes" autocomplete="name">
+                                                <input type="text" v-for="memName" class="form-control" name="memName" id="memName" placeholder="" required="yes" autocomplete="name">
                                             </div>
 
 
@@ -227,7 +227,7 @@
                                                 <div>
                                                     <label for="memEmail">電子郵件<span>*</span></label>
                                                 </div>
-                                                <input type="email" class="form-control" name="memEmail" id="memEmail" required="yes" autocomplete="email" />
+                                                <input type="email" v-for="memEmail" class="form-control" name="memEmail" id="memEmail" required="yes" autocomplete="email" />
                                             </div>
 
 
@@ -236,7 +236,7 @@
                                                     <label for="memTel">行動電話<span>*</span></label>
                                                 </div>
 
-                                                <select name="memTel" id="" autocomplete="tel-country-code">
+                                                <select name="memTel" v-for="memTel." id="" autocomplete="tel-country-code">
                                                         <option data-countryCode="TW" value="886" Selected>Taiwan (+886)</option>
                                                         <optgroup label="Other countries">
                                                             <option data-countryCode="AM" value="374">Armenia (+374)</option>
@@ -258,7 +258,7 @@
                                                             
                                                         </optgroup>
                                                     </select>
-                                                <input type="tel" class="form-control form-control--width" name="memTel" id="memTel" placeholder="9XXXXXXXX" required="yes" autocomplete="tel">
+                                                <input type="tel" v-for="memTel.mobile" class="form-control form-control--width" name="memTel" id="memTel" placeholder="9XXXXXXXX" required="yes" autocomplete="tel">
                                                 <!-- pattern="[0-9]{3}[ -][0-9]{3}[ -][0-9]{4}" -->
                                             </div>
 
@@ -269,11 +269,11 @@
                                                 </div>
 
                                                 <label class="radio">
-                                                      <input type="radio" name="memGender" id="memGender" value="男"> 男
+                                                      <input type="radio" v-for="memGender" name="memGender" id="memGender" value="男"> 男
                                                       <span class="checkmark"></span>
                                                 </label>
                                                 <label class="radio">
-                                                      <input type="radio" name="memGender" id="memGender" value="女"> 女
+                                                      <input type="radio" v-for="memGender" name="memGender" id="memGender" value="女"> 女
                                                       <span class="checkmark"></span>
                                                 </label>
                                             </div>

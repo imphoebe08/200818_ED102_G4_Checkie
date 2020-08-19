@@ -14,16 +14,21 @@
             line-height: 50px;
             padding: 0 15px;
             border-radius: 3px;
-            div:nth-child(2) {
+            button {
+                border: none;
                 padding: 0 5px;
                 border-radius: 3px;
                 cursor: pointer;
-                color: steelblue;
+                color: $color-blue;
                 &:hover {
                     transition: all .2s linear;
-                    background-color: rgb(124, 164, 196);
-                    color: white;
+                    letter-spacing: 3px;
                 }
+            }
+            .active {
+                transition: all .2s linear;
+                background-color: $color-blue;
+                color: white;
             }
         }
         >div {
@@ -113,3 +118,40 @@
         }
     }
 }
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: .3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.listTransition-enter-active,
+.listTransition-leave-active {
+    // height: 0px;
+    transition: .3s;
+}
+
+.listTransition-enter,
+.listTransition-leave-to {
+    //height: auto;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+// .expand-transition {
+//     transition: all .3s ease;
+//     height: 30px;
+//     padding: 10px;
+//     background-color: red;
+// }
+// .expand-enter,
+// .expand-leave {
+//     height: 0;
+//     padding: 0 10px;
+//     opacity: 0;
+// }

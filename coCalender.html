@@ -17,8 +17,6 @@
     <link rel="stylesheet" type="text/css" href="./css/chatbot.css" />
     <link rel="stylesheet" type="text/css" href="./css/footer.css" />
 
-
-
     <link rel="stylesheet" href="./css/ao_co_style.css">
     <script src="https://kit.fontawesome.com/3a9b8bb651.js" crossorigin="anonymous"></script>
     <title>Document</title>
@@ -157,40 +155,42 @@
 
 
                 <div class="co-stepper-content col-12">
-                    <stepper-content>
-                        <!-- <transition name="slide" mode="out-in"> -->
-                        <c-stepper :step="1" :current="currentStep">
-                            <div class="co-counselor co-counselor--style">
-                                <div class="co-counselor-pic ">
-                                    <img src="./img/acOrder/螢幕快照 2020-08-06 下午10.55.01.png" alt="John">
-                                </div>
-                                <div class="co-counselor-text">
-                                    <div>諮商心理師</div>
-                                    <div>何盈靜 May He</div>
-                                </div>
-                            </div>
-                            <div class="coCalender-calender">
-                                <v-app id="inspire2">
-                                    <v-row class="fill-height">
-                                        <v-col>
 
-                                            <v-sheet height="64">
-                                                <v-toolbar flat color="white">
-                                                    <!-- <v-btn outlined class="mr-4" color="grey darken-2" @click="setToday">
+
+                    <stepper-content>
+                        <transition name="fade" mode="out-in">
+                            <c-stepper :step="1" v-if="currentStep==1" key="1">
+                                <div class="co-counselor co-counselor--style">
+                                    <div class="co-counselor-pic ">
+                                        <img src="./img/acOrder/螢幕快照 2020-08-06 下午10.55.01.png" alt="John">
+                                    </div>
+                                    <div class="co-counselor-text">
+                                        <div>諮商心理師</div>
+                                        <div>何盈靜 May He</div>
+                                    </div>
+                                </div>
+                                <div class="coCalender-calender">
+                                    <v-app id="inspire2">
+                                        <v-row class="fill-height">
+                                            <v-col>
+
+                                                <v-sheet height="64">
+                                                    <v-toolbar flat color="white">
+                                                        <!-- <v-btn outlined class="mr-4" color="grey darken-2" @click="setToday">
                                                     Today
                                                 </v-btn> -->
-                                                    <v-btn fab text small color="grey darken-2" @click="prev">
-                                                        <v-icon small>mdi-chevron-left</v-icon>
-                                                    </v-btn>
+                                                        <v-btn fab text small color="grey darken-2" @click="prev">
+                                                            <v-icon small>mdi-chevron-left</v-icon>
+                                                        </v-btn>
 
-                                                    <v-toolbar-title v-if="$refs.calendar">
-                                                        {{ $refs.calendar.title }}
-                                                    </v-toolbar-title>
-                                                    <v-btn fab text small color="grey darken-2" @click="next">
-                                                        <v-icon small>mdi-chevron-right</v-icon>
-                                                    </v-btn>
-                                                    <v-spacer></v-spacer>
-                                                    <!-- <v-menu bottom right>
+                                                        <v-toolbar-title v-if="$refs.calendar">
+                                                            {{ $refs.calendar.title }}
+                                                        </v-toolbar-title>
+                                                        <v-btn fab text small color="grey darken-2" @click="next">
+                                                            <v-icon small>mdi-chevron-right</v-icon>
+                                                        </v-btn>
+                                                        <v-spacer></v-spacer>
+                                                        <!-- <v-menu bottom right>
                                                     <template v-slot:activator="{ on, attrs }">
                                               <v-btn
                                                 outlined
@@ -217,164 +217,164 @@
                                                         </v-list-item>
                                                     </v-list>
                                                 </v-menu> -->
-                                                </v-toolbar>
-                                            </v-sheet>
-                                            <v-sheet height="500">
-                                                <v-calendar ref="calendar" v-model="focus" color="primary" :events="events" :event-color="getEventColor" :type="type" @click:more="showEvent" @click:date="showEvent" @click:event="showEvent" @change="updateRange"></v-calendar>
-                                                <v-menu v-model="selectedOpen" :close-on-content-click="false" :activator="selectedElement" offset-x>
-                                                    <v-card color="grey lighten-4" min-width="350px" flat>
-                                                        <v-toolbar :color="selectedEvent.color" dark>
-                                                            <!-- <v-btn icon>
+                                                    </v-toolbar>
+                                                </v-sheet>
+                                                <v-sheet height="500">
+                                                    <v-calendar ref="calendar" v-model="focus" color="primary" :events="events" :event-color="getEventColor" :type="type" @click:more="showEvent" @click:date="showEvent" @click:event="showEvent" @change="updateRange"></v-calendar>
+                                                    <v-menu v-model="selectedOpen" :close-on-content-click="false" :activator="selectedElement" offset-x>
+                                                        <v-card color="grey lighten-4" min-width="350px" flat>
+                                                            <v-toolbar :color="selectedEvent.color" dark>
+                                                                <!-- <v-btn icon>
                                                             <v-icon>mdi-pencil</v-icon>
                                                         </v-btn> -->
-                                                            <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
-                                                            <v-spacer></v-spacer>
-                                                            <v-btn icon>
-                                                                <v-icon>mdi-heart</v-icon>
-                                                            </v-btn>
-                                                            <v-btn icon>
-                                                                <v-icon>mdi-dots-vertical</v-icon>
-                                                            </v-btn>
-                                                        </v-toolbar>
-                                                        <v-card-text>
-                                                            <span v-html="selectedEvent.details"></span>
-                                                        </v-card-text>
-                                                        <v-card-actions>
-                                                            <v-btn text color="secondary" @click="selectedOpen = false">
-                                                                Cancel
-                                                            </v-btn>
-                                                        </v-card-actions>
-                                                    </v-card>
-                                                </v-menu>
-                                            </v-sheet>
-                                        </v-col>
-                                    </v-row>
-                                </v-app>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12 co-button--style">
-                                    <c-btn @click="update(currentStep-1)">prev</c-btn>
-                                    <c-btn @click="update(currentStep+1)">next</c-btn>
+                                                                <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
+                                                                <v-spacer></v-spacer>
+                                                                <v-btn icon>
+                                                                    <v-icon>mdi-heart</v-icon>
+                                                                </v-btn>
+                                                                <v-btn icon>
+                                                                    <v-icon>mdi-dots-vertical</v-icon>
+                                                                </v-btn>
+                                                            </v-toolbar>
+                                                            <v-card-text>
+                                                                <span v-html="selectedEvent.details"></span>
+                                                            </v-card-text>
+                                                            <v-card-actions>
+                                                                <v-btn text color="secondary" @click="selectedOpen = false">
+                                                                    Cancel
+                                                                </v-btn>
+                                                            </v-card-actions>
+                                                        </v-card>
+                                                    </v-menu>
+                                                </v-sheet>
+                                            </v-col>
+                                        </v-row>
+                                    </v-app>
                                 </div>
-                            </div>
 
-
-                        </c-stepper>
-
-
-                        <c-stepper :step="2" :current="currentStep">
-
-                            <div class="row">
-                                <div class="col-12 co-title">
-                                    <h5>填寫資料</h5>
-                                </div>
-                                <div class="cos-counselor col-md-3 col-sm-12">
-                                    <div class="row">
-                                        <div class=" col-md-12 col-4 co-counselor-pic">
-                                            <div class="co-counselor-content">
-                                                <img src="./img/acOrder/螢幕快照 2020-08-06 下午10.55.01.png" alt="John">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 col-8 co-counselor-text">
-
-                                            <div class="row align-items-center ">
-                                                <div class="col-md-12 col-6 ">諮商心理師</div>
-                                                <div class="col-md-12 col-6 ">何盈靜 May He</div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-12 co-counselor-order ">
-                                            <div class="row justify-content-between ">
-                                                <div class=" col-md-12 col-6 ">
-                                                    <div>預約時段</div>
-                                                    <span>2020/08/19</span>
-                                                </div>
-                                                <div class=" col-md-12 col-6 ">
-                                                    <div>預約時數</div>
-                                                    <span>1hr</span>
-                                                </div>
-                                            </div>
-
-
-
-
-                                            <div class="co-counselor-order_item ">
-                                                <span>共計</span>
-                                                <span>1500 <span>元</span></span>
-                                            </div>
-                                        </div>
+                                <div class="row">
+                                    <div class="col-12 co-button--style">
+                                        <c-btn @click="update(currentStep-1)">prev</c-btn>
+                                        <c-btn @click="update(currentStep+1)">next</c-btn>
                                     </div>
-
                                 </div>
-                                <div class="col-md-9 col-sm-12 co-selfInfo ">
-                                    <div class="co-selfInfo_title">
-                                        <div>填寫預約者資訊</div>
-                                        <span>以下填寫資料是保密的，僅供我們心理諮商所留存使用，請安心填寫。如需修改請至 <a href="">修改個人資料</a> </span>
-                                    </div>
-                                    <div class="co-selfInfo_block">
-                                        <form action="" method="POST" enctype="multipart/form-data">
-                                            <input type="hidden" name="action" value="submit">
 
-                                            <div class="cos-selfForm_item">
-                                                <div>
-                                                    <label for="memName">真實姓名<span>*</span></label>
+
+                            </c-stepper>
+
+
+                            <c-stepper :step="2" v-if="currentStep==2" key="2">
+
+                                <div class="row">
+                                    <div class="col-12 co-title">
+                                        <h5>填寫資料</h5>
+                                    </div>
+                                    <div class="cos-counselor col-md-3 col-sm-12">
+                                        <div class="row">
+                                            <div class=" col-md-12 col-4 co-counselor-pic">
+                                                <div class="co-counselor-content">
+                                                    <img src="./img/acOrder/螢幕快照 2020-08-06 下午10.55.01.png" alt="John">
                                                 </div>
-                                                <input type="text" v-model="memName" class="form-control" name="memName" id="memName" placeholder="" required="yes" autocomplete="name">
+                                            </div>
+                                            <div class="col-md-12 col-8 co-counselor-text">
+
+                                                <div class="row align-items-center ">
+                                                    <div class="col-md-12 col-6 ">諮商心理師</div>
+                                                    <div class="col-md-12 col-6 ">何盈靜 May He</div>
+                                                </div>
                                             </div>
 
 
-                                            <div class="cos-selfForm_item">
-                                                <div>
-                                                    <label for="memGender">性別<span>*</span></label>
+                                            <div class="col-12 co-counselor-order ">
+                                                <div class="row justify-content-between ">
+                                                    <div class=" col-md-12 col-6 ">
+                                                        <div>預約時段</div>
+                                                        <span>2020/08/19</span>
+                                                    </div>
+                                                    <div class=" col-md-12 col-6 ">
+                                                        <div>預約時數</div>
+                                                        <span>1hr</span>
+                                                    </div>
                                                 </div>
 
-                                                <label class="radio">
-                                                          <input type="radio" v-model="memGender" name="memGender" id="memGender" value="男"> 男
+
+
+
+                                                <div class="co-counselor-order_item ">
+                                                    <span>共計</span>
+                                                    <span>1500 <span>元</span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-9 col-sm-12 co-selfInfo ">
+                                        <div class="co-selfInfo_title">
+                                            <div>填寫預約者資訊</div>
+                                            <span>以下填寫資料是保密的，僅供我們心理諮商所留存使用，請安心填寫。如需修改請至 <a href="">修改個人資料</a> </span>
+                                        </div>
+                                        <div class="co-selfInfo_block">
+                                            <form action="" method="POST" enctype="multipart/form-data">
+                                                <input type="hidden" name="action" value="submit">
+
+                                                <div class="cos-selfForm_item">
+                                                    <div>
+                                                        <label for="memName">真實姓名<span>*</span></label>
+                                                    </div>
+                                                    <input type="text" v-model="memName" :class="{ formControl:true,formatError: !memName && errors.length > 0}" name="memName" id="memName" placeholder="" required="yes" autocomplete="name">
+                                                </div>
+
+
+                                                <div class="cos-selfForm_item">
+                                                    <div>
+                                                        <label for="memGender">性別<span>*</span></label>
+                                                    </div>
+
+                                                    <label class="radio" :class="{ radioError: !memGender && errors.length > 0}">
+                                                          <input type="radio"  v-model="memGender" name="memGender" id="memGender" value="男"> 男
+                                                          <span class="checkmark" ></span>
+                                                    </label>
+                                                    <label class="radio" :class="{ radioError: !memGender && errors.length > 0}">
+                                                          <input type="radio"  v-model="memGender" name="memGender" id="memGender" value="女"> 女
                                                           <span class="checkmark"></span>
                                                     </label>
-                                                <label class="radio">
-                                                          <input type="radio" v-model="memGender" name="memGender" id="memGender" value="女"> 女
-                                                          <span class="checkmark"></span>
-                                                    </label>
-                                            </div>
-
-
-                                            <div class="cos-selfForm_item">
-                                                <div>
-                                                    <label for="memBD">年齡<span>*</span></label>
                                                 </div>
 
-                                                <input type="number" v-model.number="memBD" class="form-control" name="memBD" id="memBD" required="yes" autocomplete="bday">
-                                            </div>
 
+                                                <div class="cos-selfForm_item">
+                                                    <div>
+                                                        <label for="memBD">年齡<span>*</span></label>
+                                                    </div>
 
-                                            <div class="cos-selfForm_item">
-                                                <div>
-                                                    <label for="memAdd">居住地<span>*</span></label>
-                                                </div>
-                                                <div>
-                                                    例：台北信義 或 新北汐止
-                                                </div>
-                                                <input type="text" v-model="memAdd" class="form-control" name="memAdd" id="memAdd" required="yes" autocomplete="address">
-                                            </div>
-
-
-                                            <div class="cos-selfForm_item">
-                                                <div>
-                                                    <label for="memOcc">職業<span>*</span></label>
-                                                </div>
-                                                <input type="text" v-model="memOcc" class="form-control" name="memOcc" id="memOcc" required="yes" autocomplete="organization-title">
-                                            </div>
-
-
-                                            <div class="cos-selfForm_item">
-                                                <div>
-                                                    <label for="memTel">行動電話<span>*</span></label>
+                                                    <input type="number" v-model.number="memBD" :class="{ formControl:true, formatError: !memBD && errors.length > 0}" name="memBD" id="memBD" required="yes" autocomplete="bday">
                                                 </div>
 
-                                                <select name="memTel" v-model="memTel" id="" autocomplete="tel-country-code">
+
+                                                <div class="cos-selfForm_item">
+                                                    <div>
+                                                        <label for="memAdd">居住地<span>*</span></label>
+                                                    </div>
+                                                    <div>
+                                                        例：台北信義 或 新北汐止
+                                                    </div>
+                                                    <input type="text" v-model="memAdd" :class="{ formControl:true,formatError: !memAdd && errors.length > 0}" name="memAdd" id="memAdd" required="yes" autocomplete="address">
+                                                </div>
+
+
+                                                <div class="cos-selfForm_item">
+                                                    <div>
+                                                        <label for="memOcc">職業<span>*</span></label>
+                                                    </div>
+                                                    <input type="text" v-model="memOcc" :class="{ formControl:true, formatError: !memOcc && errors.length > 0}" name="memOcc" id="memOcc" required="yes" autocomplete="organization-title">
+                                                </div>
+
+
+                                                <div class="cos-selfForm_item">
+                                                    <div>
+                                                        <label for="memTel">行動電話<span>*</span></label>
+                                                    </div>
+
+                                                    <select name="memTel" :class="{ selectError: !memTel.countryCode && errors.length > 0}" v-model="memTel.countryCode" id="" autocomplete="tel-country-code">
                                                             <option data-countryCode="TW" value="886" Selected>Taiwan (+886)</option>
                                                             <optgroup label="Other countries">
                                                                 <option data-countryCode="AM" value="374">Armenia (+374)</option>
@@ -395,270 +395,163 @@
                                                                 <option data-countryCode="US" value="1">USA (+1)</option> 
                                                             </optgroup>
                                                         </select>
-                                                <input type="tel" class="form-control form-control--width" name="memTel" id="memTel" placeholder="9XXXXXXXX" required="yes" autocomplete="tel">
-                                                <!-- pattern="[0-9]{3}[ -][0-9]{3}[ -][0-9]{4}" -->
-                                            </div>
-
-                                            <div class="cos-selfForm_item">
-                                                <div>
-                                                    <label for="memEmail">電子郵件<span>*</span></label>
+                                                    <input type="tel" v-model="memTel.mobile" class="formControlWidth formControl" :class="{ formatError: !memTel.mobile && errors.length > 0}" name="memTel" id="memTel" placeholder="9XXXXXXXX" required="yes" autocomplete="tel">
+                                                    <!-- pattern="[0-9]{3}[ -][0-9]{3}[ -][0-9]{4}" -->
                                                 </div>
-                                                <input type="email" v-for="memEmail.value" class="form-control" name="memEmail" id="memEmail" required="yes" autocomplete="email" />
-                                            </div>
 
-
-
-                                            <div class="cos-selfForm_item">
-                                                <div>
-                                                    <label for="memTopic">想談論的主題<span>*</span></label>
-                                                </div>
-                                                <input type="text" class="form-control" name="memTopic" id="memTopic" required="yes" />
-                                            </div>
-
-
-
-                                            <div class="cos-selfForm_item">
-                                                <div>
-                                                    <label for="memStatus">目前身心狀況<span>*</span></label>
-                                                </div>
-                                                <div>
-                                                    如 : 睡眠、飲食、是否長期頭痛、開過刀、意外事件、憂鬱症等
-                                                </div>
-                                                <input type="text" class="form-control" name="memStatus" id="memStatus" />
-                                            </div>
-
-
-                                            <div class="cos-selfForm_item">
-                                                <div>
-                                                    <label for="memAnticipate">諮商的期待或其他想與我們說的話<span>*</span></label>
-                                                </div>
-                                                <input type="text" class="form-control" name="memAnticipate" id="memAnticipate" />
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-9 offset-md-3 cos-selfForm_item co-button--style">
-                                    <c-btn @click="update(currentStep-1)">prev</c-btn>
-                                    <c-btn @click="update(currentStep+1)">next</c-btn>
-                                </div>
-                            </div>
-
-
-                        </c-stepper>
-
-                        <c-stepper :step="3" :current="currentStep">
-                            <div class="row">
-                                <div class="col-12 co-title">
-                                    <h5>確認預約資訊</h5>
-                                </div>
-                                <div class="cos-counselor col-md-3 col-sm-12">
-                                    <div class="row">
-                                        <div class=" col-md-12 col-4 co-counselor-pic">
-                                            <div class="co-counselor-content">
-                                                <img src="./img/acOrder/螢幕快照 2020-08-06 下午10.55.01.png" alt="John">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 col-8 co-counselor-text">
-
-                                            <div class="row align-items-center ">
-                                                <div class="col-md-12 col-6 ">諮商心理師</div>
-                                                <div class="col-md-12 col-6 ">何盈靜 May He</div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-12 co-counselor-order ">
-                                            <div class="row justify-content-between ">
-                                                <div class=" col-md-12 col-6 ">
-                                                    <div>預約時段</div>
-                                                    <span>2020/08/19</span>
-                                                </div>
-                                                <div class=" col-md-12 col-6 ">
-                                                    <div>預約時數</div>
-                                                    <span>1hr</span>
-                                                </div>
-                                            </div>
-
-
-
-
-                                            <div class="co-counselor-order_item ">
-                                                <span>共計</span>
-                                                <span>1500 <span>元</span></span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-9 col-sm-12 co-CheckOrder">
-                                    <div class="row co-CheckOrder_block">
-                                        <table class="co-CheckOrder-table">
-                                            <tr>
-                                                <th>真實姓名</th>
-                                                <td>葉海綿</td>
-                                            </tr>
-                                            <tr>
-                                                <th>性別</th>
-                                                <td>女</td>
-                                            </tr>
-                                            <tr>
-                                                <th>出生年月日</th>
-                                                <td>1993-12-12</td>
-                                            </tr>
-                                            <tr>
-                                                <th>居住地</th>
-                                                <td>台北</td>
-                                            </tr>
-                                            <tr>
-                                                <th>職業</th>
-                                                <td>自由業</td>
-                                            </tr>
-                                            <tr>
-                                                <th>行動電話</th>
-                                                <td><span><span>+886</span>922-123-123</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th>電子郵件</th>
-                                                <td>sbegdhla@yahoo.com.tw</td>
-                                            </tr>
-                                            <tr>
-                                                <th>想談論的主題</th>
-                                                <td>工作壓力</td>
-                                            </tr>
-
-                                        </table>
-
-
-                                        <div class="co-CheckOrder_title">訂單資訊</div>
-                                        <table class="co-CheckOrder-list">
-                                            <tr>
-                                                <th>項目</th>
-                                                <th>數量</th>
-                                                <th>價格</th>
-                                                <th>小計</th>
-                                            </tr>
-                                            <tr>
-                                                <td data-title="項目">
+                                                <div class="cos-selfForm_item">
                                                     <div>
+                                                        <label for="memEmail">電子郵件<span>*</span></label>
+                                                    </div>
+                                                    <input type="email" v-model="memEmail.value" class="formControl" :class="{ formatError: !memEmail.value && errors.length > 0}" name="memEmail" id="memEmail" required="yes" autocomplete="email" />
+                                                </div>
+
+
+
+                                                <div class="cos-selfForm_item">
+                                                    <div>
+                                                        <label for="memTopic">想談論的主題</label>
+                                                    </div>
+                                                    <input type="text" v-model="memTopic" class="formControl" name="memTopic" id="memTopic" required="yes" />
+                                                </div>
+
+
+
+                                                <div class="cos-selfForm_item">
+                                                    <div>
+                                                        <label for="memStatus">目前身心狀況</label>
+                                                    </div>
+                                                    <div>
+                                                        如 : 睡眠、飲食、是否長期頭痛、開過刀、意外事件、憂鬱症等
+                                                    </div>
+                                                    <input type="text" v-model="memStatus" class="formControl" name="memStatus" id="memStatus" />
+                                                </div>
+
+
+                                                <div class="cos-selfForm_item">
+                                                    <div>
+                                                        <label for="memAnticipate">諮商的期待或其他想與我們說的話</label>
+                                                    </div>
+                                                    <input type="text" v-model="memAnticipate" class="formControl" name="memAnticipate" id="memAnticipate" />
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="ao-co-error-overlay" v-if="showModal" @click="showModal = false"></div>
+                                <!-- v-if="errors.length > 0" -->
+                                <div v-if="showModal" class="co-ao-error--border">
+                                    <div class="co-ao-error-block">
+                                        <p>請填寫 <span v-for="error in errors">{{error}}</span></p>
+                                        <button class="button2-1 error-modal-closer" @click="showModal = false">關閉</button>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-9 offset-md-3 cos-selfForm_item co-button--style">
+                                        <c-btn @click="update(currentStep-1)">prev</c-btn>
+                                        <c-btn @click="checkForm()">next</c-btn>
+                                    </div>
+                                </div>
+
+                            </c-stepper>
+
+                            <c-stepper :step="3" v-if="currentStep==3" key="3">
+                                <div class="row">
+                                    <div class="col-12 co-title">
+                                        <h5>確認預約資訊</h5>
+                                    </div>
+                                    <div class="cos-counselor col-md-3 col-sm-12">
+                                        <div class="row">
+                                            <div class=" col-md-12 col-4 co-counselor-pic">
+                                                <div class="co-counselor-content">
+                                                    <img src="./img/acOrder/螢幕快照 2020-08-06 下午10.55.01.png" alt="John">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-8 co-counselor-text">
+
+                                                <div class="row align-items-center ">
+                                                    <div class="col-md-12 col-6 ">諮商心理師</div>
+                                                    <div class="col-md-12 col-6 ">何盈靜 May He</div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-12 co-counselor-order ">
+                                                <div class="row justify-content-between ">
+                                                    <div class=" col-md-12 col-6 ">
+                                                        <div>預約時段</div>
                                                         <span>2020/08/19</span>
-                                                        <span>上午10:30-12:00</span>
                                                     </div>
-                                                    <div>
-                                                        預約時數1.5小時
+                                                    <div class=" col-md-12 col-6 ">
+                                                        <div>預約時數</div>
+                                                        <span>1hr</span>
                                                     </div>
-                                                </td>
-                                                <td data-title="數量">1</td>
-                                                <td data-title="價格">
-                                                    <span>
-                                                            NT $
-                                                        </span>
-                                                    <span>
-                                                            1500
-                                                        </span>
-                                                </td>
-                                                <td data-title="小計">
-                                                    <span>
-                                                            NT $
-                                                        </span>
-                                                    <span>
-                                                            1500
-                                                        </span>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                                </div>
 
-                                        <div class="co-CheckOrder_title">
-                                            <span>付款金額</span>
-                                            <span>NT$1500</span>
+
+
+
+                                                <div class="co-counselor-order_item ">
+                                                    <span>共計</span>
+                                                    <span>1500 <span>元</span></span>
+                                                </div>
+                                            </div>
                                         </div>
 
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-9 offset-md-3 cos-selfForm_item co-button--style">
-                                    <c-btn @click="update(currentStep-1)">prev</c-btn>
-                                    <c-btn @click="update(currentStep+1)">next</c-btn>
-                                </div>
-                            </div>
-                        </c-stepper>
+                                    <div class="col-md-9 col-sm-12 co-CheckOrder">
+                                        <div class="row co-CheckOrder_block">
+                                            <table class="co-CheckOrder-table">
+                                                <tr>
+                                                    <th>真實姓名</th>
+                                                    <td>{{memName}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>性別</th>
+                                                    <td>{{memGender}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>年齡</th>
+                                                    <td>{{memBD}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>居住地</th>
+                                                    <td>{{memAdd}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>職業</th>
+                                                    <td>{{memOcc}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>行動電話</th>
+                                                    <td><span>{{memTel.countryCode}}-{{memTel.mobile}}</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>電子郵件</th>
+                                                    <td>{{memEmail.value}}</td>
+                                                </tr>
+                                                <tr v-if="memTopic">
+                                                    <th>想談論的主題</th>
+                                                    <td>{{memTopic}}</td>
+                                                </tr>
+                                                <tr v-if="memStatus">
+                                                    <th>目前身心狀況</th>
+                                                    <td>{{memStatus}}</td>
+                                                </tr>
+                                                <tr v-if="memAnticipate">
+                                                    <th>諮商的期待與其他</th>
+                                                    <td>{{memAnticipate}}</td>
+                                                </tr>
 
-                        <c-stepper :step="4" :current="currentStep">
-                            <div class="row">
-                                <div class="col-12 co-title">
-                                    <h5>前往付款</h5>
-                                </div>
-                                <div class="cos-counselor col-md-3 col-sm-12">
-                                    <div class="row">
-                                        <div class=" col-md-12 col-4 co-counselor-pic">
-                                            <div class="co-counselor-content">
-                                                <img src="./img/acOrder/螢幕快照 2020-08-06 下午10.55.01.png" alt="John">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 col-8 co-counselor-text">
-                                            <!-- <div>
-                                                <div>諮商心理師</div>
-                                                <div>何盈靜 May He</div>
-                                            </div> -->
-
-                                            <div class="row align-items-center ">
-                                                <div class="col-md-12 col-6 ">諮商心理師</div>
-                                                <div class="col-md-12 col-6 ">何盈靜 May He</div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-12 co-counselor-order ">
-                                            <div class="row justify-content-between ">
-                                                <div class=" col-md-12 col-6 ">
-                                                    <div>預約時段</div>
-                                                    <span>2020/08/19</span>
-                                                </div>
-                                                <div class=" col-md-12 col-6 ">
-                                                    <div>預約時數</div>
-                                                    <span>1hr</span>
-                                                </div>
-                                            </div>
-
-
+                                            </table>
 
 
-                                            <div class="co-counselor-order_item ">
-                                                <span>共計</span>
-                                                <span>1500 <span>元</span></span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-9 col-sm-12 co-billing">
-                                    <div class="row co-billing-block">
-                                        <div class="co-billing_button">
-                                            <!-- <v-expansion-panels>
-                                                <v-expansion-panel>
-                                                    <v-expansion-panel-header>
-                                                        Panel 3
-                                                    </v-expansion-panel-header>
-                                                    <v-expansion-panel-content>
-                                                        Some content
-                                                    </v-expansion-panel-content>
-                                                </v-expansion-panel>
-                                            </v-expansion-panels> -->
-                                            <div>
-                                                <span>付款金額</span>
-                                                <span>NT$1500</span>
-                                            </div>
-                                            <div>
-                                                －收合訂單明細
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <table class="co-billing_list">
+                                            <div class="co-CheckOrder_title">訂單資訊</div>
+                                            <table class="co-CheckOrder-list">
                                                 <tr>
                                                     <th>項目</th>
                                                     <th>數量</th>
@@ -678,136 +571,295 @@
                                                     <td data-title="數量">1</td>
                                                     <td data-title="價格">
                                                         <span>
-                                                        NT $
-                                                    </span>
+                                                            NT $
+                                                        </span>
                                                         <span>
-                                                        1500
-                                                    </span>
+                                                            1500
+                                                        </span>
                                                     </td>
                                                     <td data-title="小計">
                                                         <span>
-                                                        NT $
-                                                    </span>
+                                                            NT $
+                                                        </span>
                                                         <span>
-                                                        1500
-                                                    </span>
+                                                            1500
+                                                        </span>
                                                     </td>
                                                 </tr>
                                             </table>
 
-                                            <div class="co-billing_title">
+                                            <div class="co-CheckOrder_title">
                                                 <span>付款金額</span>
                                                 <span>NT$1500</span>
                                             </div>
-                                        </div>
 
-                                    </div>
-
-                                    <div class="row co-billing-block">
-                                        <div class="co-billing-block_title">
-                                            請選擇付款方式
-                                        </div>
-                                        <div class="co-billing-payment">
-                                            <div class="co-billing-title">
-                                                <i class="fas fa-globe"></i>
-                                                <span>線上付款</span>
-                                            </div>
-                                            <div class="co-billing_method">
-                                                <i class="fab fa-cc-visa"></i>
-                                                <span>信用卡 - VISA / Master Card / JBC</span>
-                                            </div>
-                                            <div class="co-billing_method">
-                                                <i class="fab fa-line"></i>
-                                                <span>LINE PAY</span>
-                                            </div>
-                                            <div class="co-billing_method">
-                                                <i class="fab fa-paypal"></i>
-                                                <span>街口支付</span>
-                                            </div>
-                                        </div>
-                                        <div class="co-billing-payment">
-                                            <div class="co-billing-title">
-                                                <i class="fas fa-globe"></i>
-                                                <span>線下付款</span>
-                                            </div>
-                                            <div class="co-billing_method">
-                                                <i class="fas fa-ad"></i>
-                                                <span>全家代碼－全家FamiPort</span>
-                                            </div>
-                                            <div class="co-billing_method">
-                                                <i class="fas fa-university"></i>
-                                                <span>ATM轉帳－國泰世華銀行</span>
-                                            </div>
                                         </div>
                                     </div>
-
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-9 offset-md-3 cos-selfForm_item co-button--style">
-                                    <c-btn @click="update(currentStep-1)">prev</c-btn>
-                                    <c-btn @click="update(currentStep+1)">next</c-btn>
+                                <div class="row">
+                                    <div class="col-md-9 offset-md-3 cos-selfForm_item co-button--style">
+                                        <c-btn @click="update(currentStep-1)">prev</c-btn>
+                                        <c-btn @click="update(currentStep+1)">next</c-btn>
+                                    </div>
                                 </div>
-                            </div>
+                            </c-stepper>
 
-                        </c-stepper>
-
-                        <c-stepper :step="5" :current="currentStep">
-                            <div class="row co-review">
-                                <div class="col-12 co-title">
-                                    <h6>預約成功！</h6>
-                                </div>
-                                <div class="col-12 co-title">
-                                    <h6>感謝您的預約</h6>
-                                </div>
-                                <div class="col-12 co-review_block">
-                                    <h5>預約編號：</h5>
-                                    <h5>20072505282417007092</h5>
-                                </div>
-                                <div class="cos-counselor-review col-sm-12">
-                                    <div class="row justify-content-center">
-                                        <div class=" col-md-12 co-counselor-pic">
-                                            <div class="co-counselor-content">
-                                                <img src="./img/acOrder/螢幕快照 2020-08-06 下午10.55.01.png" alt="John">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 co-counselor-text">
-                                            <div class="row align-items-center ">
-                                                <div class="col-md-12">諮商心理師</div>
-                                                <div class="col-md-12">何盈靜 May He</div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-12 co-counselor-order ">
-                                            <div class="row justify-content-center">
-                                                <div class=" col-md-12">
-                                                    <div>預約時段</div>
-                                                    <span>2020/08/19</span>
+                            <c-stepper :step="4" v-if="currentStep==4" key="4">
+                                <div class="row">
+                                    <div class="col-12 co-title">
+                                        <h5>前往付款</h5>
+                                    </div>
+                                    <div class="cos-counselor col-md-3 col-sm-12">
+                                        <div class="row">
+                                            <div class=" col-md-12 col-4 co-counselor-pic">
+                                                <div class="co-counselor-content">
+                                                    <img src="./img/acOrder/螢幕快照 2020-08-06 下午10.55.01.png" alt="John">
                                                 </div>
-                                                <div class=" col-md-12">
-                                                    <div>預約時數</div>
-                                                    <span>1hr</span>
+                                            </div>
+                                            <div class="col-md-12 col-8 co-counselor-text">
+
+
+                                                <div class="row align-items-center ">
+                                                    <div class="col-md-12 col-6 ">諮商心理師</div>
+                                                    <div class="col-md-12 col-6 ">何盈靜 May He</div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-12 co-counselor-order ">
+                                                <div class="row justify-content-between ">
+                                                    <div class=" col-md-12 col-6 ">
+                                                        <div>預約時段</div>
+                                                        <span>2020/08/19</span>
+                                                    </div>
+                                                    <div class=" col-md-12 col-6 ">
+                                                        <div>預約時數</div>
+                                                        <span>1hr</span>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <div class="co-counselor-order_item ">
+                                                    <span>共計</span>
+                                                    <span>1500 <span>元</span></span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 co-memberCenter_block">
-                                            您可至會員專區查看您的預約
+
+                                    </div>
+                                    <div class="col-md-9 col-sm-12 co-billing">
+                                        <div class="row co-billing-block">
+                                            <div class="co-billing_button">
+                                                <div>
+                                                    <span>付款金額</span>
+                                                    <span>NT$1500</span>
+                                                </div>
+
+                                                <toggle_button @childopen="parentOpen" name="1"></toggle_button>
+
+                                                <!-- <button @click="go=!go">open</button> -->
+                                            </div>
+                                            <!-- <div v-if="go" transition="expand">
+                                                <table class="co-billing_list">
+                                                    <tr>
+                                                        <th>項目</th>
+                                                        <th>數量</th>
+                                                        <th>價格</th>
+                                                        <th>小計</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-title="項目">
+                                                            <div>
+                                                                <span>2020/08/19</span>
+                                                                <span>上午10:30-12:00</span>
+                                                            </div>
+                                                            <div>
+                                                                預約時數1.5小時
+                                                            </div>
+                                                        </td>
+                                                        <td data-title="數量">1</td>
+                                                        <td data-title="價格">
+                                                            <span>
+                                                    NT $
+                                                </span>
+                                                            <span>
+                                                    1500
+                                                </span>
+                                                        </td>
+                                                        <td data-title="小計">
+                                                            <span>
+                                                    NT $
+                                                </span>
+                                                            <span>
+                                                    1500
+                                                </span>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                                <div class="co-billing_title">
+                                                    <span>付款金額</span>
+                                                    <span>NT$1500</span>
+                                                </div>
+                                            </div> -->
+                                            <transition name="listTransition" mode="out-in">
+                                                <div v-show="listDataHide">
+                                                    <table class="co-billing_list">
+                                                        <tr>
+                                                            <th>項目</th>
+                                                            <th>數量</th>
+                                                            <th>價格</th>
+                                                            <th>小計</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td data-title="項目">
+                                                                <div>
+                                                                    <span>2020/08/19</span>
+                                                                    <span>上午10:30-12:00</span>
+                                                                </div>
+                                                                <div>
+                                                                    預約時數1.5小時
+                                                                </div>
+                                                            </td>
+                                                            <td data-title="數量">1</td>
+                                                            <td data-title="價格">
+                                                                <span>
+                                                        NT $
+                                                    </span>
+                                                                <span>
+                                                        1500
+                                                    </span>
+                                                            </td>
+                                                            <td data-title="小計">
+                                                                <span>
+                                                        NT $
+                                                    </span>
+                                                                <span>
+                                                        1500
+                                                    </span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+
+                                                    <div class="co-billing_title">
+                                                        <span>付款金額</span>
+                                                        <span>NT$1500</span>
+                                                    </div>
+                                                </div>
+                                            </transition>
+
+
                                         </div>
-                                        <button class="col-7 col-md-3 co-memberCenter_button button2">
+
+                                        <div class="row co-billing-block">
+                                            <div class="co-billing-block_title">
+                                                請選擇付款方式
+                                            </div>
+                                            <div class="co-billing-payment">
+                                                <div class="co-billing-title">
+                                                    <i class="fas fa-globe"></i>
+                                                    <span>線上付款</span>
+                                                </div>
+                                                <div class="co-billing_method">
+                                                    <i class="fab fa-cc-visa"></i>
+                                                    <span>信用卡 - VISA / Master Card / JBC</span>
+                                                </div>
+                                                <div class="co-billing_method">
+                                                    <i class="fab fa-line"></i>
+                                                    <span>LINE PAY</span>
+                                                </div>
+                                                <div class="co-billing_method">
+                                                    <i class="fab fa-paypal"></i>
+                                                    <span>街口支付</span>
+                                                </div>
+                                            </div>
+                                            <div class="co-billing-payment">
+                                                <div class="co-billing-title">
+                                                    <i class="fas fa-globe"></i>
+                                                    <span>線下付款</span>
+                                                </div>
+                                                <div class="co-billing_method">
+                                                    <i class="fas fa-ad"></i>
+                                                    <span>全家代碼－全家FamiPort</span>
+                                                </div>
+                                                <div class="co-billing_method">
+                                                    <i class="fas fa-university"></i>
+                                                    <span>ATM轉帳－國泰世華銀行</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-9 offset-md-3 cos-selfForm_item co-button--style">
+                                        <c-btn @click="update(currentStep-1)">prev</c-btn>
+                                        <c-btn @click="update(currentStep+1)">next</c-btn>
+                                    </div>
+                                </div>
+
+                            </c-stepper>
+
+                            <c-stepper :step="5" v-if="currentStep==5" key="5">
+                                <div class="row co-review">
+                                    <div class="col-12 co-title">
+                                        <h6>預約成功！</h6>
+                                    </div>
+                                    <div class="col-12 co-title">
+                                        <h6>感謝您的預約</h6>
+                                    </div>
+                                    <div class="col-12 co-review_block">
+                                        <h5>預約編號：</h5>
+                                        <h5>20072505282417007092</h5>
+                                    </div>
+                                    <div class="cos-counselor-review col-sm-12">
+                                        <div class="row justify-content-center">
+                                            <div class=" col-md-12 co-counselor-pic">
+                                                <div class="co-counselor-content">
+                                                    <img src="./img/acOrder/螢幕快照 2020-08-06 下午10.55.01.png" alt="John">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 co-counselor-text">
+                                                <div class="row align-items-center ">
+                                                    <div class="col-md-12">諮商心理師</div>
+                                                    <div class="col-md-12">何盈靜 May He</div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-12 co-counselor-order ">
+                                                <div class="row justify-content-center">
+                                                    <div class=" col-md-12">
+                                                        <div>預約時段</div>
+                                                        <span>2020/08/19</span>
+                                                    </div>
+                                                    <div class=" col-md-12">
+                                                        <div>預約時數</div>
+                                                        <span>1hr</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 co-memberCenter_block">
+                                                您可至會員專區查看您的預約
+                                            </div>
+                                            <button class="col-7 col-md-3 co-memberCenter_button button2">
                                                 前往會員專區
                                             </button>
+                                        </div>
+
                                     </div>
 
                                 </div>
 
-                            </div>
-
-                        </c-stepper>
+                            </c-stepper>
+                        </transition>
                     </stepper-content>
 
-                    <!-- </transition> -->
+
                 </div>
+
             </main>
 
         </div>
