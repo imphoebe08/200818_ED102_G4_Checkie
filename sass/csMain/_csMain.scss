@@ -1,51 +1,53 @@
 @import 'style';
 
-.csMain {
-    z-index: 50;
+
+#csMainContainer {
     position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 
-    #cleanSelect {
-        position: absolute;
-        right: 15%;
-        top: 10px;
-    }
+    .csMain {
+        z-index: 50;
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
 
-    .checkbox-form {
-        display: flex;
-        flex-flow: nowrap row;
-        justify-content: center;
+        .checkbox-form {
+            display: flex;
+            flex-flow: nowrap row;
+            justify-content: center;
 
-        span {
-            width: 120px;
-            height: 4px;
-            margin: 20px 10px;
-            text-align: center;
+            span {
+                width: 120px;
+                height: 4px;
+                margin: 20px 10px;
+                text-align: center;
 
-            &+select {
-                margin: 20px auto;
+                &+select {
+                    margin: 20px auto;
+                }
             }
-        }
 
-        input {
-            display: none;
+            input {
+                display: none;
 
-            &:checked+label {
-                background-color: pink;
-                color: #fff;
+                &:checked+label {
+                    background-color: pink;
+                    color: #fff;
+                }
             }
-        }
 
-        label.button3-1 {
-            margin: 10px;
-            display: inline-block;
-            @include btn-more(80px, $color-pink, $fontsize);
-            border-radius: $border-radius - 20px;
-            height: 40px;
-            width: 120px;
-            padding: 0;
-            line-height: 40px;
+            label.button3-1 {
+                margin: 10px;
+                display: inline-block;
+                @include btn-more(80px, $color-pink, $fontsize);
+                border-radius: $border-radius - 20px;
+                height: 40px;
+                width: 120px;
+                padding: 0;
+                line-height: 40px;
+            }
         }
     }
 }
@@ -194,7 +196,7 @@
     .csMain {
         position: absolute;
         right: -120px;
-        height: 500px;
+        height: 430px;
         width: 120px;
         border: 1px solid red;
         transition: all 1s ease;
@@ -205,12 +207,6 @@
 
         &.slideOut {
             animation: slideOut 1s ease forwards;
-        }
-
-        #cleanSelect {
-            position: absolute;
-            right: 15%;
-            top: 90%;
         }
 
         .checkbox-form {

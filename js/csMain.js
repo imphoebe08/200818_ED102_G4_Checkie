@@ -34,39 +34,49 @@ Vue.component('cscounselor-layout', {
 })
 
 let vm = new Vue({
-    el: "#app",
-    data: {
-        screenWidth: window.innerWidth,
-        csGender: [],
-        csPosition: [],
-        csProblem: [],
+    el: "#appCsMain",
+	data: {
+		screenWidth: window.innerWidth,
+		csGender: [],
+		csPosition: [],
+		csProblem: [],
         slideBool: true,
         countCards: 10,
-    },
-    mounted() {
-        window.onresize = () => {
-            this.screenWidth = window.innerWidth;
-        };
-    },
-    methods: {
-        cleanSelect() {
-            this.csGender = [];
-            this.csPosition = [];
-            this.csProblem = [];
-        },
-        slideToggle() {
+	},
+	mounted() {
+		window.onresize = () => {
+			this.screenWidth = window.innerWidth;
+		};
+	},
+	methods: {
+		cleanSelect() {
+			this.csGender = [];
+			this.csPosition = [];
+			this.csProblem = [];
+		},
+		slideToggle() {
+			let csMain = document.getElementsByClassName("csMain")[0];
+			if (this.slideBool) {
+				csMain.classList.add("slideIn");
+				csMain.classList.remove("slideOut");
+				this.slideBool = !this.slideBool;
+			} else {
+				csMain.classList.remove("slideIn");
+				csMain.classList.add("slideOut");
+				this.slideBool = !this.slideBool;
+			}
+		},
+		clickWhite(e) {
             let csMain = document.getElementsByClassName("csMain")[0];
-            if (this.slideBool) {
-                csMain.classList.add("slideIn");
-                csMain.classList.remove("slideOut");
-                this.slideBool = !this.slideBool;
-            } else {
-                csMain.classList.remove("slideIn");
-                csMain.classList.add("slideOut");
-                this.slideBool = !this.slideBool;
-            }
-        }
-    }
+            console.log(e.target.contains(csMain));
+			if (e.target.contains(csMain)) {
+                console.log('hi2');
+				csMain.classList.remove("slideIn");
+				csMain.classList.add("slideOut");
+				this.slideBool = true;
+			}
+		}
+	}
 });
 
 
