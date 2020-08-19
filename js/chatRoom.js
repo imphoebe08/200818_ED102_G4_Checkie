@@ -7,7 +7,7 @@ Vue.component('doctors', {
     <div class="chatRoom_drPic">
         <img src="./img/chatRoom/drPic.png" alt="">
     </div>
-    <h5>{{doctor}}</h5>
+    <h5>{{doctor}}</h5><p>&nbsp諮商師</p>
     <div class="chatRoom_more">
         <img src="./img/icon/more.svg" alt="">
     </div>
