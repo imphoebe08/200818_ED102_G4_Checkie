@@ -5,11 +5,17 @@
 input{
     outline: none;
 }
+#form>form{
+    display: flex;
+    height: 95ch;
+    align-items: flex-end;
+}
 #qsBox{
     border-radius: 30px;
     width: 90vw;
     margin: 0 auto;
     background-color: rgb(235, 245, 255);
+    padding-bottom: 50px;
 }
 
 .qsAsk{

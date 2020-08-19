@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
 body {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-weight: 400;
   font-family: "Noto Sans TC", sans-serif;
   margin: 0;
@@ -28,21 +27,17 @@ body {
 
 .atBanner .atBanner_box .atBanner-box_pic img {
   width: 100%;
-  -webkit-transition: all 1s linear;
   transition: all 1s linear;
 }
 
 .atContent {
   max-width: 1200px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin: 0 auto;
   text-decoration: none;
 }
 
 .atContent .atContent-conterbox {
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
 }
@@ -60,8 +55,6 @@ body {
   height: 30px;
   margin-top: 4%;
   margin-bottom: 2%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   color: rgba(179, 178, 178, 0.867);
 }
@@ -99,8 +92,6 @@ body {
   height: 20px;
   margin-top: 4%;
   margin-bottom: 3%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   color: rgba(179, 178, 178, 0.867);
 }
@@ -149,7 +140,6 @@ body {
 }
 
 .atContent .atContent_right .atContent_rightbox {
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
 }
@@ -179,7 +169,6 @@ body {
   height: 10px;
   position: relative;
   color: white;
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   background: #ddd;
 }
@@ -194,7 +183,6 @@ body {
   z-index: 2;
   opacity: 0;
   background-color: #FFA492;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
@@ -252,7 +240,6 @@ body {
   padding: 30px 0 30px 0;
   background: #91D0EB;
   overflow: scroll;
-  -webkit-transition: all 10s linear;
   transition: all 10s linear;
 }
 
@@ -266,28 +253,22 @@ body {
   z-index: 1;
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  -webkit-transform: scale(1, 0.5);
-          transform: scale(1, 0.5);
+  transform: scale(1, 0.5);
 }
 
 .atBox .atBox-Class-content_pic:hover::before {
   opacity: 1;
-  -webkit-transform: scale(1, 1);
-          transform: scale(1, 1);
+  transform: scale(1, 1);
 }
 
 .atBox .atBox_Class {
   width: 100%;
   height: auto;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   z-index: 1;
-  -ms-flex-item-align: center;
-      align-self: center;
+  align-self: center;
 }
 
 .atBox .atBox_Class .atBox-Class_content {
@@ -295,7 +276,6 @@ body {
   height: 50vh;
   position: relative;
   margin: 0 30px;
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   position: relative;
 }
@@ -303,8 +283,7 @@ body {
 .atBox .atBox_Class .atBox-Class-content_pic {
   position: relative;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .atBox .atBox_Class .atBox-Class-content_pic img {
@@ -369,7 +348,6 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
-  -webkit-transition: all 0.8s linear;
   transition: all 0.8s linear;
   z-index: 1;
 }
@@ -386,40 +364,33 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(145, 208, 235, 0.9);
-  -webkit-transition: all 0.6s linear;
   transition: all 0.6s linear;
 }
 
 .atClassAfter .atClassAfter_content_block.show_ani:nth-child(odd) .atClassAfter_content .atClassAfter-content_pic {
-  -webkit-clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0% 100%);
-          clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0% 100%);
 }
 
 .atClassAfter .atClassAfter_content_block.show_ani:nth-child(odd) .atClassAfter_content .atClassAfter-content_text {
   opacity: 1;
-  -webkit-transition-delay: .5s;
-          transition-delay: .5s;
+  transition-delay: .5s;
 }
 
 .atClassAfter .atClassAfter_content_block.show_ani:nth-child(odd) .atClassAfter-content-block_blank {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  transform: translateX(0);
 }
 
 .atClassAfter .atClassAfter_content_block.show_ani:nth-child(even) .atClassAfter_content .atClassAfter-content_pic {
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .atClassAfter .atClassAfter_content_block.show_ani:nth-child(even) .atClassAfter_content .atClassAfter-content_text {
   opacity: 1;
-  -webkit-transition-delay: .5s;
-          transition-delay: .5s;
+  transition-delay: .5s;
 }
 
 .atClassAfter .atClassAfter_content_block.show_ani:nth-child(even) .atClassAfter-content-block_blank {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  transform: translateX(0);
 }
 
 .atClassAfter .atClassAfter_content_block:nth-child(odd) {
@@ -434,11 +405,8 @@ body {
   top: 10%;
   background: #75c4e6;
   left: 0;
-  -webkit-transform: scaleX(0.0001) translateX(-100%);
-          transform: scaleX(0.0001) translateX(-100%);
-  -webkit-transform-origin: right center;
-          transform-origin: right center;
-  -webkit-transition: all .5s linear;
+  transform: scaleX(0.0001) translateX(-100%);
+  transform-origin: right center;
   transition: all .5s linear;
 }
 
@@ -447,15 +415,9 @@ body {
   margin: auto;
   max-width: 1200px;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .atClassAfter .atClassAfter_content_block:nth-child(odd) .atClassAfter_content .atClassAfter-content_text {
@@ -465,17 +427,13 @@ body {
 
 .atClassAfter .atClassAfter_content_block:nth-child(odd) .atClassAfter_content .atClassAfter-content_pic {
   width: 40%;
-  -webkit-clip-path: polygon(100% 0, 100% 0%, 100% 100%, 100% 100%);
-          clip-path: polygon(100% 0, 100% 0%, 100% 100%, 100% 100%);
+  clip-path: polygon(100% 0, 100% 0%, 100% 100%, 100% 100%);
   position: absolute;
   left: 0%;
   top: 50%;
   overflow: hidden;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  -webkit-transform-origin: right center;
-          transform-origin: right center;
-  -webkit-transition: all .6s linear;
+  transform: translateY(-50%);
+  transform-origin: right center;
   transition: all .6s linear;
 }
 
@@ -499,7 +457,6 @@ body {
   color: #FFA492;
   cursor: pointer;
   background-color: transparent;
-  -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
 }
 
@@ -520,11 +477,8 @@ body {
   top: 10%;
   background: #75c4e6;
   right: 0;
-  -webkit-transform: scaleX(0.0001) translateX(100%);
-          transform: scaleX(0.0001) translateX(100%);
-  -webkit-transform-origin: left center;
-          transform-origin: left center;
-  -webkit-transition: all .5s linear;
+  transform: scaleX(0.0001) translateX(100%);
+  transform-origin: left center;
   transition: all .5s linear;
 }
 
@@ -533,23 +487,15 @@ body {
   margin: auto;
   max-width: 1200px;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .atClassAfter .atClassAfter_content_block:nth-child(even) .atClassAfter_content .atClassAfter-content_text {
   width: 50%;
   opacity: 0;
-  -webkit-transform: translate(-100%, 10px);
-          transform: translate(-100%, 10px);
-  -webkit-transition: all .3s;
+  transform: translate(-100%, 10px);
   transition: all .3s;
 }
 
@@ -569,7 +515,6 @@ body {
   color: #FFA492;
   cursor: pointer;
   background-color: transparent;
-  -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
 }
 
@@ -584,14 +529,10 @@ body {
   right: 0%;
   top: 50%;
   overflow: hidden;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  -webkit-transform-origin: right center;
-          transform-origin: right center;
-  -webkit-transition: all .6s linear;
+  transform: translateY(-50%);
+  transform-origin: right center;
   transition: all .6s linear;
-  -webkit-clip-path: polygon(0 0, 0% 0, 0% 100%, 0 100%);
-          clip-path: polygon(0 0, 0% 0, 0% 100%, 0 100%);
+  clip-path: polygon(0 0, 0% 0, 0% 100%, 0 100%);
 }
 
 .atClassAfter .atClassAfter_content_block:nth-child(even) .atClassAfter_content .atClassAfter-content_pic img {

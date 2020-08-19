@@ -4,7 +4,7 @@
     display: flex;
     >div{
     z-index: 2;
-        
+    background-color: white;
         a{
             text-decoration: none;
             display: inline-block;
@@ -40,15 +40,19 @@
                     .inArti-left-detail_block{
                         display: flex;
                         justify-content: flex-start;
-                        .inArti-left_partner{
-                            width: 100px;
-                            height: 100px;
+                        .inArti-left-detail_pic{
+                            width: 25px;
+                            height: 25px;
                             border-radius: 50%;
+                            overflow: hidden;
+                            // padding-right: 5px;
+                            align-self: center;
                             img{
                                 width: 100%;
                             }
                         }
                         .inArti-left-detail_text{
+                            padding-left: 5px;
                             @include p;
                             font-size: 16px;
                         }
@@ -75,11 +79,13 @@
                 }
                 .inArti-left_title{
                     h2{
-                        @include h2;
+                        @include h5;
                     }
                 }
                 .inArti-left_partner{
                     @include p ;
+                    font-size: 16px;
+                    line-height: 1.5em;
                 }
             }
         }
@@ -92,7 +98,7 @@
         @extend .inArti_left;
         .inArti-conterbox{
             position: sticky;
-            top: 0;
+            top: 80px;
         }
     }
     .inArti_right{

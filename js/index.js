@@ -42,28 +42,7 @@ $(function(){
     }
     //結束
 })
-    // <!-- 神諭卡進場 -->
-    $(function(){
-        card()
-    })
-    $(window).scroll(function(){
-        card()
-    })
-    function card(){
-        var win = $(window),
-        hWin = win.height(),
-        scroll = $(window).scrollTop(),
-        Cstart = $(".inCard").offset().top;
-        if(scroll > Cstart - hWin*0.8){
-            $(".inCard_body>div").addClass("move")
-            for(var i = 1;i<9;i++){
-                const animation = document.querySelector(`.inCard_body>div:nth-child(${i})`);
-                animation.addEventListener('transitionend', function(){
-                    animation.classList.add("move2")
-                });
-            }
-        }
-    };
+    
     // <!-- about 輪播 -->
     $(function(){
         var i = 2;
@@ -115,9 +94,12 @@ $(function(){
     // 圈圈背景變化
     $(function(){
         // 調圈圈顏色
-    var t1 = TweenMax.to('.inBanner-circle', 0.8, {backgroundImage: "linear-gradient(135deg, blue, red)"});
+
+        // inAct
+        
+    var t1 = TweenMax.to('.inBanner-circle', 2, {backgroundImage: "linear-gradient(135deg, #fddb92, #d1fdff)"});
     // 下面這個是大圈圈 因為有兩層 所以多寫一個css
-    var t2 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 0.8, {backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg, blue, red)"});
+    var t2 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 2, {backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg, #fddb92, #d1fdff)"});
         var controller = new ScrollMagic.Controller();
         var scene01 = new ScrollMagic.Scene({
             triggerElement: "#inAct",
@@ -126,40 +108,81 @@ $(function(){
         }).setTween([t1,t2])
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
-    var t3 = TweenMax.to('.inBanner-circle', 0.8, {backgroundImage: "linear-gradient(135deg, purple, green)"});
+
+        // inArti
+
+    var t3 = TweenMax.to('.inBanner-circle', 2, {backgroundImage: "linear-gradient(135deg,  #e9defa, #fbfcdb)"});
     // 下面這個是大圈圈 因為有兩層 所以多寫一個css
-    var t4 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 0.8, {backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg, purple, green)"});
-        var controller = new ScrollMagic.Controller();
-        var scene01 = new ScrollMagic.Scene({
+    var t4 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 2, {backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg,  #e9defa, #fbfcdb)"});
+        var scene02 = new ScrollMagic.Scene({
             triggerElement: "#inArti",
             offset: 0,
             triggerHook: .5
         }).setTween([t3,t4])
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
-    var t5 = TweenMax.to('.inBanner-circle', 0.8, {backgroundImage: "linear-gradient(135deg, yellow, white)"});
+
+        // inCard
+
+    var t5 = TweenMax.to('.inBanner-circle', 2, {backgroundImage: "linear-gradient(135deg,  #fff1eb,   #ace0f9)"});
     // 下面這個是大圈圈 因為有兩層 所以多寫一個css
-    var t6 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 0.8, {backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg, yellow, white)"});
-        var controller = new ScrollMagic.Controller();
-        var scene01 = new ScrollMagic.Scene({
+    var t6 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 2, {backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg,  #fff1eb,   #ace0f9)"});
+        var scene03 = new ScrollMagic.Scene({
             triggerElement: "#inCard",
             offset: 0,
             triggerHook: .5
         }).setTween([t5,t6])
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
-    var t7 = TweenMax.to('.inBanner-circle', 0.8, {backgroundImage: "linear-gradient(135deg, black, orange)"});
+
+    // inAbout
+    
+    var t7 = TweenMax.to('.inBanner-circle', 2, {backgroundImage: "linear-gradient(135deg,   #accbee,  #e7f0fd)"});
     // 下面這個是大圈圈 因為有兩層 所以多寫一個css
-    var t8 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 0.8, {backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg, black, orange)"});
-        var controller = new ScrollMagic.Controller();
-        var scene01 = new ScrollMagic.Scene({
+    var t8 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 2, {backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg,   #accbee,  #e7f0fd)"});
+        var scene04 = new ScrollMagic.Scene({
             triggerElement: "#inAbout",
             offset: 0,
             triggerHook: .5
         }).setTween([t7,t8])
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
+
+
+        // inCS
+    
+    var t9 = TweenMax.to('.inBanner-circle', 2, {backgroundImage: "linear-gradient(135deg,   #7DE2FC,  #B9B6E5)"});
+    // 下面這個是大圈圈 因為有兩層 所以多寫一個css
+    var t10 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 2, {backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg,   #7DE2FC,  #B9B6E5)"});
+        var scene04 = new ScrollMagic.Scene({
+            triggerElement: "#inCs",
+            offset: 0,
+            triggerHook: .5
+        }).setTween([t9,t10])
+        // debug用 不太重要 若要關掉 要連同cdn 一起關
+        .addTo(controller);
+
+        // 圈圈結束
+
+    var card_t1 = new TimelineMax();
+
+    card_t1.fromTo('.inCard_body>div', 1, {
+        scale:0,
+        rotationX: 200,
+    },{scale:1,rotationX: 360,})
+    // .fromTo('.inCard_body>div:nth-child(2)', .5, {
+    //     scale:0,
+    //     rotationX: 200,
+    // },{scale:1,rotationX: 360,}).fromTo('.inCard_body>div:nth-child(3)', .5, {
+    //     scale:0,
+    //     rotationX: 200,
+    // },{scale:1,rotationX: 360,}).fromTo('.inCard_body>div:nth-child(4)', .5, {
+    //     scale:0,
+    //     rotationX: 200,
+    // },{scale:1,rotationX: 360,}).fromTo('.inCard_body>div:nth-child(5)', .5, {
+    //     scale:0,
+    //     rotationX: 200,
+    // },{scale:1,rotationX: 360,});
+    
+
     });
-    // .addIndicators({
-    //     name: 'key_04'
-    // })
