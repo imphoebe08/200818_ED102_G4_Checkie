@@ -61,11 +61,22 @@ input {
   outline: none;
 }
 
+#form > form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 95ch;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
 #qsBox {
   border-radius: 30px;
   width: 90vw;
   margin: 0 auto;
   background-color: #ebf5ff;
+  padding-bottom: 50px;
 }
 
 .qsAsk {

@@ -474,414 +474,191 @@ p {
 }
 
 .inCard {
+  margin-top: 500px;
   width: 100%;
-  margin: 0 auto;
+  height: 100vh;
+  z-index: 99;
+}
+
+.inCard .inCard_block {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.inCard .inCard_block h1 {
+  display: inline-block;
+  font-size: 40px;
+  line-height: 1.8;
+  letter-spacing: 1.5px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   position: relative;
-  height: 100vh;
-  padding: 20% 0;
+  margin-bottom: 20px;
 }
 
-.inCard canvas {
-  position: absolute;
-  top: 10%;
-  left: 0;
+.inCard .inCard_block h1:after {
+  content: "";
   width: 100%;
-  height: 100vh;
+  height: 10%;
+  border-radius: 30px;
+  background-color: #FFA492;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+}
+
+.inCard .inCard_block .inCard_text {
+  font-size: 36px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
+.inCard .inCard_block .inCard_body {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 80vh;
+  position: relative;
+}
+
+.inCard .inCard_block .inCard_body > div {
+  position: absolute;
+  -webkit-transform: translateY(-50%) perspective(900px);
+          transform: translateY(-50%) perspective(900px);
+  width: 300px;
+  height: 480px;
+  top: 50%;
+  -webkit-transform-origin: top center -1000px;
+          transform-origin: top center -1000px;
+}
+
+.inCard .inCard_block .inCard_body > div > a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-size: cover;
+  -webkit-box-shadow: 2px 5px 15px 3px #313131;
+          box-shadow: 2px 5px 15px 3px #313131;
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(1) {
+  left: 0%;
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(1) a {
+  background-image: url("../img/index/InCard/card_1.jpg");
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(2) {
+  left: 20%;
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(2) a {
+  background-image: url("../img/index/InCard/card_2.jpg");
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(3) {
+  left: 40%;
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(3) a {
+  background-image: url("../img/index/InCard/card_3.jpg");
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(4) {
+  left: 60%;
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(4) a {
+  background-image: url("../img/index/InCard/card_4.jpg");
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(5) {
+  left: 80%;
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(5) a {
+  background-image: url("../img/index/InCard/card_5.jpg");
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(1) {
+  z-index: 1;
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(1) > a {
+  -webkit-transform: rotate(8deg);
+          transform: rotate(8deg);
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(2) {
+  z-index: 2;
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(2) > a {
+  -webkit-transform: rotate(4deg);
+          transform: rotate(4deg);
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(3) {
+  z-index: 3;
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(3) > a {
+  -webkit-transform: rotate(0deg) translateY(-5%);
+          transform: rotate(0deg) translateY(-5%);
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(4) {
+  z-index: 2;
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(4) > a {
+  -webkit-transform: rotate(-4deg);
+          transform: rotate(-4deg);
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(5) {
+  z-index: 1;
+}
+
+.inCard .inCard_block .inCard_body > div:nth-child(5) > a {
+  -webkit-transform: rotate(-8deg);
+          transform: rotate(-8deg);
+}
+
+.inCard .inCard_block .inCard_btn {
   display: block;
-  z-index: -1;
-}
-
-.inCard .inCard_text {
-  position: absolute;
-  top: 52%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  font-size: 16px;
-}
-
-.inCard > a {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
   width: 120px;
   padding: 10px 10px;
   font-size: 16px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #fff;
+  cursor: pointer;
+  background-color: #FFA492;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+  border-radius: 30px;
   background-clip: padding-box,border-box;
   background-origin: padding-box,border-box;
   background-image: linear-gradient(135deg, #fff, #fff), linear-gradient(135deg, #91D0EB, #FFA492);
   border: 2px transparent solid;
-  color: grey;
-  cursor: pointer;
-  z-index: 2;
   text-decoration: none;
+  color: black;
+  margin: auto;
 }
 
-.inCard > a:hover {
+.inCard .inCard_block .inCard_btn:hover {
+  background-color: transparent;
   color: #FFA492;
-}
-
-.inCard .inCard_body {
-  max-width: 1200px;
-  height: 100%;
-  margin: 0 auto;
-  position: relative;
-  -webkit-transition: all 4s linear;
-  transition: all 4s linear;
-}
-
-.inCard .inCard_body > div {
-  width: 350px;
-  height: 80px;
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  -webkit-transform: translateX(-200%) rotate(90deg);
-          transform: translateX(-200%) rotate(90deg);
-  -webkit-transform-origin: right center;
-          transform-origin: right center;
-}
-
-.inCard .inCard_body > div div {
-  background-image: url("../img/index/InCard/inCard.png");
-  height: 100%;
-  width: 266.66667px;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  -webkit-transition: all 1s linear;
-  transition: all 1s linear;
-}
-
-.inCard .inCard_body > div.move:nth-child(1) {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-transition: all 1.6s linear;
-  transition: all 1.6s linear;
-}
-
-.inCard .inCard_body > div.move:nth-child(2) {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-transition: all 1.7s linear;
-  transition: all 1.7s linear;
-}
-
-.inCard .inCard_body > div.move:nth-child(3) {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-transition: all 1.8s linear;
-  transition: all 1.8s linear;
-}
-
-.inCard .inCard_body > div.move:nth-child(4) {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-transition: all 1.9s linear;
-  transition: all 1.9s linear;
-}
-
-.inCard .inCard_body > div.move:nth-child(5) {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-transition: all 2s linear;
-  transition: all 2s linear;
-}
-
-.inCard .inCard_body > div.move:nth-child(6) {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-transition: all 2.1s linear;
-  transition: all 2.1s linear;
-}
-
-.inCard .inCard_body > div.move:nth-child(7) {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-transition: all 2.2s linear;
-  transition: all 2.2s linear;
-}
-
-.inCard .inCard_body > div.move:nth-child(8) {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-transition: all 2.3s linear;
-  transition: all 2.3s linear;
-}
-
-@-webkit-keyframes rotate1 {
-  100% {
-    -webkit-transform: rotate(141.42857deg);
-            transform: rotate(141.42857deg);
-  }
-}
-
-@keyframes rotate1 {
-  100% {
-    -webkit-transform: rotate(141.42857deg);
-            transform: rotate(141.42857deg);
-  }
-}
-
-@-webkit-keyframes rotate2 {
-  100% {
-    -webkit-transform: rotate(192.85714deg);
-            transform: rotate(192.85714deg);
-  }
-}
-
-@keyframes rotate2 {
-  100% {
-    -webkit-transform: rotate(192.85714deg);
-            transform: rotate(192.85714deg);
-  }
-}
-
-@-webkit-keyframes rotate3 {
-  100% {
-    -webkit-transform: rotate(244.28571deg);
-            transform: rotate(244.28571deg);
-  }
-}
-
-@keyframes rotate3 {
-  100% {
-    -webkit-transform: rotate(244.28571deg);
-            transform: rotate(244.28571deg);
-  }
-}
-
-@-webkit-keyframes rotate4 {
-  100% {
-    -webkit-transform: rotate(295.71429deg);
-            transform: rotate(295.71429deg);
-  }
-}
-
-@keyframes rotate4 {
-  100% {
-    -webkit-transform: rotate(295.71429deg);
-            transform: rotate(295.71429deg);
-  }
-}
-
-@-webkit-keyframes rotate5 {
-  100% {
-    -webkit-transform: rotate(347.14286deg);
-            transform: rotate(347.14286deg);
-  }
-}
-
-@keyframes rotate5 {
-  100% {
-    -webkit-transform: rotate(347.14286deg);
-            transform: rotate(347.14286deg);
-  }
-}
-
-@-webkit-keyframes rotate6 {
-  100% {
-    -webkit-transform: rotate(398.57143deg);
-            transform: rotate(398.57143deg);
-  }
-}
-
-@keyframes rotate6 {
-  100% {
-    -webkit-transform: rotate(398.57143deg);
-            transform: rotate(398.57143deg);
-  }
-}
-
-@-webkit-keyframes rotate7 {
-  100% {
-    -webkit-transform: rotate(450deg);
-            transform: rotate(450deg);
-  }
-}
-
-@keyframes rotate7 {
-  100% {
-    -webkit-transform: rotate(450deg);
-            transform: rotate(450deg);
-  }
-}
-
-.inCard .inCard_body > div.move.move2:nth-child(1) {
-  -webkit-animation-name: rotate7;
-          animation-name: rotate7;
-  -webkit-animation-duration: 2.2s;
-          animation-duration: 2.2s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.inCard .inCard_body > div.move.move2:nth-child(2) {
-  -webkit-animation-name: rotate6;
-          animation-name: rotate6;
-  -webkit-animation-duration: 2.1s;
-          animation-duration: 2.1s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.inCard .inCard_body > div.move.move2:nth-child(3) {
-  -webkit-animation-name: rotate5;
-          animation-name: rotate5;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.inCard .inCard_body > div.move.move2:nth-child(4) {
-  -webkit-animation-name: rotate4;
-          animation-name: rotate4;
-  -webkit-animation-duration: 1.9s;
-          animation-duration: 1.9s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.inCard .inCard_body > div.move.move2:nth-child(5) {
-  -webkit-animation-name: rotate3;
-          animation-name: rotate3;
-  -webkit-animation-duration: 1.8s;
-          animation-duration: 1.8s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.inCard .inCard_body > div.move.move2:nth-child(6) {
-  -webkit-animation-name: rotate2;
-          animation-name: rotate2;
-  -webkit-animation-duration: 1.7s;
-          animation-duration: 1.7s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.inCard .inCard_body > div.move.move2:nth-child(7) {
-  -webkit-animation-name: rotate1;
-          animation-name: rotate1;
-  -webkit-animation-duration: 1.6s;
-          animation-duration: 1.6s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.inCard .inCard_body > div.move.move2:nth-child(8) {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-transition: all 1.5s linear;
-  transition: all 1.5s linear;
-}
-
-.inCard .inCard_body > div.move.move2:nth-child(1) > div {
-  -webkit-animation: float 14s linear infinite;
-          animation: float 14s linear infinite;
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
-}
-
-.inCard .inCard_body > div.move.move2:nth-child(2) > div {
-  -webkit-animation: float 14s linear infinite;
-          animation: float 14s linear infinite;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
-}
-
-.inCard .inCard_body > div.move.move2:nth-child(3) > div {
-  -webkit-animation: float 14s linear infinite;
-          animation: float 14s linear infinite;
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
-}
-
-.inCard .inCard_body > div.move.move2:nth-child(4) > div {
-  -webkit-animation: float 14s linear infinite;
-          animation: float 14s linear infinite;
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
-}
-
-.inCard .inCard_body > div.move.move2:nth-child(5) > div {
-  -webkit-animation: float 14s linear infinite;
-          animation: float 14s linear infinite;
-  -webkit-animation-delay: 2.5s;
-          animation-delay: 2.5s;
-}
-
-.inCard .inCard_body > div.move.move2:nth-child(6) > div {
-  -webkit-animation: float 14s linear infinite;
-          animation: float 14s linear infinite;
-  -webkit-animation-delay: 3s;
-          animation-delay: 3s;
-}
-
-.inCard .inCard_body > div.move.move2:nth-child(7) > div {
-  -webkit-animation: float 14s linear infinite;
-          animation: float 14s linear infinite;
-  -webkit-animation-delay: 3.5s;
-          animation-delay: 3.5s;
-}
-
-.inCard .inCard_body > div.move.move2:nth-child(8) > div {
-  -webkit-animation: float 14s linear infinite;
-          animation: float 14s linear infinite;
-  -webkit-animation-delay: 4s;
-          animation-delay: 4s;
-}
-
-@-webkit-keyframes float {
-  0% {
-    -webkit-transform: translateY(0) rotate(0deg);
-    transform: translateY(0) rotate(0deg);
-  }
-  25% {
-    -webkit-transform: translateY(8px) rotate(2deg);
-    transform: translateY(8px) rotate(2deg);
-  }
-  50% {
-    -webkit-transform: translateY(0) rotate(0deg);
-    transform: translateY(0) rotate(0deg);
-  }
-  75% {
-    -webkit-transform: translateY(-8px) rotate(-1deg);
-    transform: translateY(-8px) rotate(-1deg);
-  }
-  100% {
-    -webkit-transform: translateY(0) rotate(0deg);
-    transform: translateY(0) rotate(0deg);
-  }
-}
-
-@keyframes float {
-  0% {
-    -webkit-transform: translateY(0) rotate(0deg);
-    transform: translateY(0) rotate(0deg);
-  }
-  25% {
-    -webkit-transform: translateY(8px) rotate(2deg);
-    transform: translateY(8px) rotate(2deg);
-  }
-  50% {
-    -webkit-transform: translateY(0) rotate(0deg);
-    transform: translateY(0) rotate(0deg);
-  }
-  75% {
-    -webkit-transform: translateY(-8px) rotate(-1deg);
-    transform: translateY(-8px) rotate(-1deg);
-  }
-  100% {
-    -webkit-transform: translateY(0) rotate(0deg);
-    transform: translateY(0) rotate(0deg);
-  }
 }
 
 .inAbout {
@@ -1562,6 +1339,7 @@ p {
 
 .inArti > div {
   z-index: 2;
+  background-color: white;
 }
 
 .inArti > div a {
@@ -1610,17 +1388,22 @@ p {
           justify-content: flex-start;
 }
 
-.inArti > div a article .inArti-left_detail .inArti-left-detail_block .inArti-left_partner {
-  width: 100px;
-  height: 100px;
+.inArti > div a article .inArti-left_detail .inArti-left-detail_block .inArti-left-detail_pic {
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
+  overflow: hidden;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
-.inArti > div a article .inArti-left_detail .inArti-left-detail_block .inArti-left_partner img {
+.inArti > div a article .inArti-left_detail .inArti-left-detail_block .inArti-left-detail_pic img {
   width: 100%;
 }
 
 .inArti > div a article .inArti-left_detail .inArti-left-detail_block .inArti-left-detail_text {
+  padding-left: 5px;
   font-size: 16px;
   font-family: "Noto Sans TC", sans-serif;
   font-weight: 300;
@@ -1655,7 +1438,7 @@ p {
 }
 
 .inArti > div a article .inArti-left_title h2 {
-  font-size: 36px;
+  font-size: 24px;
   line-height: 1.5;
   letter-spacing: 1.5px;
 }
@@ -1666,6 +1449,8 @@ p {
   font-weight: 300;
   letter-spacing: 0.8px;
   line-height: 2;
+  font-size: 16px;
+  line-height: 1.5em;
 }
 
 .inArti .inArti_left, .inArti .inArti_conter {
@@ -1676,7 +1461,7 @@ p {
 .inArti .inArti_conter .inArti-conterbox {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  top: 80px;
 }
 
 .inArti .inArti_right {

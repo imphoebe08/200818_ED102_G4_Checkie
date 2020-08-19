@@ -28,6 +28,7 @@
         top: 0;
         left: 0;
         display: block;
+        
         .inBanner-big_circle{
             @include circle(550px,550px,0,0,135deg);
             transform: translateX(-50%);

@@ -1,0 +1,136 @@
+@import '../vender/reset';
+@import '../vender/var';
+@import '../vender/variable';
+@import './acSelectCard';
+@import './acCommentList';
+// @import './acSearch--open';
+
+
+button:focus{
+    outline: none;
+}
+a{
+    text-decoration: none;
+}
+
+h1{
+    @include h1;
+}
+h6{
+    @include h6;
+    margin: 10px 3%;
+}
+body{
+    // border: $border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.acMain{
+    // border: $border;
+    padding: 0;
+    
+}
+    .acBanner{
+        // border: 1px solid blue;
+        width: 100vw;
+        // z-index: -1;
+        max-height: 50vh;
+        overflow: hidden;
+    }
+    .owl-height{
+        min-width: 30%;
+    }
+    .owl-theme .owl-dots{
+        position: absolute;
+        bottom: 0;
+        right: 50%;
+        transform: translateX(50%);;
+    }
+    .owl-carousel .owl-nav{
+        color: white;
+        font-size: 50px;
+
+        button.owl-prev{
+            // background-color: grey;
+            position: absolute;
+            top: 50%;
+            left: 3%;
+            transform: translateY(-50%);
+        }
+
+        button.owl-next{
+            // background-color: grey;
+            position: absolute;
+            top: 50%;
+            right: 3%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .acSearch{
+        // border: 1px solid red;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        box-shadow: $boxshadow;
+
+        .acSearch_ul{
+            margin: auto 0;
+            display: flex;
+            justify-content: space-around;
+            margin-left: 8%;
+        
+
+            
+            li{
+                border-right: 1px solid darkgray;
+                display: inline-block;
+                padding-right: 8%;
+                text-align: center;
+                justify-content: space-between;
+                margin: 20px ;
+                &:last-child{
+                    border:none;
+                }
+            }
+                a{
+                    font-size:20px;
+                    text-decoration: none;
+                    color: rgb(77, 75, 75);
+                    &:focus{
+                        color: maroon;
+                    }
+            }
+        }
+
+        .btnSearch{
+            margin-left: auto;
+            margin-right: 3%;
+            @include btn-more($bw, $color-pink, $fontsize);
+        }
+    }
+    .acSelect{
+        // border: 1px solid green;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .acSelectCard{
+            border-radius: $border-radius;
+            width: 350px;
+            height: 400px;
+            margin: 10px;
+            flex-wrap: wrap;
+        }
+        .acSelect-wrapper_btnMore{
+            text-align: center;
+            margin: 20px 0;
+            .acSelectMore{
+                @include btn-more($bw, $color-pink, $fontsize);
+            }
+        }
+    }
+    .acComment{
+        // border: $border;
+        margin-bottom: 20px;
+
+    }

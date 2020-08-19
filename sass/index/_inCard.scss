@@ -1,139 +1,111 @@
 .inCard{
+    margin-top: 500px;
     width: 100%;
-    margin: 0 auto;
-    position: relative;
     height: 100vh;
-    padding: 20% 0;
-    canvas{
-        position: absolute;
-        top: 10%;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        // background-color: black;
-        display: block;
-        z-index: -1;
-    }
-    .inCard_text{
-        position: absolute;
-        top: 52%;
-        left: 50%;
-        transform: translate(-50%,-50%);
+    z-index: 99;
+    
+    .inCard_block{
+        max-width: 1200px;
+        margin: auto;
         
-        font-size: 16px;
-    }
-    >a{
-        position: absolute;
-        top: 60%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        width: $bw;
-        padding: 10px 10px;
-        font-size: $fontsize;
-        font-weight: 500;
-        text-align: center;
-        border-radius: $border-radius;
-        background-clip:padding-box,border-box;
-        background-origin:padding-box,border-box;
-        background-image:linear-gradient(135deg,#fff,#fff),linear-gradient(135deg,$color-blue,$color-pink);
-        border:2px transparent solid;
-        color: grey;//?
-        cursor: pointer;
-        z-index: 2;
-        text-decoration: none;
-        &:hover {
-            color:$color-pink ;
+        h1{
+            @include title;
+            margin-bottom: 20px;
         }
-    }
-    .inCard_body{
-        max-width:1200px ;
-        height: 100%;
-        margin: 0 auto;
-        position: relative;
-        transition: all 4s linear;
-        
-        
-        >div{
-            width: 350px;
-            height: 80px;
-            position: absolute;
-            top: 50%;
-            right: 50%;
-            transform: translateX(-200%) rotate(90deg);
-            transform-origin: right center;
-            div{
-                background-image: url("../img/index/InCard/inCard.png");
-                height: 100%;
-                width: (800/3)+0px;
-                background-position: center;
-                background-size: contain;
-                background-repeat: no-repeat;
-                transition: all 1s linear;
-            }
+        div{
             
         }
-        @for $i from 1 through 8 {
-            >div.move:nth-child(#{$i}){
-                transform: rotate(90deg);
-                transition: all 1.5s+$i*0.1 linear;
-            }
+        .inCard_text{
+            @include h2;   
+            text-align: center;         
         }
-        @for $i from 1 through 7{
-            @keyframes rotate#{$i} {
-                100%{
-                transform: rotate((360/7)*$i+90deg);
+        .inCard_body{
+            width: 100%;
+            display: flex;
+            height: 80vh;
+            position: relative;
+            >div{
+                position: absolute;
+                transform: translateY(-50%) perspective(900px) ;
+                width: 500px*0.6;
+                height: 800px*0.6;
+                top: 50%;
+                transform-origin: top center -1000px;
+                >a{
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                    @include bg;
+                    background-size: cover;
+                    box-shadow: 2px 5px 15px 3px rgb(49, 49, 49);
 
                 }
-            }
-        }
-        @for $i from 1 through 8 {
-            >div.move.move2:nth-child(#{$i}){
-                @if $i == 8 {
-                    transform: rotate(90deg);
-                    transition: all 1.5s+(0.1*(8-$i)) linear;
-                }
-                @else {
-                    animation-name: rotate#{8-$i};
-                    animation-duration: 1.5s+(0.1*(8-$i));
-                    animation-fill-mode: forwards;
-                }
-            }
-        }
-        @for $i from 1 through 8{
-            >div.move.move2:nth-child(#{$i}){
-                >div{
-                    animation: float 14s linear infinite;
-                    animation-delay: $i*0.5s;
-                    
-                }
-            }
-        }
 
-        
-        @keyframes float {
-            0% {
-                -webkit-transform: translateY(0) rotate(0deg);
-                transform: translateY(0) rotate(0deg);
             }
-            
-            25% {
-                -webkit-transform: translateY(8px) rotate(2deg);
-                transform: translateY(8px) rotate(2deg);
+            @for $i from 1 through 5 {
+                >div:nth-child(#{$i}){
+                    left: (100%/5)*($i - 1);
+                    a{
+                        background-image: url("../img/index/InCard/card_#{$i}.jpg");
+                    }
+                }
             }
-            50% {
-                -webkit-transform: translateY(0) rotate(0deg);
-                transform: translateY(0) rotate(0deg);
-            }
-            75% {
-                -webkit-transform: translateY(-8px) rotate(-1deg);
-                transform: translateY(-8px) rotate(-1deg);
-            }
-            100% {
-                -webkit-transform: translateY(0) rotate(0deg);
-                transform: translateY(0) rotate(0deg);
-            }
+            >div:nth-child(1){
+                z-index: 1;   
 
+                >a{
+                
+                transform: rotate(8deg);   
+                }
+                
+            }
+            >div:nth-child(2){
+                z-index: 2;   
+
+                >a{
+                transform: rotate(4deg); 
+
+                }
+                
+            }
+            >div:nth-child(3){
+                z-index: 3;   
+
+                >a{
+                transform: rotate(0deg) translateY(-5%);
+                }
+                
+            }
+            >div:nth-child(4){
+                z-index: 2;   
+
+                >a{
+
+                    transform: rotate(-4deg);   
+                }
+                
+            }
+            >div:nth-child(5){
+                z-index: 1;   
+
+                >a{
+
+                    transform: rotate(-8deg);   
+                }
+                
+            }
+        }
+        .inCard_btn{
+            display: block;
+            @include btn-modules($bw, $color-pink, $fontsize);
+            border-radius: $border-radius;
+            background-clip:padding-box,border-box;
+            background-origin:padding-box,border-box;
+            background-image:linear-gradient(135deg,#fff,#fff),linear-gradient(135deg,$color-blue,$color-pink);
+            border:2px transparent solid;
+            text-decoration: none;
+            color: black;
+            margin: auto;
         }
     }
-
 }
