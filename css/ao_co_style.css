@@ -303,6 +303,51 @@ body {
   }
 }
 
+.co-ao-error--border {
+  position: fixed;
+  bottom: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  z-index: 1314;
+  width: 300px;
+  border-radius: 3px;
+  padding: 5px;
+  background: -webkit-gradient(linear, left top, right top, from(#FFA492), to(#91D0EB));
+  background: linear-gradient(to right, #FFA492, #91D0EB);
+}
+
+.co-ao-error--border .co-ao-error-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 3px;
+  padding: 20px;
+  color: salmon;
+  background-color: white;
+}
+
+.co-ao-error--border .co-ao-error-block .error-modal-closer {
+  min-width: 100px;
+  display: block;
+}
+
+.ao-co-error-overlay {
+  z-index: 22;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.687);
+}
+
 .co-title {
   padding: 15px;
 }
@@ -420,7 +465,8 @@ body {
   color: red;
 }
 
-.co-selfInfo_block > form .cos-selfForm_item .form-control {
+.co-selfInfo_block > form .cos-selfForm_item .formControl,
+.co-selfInfo_block > form .cos-selfForm_item .formatError {
   background-color: #efeff2;
   border: #e0ddd8 1px solid;
   border-radius: 3px;
@@ -430,24 +476,32 @@ body {
   color: #322f2a;
 }
 
-.co-selfInfo_block > form .cos-selfForm_item .form-control::-webkit-input-placeholder {
+.co-selfInfo_block > form .cos-selfForm_item .formControl::-webkit-input-placeholder,
+.co-selfInfo_block > form .cos-selfForm_item .formatError::-webkit-input-placeholder {
   color: #888682;
 }
 
-.co-selfInfo_block > form .cos-selfForm_item .form-control:-ms-input-placeholder {
+.co-selfInfo_block > form .cos-selfForm_item .formControl:-ms-input-placeholder,
+.co-selfInfo_block > form .cos-selfForm_item .formatError:-ms-input-placeholder {
   color: #888682;
 }
 
-.co-selfInfo_block > form .cos-selfForm_item .form-control::-ms-input-placeholder {
+.co-selfInfo_block > form .cos-selfForm_item .formControl::-ms-input-placeholder,
+.co-selfInfo_block > form .cos-selfForm_item .formatError::-ms-input-placeholder {
   color: #888682;
 }
 
-.co-selfInfo_block > form .cos-selfForm_item .form-control::placeholder {
+.co-selfInfo_block > form .cos-selfForm_item .formControl::placeholder,
+.co-selfInfo_block > form .cos-selfForm_item .formatError::placeholder {
   color: #888682;
 }
 
-.co-selfInfo_block > form .cos-selfForm_item .form-control--width {
-  width: 68%;
+.co-selfInfo_block > form .cos-selfForm_item .formatError {
+  border: #FFA492 2px solid;
+}
+
+.co-selfInfo_block > form .cos-selfForm_item .formControlWidth {
+  width: 69%;
 }
 
 .co-selfInfo_block > form .cos-selfForm_item > select {
@@ -483,7 +537,12 @@ body {
   color: #888682;
 }
 
+.co-selfInfo_block > form .cos-selfForm_item .selectError {
+  border: #FFA492 2px solid;
+}
+
 .co-selfInfo_block > form .cos-selfForm_item .radio {
+  height: 30px;
   display: block;
   position: relative;
   padding-left: 35px;
@@ -506,7 +565,7 @@ body {
 }
 
 .co-selfInfo_block > form .cos-selfForm_item .radio input:checked ~ .checkmark {
-  background-color: #84c0da;
+  background-color: #91D0EB;
 }
 
 .co-selfInfo_block > form .cos-selfForm_item .radio input:checked ~ .checkmark::after {
@@ -515,8 +574,8 @@ body {
 
 .co-selfInfo_block > form .cos-selfForm_item .radio .checkmark {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 3px;
+  left: 5px;
   height: 20px;
   width: 20px;
   background-color: #eee;
@@ -535,6 +594,17 @@ body {
   background: white;
 }
 
+.co-selfInfo_block > form .cos-selfForm_item .radioError {
+  border: #FFA492 2px solid;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 @media only screen and (max-width: 575px) {
   .co-selfInfo .co-selfInfo_block,
   .ao-selfInfo .co-selfInfo_block {
@@ -544,8 +614,8 @@ body {
   .ao-selfInfo .co-selfInfo_block > form {
     width: 100%;
   }
-  .co-selfInfo .co-selfInfo_block > form .cos-selfForm_item .form-control--width,
-  .ao-selfInfo .co-selfInfo_block > form .cos-selfForm_item .form-control--width {
+  .co-selfInfo .co-selfInfo_block > form .cos-selfForm_item .formControlWidth,
+  .ao-selfInfo .co-selfInfo_block > form .cos-selfForm_item .formControlWidth {
     width: 100%;
     margin-top: 5px;
   }
@@ -673,19 +743,27 @@ body {
   border-radius: 3px;
 }
 
-.co-billing .co-billing-block .co-billing_button div:nth-child(2),
-.ao-billing .co-billing-block .co-billing_button div:nth-child(2) {
+.co-billing .co-billing-block .co-billing_button button,
+.ao-billing .co-billing-block .co-billing_button button {
+  border: none;
   padding: 0 5px;
   border-radius: 3px;
   cursor: pointer;
-  color: steelblue;
+  color: #91D0EB;
 }
 
-.co-billing .co-billing-block .co-billing_button div:nth-child(2):hover,
-.ao-billing .co-billing-block .co-billing_button div:nth-child(2):hover {
+.co-billing .co-billing-block .co-billing_button button:hover,
+.ao-billing .co-billing-block .co-billing_button button:hover {
   -webkit-transition: all .2s linear;
   transition: all .2s linear;
-  background-color: #7ca4c4;
+  letter-spacing: 3px;
+}
+
+.co-billing .co-billing-block .co-billing_button .active,
+.ao-billing .co-billing-block .co-billing_button .active {
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+  background-color: #91D0EB;
   color: white;
 }
 
@@ -796,6 +874,32 @@ body {
     content: attr(data-title);
     display: block;
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  -webkit-transform: translateX(20px);
+          transform: translateX(20px);
+}
+
+.listTransition-enter-active,
+.listTransition-leave-active {
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.listTransition-enter,
+.listTransition-leave-to {
+  opacity: 0;
+  -webkit-transform: translateY(-20px);
+          transform: translateY(-20px);
 }
 
 .co-review {

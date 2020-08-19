@@ -50,7 +50,8 @@ table {
 }
 
 body {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-weight: 400;
   font-family: "Noto Sans TC", sans-serif;
   margin: 0;
@@ -61,9 +62,13 @@ input {
 }
 
 #form > form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 95ch;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 #qsBox {
@@ -77,12 +82,16 @@ input {
 .qsAsk {
   background-color: #c5ddf8;
   border-radius: 0 24px 24px 24px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 14px 21px 14px 21px;
   margin: 30px 0;
 }
 
 .askContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -109,6 +118,7 @@ input {
   color: #FFA492;
   cursor: pointer;
   background-color: transparent;
+  -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
 }
 
@@ -120,13 +130,19 @@ input {
 .qsAns {
   background-color: pink;
   border-radius: 24px 0px 24px 24px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 14px 21px 14px 21px;
   margin: 30px 0;
 }
 
 .ansContent {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-left: auto;
 }
@@ -155,6 +171,7 @@ input {
   color: #FFA492;
   cursor: pointer;
   background-color: transparent;
+  -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
 }
 
@@ -174,7 +191,9 @@ input {
   color: #FFA492;
   cursor: pointer;
   background-color: transparent;
+  -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
+  position: -webkit-sticky;
   position: sticky;
   left: 85%;
   margin: 20px;
@@ -196,10 +215,12 @@ input {
   color: #FFA492;
   cursor: pointer;
   background-color: transparent;
+  -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
   position: relative;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   margin: 20px 0;
 }
 
