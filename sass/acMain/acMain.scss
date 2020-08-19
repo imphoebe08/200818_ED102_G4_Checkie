@@ -106,7 +106,7 @@ body{
         .btnSearch{
             margin-left: auto;
             margin-right: 3%;
-            @include btn-more($bw, $color-pink, $fontsize);
+            @include btn-more($color-pink, $fontsize);
         }
     }
     .acSelect{
