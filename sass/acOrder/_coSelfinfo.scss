@@ -14,6 +14,42 @@
     }
 }
 
+.co-ao-error--border {
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1314;
+    width: 300px;
+    border-radius: 3px;
+    padding: 5px;
+    background: -webkit-linear-gradient(to right, #FFA492, #91D0EB);
+    background: linear-gradient(to right, #FFA492, #91D0EB);
+    .co-ao-error-block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+        padding: 20px;
+        color: salmon;
+        background-color: white;
+        .error-modal-closer {
+            min-width: 100px;
+            display: block;
+        }
+    }
+}
+
+.ao-co-error-overlay {
+    z-index: 22;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.687);
+}
+
 .co-title {
     // border: #322f2a solid 1px;
     padding: 15px;
@@ -125,7 +161,8 @@
                     }
                 }
             }
-            .form-control {
+            .formControl,
+            .formatError {
                 background-color: #efeff2;
                 // padding: 5px;
                 border: #e0ddd8 1px solid;
@@ -139,8 +176,11 @@
                     color: #888682;
                 }
             }
-            .form-control--width {
-                width: 68%;
+            .formatError {
+                border: $color-pink 2px solid;
+            }
+            .formControlWidth {
+                width: 69%;
             }
             >select {
                 background-color: #ededed;
@@ -163,7 +203,11 @@
                 /* Remove default arrow */
                 background-image: url(...);
             }
+            .selectError {
+                border: $color-pink 2px solid;
+            }
             .radio {
+                height: 30px;
                 display: block;
                 position: relative;
                 padding-left: 35px;
@@ -182,7 +226,7 @@
                     opacity: 0;
                     cursor: pointer;
                     &:checked~.checkmark {
-                        background-color: #84c0da;
+                        background-color: $color-blue;
                         &::after {
                             display: block;
                         }
@@ -190,8 +234,8 @@
                 }
                 .checkmark {
                     position: absolute;
-                    top: 0;
-                    left: 0;
+                    top: 3px;
+                    left: 5px;
                     height: 20px;
                     width: 20px;
                     background-color: #eee;
@@ -209,6 +253,12 @@
                     }
                 }
             }
+            .radioError {
+                border: $color-pink 2px solid;
+                border-radius: 3px;
+                display: flex;
+                align-items: center;
+            }
         }
     }
 }
@@ -224,7 +274,7 @@
                 width: 100%;
                 .cos-selfForm_item {
                     // border: rgb(245, 224, 65) solid 5px;
-                    .form-control--width {
+                    .formControlWidth {
                         width: 100%;
                         margin-top: 5px;
                     }
