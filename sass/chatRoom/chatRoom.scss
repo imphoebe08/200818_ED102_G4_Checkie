@@ -64,7 +64,7 @@ main{
                 height: 80px;
                 border-radius: 50%;
                 overflow: hidden;
-                margin: 5px 8% 5px 5%;
+                margin: 5px 5% 5px 5%;
                 img{
                     width: 100%;
                 }
@@ -78,6 +78,9 @@ main{
                 margin: auto 0 auto 5%;
             }
             h5{
+                margin: auto 0;
+            }
+            p{
                 margin: auto 0;
             }
             .chatRoom_more{

@@ -147,7 +147,7 @@ main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_drPic {
   height: 80px;
   border-radius: 50%;
   overflow: hidden;
-  margin: 5px 8% 5px 5%;
+  margin: 5px 5% 5px 5%;
 }
 
 main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_drPic img {
@@ -163,6 +163,10 @@ main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_light {
 }
 
 main #chatRoom .chatRoom_left .chatRoom_drChatbox h5 {
+  margin: auto 0;
+}
+
+main #chatRoom .chatRoom_left .chatRoom_drChatbox p {
   margin: auto 0;
 }
 
