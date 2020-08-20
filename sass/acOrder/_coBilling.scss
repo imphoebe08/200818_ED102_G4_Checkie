@@ -141,12 +141,12 @@
 }
 
 .stepper-content {
-    .fade-enter-active,
-    .fade-leave-active {
+    .coSlide-enter-active,
+    .coSlide-leave-active {
         transition: .3s;
     }
-    .fade-enter,
-    .fade-leave-to {
+    .coSlide-enter,
+    .coSlide-leave-to {
         opacity: 0;
         transform: translateX(20px);
     }
