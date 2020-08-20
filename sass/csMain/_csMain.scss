@@ -1,10 +1,14 @@
-@import 'style';
-
+@import './style';
 
 #csMainContainer {
     position: relative;
-    width: 100%;
+    width: calc(100% - 40px);
+    max-width: 1200px;
     overflow: hidden;
+    margin: 20px auto 0;
+    padding: 0 10px;
+    border-radius: 30px;
+    box-shadow: 0 0 5px 0 black;
 
     .csMain {
         z-index: 50;
@@ -18,9 +22,9 @@
             justify-content: center;
 
             span {
-                width: 120px;
+                width: 140px;
                 height: 4px;
-                margin: 20px 10px;
+                margin: 20px 5px;
                 text-align: center;
 
                 &+select {
@@ -32,18 +36,16 @@
                 display: none;
 
                 &:checked+label {
-                    background-color: pink;
+                    background-color: $color-pink;
                     color: #fff;
                 }
             }
 
-            label.button3-1 {
-                margin: 10px;
+            label.button3 {
+                margin: 10px 5px;
                 display: inline-block;
-                @include btn-more(80px, $color-pink, $fontsize);
-                border-radius: $border-radius - 20px;
                 height: 40px;
-                width: 120px;
+                width: 140px;
                 padding: 0;
                 line-height: 40px;
             }
@@ -51,80 +53,84 @@
     }
 }
 
-@media (max-width: 1000px) {
-    .csMain {
-        .checkbox-form {
-            width: 100%;
-
-            span {
-                width: 80px;
-                height: 30px;
-                text-align: center;
-
-                &+select {
-                    margin: 10px auto;
-                }
-            }
-
-            label.button3-1 {
-                width: 80px;
-            }
-        }
-    }
-}
-
 @media (max-width: 576px) {
-    .csMain {
+    #csMainContainer {
+        margin: 0;
+        padding: 0 10px;
+        border-radius: 0;
+        box-shadow: none;
         position: absolute;
-        right: -120px;
-        height: 430px;
-        width: 120px;
-        border: 1px solid red;
-        transition: all 1s ease;
+        height: 100vh;
+        width: 100%;
+        z-index: 99;
 
-        &.slideIn {
-            animation: slideIn 1s ease forwards;
-        }
-
-        &.slideOut {
-            animation: slideOut 1s ease forwards;
-        }
-
-        .checkbox-form {
+        .csMain {
+            margin: 10px 0 0;
+            padding: 20px 0;
+            position: absolute;
+            right: -120px;
+            height: 450px;
             width: 120px;
-            flex-flow: nowrap column;
-            align-items: center;
+            transition: all 1s ease;
+            background-color: white;
+            box-shadow: 0 0 5px 0 black;
+            border-radius: 10px;
 
-            span {
-                width: 120px;
-                height: 5px;
-                margin: 5px 0 15px;
-                text-align: center;
-
-                &+select {
-                    margin: 10px auto;
-                }
+            &.slideIn {
+                animation: slideIn 1s ease forwards;
             }
 
-            #openForm {
+            &.slideOut {
+                animation: slideOut 1s ease forwards;
+            }
+
+            #cleanSelect {
                 position: absolute;
-                writing-mode: vertical-lr;
-                height: 90px;
-                width: 30px;
-                line-height: 30px;
-                border: 1px solid red;
-                right: 119px;
-                top: 10%;
-                cursor: pointer;
+                right: 15%;
+                top: 90%;
             }
 
-            label.button3-1 {
-                margin: 5px;
-                height: 24px;
-                width: 80px;
-                padding: 5px;
-                line-height: 14px;
-                font-size: 12px;
+            .checkbox-form {
+                width: 120px;
+                flex-flow: nowrap column;
+                align-items: center;
+
+                span {
+                    width: 120px;
+                    height: 5px;
+                    margin: 5px 0 15px;
+                    text-align: center;
+                    font-size: 14px;
+
+                    &+select {
+                        margin: 10px auto;
+                    }
+                }
+
+                #openForm {
+                    position: absolute;
+                    writing-mode: vertical-lr;
+                    height: 90px;
+                    width: 30px;
+                    line-height: 30px;
+                    border: 1px solid $color-blue;
+                    right: 119px;
+                    top: 10%;
+                    font-size: 16px;
+                    cursor: pointer;
+                    background-color: white;
+                    border-radius: 10px;
+                    margin-right: 5px;
+                }
+
+                label.button3 {
+                    margin: 5px;
+                    height: 24px;
+                    width: 80px;
+                    padding: 5px;
+                    line-height: 14px;
+                    font-size: 12px;
+                }
             }
         }
     }
@@ -150,7 +156,6 @@
     }
 }
 
-
 .csCounselor-cards {
     width: 100%;
     height: 700px;
@@ -175,12 +180,9 @@
             flex: 1 0 80px;
             max-width: 120px;
             margin: 20px;
-            @include btn-more(80px, $color-pink, $fontsize);
             outline: none;
         }
-
     }
-
 
     .csCounselor-gallery {
         width: 100%;
@@ -194,9 +196,10 @@
             min-width: 350px;
             border: 1px solid rgb(0, 0, 0);
             margin: 10px 40px;
-            padding: 10px;
             transition: transform 0.3s ease;
             transform: scale(0.85);
+            border-radius: $border-radius;
+            overflow: hidden;
 
             &.bigger {
                 transform: scale(1);
@@ -219,12 +222,14 @@
                 width: 100%;
                 @include h5;
                 cursor: pointer;
+                padding: 0 10px;
             }
 
             .csC-type_title {
                 text-align: left;
                 width: 100%;
                 @include h6;
+                padding: 0 10px;
             }
 
             .csC-type_tag {
@@ -234,15 +239,14 @@
                 span {
                     text-align: center;
                     margin: 0 5px;
-                    border: 1px solid #ccc;
                 }
             }
 
             .csC-doctor__info {
                 width: 100%;
+                padding: 0 10px;
 
                 .csC-doctor__list>li {
-
                     p {
                         cursor: pointer;
                         font-weight: 700;
@@ -261,23 +265,19 @@
                             color: rgb(101, 179, 145);
                         }
                     }
-
                 }
-
             }
         }
     }
 }
 
-
-
 @media (max-width: 576px) {
     .container-fluid.csMain .csCounselor-cards {
         .csCounselor-gallery .csCounselor-card {
-            transform: scale(0.7);
+            transform: scale(0.5);
 
             &.bigger {
-                transform: scale(0.8);
+                transform: scale(0.6);
             }
         }
 
