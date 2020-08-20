@@ -518,7 +518,6 @@ body {
   -moz-appearance: none;
   appearance: none;
   /* Remove default arrow */
-  background-image: url(...);
 }
 
 .co-selfInfo_block > form .cos-selfForm_item > select::-webkit-input-placeholder {
@@ -699,24 +698,6 @@ body {
   .co-CheckOrder_block {
     margin: 0;
   }
-  .co-CheckOrder-list > tr {
-    height: 30px;
-    text-align: left;
-    line-height: 30px;
-  }
-  .co-CheckOrder-list > tr > th {
-    display: none;
-  }
-  .co-CheckOrder-list > tr > td {
-    text-align: center;
-    display: block;
-  }
-  .co-CheckOrder-list > tr > td:before {
-    text-align: center;
-    background-color: #ccc;
-    content: attr(data-title);
-    display: block;
-  }
 }
 
 .co-billing .co-billing-block,
@@ -737,7 +718,7 @@ body {
           justify-content: space-between;
   border: #ccc solid 1px;
   width: 100%;
-  height: 50px;
+  min-height: 50px;
   line-height: 50px;
   padding: 0 15px;
   border-radius: 3px;
@@ -745,11 +726,16 @@ body {
 
 .co-billing .co-billing-block .co-billing_button button,
 .ao-billing .co-billing-block .co-billing_button button {
+<<<<<<< HEAD
+=======
+  outline: none;
+>>>>>>> dev-cc0819
   border: none;
   padding: 0 5px;
   border-radius: 3px;
   cursor: pointer;
   color: #91D0EB;
+<<<<<<< HEAD
 }
 
 .co-billing .co-billing-block .co-billing_button button:hover,
@@ -763,6 +749,21 @@ body {
 .ao-billing .co-billing-block .co-billing_button .active {
   -webkit-transition: all .2s linear;
   transition: all .2s linear;
+=======
+}
+
+.co-billing .co-billing-block .co-billing_button button:hover,
+.ao-billing .co-billing-block .co-billing_button button:hover {
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+  letter-spacing: 3px;
+}
+
+.co-billing .co-billing-block .co-billing_button .active,
+.ao-billing .co-billing-block .co-billing_button .active {
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+>>>>>>> dev-cc0819
   background-color: #91D0EB;
   color: white;
 }
@@ -855,20 +856,49 @@ body {
 }
 
 @media only screen and (max-width: 575px) {
-  .co-billing_list tr {
+  .co-CheckOrder_block .co-CheckOrder-table {
+    margin: 0;
+  }
+  .co-billing-block {
+    margin: 0;
+  }
+  .co-billing_button {
+    text-align: center;
+    padding: 0 !important;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .co-billing_button > div,
+  .co-billing_button button {
+    width: 100%;
+  }
+  .co-billing_list,
+  .co-CheckOrder-list {
+    margin: 0;
+  }
+  .co-billing_list tr,
+  .co-CheckOrder-list tr {
     height: 30px;
     text-align: left;
     line-height: 30px;
   }
-  .co-billing_list tr th {
+  .co-billing_list tr th,
+  .co-CheckOrder-list tr th {
     display: none;
   }
-  .co-billing_list tr td {
+  .co-billing_list tr td,
+  .co-CheckOrder-list tr td {
     padding: 0 !important;
     text-align: center;
     display: block;
   }
-  .co-billing_list tr td:before {
+  .co-billing_list tr td:before,
+  .co-CheckOrder-list tr td:before {
     text-align: center;
     background-color: #ccc;
     content: attr(data-title);
@@ -960,14 +990,6 @@ body {
 
 .aoCheck-main--style {
   margin-bottom: 100px;
-}
-
-@media all and (min-width: 576px) {
-  .ao-card--style {
-    border-radius: 10px;
-    -webkit-box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
-            box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
-  }
 }
 
 .ao-block {
@@ -1123,6 +1145,20 @@ body {
 .aoCheck-footer .ao-sign .ao-copyRight {
   text-align: center;
   margin: 5px auto;
+}
+
+@media all and (max-width: 576px) {
+  div.ao-block {
+    padding: 16px;
+  }
+  div.ao-block > div {
+    padding: 0;
+  }
+  .ao-card--style {
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
+            box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
+  }
 }
 
 .ao-title {

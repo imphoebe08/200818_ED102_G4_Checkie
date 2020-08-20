@@ -152,8 +152,8 @@
 
                 <div class="co-stepper-content col-12">
                     <stepper-content>
-                        <!-- <transition name="slide" mode="out-in"> -->
-                        <c-stepper :step="1" :current="currentStep">
+                        <!-- <transition name="fade" mode="out-in"> -->
+                        <c-stepper :step="1" :current="currentStep" key="1">
 
                             <div class="row">
                                 <div class="col-12 ao-title">
@@ -219,7 +219,7 @@
                                                 <div>
                                                     <label for="memName">真實姓名<span>*</span></label>
                                                 </div>
-                                                <input type="text" v-for="memName" class="form-control" name="memName" id="memName" placeholder="" required="yes" autocomplete="name">
+                                                <input type="text" v-model="memName" :class="{ formControl:true,formatError: !memName && errors.length > 0}" name="memName" id="memName" placeholder="" required="yes" autocomplete="name">
                                             </div>
 
 
@@ -227,7 +227,7 @@
                                                 <div>
                                                     <label for="memEmail">電子郵件<span>*</span></label>
                                                 </div>
-                                                <input type="email" v-for="memEmail" class="form-control" name="memEmail" id="memEmail" required="yes" autocomplete="email" />
+                                                <input type="email" v-model="memEmail.value" :class="{ formControl:true,formatError: !memEmail.value && errors.length > 0}" name="memEmail" id="memEmail" required="yes" autocomplete="email" />
                                             </div>
 
 
@@ -236,7 +236,7 @@
                                                     <label for="memTel">行動電話<span>*</span></label>
                                                 </div>
 
-                                                <select name="memTel" v-for="memTel." id="" autocomplete="tel-country-code">
+                                                <select name="memTel" :class="{ selectError: !memTel.countryCode && errors.length > 0}" v-model="memTel.countryCode" id="" autocomplete="tel-country-code">
                                                         <option data-countryCode="TW" value="886" Selected>Taiwan (+886)</option>
                                                         <optgroup label="Other countries">
                                                             <option data-countryCode="AM" value="374">Armenia (+374)</option>
@@ -258,7 +258,7 @@
                                                             
                                                         </optgroup>
                                                     </select>
-                                                <input type="tel" v-for="memTel.mobile" class="form-control form-control--width" name="memTel" id="memTel" placeholder="9XXXXXXXX" required="yes" autocomplete="tel">
+                                                <input type="tel" v-model="memTel.mobile" class="formControl formControlWidth" name="memTel" id="memTel" :class="{ formatError: !memTel.mobile && errors.length > 0}" name="memTel" id="memTel" placeholder="9XXXXXXXX" required="yes" autocomplete="tel">
                                                 <!-- pattern="[0-9]{3}[ -][0-9]{3}[ -][0-9]{4}" -->
                                             </div>
 
@@ -268,12 +268,12 @@
                                                     <label for="memGender">性別<span>*</span></label>
                                                 </div>
 
-                                                <label class="radio">
-                                                      <input type="radio" v-for="memGender" name="memGender" id="memGender" value="男"> 男
+                                                <label class="radio" :class="{ radioError: !memGender && errors.length > 0}">
+                                                      <input type="radio" v-model="memGender" name="memGender" id="memGender" value="男"> 男
                                                       <span class="checkmark"></span>
                                                 </label>
-                                                <label class="radio">
-                                                      <input type="radio" v-for="memGender" name="memGender" id="memGender" value="女"> 女
+                                                <label class="radio" :class="{ radioError: !memGender && errors.length > 0}">
+                                                      <input type="radio" v-model="memGender" name="memGender" id="memGender" value="女"> 女
                                                       <span class="checkmark"></span>
                                                 </label>
                                             </div>
@@ -281,22 +281,19 @@
 
                                             <div class="cos-selfForm_item">
                                                 <div>
-                                                    <label for="memBD">出生年月日<span>*</span></label>
+                                                    <label for="memBD">年齡<span>*</span></label>
                                                 </div>
 
-                                                <input type="date" class="form-control" name="memBD" id="memBD" required="yes" autocomplete="bday">
+                                                <input type="number" class="form-control" v-model.number="memBD" :class="{ formControl:true, formatError: !memBD && errors.length > 0}" name="memBD" id="memBD" required="yes" autocomplete="bday">
                                             </div>
 
 
                                             <div class="cos-selfForm_item cos-selfForm_item--border">
 
-
-                                                <input type="checkbox" class="checkbox--style" name="allow" id="allow" value="追蹤主辦單位，接收第一手上架通知" aria-label="" required="yes">
-                                                <label for="allow"> 追蹤主辦單位，接收第一手上架通知 </label>
                                             </div>
                                             <div class="cos-selfForm_item">
 
-                                                <input type="checkbox" class="checkbox--style" name="agreed" id="agreed" value="我已閱讀並同意CHECKIE訂票系統暨使用須知內容所有條款" aria-label="" required="yes">
+                                                <input type="checkbox" v-model="checkbox" true-value="yes" false-value="no" class="checkbox--style" name="agreed" id="agreed" value="我已閱讀並同意CHECKIE訂票系統暨使用須知內容所有條款" aria-label="" required="yes">
                                                 <label for="agreed"> 我已閱讀並同意CHECKIE <a href="">訂票系統暨使用須知</a>內容所有條款</label>
 
                                             </div>
@@ -309,11 +306,17 @@
                                 </div>
                             </div>
 
-
+                            <div class="ao-co-error-overlay" v-if="showModal" @click="showModal = false"></div>
+                            <div v-if="showModal" class="co-ao-error--border">
+                                <div class="co-ao-error-block">
+                                    <p>請填寫 <span v-for="error in errors">{{error}}</span></p>
+                                    <button class="button2-1 error-modal-closer" @click="showModal = false">關閉</button>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-md-8 offset-md-4 cos-selfForm_item co-button--style">
                                     <c-btn @click="update(currentStep-1)">prev</c-btn>
-                                    <c-btn @click="update(currentStep+1)">next</c-btn>
+                                    <c-btn @click="checkForm()">next</c-btn>
                                 </div>
                             </div>
 
@@ -321,7 +324,7 @@
                         </c-stepper>
 
 
-                        <c-stepper :step="2" :current="currentStep">
+                        <c-stepper :step="2" :current="currentStep" key="2">
                             <div class="row">
                                 <div class="col-12 ao-title">
                                     <h5>填寫資料</h5>
@@ -378,24 +381,24 @@
                                         <table class="co-CheckOrder-table">
                                             <tr>
                                                 <th>真實姓名</th>
-                                                <td>葉海綿</td>
+                                                <td>{{memName}}</td>
                                             </tr>
                                             <tr>
                                                 <th>電子郵件</th>
-                                                <td>sbegdhla@yahoo.com.tw</td>
+                                                <td>{{memEmail.value}}</td>
                                             </tr>
                                             <tr>
                                                 <th>行動電話</th>
-                                                <td><span><span>+886</span>922-123-123</span>
+                                                <td><span>{{memTel.countryCode}}-{{memTel.mobile}}</span>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th>性別</th>
-                                                <td>女</td>
+                                                <td>{{memGender}}</td>
                                             </tr>
                                             <tr>
-                                                <th>出生年月日</th>
-                                                <td>1993-12-12</td>
+                                                <th>年齡</th>
+                                                <td>{{memBD}}</td>
                                             </tr>
 
                                         </table>
@@ -459,7 +462,7 @@
 
                         </c-stepper>
 
-                        <c-stepper :step="3" :current="currentStep">
+                        <c-stepper :step="3" :current="currentStep" key="3">
                             <div class="row">
                                 <div class="col-12 ao-title">
                                     <h5>填寫資料</h5>
@@ -514,69 +517,58 @@
                                 <div class="col-md-8 ao-block ao-billing">
                                     <div class="row co-billing-block">
                                         <div class="co-billing_button">
-                                            <!-- <v-expansion-panels>
-                                                <v-expansion-panel>
-                                                    <v-expansion-panel-header>
-                                                        Panel 3
-                                                    </v-expansion-panel-header>
-                                                    <v-expansion-panel-content>
-                                                        Some content
-                                                    </v-expansion-panel-content>
-                                                </v-expansion-panel>
-                                            </v-expansion-panels> -->
                                             <div>
                                                 <span>付款金額</span>
                                                 <span>NT$1500</span>
                                             </div>
-                                            <div>
-                                                －收合訂單明細
-                                            </div>
+                                            <toggle_button @childopen="parentOpen" name="1"></toggle_button>
                                         </div>
 
-                                        <div>
-                                            <table class="co-billing_list">
-                                                <tr>
-                                                    <th>項目</th>
-                                                    <th>數量</th>
-                                                    <th>價格</th>
-                                                    <th>小計</th>
-                                                </tr>
-                                                <tr>
-                                                    <td data-title="項目">
-                                                        <div>
-                                                            <span>2020/08/19</span>
-                                                            <span>上午10:30-12:00</span>
-                                                        </div>
-                                                        <div>
-                                                            預約時數1.5小時
-                                                        </div>
-                                                    </td>
-                                                    <td data-title="數量">1</td>
-                                                    <td data-title="價格">
-                                                        <span>
+                                        <transition name="listTransition" mode="out-in">
+                                            <div v-show="listDataHide">
+                                                <table class="co-billing_list">
+                                                    <tr>
+                                                        <th>項目</th>
+                                                        <th>數量</th>
+                                                        <th>價格</th>
+                                                        <th>小計</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td data-title="項目">
+                                                            <div>
+                                                                <span>2020/08/19</span>
+                                                                <span>上午10:30-12:00</span>
+                                                            </div>
+                                                            <div>
+                                                                預約時數1.5小時
+                                                            </div>
+                                                        </td>
+                                                        <td data-title="數量">1</td>
+                                                        <td data-title="價格">
+                                                            <span>
                                                         NT $
                                                     </span>
-                                                        <span>
+                                                            <span>
                                                         1500
                                                     </span>
-                                                    </td>
-                                                    <td data-title="小計">
-                                                        <span>
+                                                        </td>
+                                                        <td data-title="小計">
+                                                            <span>
                                                         NT $
                                                     </span>
-                                                        <span>
+                                                            <span>
                                                         1500
                                                     </span>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
 
-                                            <div class="co-billing_title">
-                                                <span>付款金額</span>
-                                                <span>NT$1500</span>
+                                                <div class="co-billing_title">
+                                                    <span>付款金額</span>
+                                                    <span>NT$1500</span>
+                                                </div>
                                             </div>
-                                        </div>
-
+                                        </transition>
                                     </div>
 
                                     <div class="row co-billing-block">
@@ -627,7 +619,7 @@
                             </div>
                         </c-stepper>
 
-                        <c-stepper :step="4" :current="currentStep">
+                        <c-stepper :step="4" :current="currentStep" key="4">
                             <div class="row co-review">
                                 <div class="col-12 co-title">
                                     <h6>預約成功！</h6>
@@ -721,7 +713,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
-    <script src="./js/coCalender.js"></script>
+    <script src="./js/aoStepper.js"></script>
 
 
 

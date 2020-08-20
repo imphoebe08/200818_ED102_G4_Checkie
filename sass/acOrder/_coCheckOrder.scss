@@ -1,84 +1,65 @@
-///////與ao-selfInfo共用
-.co-CheckOrder_block {
-    // border: rgb(0, 139, 39) solid 1px;
-    margin: 15px;
-    // padding: 10px;
-    .co-CheckOrder-table {
-        @include table(16px, 16px, 100%);
-        tr {
-            height: 50px;
-            text-align: left;
-            line-height: 50px;
-            th {
-                padding: 5px;
-                width: 30%;
-                // border: saddlebrown solid 1px;
-            }
-        }
-    }
-    .co-CheckOrder-list {
-        @include table(16px, 16px, 100%);
-        border-bottom: dotted #ccc 1px;
-        tr {
-            height: 30px;
-            text-align: left;
-            line-height: 30px;
-            th {
-                background-color: #ccc;
-            }
-            th:nth-child(1) {
-                // border: steelblue solid 1px;
-                width: 45%;
-            }
-            th:nth-child(2) {
-                // border: tomato solid 1px;
-                width: 15%;
-            }
-            th:nth-child(3) {
-                // border: turquoise solid 1px;
-                width: 20%;
-            }
-            th:nth-child(4) {
-                width: 20%;
-            }
-            td {
-                padding: 5px;
-            }
-        }
-    }
-}
-
-.co-CheckOrder_title {
-    display: block;
-    margin: 20px;
-    span:nth-child(2) {
-        margin: 0 30px;
-        color: $color-blue;
-    }
-}
-
-@media only screen and (max-width: 575px) {
+    ///////與ao-selfInfo共用
     .co-CheckOrder_block {
-        margin: 0;
-    }
-    .co-CheckOrder-list {
-        >tr {
-            height: 30px;
-            text-align: left;
-            line-height: 30px;
-            >th {
-                display: none;
+        // border: rgb(0, 139, 39) solid 1px;
+        margin: 15px;
+        // padding: 10px;
+        .co-CheckOrder-table {
+            @include table(16px, 16px, 100%);
+            tr {
+                height: 50px;
+                text-align: left;
+                line-height: 50px;
+                th {
+                    padding: 5px;
+                    width: 30%;
+                    // border: saddlebrown solid 10px;
+                }
             }
-            >td {
-                text-align: center;
-                display: block;
-                &:before {
-                    text-align: center;
+        }
+        .co-CheckOrder-list {
+            // border: 10px solid darkcyan;
+            @include table(16px, 16px, 100%);
+            border-bottom: dotted #ccc 1px;
+            tr {
+                height: 30px;
+                text-align: left;
+                line-height: 30px;
+                th {
                     background-color: #ccc;
-                    content: attr(data-title);
-                    display: block;
+                }
+                th:nth-child(1) {
+                    // border: steelblue solid 1px;
+                    width: 45%;
+                }
+                th:nth-child(2) {
+                    // border: tomato solid 1px;
+                    width: 15%;
+                }
+                th:nth-child(3) {
+                    // border: turquoise solid 1px;
+                    width: 20%;
+                }
+                th:nth-child(4) {
+                    width: 20%;
+                }
+                td {
+                    padding: 5px;
                 }
             }
         }
     }
-}
+    
+    .co-CheckOrder_title {
+        display: block;
+        margin: 20px;
+        span:nth-child(2) {
+            margin: 0 30px;
+            color: $color-blue;
+        }
+    }
+    
+    @media only screen and (max-width: 575px) {
+        .co-CheckOrder_block {
+            margin: 0;
+        }
+    }

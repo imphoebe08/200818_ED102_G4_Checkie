@@ -18,14 +18,6 @@
     margin-bottom: 100px;
 }
 
-@media all and (min-width: 576px) {
-    .ao-card--style {
-        // background-color: darkred;
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
-    }
-}
-
 .ao-block {
     // border: hotpink solid 1px;
     padding: 15px;
@@ -158,5 +150,19 @@
             // border: indigo solid 1px;
             margin: 5px auto;
         }
+    }
+}
+
+@media all and (max-width: 576px) {
+    div.ao-block {
+        padding: 16px;
+        >div {
+            padding: 0;
+        }
+    }
+    .ao-card--style {
+        // background-color: darkred;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
     }
 }
