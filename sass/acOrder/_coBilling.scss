@@ -140,16 +140,15 @@
     }
 }
 
-.stepper-content {
-    .fade-enter-active,
-    .fade-leave-active {
-        transition: .3s;
-    }
-    .fade-enter,
-    .fade-leave-to {
-        opacity: 0;
-        transform: translateX(20px);
-    }
+.fade-enter-active,
+.fade-leave-active {
+    transition: .3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+    transform: translateX(20px);
 }
 
 .listTransition-enter-active,
