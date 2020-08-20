@@ -33,7 +33,7 @@ gulp.task('sass',function(){
 
 //將html搬進dist
 gulp.task('fileinclude', function () {
-    return gulp.src(['*.html']) //來源
+    return gulp.src('*.html') //來源
     .pipe(fileinclude({
         prefix: '@@', //前綴符號（帶入時使用）
         basepath: '@file'
@@ -57,8 +57,8 @@ gulp.task('default',  function () {
             index: "./index.html"
         }
     });
-    gulp.watch('./sass/*.scss',['sass']).on('change'.reload);
-    gulp.watch(['./*.html','**/*.html'],['fileinclude']).on('change'.reload);
+    gulp.watch('./sass/*.scss',['sass']).on('change',reload);
+    gulp.watch(['*.html','**/*.html'] , ['fileinclude']).on('change' ,reload);
     gulp.watch('./js/*.js',['babels']).on('change',reload);
 });
 

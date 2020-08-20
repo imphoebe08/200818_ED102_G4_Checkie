@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="./css/chatRoom.css">
+    <!-- <link rel="stylesheet" href="./css/chatRoom.css"> -->
+    <link rel="stylesheet" href="./main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>chatRoom</title>
 </head>
 <body>
-    <header></header>
+    @@include('template/header.html')
     <main>
         <div id="chatRoom">
             <div class="chatRoom_left col-xl-4 col-lg-3">
@@ -47,7 +48,7 @@
             </div>
         </div>
     </main>
-    <footer></footer>
+     @@include('template/footer.html')
     <script src="./js/chatRoom.js"></script>
 </body>
 </html>
