@@ -23,7 +23,7 @@ gulp.task('copyimg', function() {
 
 // 將main.scss導入dist的css資料夾
 gulp.task('sass', function() {
-    return gulp.src('./sass/main.scss') //來源
+    return gulp.src('./sass/*.scss') //來源
         .pipe(sass().on('error', sass.logError)) //Sass轉譯 -> 一個pipe是一個流程
         .pipe(cleanCSS({
             compatibility: 'ie8' //轉譯成相容ie8的CSS
