@@ -190,13 +190,11 @@ $(function(){
         var inCard = $("#inCard").offset().top;
         var win_H = $(window).height();
         if(win_scroll > inCard-0.1*win_H  && a==0){
-        $(".inCard_body>div").css("transformOrigin","top center -1000px")
-           
-            
+        // $(".inCard_body>div").css("transformOrigin","top center -1000px")
+        $(".inCard_body").addClass("inCard_ani")
             
             
         }
-        $(".inCard_body>div").css("transformOrigin","unset")
     }
     // 圈圈結束
     $(window).scroll(function(e){

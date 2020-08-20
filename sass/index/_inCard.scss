@@ -1,9 +1,7 @@
 .inCard{
     margin-top: 300px;
-    padding-top: 100px;
     width: 100%;
-    height: 200vh;
-    z-index: 99;
+    height: 100vh;
     
     .inCard_block{
         max-width: 1200px;
@@ -20,14 +18,22 @@
             @include h2;   
             text-align: center;         
         }
+        .inCard_body.inCard_ani{
+            >div{
+                transform-origin: top center -1000px;
+                transform: translateY(-50%) perspective(10000px) scale(1) rotateX(360deg);
+
+            }
+        }
         .inCard_body{
             width: 100%;
             display: flex;
             height: 80vh;
             position: relative;
             >div{
+                transition: all 1s linear;
                 position: absolute;
-                transform: translateY(-50%) perspective(900px) scale(0) ;
+                transform: translateY(-50%) perspective(600px) scale(0) ;
                 width: 500px*0.6;
                 height: 800px*0.6;
                 top: 50%;
@@ -39,6 +45,7 @@
                     @include bg;
                     background-size: cover;
                     box-shadow: 2px 5px 15px 3px rgb(49, 49, 49);
+                    
                 }
 
             }
@@ -96,8 +103,9 @@
             }
         }
         .inCard_btn{
-            display: block;
             @include btn-modules($bw, $color-pink, $fontsize);
+            width: $bw;
+            display: block;
             border-radius: $border-radius;
             background-clip:padding-box,border-box;
             background-origin:padding-box,border-box;
