@@ -26,11 +26,11 @@
             position: relative;
             >div{
                 position: absolute;
-                transform: translateY(-50%) perspective(900px) ;
+                transform: translateY(-50%) perspective(900px) scale(0) ;
                 width: 500px*0.6;
                 height: 800px*0.6;
                 top: 50%;
-                transform-origin: top center -1000px;
+                // transform-origin: top center -1000px;
                 >a{
                     display: inline-block;
                     width: 100%;
@@ -38,7 +38,6 @@
                     @include bg;
                     background-size: cover;
                     box-shadow: 2px 5px 15px 3px rgb(49, 49, 49);
-
                 }
 
             }
