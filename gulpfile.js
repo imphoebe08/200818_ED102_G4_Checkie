@@ -58,19 +58,11 @@ gulp.task('default', function() {
             index: "./index.html"
         }
     });
-<<<<<<< HEAD
-    gulp.watch(['./sass/*.scss','./sass/**/*.scss'],['sass']).on('change',reload);
-=======
-<<<<<<< HEAD
-    gulp.watch('./sass/*.scss', ['sass']).on('change'.reload);
-    gulp.watch(['./*.html', '**/*.html'], ['fileinclude']).on('change'.reload);
+
+    gulp.watch(['./sass/*.scss', './sass/**/*.scss'], ['sass']).on('change',reload);
+    gulp.watch(['./*.html', '**/*.html'], ['fileinclude']).on('change',reload);
     gulp.watch('./js/*.js', ['babels']).on('change', reload);
-=======
-    gulp.watch('./sass/*.scss',['sass']).on('change',reload);
->>>>>>> 500dd03e6980c4b7230c14fd9dfdb779962a316d
-    gulp.watch(['*.html','**/*.html'] , ['fileinclude']).on('change' ,reload);
-    gulp.watch('./js/*.js',['babels']).on('change',reload);
->>>>>>> 54d6a6e97d3cd1153d37a3af7f346008de3804e8
+
 });
 
 //壓縮圖檔
