@@ -39,7 +39,7 @@ main{
         .chatRoom_left{
             border-right: 3px solid grey;
             width: 30%;
-            max-height: 90vh;
+            max-height: 85vh;
             overflow-y: auto;
             .chatRomm_userPic{
                 // border: 1px solid red;
@@ -100,7 +100,7 @@ main{
     .chatRoom_right{
         // border: 1px solid blue;
         width: 70%;
-        max-height: 90vh;
+        max-height: 85vh;
     // -----------手機＆平板RWD用-------------
         .chatRoom_drInfo{
                 display: flex;
