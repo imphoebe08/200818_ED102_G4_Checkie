@@ -31,11 +31,10 @@ p{
 
 
 main{
-    // border: 1px solid blue;
-    margin:30px 50px;
-    box-shadow: $boxshadow;
-    max-height: 90vh;
+
     #chatRoom{
+        margin:30px 50px;
+        box-shadow: $boxshadow;
         display: flex;
         .chatRoom_left{
             border-right: 3px solid grey;

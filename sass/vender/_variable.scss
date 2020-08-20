@@ -55,12 +55,12 @@ body{
     line-height: 2;
 }
 
-//(大)立即預約、立即報名按鈕、抽卡、開始測驗
+//(大)立即預約、立即報名按鈕、開始測驗
 @mixin btn-modules($bw, $color-pink, $fontsize) {
-    
-        width: $bw;
-        padding: 10px 10px;
-        font-size: $fontsize;
+        
+        display: inline-block;
+        padding: 5px 30px;
+        font-size: $fontsize*1.25;
         font-weight: 500;
         text-align: center;
         border-radius: $border-radius;
@@ -70,19 +70,21 @@ body{
         background-color: $color-pink;
         transition: .2s all ease-in;
         &:hover {
-            // background-color: darken($color-pink, 10%);
-            background-color:transparent;
-            color:$color-pink ;
+            background-color: darken($color-pink, 15%);
+            border:2px solid darken($color-pink, 15%);
         }
+
+        &:focus{
+            display: none;
+       }
     
 }
 
-//(小) 暸解更多、諮商選項(現場電話視訊...)按鈕、活動小卡立即報名
+//(小) 專欄暸解更多、活動小卡立即報名、篩選、分數
 @mixin btn-more($bw, $color-pink, $fontsize) {
-    
-    width: $bw;
-    padding: 10px 10px;
-    font-size: $fontsize;
+    display: inline-block;
+    padding: 2px 10px;
+    font-size: $fontsize - 2px;
     font-weight: 400;
     text-align: center;
     border-radius: $border-radius;
@@ -96,25 +98,127 @@ body{
         color:#fff ;
     }
 
+    &:focus{
+        display: none;
+   }
+
 }
 
-//付款頁面按鈕(上下一步、確定付款...)
-@mixin btn-paypage($bw, $color-pink, $fontsize) {
-    
-    width: $bw;
-    padding: 15px 10px;
+//諮商選項(現場電話視訊...)
+@mixin btn-option($color-pink, $fontsize) {
+    display: inline-block;
+    padding: 5px 15px;
     font-size: $fontsize + 2px;
     font-weight: 400;
     text-align: center;
-    border-radius: 10px;
+    border-radius: $border-radius;
     border: 2px solid $color-pink;
     color: $color-pink;
     cursor: pointer;
     background-color: transparent;
     transition: .2s all ease-in;
+
     &:hover {
         background-color: $color-pink;
         color:#fff ;
+    }
+
+    &:focus{
+        display: none;
+   }
+}
+
+
+
+//付款頁面按鈕(上一部、重新選擇)
+@mixin btn-prepay($bw, $fontsize) {
+    
+    width: $bw;
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: $fontsize + 2px;
+    font-weight: 500;
+    text-align: center;
+    border-radius: $border-radius;
+    border: 2px solid rgb(214, 214, 214);
+    background-color: transparent;
+    color: rgb(196, 196, 196);
+    cursor: pointer;
+    transition: .2s all ease-in;
+
+    &:hover {
+        background-color: rgb(235, 235, 235);
+   
+    }
+
+}
+
+//付款頁面按鈕(下一步、確定付款...)
+@mixin btn-paypage($bw, $color-pink, $fontsize) {
+    
+    width: $bw;
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: $fontsize + 2px;
+    font-weight: 500;
+    text-align: center;
+    border-radius: $border-radius;
+    border: 2px solid $color-blue;
+    background-color: $color-blue;
+    color: #fff;
+    cursor: pointer;
+    transition: .2s all ease-in;
+
+    &:hover {
+        background-color: darken($color-blue, 15%);
+        border:2px solid darken($color-blue, 15%);
+    }
+
+}
+
+//抽取神諭卡
+@mixin btn-pickcard{
+    position: relative;
+    width: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .2s all ease-in;
+    cursor: pointer;
+    font-size: $fontsize ;
+    font-weight: 400;
+    text-align: center;
+    border: none;
+    
+
+    
+    &::before{
+        content: '';
+        display: inline-block;
+        position: absolute;
+        left: -30px;
+        top: -13px;
+        padding: 20px 20px;
+        width: 150px;
+        border-radius: $border-radius;
+        background-clip:padding-box,border-box;
+        background-origin:padding-box,border-box;
+        background-image:linear-gradient(135deg,#fff,#fff),linear-gradient(135deg,$color-blue,$color-pink);        
+        border:3px transparent solid;
+        color: rgb(51, 51, 51);
+        transition: .2s all ease-in;
+        z-index: -1;
+    }
+
+    &:hover::before{
+        width: 100%;
+        padding: 20px 40px;
+        transform: translateX(-15px);
+        color: darken($color-blue, 15%);
+        
+    }
+    &:hover{
+    color: darken($color-blue, 15%);
+    
     }
 
 }

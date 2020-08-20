@@ -102,12 +102,6 @@ body{
                     }
             }
         }
-
-        .btnSearch{
-            margin-left: auto;
-            margin-right: 3%;
-            @include btn-more($bw, $color-pink, $fontsize);
-        }
     }
     .acSelect{
         // border: 1px solid green;
@@ -125,7 +119,7 @@ body{
             text-align: center;
             margin: 20px 0;
             .acSelectMore{
-                @include btn-more($bw, $color-pink, $fontsize);
+                @include btn-modules($bw, $color-pink, $fontsize);
             }
         }
     }

@@ -25,7 +25,7 @@ new Vue({
 
     data: { 
         nums:6,
-
+        title:["精選活動","講座","療癒","戶外","藝文"],
     },
     methods: {
         
@@ -57,7 +57,7 @@ new Vue({
             <h6 class="acSelectCard_title"><a href="./acSelf.html">信念探索團：親密關係</a></h6>
 
             <div class="acSelectCard_bottomBlock">
-            <p class="acSelectCard_person"> 剩餘名額：10人<p>
+            <p class="acSelectCard_person"> 剩餘名額：10人</p>
             <input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register">
             </div>
         </div>
