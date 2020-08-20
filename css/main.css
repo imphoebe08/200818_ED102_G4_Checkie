@@ -8,8 +8,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -1167,9 +1165,9 @@ input {
 }
 
 .ansButton--start .qsStart {
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -1184,6 +1182,10 @@ input {
 .ansButton--start .qsStart:hover {
   background-color: #FFA492;
   color: #fff;
+}
+
+.ansButton--start .qsStart:focus {
+  display: none;
 }
 
 .qsAns {
@@ -1240,9 +1242,9 @@ input {
 }
 
 .text_skip {
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -1263,10 +1265,14 @@ input {
   color: #fff;
 }
 
+.text_skip:focus {
+  display: none;
+}
+
 .test_submit {
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -1288,6 +1294,10 @@ input {
   color: #fff;
 }
 
+.test_submit:focus {
+  display: none;
+}
+
 .acSelect .acSelectCard {
   display: inline-block;
   border-radius: 30px;
@@ -1297,6 +1307,7 @@ input {
 }
 
 .acSelect .acSelectCard a {
+  padding-left: 4%;
   display: inline-block;
   width: 100%;
   color: maroon;
@@ -1333,7 +1344,7 @@ input {
 
 .acSelect .acSelectCard_title {
   border-bottom: 1px solid lightgray;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
 }
 
 .acSelect .acSelectCard_bottomBlock {
@@ -1352,8 +1363,8 @@ input {
 
 .acSelect .acSelectCard_bottomBlock #acSelectCard_register {
   display: inline-block;
-  width: 100px;
-  padding: 10px 10px;
+  display: inline-block;
+  padding: 2px 10px;
   font-size: 14px;
   font-weight: 400;
   text-align: center;
@@ -1366,11 +1377,16 @@ input {
   transition: .2s all ease-in;
   padding: 5px;
   margin-right: 10px;
+  margin-top: 10px;
 }
 
 .acSelect .acSelectCard_bottomBlock #acSelectCard_register:hover {
   background-color: #FFA492;
   color: #fff;
+}
+
+.acSelect .acSelectCard_bottomBlock #acSelectCard_register:focus {
+  display: none;
 }
 
 .acCommentList {
@@ -1516,28 +1532,6 @@ body {
   color: maroon;
 }
 
-.acSearch .btnSearch {
-  margin-left: auto;
-  margin-right: 3%;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 16px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #FFA492;
-  color: #FFA492;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.acSearch .btnSearch:hover {
-  background-color: #FFA492;
-  color: #fff;
-}
-
 .acSelect {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1564,23 +1558,27 @@ body {
 }
 
 .acSelect .acSelect-wrapper_btnMore .acSelectMore {
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 16px;
-  font-weight: 400;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 20px;
+  font-weight: 500;
   text-align: center;
   border-radius: 30px;
   border: 2px solid #FFA492;
-  color: #FFA492;
+  color: #fff;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #FFA492;
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
 }
 
 .acSelect .acSelect-wrapper_btnMore .acSelectMore:hover {
-  background-color: #FFA492;
-  color: #fff;
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+.acSelect .acSelect-wrapper_btnMore .acSelectMore:focus {
+  display: none;
 }
 
 .acComment {
@@ -1658,9 +1656,9 @@ body {
 
 .acRelate .acRelateCard_bottomBlock #acRelateCard_register {
   display: inline-block;
-  width: 100px;
-  padding: 10px 10px;
-  font-size: 14px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 12px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -1677,6 +1675,10 @@ body {
 .acRelate .acRelateCard_bottomBlock #acRelateCard_register:hover {
   background-color: #FFA492;
   color: #fff;
+}
+
+.acRelate .acRelateCard_bottomBlock #acRelateCard_register:focus {
+  display: none;
 }
 
 input:focus {
@@ -1770,9 +1772,9 @@ main {
 
 .acSelf-btns .acSelf-btns_apply {
   display: inline-block;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 20px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -1785,8 +1787,12 @@ main {
 }
 
 .acSelf-btns .acSelf-btns_apply:hover {
-  background-color: transparent;
-  color: #FFA492;
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+.acSelf-btns .acSelf-btns_apply:focus {
+  display: none;
 }
 
 @media screen and (max-width: 986px) {
@@ -1923,6 +1929,7 @@ main {
       justify-content: space-around;
   padding-bottom: 50px;
   margin-top: 30px;
+  text-align: center;
 }
 
 .acRelate .acRelate-title {
@@ -1935,6 +1942,11 @@ main {
   width: 350px;
   height: 400px;
   margin: 10px;
+}
+
+.owl-theme .owl-dots {
+  position: relative;
+  bottom: -30px;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -2202,42 +2214,44 @@ body {
 .button4 {
   display: inline-block;
   width: 250px;
-  padding: 15px 10px;
+  display: inline-block;
+  padding: 10px 30px;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 30px;
   border: 2px solid #91D0EB;
-  color: #91D0EB;
+  background-color: #91D0EB;
+  color: #fff;
   cursor: pointer;
-  background-color: transparent;
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
 }
 
 .button4:hover {
-  background-color: #91D0EB;
-  color: #fff;
+  background-color: #50b4df;
+  border: 2px solid #50b4df;
 }
 
 @media only screen and (max-width: 575px) {
   .button4 {
     width: 120px;
-    padding: 15px 10px;
+    display: inline-block;
+    padding: 10px 30px;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 500;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 30px;
     border: 2px solid #91D0EB;
-    color: #91D0EB;
+    background-color: #91D0EB;
+    color: #fff;
     cursor: pointer;
-    background-color: transparent;
     -webkit-transition: .2s all ease-in;
     transition: .2s all ease-in;
   }
   .button4:hover {
-    background-color: #91D0EB;
-    color: #fff;
+    background-color: #50b4df;
+    border: 2px solid #50b4df;
   }
 }
 
@@ -3209,9 +3223,9 @@ p {
 
 .button {
   margin: 10px;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 20px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 25px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -3224,15 +3238,19 @@ p {
 }
 
 .button:hover {
-  background-color: transparent;
-  color: #FFA492;
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+.button:focus {
+  display: none;
 }
 
 .button2 {
   margin: 10px;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 20px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 25px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -3245,15 +3263,19 @@ p {
 }
 
 .button2:hover {
-  background-color: transparent;
-  color: #91D0EB;
+  background-color: #50b4df;
+  border: 2px solid #50b4df;
+}
+
+.button2:focus {
+  display: none;
 }
 
 .button2-1 {
   margin: 10px;
-  width: 150px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -3270,11 +3292,15 @@ p {
   color: #fff;
 }
 
+.button2-1:focus {
+  display: none;
+}
+
 .button3 {
   margin: 10px;
-  width: 80px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -3291,12 +3317,16 @@ p {
   color: #fff;
 }
 
+.button3:focus {
+  display: none;
+}
+
 .button3-1 {
   margin: 10px;
   display: inline-block;
-  width: 80px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -3312,6 +3342,10 @@ p {
 .button3-1:hover {
   background-color: #FFA492;
   color: #fff;
+}
+
+.button3-1:focus {
+  display: none;
 }
 
 .box {
@@ -3836,9 +3870,9 @@ body {
 }
 
 .atClassAfter .atClassAfter_content_block:nth-child(odd) .atClassAfter_content .atClassAfter-content_button input {
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -3853,6 +3887,10 @@ body {
 .atClassAfter .atClassAfter_content_block:nth-child(odd) .atClassAfter_content .atClassAfter-content_button input:hover {
   background-color: #FFA492;
   color: #fff;
+}
+
+.atClassAfter .atClassAfter_content_block:nth-child(odd) .atClassAfter_content .atClassAfter-content_button input:focus {
+  display: none;
 }
 
 .atClassAfter .atClassAfter_content_block:nth-child(even) {
@@ -3906,9 +3944,9 @@ body {
 }
 
 .atClassAfter .atClassAfter_content_block:nth-child(even) .atClassAfter_content .atClassAfter-content_button input {
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -3923,6 +3961,10 @@ body {
 .atClassAfter .atClassAfter_content_block:nth-child(even) .atClassAfter_content .atClassAfter-content_button input:hover {
   background-color: #FFA492;
   color: #fff;
+}
+
+.atClassAfter .atClassAfter_content_block:nth-child(even) .atClassAfter_content .atClassAfter-content_button input:focus {
+  display: none;
 }
 
 .atClassAfter .atClassAfter_content_block:nth-child(even) .atClassAfter_content .atClassAfter-content_pic {
@@ -4109,14 +4151,10 @@ p {
   line-height: 2;
 }
 
-main {
+main #chatRoom {
   margin: 30px 50px;
   -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
           box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-  max-height: 90vh;
-}
-
-main #chatRoom {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4339,64 +4377,6 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   margin: auto 0;
 }
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-body {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-weight: 400;
-  font-family: "Noto Sans TC", sans-serif;
-  margin: 0;
-}
-
 .csMain *, .csCounselor-cards * {
   margin: 0;
   padding: 0;
@@ -4458,9 +4438,9 @@ body {
 
 .csMain .button, .csCounselor-cards .button {
   margin: 10px;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 20px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 25px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -4473,15 +4453,19 @@ body {
 }
 
 .csMain .button:hover, .csCounselor-cards .button:hover {
-  background-color: transparent;
-  color: #FFA492;
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+.csMain .button:focus, .csCounselor-cards .button:focus {
+  display: none;
 }
 
 .csMain .button2, .csCounselor-cards .button2 {
   margin: 10px;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 20px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 25px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -4494,15 +4478,19 @@ body {
 }
 
 .csMain .button2:hover, .csCounselor-cards .button2:hover {
-  background-color: transparent;
-  color: #91D0EB;
+  background-color: #50b4df;
+  border: 2px solid #50b4df;
+}
+
+.csMain .button2:focus, .csCounselor-cards .button2:focus {
+  display: none;
 }
 
 .csMain .button2-1, .csCounselor-cards .button2-1 {
   margin: 10px;
-  width: 150px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -4519,11 +4507,15 @@ body {
   color: #fff;
 }
 
+.csMain .button2-1:focus, .csCounselor-cards .button2-1:focus {
+  display: none;
+}
+
 .csMain .button3, .csCounselor-cards .button3 {
   margin: 10px;
-  width: 80px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -4540,12 +4532,16 @@ body {
   color: #fff;
 }
 
+.csMain .button3:focus, .csCounselor-cards .button3:focus {
+  display: none;
+}
+
 .csMain .button3-1, .csCounselor-cards .button3-1 {
   margin: 10px;
   display: inline-block;
-  width: 80px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -4563,25 +4559,30 @@ body {
   color: #fff;
 }
 
+.csMain .button3-1:focus, .csCounselor-cards .button3-1:focus {
+  display: none;
+}
+
 .csMain .button4, .csCounselor-cards .button4 {
   display: inline-block;
   width: 250px;
-  padding: 15px 10px;
+  display: inline-block;
+  padding: 10px 30px;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 30px;
   border: 2px solid #91D0EB;
-  color: #91D0EB;
+  background-color: #91D0EB;
+  color: #fff;
   cursor: pointer;
-  background-color: transparent;
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
 }
 
 .csMain .button4:hover, .csCounselor-cards .button4:hover {
-  background-color: #91D0EB;
-  color: #fff;
+  background-color: #50b4df;
+  border: 2px solid #50b4df;
 }
 
 .csMain .box, .csCounselor-cards .box {
@@ -4677,9 +4678,9 @@ body {
 
 .csSelf .button {
   margin: 10px;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 20px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 25px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -4692,15 +4693,19 @@ body {
 }
 
 .csSelf .button:hover {
-  background-color: transparent;
-  color: #FFA492;
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+.csSelf .button:focus {
+  display: none;
 }
 
 .csSelf .button2 {
   margin: 10px;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 20px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 25px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -4713,15 +4718,19 @@ body {
 }
 
 .csSelf .button2:hover {
-  background-color: transparent;
-  color: #91D0EB;
+  background-color: #50b4df;
+  border: 2px solid #50b4df;
+}
+
+.csSelf .button2:focus {
+  display: none;
 }
 
 .csSelf .button2-1 {
   margin: 10px;
-  width: 150px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -4738,11 +4747,15 @@ body {
   color: #fff;
 }
 
+.csSelf .button2-1:focus {
+  display: none;
+}
+
 .csSelf .button3 {
   margin: 10px;
-  width: 80px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -4759,12 +4772,16 @@ body {
   color: #fff;
 }
 
+.csSelf .button3:focus {
+  display: none;
+}
+
 .csSelf .button3-1 {
   margin: 10px;
   display: inline-block;
-  width: 80px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -4782,25 +4799,30 @@ body {
   color: #fff;
 }
 
+.csSelf .button3-1:focus {
+  display: none;
+}
+
 .csSelf .button4 {
   display: inline-block;
   width: 250px;
-  padding: 15px 10px;
+  display: inline-block;
+  padding: 10px 30px;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 30px;
   border: 2px solid #91D0EB;
-  color: #91D0EB;
+  background-color: #91D0EB;
+  color: #fff;
   cursor: pointer;
-  background-color: transparent;
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
 }
 
 .csSelf .button4:hover {
-  background-color: #91D0EB;
-  color: #fff;
+  background-color: #50b4df;
+  border: 2px solid #50b4df;
 }
 
 .csSelf .box {
@@ -4835,20 +4857,21 @@ body {
   float: right;
 }
 
-.csMain {
+#csMainContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#csMainContainer .csMain {
   z-index: 50;
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.csMain #cleanSelect {
-  position: absolute;
-  right: 15%;
-  top: 10px;
-}
-
-.csMain .checkbox-form {
+#csMainContainer .csMain .checkbox-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4861,32 +4884,32 @@ body {
           justify-content: center;
 }
 
-.csMain .checkbox-form span {
+#csMainContainer .csMain .checkbox-form span {
   width: 120px;
   height: 4px;
   margin: 20px 10px;
   text-align: center;
 }
 
-.csMain .checkbox-form span + select {
+#csMainContainer .csMain .checkbox-form span + select {
   margin: 20px auto;
 }
 
-.csMain .checkbox-form input {
+#csMainContainer .csMain .checkbox-form input {
   display: none;
 }
 
-.csMain .checkbox-form input:checked + label {
+#csMainContainer .csMain .checkbox-form input:checked + label {
   background-color: pink;
   color: #fff;
 }
 
-.csMain .checkbox-form label.button3-1 {
+#csMainContainer .csMain .checkbox-form label.button3-1 {
   margin: 10px;
   display: inline-block;
-  width: 80px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -4903,9 +4926,13 @@ body {
   line-height: 40px;
 }
 
-.csMain .checkbox-form label.button3-1:hover {
+#csMainContainer .csMain .checkbox-form label.button3-1:hover {
   background-color: #FFA492;
   color: #fff;
+}
+
+#csMainContainer .csMain .checkbox-form label.button3-1:focus {
+  display: none;
 }
 
 .csCounselor-cards {
@@ -4943,9 +4970,9 @@ body {
           flex: 1 0 80px;
   max-width: 120px;
   margin: 20px;
-  width: 80px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -4962,6 +4989,11 @@ body {
 .csCounselor-cards .csC-changeSlide #next:hover {
   background-color: #FFA492;
   color: #fff;
+}
+
+.csCounselor-cards .csC-changeSlide #pre:focus,
+.csCounselor-cards .csC-changeSlide #next:focus {
+  display: none;
 }
 
 .csCounselor-cards .csCounselor-gallery {
@@ -5084,7 +5116,7 @@ body {
   .csMain {
     position: absolute;
     right: -120px;
-    height: 500px;
+    height: 430px;
     width: 120px;
     border: 1px solid red;
     -webkit-transition: all 1s ease;
@@ -5097,11 +5129,6 @@ body {
   .csMain.slideOut {
     -webkit-animation: slideOut 1s ease forwards;
             animation: slideOut 1s ease forwards;
-  }
-  .csMain #cleanSelect {
-    position: absolute;
-    right: 15%;
-    top: 90%;
   }
   .csMain .checkbox-form {
     width: 120px;
@@ -5195,64 +5222,6 @@ body {
   }
 }
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-body {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-weight: 400;
-  font-family: "Noto Sans TC", sans-serif;
-  margin: 0;
-}
-
 .csMain *, .csCounselor-cards * {
   margin: 0;
   padding: 0;
@@ -5314,9 +5283,9 @@ body {
 
 .csMain .button, .csCounselor-cards .button {
   margin: 10px;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 20px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 25px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -5329,15 +5298,19 @@ body {
 }
 
 .csMain .button:hover, .csCounselor-cards .button:hover {
-  background-color: transparent;
-  color: #FFA492;
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+.csMain .button:focus, .csCounselor-cards .button:focus {
+  display: none;
 }
 
 .csMain .button2, .csCounselor-cards .button2 {
   margin: 10px;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 20px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 25px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -5350,15 +5323,19 @@ body {
 }
 
 .csMain .button2:hover, .csCounselor-cards .button2:hover {
-  background-color: transparent;
-  color: #91D0EB;
+  background-color: #50b4df;
+  border: 2px solid #50b4df;
+}
+
+.csMain .button2:focus, .csCounselor-cards .button2:focus {
+  display: none;
 }
 
 .csMain .button2-1, .csCounselor-cards .button2-1 {
   margin: 10px;
-  width: 150px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -5375,11 +5352,15 @@ body {
   color: #fff;
 }
 
+.csMain .button2-1:focus, .csCounselor-cards .button2-1:focus {
+  display: none;
+}
+
 .csMain .button3, .csCounselor-cards .button3 {
   margin: 10px;
-  width: 80px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -5396,12 +5377,16 @@ body {
   color: #fff;
 }
 
+.csMain .button3:focus, .csCounselor-cards .button3:focus {
+  display: none;
+}
+
 .csMain .button3-1, .csCounselor-cards .button3-1 {
   margin: 10px;
   display: inline-block;
-  width: 80px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -5419,25 +5404,30 @@ body {
   color: #fff;
 }
 
+.csMain .button3-1:focus, .csCounselor-cards .button3-1:focus {
+  display: none;
+}
+
 .csMain .button4, .csCounselor-cards .button4 {
   display: inline-block;
   width: 250px;
-  padding: 15px 10px;
+  display: inline-block;
+  padding: 10px 30px;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 30px;
   border: 2px solid #91D0EB;
-  color: #91D0EB;
+  background-color: #91D0EB;
+  color: #fff;
   cursor: pointer;
-  background-color: transparent;
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
 }
 
 .csMain .button4:hover, .csCounselor-cards .button4:hover {
-  background-color: #91D0EB;
-  color: #fff;
+  background-color: #50b4df;
+  border: 2px solid #50b4df;
 }
 
 .csMain .box, .csCounselor-cards .box {
@@ -5533,9 +5523,9 @@ body {
 
 .csSelf .button {
   margin: 10px;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 20px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 25px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -5548,15 +5538,19 @@ body {
 }
 
 .csSelf .button:hover {
-  background-color: transparent;
-  color: #FFA492;
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+.csSelf .button:focus {
+  display: none;
 }
 
 .csSelf .button2 {
   margin: 10px;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 20px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 25px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -5569,15 +5563,19 @@ body {
 }
 
 .csSelf .button2:hover {
-  background-color: transparent;
-  color: #91D0EB;
+  background-color: #50b4df;
+  border: 2px solid #50b4df;
+}
+
+.csSelf .button2:focus {
+  display: none;
 }
 
 .csSelf .button2-1 {
   margin: 10px;
-  width: 150px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -5594,11 +5592,15 @@ body {
   color: #fff;
 }
 
+.csSelf .button2-1:focus {
+  display: none;
+}
+
 .csSelf .button3 {
   margin: 10px;
-  width: 80px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -5615,12 +5617,16 @@ body {
   color: #fff;
 }
 
+.csSelf .button3:focus {
+  display: none;
+}
+
 .csSelf .button3-1 {
   margin: 10px;
   display: inline-block;
-  width: 80px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -5638,25 +5644,30 @@ body {
   color: #fff;
 }
 
+.csSelf .button3-1:focus {
+  display: none;
+}
+
 .csSelf .button4 {
   display: inline-block;
   width: 250px;
-  padding: 15px 10px;
+  display: inline-block;
+  padding: 10px 30px;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 30px;
   border: 2px solid #91D0EB;
-  color: #91D0EB;
+  background-color: #91D0EB;
+  color: #fff;
   cursor: pointer;
-  background-color: transparent;
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
 }
 
 .csSelf .button4:hover {
-  background-color: #91D0EB;
-  color: #fff;
+  background-color: #50b4df;
+  border: 2px solid #50b4df;
 }
 
 .csSelf .box {
@@ -6068,9 +6079,9 @@ p {
 
 .button {
   margin: 10px;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 20px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 25px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -6083,15 +6094,19 @@ p {
 }
 
 .button:hover {
-  background-color: transparent;
-  color: #FFA492;
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+.button:focus {
+  display: none;
 }
 
 .button2 {
   margin: 10px;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 20px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 25px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -6104,15 +6119,19 @@ p {
 }
 
 .button2:hover {
-  background-color: transparent;
-  color: #91D0EB;
+  background-color: #50b4df;
+  border: 2px solid #50b4df;
+}
+
+.button2:focus {
+  display: none;
 }
 
 .button2-1 {
   margin: 10px;
-  width: 150px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -6129,11 +6148,15 @@ p {
   color: #fff;
 }
 
+.button2-1:focus {
+  display: none;
+}
+
 .button3 {
   margin: 10px;
-  width: 80px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -6150,12 +6173,16 @@ p {
   color: #fff;
 }
 
+.button3:focus {
+  display: none;
+}
+
 .button3-1 {
   margin: 10px;
   display: inline-block;
-  width: 80px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
   font-weight: 400;
   text-align: center;
   border-radius: 30px;
@@ -6173,25 +6200,30 @@ p {
   color: #fff;
 }
 
+.button3-1:focus {
+  display: none;
+}
+
 .button4 {
   display: inline-block;
   width: 250px;
-  padding: 15px 10px;
+  display: inline-block;
+  padding: 10px 30px;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 30px;
   border: 2px solid #91D0EB;
-  color: #91D0EB;
+  background-color: #91D0EB;
+  color: #fff;
   cursor: pointer;
-  background-color: transparent;
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
 }
 
 .button4:hover {
-  background-color: #91D0EB;
-  color: #fff;
+  background-color: #50b4df;
+  border: 2px solid #50b4df;
 }
 
 .box {
@@ -6589,9 +6621,9 @@ p {
 
 .inCard .inCard_block .inCard_btn {
   display: block;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 20px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -6612,8 +6644,12 @@ p {
 }
 
 .inCard .inCard_block .inCard_btn:hover {
-  background-color: transparent;
-  color: #FFA492;
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+.inCard .inCard_block .inCard_btn:focus {
+  display: none;
 }
 
 .inAbout {
@@ -6690,7 +6726,7 @@ p {
 }
 
 .inAbout .inAbout-left_block .inAbout-text_block .inAbout-place_block .inAbout-place_btn {
-  width: 120px;
+  width: 300px;
   padding: 10px 10px;
   font-size: 16px;
   font-weight: 500;
@@ -7544,9 +7580,9 @@ div.inCs ul.leftList li button {
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
   margin: 10px;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 20px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 25px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -7560,8 +7596,12 @@ div.inCs ul.leftList li button {
 }
 
 div.inCs ul.leftList li button:hover {
-  background-color: transparent;
-  color: #FFA492;
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+div.inCs ul.leftList li button:focus {
+  display: none;
 }
 
 div.inCs ul.rightList {
@@ -7653,9 +7693,9 @@ div.inCs ul.rightList li button {
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
   margin: 10px;
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 20px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 25px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -7669,8 +7709,12 @@ div.inCs ul.rightList li button {
 }
 
 div.inCs ul.rightList li button:hover {
-  background-color: transparent;
-  color: #FFA492;
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+div.inCs ul.rightList li button:focus {
+  display: none;
 }
 
 div.inCs ul.slide-button {
@@ -8482,9 +8526,9 @@ p {
 }
 
 #oracleCard .oracleCardInner .oracleCardStep .oracleCardStepBox .cardBtn button {
-  width: 120px;
-  padding: 10px 10px;
-  font-size: 16px;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 20px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -8501,8 +8545,12 @@ p {
 }
 
 #oracleCard .oracleCardInner .oracleCardStep .oracleCardStepBox .cardBtn button:hover {
-  background-color: transparent;
-  color: #FFA492;
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .oracleCardStepBox .cardBtn button:focus {
+  display: none;
 }
 
 @-webkit-keyframes btnScale {
