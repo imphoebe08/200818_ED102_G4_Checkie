@@ -33,6 +33,7 @@ gulp.task('sass', function() {
 
 
 //將html搬進dist
+<<<<<<< HEAD
 gulp.task('fileinclude', function() {
     return gulp.src(['*.html']) //來源
         .pipe(fileinclude({
@@ -40,6 +41,15 @@ gulp.task('fileinclude', function() {
             basepath: '@file'
         }))
         .pipe(gulp.dest('./dist')); //目的地
+=======
+gulp.task('fileinclude', function () {
+    return gulp.src('*.html') //來源
+    .pipe(fileinclude({
+        prefix: '@@', //前綴符號（帶入時使用）
+        basepath: '@file'
+    }))
+    .pipe(gulp.dest('./dist')); //目的地
+>>>>>>> 54d6a6e97d3cd1153d37a3af7f346008de3804e8
 });
 
 // 同步執行兩個以上的指令：
@@ -58,9 +68,15 @@ gulp.task('default', function() {
             index: "./index.html"
         }
     });
+<<<<<<< HEAD
     gulp.watch('./sass/*.scss', ['sass']).on('change'.reload);
     gulp.watch(['./*.html', '**/*.html'], ['fileinclude']).on('change'.reload);
     gulp.watch('./js/*.js', ['babels']).on('change', reload);
+=======
+    gulp.watch('./sass/*.scss',['sass']).on('change',reload);
+    gulp.watch(['*.html','**/*.html'] , ['fileinclude']).on('change' ,reload);
+    gulp.watch('./js/*.js',['babels']).on('change',reload);
+>>>>>>> 54d6a6e97d3cd1153d37a3af7f346008de3804e8
 });
 
 //壓縮圖檔

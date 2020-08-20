@@ -167,29 +167,31 @@ $(function(){
     //     scale:0,
     //     rotationX: 200,
     // },{scale:1,rotationX: 360,})
+    // var card_t1 = new TimelineMax();
+    // card_t1.fromTo('.inCard_body>div', 1, {
+    //     scale:0,
+    //     rotationX: 200,
+    // },{scale:1,rotationX: 360,})
 
-
+    // var scene04 = new ScrollMagic.Scene({
+    //     triggerElement: "#inCard",
+    //     offset: 0,
+    //     triggerHook : 0,
+    //     duration: '100%'
+    // }).setPin('#inCard').setTween(card_t1)
+    // .addTo(controller);
 
 
 
     var a = 0;
     function card(){
 
-        $(".inCard_body>div").css("transformOrigin","top center -1000px")
         var win_scroll = $(window).scrollTop();
         var inCard = $("#inCard").offset().top;
         var win_H = $(window).height();
         if(win_scroll > inCard-0.1*win_H  && a==0){
-            $(".inCard").on("wheel",function(e){
-                e.preventDefault();
-                
-            })
-            var card_t1 = new TimelineMax();
-            card_t1.fromTo('.inCard_body>div', 1, {
-                scale:0,
-                rotationX: 200,
-            },{scale:1,rotationX: 360,})
-            a++;
+        $(".inCard_body>div").css("transformOrigin","top center -1000px")
+           
             
             
             
