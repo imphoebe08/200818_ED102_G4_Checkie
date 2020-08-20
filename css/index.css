@@ -526,6 +526,7 @@ p {
 
 .inCard .inCard_block .inCard_body > div {
   position: absolute;
+<<<<<<< HEAD
   -webkit-transform: translateY(-50%) perspective(900px);
           transform: translateY(-50%) perspective(900px);
   width: 300px;
@@ -533,6 +534,12 @@ p {
   top: 50%;
   -webkit-transform-origin: top center -1000px;
           transform-origin: top center -1000px;
+=======
+  transform: translateY(-50%) perspective(900px) scale(0);
+  width: 300px;
+  height: 480px;
+  top: 50%;
+>>>>>>> Jiang-mini
 }
 
 .inCard .inCard_block .inCard_body > div > a {
