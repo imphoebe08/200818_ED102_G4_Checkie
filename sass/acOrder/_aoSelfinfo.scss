@@ -68,6 +68,7 @@
         background: $color-blue;
     }
     &:checked+label:after {
+        margin-top: 5px;
         content: '';
         position: absolute;
         left: 3px;

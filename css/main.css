@@ -3172,6 +3172,7 @@ body {
 }
 
 .checkbox--style:checked + label:after {
+  margin-top: 5px;
   content: '';
   position: absolute;
   left: 3px;
@@ -3183,6 +3184,27 @@ body {
           box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
+}
+
+.qr_block #qrCode {
+  width: 300px;
+  height: auto;
+}
+
+.ao-order_text--color {
+  color: #91D0EB;
+}
+
+.qr_block_save-font {
+  font-size: 20px;
+}
+
+.qr_block_save-font .ao-order_text--color img {
+  width: 25px;
+}
+
+.qr_block_show-font {
+  font-size: 30px;
 }
 
 h1 {

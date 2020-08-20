@@ -1,0 +1,23 @@
+.qr_block {
+    #qrCode {
+        width: 300px;
+        height: auto;
+    }
+}
+
+.ao-order_text--color {
+    color: $color-blue;
+}
+
+.qr_block_save-font {
+    font-size: 20px;
+    .ao-order_text--color {
+        img {
+            width: 25px;
+        }
+    }
+}
+
+.qr_block_show-font {
+    font-size: 30px;
+}
