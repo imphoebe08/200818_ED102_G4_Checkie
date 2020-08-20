@@ -4,7 +4,6 @@
 #csMainContainer {
     position: relative;
     width: 100%;
-    height: 100vh;
     overflow: hidden;
 
     .csMain {
@@ -51,6 +50,106 @@
         }
     }
 }
+
+@media (max-width: 1000px) {
+    .csMain {
+        .checkbox-form {
+            width: 100%;
+
+            span {
+                width: 80px;
+                height: 30px;
+                text-align: center;
+
+                &+select {
+                    margin: 10px auto;
+                }
+            }
+
+            label.button3-1 {
+                width: 80px;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .csMain {
+        position: absolute;
+        right: -120px;
+        height: 430px;
+        width: 120px;
+        border: 1px solid red;
+        transition: all 1s ease;
+
+        &.slideIn {
+            animation: slideIn 1s ease forwards;
+        }
+
+        &.slideOut {
+            animation: slideOut 1s ease forwards;
+        }
+
+        .checkbox-form {
+            width: 120px;
+            flex-flow: nowrap column;
+            align-items: center;
+
+            span {
+                width: 120px;
+                height: 5px;
+                margin: 5px 0 15px;
+                text-align: center;
+
+                &+select {
+                    margin: 10px auto;
+                }
+            }
+
+            #openForm {
+                position: absolute;
+                writing-mode: vertical-lr;
+                height: 90px;
+                width: 30px;
+                line-height: 30px;
+                border: 1px solid red;
+                right: 119px;
+                top: 10%;
+                cursor: pointer;
+            }
+
+            label.button3-1 {
+                margin: 5px;
+                height: 24px;
+                width: 80px;
+                padding: 5px;
+                line-height: 14px;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@keyframes slideIn {
+    from {
+        right: -120px;
+    }
+
+    to {
+        right: 0;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        right: 0;
+    }
+
+    to {
+        right: -120px;
+    }
+}
+
 
 .csCounselor-cards {
     width: 100%;
@@ -170,104 +269,6 @@
     }
 }
 
-@media (max-width: 1000px) {
-    .csMain {
-        .checkbox-form {
-            width: 100%;
-
-            span {
-                width: 80px;
-                height: 30px;
-                text-align: center;
-
-                &+select {
-                    margin: 10px auto;
-                }
-            }
-
-            label.button3-1 {
-                width: 80px;
-            }
-        }
-    }
-}
-
-@media (max-width: 576px) {
-    .csMain {
-        position: absolute;
-        right: -120px;
-        height: 430px;
-        width: 120px;
-        border: 1px solid red;
-        transition: all 1s ease;
-
-        &.slideIn {
-            animation: slideIn 1s ease forwards;
-        }
-
-        &.slideOut {
-            animation: slideOut 1s ease forwards;
-        }
-
-        .checkbox-form {
-            width: 120px;
-            flex-flow: nowrap column;
-            align-items: center;
-
-            span {
-                width: 120px;
-                height: 5px;
-                margin: 5px 0 15px;
-                text-align: center;
-
-                &+select {
-                    margin: 10px auto;
-                }
-            }
-
-            #openForm {
-                position: absolute;
-                writing-mode: vertical-lr;
-                height: 90px;
-                width: 30px;
-                line-height: 30px;
-                border: 1px solid red;
-                right: 119px;
-                top: 10%;
-                cursor: pointer;
-            }
-
-            label.button3-1 {
-                margin: 5px;
-                height: 24px;
-                width: 80px;
-                padding: 5px;
-                line-height: 14px;
-                font-size: 12px;
-            }
-        }
-    }
-}
-
-@keyframes slideIn {
-    from {
-        right: -120px;
-    }
-
-    to {
-        right: 0;
-    }
-}
-
-@keyframes slideOut {
-    from {
-        right: 0;
-    }
-
-    to {
-        right: -120px;
-    }
-}
 
 
 @media (max-width: 576px) {
