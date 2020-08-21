@@ -30,8 +30,8 @@
                             <h2>蔡醫師</h2>
                             <h4>醫師專長</h4>
                             <div class="csS-skills">
-                                <a href="" class="button3">頭痛</a>
-                                <a href="" class="button3">憂鬱</a>
+                                <span>家庭關係</span>
+                                <span>人際關係</span>
                             </div>
                         </div>
                         <div class="intro-left__bottom">
@@ -60,23 +60,6 @@
                                 </ul>
                             </li>
                             <li>
-                                <p class="js-list-toggle">榮譽事蹟</p>
-                                <ul class="csS-list js-item-toggle">
-                                    <li class="small"><i class="fas fa-circle"></i>台灣老年精神醫學會副秘書長暨培訓與教育委員會委員</li>
-                                    <li class="small"><i class="fas fa-circle"></i>台灣自殺防治學會秘書長</li>
-                                    <li class="small"><i class="fas fa-circle"></i>輔仁大學醫學系兼任講師</li>
-                                    <li class="small"><i class="fas fa-circle"></i>台灣臨床失智症學會推薦失智症診療醫師</li>
-                                    <li class="small"><i class="fas fa-circle"></i>台灣心理腫瘤醫學學會政策發展委員會委員</li>
-                                    <li class="small"><i class="fas fa-circle"></i>輔仁大學醫學系臨床教學認真老師</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <p class="js-list-toggle">教職</p>
-                                <ul class="csS-list js-item-toggle">
-                                    <li class="small"><i class="fas fa-circle"></i>教育部講師</li>
-                                </ul>
-                            </li>
-                            <li>
                                 <p class="js-list-toggle">專科證書</p>
                                 <ul class="csS-list js-item-toggle">
                                     <li class="small"><i class="fas fa-circle"></i>台灣老年精神醫學專科醫師</li>
@@ -89,15 +72,15 @@
             </div>
             <div class="col-12 csS-buttons">
                 <div class="row">
-                    <button type="button" class="button3-1 col-2" @click="openOrderPage">現場諮商</button>
-                    <button type="button" class="button3-1 col-2" @click="openOrderPage">語音諮商</button>
-                    <button type="button" class="button3-1 col-2" @click="openOrderPage">視訊諮商</button>
-                    <button type="button" class="button3-1 col-2">線上諮商</button>
+                    <button type="button" class="button3 col-2" @click="openOrderPage">現場諮商</button>
+                    <button type="button" class="button3 col-2" @click="openOrderPage">語音諮商</button>
+                    <button type="button" class="button3 col-2" @click="openOrderPage">視訊諮商</button>
+                    <button type="button" class="button3 col-2">線上諮商</button>
                 </div>
             </div>
         </div>
 
-        <h1>醫師撰寫專欄</h1>
+        <h2>醫師撰寫專欄</h1>
 
         <div class="row csS-art">
             <cssart-layout></cssart-layout>
@@ -105,9 +88,62 @@
             <cssart-layout></cssart-layout>
         </div>
 
-        <div class="row justify-content-center csS-act">
-            <img class="img-responsive"
-                src="https://www.dowdslove.url.tw/wp-content/uploads/2018/06/%E4%BC%B4%E4%BE%B6%E5%B0%88%E5%B1%AC%E5%85%AC%E7%9B%8A%E6%B8%9B%E9%A1%8D%E8%AB%AE%E5%95%86%E6%96%B9%E6%A1%88-wp-1.jpg">
+        <h2>醫師參與活動</h1>
+
+        <div id="csSelfAct">
+            <csselfact-layout></csselfact-layout>
+            <csselfact-layout></csselfact-layout>
+            <csselfact-layout></csselfact-layout>
+        </div>
+
+        <h2>其他推薦醫師</h2>
+
+        <div id="csSelfReco">
+            <div class="csSelfReco-card">
+                <div class="card__image">
+                    <img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1437388/517313_37962.jpg"
+                        alt="">
+                </div>
+                <div class="card__title">
+                    <h5>勞樂程 實習心理師</h5>
+                </div>
+                <div class="card__info">
+                    <p>
+                        國立臺灣師範大學教育心理與輔導學系 諮商組碩士班 在學<br>
+                        香港樹仁大學 輔導與心理學系 學士<br>
+                    </p>
+                </div>
+            </div>
+            <div class="csSelfReco-card">
+                <div class="card__image">
+                    <img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1437388/517313_37962.jpg"
+                        alt="">
+                </div>
+                <div class="card__title">
+                    <h5>勞樂程 實習心理師</h5>
+                </div>
+                <div class="card__info">
+                    <p>
+                        國立臺灣師範大學教育心理與輔導學系 諮商組碩士班 在學<br>
+                        香港樹仁大學 輔導與心理學系 學士<br>
+                    </p>
+                </div>
+            </div>
+            <div class="csSelfReco-card">
+                <div class="card__image">
+                    <img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1437388/517313_37962.jpg"
+                        alt="">
+                </div>
+                <div class="card__title">
+                    <h5>勞樂程 實習心理師</h5>
+                </div>
+                <div class="card__info">
+                    <p>
+                        國立臺灣師範大學教育心理與輔導學系 諮商組碩士班 在學<br>
+                        香港樹仁大學 輔導與心理學系 學士<br>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 

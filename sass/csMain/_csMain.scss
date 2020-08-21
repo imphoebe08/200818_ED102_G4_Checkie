@@ -67,7 +67,7 @@
         .csMain {
             margin: 10px 0 0;
             padding: 20px 0;
-            position: absolute;
+            position: fixed;
             right: -120px;
             height: 450px;
             width: 120px;
@@ -75,6 +75,7 @@
             background-color: white;
             box-shadow: 0 0 5px 0 black;
             border-radius: 10px;
+            z-index: 101;
 
             &.slideIn {
                 animation: slideIn 1s ease forwards;
@@ -190,7 +191,7 @@
         display: flex;
         flex-flow: nowrap row;
         position: absolute;
-        left: 0%;
+        left: 0%;   
 
         .csCounselor-card {
             min-width: 350px;
@@ -200,9 +201,14 @@
             transform: scale(0.65);
             border-radius: $border-radius;
             overflow: hidden;
+            background-color: white;
+            z-index: 2;
 
             &.bigger {
                 transform: scale(0.7);
+                &:hover{
+                    transform: scale(1);
+                }
             }
 
             .csCounselor-image {
