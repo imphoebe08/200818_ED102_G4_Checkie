@@ -1,15 +1,15 @@
-@import "../vender/reset.scss";
-@import "../vender/var.scss";
-@import "../vender/variable.scss";
-@import "_ao_co_variable.scss";
-@import "coCheck.scss";
-@import "coCalender.scss";
-@import "coSelfinfo.scss";
-@import "coCheckOrder.scss";
-@import "coBilling.scss";
-@import "coReview.scss";
-@import "aoCheck.scss";
-@import "aoSelfinfo.scss";
+@import "../vender/reset";
+@import "../vender/var";
+@import "../vender/variable";
+@import "_ao_co_variable";
+@import "coCheck";
+@import "coCalender";
+@import "coSelfinfo";
+@import "coCheckOrder";
+@import "coBilling";
+@import "coReview";
+@import "aoCheck";
+@import "aoSelfinfo";
 h1 {
     @include h1;
 }

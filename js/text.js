@@ -70,11 +70,9 @@ Vue.component('ans-buttons-grades', {
 
             if(event.target.name=="q11"){
             event.target.parentNode.nextElementSibling.style.display = 'flex';
-            window.scrollTo(0,scrollHeight);
-
+            
             setTimeout(function(){
                 event.target.parentNode.nextElementSibling.nextElementSibling.style.display = 'block';
-                window.scrollTo(0,scrollHeight);
                 
                 },500)
             }else{
@@ -83,11 +81,9 @@ Vue.component('ans-buttons-grades', {
             event.target.parentNode.nextElementSibling.style.display = 'flex';
             setTimeout(function(){
             event.target.parentNode.nextElementSibling.nextElementSibling.style.display = 'flex';
-            window.scrollTo(0,scrollHeight);
-
+            console.log(scrollHeight)
                 setTimeout(function(){
                     event.target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.style.display = 'block';
-                        window.scrollTo(0,scrollHeight);
                     },500)
             },500)
             };
@@ -127,13 +123,10 @@ let vm0 = new Vue({
             var e = event.target;
             setTimeout(function(){
                 e.parentNode.nextElementSibling.nextElementSibling.style.display = 'flex';
-                window.scrollTo(0,scrollHeight);
                 setTimeout(function(){
                     e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.style.display = 'flex';
-                    window.scrollTo(0,scrollHeight);
                     setTimeout(function(){
                         e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.style.display = 'block';
-                        window.scrollTo(0,scrollHeight);
                         
                     },500)
                 },500)
@@ -182,7 +175,7 @@ let vm0 = new Vue({
                 
 
             }
-            // var win_H =$(window).height();
+            // var win_H =window.height();
             // var i = 0;
             // var box_H = $("#qsBox").height()
             // // 加true 代表包含margin 的高
@@ -202,6 +195,11 @@ let vm0 = new Vue({
         }
     },
     computed:{
+        
+    },
+    created() {
+        var qsBox = document.getElementById("qsBox");
+            qsBox.scrollTop = qsBox.scrollHeight;
         
     },
 })
