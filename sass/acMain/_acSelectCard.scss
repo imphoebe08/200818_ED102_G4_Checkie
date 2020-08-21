@@ -40,11 +40,15 @@ $space:300px;
     .acSelectCard{
         display: inline-block;
         border-radius: $border-radius;
+        background-color: white;
         box-shadow: $boxshadow;
         overflow: hidden;
+        h6{
+            padding: 0 4%;
+        }
                     
         a{
-            padding-left: 4%;
+            // padding-left: 4%;
             display: inline-block;
             width: 100%;
             color: maroon;
