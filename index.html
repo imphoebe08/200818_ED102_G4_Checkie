@@ -28,11 +28,11 @@
         .st0 {
             fill: url(#SVGID_1_);
         }
-
+        
         .st1 {
             fill: url(#SVGID_2_);
         }
-
+        
         .st2 {
             fill: url(#SVGID_3_);
         }
@@ -43,8 +43,7 @@
     <!------導覽列------>
     <div class="top">
         <div class="navbar">
-            <a href="./index.html" class="navbar__item logo"><img src="./img/navbar/cklogo.png" alt
-                    class="desktop_logo"><img src="./img/navbar/cklogo2.png" alt class="mobile_logo"></a>
+            <a href="./index.html" class="navbar__item logo"><img src="./img/navbar/cklogo.png" alt class="desktop_logo"><img src="./img/navbar/cklogo2.png" alt class="mobile_logo"></a>
             <div class="navbar__menu">
                 <a class="navbar__item navbar__link" href="./csMain.html">預約諮詢</a>
                 <a class="navbar__item navbar__link" href="./chatRoom.html">線上諮商</a>
@@ -64,7 +63,7 @@
             <span class="hamburger hamburger--collapse navbar__item" id="js-navbar-toggle">
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
-                </span>
+            </span>
             </span>
         </div>
     </div>
@@ -166,9 +165,7 @@
         <!-- logo 特校 -->
         <div class="inBanner-logo_block">
             <div class="inBanner-logo">
-                <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 259 210"
-                    style="enable-background:new 0 0 259 210;" xml:space="preserve" class="inBanner-hide_svg">
+                <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 259 210" style="enable-background:new 0 0 259 210;" xml:space="preserve" class="inBanner-hide_svg">
                     <g>
                         <!-- 漸層色 -->
                         <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="118.2956" y1="33.1352"
@@ -279,80 +276,63 @@
             data: {
                 iMode: "諮商方式",
                 iModes: [{
-                        id: "iMode1",
-                        value: "語音諮商"
-                    },
-                    {
-                        id: "iMode2",
-                        value: "視訊諮商"
-                    },
-                    {
-                        id: "iMode3",
-                        value: "現場諮商"
-                    },
-                    {
-                        id: "iMode4",
-                        value: "線上諮商"
-                    }
-                ],
+                    id: "iMode1",
+                    value: "語音諮商"
+                }, {
+                    id: "iMode2",
+                    value: "視訊諮商"
+                }, {
+                    id: "iMode3",
+                    value: "現場諮商"
+                }, {
+                    id: "iMode4",
+                    value: "線上諮商"
+                }],
                 iPos: "地區",
                 iPoss: [{
-                        id: "iNorth",
-                        value: "北"
-                    },
-                    {
-                        id: "iCenter",
-                        value: "中"
-                    },
-                    {
-                        id: "iSouth",
-                        value: "南"
-                    }
-                ],
+                    id: "iNorth",
+                    value: "北"
+                }, {
+                    id: "iCenter",
+                    value: "中"
+                }, {
+                    id: "iSouth",
+                    value: "南"
+                }],
                 iType: "專業",
                 iTypes: [{
-                        id: "iType1",
-                        value: "問題一一"
-                    },
-                    {
-                        id: "iType2",
-                        value: "問題二二"
-                    },
-                    {
-                        id: "iType3",
-                        value: "問題三三"
-                    },
-                    {
-                        id: "iType4",
-                        value: "問題四四"
-                    },
-                    {
-                        id: "iType5",
-                        value: "問題五五"
-                    }
-                ],
+                    id: "iType1",
+                    value: "問題一一"
+                }, {
+                    id: "iType2",
+                    value: "問題二二"
+                }, {
+                    id: "iType3",
+                    value: "問題三三"
+                }, {
+                    id: "iType4",
+                    value: "問題四四"
+                }, {
+                    id: "iType5",
+                    value: "問題五五"
+                }],
                 iCs: "諮商師",
                 iCss: [{
-                        id: "iCs1",
-                        value: "醫師一"
-                    },
-                    {
-                        id: "iCs2",
-                        value: "醫師二"
-                    },
-                    {
-                        id: "iCs3",
-                        value: "醫師三"
-                    },
-                    {
-                        id: "iCs4",
-                        value: "醫師四"
-                    },
-                    {
-                        id: "iCs5",
-                        value: "醫師五"
-                    }
-                ],
+                    id: "iCs1",
+                    value: "醫師一"
+                }, {
+                    id: "iCs2",
+                    value: "醫師二"
+                }, {
+                    id: "iCs3",
+                    value: "醫師三"
+                }, {
+                    id: "iCs4",
+                    value: "醫師四"
+                }, {
+                    id: "iCs5",
+                    value: "醫師五"
+                }],
                 stage1: false,
                 stage2: false,
                 stage3: false,
@@ -391,7 +371,7 @@
                 }
             },
             watch: {
-                iMode: function () {
+                iMode: function() {
                     if (this.iMode !== "諮商方式") {
                         document.getElementById("iModeBut").style.color = "red";
                         if (this.iMode == "現場諮商") {
@@ -415,7 +395,7 @@
                         document.getElementById("iModeBut").style.color = "black";
                     }
                 },
-                iPos: function () {
+                iPos: function() {
                     if (this.iPos !== "地區") {
                         document.getElementById("iPosBut").style.color = "red";
                         this.stage2 = true;
@@ -424,7 +404,7 @@
                         document.getElementById("iPosBut").style.color = "black";
                     }
                 },
-                iType: function () {
+                iType: function() {
                     if (this.iType !== "專業") {
                         document.getElementById("iTypeBut").style.color = "red";
                         this.stage3 = true;
@@ -433,7 +413,7 @@
                         document.getElementById("iTypeBut").style.color = "black";
                     }
                 },
-                iCs: function () {
+                iCs: function() {
                     if (this.iType !== "諮商師") {
                         document.getElementById("iCsBut").style.color = "red";
                         this.stage4 = true;
@@ -443,19 +423,19 @@
                     }
                     this.doFirst();
                 },
-                stage1: function () {
+                stage1: function() {
                     if (this.stage1 == false) {
                         this.iPos = "地區";
                     }
                 },
-                stage2: function () {
+                stage2: function() {
                     if (this.stage2 == false) {
                         this.iType = "專業";
                         this.iCs = "諮商師";
                         this.stage4 = false;
                     }
                 },
-                stage3: function () {
+                stage3: function() {
                     if (this.stage3 == false) {
                         this.stage4 = false;
                     }
@@ -508,7 +488,7 @@
         <div class="swiper-button-next" v-show="screenWidth < 576"></div>
     </div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
     <script>
         Vue.component("first-layout", {
             props: ["myclass"],
@@ -1005,12 +985,9 @@
     <!-- footer -->
     <footer>
         <div class="footer_socialmedia">
-            <a class="socialmedia_link" href=""><img src="./img/icon/mail.png" alt class="black"><img
-                    src="./img/icon/mailhover.png" alt class="pink"></a>
-            <a class="socialmedia_link" href=""><img src="./img/icon/line.png" alt class="black"><img
-                    src="./img/icon/linehover.png" alt class="pink"></a>
-            <a class="socialmedia_link" href=""><img src="./img/icon/facebook.png" alt class="black"><img
-                    src="./img/icon/facebookhover.png" alt class="pink"></a>
+            <a class="socialmedia_link" href=""><img src="./img/icon/mail.png" alt class="black"><img src="./img/icon/mailhover.png" alt class="pink"></a>
+            <a class="socialmedia_link" href=""><img src="./img/icon/line.png" alt class="black"><img src="./img/icon/linehover.png" alt class="pink"></a>
+            <a class="socialmedia_link" href=""><img src="./img/icon/facebook.png" alt class="black"><img src="./img/icon/facebookhover.png" alt class="pink"></a>
         </div>
 
         <div class="footer_address">
