@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/atMain.css">
-    <link rel="stylesheet" type="text/css" href="./css/footer.css"/>
-    <link rel="stylesheet" type="text/css" href="./css/header.css"/>
-
+    <link rel="stylesheet" href="./css/main.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     <script src="./js/atMain.js"></script>
     <script src="./js/header.js"></script>
@@ -16,34 +13,8 @@
 
 
 <body>
-    <header>
 
-        <div class="top">
-            <div class="navbar">
-                <a href="" class="navbar__item logo"><img src="./img/navbar/cklogo.png" alt class="desktop_logo"><img src="./img/navbar/cklogo2.png" alt class="mobile_logo"></a>
-                <div class="navbar__menu">
-                    <a class="navbar__item navbar__link" href="csMain.html">預約諮詢</a>
-                    <a class="navbar__item navbar__link" href="">線上諮商</a>
-                    <a class="navbar__item navbar__link" href="acMain.html">活動報名</a>
-                    <a class="navbar__item navbar__link" href="atMain.html">專欄文章</a>
-                    <a class="navbar__item navbar__link" href="oracleCard.html">神諭卡</a>
-                    <a class="navbar__item navbar__link" href="">心理評估測驗</a>
-    
-                </div>
-    
-                <ul class="navbar__sign">
-                    <li><button class="navbar__sign__item" id="signup">加入會員</button></li><li> ｜</li>
-                    <li><button class="navbar__sign__item" id="signin">登入</button></li>
-                </ul>
-    
-                <span class="hamburger hamburger--collapse navbar__item" id="js-navbar-toggle">
-                    <span class="hamburger-box">
-                        <span class="hamburger-inner"></span>
-                    </span>
-                </span>  
-            </div>
-        </div>
-</header>
+@@include('template/header.html')
    
 <!-- ---------------------------- -->
 
@@ -81,7 +52,8 @@
                         <h2>受傷的童年，受創的大腦</h2>
                     </div>
                     <div class="atContent-left_partner">
-                        <p>ACE研究是在1990年左右由美國醫師等人所做的研究，當時研究了17,000多個對象，想要探討童年的創傷經驗和成人時期的健康之間的關聯性。當時的研究結果非常的驚人受試的研究對象中...
+                        <p>
+                            ACE研究是在1990年左右由美國醫師等人所做的研究，當時研究了17,000多個對象，想要探討童年的創傷經驗和成人時期的健康之間的關聯性。當時的研究結果非常的驚人受試的研究對象中...
 
                         </p>
                     </div>
@@ -386,7 +358,7 @@
                     </div>
                     <div class="atContent_right_partner">
                         <p>
-                            他說每次一告訴我，都要跟我一一解釋那個聚會有誰、有幾個異性、還要確定那些異性是怎麼認識的、是不是單身，所以乾脆跟我說他在加班⋯⋯」女孩講到這，自己也有點不好意思：「我知道自己聽起來有點誇張，所以我才忍不住想問，有沒有其他案主跟我一樣
+                            他說每次一告訴我，都要跟我一一解釋那個聚會有誰、有幾個異性、還要確定那些異性是怎麼認識的、是不是單身，所以乾脆跟我說他在加班⋯⋯」女孩講到這，自己也有點不好意思：「我知道自己聽起來有點誇張，所以我才忍不住想問，有沒有其他案主跟我一樣有沒有其他案主跟我一樣有沒有其他案主跟我一樣
                             
                         </p>
                     </div>
@@ -643,7 +615,7 @@
 
                     </p>
                 </div>
-                <a href="">
+                <a href="atSelf.html">
                     <div class="atClassAfter-content_button">
                         <input type="submit" class="test_submit" value=延伸閱讀>
                     </div>
@@ -657,22 +629,7 @@
 </div>
 
 
-<footer>
-    <div class="footer_socialmedia">
-            <a class="socialmedia_link" href=""><img src="./img/icon/mail.png" alt class="black"><img src="./img/icon/mailhover.png" alt class="pink"></a>
-            <a class="socialmedia_link" href=""><img src="./img/icon/line.png" alt class="black"><img src="./img/icon/linehover.png" alt class="pink"></a>
-            <a class="socialmedia_link" href=""><img src="./img/icon/facebook.png" alt class="black"><img src="./img/icon/facebookhover.png" alt class="pink"></a>
-    </div>
-
-    <div class="footer_address">
-        <h6>Checkie心理諮商中心</h6>
-        <h6>電話：</h6>
-        <p>(03)301-1021</p>
-        <h6>地址：</h6>
-        <p>320桃園市中壢區中大路300號</p>
-    </div>
-        <p>Copyright © 2015 Checkie Psychological Counseling Center. All Rights Reserved</p>
-</footer>
+@@include('template/footer.html')
  
 </body>
 </html>
