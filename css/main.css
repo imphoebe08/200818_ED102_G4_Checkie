@@ -4203,7 +4203,7 @@ main #chatRoom {
 main #chatRoom .chatRoom_left {
   border-right: 3px solid grey;
   width: 30%;
-  max-height: 90vh;
+  max-height: 85vh;
   overflow-y: auto;
 }
 
@@ -4276,7 +4276,7 @@ main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_more img {
 
 main #chatRoom .chatRoom_right {
   width: 70%;
-  max-height: 90vh;
+  max-height: 85vh;
 }
 
 main #chatRoom .chatRoom_right .chatRoom_drInfo {
@@ -4417,287 +4417,63 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   margin: auto 0;
 }
 
-.csMain *, .csCounselor-cards * {
-  margin: 0;
-  padding: 0;
-}
-
-.csMain h1, .csCounselor-cards h1 {
-  font-size: 40px;
-  line-height: 1.8;
-  letter-spacing: 1.5px;
-}
-
-.csMain h2, .csCounselor-cards h2 {
-  font-size: 36px;
-  line-height: 1.5;
-  letter-spacing: 1.5px;
-}
-
-.csMain h3, .csCounselor-cards h3 {
-  font-size: 32px;
-  line-height: 1.5;
-  letter-spacing: 1.5px;
-}
-
-.csMain h4, .csCounselor-cards h4 {
-  font-size: 28px;
-  line-height: 1.5;
-  letter-spacing: 1.5px;
-}
-
-.csMain h5, .csCounselor-cards h5 {
-  font-size: 24px;
-  line-height: 1.5;
-  letter-spacing: 1.5px;
-}
-
-.csMain h6, .csCounselor-cards h6 {
-  font-size: 20px;
-  line-height: 1.5;
-  letter-spacing: 1.5px;
-}
-
-.csMain p, .csCounselor-cards p {
-  font-size: 16px;
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.8px;
-  line-height: 2;
-}
-
-.csMain .small, .csCounselor-cards .small {
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.csMain .article, .csCounselor-cards .article {
-  margin: 20px;
-  width: 500px;
-}
-
-.csMain .button, .csCounselor-cards .button {
-  margin: 10px;
-  display: inline-block;
-  padding: 5px 30px;
-  font-size: 25px;
-  font-weight: 500;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #FFA492;
-  color: #fff;
-  cursor: pointer;
-  background-color: #FFA492;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.csMain .button:hover, .csCounselor-cards .button:hover {
-  background-color: #ff6446;
-  border: 2px solid #ff6446;
-}
-
-.csMain .button:focus, .csCounselor-cards .button:focus {
-  display: none;
-}
-
-.csMain .button2, .csCounselor-cards .button2 {
-  margin: 10px;
-  display: inline-block;
-  padding: 5px 30px;
-  font-size: 25px;
-  font-weight: 500;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  color: #fff;
-  cursor: pointer;
-  background-color: #91D0EB;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.csMain .button2:hover, .csCounselor-cards .button2:hover {
-  background-color: #50b4df;
-  border: 2px solid #50b4df;
-}
-
-.csMain .button2:focus, .csCounselor-cards .button2:focus {
-  display: none;
-}
-
-.csMain .button2-1, .csCounselor-cards .button2-1 {
-  margin: 10px;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  color: #91D0EB;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.csMain .button2-1:hover, .csCounselor-cards .button2-1:hover {
-  background-color: #91D0EB;
-  color: #fff;
-}
-
-.csMain .button2-1:focus, .csCounselor-cards .button2-1:focus {
-  display: none;
-}
-
-.csMain .button3, .csCounselor-cards .button3 {
-  margin: 10px;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  color: #91D0EB;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.csMain .button3:hover, .csCounselor-cards .button3:hover {
-  background-color: #91D0EB;
-  color: #fff;
-}
-
-.csMain .button3:focus, .csCounselor-cards .button3:focus {
-  display: none;
-}
-
-.csMain .button3-1, .csCounselor-cards .button3-1 {
-  margin: 10px;
-  display: inline-block;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #FFA492;
-  color: #FFA492;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-  border-radius: 10px;
-}
-
-.csMain .button3-1:hover, .csCounselor-cards .button3-1:hover {
-  background-color: #FFA492;
-  color: #fff;
-}
-
-.csMain .button3-1:focus, .csCounselor-cards .button3-1:focus {
-  display: none;
-}
-
-.csMain .button4, .csCounselor-cards .button4 {
-  display: inline-block;
-  width: 250px;
-  display: inline-block;
-  padding: 10px 30px;
-  font-size: 18px;
-  font-weight: 500;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  background-color: #91D0EB;
-  color: #fff;
-  cursor: pointer;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.csMain .button4:hover, .csCounselor-cards .button4:hover {
-  background-color: #50b4df;
-  border: 2px solid #50b4df;
-}
-
-.csMain .box, .csCounselor-cards .box {
-  display: inline-block;
-  margin: 0 30px;
-  width: 350px;
-  height: 400px;
-  border-radius: 30px;
-  -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-          box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-  overflow: hidden;
-}
-
-.csMain .box img, .csCounselor-cards .box img {
-  width: 100%;
-}
-
-.csMain .time, .csCounselor-cards .time {
-  border: 1px solid green;
-  display: block;
-  height: 30px;
-  position: relative;
-}
-
-.csMain .time p, .csCounselor-cards .time p {
-  font-size: 16px;
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.8px;
-  line-height: 2;
-  font-size: 14px;
-  float: right;
-}
-
+.csMain *,
+.csCounselor-cards *,
 .csSelf * {
   margin: 0;
   padding: 0;
 }
 
+.csMain h1,
+.csCounselor-cards h1,
 .csSelf h1 {
   font-size: 40px;
   line-height: 1.8;
   letter-spacing: 1.5px;
 }
 
+.csMain h2,
+.csCounselor-cards h2,
 .csSelf h2 {
   font-size: 36px;
   line-height: 1.5;
   letter-spacing: 1.5px;
 }
 
+.csMain h3,
+.csCounselor-cards h3,
 .csSelf h3 {
   font-size: 32px;
   line-height: 1.5;
   letter-spacing: 1.5px;
 }
 
+.csMain h4,
+.csCounselor-cards h4,
 .csSelf h4 {
   font-size: 28px;
   line-height: 1.5;
   letter-spacing: 1.5px;
 }
 
+.csMain h5,
+.csCounselor-cards h5,
 .csSelf h5 {
   font-size: 24px;
   line-height: 1.5;
   letter-spacing: 1.5px;
 }
 
+.csMain h6,
+.csCounselor-cards h6,
 .csSelf h6 {
   font-size: 20px;
   line-height: 1.5;
   letter-spacing: 1.5px;
 }
 
+.csMain p,
+.csCounselor-cards p,
 .csSelf p {
   font-size: 16px;
   font-family: "Noto Sans TC", sans-serif;
@@ -4706,18 +4482,53 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   line-height: 2;
 }
 
+.csMain .small,
+.csCounselor-cards .small,
 .csSelf .small {
   font-size: 14px;
   font-weight: 300;
 }
 
+.csMain .article,
+.csCounselor-cards .article,
 .csSelf .article {
   margin: 20px;
   width: 500px;
 }
 
-.csSelf .button {
-  margin: 10px;
+.csMain .button1,
+.csCounselor-cards .button1,
+.csSelf .button1 {
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #fff;
+  cursor: pointer;
+  background-color: #FFA492;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+.csMain .button1:hover,
+.csCounselor-cards .button1:hover,
+.csSelf .button1:hover {
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+.csMain .button1:focus,
+.csCounselor-cards .button1:focus,
+.csSelf .button1:focus {
+  display: none;
+}
+
+.csMain .button2,
+.csCounselor-cards .button2,
+.csSelf .button2 {
   display: inline-block;
   padding: 5px 30px;
   font-size: 25px;
@@ -4732,93 +4543,22 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   transition: .2s all ease-in;
 }
 
-.csSelf .button:hover {
+.csMain .button2:hover,
+.csCounselor-cards .button2:hover,
+.csSelf .button2:hover {
   background-color: #ff6446;
   border: 2px solid #ff6446;
 }
 
-.csSelf .button:focus {
-  display: none;
-}
-
-.csSelf .button2 {
-  margin: 10px;
-  display: inline-block;
-  padding: 5px 30px;
-  font-size: 25px;
-  font-weight: 500;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  color: #fff;
-  cursor: pointer;
-  background-color: #91D0EB;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.csSelf .button2:hover {
-  background-color: #50b4df;
-  border: 2px solid #50b4df;
-}
-
+.csMain .button2:focus,
+.csCounselor-cards .button2:focus,
 .csSelf .button2:focus {
   display: none;
 }
 
-.csSelf .button2-1 {
-  margin: 10px;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  color: #91D0EB;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.csSelf .button2-1:hover {
-  background-color: #91D0EB;
-  color: #fff;
-}
-
-.csSelf .button2-1:focus {
-  display: none;
-}
-
+.csMain .button3,
+.csCounselor-cards .button3,
 .csSelf .button3 {
-  margin: 10px;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  color: #91D0EB;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.csSelf .button3:hover {
-  background-color: #91D0EB;
-  color: #fff;
-}
-
-.csSelf .button3:focus {
-  display: none;
-}
-
-.csSelf .button3-1 {
-  margin: 10px;
-  display: inline-block;
   display: inline-block;
   padding: 2px 10px;
   font-size: 14px;
@@ -4831,77 +4571,85 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   background-color: transparent;
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
-  border-radius: 10px;
 }
 
-.csSelf .button3-1:hover {
+.csMain .button3:hover,
+.csCounselor-cards .button3:hover,
+.csSelf .button3:hover {
   background-color: #FFA492;
   color: #fff;
 }
 
-.csSelf .button3-1:focus {
+.csMain .button3:focus,
+.csCounselor-cards .button3:focus,
+.csSelf .button3:focus {
   display: none;
 }
 
-.csSelf .button4 {
+.csMain .button3,
+.csCounselor-cards .button3,
+.csSelf .button3 {
   display: inline-block;
-  width: 250px;
+  padding: 2px 10px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #FFA492;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+.csMain .button3:hover,
+.csCounselor-cards .button3:hover,
+.csSelf .button3:hover {
+  background-color: #FFA492;
+  color: #fff;
+}
+
+.csMain .button3:focus,
+.csCounselor-cards .button3:focus,
+.csSelf .button3:focus {
+  display: none;
+}
+
+.csMain .button4,
+.csCounselor-cards .button4,
+.csSelf .button4 {
+  width: 300px;
   display: inline-block;
   padding: 10px 30px;
   font-size: 18px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
-  border: 2px solid #91D0EB;
-  background-color: #91D0EB;
-  color: #fff;
+  border: 2px solid #d6d6d6;
+  background-color: transparent;
+  color: #c4c4c4;
   cursor: pointer;
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
 }
 
+.csMain .button4:hover,
+.csCounselor-cards .button4:hover,
 .csSelf .button4:hover {
-  background-color: #50b4df;
-  border: 2px solid #50b4df;
-}
-
-.csSelf .box {
-  display: inline-block;
-  margin: 0 30px;
-  width: 350px;
-  height: 400px;
-  border-radius: 30px;
-  -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-          box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-  overflow: hidden;
-}
-
-.csSelf .box img {
-  width: 100%;
-}
-
-.csSelf .time {
-  border: 1px solid green;
-  display: block;
-  height: 30px;
-  position: relative;
-}
-
-.csSelf .time p {
-  font-size: 16px;
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.8px;
-  line-height: 2;
-  font-size: 14px;
-  float: right;
+  background-color: #ebebeb;
 }
 
 #csMainContainer {
   position: relative;
-  width: 100%;
-  height: 100vh;
+  width: calc(100% - 40px);
+  max-width: 1200px;
   overflow: hidden;
+  margin: 20px auto 0;
+  padding: 0 10px;
+  border-radius: 30px;
+  -webkit-box-shadow: 0 0 5px 0 black;
+          box-shadow: 0 0 5px 0 black;
 }
 
 #csMainContainer .csMain {
@@ -4925,9 +4673,9 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
 }
 
 #csMainContainer .csMain .checkbox-form span {
-  width: 120px;
+  width: 140px;
   height: 4px;
-  margin: 20px 10px;
+  margin: 20px 5px;
   text-align: center;
 }
 
@@ -4940,237 +4688,60 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
 }
 
 #csMainContainer .csMain .checkbox-form input:checked + label {
-  background-color: pink;
+  background-color: #FFA492;
   color: #fff;
 }
 
-#csMainContainer .csMain .checkbox-form label.button3-1 {
-  margin: 10px;
+#csMainContainer .csMain .checkbox-form label.button3 {
+  margin: 10px 5px;
   display: inline-block;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #FFA492;
-  color: #FFA492;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-  border-radius: 10px;
   height: 40px;
-  width: 120px;
+  width: 140px;
   padding: 0;
   line-height: 40px;
 }
 
-#csMainContainer .csMain .checkbox-form label.button3-1:hover {
-  background-color: #FFA492;
-  color: #fff;
-}
-
-#csMainContainer .csMain .checkbox-form label.button3-1:focus {
-  display: none;
-}
-
-.csCounselor-cards {
-  width: 100%;
-  height: 700px;
-  padding: 50px 0;
-  overflow: hidden;
-  position: relative;
-}
-
-.csCounselor-cards #csC-countCards {
-  text-align: center;
-}
-
-.csCounselor-cards .csC-changeSlide {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: nowrap row;
-          flex-flow: nowrap row;
-  position: absolute;
-  bottom: 0;
-}
-
-.csCounselor-cards .csC-changeSlide #pre,
-.csCounselor-cards .csC-changeSlide #next {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 80px;
-          flex: 1 0 80px;
-  max-width: 120px;
-  margin: 20px;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #FFA492;
-  color: #FFA492;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-  outline: none;
-}
-
-.csCounselor-cards .csC-changeSlide #pre:hover,
-.csCounselor-cards .csC-changeSlide #next:hover {
-  background-color: #FFA492;
-  color: #fff;
-}
-
-.csCounselor-cards .csC-changeSlide #pre:focus,
-.csCounselor-cards .csC-changeSlide #next:focus {
-  display: none;
-}
-
-.csCounselor-cards .csCounselor-gallery {
-  width: 100%;
-  height: 500px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: nowrap row;
-          flex-flow: nowrap row;
-  position: absolute;
-  left: 0%;
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card {
-  min-width: 350px;
-  border: 1px solid black;
-  margin: 10px 40px;
-  padding: 10px;
-  -webkit-transition: -webkit-transform 0.3s ease;
-  transition: -webkit-transform 0.3s ease;
-  transition: transform 0.3s ease;
-  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-  -webkit-transform: scale(0.85);
-          transform: scale(0.85);
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card.bigger {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csCounselor-image {
-  width: 100%;
-  height: 40%;
-  cursor: pointer;
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csCounselor-image img {
-  max-height: 100%;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__name {
-  text-align: center;
-  width: 100%;
-  font-size: 24px;
-  line-height: 1.5;
-  letter-spacing: 1.5px;
-  cursor: pointer;
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-type_title {
-  text-align: left;
-  width: 100%;
-  font-size: 20px;
-  line-height: 1.5;
-  letter-spacing: 1.5px;
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-type_tag {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 10px 0;
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-type_tag span {
-  text-align: center;
-  margin: 0 5px;
-  border: 1px solid #ccc;
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info {
-  width: 100%;
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info .csC-doctor__list > li p {
-  cursor: pointer;
-  font-weight: 700;
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info .csC-doctor__list > li .csS-list > li {
-  display: block;
-  line-height: 1.5em;
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info .csC-doctor__list > li .csS-list > li i {
-  display: inline-block;
-  font-size: 10px;
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8);
-  padding-right: 5px;
-  vertical-align: middle;
-  color: #65b391;
-}
-
-@media (max-width: 1000px) {
-  .csMain .checkbox-form {
-    width: 100%;
-  }
-  .csMain .checkbox-form span {
-    width: 80px;
-    height: 30px;
-    text-align: center;
-  }
-  .csMain .checkbox-form span + select {
-    margin: 10px auto;
-  }
-  .csMain .checkbox-form label.button3-1 {
-    width: 80px;
-  }
-}
-
 @media (max-width: 576px) {
-  .csMain {
+  #csMainContainer {
+    margin: 0;
+    padding: 0 10px;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     position: absolute;
+    height: 100vh;
+    width: 100%;
+    z-index: 99;
+  }
+  #csMainContainer .csMain {
+    margin: 10px 0 0;
+    padding: 20px 0;
+    position: fixed;
     right: -120px;
-    height: 430px;
+    height: 450px;
     width: 120px;
-    border: 1px solid red;
     -webkit-transition: all 1s ease;
     transition: all 1s ease;
+    background-color: white;
+    -webkit-box-shadow: 0 0 5px 0 black;
+            box-shadow: 0 0 5px 0 black;
+    border-radius: 10px;
+    z-index: 101;
   }
-  .csMain.slideIn {
+  #csMainContainer .csMain.slideIn {
     -webkit-animation: slideIn 1s ease forwards;
             animation: slideIn 1s ease forwards;
   }
-  .csMain.slideOut {
+  #csMainContainer .csMain.slideOut {
     -webkit-animation: slideOut 1s ease forwards;
             animation: slideOut 1s ease forwards;
   }
-  .csMain .checkbox-form {
+  #csMainContainer .csMain #cleanSelect {
+    position: absolute;
+    right: 15%;
+    top: 90%;
+  }
+  #csMainContainer .csMain .checkbox-form {
     width: 120px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -5180,16 +4751,17 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
         -ms-flex-align: center;
             align-items: center;
   }
-  .csMain .checkbox-form span {
+  #csMainContainer .csMain .checkbox-form span {
     width: 120px;
     height: 5px;
     margin: 5px 0 15px;
     text-align: center;
+    font-size: 14px;
   }
-  .csMain .checkbox-form span + select {
+  #csMainContainer .csMain .checkbox-form span + select {
     margin: 10px auto;
   }
-  .csMain .checkbox-form #openForm {
+  #csMainContainer .csMain .checkbox-form #openForm {
     position: absolute;
     -webkit-writing-mode: vertical-lr;
         -ms-writing-mode: tb-lr;
@@ -5197,12 +4769,16 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
     height: 90px;
     width: 30px;
     line-height: 30px;
-    border: 1px solid red;
+    border: 1px solid #91D0EB;
     right: 119px;
     top: 10%;
+    font-size: 16px;
     cursor: pointer;
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 5px;
   }
-  .csMain .checkbox-form label.button3-1 {
+  #csMainContainer .csMain .checkbox-form label.button3 {
     margin: 5px;
     height: 24px;
     width: 80px;
@@ -5248,301 +4824,224 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   }
 }
 
+.csCounselor-cards {
+  width: 100%;
+  height: 600px;
+  padding: 50px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.csCounselor-cards #csC-countCards {
+  text-align: center;
+}
+
+.csCounselor-cards .csC-changeSlide {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap row;
+          flex-flow: nowrap row;
+  position: absolute;
+  bottom: 0;
+}
+
+.csCounselor-cards .csC-changeSlide #pre,
+.csCounselor-cards .csC-changeSlide #next {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 80px;
+          flex: 1 0 80px;
+  max-width: 120px;
+  margin: 20px;
+  outline: none;
+}
+
+.csCounselor-cards .csCounselor-gallery {
+  width: 100%;
+  height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap row;
+          flex-flow: nowrap row;
+  position: absolute;
+  left: 0%;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card {
+  min-width: 350px;
+  border: 1px solid black;
+  margin: 10px 40px;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  -webkit-transform: scale(0.65);
+          transform: scale(0.65);
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: white;
+  z-index: 2;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card.bigger {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card.bigger:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csCounselor-image {
+  width: 100%;
+  height: 40%;
+  cursor: pointer;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csCounselor-image img {
+  max-height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__name {
+  text-align: center;
+  width: 100%;
+  font-size: 24px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-type_title {
+  text-align: left;
+  width: 100%;
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  padding: 0 10px;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-type_tag {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px 0;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-type_tag span {
+  text-align: center;
+  margin: 0 5px;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info .csC-doctor__list > li p {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info .csC-doctor__list > li .csS-list > li {
+  display: block;
+  line-height: 1.5em;
+}
+
+.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info .csC-doctor__list > li .csS-list > li i {
+  display: inline-block;
+  font-size: 10px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  padding-right: 5px;
+  vertical-align: middle;
+  color: #65b391;
+}
+
 @media (max-width: 576px) {
   .container-fluid.csMain .csCounselor-cards .csCounselor-gallery .csCounselor-card {
-    -webkit-transform: scale(0.7);
-            transform: scale(0.7);
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
   }
   .container-fluid.csMain .csCounselor-cards .csCounselor-gallery .csCounselor-card.bigger {
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    -webkit-transform: scale(0.6);
+            transform: scale(0.6);
   }
   .container-fluid.csMain .csCounselor-cards .csC-changeSlide {
     bottom: 10%;
   }
 }
 
-.csMain *, .csCounselor-cards * {
-  margin: 0;
-  padding: 0;
-}
-
-.csMain h1, .csCounselor-cards h1 {
-  font-size: 40px;
-  line-height: 1.8;
-  letter-spacing: 1.5px;
-}
-
-.csMain h2, .csCounselor-cards h2 {
-  font-size: 36px;
-  line-height: 1.5;
-  letter-spacing: 1.5px;
-}
-
-.csMain h3, .csCounselor-cards h3 {
-  font-size: 32px;
-  line-height: 1.5;
-  letter-spacing: 1.5px;
-}
-
-.csMain h4, .csCounselor-cards h4 {
-  font-size: 28px;
-  line-height: 1.5;
-  letter-spacing: 1.5px;
-}
-
-.csMain h5, .csCounselor-cards h5 {
-  font-size: 24px;
-  line-height: 1.5;
-  letter-spacing: 1.5px;
-}
-
-.csMain h6, .csCounselor-cards h6 {
-  font-size: 20px;
-  line-height: 1.5;
-  letter-spacing: 1.5px;
-}
-
-.csMain p, .csCounselor-cards p {
-  font-size: 16px;
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.8px;
-  line-height: 2;
-}
-
-.csMain .small, .csCounselor-cards .small {
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.csMain .article, .csCounselor-cards .article {
-  margin: 20px;
-  width: 500px;
-}
-
-.csMain .button, .csCounselor-cards .button {
-  margin: 10px;
-  display: inline-block;
-  padding: 5px 30px;
-  font-size: 25px;
-  font-weight: 500;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #FFA492;
-  color: #fff;
-  cursor: pointer;
-  background-color: #FFA492;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.csMain .button:hover, .csCounselor-cards .button:hover {
-  background-color: #ff6446;
-  border: 2px solid #ff6446;
-}
-
-.csMain .button:focus, .csCounselor-cards .button:focus {
-  display: none;
-}
-
-.csMain .button2, .csCounselor-cards .button2 {
-  margin: 10px;
-  display: inline-block;
-  padding: 5px 30px;
-  font-size: 25px;
-  font-weight: 500;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  color: #fff;
-  cursor: pointer;
-  background-color: #91D0EB;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.csMain .button2:hover, .csCounselor-cards .button2:hover {
-  background-color: #50b4df;
-  border: 2px solid #50b4df;
-}
-
-.csMain .button2:focus, .csCounselor-cards .button2:focus {
-  display: none;
-}
-
-.csMain .button2-1, .csCounselor-cards .button2-1 {
-  margin: 10px;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  color: #91D0EB;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.csMain .button2-1:hover, .csCounselor-cards .button2-1:hover {
-  background-color: #91D0EB;
-  color: #fff;
-}
-
-.csMain .button2-1:focus, .csCounselor-cards .button2-1:focus {
-  display: none;
-}
-
-.csMain .button3, .csCounselor-cards .button3 {
-  margin: 10px;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  color: #91D0EB;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.csMain .button3:hover, .csCounselor-cards .button3:hover {
-  background-color: #91D0EB;
-  color: #fff;
-}
-
-.csMain .button3:focus, .csCounselor-cards .button3:focus {
-  display: none;
-}
-
-.csMain .button3-1, .csCounselor-cards .button3-1 {
-  margin: 10px;
-  display: inline-block;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #FFA492;
-  color: #FFA492;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-  border-radius: 10px;
-}
-
-.csMain .button3-1:hover, .csCounselor-cards .button3-1:hover {
-  background-color: #FFA492;
-  color: #fff;
-}
-
-.csMain .button3-1:focus, .csCounselor-cards .button3-1:focus {
-  display: none;
-}
-
-.csMain .button4, .csCounselor-cards .button4 {
-  display: inline-block;
-  width: 250px;
-  display: inline-block;
-  padding: 10px 30px;
-  font-size: 18px;
-  font-weight: 500;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  background-color: #91D0EB;
-  color: #fff;
-  cursor: pointer;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.csMain .button4:hover, .csCounselor-cards .button4:hover {
-  background-color: #50b4df;
-  border: 2px solid #50b4df;
-}
-
-.csMain .box, .csCounselor-cards .box {
-  display: inline-block;
-  margin: 0 30px;
-  width: 350px;
-  height: 400px;
-  border-radius: 30px;
-  -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-          box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-  overflow: hidden;
-}
-
-.csMain .box img, .csCounselor-cards .box img {
-  width: 100%;
-}
-
-.csMain .time, .csCounselor-cards .time {
-  border: 1px solid green;
-  display: block;
-  height: 30px;
-  position: relative;
-}
-
-.csMain .time p, .csCounselor-cards .time p {
-  font-size: 16px;
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.8px;
-  line-height: 2;
-  font-size: 14px;
-  float: right;
-}
-
+.csMain *,
+.csCounselor-cards *,
 .csSelf * {
   margin: 0;
   padding: 0;
 }
 
+.csMain h1,
+.csCounselor-cards h1,
 .csSelf h1 {
   font-size: 40px;
   line-height: 1.8;
   letter-spacing: 1.5px;
 }
 
+.csMain h2,
+.csCounselor-cards h2,
 .csSelf h2 {
   font-size: 36px;
   line-height: 1.5;
   letter-spacing: 1.5px;
 }
 
+.csMain h3,
+.csCounselor-cards h3,
 .csSelf h3 {
   font-size: 32px;
   line-height: 1.5;
   letter-spacing: 1.5px;
 }
 
+.csMain h4,
+.csCounselor-cards h4,
 .csSelf h4 {
   font-size: 28px;
   line-height: 1.5;
   letter-spacing: 1.5px;
 }
 
+.csMain h5,
+.csCounselor-cards h5,
 .csSelf h5 {
   font-size: 24px;
   line-height: 1.5;
   letter-spacing: 1.5px;
 }
 
+.csMain h6,
+.csCounselor-cards h6,
 .csSelf h6 {
   font-size: 20px;
   line-height: 1.5;
   letter-spacing: 1.5px;
 }
 
+.csMain p,
+.csCounselor-cards p,
 .csSelf p {
   font-size: 16px;
   font-family: "Noto Sans TC", sans-serif;
@@ -5551,18 +5050,53 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   line-height: 2;
 }
 
+.csMain .small,
+.csCounselor-cards .small,
 .csSelf .small {
   font-size: 14px;
   font-weight: 300;
 }
 
+.csMain .article,
+.csCounselor-cards .article,
 .csSelf .article {
   margin: 20px;
   width: 500px;
 }
 
-.csSelf .button {
-  margin: 10px;
+.csMain .button1,
+.csCounselor-cards .button1,
+.csSelf .button1 {
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #fff;
+  cursor: pointer;
+  background-color: #FFA492;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+.csMain .button1:hover,
+.csCounselor-cards .button1:hover,
+.csSelf .button1:hover {
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+.csMain .button1:focus,
+.csCounselor-cards .button1:focus,
+.csSelf .button1:focus {
+  display: none;
+}
+
+.csMain .button2,
+.csCounselor-cards .button2,
+.csSelf .button2 {
   display: inline-block;
   padding: 5px 30px;
   font-size: 25px;
@@ -5577,93 +5111,22 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   transition: .2s all ease-in;
 }
 
-.csSelf .button:hover {
+.csMain .button2:hover,
+.csCounselor-cards .button2:hover,
+.csSelf .button2:hover {
   background-color: #ff6446;
   border: 2px solid #ff6446;
 }
 
-.csSelf .button:focus {
-  display: none;
-}
-
-.csSelf .button2 {
-  margin: 10px;
-  display: inline-block;
-  padding: 5px 30px;
-  font-size: 25px;
-  font-weight: 500;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  color: #fff;
-  cursor: pointer;
-  background-color: #91D0EB;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.csSelf .button2:hover {
-  background-color: #50b4df;
-  border: 2px solid #50b4df;
-}
-
+.csMain .button2:focus,
+.csCounselor-cards .button2:focus,
 .csSelf .button2:focus {
   display: none;
 }
 
-.csSelf .button2-1 {
-  margin: 10px;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  color: #91D0EB;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.csSelf .button2-1:hover {
-  background-color: #91D0EB;
-  color: #fff;
-}
-
-.csSelf .button2-1:focus {
-  display: none;
-}
-
+.csMain .button3,
+.csCounselor-cards .button3,
 .csSelf .button3 {
-  margin: 10px;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  color: #91D0EB;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-transition: .2s all ease-in;
-  transition: .2s all ease-in;
-}
-
-.csSelf .button3:hover {
-  background-color: #91D0EB;
-  color: #fff;
-}
-
-.csSelf .button3:focus {
-  display: none;
-}
-
-.csSelf .button3-1 {
-  margin: 10px;
-  display: inline-block;
   display: inline-block;
   padding: 2px 10px;
   font-size: 14px;
@@ -5676,70 +5139,73 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   background-color: transparent;
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
-  border-radius: 10px;
 }
 
-.csSelf .button3-1:hover {
+.csMain .button3:hover,
+.csCounselor-cards .button3:hover,
+.csSelf .button3:hover {
   background-color: #FFA492;
   color: #fff;
 }
 
-.csSelf .button3-1:focus {
+.csMain .button3:focus,
+.csCounselor-cards .button3:focus,
+.csSelf .button3:focus {
   display: none;
 }
 
-.csSelf .button4 {
+.csMain .button3,
+.csCounselor-cards .button3,
+.csSelf .button3 {
   display: inline-block;
-  width: 250px;
+  padding: 2px 10px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #FFA492;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+.csMain .button3:hover,
+.csCounselor-cards .button3:hover,
+.csSelf .button3:hover {
+  background-color: #FFA492;
+  color: #fff;
+}
+
+.csMain .button3:focus,
+.csCounselor-cards .button3:focus,
+.csSelf .button3:focus {
+  display: none;
+}
+
+.csMain .button4,
+.csCounselor-cards .button4,
+.csSelf .button4 {
+  width: 300px;
   display: inline-block;
   padding: 10px 30px;
   font-size: 18px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
-  border: 2px solid #91D0EB;
-  background-color: #91D0EB;
-  color: #fff;
+  border: 2px solid #d6d6d6;
+  background-color: transparent;
+  color: #c4c4c4;
   cursor: pointer;
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
 }
 
+.csMain .button4:hover,
+.csCounselor-cards .button4:hover,
 .csSelf .button4:hover {
-  background-color: #50b4df;
-  border: 2px solid #50b4df;
-}
-
-.csSelf .box {
-  display: inline-block;
-  margin: 0 30px;
-  width: 350px;
-  height: 400px;
-  border-radius: 30px;
-  -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-          box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-  overflow: hidden;
-}
-
-.csSelf .box img {
-  width: 100%;
-}
-
-.csSelf .time {
-  border: 1px solid green;
-  display: block;
-  height: 30px;
-  position: relative;
-}
-
-.csSelf .time p {
-  font-size: 16px;
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.8px;
-  line-height: 2;
-  font-size: 14px;
-  float: right;
+  background-color: #ebebeb;
 }
 
 .csSelf {
@@ -5749,7 +5215,6 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
 }
 
 .csSelf .csS-info {
-  border: 1px solid #ee1717;
   padding: 20px;
 }
 
@@ -5796,10 +5261,13 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
           justify-content: center;
 }
 
-.csSelf .csS-info .csS-info__intro div.row .intro-left .intro-left__top .csS-skills a {
-  text-decoration: none;
-  text-align: center;
+.csSelf .csS-info .csS-info__intro div.row .intro-left .intro-left__top .csS-skills span {
   margin: 0 10px;
+  font-size: 16px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  line-height: 2;
 }
 
 .csSelf .csS-info .csS-info__intro div.row .intro-left .intro-left__bottom {
@@ -5843,9 +5311,10 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
 
 .csSelf .csS-info .csS-buttons div.row button {
   max-width: 120px;
+  height: 40px;
 }
 
-.csSelf > h1 {
+.csSelf > h2 {
   display: block;
   padding-top: 50px;
   height: 150px;
@@ -5910,6 +5379,9 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
       -ms-flex-flow: nowrap row;
           flex-flow: nowrap row;
   margin: 20px 0;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .csSelf .csS-art .csS-art__card .card-tag a {
@@ -6002,6 +5474,201 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
 @media (max-width: 375px) {
   .csSelf > .csS-art > .csS-art__card > .card-tag > a {
     font-size: 14px;
+  }
+}
+
+#csSelfAct {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#csSelfAct .csSelfAct-card {
+  border: 1px solid pink;
+  margin: 10px 0;
+  min-height: 200px;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+#csSelfAct .csSelfAct-card .card-image {
+  padding: 15.15% 0 0;
+  position: relative;
+}
+
+#csSelfAct .csSelfAct-card .card-image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#csSelfAct .csSelfAct-card .card-info {
+  padding: 10px 10px 30px;
+  position: relative;
+}
+
+#csSelfAct .csSelfAct-card .card-info h5 {
+  padding: 10px 0;
+}
+
+#csSelfAct .csSelfAct-card .card-info p {
+  padding: 10px 0;
+  line-height: 1.5rem;
+}
+
+#csSelfAct .csSelfAct-card .card-info .share-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 30px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap row;
+          flex-flow: nowrap row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#csSelfAct .csSelfAct-card .card-info .share-buttons a {
+  margin: 5px;
+}
+
+#csSelfAct .csSelfAct-card .card-info .share-buttons a img {
+  width: 20px;
+  height: 20px;
+}
+
+#csSelfAct .csSelfAct-card .joinBut {
+  position: absolute;
+  right: 5%;
+  bottom: 2%;
+  height: 30px;
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+@media (max-width: 400px) {
+  #csSelfAct .csSelfAct-card {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: nowrap column;
+            flex-flow: nowrap column;
+  }
+  #csSelfAct .csSelfAct-card .card-image {
+    max-width: 100%;
+    padding: 60% 0 0;
+  }
+  #csSelfAct .csSelfAct-card .card-image img {
+    width: 100%;
+    height: 100%;
+  }
+  #csSelfAct .csSelfAct-card .card-info {
+    max-width: 100%;
+  }
+}
+
+#csSelfReco {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap row;
+          flex-flow: nowrap row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto 100px;
+}
+
+#csSelfReco .csSelfReco-card {
+  margin: 0 10px;
+  border: 1px solid pink;
+  border-radius: 20px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 300px;
+          flex: 0 1 300px;
+}
+
+#csSelfReco .csSelfReco-card .card__image {
+  width: 100%;
+  max-height: 250px;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+}
+
+#csSelfReco .csSelfReco-card .card__image img {
+  width: 100%;
+  max-height: 250px;
+  -o-object-position: center top;
+     object-position: center top;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#csSelfReco .csSelfReco-card .card__title {
+  padding: 15px 10px;
+  background: white;
+  border-radius: 0 0 20px 20px;
+}
+
+#csSelfReco .csSelfReco-card .card__info {
+  padding: 5px 10px;
+  background: white;
+  border-radius: 20px 20px 20px 20px;
+}
+
+#csSelfReco .csSelfReco-card .card__info p {
+  line-height: 1.5rem;
+}
+
+@media (max-width: 800px) {
+  #csSelfReco {
+    height: 300px;
+  }
+  #csSelfReco .csSelfReco-card .card__image {
+    cursor: pointer;
+  }
+  #csSelfReco .csSelfReco-card .card__info {
+    display: none;
+    border: 1px solid pink;
+  }
+}
+
+@media (max-width: 576px) {
+  #csSelfReco {
+    height: auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: nowrap column;
+            flex-flow: nowrap column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #csSelfReco .csSelfReco-card {
+    max-width: 300px;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 200px;
+            flex: 0 1 200px;
+    margin-top: 15px;
+  }
+  #csSelfReco .csSelfReco-card .card__info {
+    border: none;
   }
 }
 
@@ -7523,17 +7190,26 @@ p {
   left: 0;
 }
 
-div.inCs {
-  width: 100%;
-  height: calc(100vh - 150px);
-  max-width: 1200px;
+div.inCs_group {
   position: relative;
-  margin: 0 auto;
+  height: 100vh;
+  margin: 0 0 100px;
 }
 
-div.inCs ul.leftList {
-  height: 65vh;
-  width: 40%;
+div.inCs_group div.inCs.inCs--large {
+  width: 100%;
+  max-width: 1200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 1rem;
+}
+
+div.inCs_group div.inCs.inCs--large ul.leftList {
+  height: 70vh;
+  width: 45%;
   max-width: 400px;
   min-width: 160px;
   position: absolute;
@@ -7545,32 +7221,32 @@ div.inCs ul.leftList {
   border-radius: 1rem 0 0 1rem;
 }
 
-div.inCs ul.leftList li {
+div.inCs_group div.inCs.inCs--large ul.leftList li {
+  padding: 10px 0 0 20px;
   width: 100%;
   height: 100%;
   position: absolute;
-  left: 0%;
+  left: -5%;
   top: 0%;
   background: white;
 }
 
-div.inCs ul.leftList li img {
+div.inCs_group div.inCs.inCs--large ul.leftList li img {
   display: block;
   width: 100%;
   height: 70%;
   -o-object-fit: cover;
      object-fit: cover;
   margin: 0 auto;
-  cursor: pointer;
 }
 
-div.inCs ul.leftList li.move {
+div.inCs_group div.inCs.inCs--large ul.leftList li.move {
   -webkit-animation: leftToCenter 1s ease-in-out both;
           animation: leftToCenter 1s ease-in-out both;
   z-index: 50;
 }
 
-div.inCs ul.leftList li h5 {
+div.inCs_group div.inCs.inCs--large ul.leftList li h5 {
   width: 100%;
   font-size: 24px;
   line-height: 1.5;
@@ -7578,7 +7254,7 @@ div.inCs ul.leftList li h5 {
   padding: 0 10px;
 }
 
-div.inCs ul.leftList li h5:after {
+div.inCs_group div.inCs.inCs--large ul.leftList li h5:after {
   content: "";
   display: block;
   width: 90%;
@@ -7586,7 +7262,7 @@ div.inCs ul.leftList li h5:after {
   background: #91D0EB;
 }
 
-div.inCs ul.leftList li p {
+div.inCs_group div.inCs.inCs--large ul.leftList li p {
   font-size: 16px;
   font-family: "Noto Sans TC", sans-serif;
   font-weight: 300;
@@ -7596,25 +7272,26 @@ div.inCs ul.leftList li p {
   padding: 0 10px 20px;
 }
 
-div.inCs ul.leftList li .inConselor__chart {
+div.inCs_group div.inCs.inCs--large ul.leftList li .inConselor__chart {
   display: block;
   margin: 0 auto;
-  height: 80%;
+  width: 70%;
+  height: 70%;
 }
 
-div.inCs ul.leftList li h1 {
+div.inCs_group div.inCs.inCs--large ul.leftList li h1 {
   position: absolute;
-  bottom: 20%;
+  bottom: 15%;
   right: 5%;
+  padding: 0 10px;
   font-size: 40px;
   line-height: 1.8;
   letter-spacing: 1.5px;
-  cursor: pointer;
 }
 
-div.inCs ul.leftList li button {
+div.inCs_group div.inCs.inCs--large ul.leftList li button {
   position: absolute;
-  bottom: 0;
+  bottom: 5%;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
@@ -7631,21 +7308,20 @@ div.inCs ul.leftList li button {
   background-color: #FFA492;
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
-  cursor: pointer;
 }
 
-div.inCs ul.leftList li button:hover {
+div.inCs_group div.inCs.inCs--large ul.leftList li button:hover {
   background-color: #ff6446;
   border: 2px solid #ff6446;
 }
 
-div.inCs ul.leftList li button:focus {
+div.inCs_group div.inCs.inCs--large ul.leftList li button:focus {
   display: none;
 }
 
-div.inCs ul.rightList {
-  height: 65vh;
-  width: 40%;
+div.inCs_group div.inCs.inCs--large ul.rightList {
+  height: 70vh;
+  width: 45%;
   max-width: 400px;
   min-width: 160px;
   position: absolute;
@@ -7657,32 +7333,32 @@ div.inCs ul.rightList {
   border-radius: 0 1rem 1rem 0;
 }
 
-div.inCs ul.rightList li {
+div.inCs_group div.inCs.inCs--large ul.rightList li {
+  padding: 10px 20px 0 0;
   width: 100%;
   height: 100%;
   position: absolute;
-  right: 0%;
+  right: -5%;
   top: 0%;
   background: white;
 }
 
-div.inCs ul.rightList li img {
+div.inCs_group div.inCs.inCs--large ul.rightList li img {
   display: block;
   width: 100%;
   height: 70%;
   -o-object-fit: cover;
      object-fit: cover;
   margin: 0 auto;
-  cursor: pointer;
 }
 
-div.inCs ul.rightList li.move {
+div.inCs_group div.inCs.inCs--large ul.rightList li.move {
   -webkit-animation: rightToCenter 1s ease-in-out both;
           animation: rightToCenter 1s ease-in-out both;
   z-index: 50;
 }
 
-div.inCs ul.rightList li h5 {
+div.inCs_group div.inCs.inCs--large ul.rightList li h5 {
   width: 100%;
   font-size: 24px;
   line-height: 1.5;
@@ -7690,7 +7366,7 @@ div.inCs ul.rightList li h5 {
   padding: 0 10px;
 }
 
-div.inCs ul.rightList li h5:after {
+div.inCs_group div.inCs.inCs--large ul.rightList li h5:after {
   content: "";
   display: block;
   width: 90%;
@@ -7698,7 +7374,7 @@ div.inCs ul.rightList li h5:after {
   background: #91D0EB;
 }
 
-div.inCs ul.rightList li p {
+div.inCs_group div.inCs.inCs--large ul.rightList li p {
   font-size: 16px;
   font-family: "Noto Sans TC", sans-serif;
   font-weight: 300;
@@ -7708,26 +7384,26 @@ div.inCs ul.rightList li p {
   padding: 0 10px 20px;
 }
 
-div.inCs ul.rightList li .inConselor__chart {
+div.inCs_group div.inCs.inCs--large ul.rightList li .inConselor__chart {
   display: block;
   margin: 0 auto;
   width: 70%;
   height: 70%;
 }
 
-div.inCs ul.rightList li h1 {
+div.inCs_group div.inCs.inCs--large ul.rightList li h1 {
   position: absolute;
-  bottom: 20%;
+  bottom: 15%;
   right: 5%;
+  padding: 0 10px;
   font-size: 40px;
   line-height: 1.8;
   letter-spacing: 1.5px;
-  cursor: pointer;
 }
 
-div.inCs ul.rightList li button {
+div.inCs_group div.inCs.inCs--large ul.rightList li button {
   position: absolute;
-  bottom: 0;
+  bottom: 5%;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
@@ -7744,19 +7420,18 @@ div.inCs ul.rightList li button {
   background-color: #FFA492;
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
-  cursor: pointer;
 }
 
-div.inCs ul.rightList li button:hover {
+div.inCs_group div.inCs.inCs--large ul.rightList li button:hover {
   background-color: #ff6446;
   border: 2px solid #ff6446;
 }
 
-div.inCs ul.rightList li button:focus {
+div.inCs_group div.inCs.inCs--large ul.rightList li button:focus {
   display: none;
 }
 
-div.inCs ul.slide-button {
+div.inCs_group div.inCs.inCs--large ul.slide-button {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7769,25 +7444,25 @@ div.inCs ul.slide-button {
       -ms-flex-flow: nowrap row;
           flex-flow: nowrap row;
   position: absolute;
-  bottom: -10%;
+  bottom: -350px;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   list-style: none;
 }
 
-div.inCs ul.slide-button li.point {
+div.inCs_group div.inCs.inCs--large ul.slide-button li.point {
   width: 20px;
   height: 20px;
   border: 3px solid black;
   margin: 0 10px;
   border-radius: 50%;
-  background: #ccc;
+  background: white;
   cursor: pointer;
 }
 
-div.inCs ul.slide-button li.point.activeNow {
-  background: red;
+div.inCs_group div.inCs.inCs--large ul.slide-button li.point.activeNow {
+  background: pink;
 }
 
 @-webkit-keyframes leftToCenter {
@@ -7795,7 +7470,7 @@ div.inCs ul.slide-button li.point.activeNow {
     left: -100%;
   }
   to {
-    left: 0%;
+    left: -5%;
   }
 }
 
@@ -7804,7 +7479,7 @@ div.inCs ul.slide-button li.point.activeNow {
     left: -100%;
   }
   to {
-    left: 0%;
+    left: -5%;
   }
 }
 
@@ -7813,7 +7488,7 @@ div.inCs ul.slide-button li.point.activeNow {
     right: -100%;
   }
   to {
-    right: 0%;
+    right: -5%;
   }
 }
 
@@ -7822,8 +7497,58 @@ div.inCs ul.slide-button li.point.activeNow {
     right: -100%;
   }
   to {
-    right: 0%;
+    right: -5%;
   }
+}
+
+div.inCs.swiper-container {
+  padding: 10px;
+  max-height: 600px;
+  width: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 1rem;
+}
+
+div.inCs.swiper-container .inCs-under576 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: nowrap row;
+          flex-flow: nowrap row;
+}
+
+div.inCs.swiper-container .inCs-under576 li.inCs-slide__item img {
+  display: block;
+  margin: 0 10px;
+  width: calc(100% - 20px);
+  height: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+div.inCs.swiper-container .inCs-under576 li.inCs-slide__item .inConselor__chart {
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+div.inCs.swiper-container .inCs-under576 li.inCs-slide__item button {
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: pink;
+  outline: none;
 }
 
 .index-search-bar {
@@ -7844,7 +7569,7 @@ div.inCs ul.slide-button li.point.activeNow {
 
 .index-search-bar .select-block {
   display: inline-block;
-  height: 60px;
+  height: 80px;
   min-width: 115px;
   position: relative;
   margin: 0 5px;
@@ -7866,7 +7591,7 @@ div.inCs ul.slide-button li.point.activeNow {
 }
 
 .index-search-bar .select-block span {
-  width: 100px;
+  width: 105px;
   height: 40px;
   line-height: 40px;
   position: absolute;
@@ -7947,6 +7672,37 @@ div.inCs ul.slide-button li.point.activeNow {
   border-radius: 10px;
 }
 
+.index-search-bar button {
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #fff;
+  cursor: pointer;
+  background-color: #FFA492;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+  width: 115px;
+  position: relative;
+  bottom: 30px;
+}
+
+.index-search-bar button:hover {
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+.index-search-bar button:focus {
+  display: none;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   -webkit-transition: opacity 0.5s;
@@ -7983,6 +7739,9 @@ div.inCs ul.slide-button li.point.activeNow {
     position: static;
     -webkit-transform: translate(0%, 80px);
             transform: translate(0%, 80px);
+  }
+  .index-search-bar button {
+    position: static;
   }
 }
 
@@ -8349,6 +8108,22 @@ p {
   background-attachment: fixed;
 }
 
+#oracleCard .oracleCardInner .oracleCardBanner::after {
+  position: absolute;
+  content: '';
+  bottom: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(50%);
+          transform: translateX(-50%) translateY(50%);
+  width: 700px;
+  height: 700px;
+  display: inline-block;
+  background-image: url(/img/oracleCard/moon_b.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox {
   position: absolute;
   bottom: 200px;
@@ -8357,7 +8132,8 @@ p {
           transform: translateX(-50%);
   margin: auto;
   width: 500px;
-  background-color: #fff;
+  background-color: rgba(128, 127, 127, 0.7);
+  z-index: 1;
 }
 
 #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title {
@@ -8366,20 +8142,19 @@ p {
   position: relative;
 }
 
-#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title::before, #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title::after {
+#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title::before {
   content: '';
-  display: inline-block;
+  display: block;
   position: absolute;
-  left: 10px;
-  top: 12px;
-  width: 85px;
-  height: 1px;
-  background: #333;
-}
-
-#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title::after {
-  width: 1px;
-  height: 60px;
+  z-index: 999;
+  left: -100%;
+  top: 0px;
+  width: 300px;
+  height: 100px;
+  background-image: url(/img/oracleCard/step3.png);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title h1 {
@@ -8415,7 +8190,309 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #F9F5F0;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#eee2ef), to(#d6ebfb));
+  background-image: linear-gradient(to bottom, #eee2ef 0%, #d6ebfb 100%);
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 50px auto 0;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .stepNum {
+  width: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .stepNum li {
+  width: 100%;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .stepNum li:not(:nth-child(1))::before {
+  content: '';
+  display: block;
+  width: 2px;
+  height: 30px;
+  background: #000;
+  position: absolute;
+  z-index: 5;
+  top: -30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .stepNum li h3 {
+  cursor: pointer;
+  font-size: 32px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  color: #000000;
+  text-align: center;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .stepNum li .h3Color {
+  background-color: #ffa492;
+  color: #fff;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg {
+  position: relative;
+  width: 500px;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg .showImgBg {
+  width: 100%;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg .showImgBg img {
+  width: 100%;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg .mainImg {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  max-height: 400px;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg .mainImg img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transition-delay: opacity 1s;
+          transition-delay: opacity 1s;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg .mainImg .opacity1 {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition-delay: opacity 1s;
+          transition-delay: opacity 1s;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showTxt {
+  width: 400px;
+  position: relative;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showTxt .txt {
+  position: absolute;
+  left: 0;
+  top: -100px;
+  width: 100%;
+  opacity: 0;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showTxt .txt h2 {
+  font-size: 28px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  margin-bottom: 5px;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showTxt .txt h3 {
+  font-size: 32px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  color: #e86659;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showTxt .txt p {
+  font-size: 16px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  line-height: 2;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showTxt .opacity2 {
+  opacity: 1;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn {
+  width: 100%;
+  margin: auto;
+  margin-top: -20px;
+  bottom: 20px;
+  text-align: center;
+  position: relative;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn::before, #oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn::after {
+  cursor: pointer;
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 50%;
+  bottom: -50px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-image: url(/img/oracleCard/down_png.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  -webkit-animation: downDown1 2s infinite ease-in-out;
+          animation: downDown1 2s infinite ease-in-out;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn::after {
+  bottom: -65px;
+  -webkit-animation: downDown2 2s infinite ease-in-out;
+          animation: downDown2 2s infinite ease-in-out;
+}
+
+@-webkit-keyframes downDown1 {
+  0% {
+    bottom: -50px;
+  }
+  50% {
+    bottom: -65px;
+  }
+  100% {
+    bottom: -50px;
+  }
+}
+
+@keyframes downDown1 {
+  0% {
+    bottom: -50px;
+  }
+  50% {
+    bottom: -65px;
+  }
+  100% {
+    bottom: -50px;
+  }
+}
+
+@-webkit-keyframes downDown2 {
+  0% {
+    bottom: -65px;
+  }
+  50% {
+    bottom: -85px;
+  }
+  100% {
+    bottom: -65px;
+  }
+}
+
+@keyframes downDown2 {
+  0% {
+    bottom: -65px;
+  }
+  50% {
+    bottom: -85px;
+  }
+  100% {
+    bottom: -65px;
+  }
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn button {
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #fff;
+  cursor: pointer;
+  background-color: #FFA492;
+  -webkit-transition: .2s all ease-in;
+  transition: .2s all ease-in;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn button:focus {
+  display: none;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn button:hover {
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn button:focus {
+  display: none;
+}
+
+@-webkit-keyframes btnScale {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes btnScale {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 #oracleCard .oracleCardInner .oracleCardStepOne {
