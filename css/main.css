@@ -3068,7 +3068,7 @@ p {
 
 .atContent .atContent-conterbox {
   position: sticky;
-  top: 80px;
+  top: 0px;
 }
 
 .atContent a {
@@ -3144,6 +3144,7 @@ p {
 
 .atContent .atContent-left_detail .atContent-left-detail_text p, .atContent .atContent-left_detail .atContent-conter-detail_text p, .atContent .atContent-conter_detail .atContent-left-detail_text p, .atContent .atContent-conter_detail .atContent-conter-detail_text p {
   margin: 0 auto;
+  letter-spacing: 0;
 }
 
 .atContent .atContent-left_detail .atContent-left-detail_title p, .atContent .atContent-left_detail .atContent-conter-detail_title p, .atContent .atContent-conter_detail .atContent-left-detail_title p, .atContent .atContent-conter_detail .atContent-conter-detail_title p {
@@ -3177,6 +3178,7 @@ p {
   line-height: 2.25vw;
   color: #333;
   margin-top: 1.66vw;
+  font-size: 28px;
   text-align: center;
 }
 
@@ -3187,6 +3189,7 @@ p {
   font-weight: 300;
   margin-top: 3%;
   line-height: 1.5;
+  overflow: hidden;
 }
 
 .atContent .atContent_right img {
@@ -3231,6 +3234,7 @@ p {
 .atContent .atContent-left_title, .atContent .atContent-conter_title {
   color: #333333;
   font-weight: 600;
+  font-size: 24px;
   margin-top: 1.66vw;
   line-height: 1.5vw;
 }
@@ -3242,6 +3246,7 @@ p {
   margin-top: 4%;
   line-height: 1.5;
   height: 6.5vw;
+  overflow: hidden;
 }
 
 .atContent .atContent-left_pic1, .atContent .atContent-conter_pic1 {
@@ -3266,7 +3271,7 @@ p {
 }
 
 .atBox {
-  padding: 30px 0 30px 0;
+  padding: 40px 0 40px 0;
   background: #91D0EB;
   overflow: scroll;
   transition: all 10s linear;
@@ -3301,8 +3306,8 @@ p {
 }
 
 .atBox .atBox_Class .atBox-Class_content {
-  width: 80vh;
-  height: 50vh;
+  width: 60vh;
+  height: 30vh;
   position: relative;
   margin: 0 30px;
   transition: all 0.5s;
@@ -3345,7 +3350,6 @@ p {
   display: inline-block;
   width: 100%;
   overflow: hidden;
-  padding-bottom: 10%;
 }
 
 .atClassTitle .atClassTitle_box {
@@ -3473,7 +3477,7 @@ p {
 
 .atClassAfter .atClassAfter_content_block:nth-child(odd) .atClassAfter_content .atClassAfter-content_button {
   width: 100%;
-  text-align: end;
+  text-align: center;
 }
 
 .atClassAfter .atClassAfter_content_block:nth-child(odd) .atClassAfter_content .atClassAfter-content_button input {
@@ -3535,7 +3539,7 @@ p {
 
 .atClassAfter .atClassAfter_content_block:nth-child(even) .atClassAfter_content .atClassAfter-content_button {
   width: 100%;
-  text-align: end;
+  text-align: center;
 }
 
 .atClassAfter .atClassAfter_content_block:nth-child(even) .atClassAfter_content .atClassAfter-content_button input {
@@ -3575,58 +3579,6 @@ p {
 
 .atClassAfter .atClassAfter_content_block:nth-child(even) .atClassAfter_content .atClassAfter-content_pic img {
   width: 700px;
-}
-
-@media all and (max-width: 768px) {
-  .seTitle {
-    display: block;
-    margin-bottom: 5%;
-  }
-  .seTitle::before {
-    width: 77%;
-    top: -19%;
-    right: 0;
-    left: unset;
-  }
-  .seTitle::after {
-    bottom: -10%;
-  }
-  .seTitle .seTitle-content {
-    width: 100%;
-  }
-  .seTitle .seTitle-content .seTitle-content_title {
-    text-align: end;
-  }
-  .seTitle .seTitle-content .seTitle-content_detail {
-    margin-left: 0;
-    text-align: end;
-  }
-  .seContent_box .seContent-box＿top, .seContent_box .seContent-box_beneath {
-    display: block;
-  }
-  .seContent_box .seContent-box＿top .seClassTitle-content_pic, .seContent_box .seContent-box_beneath .seClassTitle-content_pic {
-    width: 95%;
-    margin-right: 0;
-  }
-  .seContent_box .seContent-box＿top .seClassTitle-content_detail, .seContent_box .seContent-box_beneath .seClassTitle-content_detail {
-    width: 90%;
-    margin: auto;
-  }
-  .seContent_box .seContent-box＿center {
-    width: 90%;
-    margin: auto;
-  }
-  .seContent_box .seContent-box_beneath {
-    display: block;
-  }
-  .seContent_box .seContent-box_beneath .seContent-box-beneath_detail {
-    width: 90%;
-    margin: auto;
-  }
-  .seContent_box .seContent-box_beneath .seContent-box-beneath_pic {
-    width: 60%;
-    margin: auto;
-  }
 }
 
 .blank {
@@ -3761,7 +3713,7 @@ p {
 
 .seButton {
   width: 100%;
-  text-align: center;
+  text-align: start;
   margin-top: 2%;
 }
 
@@ -3831,6 +3783,75 @@ p {
 
 .seRecommend_box .seRecommend-box_center .seRecommend-box-center_detail {
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .seTitle {
+    display: block;
+    margin-bottom: 5%;
+  }
+  .seTitle::before {
+    width: 77%;
+    top: -19%;
+    right: 0;
+    left: unset;
+  }
+  .seTitle::after {
+    bottom: -10%;
+  }
+  .seTitle .seTitle-content {
+    width: 100%;
+  }
+  .seTitle .seTitle-content .seTitle-content_title {
+    text-align: end;
+  }
+  .seTitle .seTitle-content .seTitle-content_detail {
+    margin-left: 0;
+    text-align: end;
+  }
+  .seTitle .seTitle-content_icon {
+    text-align: start;
+  }
+  .seContent_box .seContent-box＿top, .seContent_box .seContent-box_beneath {
+    display: block;
+  }
+  .seContent_box .seContent-box＿top .seClassTitle-content_pic, .seContent_box .seContent-box_beneath .seClassTitle-content_pic {
+    width: 95%;
+    margin-right: 0;
+  }
+  .seContent_box .seContent-box＿top .seClassTitle-content_detail, .seContent_box .seContent-box_beneath .seClassTitle-content_detail {
+    width: 90%;
+    margin: auto;
+  }
+  .seContent_box .seContent-box＿center {
+    width: 90%;
+    margin: auto;
+  }
+  .seContent_box .seContent-box_beneath {
+    display: block;
+  }
+  .seContent_box .seContent-box_beneath .seContent-box-beneath_detail {
+    width: 90%;
+    margin: auto;
+  }
+  .seContent_box .seContent-box_beneath .seContent-box-beneath_pic {
+    width: 60%;
+    margin: auto;
+  }
+  .seRecommend .seRecommend_box .seRecommend-box_center {
+    border-right: none;
+    padding: 0;
+    display: block;
+    width: 70%;
+  }
+  .seRecommend .seRecommend_box .seRecommend-box_center .seRecommend-box-center_name h2 {
+    font-size: 28px;
+  }
+  .seRecommend .seRecommend_box .seRecommend-box_center .seRecommend-box-center_detail {
+    line-height: 1.5;
+    margin-bottom: 2%;
+    font-weight: 300;
+  }
 }
 
 html, body, div, span, applet, object, iframe,
@@ -7140,169 +7161,6 @@ div.inCs.swiper-container .inCs-under576 li.inCs-slide__item button {
   }
 }
 
-.atContent {
-  max-width: 1200px;
-  display: flex;
-}
-
-.atContent .atContent-conterbox {
-  position: sticky;
-  top: 0;
-}
-
-.atContent article {
-  display: block;
-}
-
-.atContent .atContent-right_detail {
-  width: 100%;
-  height: 30px;
-  margin-top: 3%;
-  margin-bottom: 1%;
-  display: flex;
-  color: rgba(179, 178, 178, 0.867);
-}
-
-.atContent .atContent-right_detail .atContent-right-detail_pic {
-  width: 10%;
-  height: 100%;
-}
-
-.atContent .atContent-right_detail .atContent-right-detail_pic > img {
-  width: 100%;
-  height: 100%;
-  border-radius: 70%;
-}
-
-.atContent .atContent-right_detail .atContent-right-detail_text {
-  margin-right: 45%;
-}
-
-.atContent .atContent-right_detail .atContent-right-detail_text p {
-  font-size: 20px;
-}
-
-.atContent .atContent-right_detail .atContent-right-detail_title p {
-  font-size: 20px;
-}
-
-.atContent .atContent-left_detail, .atContent .atContent-conter_detail {
-  width: 100%;
-  height: 20px;
-  margin-top: 3%;
-  margin-bottom: 1%;
-  display: flex;
-  color: rgba(179, 178, 178, 0.867);
-}
-
-.atContent .atContent-left_detail .atContent-left-detail_pic, .atContent .atContent-left_detail .atContent-conter-detail_pic, .atContent .atContent-conter_detail .atContent-left-detail_pic, .atContent .atContent-conter_detail .atContent-conter-detail_pic {
-  width: 10%;
-  height: 100%;
-}
-
-.atContent .atContent-left_detail .atContent-left-detail_pic > img, .atContent .atContent-left_detail .atContent-conter-detail_pic > img, .atContent .atContent-conter_detail .atContent-left-detail_pic > img, .atContent .atContent-conter_detail .atContent-conter-detail_pic > img {
-  width: 100%;
-  height: 100%;
-  border-radius: 70%;
-}
-
-.atContent .atContent-left_detail .atContent-left-detail_text, .atContent .atContent-left_detail .atContent-conter-detail_text, .atContent .atContent-conter_detail .atContent-left-detail_text, .atContent .atContent-conter_detail .atContent-conter-detail_text {
-  margin-right: 15%;
-}
-
-.atContent .atContent_left, .atContent .atContent_conter {
-  width: 25%;
-  display: block;
-  border-right: 1px solid #ddd;
-  padding: 0 20px;
-}
-
-.atContent .atContent_conter {
-  float: left;
-}
-
-.atContent .atContent_right {
-  width: 50%;
-  display: block;
-  float: left;
-  padding: 0 20px;
-}
-
-.atContent .atContent_right .atContent_rightbox {
-  position: sticky;
-  top: 0;
-}
-
-.atContent .atContent_right .atContent_right_title {
-  line-height: 2.25vw;
-  color: #333;
-  margin-top: 1.66vw;
-  text-align: center;
-}
-
-.atContent .atContent_right .atContent_right_partner {
-  color: #aaaa;
-  height: 8.2vw;
-  font-weight: 300;
-  margin-top: 3%;
-  line-height: 1.5;
-}
-
-.atContent .atContent_right img {
-  width: 100%;
-}
-
-.atContent .atContent-left_border, .atContent .atContent-conter_border, .atContent .atContent_right_border {
-  width: 100%;
-  height: 10px;
-  position: relative;
-  background: #FFA492;
-  margin-top: 2.22vw;
-}
-
-.atContent .atContent-left_border1, .atContent .atContent-conter_border1, .atContent .atContent_right_border1 {
-  width: 100%;
-  height: 10px;
-  position: relative;
-  background: #91D0EB;
-}
-
-.atContent .atContent-left_title, .atContent .atContent-conter_title {
-  color: #333333;
-  font-weight: 600;
-  margin-top: 1.66vw;
-  line-height: 1.5vw;
-}
-
-.atContent .atContent-left_partner, .atContent .atContent-conter_partner {
-  color: #aaaaaa;
-  font-weight: 300;
-  font-size: 14px;
-  margin-top: 4%;
-  line-height: 1.5;
-  height: 6.5vw;
-}
-
-.atContent .atContent-left_pic1, .atContent .atContent-conter_pic1 {
-  height: 10.4vw;
-  margin-top: 0;
-  overflow: hidden;
-}
-
-.atContent .atContent-left_pic1 img, .atContent .atContent-conter_pic1 img {
-  width: 100%;
-}
-
-.atContent-left_pic, .atContent-conter_pic {
-  height: 10.4vw;
-  margin-top: 3.2vw;
-  overflow: hidden;
-}
-
-.atContent-left_pic img, .atContent-conter_pic img {
-  width: 100%;
-}
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -7407,6 +7265,21 @@ p {
 #oracleCard .oracleCardInner {
   width: 100%;
   margin: auto;
+  position: relative;
+}
+
+#oracleCard .oracleCardInner::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 15%;
+  top: 3%;
+  width: 300px;
+  height: 400px;
+  background-image: url(/img/oracleCard/cloud_d.png);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #oracleCard .oracleCardInner .oracleCardBanner {
@@ -7431,14 +7304,31 @@ p {
   background-attachment: fixed;
 }
 
+#oracleCard .oracleCardInner .oracleCardBanner::after {
+  position: absolute;
+  content: '';
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(50%);
+  width: 700px;
+  height: 700px;
+  display: inline-block;
+  background-image: url(/img/oracleCard/moon_b.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox {
   position: absolute;
   bottom: 200px;
   left: 50%;
   transform: translateX(-50%);
   margin: auto;
-  width: 500px;
-  background-color: #fff;
+  width: 800px;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+  border-radius: 30px;
 }
 
 #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title {
@@ -7447,46 +7337,85 @@ p {
   position: relative;
 }
 
-#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title::before, #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title::after {
+#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title::before {
   content: '';
-  display: inline-block;
+  display: block;
   position: absolute;
-  left: 10px;
-  top: 12px;
-  width: 85px;
-  height: 1px;
-  background: #333;
+  left: -100%;
+  top: 0px;
+  width: 1800px;
+  height: 600px;
+  background-image: url(/img/oracleCard/cloud_h.png);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title::after {
-  width: 1px;
-  height: 60px;
+  content: '';
+  display: block;
+  position: absolute;
+  right: -20%;
+  top: 130px;
+  width: 400px;
+  height: 200px;
+  background-image: url(/img/oracleCard/cloud_i.png);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title h1 {
   text-align: center;
+  position: relative;
+}
+
+#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title h1::before {
+  content: '';
+  display: block;
+  position: absolute;
+  right: -28%;
+  top: -190%;
+  width: 50px;
+  height: 100px;
+  background-image: url(/img/oracleCard/cloud_d.png);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title h1::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: -40%;
+  top: -150px;
+  width: 100px;
+  height: 100px;
+  background-image: url(/img/oracleCard/moon_a.png);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .txt {
-  padding: 0px 40px 50px;
+  padding: 0px 100px 50px;
   letter-spacing: 2px;
   line-height: 20px;
 }
 
-#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .txt::before, #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .txt::after {
+#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .txt::before {
   content: '';
-  display: inline-block;
+  display: block;
   position: absolute;
-  right: 10px;
-  bottom: 12px;
-  width: 85px;
-  height: 1px;
-  background: #333;
-}
-
-#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .txt::after {
-  width: 1px;
-  height: 60px;
+  right: -28%;
+  top: -35%;
+  width: 50px;
+  height: 100px;
+  background-image: url(/img/oracleCard/cloud_i.png);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #oracleCard .oracleCardInner .oracleCardStep {
@@ -7494,7 +7423,239 @@ p {
   margin: auto;
   height: 100vh;
   display: flex;
-  background-color: #F9F5F0;
+  background-image: linear-gradient(to bottom, #eee2ef 0%, #d6ebfb 100%);
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px auto 0;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .stepNum {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .stepNum li {
+  width: 100%;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .stepNum li:not(:nth-child(1))::before {
+  content: '';
+  display: block;
+  width: 2px;
+  height: 30px;
+  background: #000;
+  position: absolute;
+  z-index: 5;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .stepNum li h3 {
+  cursor: pointer;
+  font-size: 32px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  color: #000000;
+  text-align: center;
+  transition: 0.5s;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .stepNum li .h3Color {
+  background-color: #ffa492;
+  color: #fff;
+  transition: 0.5s;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg {
+  position: relative;
+  width: 500px;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg .showImgBg {
+  width: 100%;
+  transition: 1s;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg .showImgBg img {
+  width: 100%;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg .mainImg {
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  max-height: 400px;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg .mainImg img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: 1s;
+  transition-delay: opacity 1s;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg .mainImg .opacity1 {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: opacity 1s;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showTxt {
+  width: 400px;
+  position: relative;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showTxt .txt {
+  position: absolute;
+  left: 0;
+  top: -100px;
+  width: 100%;
+  opacity: 0;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showTxt .txt h2 {
+  font-size: 28px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  margin-bottom: 5px;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showTxt .txt h3 {
+  font-size: 32px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+  color: #e86659;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showTxt .txt p {
+  font-size: 16px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  line-height: 2;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .showTxt .opacity2 {
+  opacity: 1;
+  transition: 2s;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn {
+  width: 100%;
+  margin: auto;
+  margin-top: -20px;
+  bottom: 20px;
+  text-align: center;
+  position: relative;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn::before, #oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn::after {
+  cursor: pointer;
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 50%;
+  bottom: -50px;
+  transform: translateX(-50%);
+  background-image: url(/img/oracleCard/down_png.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  animation: downDown1 2s infinite ease-in-out;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn::after {
+  bottom: -65px;
+  animation: downDown2 2s infinite ease-in-out;
+}
+
+@keyframes downDown1 {
+  0% {
+    bottom: -50px;
+  }
+  50% {
+    bottom: -65px;
+  }
+  100% {
+    bottom: -50px;
+  }
+}
+
+@keyframes downDown2 {
+  0% {
+    bottom: -65px;
+  }
+  50% {
+    bottom: -85px;
+  }
+  100% {
+    bottom: -65px;
+  }
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn button {
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #fff;
+  cursor: pointer;
+  background-color: #FFA492;
+  transition: .2s all ease-in;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn button:focus {
+  display: none;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn button:hover {
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+#oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn button:focus {
+  display: none;
+}
+
+@keyframes btnScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 #oracleCard .oracleCardInner .oracleCardStepOne {
