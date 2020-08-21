@@ -1,4 +1,4 @@
-Vue.component('cscounselor-layout', {
+Vue.component("cscounselor-layout", {
     template: `<li class="csCounselor-card">
                     <div class="csCounselor-image" @click="openSelfPage">
                         <img class="img-responsive"
@@ -7,8 +7,8 @@ Vue.component('cscounselor-layout', {
                     <p class="csC-doctor__name" @click="openSelfPage">吳醫師</p>
                     <p class="csC-type_title">醫師專長</p>
                     <div class="csC-type_tag row">
-                        <span class="col-4">憂鬱</span>
-                        <span class="col-4">失眠</span>
+                        <span class="col-4">家庭關係</span>
+                        <span class="col-4">人際關係</span>
                     </div>
                     <div class="csC-doctor__info">
                         <ul class="csC-doctor__list">
@@ -31,64 +31,60 @@ Vue.component('cscounselor-layout', {
             window.open("./csSelf.html", "_self");
         }
     }
-})
+});
 
 let vm = new Vue({
     el: "#appCsMain",
-	data: {
-		screenWidth: window.innerWidth,
-		csGender: [],
-		csPosition: [],
-		csProblem: [],
+    data: {
+        screenWidth: window.innerWidth,
+        csGender: [],
+        csPosition: [],
+        csProblem: [],
         slideBool: true,
-        countCards: 10,
-	},
-	mounted() {
-		window.onresize = () => {
-			this.screenWidth = window.innerWidth;
-		};
-	},
-	methods: {
-		cleanSelect() {
-			this.csGender = [];
-			this.csPosition = [];
-			this.csProblem = [];
-		},
-		slideToggle() {
-			let csMain = document.getElementsByClassName("csMain")[0];
-			if (this.slideBool) {
-				csMain.classList.add("slideIn");
-				csMain.classList.remove("slideOut");
-				this.slideBool = !this.slideBool;
-			} else {
-				csMain.classList.remove("slideIn");
-				csMain.classList.add("slideOut");
-				this.slideBool = !this.slideBool;
-			}
-		},
-		clickWhite(e) {
-            let csMain = document.getElementsByClassName("csMain")[0];
-            console.log(e.target.contains(csMain));
-			if (e.target.contains(csMain)) {
-                console.log('hi2');
-				csMain.classList.remove("slideIn");
-				csMain.classList.add("slideOut");
-				this.slideBool = true;
-			}
-		}
-	}
+        countCards: 10
+    },
+    mounted() {
+        window.onresize = () => {
+            this.screenWidth = window.innerWidth;
+        };
+    },
+    methods: {
+        cleanSelect() {
+            this.csGender = [];
+            this.csPosition = [];
+            this.csProblem = [];
+        },
+        slideToggle() {
+            let csMain = document.getElementById("csMain");
+            if (this.slideBool) {
+                csMain.classList.add("slideIn");
+                csMain.classList.remove("slideOut");
+                this.slideBool = !this.slideBool;
+            } else {
+                csMain.classList.remove("slideIn");
+                csMain.classList.add("slideOut");
+                this.slideBool = !this.slideBool;
+            }
+        },
+        clickWhite(e) {
+            let csMain = document.getElementById("csMain");
+            if (e.target.contains(csMain)) {
+                csMain.classList.remove("slideIn");
+                csMain.classList.add("slideOut");
+                this.slideBool = true;
+            }
+        }
+    }
 });
 
-
 (function () {
-
     let ctx = document.getElementsByClassName("myChart");
 
     let datas = {
         labels: ["Coding", "Swimming", "Eating", "Cycling", "Sleeping"],
         datasets: [{
             label: "分數",
-            data: [60, 40, 50, 52, 75],
+            data: [60, 40, 50, 52, 75]
         }]
     };
 
@@ -114,10 +110,9 @@ let vm = new Vue({
         new Chart(ctx[i].getContext("2d"), {
             type: "radar",
             data: datas,
-            options: option,
+            options: option
         });
     }
-
 })();
 
 $(document).ready(function () {
@@ -146,10 +141,10 @@ $(document).ready(function () {
     resetGallery();
 
     $(window).resize(function () {
-        divWith = $(".csCounselor-cards").width();
-        liWidth = $("li.csCounselor-card").width() + 102;
+        let divWith = $(".csCounselor-cards").width();
+        let liWidth = $("li.csCounselor-card").width() + 102;
         $("ul.csCounselor-gallery").width(`${liWidth * liLength}`);
-        ulWidth = $("ul.csCounselor-gallery").width();
+        let ulWidth = $("ul.csCounselor-gallery").width();
         resetGallery();
     });
 
