@@ -2830,6 +2830,11 @@ body {
 .qr_block #qrCode {
   width: 300px;
   height: auto;
+  margin: 0 auto;
+}
+
+.qr_block #qrCode img {
+  margin: 0 auto;
 }
 
 .ao-order_text--color {
@@ -2837,15 +2842,15 @@ body {
 }
 
 .qr_block_save-font {
-  font-size: 20px;
+  font-size: 18px;
 }
 
-.qr_block_save-font .ao-order_text--color img {
-  width: 25px;
+.qr_block_save-font div img {
+  height: 20px;
 }
 
 .qr_block_show-font {
-  font-size: 30px;
+  font-size: 24px;
 }
 
 h1 {
