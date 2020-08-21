@@ -202,19 +202,18 @@ let vm = new Vue({
                 //qrCode.makeCode(str);
         },
         saveQrCode() {
-            const img = document.getElementById("cerise").firstChild.nextElementSibling;
-            const link = document.querySelector('#a');
-            setTimeout(function() {
-                if (img && link) {
-                    var src = img.getAttribute('src');
-                    // var myhref = link.getAttribute('href');
-                    console.log("oldhref=" + href);
-                    console.log("img=" + img);
-                    console.log("src=" + src);
-                    link.setAttribute("href", src);
-                    console.log("nowhref=" + href);
-                }
-            }, 500);
+            const img = document.getElementById("qrCode").firstChild.nextElementSibling;
+            const link = document.querySelector('#saveQrCode');
+
+            if (img && link) {
+                var src = img.getAttribute('src');
+                var href = link.getAttribute('href');
+                // console.log("oldhref=" + href);
+                // console.log("img=" + img);
+                // console.log("src=" + src);
+                link.setAttribute("href", src);
+                // console.log("nowhref=" + href);
+            }
         },
     },
     updated() {
@@ -223,7 +222,7 @@ let vm = new Vue({
             setTimeout(function() {
 
                 var qrCode = new QRCode("qrCode");
-                qrCode.makeCode(str);
+                qrCode.makeCode("https: //www.cerisehuang.com/services");
             }, 400)
         }
     },
