@@ -113,17 +113,21 @@ p{
             .stepBg{
                 display: flex;
                 width: 100%;
-                background-color: #333;
 
                 .stepNum{
                     width: 100px;
+                    height: 100vh;
                     background-color: #777;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
 
                     li{
                         width: 100px;
                         height: 100px;
-                        background-color: red;
-                        color: #f0f0f0;
+                        background-color: rgb(134, 51, 51);
+                        color: #311010;
                         h3{
                             @include h3;
                         }
