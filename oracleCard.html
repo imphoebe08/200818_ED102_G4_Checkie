@@ -14,7 +14,7 @@
 <body>
 <div id="oracleCard">
  
-    @@include('template/header.html')
+    @@include('template/index-navbar.html')
 
   <div class="oracleCardInner" id="fullpage">
 
@@ -33,34 +33,39 @@
     <section class="oracleCardStep page page2 section">
       <div class="stepBg">
         <ol class="stepNum">
-          <li class="step1"></li>
-          <li class="step2"></li>
-          <li class="step3"></li>
+          <li id="step1" class="step"><h3 class="h3Color">1</h3></li>
+          <li id="step2" class="step"><h3>2</h3></li>
+          <li id="step3" class="step"><h3>3</h3></li>
         </ol>
         <div class="showImg">
-          <div class="showImgBg">
+          <div class="showImgBg" id="showImgBg">
             <img src="./img/oracleCard/mahojin.png" alt="">
           </div>
           <div class="mainImg">
-            <img src="" alt="">
+            <img class="opacity1" id="stepImg1" src="./img/oracleCard/step1.png" alt="">
+            <img class="" id="stepImg2" src="./img/oracleCard/step2.png" alt="">
+            <img class="" id="stepImg3" src="./img/oracleCard/step3.png" alt="">
           </div>
         </div>
         <div class="showTxt">
-          <div class="txt txt1" id="txt1">
+          <div class="txt txt1 opacity2" id="txt1">
             <h2>Step1</h2>
-            <span>選擇喜歡的牌卡</span>
-            <p>按照自己今天的直覺，選擇一副喜歡的牌卡。</p>
+            <h3>選擇喜歡的牌卡</h3>
+            <p>請按照自己今天的直覺，選擇一副自己最喜歡的牌卡。</p>
           </div>
           <div class="txt txt2" id="txt2">
             <h2>Step2</h2>
-            <span>默念三次問題</span>
+            <h3>默念三次問題</h3>
             <p>在心中默念三次問題，問題最好是開放式問題。如：我該怎麼辦，這類邀請建議的問題。</p>
           </div>
           <div class="txt txt3" id="txt3">
             <h2>Step3</h2>
-            <span>依直覺選取牌卡</span>
+            <h3>依直覺選取牌卡</h3>
             <p>不要想太多，按照直覺選取有感應的牌卡，再依照直覺解讀牌卡即可。</p>
           </div>
+        </div>
+        <div class="cardBtn">
+          <button id="cardBtn">開始抽牌</button>
         </div>
       </div>
     </section>

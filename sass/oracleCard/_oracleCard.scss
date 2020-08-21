@@ -28,6 +28,20 @@ p{
     .oracleCardInner{
         width: 100%;
         margin: auto;
+        position: relative;
+        &::before{
+            content: '';
+            display: block;
+            position: absolute;
+            left: 15%;
+            top: 3%;
+            width: 300px;
+            height: 400px;
+            background-image: url(/img/oracleCard/cloud_d.png);
+            background-position: center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
 
         .oracleCardBanner{
             display: block;
@@ -48,6 +62,21 @@ p{
                 background-repeat: no-repeat;
                 background-attachment: fixed;
             }
+            &::after{
+                position: absolute;
+                content: '';
+                bottom: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(50%);
+                width: 700px;
+                height: 700px;
+                display: inline-block;
+                background-image: url(/img/oracleCard/moon_b.png);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+
+            }
 
             .oracleCardBox{
                 position: absolute;
@@ -55,49 +84,91 @@ p{
                 left: 50%;
                 transform: translateX(-50%);
                 margin: auto;
-                width: 500px;
-                background-color: #fff;
+                width: 800px;
+                background-color: rgba(255, 255, 255, 0.7);
+                z-index: 1;
+                border-radius: 30px;
 
                 .title{
                     padding: 20px 60px 0px;
                     margin-bottom: 20px;
                     position: relative;
-                    &::before,&::after{
+                    &::before{
                         content: '';
-                        display: inline-block;
+                        display: block;
                         position: absolute;
-                        left: 10px;
-                        top: 12px;
-                        width: 85px;
-                        height: 1px;
-                        background: #333;
-                    }
+                        left: -100%;
+                        top: 0px;
+                        width: 1800px;
+                        height: 600px;
+                        background-image: url(/img/oracleCard/cloud_h.png);
+                        background-position: center center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        }
                     &::after{
-                        width: 1px;
-                        height: 60px;
-                    }
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        right: -20%;
+                        top: 130px;
+                        width: 400px;
+                        height: 200px;
+                        background-image: url(/img/oracleCard/cloud_i.png);
+                        background-position: center center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        }
                     h1{
                         text-align: center;
+                        position: relative;
+
+                        &::before{
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            right: -28%;
+                            top: -190%;
+                            width: 50px;
+                            height: 100px;
+                            background-image: url(/img/oracleCard/cloud_d.png);
+                            background-position: center center;
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                        }
+                        &::after{
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            right: -40%;
+                            top: -150px;
+                            width: 100px;
+                            height: 100px;
+                            background-image: url(/img/oracleCard/moon_a.png);
+                            background-position: center center;
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            }
                     }
                 }
 
                 .txt{
-                    padding: 0px 40px 50px;
+                    padding: 0px 100px 50px;
                     letter-spacing: 2px;
                     line-height: 20px;
-                    &::before,&::after{
+
+                    &::before{
                         content: '';
-                        display: inline-block;
+                        display: block;
                         position: absolute;
-                        right: 10px;
-                        bottom: 12px;
-                        width: 85px;
-                        height: 1px;
-                        background: #333;
-                    }
-                    &::after{
-                        width: 1px;
-                        height: 60px;
+                        right: -28%;
+                        top: -35%;
+                        width: 50px;
+                        height: 100px;
+                        background-image: url(/img/oracleCard/cloud_i.png);
+                        background-position: center center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
                     }
                 }
             }
@@ -108,9 +179,206 @@ p{
             margin: auto;
             height: 100vh;
             display: flex;
-            background-color: #F9F5F0;
+            background-image: linear-gradient(to bottom ,#eee2ef 0% ,#d6ebfb 100%);
 
-            
+            .stepBg{
+                display: flex;
+                flex-wrap: wrap;
+                margin: 50px auto 0;
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+                height: 100vh;
+
+                .stepNum{
+                    width: 50px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    li{
+                        width: 100%;
+                        margin-bottom: 30px;
+                        position: relative;
+
+                        &:not(:nth-child(1))::before{
+                            content: '';
+                            display: block;
+                            width: 2px;
+                            height: 30px;
+                            background: #000;
+                            position: absolute;
+                            z-index: 5;
+                            top: -30px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+                        
+                        h3{
+                            cursor: pointer;
+                            @include h3;
+                            width: 50px;
+                            height: 50px;
+                            line-height: 50px;
+                            background-color: rgb(255, 255, 255);
+                            // border: 1px solid #000;
+                            border-radius: 50%;
+                            color: #000000;
+                            text-align: center;
+                            transition: 0.5s;
+                        }
+                        .h3Color{
+                            background-color: #ffa492;
+                            color: #fff;
+                            transition: 0.5s;
+                        }
+                    }
+                    
+                }
+                .showImg{
+                    position: relative;
+                    width: 500px;
+
+                    .showImgBg{
+                        width: 100%;
+                        transition: 1s;
+
+                        img{
+                            width: 100%;
+                        }
+                    }
+                    .mainImg{
+                        position: absolute;
+                        left: 50px;
+                        top: 50px;
+                        width: 100%;
+                        max-width: 400px;
+                        height: 100%;
+                        max-height: 400px;
+
+                        img{
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            opacity: 0;
+                            transform: scale(0.8);
+                            transition: 1s;
+                            transition-delay: opacity 1s;
+                        }
+                        .opacity1{
+                            opacity: 1;
+                            transform: scale(1);
+                            transition-delay: opacity 1s;
+                        }
+                    }
+                    
+                    
+                }
+                .showTxt{
+                    width: 400px;
+                    position: relative;
+
+                    .txt{
+                        position: absolute;
+                        left: 0;
+                        top: -100px;
+                        width: 100%;
+                        opacity: 0;
+
+                        h2{
+                            @include h4;
+                            margin-bottom: 5px;
+                        }
+                        h3{
+                            @include h3;
+                            margin-bottom: 10px;
+                            color: #e86659;
+                        }
+
+                        p{
+                            @include p;
+                        }
+                    }
+                    .opacity2{
+                        opacity: 1;
+                        transition: 2s;
+                    }
+                }
+                .cardBtn{
+                    width: 100%;
+                    margin: auto;
+                    margin-top: -20px;
+                    bottom: 20px;
+                    text-align: center;
+                    position: relative;
+
+                    &::before,&::after{
+                        cursor: pointer;
+                        content: '';
+                        display: inline-block;
+                        position: absolute;
+                        width: 30px;
+                        height: 30px;
+                        left: 50%;
+                        bottom: -50px;
+                        transform: translateX(-50%);
+                        background-image: url(/img/oracleCard/down_png.png);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center center;
+                        animation: downDown1 2s infinite ease-in-out;
+                    }
+                    &::after{
+                        bottom: -65px;
+                        animation: downDown2 2s infinite ease-in-out;
+                    }
+                    @keyframes downDown1{
+                        0%{
+                            bottom: -50px;
+                        }
+                        50%{
+                            bottom: -65px;
+                        }
+                        100%{
+                            bottom: -50px;
+                        }
+                    }
+                    @keyframes downDown2{
+                        0%{
+                            bottom: -65px;
+                        }
+                        50%{
+                            bottom: -85px;
+                        }
+                        100%{
+                            bottom: -65px;
+                        }
+                    }
+
+                    button{
+                        &:focus{
+                            display: none;
+                        }
+
+                        @include btn-modules($bw, $color-pink, $fontsize);
+                        @keyframes btnScale{
+                            0%{
+                                // font-size: 18px;
+                                transform: scale(1);
+                            }
+                            50%{
+                                // font-size: 22px;
+                                transform: scale(1.2);
+                            }
+                            100%{
+                                // font-size: 18px;
+                                transform: scale(1);
+                            }
+                        }
+                    }
+                } 
+                
+            }
         }
 
         .oracleCardStepOne{

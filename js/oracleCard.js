@@ -60,3 +60,48 @@ function getScreenshot(){
 }
 
 
+function step(){
+  $('.step').click(function(){
+    $(this).children('h3').addClass('h3Color');
+    $(this).siblings('li').children('h3').removeClass('h3Color');
+  });
+  $('#step1').click(function(){
+    rotateFoo();
+    $(this).parent('.stepNum').siblings('.showImg').children('.mainImg').children('#stepImg1').addClass('opacity1');
+    $(this).parent('.stepNum').siblings('.showImg').children('.mainImg').children('#stepImg2').removeClass('opacity1');
+    $(this).parent('.stepNum').siblings('.showImg').children('.mainImg').children('#stepImg3').removeClass('opacity1');
+
+    $(this).parent('.stepNum').siblings('.showTxt').children('#txt1').addClass('opacity2');
+    $(this).parent('.stepNum').siblings('.showTxt').children('#txt2').removeClass('opacity2');
+    $(this).parent('.stepNum').siblings('.showTxt').children('#txt3').removeClass('opacity2');
+
+  });
+  $('#step2').click(function(){
+    rotateFoo();
+    $(this).parent('.stepNum').siblings('.showImg').children('.mainImg').children('#stepImg1').removeClass('opacity1');
+    $(this).parent('.stepNum').siblings('.showImg').children('.mainImg').children('#stepImg2').addClass('opacity1');
+    $(this).parent('.stepNum').siblings('.showImg').children('.mainImg').children('#stepImg3').removeClass('opacity1');
+
+    $(this).parent('.stepNum').siblings('.showTxt').children('#txt1').removeClass('opacity2');
+    $(this).parent('.stepNum').siblings('.showTxt').children('#txt2').addClass('opacity2');
+    $(this).parent('.stepNum').siblings('.showTxt').children('#txt3').removeClass('opacity2');
+  });
+  $('#step3').click(function(){
+    rotateFoo();
+    $(this).parent('.stepNum').siblings('.showImg').children('.mainImg').children('#stepImg1').removeClass('opacity1');
+    $(this).parent('.stepNum').siblings('.showImg').children('.mainImg').children('#stepImg2').removeClass('opacity1');
+    $(this).parent('.stepNum').siblings('.showImg').children('.mainImg').children('#stepImg3').addClass('opacity1');
+
+    $(this).parent('.stepNum').siblings('.showTxt').children('#txt1').removeClass('opacity2');
+    $(this).parent('.stepNum').siblings('.showTxt').children('#txt2').removeClass('opacity2');
+    $(this).parent('.stepNum').siblings('.showTxt').children('#txt3').addClass('opacity2');
+  });
+}
+
+window.addEventListener('load',step);
+
+function rotateFoo(){
+  var angle = ($('#showImgBg').data('angle') + 90) || 90;
+  $('#showImgBg').css({'transform': 'rotate(' + angle + 'deg)'});
+  $('#showImgBg').data('angle', angle);
+}
