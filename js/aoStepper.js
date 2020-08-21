@@ -184,7 +184,9 @@ let vm = new Vue({
         update(val) {
             if (val < 1 || val > 5) {
                 return val;
-            }
+
+            };
+
             this.currentStep = val;
             console.log(this.currentStep);
         },
@@ -198,9 +200,33 @@ let vm = new Vue({
                 // var str = this.memTel.mobile.toString();
                 // console.log(str);
                 //qrCode.makeCode(str);
+        },
+        saveQrCode() {
+            const img = document.getElementById("cerise").firstChild.nextElementSibling;
+            const link = document.querySelector('#a');
+            setTimeout(function() {
+                if (img && link) {
+                    var src = img.getAttribute('src');
+                    // var myhref = link.getAttribute('href');
+                    console.log("oldhref=" + href);
+                    console.log("img=" + img);
+                    console.log("src=" + src);
+                    link.setAttribute("href", src);
+                    console.log("nowhref=" + href);
+                }
+            }, 500);
+        },
+    },
+    updated() {
+        if (this.currentStep == 4) {
+            var str = this.memTel.countryCode + this.memTel.mobile;
+            setTimeout(function() {
+
+                var qrCode = new QRCode("qrCode");
+                qrCode.makeCode(str);
+            }, 400)
         }
     },
-
 });
 
 // function creatQrCode() {

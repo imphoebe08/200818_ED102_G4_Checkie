@@ -2,6 +2,10 @@
     #qrCode {
         width: 300px;
         height: auto;
+        margin: 0 auto;
+        img {
+            margin: 0 auto;
+        }
     }
 }
 
@@ -10,14 +14,14 @@
 }
 
 .qr_block_save-font {
-    font-size: 20px;
-    .ao-order_text--color {
+    font-size: 18px;
+    div {
         img {
-            width: 25px;
+            height: 20px;
         }
     }
 }
 
 .qr_block_show-font {
-    font-size: 30px;
+    font-size: 24px;
 }
