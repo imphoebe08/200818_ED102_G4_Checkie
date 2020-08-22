@@ -5,7 +5,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -796,16 +795,6 @@ header {
 
 .container.right-panel-active .overlay-right {
   transform: translateX(20%);
-<<<<<<< HEAD
-=======
-}
-
-body {
-  box-sizing: border-box;
-  font-weight: 400;
-  font-family: "Noto Sans TC", sans-serif;
-  margin: 0;
->>>>>>> Jiang-mini
 }
 
 footer {
@@ -945,10 +934,6 @@ input {
 
 #form > form {
   display: flex;
-<<<<<<< HEAD
-  height: 95ch;
-  align-items: flex-end;
-=======
   height: 80vh;
   width: 90vw;
   border-radius: 30px;
@@ -958,7 +943,6 @@ input {
   overflow: hidden;
   padding: 50px 0;
   flex-wrap: wrap;
->>>>>>> Jiang-mini
 }
 
 #form > form #qsBox {
@@ -1119,10 +1103,7 @@ input {
 .acSelect .acSelectCard {
   display: inline-block;
   border-radius: 30px;
-<<<<<<< HEAD
   background-color: white;
-=======
->>>>>>> Jiang-mini
   box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
   overflow: hidden;
 }
@@ -1216,11 +1197,7 @@ input {
 }
 
 .acCommentList .acCommentList_img {
-<<<<<<< HEAD
   width: 300px;
-=======
-  height: fit-content;
->>>>>>> Jiang-mini
   overflow: hidden;
   margin-bottom: 20px;
   margin: auto 0;
@@ -2512,7 +2489,6 @@ body {
   }
 }
 
-<<<<<<< HEAD
 .stepper-content .coSlide-enter-active,
 .stepper-content .coSlide-leave-active {
   transition: .3s;
@@ -2520,15 +2496,6 @@ body {
 
 .stepper-content .coSlide-enter,
 .stepper-content .coSlide-leave-to {
-=======
-.stepper-content .fade-enter-active,
-.stepper-content .fade-leave-active {
-  transition: .3s;
-}
-
-.stepper-content .fade-enter,
-.stepper-content .fade-leave-to {
->>>>>>> Jiang-mini
   opacity: 0;
   transform: translateX(20px);
 }
@@ -2841,7 +2808,6 @@ body {
   height: 2px;
   box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
   transform: rotate(45deg);
-<<<<<<< HEAD
 }
 
 .qr_block #qrCode {
@@ -2868,8 +2834,6 @@ body {
 
 .qr_block_show-font {
   font-size: 24px;
-=======
->>>>>>> Jiang-mini
 }
 
 h1 {
@@ -3079,16 +3043,6 @@ p {
   float: right;
 }
 
-<<<<<<< HEAD
-=======
-body {
-  box-sizing: border-box;
-  font-weight: 400;
-  font-family: "Noto Sans TC", sans-serif;
-  margin: 0;
-}
-
->>>>>>> Jiang-mini
 .blank {
   height: 9vw;
 }
@@ -3683,15 +3637,8 @@ body {
   margin-top: 1%;
   margin-left: 7%;
   width: 100%;
-<<<<<<< HEAD
   font-weight: 300;
   text-align: center;
-=======
-  height: 100%;
-  position: absolute;
-  transition: all 0.8s linear;
-  z-index: 1;
->>>>>>> Jiang-mini
 }
 
 .seTitle .seTitle-content_icon {
@@ -3701,19 +3648,8 @@ body {
   margin-top: 4%;
 }
 
-<<<<<<< HEAD
 .seTitle .seTitle-content_icon > img {
   width: 30px;
-=======
-.seClassTitle .seClassTitle-content_pic .seClassTitle-content-pic_ColorBlock {
-  position: absolute;
-  top: 2.22vw;
-  left: 1.11vw;
-  width: 100%;
-  height: 100%;
-  background: rgba(145, 208, 235, 0.9);
-  transition: all 0.6s linear;
->>>>>>> Jiang-mini
 }
 
 .seTitle-content_bigpic {
@@ -3755,20 +3691,12 @@ body {
   margin-right: 2%;
 }
 
-<<<<<<< HEAD
 .seContent_box .seContent-box＿center {
   width: 95%;
   line-height: 2;
   letter-spacing: 2px;
   font-size: 16px;
   margin: 2% auto;
-=======
-body {
-  box-sizing: border-box;
-  font-weight: 400;
-  font-family: "Noto Sans TC", sans-serif;
-  margin: 0;
->>>>>>> Jiang-mini
 }
 
 .seContent_box .seContent-box_beneath .seContent-box-beneath_detail {
@@ -4354,35 +4282,7 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   border: 2px solid #FFA492;
   color: #fff;
   cursor: pointer;
-<<<<<<< HEAD
   background-color: #FFA492;
-=======
-  background-color: #91D0EB;
-  transition: .2s all ease-in;
-}
-
-.csMain .button2:hover, .csCounselor-cards .button2:hover {
-  background-color: #50b4df;
-  border: 2px solid #50b4df;
-}
-
-.csMain .button2:focus, .csCounselor-cards .button2:focus {
-  display: none;
-}
-
-.csMain .button2-1, .csCounselor-cards .button2-1 {
-  margin: 10px;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  color: #91D0EB;
-  cursor: pointer;
-  background-color: transparent;
->>>>>>> Jiang-mini
   transition: .2s all ease-in;
 }
 
@@ -4480,20 +4380,10 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   background-color: #ebebeb;
 }
 
-<<<<<<< HEAD
 #csMainContainer {
   position: relative;
   width: calc(100% - 40px);
   max-width: 1200px;
-=======
-.csMain .box, .csCounselor-cards .box {
-  display: inline-block;
-  margin: 0 30px;
-  width: 350px;
-  height: 400px;
-  border-radius: 30px;
-  box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
->>>>>>> Jiang-mini
   overflow: hidden;
   margin: 20px auto 0;
   padding: 0 10px;
@@ -4893,11 +4783,7 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   border: 2px solid #FFA492;
   color: #fff;
   cursor: pointer;
-<<<<<<< HEAD
   background-color: #FFA492;
-=======
-  background-color: #91D0EB;
->>>>>>> Jiang-mini
   transition: .2s all ease-in;
 }
 
@@ -4972,37 +4858,8 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   display: none;
 }
 
-<<<<<<< HEAD
 .csMain .button4,
 .csCounselor-cards .button4,
-=======
-.csSelf .button3-1 {
-  margin: 10px;
-  display: inline-block;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #FFA492;
-  color: #FFA492;
-  cursor: pointer;
-  background-color: transparent;
-  transition: .2s all ease-in;
-  border-radius: 10px;
-}
-
-.csSelf .button3-1:hover {
-  background-color: #FFA492;
-  color: #fff;
-}
-
-.csSelf .button3-1:focus {
-  display: none;
-}
-
->>>>>>> Jiang-mini
 .csSelf .button4 {
   width: 300px;
   display: inline-block;
@@ -5024,7 +4881,6 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   background-color: #ebebeb;
 }
 
-<<<<<<< HEAD
 .csSelf {
   display: block;
   border: 1px solid #080808;
@@ -5038,16 +4894,6 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
 .csSelf .csS-info .csS-info__image {
   text-align: center;
   padding: 20px;
-=======
-.csSelf .box {
-  display: inline-block;
-  margin: 0 30px;
-  width: 350px;
-  height: 400px;
-  border-radius: 30px;
-  box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-  overflow: hidden;
->>>>>>> Jiang-mini
 }
 
 .csSelf .csS-info .csS-info__image img {
@@ -5077,15 +4923,9 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   margin: 20px 0;
 }
 
-<<<<<<< HEAD
 .csSelf .csS-info .csS-info__intro div.row .intro-left .intro-left__top .csS-skills {
   display: flex;
   width: 100%;
-=======
-#csMainContainer .csMain .checkbox-form {
-  display: flex;
-  flex-flow: nowrap row;
->>>>>>> Jiang-mini
   justify-content: center;
 }
 
@@ -5112,17 +4952,7 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
 
 .csSelf .csS-info .csS-info__intro div.row .intro-right .list-wrapper > li p {
   cursor: pointer;
-<<<<<<< HEAD
   font-weight: 700;
-=======
-  background-color: transparent;
-  transition: .2s all ease-in;
-  border-radius: 10px;
-  height: 40px;
-  width: 120px;
-  padding: 0;
-  line-height: 40px;
->>>>>>> Jiang-mini
 }
 
 .csSelf .csS-info .csS-info__intro div.row .intro-right .list-wrapper > li .csS-list > li {
@@ -5149,7 +4979,6 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   height: 40px;
 }
 
-<<<<<<< HEAD
 .csSelf > h2 {
   display: block;
   padding-top: 50px;
@@ -5160,34 +4989,6 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
 .csSelf .csS-art {
   flex-flow: nowrap row;
   justify-content: space-between;
-=======
-.csCounselor-cards .csC-changeSlide {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-flow: nowrap row;
-  position: absolute;
-  bottom: 0;
-}
-
-.csCounselor-cards .csC-changeSlide #pre,
-.csCounselor-cards .csC-changeSlide #next {
-  flex: 1 0 80px;
-  max-width: 120px;
-  margin: 20px;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #FFA492;
-  color: #FFA492;
-  cursor: pointer;
-  background-color: transparent;
-  transition: .2s all ease-in;
-  outline: none;
->>>>>>> Jiang-mini
 }
 
 .csSelf .csS-art .csS-art__card {
@@ -5206,21 +5007,12 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
 
 .csSelf .csS-art .csS-art__card a img {
   width: 100%;
-<<<<<<< HEAD
   height: 300px;
   object-fit: cover;
-=======
-  height: 500px;
-  display: flex;
-  flex-flow: nowrap row;
-  position: absolute;
-  left: 0%;
->>>>>>> Jiang-mini
 }
 
 .csSelf .csS-art .csS-art__card .card-Info {
   padding: 10px;
-<<<<<<< HEAD
 }
 
 .csSelf .csS-art .csS-art__card .card-Info .card-Info__times > img {
@@ -5228,14 +5020,6 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   height: 14px;
   vertical-align: middle;
   margin-right: 5px;
-=======
-  transition: transform 0.3s ease;
-  transform: scale(0.85);
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card.bigger {
-  transform: scale(1);
->>>>>>> Jiang-mini
 }
 
 .csSelf .csS-art .csS-art__card p {
@@ -5245,17 +5029,10 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
 .csSelf .csS-art .csS-art__card .card-tag {
   flex-flow: nowrap row;
   margin: 20px 0;
   justify-content: flex-end;
-=======
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csCounselor-image img {
-  max-height: 100%;
-  width: 100%;
-  object-fit: cover;
->>>>>>> Jiang-mini
 }
 
 .csSelf .csS-art .csS-art__card .card-tag a {
@@ -5275,14 +5052,8 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   align-items: center;
 }
 
-<<<<<<< HEAD
 .csSelf .csS-art .csS-art__card .card-share a {
   margin: 5px;
-=======
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-type_tag {
-  justify-content: center;
-  padding: 10px 0;
->>>>>>> Jiang-mini
 }
 
 .csSelf .csS-art .csS-art__card .card-share a img {
@@ -5299,31 +5070,11 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   border-radius: 20px;
 }
 
-<<<<<<< HEAD
 @media (max-width: 1140px) {
   .csSelf .csS-art {
     flex-flow: nowrap column;
     justify-content: space-between;
   }
-=======
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info .csC-doctor__list > li p {
-  cursor: pointer;
-  font-weight: 700;
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info .csC-doctor__list > li .csS-list > li {
-  display: block;
-  line-height: 1.5em;
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info .csC-doctor__list > li .csS-list > li i {
-  display: inline-block;
-  font-size: 10px;
-  transform: scale(0.8);
-  padding-right: 5px;
-  vertical-align: middle;
-  color: #65b391;
->>>>>>> Jiang-mini
 }
 
 @media (max-width: 768px) {
@@ -5335,7 +5086,6 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
   }
 }
 
-<<<<<<< HEAD
 @media (max-width: 600px) {
   .csSelf .csS-info .csS-buttons div.row {
     justify-content: center;
@@ -5427,61 +5177,20 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
 @media (max-width: 400px) {
   #csSelfAct .csSelfAct-card {
     flex-flow: nowrap column;
-=======
-@media (max-width: 576px) {
-  .csMain {
-    position: absolute;
-    right: -120px;
-    height: 430px;
-    width: 120px;
-    border: 1px solid red;
-    transition: all 1s ease;
-  }
-  .csMain.slideIn {
-    animation: slideIn 1s ease forwards;
-  }
-  .csMain.slideOut {
-    animation: slideOut 1s ease forwards;
-  }
-  .csMain .checkbox-form {
-    width: 120px;
-    flex-flow: nowrap column;
-    align-items: center;
-  }
-  .csMain .checkbox-form span {
-    width: 120px;
-    height: 5px;
-    margin: 5px 0 15px;
-    text-align: center;
->>>>>>> Jiang-mini
   }
   #csSelfAct .csSelfAct-card .card-image {
     max-width: 100%;
     padding: 60% 0 0;
   }
-<<<<<<< HEAD
   #csSelfAct .csSelfAct-card .card-image img {
     width: 100%;
     height: 100%;
-=======
-  .csMain .checkbox-form #openForm {
-    position: absolute;
-    writing-mode: vertical-lr;
-    height: 90px;
-    width: 30px;
-    line-height: 30px;
-    border: 1px solid red;
-    right: 119px;
-    top: 10%;
-    cursor: pointer;
->>>>>>> Jiang-mini
   }
   #csSelfAct .csSelfAct-card .card-info {
     max-width: 100%;
   }
 }
 
-<<<<<<< HEAD
 #csSelfReco {
   box-sizing: border-box;
   height: 400px;
@@ -5532,20 +5241,6 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
 @media (max-width: 800px) {
   #csSelfReco {
     height: 300px;
-=======
-@keyframes slideIn {
-  from {
-    right: -120px;
-  }
-  to {
-    right: 0;
-  }
-}
-
-@keyframes slideOut {
-  from {
-    right: 0;
->>>>>>> Jiang-mini
   }
   #csSelfReco .csSelfReco-card .card__image {
     cursor: pointer;
@@ -5557,7 +5252,6 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
 }
 
 @media (max-width: 576px) {
-<<<<<<< HEAD
   #csSelfReco {
     height: auto;
     flex-flow: nowrap column;
@@ -5567,13 +5261,6 @@ main #chatRoom .chatRoom_right .chatRoom_text .chatRoom_send {
     max-width: 300px;
     flex: 0 1 200px;
     margin-top: 15px;
-=======
-  .container-fluid.csMain .csCounselor-cards .csCounselor-gallery .csCounselor-card {
-    transform: scale(0.7);
-  }
-  .container-fluid.csMain .csCounselor-cards .csCounselor-gallery .csCounselor-card.bigger {
-    transform: scale(0.8);
->>>>>>> Jiang-mini
   }
   #csSelfReco .csSelfReco-card .card__info {
     border: none;
@@ -5924,17 +5611,6 @@ p {
 .inAct .inAct_body .inAct-sticky_block .inAct_block .inAct_item a {
   display: inline-block;
   width: 100%;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #FFA492;
-  color: #FFA492;
-  cursor: pointer;
-  background-color: transparent;
-  transition: .2s all ease-in;
-  border-radius: 10px;
 }
 
 .inAct .inAct_body .inAct-sticky_block .inAct_block .inAct_item a img {
@@ -5948,21 +5624,6 @@ p {
 .inAct .inAct_body .inAct-sticky_block .inAct_block .inAct_item .inAct_text .inAct-top_text {
   display: flex;
   justify-content: space-between;
-}
-.csSelf .button4 {
-  display: inline-block;
-  width: 250px;
-  display: inline-block;
-  padding: 10px 30px;
-  font-size: 18px;
-  font-weight: 500;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  background-color: #91D0EB;
-  color: #fff;
-  cursor: pointer;
-  transition: .2s all ease-in;
 }
 
 .inAct .inAct_body .inAct-sticky_block .inAct_block .inAct_item .inAct_text .inAct-top_text .inAct-left_date {
@@ -5982,23 +5643,6 @@ p {
   height: 20px;
   display: inline-block;
   opacity: 0.5;
-  margin: 0 30px;
-  width: 350px;
-  height: 400px;
-  border-radius: 30px;
-  box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-  overflow: hidden;
-}
-
-.csSelf .box img {
-  width: 100%;
-}
-
-.csSelf .time {
-  border: 1px solid green;
-  display: block;
-  height: 30px;
-  position: relative;
 }
 
 .inAct .inAct_body .inAct-sticky_block .inAct_block .inAct_item .inAct_text .inAct-top_text .inAct-left_date .inAct-date_text {
@@ -6008,33 +5652,6 @@ p {
   letter-spacing: 0.8px;
   line-height: 2;
   margin-left: 10px;
-  font-size: 14px;
-  float: right;
-}
-
-.csSelf {
-  display: block;
-  border: 1px solid #080808;
-  max-width: 1200px;
-}
-
-.csSelf .csS-info {
-  border: 1px solid #ee1717;
-  padding: 20px;
-}
-
-.csSelf .csS-info .csS-info__image {
-  text-align: center;
-  padding: 20px;
-}
-
-.csSelf .csS-info .csS-info__image img {
-  width: 100%;
-  object-fit: cover;
-}
-
-.csSelf .csS-info .csS-info__intro {
-  border: 1px solid #090b0f;
 }
 
 .inAct .inAct_body .inAct-sticky_block .inAct_block .inAct_item .inAct_text .inAct-top_text .inAct-icon_block {
@@ -6064,15 +5681,6 @@ p {
   width: 20px;
   height: 20px;
   display: inline-block;
-  width: 100%;
-  padding-left: 50px;
-  margin: 20px 0;
-}
-
-.csSelf .csS-info .csS-info__intro div.row .intro-left .intro-left__top .csS-skills {
-  display: flex;
-  width: 100%;
-  justify-content: center;
 }
 
 .inAct .inAct_body .inAct-sticky_block .inAct_block .inAct_item .inAct_text .inAct_title a {
@@ -6107,41 +5715,6 @@ p {
   letter-spacing: 0.8px;
   line-height: 2;
   opacity: 0.7;
-  font-size: 10px;
-  transform: scale(0.8);
-  padding-right: 5px;
-  vertical-align: middle;
-  color: #65b391;
-}
-
-.csSelf .csS-info .csS-buttons div.row {
-  margin: 20px 0px;
-  justify-content: flex-end;
-}
-
-.csSelf .csS-info .csS-buttons div.row button {
-  max-width: 120px;
-}
-
-.csSelf > h1 {
-  display: block;
-  padding-top: 50px;
-  height: 150px;
-  line-height: 100px;
-}
-
-.csSelf .csS-art {
-  flex-flow: nowrap row;
-  justify-content: space-between;
-}
-
-.csSelf .csS-art .csS-art__card {
-  overflow: hidden;
-  flex-basis: 300px;
-  flex: 1 0;
-  border-radius: 1rem;
-  border: 1px solid #FFA492;
-  margin: 10px;
 }
 
 @media all and (max-width: 767px) {
@@ -6152,10 +5725,8 @@ p {
 
 .inCard {
   margin-top: 300px;
-  padding-top: 100px;
   width: 100%;
-  height: 200vh;
-  z-index: 99;
+  height: 100vh;
 }
 
 .inCard .inCard_block {
@@ -6182,48 +5753,6 @@ p {
   position: absolute;
   bottom: -10px;
   left: 0;
-  height: 300px;
-  object-fit: cover;
-}
-
-.csSelf .csS-art .csS-art__card .card-Info {
-  padding: 10px;
-}
-
-.csSelf .csS-art .csS-art__card .card-Info .card-Info__times > img {
-  width: 14px;
-  height: 14px;
-  vertical-align: middle;
-  margin-right: 5px;
-}
-
-.csSelf .csS-art .csS-art__card p {
-  line-height: 1.5em;
-  padding: 5px 0;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.csSelf .csS-art .csS-art__card .card-tag {
-  flex-flow: nowrap row;
-  margin: 20px 0;
-}
-
-.csSelf .csS-art .csS-art__card .card-tag a {
-  flex: 1 0 80px;
-  max-width: 120px;
-  text-decoration: none;
-  text-align: center;
-  margin: 0 10px;
-}
-
-.csSelf .csS-art .csS-art__card .card-share {
-  display: flex;
-  width: 100%;
-  height: 30px;
-  justify-content: flex-end;
-  flex-flow: nowrap row;
-  align-items: center;
 }
 
 .inCard .inCard_block .inCard_text {
@@ -6231,6 +5760,11 @@ p {
   line-height: 1.5;
   letter-spacing: 1.5px;
   text-align: center;
+}
+
+.inCard .inCard_block .inCard_body.inCard_ani > div {
+  transform-origin: top center -1000px;
+  transform: translateY(-50%) perspective(10000px) scale(1) rotateX(360deg);
 }
 
 .inCard .inCard_block .inCard_body {
@@ -6241,8 +5775,9 @@ p {
 }
 
 .inCard .inCard_block .inCard_body > div {
+  transition: all 1s linear;
   position: absolute;
-  transform: translateY(-50%) perspective(900px) scale(0);
+  transform: translateY(-50%) perspective(600px) scale(0);
   width: 300px;
   height: 480px;
   top: 50%;
@@ -6265,35 +5800,6 @@ p {
 
 .inCard .inCard_block .inCard_body > div:nth-child(1) a {
   background-image: url("../img/index/InCard/card_1.jpg");
-  border-radius: 20px;
-}
-
-@media (max-width: 1140px) {
-  .csSelf .csS-art {
-    flex-flow: nowrap column;
-    justify-content: space-between;
-  }
-}
-
-@media (max-width: 768px) {
-  .csS-info__intro {
-    order: 2;
-  }
-  .csS-buttons {
-    order: 1;
-  }
-}
-
-@media (max-width: 600px) {
-  .csSelf .csS-info .csS-buttons div.row {
-    justify-content: center;
-  }
-  .csSelf .csS-info .csS-buttons div.row button {
-    margin: 10px;
-    padding: 0;
-    height: 40px;
-    flex: 0 0 40%;
-  }
 }
 
 .inCard .inCard_block .inCard_body > div:nth-child(2) {
@@ -6330,12 +5836,6 @@ p {
 
 .inCard .inCard_block .inCard_body > div:nth-child(1) {
   z-index: 1;
-}
-body {
-  box-sizing: border-box;
-  font-weight: 400;
-  font-family: "Noto Sans TC", sans-serif;
-  margin: 0;
 }
 
 .inCard .inCard_block .inCard_body > div:nth-child(1) > a {
@@ -6375,7 +5875,6 @@ body {
 }
 
 .inCard .inCard_block .inCard_btn {
-  display: block;
   display: inline-block;
   padding: 5px 30px;
   font-size: 20px;
@@ -6387,6 +5886,8 @@ body {
   cursor: pointer;
   background-color: #FFA492;
   transition: .2s all ease-in;
+  width: 300px;
+  display: block;
   border-radius: 30px;
   background-clip: padding-box,border-box;
   background-origin: padding-box,border-box;
@@ -6411,72 +5912,7 @@ body {
   max-width: 1200px;
   height: 720px;
   margin-top: 300px;
-  display: flex;}
-.button:focus {
-  display: none;
-}
-
-.button2 {
-  margin: 10px;
-  display: inline-block;
-  padding: 5px 30px;
-  font-size: 25px;
-  font-weight: 500;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  color: #fff;
-  cursor: pointer;
-  background-color: #91D0EB;
-  transition: .2s all ease-in;
-}
-
-.button2:hover {
-  background-color: #50b4df;
-  border: 2px solid #50b4df;
-}
-
-.button2:focus {
-  display: none;
-}
-
-.button2-1 {
-  margin: 10px;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  color: #91D0EB;
-  cursor: pointer;
-  background-color: transparent;
-  transition: .2s all ease-in;
-}
-
-.button2-1:hover {
-  background-color: #91D0EB;
-  color: #fff;
-}
-
-.button2-1:focus {
-  display: none;
-}
-
-.button3 {
-  margin: 10px;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #91D0EB;
-  color: #91D0EB;
-  cursor: pointer;
-  background-color: transparent;
-  transition: .2s all ease-in;
+  display: flex;
 }
 
 .inAbout .inAbout-left_block {
@@ -6501,17 +5937,6 @@ body {
   align-self: center;
   position: relative;
   margin-bottom: 20px;
-  padding: 2px 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #FFA492;
-  color: #FFA492;
-  cursor: pointer;
-  background-color: transparent;
-  transition: .2s all ease-in;
-  border-radius: 10px;
 }
 
 .inAbout .inAbout-left_block .inAbout-text_block h1:after {
@@ -6572,12 +5997,6 @@ body {
   width: 25px;
   height: 25px;
   opacity: 0.5;
-  margin: 0 30px;
-  width: 350px;
-  height: 400px;
-  border-radius: 30px;
-  box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-  overflow: hidden;
 }
 
 .inAbout .inAbout-left_block .inAbout-text_block .inAbout-place_block .inAbout-place_btn .inAbout-ano_place {
@@ -6644,23 +6063,7 @@ body {
 
 .inAbout .inAbout-right_block {
   width: 50%;
-  height: 720px;}
-.inAct .inAct_body .inAct-sticky_block {
-  position: sticky;
-  top: 0;
-  overflow: hidden;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.inAct .inAct_body .inAct-sticky_block h1 {
-  display: inline-block;
-  font-size: 40px;
-  line-height: 1.8;
-  letter-spacing: 1.5px;
-  align-self: center;
+  height: 720px;
   position: relative;
 }
 
@@ -6695,23 +6098,13 @@ body {
   height: 50%;
   flex-wrap: wrap;
   z-index: 1;
-  position: relative;}
-.inAct .inAct_body .inAct-sticky_block .inAct_block {
-  padding-left: 20%;
-  width: 3000px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  position: relative;
 }
 
 .inAbout .inAbout-right_block .inAbout_block .inAbout-slide_grid .inAbout-grid_block {
   display: inline-block;
   width: 95%;
   height: 95%;
-  width: 350px;
-  height: 400px;
-  border-radius: 30px;
-  box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
   overflow: hidden;
   opacity: 0;
   transition: opacity 1.8s;
@@ -6805,19 +6198,6 @@ body {
   transition: transform 1.2s;
   transition-delay: 1s;
 }
-.inAct .inAct_body .inAct-sticky_block .inAct_block .inAct_item .inAct_text {
-  margin-top: 10px;
-}
-
-.inAct .inAct_body .inAct-sticky_block .inAct_block .inAct_item .inAct_text .inAct-top_text {
-  display: flex;
-  justify-content: space-between;
-}
-
-.inAct .inAct_body .inAct-sticky_block .inAct_block .inAct_item .inAct_text .inAct-top_text .inAct-left_date {
-  display: flex;
-  align-items: center;
-}
 
 .inAbout .inAbout-right_block .inAbout_block.inAbout-show > a.inAbout-page_block {
   opacity: 1;
@@ -6836,10 +6216,6 @@ body {
   transform: translateX(-100%);
   transform-origin: center;
   transition-delay: 0s;
-}
-.inAct .inAct_body .inAct-sticky_block .inAct_block .inAct_item .inAct_text .inAct-top_text .inAct-icon_block {
-  display: flex;
-  align-items: center;
 }
 
 .inAbout .inAbout-right_block .inAbout_block.inAbout-show > .inAbout-slide_grid > .inAbout-grid_mini_block {
@@ -6870,14 +6246,7 @@ body {
   width: 100%;
   height: 100vh;
   display: inline-block;
-  position: relative;}
-.inAct .inAct_body .inAct-sticky_block .inAct_block .inAct_item .inAct_text .inAct_location {
-  display: flex;
-}
-
-.inAct .inAct_body .inAct-sticky_block .inAct_block .inAct_item .inAct_text .inAct_location .inAct-location_icon {
-  align-self: center;
-  background-image: url("../img/icon/place.png");
+  position: relative;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -6922,11 +6291,7 @@ body {
   background-origin: padding-box,border-box;
   background-image: linear-gradient(200deg, #91D0EB, #FFA492);
   border: 2px transparent solid;
-  opacity: 0.7;}
-.inCard {
-  margin-top: 300px;
-  width: 100%;
-  height: 100vh;
+  opacity: 0.7;
 }
 
 .inBanner .inBanner_bgImg .inBanner-circle_2 {
@@ -6955,15 +6320,6 @@ body {
   background-image: linear-gradient(30deg, #91D0EB, #FFA492);
   border: 2px transparent solid;
   opacity: 0.7;
-}
-.inCard .inCard_block h1 {
-  display: inline-block;
-  font-size: 40px;
-  line-height: 1.8;
-  letter-spacing: 1.5px;
-  align-self: center;
-  position: relative;
-  margin-bottom: 20px;
 }
 
 .inBanner .inBanner_bgImg .inBanner-circle_4 {
@@ -7008,25 +6364,6 @@ body {
   width: 100%;
   height: 100%;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-}.inCard .inCard_block .inCard_body.inCard_ani > div {
-  transform-origin: top center -1000px;
-  transform: translateY(-50%) perspective(10000px) scale(1) rotateX(360deg);
-}
-
-.inCard .inCard_block .inCard_body {
-  width: 100%;
-  display: flex;
-  height: 80vh;
-  position: relative;
-}
-
-.inCard .inCard_block .inCard_body > div {
-  transition: all 1s linear;
-  position: absolute;
-  transform: translateY(-50%) perspective(600px) scale(0);
-  width: 300px;
-  height: 480px;
-  top: 50%;
 }
 
 .inBanner .inBanner_cImg .inBanner-fly_block div {
@@ -7039,12 +6376,6 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 90% 0;
-  background-size: cover;
-  box-shadow: 2px 5px 15px 3px #313131;
-}
-
-.inCard .inCard_block .inCard_body > div:nth-child(1) {
-  left: 0%;
 }
 
 .inBanner .inBanner_cImg .inBanner-fly_block .inBanner-fly_item_1 {
@@ -7096,9 +6427,6 @@ body {
 .inBanner .inBanner-logo_block .inBanner-logo svg g linearGradient stop {
   stop-opacity: 1;
 }
-.inCard .inCard_block .inCard_body > div:nth-child(1) > a {
-  transform: rotate(8deg);
-}
 
 .inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_1_ stop:nth-child(1) {
   transition-delay: 0.4s;
@@ -7106,9 +6434,6 @@ body {
 
 .inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_1_ stop:nth-child(2) {
   transition-delay: 0.5s;
-}
-.inCard .inCard_block .inCard_body > div:nth-child(2) > a {
-  transform: rotate(4deg);
 }
 
 .inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_1_ stop:nth-child(3) {
@@ -7118,9 +6443,6 @@ body {
 .inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_2_ stop:nth-child(1) {
   transition-delay: 0.7s;
 }
-.inCard .inCard_block .inCard_body > div:nth-child(3) > a {
-  transform: rotate(0deg) translateY(-5%);
-}
 
 .inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_2_ stop:nth-child(2) {
   transition-delay: 0.8s;
@@ -7128,9 +6450,6 @@ body {
 
 .inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_2_ stop:nth-child(3) {
   transition-delay: 0.9s;
-}
-.inCard .inCard_block .inCard_body > div:nth-child(4) > a {
-  transform: rotate(-4deg);
 }
 
 .inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_3_ stop:nth-child(1) {
@@ -7143,33 +6462,6 @@ body {
 
 .inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_3_ stop:nth-child(3) {
   transition-delay: 1.2s;
-}
-.inCard .inCard_block .inCard_body > div:nth-child(5) > a {
-  transform: rotate(-8deg);
-}
-
-.inCard .inCard_block .inCard_btn {
-  display: inline-block;
-  padding: 5px 30px;
-  font-size: 20px;
-  font-weight: 500;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #FFA492;
-  color: #fff;
-  cursor: pointer;
-  background-color: #FFA492;
-  transition: .2s all ease-in;
-  width: 300px;
-  display: block;
-  border-radius: 30px;
-  background-clip: padding-box,border-box;
-  background-origin: padding-box,border-box;
-  background-image: linear-gradient(135deg, #fff, #fff), linear-gradient(135deg, #91D0EB, #FFA492);
-  border: 2px transparent solid;
-  text-decoration: none;
-  color: black;
-  margin: auto;
 }
 
 .inBanner .inBanner-logo_block .inBanner-logo .inBanner-logo_text {
@@ -7210,33 +6502,6 @@ body {
 
 .inArti > div a:hover .inArti-left_title h2 {
   color: #FFA492;
-  height: 720px;
-  margin-top: 300px;
-  display: flex;
-}
-
-.inAbout .inAbout-left_block {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.inAbout .inAbout-left_block .inAbout-text_block {
-  height: 40%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.inAbout .inAbout-left_block .inAbout-text_block h1 {
-  display: inline-block;
-  font-size: 40px;
-  line-height: 1.8;
-  letter-spacing: 1.5px;
-  align-self: center;
-  position: relative;
-  margin-bottom: 20px;
 }
 
 .inArti > div a:hover .inArti-left_border1::before {
@@ -7267,36 +6532,6 @@ body {
 }
 
 .inArti > div a article .inArti-left_detail .inArti-left-detail_block .inArti-left-detail_pic {
-}.inAbout .inAbout-left_block .inAbout-text_block .inAbout-place_block .inAbout-place_btn {
-  width: 300px;
-  padding: 10px 10px;
-  font-size: 16px;
-  font-weight: 500;
-  text-align: center;
-  border-radius: 30px;
-  background-clip: padding-box,border-box;
-  background-origin: padding-box,border-box;
-  background-image: linear-gradient(135deg, #fff, #fff), linear-gradient(135deg, #91D0EB, #FFA492);
-  border: 2px transparent solid;
-  color: grey;
-  cursor: pointer;
-  margin: auto;
-  transition: .2s all ease-in;
-  position: relative;
-}
-
-.inAbout .inAbout-left_block .inAbout-text_block .inAbout-place_block .inAbout-place_btn .inAbout-place_block .inAbout-btn_icon {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  background-image: url("../img/icon/select_down.png");
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -7323,11 +6558,7 @@ body {
   font-family: "Noto Sans TC", sans-serif;
   font-weight: 300;
   letter-spacing: 0.8px;
-  line-height: 2;}
-.inAbout .inAbout-left_block .inAbout-area_block {
-  height: 40%;
-  display: flex;
-  flex-direction: column;
+  line-height: 2;
 }
 
 .inArti > div a article .inArti-left_border1 {
@@ -7369,18 +6600,7 @@ body {
 
 .inArti .inArti_conter .inArti-conterbox {
   position: sticky;
-  top: 80px;}
-.inAbout .inAbout-left_block .inAbout-area_block .inAbout_area .inAbout_text .inAbout_content .inAbout-area_icon {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  position: absolute;
-  left: -30px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 80px;
 }
 
 .inArti .inArti_right {
@@ -7416,13 +6636,7 @@ div.inCs_group {
   margin: 0 0 100px;
 }
 
-div.inCs_group div.inCs.inCs--large {}
-.inAbout .inAbout-right_block .inAbout_block {
-  display: flex;
-  flex-wrap: wrap;
-  position: absolute;
-  top: 0;
-  left: 0;
+div.inCs_group div.inCs.inCs--large {
   width: 100%;
   max-width: 1200px;
   position: absolute;
@@ -7443,12 +6657,6 @@ div.inCs_group div.inCs.inCs--large ul.leftList {
   transform: translate(-100%, -50%);
   overflow: hidden;
   border-radius: 1rem 0 0 1rem;
-  width: 97.5%;
-  height: 97.5%;
-  opacity: 0;
-  transition: opacity 1.8s;
-  transition-delay: 0.8s;
-  border-radius: 4px;
 }
 
 div.inCs_group div.inCs.inCs--large ul.leftList li {
@@ -7471,24 +6679,7 @@ div.inCs_group div.inCs.inCs--large ul.leftList li img {
 
 div.inCs_group div.inCs.inCs--large ul.leftList li.move {
   animation: leftToCenter 1s ease-in-out both;
-  z-index: 50;}
-.inAbout .inAbout-right_block .inAbout_block .inAbout-slide_grid {
-  display: flex;
-  width: 50%;
-  height: 50%;
-  flex-wrap: wrap;
-  z-index: 1;
-  position: relative;
-}
-
-.inAbout .inAbout-right_block .inAbout_block .inAbout-slide_grid .inAbout-grid_block {
-  display: inline-block;
-  width: 95%;
-  height: 95%;
-  overflow: hidden;
-  opacity: 0;
-  transition: opacity 1.8s;
-  transition-delay: 0.8s;
+  z-index: 50;
 }
 
 div.inCs_group div.inCs.inCs--large ul.leftList li h5 {
@@ -7504,17 +6695,7 @@ div.inCs_group div.inCs.inCs--large ul.leftList li h5:after {
   display: block;
   width: 90%;
   height: 2px;
-  background: #91D0EB;}
-.inAbout .inAbout-right_block .inAbout_block .inAbout-slide_grid .inAbout-grid_mini_block {
-  width: 45%;
-  height: 45%;
-  overflow: hidden;
-  margin-right: 5%;
-  z-index: 3;
-  opacity: 0;
-  border-radius: 4px;
-  transition: opacity 1.8s;
-  transition-delay: 0.8s;
+  background: #91D0EB;
 }
 
 div.inCs_group div.inCs.inCs--large ul.leftList li p {
@@ -7545,19 +6726,6 @@ div.inCs_group div.inCs.inCs--large ul.leftList li h1 {
 }
 
 div.inCs_group div.inCs.inCs--large ul.leftList li button {
-  top: 50%;
-  width: 100%;
-  left: 0;
-  height: 5%;
-  transform: translateY(-100%) scaleY(0);
-  transform-origin: center;
-  background-color: #fff;
-  transition: transform 1.2s;
-  transition-delay: 1s;
-}
-
-.inAbout .inAbout-right_block .inAbout_block .inAbout-slide_grid .inAbout-grid_line .inAbout-line_2 {
-  transform: translateX(-100%) scaleX(0);
   position: absolute;
   bottom: 5%;
   left: 50%;
@@ -7574,12 +6742,6 @@ div.inCs_group div.inCs.inCs--large ul.leftList li button {
   cursor: pointer;
   background-color: #FFA492;
   transition: .2s all ease-in;
-  width: 5%;
-  height: 100%;
-  background-color: #fff;
-  transform-origin: center;
-  transition: transform 1.2s;
-  transition-delay: 1s;
 }
 
 div.inCs_group div.inCs.inCs--large ul.leftList li button:hover {
@@ -7668,69 +6830,6 @@ div.inCs_group div.inCs.inCs--large ul.rightList li h1 {
   font-size: 40px;
   line-height: 1.8;
   letter-spacing: 1.5px;
-  width: 100%;
-  left: 0;
-  height: 2.5%;
-  transform: translateY(-100%) scaleY(0);
-  transform-origin: center;
-  background-color: #fff;
-  transition: transform 1.2s;
-  transition-delay: 1s;
-}
-
-.inAbout .inAbout-right_block .inAbout_block .inAbout-grid_line .inAbout-line_2 {
-  transform: translateX(-100%) scaleX(0);
-  position: absolute;
-  left: 50%;
-  width: 2.5%;
-  height: 100%;
-  background-color: #fff;
-  transform-origin: center;
-  transition: transform 1.2s;
-  transition-delay: 1s;
-}
-
-.inAbout .inAbout-right_block .inAbout_block.inAbout-show > a.inAbout-page_block {
-  opacity: 1;
-  z-index: 1;
-  transition: opacity 1.4s;
-  transition-delay: 0.4s;
-}
-
-.inAbout .inAbout-right_block .inAbout_block.inAbout-show > .inAbout-grid_line > .inAbout-line_1 {
-  transform: translateY(-100%);
-  transform-origin: center;
-  transition-delay: 0s;
-}
-
-.inAbout .inAbout-right_block .inAbout_block.inAbout-show > .inAbout-grid_line > .inAbout-line_2 {
-  transform: translateX(-100%);
-  transform-origin: center;
-  transition-delay: 0s;
-}
-
-.inAbout .inAbout-right_block .inAbout_block.inAbout-show > .inAbout-slide_grid > .inAbout-grid_mini_block {
-  opacity: 1;
-  transition: opacity 1.4s;
-  transition-delay: 0.4s;
-}
-
-.inAbout .inAbout-right_block .inAbout_block.inAbout-show > .inAbout-slide_grid > .inAbout-grid_block {
-  opacity: 1;
-  transition: opacity 1.4s;
-  transition-delay: 0.4s;
-}
-
-.inAbout .inAbout-right_block .inAbout_block.inAbout-show > .inAbout-slide_grid > .inAbout-grid_line > div.inAbout-line_1 {
-  transform: translateY(-100%);
-  transform-origin: center;
-  transition-delay: 0s;
-}
-
-.inAbout .inAbout-right_block .inAbout_block.inAbout-show > .inAbout-slide_grid > .inAbout-grid_line > div.inAbout-line_2 {
-  transform: translateX(-100%);
-  transform-origin: center;
-  transition-delay: 0s;
 }
 
 div.inCs_group div.inCs.inCs--large ul.rightList li button {
@@ -7771,16 +6870,6 @@ div.inCs_group div.inCs.inCs--large ul.slide-button {
   left: 50%;
   transform: translate(-50%, -50%);
   list-style: none;
-  top: 0;
-  left: 0;
-  background-clip: padding-box,border-box;
-  background-origin: padding-box,border-box;
-  background-image: linear-gradient(135deg, #91D0EB, #FFA492);
-  border: 2px transparent solid;
-  opacity: 0.7;
-  transform: translateX(-50%);
-  background-image: linear-gradient(135deg, #fff, #fff), linear-gradient(135deg, #91D0EB, #FFA492);
-  border: 250px transparent solid;
 }
 
 div.inCs_group div.inCs.inCs--large ul.slide-button li.point {
@@ -7837,12 +6926,7 @@ div.inCs.swiper-container .inCs-under576 li.inCs-slide__item img {
   margin: 0 10px;
   width: calc(100% - 20px);
   height: 50%;
-  object-fit: cover;}
-.inBanner .inBanner_cImg .inBanner-fly_block {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  object-fit: cover;
 }
 
 div.inCs.swiper-container .inCs-under576 li.inCs-slide__item .inConselor__chart {
@@ -7916,10 +7000,6 @@ div.inCs.swiper-container .inCs-under576 li.inCs-slide__item button {
   width: 20px;
   transform: scale(1, 0.7) translateY(25%);
   margin-left: 15px;
-}
-.inBanner .inBanner-logo_block .inBanner-logo {
-  display: flex;
-  align-items: flex-end;
 }
 
 .index-search-bar .select-block p {
@@ -8035,40 +7115,6 @@ div.inCs.swiper-container .inCs-under576 li.inCs-slide__item button {
   .index-search-bar button {
     position: static;
   }
-.inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_1_ stop:nth-child(1) {
-  transition-delay: 0.4s;
-}
-
-.inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_1_ stop:nth-child(2) {
-  transition-delay: 0.5s;
-}
-
-.inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_1_ stop:nth-child(3) {
-  transition-delay: 0.6s;
-}
-
-.inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_2_ stop:nth-child(1) {
-  transition-delay: 0.7s;
-}
-
-.inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_2_ stop:nth-child(2) {
-  transition-delay: 0.8s;
-}
-
-.inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_2_ stop:nth-child(3) {
-  transition-delay: 0.9s;
-}
-
-.inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_3_ stop:nth-child(1) {
-  transition-delay: 1s;
-}
-
-.inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_3_ stop:nth-child(2) {
-  transition-delay: 1.1s;
-}
-
-.inBanner .inBanner-logo_block .inBanner-logo svg g #SVGID_3_ stop:nth-child(3) {
-  transition-delay: 1.2s;
 }
 
 @media (max-width: 600px) {
@@ -9506,3 +8552,4 @@ input::placeholder {
     top: 0%;
   }
 }
+/*# sourceMappingURL=main.css.map */
