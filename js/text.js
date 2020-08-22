@@ -70,24 +70,34 @@ Vue.component('ans-buttons-grades', {
 
             if(event.target.name=="q11"){
             event.target.parentNode.nextElementSibling.style.display = 'flex';
-            window.scrollTo(0,scrollHeight);
-
+            document.getElementById("qsBox").scrollTop=document.getElementById ("qsBox").scrollHeight;
             setTimeout(function(){
                 event.target.parentNode.nextElementSibling.nextElementSibling.style.display = 'block';
-                window.scrollTo(0,scrollHeight);
-                
+                document.getElementById("qsBox").scrollTop=document.getElementById ("qsBox").scrollHeight;
                 },500)
             }else{
                 event.target.parentNode.style.display = 'none';
                 // console.log(event.target.parentNode.nextElementSibling );
             event.target.parentNode.nextElementSibling.style.display = 'flex';
+            document.getElementById("qsBox").scrollTop=document.getElementById ("qsBox").scrollHeight;
             setTimeout(function(){
             event.target.parentNode.nextElementSibling.nextElementSibling.style.display = 'flex';
-            window.scrollTo(0,scrollHeight);
+            var form_H = $("#form>form").height();
+            var box_H = $("#qsBox").height();
+            if(box_H > form_H){
+                document.getElementById("qsBox");
+                qsBox.style.height="100%";
+            };
+            document.getElementById("qsBox").scrollTop=document.getElementById ("qsBox").scrollHeight;
+
+            // mark~
+
+
 
                 setTimeout(function(){
                     event.target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.style.display = 'block';
-                        window.scrollTo(0,scrollHeight);
+                    document.getElementById("qsBox").scrollTop=document.getElementById ("qsBox").scrollHeight;
+
                     },500)
             },500)
             };
@@ -127,13 +137,10 @@ let vm0 = new Vue({
             var e = event.target;
             setTimeout(function(){
                 e.parentNode.nextElementSibling.nextElementSibling.style.display = 'flex';
-                window.scrollTo(0,scrollHeight);
                 setTimeout(function(){
                     e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.style.display = 'flex';
-                    window.scrollTo(0,scrollHeight);
                     setTimeout(function(){
                         e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.style.display = 'block';
-                        window.scrollTo(0,scrollHeight);
                         
                     },500)
                 },500)
@@ -182,7 +189,7 @@ let vm0 = new Vue({
                 
 
             }
-            // var win_H =$(window).height();
+            // var win_H =window.height();
             // var i = 0;
             // var box_H = $("#qsBox").height()
             // // 加true 代表包含margin 的高
@@ -193,6 +200,7 @@ let vm0 = new Vue({
             // }
             
 
+
             
 
         },
@@ -202,6 +210,11 @@ let vm0 = new Vue({
         }
     },
     computed:{
+        
+    },
+    created() {
+        var qsBox = document.getElementById("qsBox");
+            qsBox.scrollTop = qsBox.scrollHeight;
         
     },
 })
