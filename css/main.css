@@ -974,14 +974,9 @@ input {
   border-radius: 30px;
   width: 90vw;
   margin: 0 auto;
-  height: 100%;
+  height: auto;
   padding-bottom: 50px;
   overflow-y: auto;
-}
-
-#form > form #qsBox .litter {
-  width: 100%;
-  background-color: #fff;
 }
 
 .qsAsk {

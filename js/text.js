@@ -70,20 +70,34 @@ Vue.component('ans-buttons-grades', {
 
             if(event.target.name=="q11"){
             event.target.parentNode.nextElementSibling.style.display = 'flex';
-            
+            document.getElementById("qsBox").scrollTop=document.getElementById ("qsBox").scrollHeight;
             setTimeout(function(){
                 event.target.parentNode.nextElementSibling.nextElementSibling.style.display = 'block';
-                
+                document.getElementById("qsBox").scrollTop=document.getElementById ("qsBox").scrollHeight;
                 },500)
             }else{
                 event.target.parentNode.style.display = 'none';
                 // console.log(event.target.parentNode.nextElementSibling );
             event.target.parentNode.nextElementSibling.style.display = 'flex';
+            document.getElementById("qsBox").scrollTop=document.getElementById ("qsBox").scrollHeight;
             setTimeout(function(){
             event.target.parentNode.nextElementSibling.nextElementSibling.style.display = 'flex';
-            console.log(scrollHeight)
+            var form_H = $("#form>form").height();
+            var box_H = $("#qsBox").height();
+            if(box_H > form_H){
+                document.getElementById("qsBox");
+                qsBox.style.height="100%";
+            };
+            document.getElementById("qsBox").scrollTop=document.getElementById ("qsBox").scrollHeight;
+
+            // mark~
+
+
+
                 setTimeout(function(){
                     event.target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.style.display = 'block';
+                    document.getElementById("qsBox").scrollTop=document.getElementById ("qsBox").scrollHeight;
+
                     },500)
             },500)
             };
@@ -185,6 +199,7 @@ let vm0 = new Vue({
             //     i++
             // }
             
+
 
             
 
