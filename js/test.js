@@ -9,7 +9,29 @@ $(function(){
         },500)
     },500)
 
-})
+});
+
+// Setp Indicator
+
+Vue.component('steps',{
+    props:['num'],
+    template: `
+    <div class="step step2">
+    <div class="step-icon">{{num}}</div>
+    </div>`,
+    methods: {
+
+    },
+});
+
+Vue.component('lines',{
+    template: `
+    <div class="indicator-line"></div>`,
+    methods: {
+
+    },
+});
+
 Vue.component('ask-content', {
     props: ['questions'],
     template: `

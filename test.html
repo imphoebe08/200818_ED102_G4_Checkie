@@ -16,10 +16,33 @@
 
 <body id="body">
     <div id="form">
-    <input type="button" value="SKIP" class="text_skip" @click="skip">
+        <section class="step-indicator">
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+        </section>
         <form action="" >
         <!-- 點下skip 要關閉表單 ok -->
             <div id="qsBox">
+                <input type="button" value="SKIP" class="text_skip" @click="skip">
                 <ask-content questions="您好，歡迎來到Checkie。"></ask-content>
                 <ask-content questions="請問您願意填寫心理評估表嗎？如果願意，請您選擇開始測驗，若不願意可以點按右上角的SKIP終止測驗。"></ask-content>
                 <div class="ansButton--start" style="display: none;">
@@ -81,14 +104,15 @@
                 <ans-content :answers="a11.content" v-show="display"></ans-content>
                 <input type="submit" class="test_submit" value="完成測驗" v-show="finish">
             </div>
-    
+
+            
         </form>
     </div>
     
 
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
-    <script src="./js/text.js"></script>
+    <script src="./js/test.js"></script>
 </body>
 </html>
 
