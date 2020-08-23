@@ -1095,6 +1095,7 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+<<<<<<< HEAD
   height: 70vh;
   width: 90vw;
   border-radius: 30px;
@@ -1109,6 +1110,12 @@ input {
       flex-wrap: wrap;
   -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
           box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+=======
+  height: 95ch;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+>>>>>>> dev-cc0819
 }
 
 #form > form #qsBox {
@@ -1158,7 +1165,11 @@ input {
   border: 2px solid #FFA492;
   color: #fff;
   cursor: pointer;
+<<<<<<< HEAD
   background-color: #FFA492;
+=======
+  background-color: transparent;
+>>>>>>> dev-cc0819
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
 }
@@ -1239,9 +1250,16 @@ input {
   background-color: transparent;
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
+<<<<<<< HEAD
   position: fixed;
   left: 88%;
   top: 88%;
+=======
+  position: -webkit-sticky;
+  position: sticky;
+  left: 85%;
+  margin: 20px;
+>>>>>>> dev-cc0819
 }
 
 .text_skip:hover {
@@ -4517,6 +4535,10 @@ main #chatRoom .chatRoom_left .chatRoom_userInfo {
 }
 
 main #chatRoom .chatRoom_left .chatRoom_drChatbox {
+<<<<<<< HEAD
+=======
+  border: 1px solid lightgrey;
+>>>>>>> dev-cc0819
   -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
           box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
   display: -webkit-box;
@@ -4568,6 +4590,7 @@ main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_more img {
   height: 100%;
 }
 
+<<<<<<< HEAD
 @media screen and (max-width: 1199px) {
   main #chatRoom .chatRoom_drChatbox {
     -webkit-box-pack: center;
@@ -4634,6 +4657,14 @@ main #chatRoom .chatRoom_right {
 main #chatRoom .chatRoom_right .chatRoom_drInfo {
   position: absolute;
   left: 0;
+=======
+main #chatRoom .chatRoom_right {
+  width: 70%;
+  max-height: 85vh;
+}
+
+main #chatRoom .chatRoom_right .chatRoom_drInfo {
+>>>>>>> dev-cc0819
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4641,6 +4672,7 @@ main #chatRoom .chatRoom_right .chatRoom_drInfo {
   -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
           box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
   display: none;
+<<<<<<< HEAD
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -4648,6 +4680,8 @@ main #chatRoom .chatRoom_right .chatRoom_drInfo {
   z-index: 1;
   padding: 1% 0;
   min-height: 10%;
+=======
+>>>>>>> dev-cc0819
 }
 
 main #chatRoom .chatRoom_right .chatRoom_drInfo .doctor {
@@ -4705,7 +4739,11 @@ main #chatRoom .chatRoom_conver {
   overflow-y: auto;
 }
 
+<<<<<<< HEAD
 main #chatRoom .chatRoom_conver .chatRoom_drConver {
+=======
+main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_drConver {
+>>>>>>> dev-cc0819
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4749,7 +4787,11 @@ main #chatRoom .chatRoom_conver .chatRoom_drConver .chatRoom_conver--more span {
   color: lightgrey;
 }
 
+<<<<<<< HEAD
 main #chatRoom .chatRoom_conver .chatRoom_userConver {
+=======
+main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_userConver {
+>>>>>>> dev-cc0819
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6639,8 +6681,13 @@ p {
   -webkit-transition: all 1s linear;
   transition: all 1s linear;
   position: absolute;
+<<<<<<< HEAD
   -webkit-transform: translateY(-50%) perspective(600px) scale(0);
           transform: translateY(-50%) perspective(600px) scale(0);
+=======
+  -webkit-transform: translateY(-50%) perspective(900px) scale(0);
+          transform: translateY(-50%) perspective(900px) scale(0);
+>>>>>>> dev-cc0819
   width: 300px;
   height: 480px;
   top: 50%;
@@ -8227,6 +8274,7 @@ div.inCs.swiper-container .inCs-under576 li.inCs-slide__item button {
   }
 }
 
+<<<<<<< HEAD
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -8252,14 +8300,39 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
+=======
+.atContent {
+  max-width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.atContent .atContent-conterbox {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+>>>>>>> dev-cc0819
 }
 
 body {
   line-height: 1;
 }
 
+<<<<<<< HEAD
 ol, ul {
   list-style: none;
+=======
+.atContent .atContent-right_detail {
+  width: 100%;
+  height: 30px;
+  margin-top: 3%;
+  margin-bottom: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: rgba(179, 178, 178, 0.867);
+>>>>>>> dev-cc0819
 }
 
 blockquote, q {
@@ -8291,10 +8364,22 @@ h1 {
   letter-spacing: 1.5px;
 }
 
+<<<<<<< HEAD
 h2 {
   font-size: 36px;
   line-height: 1.5;
   letter-spacing: 1.5px;
+=======
+.atContent .atContent-left_detail, .atContent .atContent-conter_detail {
+  width: 100%;
+  height: 20px;
+  margin-top: 3%;
+  margin-bottom: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: rgba(179, 178, 178, 0.867);
+>>>>>>> dev-cc0819
 }
 
 h3 {
@@ -8335,6 +8420,7 @@ p {
   position: relative;
 }
 
+<<<<<<< HEAD
 #oracleCard .oracleCardInner::before {
   content: '';
   display: block;
@@ -8347,6 +8433,12 @@ p {
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
+=======
+.atContent .atContent_right .atContent_rightbox {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+>>>>>>> dev-cc0819
 }
 
 #oracleCard .oracleCardInner .oracleCardBanner {
@@ -8586,6 +8678,7 @@ p {
   width: 100%;
 }
 
+<<<<<<< HEAD
 #oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg .mainImg {
   position: absolute;
   left: 50px;
@@ -8594,6 +8687,14 @@ p {
   max-width: 400px;
   height: 100%;
   max-height: 400px;
+=======
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: 400;
+  font-family: "Noto Sans TC", sans-serif;
+  margin: 0;
+>>>>>>> dev-cc0819
 }
 
 #oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg .mainImg img {
@@ -8687,10 +8788,22 @@ p {
           animation: downDown1 2s infinite ease-in-out;
 }
 
+<<<<<<< HEAD
 #oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn::after {
   bottom: -65px;
   -webkit-animation: downDown2 2s infinite ease-in-out;
           animation: downDown2 2s infinite ease-in-out;
+=======
+#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox {
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin: auto;
+  width: 500px;
+  background-color: #fff;
+>>>>>>> dev-cc0819
 }
 
 @-webkit-keyframes downDown1 {
@@ -8769,6 +8882,7 @@ p {
   display: none;
 }
 
+<<<<<<< HEAD
 @-webkit-keyframes btnScale {
   0% {
     -webkit-transform: scale(1);
@@ -8797,6 +8911,16 @@ p {
     -webkit-transform: scale(1);
             transform: scale(1);
   }
+=======
+#oracleCard .oracleCardInner .oracleCardStep {
+  width: 100%;
+  margin: auto;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #F9F5F0;
+>>>>>>> dev-cc0819
 }
 
 #oracleCard .oracleCardInner .oracleCardStepOne {
@@ -9901,5 +10025,105 @@ input::placeholder {
   100% {
     top: 0%;
   }
+}
+
+.me-board--style {
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
+          box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
+}
+
+.me-selectNav {
+  border: darkgoldenrod solid 3px;
+  background-color: white;
+  z-index: 1314;
+}
+
+.me-content {
+  border: darkcyan solid 3px;
+  margin-bottom: 70px;
+}
+
+@media only screen and (max-width: 768px) {
+  .me-selectNav {
+    position: fixed;
+    bottom: 0;
+    -webkit-box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
+            box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
+  }
+}
+
+.me-select_item {
+  cursor: pointer;
+}
+
+.me-select_item--selected {
+  background-color: #FFA492;
+}
+
+.memIcon-block .memIcon {
+  width: 35px;
+  max-width: 35px;
+  padding-right: 15px;
+  padding-left: 0;
+  cursor: pointer;
+}
+
+.memIcon-block .memIcon img {
+  width: 100%;
+}
+
+.row-10 {
+  border: #91D0EB solid 1px;
+}
+
+.memPhoto--bgc {
+  width: 100%;
+  max-width: 200px;
+  min-width: 150px;
+  border-radius: 50%;
+  border: #91D0EB;
+  padding: 5px;
+  background: -webkit-gradient(linear, left top, right top, from(#FFA492), to(#91D0EB));
+  background: linear-gradient(to right, #FFA492, #91D0EB);
+}
+
+.memPhoto--bgc :hover img {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.memPhoto--bgc .memPhoto {
+  width: 100%;
+  border-radius: 50%;
+  border: #91D0EB;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.memPhoto--bgc .memPhoto img {
+  width: 100%;
+  -webkit-transition: all 2.2 ease-in-out;
+  transition: all 2.2 ease-in-out;
+}
+
+.mem-driver {
+  padding: 1px;
+  border: none;
+  border-width: 0;
+  height: 1px;
+  background: -webkit-gradient(linear, left top, right top, from(#FFA492), to(#91D0EB));
+  background: linear-gradient(to right, #FFA492, #91D0EB);
+}
+
+.mem-coOrder,
+.mem-acOrder {
+  text-align: center;
+}
+
+.mem-chart-container {
+  border: #91D0EB solid 1px;
+  width: 400px;
+  height: 400px;
 }
 /*# sourceMappingURL=main.css.map */

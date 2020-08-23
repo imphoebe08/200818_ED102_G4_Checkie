@@ -1,0 +1,96 @@
+.me-board--style {
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
+}
+
+.me-selectNav {
+    border: darkgoldenrod solid 3px;
+    background-color: white;
+    z-index: 1314;
+}
+
+.me-content {
+    border: darkcyan solid 3px;
+    margin-bottom: 70px;
+}
+
+@media only screen and (max-width: 768px) {
+    .me-selectNav {
+        position: fixed;
+        bottom: 0;
+        box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
+    }
+}
+
+.me-select_item {
+    cursor: pointer;
+    & :hover {}
+}
+
+.me-select_item--selected {
+    background-color: #FFA492;
+}
+
+.memIcon-block {
+    .memIcon {
+        // border: #FFA492 solid 1px;
+        width: 35px;
+        max-width: 35px;
+        padding-right: 15px;
+        padding-left: 0;
+        cursor: pointer;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.row-10 {
+    border: #91D0EB solid 1px;
+}
+
+.memPhoto--bgc {
+    width: 100%;
+    max-width: 200px;
+    min-width: 150px;
+    border-radius: 50%;
+    border: $color-blue;
+    padding: 5px;
+    background: -webkit-linear-gradient(to right, #FFA492, #91D0EB);
+    background: linear-gradient(to right, #FFA492, #91D0EB);
+    & :hover img {
+        transform: scale(1.05);
+    }
+    .memPhoto {
+        width: 100%;
+        border-radius: 50%;
+        border: $color-blue;
+        overflow: hidden;
+        cursor: pointer;
+        img {
+            width: 100%;
+            transition: all 2.2 ease-in-out;
+        }
+    }
+}
+
+.mem-driver {
+    padding: 1px;
+    border: none;
+    border-width: 0;
+    // border-top: crimson solid 1px;
+    height: 1px;
+    background: -webkit-linear-gradient(to right, #FFA492, #91D0EB);
+    background: linear-gradient(to right, #FFA492, #91D0EB);
+}
+
+.mem-coOrder,
+.mem-acOrder {
+    text-align: center;
+}
+
+.mem-chart-container {
+    border: #91D0EB solid 1px;
+    width: 400px;
+    height: 400px;
+}
