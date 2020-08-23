@@ -1095,7 +1095,6 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-<<<<<<< HEAD
   height: 70vh;
   width: 90vw;
   border-radius: 30px;
@@ -1110,12 +1109,6 @@ input {
       flex-wrap: wrap;
   -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
           box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-=======
-  height: 95ch;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
->>>>>>> dev-cc0819
 }
 
 #form > form #qsBox {
@@ -1165,11 +1158,7 @@ input {
   border: 2px solid #FFA492;
   color: #fff;
   cursor: pointer;
-<<<<<<< HEAD
   background-color: #FFA492;
-=======
-  background-color: transparent;
->>>>>>> dev-cc0819
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
 }
@@ -1250,16 +1239,9 @@ input {
   background-color: transparent;
   -webkit-transition: .2s all ease-in;
   transition: .2s all ease-in;
-<<<<<<< HEAD
   position: fixed;
   left: 88%;
   top: 88%;
-=======
-  position: -webkit-sticky;
-  position: sticky;
-  left: 85%;
-  margin: 20px;
->>>>>>> dev-cc0819
 }
 
 .text_skip:hover {
@@ -4535,10 +4517,6 @@ main #chatRoom .chatRoom_left .chatRoom_userInfo {
 }
 
 main #chatRoom .chatRoom_left .chatRoom_drChatbox {
-<<<<<<< HEAD
-=======
-  border: 1px solid lightgrey;
->>>>>>> dev-cc0819
   -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
           box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
   display: -webkit-box;
@@ -4590,7 +4568,6 @@ main #chatRoom .chatRoom_left .chatRoom_drChatbox .chatRoom_more img {
   height: 100%;
 }
 
-<<<<<<< HEAD
 @media screen and (max-width: 1199px) {
   main #chatRoom .chatRoom_drChatbox {
     -webkit-box-pack: center;
@@ -4657,14 +4634,6 @@ main #chatRoom .chatRoom_right {
 main #chatRoom .chatRoom_right .chatRoom_drInfo {
   position: absolute;
   left: 0;
-=======
-main #chatRoom .chatRoom_right {
-  width: 70%;
-  max-height: 85vh;
-}
-
-main #chatRoom .chatRoom_right .chatRoom_drInfo {
->>>>>>> dev-cc0819
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4672,7 +4641,6 @@ main #chatRoom .chatRoom_right .chatRoom_drInfo {
   -webkit-box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
           box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
   display: none;
-<<<<<<< HEAD
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -4680,8 +4648,6 @@ main #chatRoom .chatRoom_right .chatRoom_drInfo {
   z-index: 1;
   padding: 1% 0;
   min-height: 10%;
-=======
->>>>>>> dev-cc0819
 }
 
 main #chatRoom .chatRoom_right .chatRoom_drInfo .doctor {
@@ -4739,11 +4705,7 @@ main #chatRoom .chatRoom_conver {
   overflow-y: auto;
 }
 
-<<<<<<< HEAD
 main #chatRoom .chatRoom_conver .chatRoom_drConver {
-=======
-main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_drConver {
->>>>>>> dev-cc0819
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4787,11 +4749,7 @@ main #chatRoom .chatRoom_conver .chatRoom_drConver .chatRoom_conver--more span {
   color: lightgrey;
 }
 
-<<<<<<< HEAD
 main #chatRoom .chatRoom_conver .chatRoom_userConver {
-=======
-main #chatRoom .chatRoom_right .chatRoom_conver .chatRoom_userConver {
->>>>>>> dev-cc0819
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5159,7 +5117,6 @@ main #chatRoom .chatRoom_text .chatRoom_send {
     -webkit-box-shadow: none;
             box-shadow: none;
     position: absolute;
-    height: 100vh;
     width: 100%;
     z-index: 99;
   }
@@ -5276,67 +5233,34 @@ main #chatRoom .chatRoom_text .chatRoom_send {
 
 .csCounselor-cards {
   width: 100%;
-  height: 600px;
-  padding: 50px 0;
-  overflow: hidden;
-  position: relative;
+  margin: 0 auto 100px;
+  overflow-x: hidden;
 }
 
 .csCounselor-cards #csC-countCards {
   text-align: center;
+  margin: 20px 0;
 }
 
-.csCounselor-cards .csC-changeSlide {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: nowrap row;
-          flex-flow: nowrap row;
-  position: absolute;
-  bottom: 0;
+.csCounselor-cards .swiper-container {
+  width: 320px;
+  overflow: initial;
+  margin: 100px auto;
 }
 
-.csCounselor-cards .csC-changeSlide #pre,
-.csCounselor-cards .csC-changeSlide #next {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 80px;
-          flex: 1 0 80px;
-  max-width: 120px;
-  margin: 20px;
-  outline: none;
+.csCounselor-cards .swiper-container .csCounselor-gallery .swiper-slide {
+  width: 300px;
 }
 
-.csCounselor-cards .csCounselor-gallery {
-  width: 100%;
-  height: 500px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: nowrap row;
-          flex-flow: nowrap row;
-  position: absolute;
-  left: 0%;
+.csCounselor-cards .swiper-container .csCounselor-gallery .swiper-slide.swiper-slide-active {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
-.csCounselor-cards .csCounselor-gallery .csCounselor-card {
-  min-width: 350px;
+.csCounselor-cards .swiper-container .csCounselor-gallery .swiper-slide .csCounselor-card {
+  width: calc(100% - 60px);
   -webkit-box-shadow: 0 0 10px 5px rgba(63, 63, 63, 0.2);
           box-shadow: 0 0 10px 5px rgba(63, 63, 63, 0.2);
-  margin: 10px 40px;
-  -webkit-transition: -webkit-transform 0.3s ease;
-  transition: -webkit-transform 0.3s ease;
-  transition: transform 0.3s ease;
-  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-  -webkit-transform: scale(0.65);
-          transform: scale(0.65);
   border-radius: 30px;
   overflow: hidden;
   background-color: white;
@@ -5345,30 +5269,20 @@ main #chatRoom .chatRoom_text .chatRoom_send {
   padding: 30px;
 }
 
-.csCounselor-cards .csCounselor-gallery .csCounselor-card.bigger {
-  -webkit-transform: scale(0.7);
-          transform: scale(0.7);
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card.bigger:hover {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csCounselor-image {
+.csCounselor-cards .swiper-container .csCounselor-gallery .swiper-slide .csCounselor-card .csCounselor-image {
   width: 100%;
   height: 40%;
   cursor: pointer;
 }
 
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csCounselor-image img {
+.csCounselor-cards .swiper-container .csCounselor-gallery .swiper-slide .csCounselor-card .csCounselor-image img {
   max-height: 100%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__name {
+.csCounselor-cards .swiper-container .csCounselor-gallery .swiper-slide .csCounselor-card .csC-doctor__name {
   text-align: center;
   width: 100%;
   font-size: 24px;
@@ -5378,7 +5292,7 @@ main #chatRoom .chatRoom_text .chatRoom_send {
   padding: 0 10px;
 }
 
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-type_title {
+.csCounselor-cards .swiper-container .csCounselor-gallery .swiper-slide .csCounselor-card .csC-type_title {
   text-align: left;
   width: 100%;
   font-size: 20px;
@@ -5387,34 +5301,34 @@ main #chatRoom .chatRoom_text .chatRoom_send {
   padding: 0 10px;
 }
 
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-type_tag {
+.csCounselor-cards .swiper-container .csCounselor-gallery .swiper-slide .csCounselor-card .csC-type_tag {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   padding: 10px 0;
 }
 
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-type_tag span {
+.csCounselor-cards .swiper-container .csCounselor-gallery .swiper-slide .csCounselor-card .csC-type_tag span {
   text-align: center;
   margin: 0 5px;
 }
 
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info {
+.csCounselor-cards .swiper-container .csCounselor-gallery .swiper-slide .csCounselor-card .csC-doctor__info {
   width: 100%;
   padding: 0 10px;
 }
 
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info .csC-doctor__list > li p {
+.csCounselor-cards .swiper-container .csCounselor-gallery .swiper-slide .csCounselor-card .csC-doctor__info .csC-doctor__list > li p {
   cursor: pointer;
   font-weight: 700;
 }
 
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info .csC-doctor__list > li .csS-list > li {
+.csCounselor-cards .swiper-container .csCounselor-gallery .swiper-slide .csCounselor-card .csC-doctor__info .csC-doctor__list > li .csS-list > li {
   display: block;
   line-height: 1.5em;
 }
 
-.csCounselor-cards .csCounselor-gallery .csCounselor-card .csC-doctor__info .csC-doctor__list > li .csS-list > li i {
+.csCounselor-cards .swiper-container .csCounselor-gallery .swiper-slide .csCounselor-card .csC-doctor__info .csC-doctor__list > li .csS-list > li i {
   display: inline-block;
   font-size: 10px;
   -webkit-transform: scale(0.8);
@@ -5424,17 +5338,35 @@ main #chatRoom .chatRoom_text .chatRoom_send {
   color: #65b391;
 }
 
+.csCounselor-cards .swiper-button-next,
+.csCounselor-cards .swiper-button-prev {
+  position: absolute;
+  top: 75%;
+  outline: none;
+  color: #FFA492;
+  background: white;
+  padding: 40px;
+  border-radius: 50%;
+}
+
+.csCounselor-cards .swiper-button-next:active,
+.csCounselor-cards .swiper-button-prev:active {
+  background: #FFA492;
+  color: white;
+}
+
+.csCounselor-cards .swiper-button-prev {
+  right: 0;
+}
+
+.csCounselor-cards .swiper-button-prev {
+  left: 0;
+}
+
 @media (max-width: 576px) {
-  .container-fluid.csMain .csCounselor-cards .csCounselor-gallery .csCounselor-card {
-    -webkit-transform: scale(0.5);
-            transform: scale(0.5);
-  }
-  .container-fluid.csMain .csCounselor-cards .csCounselor-gallery .csCounselor-card.bigger {
-    -webkit-transform: scale(0.6);
-            transform: scale(0.6);
-  }
-  .container-fluid.csMain .csCounselor-cards .csC-changeSlide {
-    bottom: 10%;
+  .csCounselor-cards .swiper-button-next,
+  .csCounselor-cards .swiper-button-prev {
+    display: none;
   }
 }
 
@@ -6681,13 +6613,8 @@ p {
   -webkit-transition: all 1s linear;
   transition: all 1s linear;
   position: absolute;
-<<<<<<< HEAD
   -webkit-transform: translateY(-50%) perspective(600px) scale(0);
           transform: translateY(-50%) perspective(600px) scale(0);
-=======
-  -webkit-transform: translateY(-50%) perspective(900px) scale(0);
-          transform: translateY(-50%) perspective(900px) scale(0);
->>>>>>> dev-cc0819
   width: 300px;
   height: 480px;
   top: 50%;
@@ -8274,7 +8201,6 @@ div.inCs.swiper-container .inCs-under576 li.inCs-slide__item button {
   }
 }
 
-<<<<<<< HEAD
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -8300,39 +8226,14 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
-=======
-.atContent {
-  max-width: 1200px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.atContent .atContent-conterbox {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
->>>>>>> dev-cc0819
 }
 
 body {
   line-height: 1;
 }
 
-<<<<<<< HEAD
 ol, ul {
   list-style: none;
-=======
-.atContent .atContent-right_detail {
-  width: 100%;
-  height: 30px;
-  margin-top: 3%;
-  margin-bottom: 1%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  color: rgba(179, 178, 178, 0.867);
->>>>>>> dev-cc0819
 }
 
 blockquote, q {
@@ -8364,22 +8265,10 @@ h1 {
   letter-spacing: 1.5px;
 }
 
-<<<<<<< HEAD
 h2 {
   font-size: 36px;
   line-height: 1.5;
   letter-spacing: 1.5px;
-=======
-.atContent .atContent-left_detail, .atContent .atContent-conter_detail {
-  width: 100%;
-  height: 20px;
-  margin-top: 3%;
-  margin-bottom: 1%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  color: rgba(179, 178, 178, 0.867);
->>>>>>> dev-cc0819
 }
 
 h3 {
@@ -8420,7 +8309,6 @@ p {
   position: relative;
 }
 
-<<<<<<< HEAD
 #oracleCard .oracleCardInner::before {
   content: '';
   display: block;
@@ -8433,12 +8321,6 @@ p {
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
-=======
-.atContent .atContent_right .atContent_rightbox {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
->>>>>>> dev-cc0819
 }
 
 #oracleCard .oracleCardInner .oracleCardBanner {
@@ -8678,7 +8560,6 @@ p {
   width: 100%;
 }
 
-<<<<<<< HEAD
 #oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg .mainImg {
   position: absolute;
   left: 50px;
@@ -8687,14 +8568,6 @@ p {
   max-width: 400px;
   height: 100%;
   max-height: 400px;
-=======
-body {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-weight: 400;
-  font-family: "Noto Sans TC", sans-serif;
-  margin: 0;
->>>>>>> dev-cc0819
 }
 
 #oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg .mainImg img {
@@ -8788,22 +8661,10 @@ body {
           animation: downDown1 2s infinite ease-in-out;
 }
 
-<<<<<<< HEAD
 #oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn::after {
   bottom: -65px;
   -webkit-animation: downDown2 2s infinite ease-in-out;
           animation: downDown2 2s infinite ease-in-out;
-=======
-#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox {
-  position: absolute;
-  bottom: 200px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  margin: auto;
-  width: 500px;
-  background-color: #fff;
->>>>>>> dev-cc0819
 }
 
 @-webkit-keyframes downDown1 {
@@ -8882,7 +8743,6 @@ body {
   display: none;
 }
 
-<<<<<<< HEAD
 @-webkit-keyframes btnScale {
   0% {
     -webkit-transform: scale(1);
@@ -8911,16 +8771,6 @@ body {
     -webkit-transform: scale(1);
             transform: scale(1);
   }
-=======
-#oracleCard .oracleCardInner .oracleCardStep {
-  width: 100%;
-  margin: auto;
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background-color: #F9F5F0;
->>>>>>> dev-cc0819
 }
 
 #oracleCard .oracleCardInner .oracleCardStepOne {

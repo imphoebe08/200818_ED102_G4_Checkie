@@ -145,6 +145,9 @@
 
                             </select-page>
                             <select-page v-if="currentPage == titles.a">page1
+                                <div class="">
+                                    <h6>{{titles.a}}</h6>
+                                </div>
                                 <back-btn @click="backToIndex(!titles)">back</back-btn>
                             </select-page>
                             <select-page v-if="currentPage == titles.b">page2
