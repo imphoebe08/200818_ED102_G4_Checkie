@@ -189,23 +189,16 @@ let vm0 = new Vue({
                 
 
             }
-            // var win_H =window.height();
-            // var i = 0;
-            // var box_H = $("#qsBox").height()
-            // // 加true 代表包含margin 的高
-            // var btn_H = $(".text_skip").outerHeight(true) 
-            // if(box_H>(win_H-btn_H)&&i==0){
-            //     $("#form>form").css("height","auto");
-            //     i++
-            // }
-            
-
 
             
+
 
         },
         
         skip(){
+            $("#form").css("display","none");
+        },
+        finish_form(){
             $("#form").css("display","none");
         }
     },

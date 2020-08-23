@@ -15,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     <!-- navbar js -->
     <script src="./js/index-header.js"></script>
     <script src="./js/chatbot.js"></script>
@@ -705,20 +705,24 @@
     </script>
 
     <div class="inArti" id="inArti">
-        <div class="inArti_left">
-            <inArti-item v-for="num in 5">
-                </inArti-left-item>
-        </div>
-        <div class="inArti_conter">
-            <div class="inArti-conterbox">
-                <inArti-item v-for="num in 3">
+        <h1>專欄文章</h1>
+        <div class="inArti_body">
+            <div class="inArti_left">
+                <inArti-item v-for="num in 5">
+                    </inArti-left-item>
+            </div>
+            <div class="inArti_conter">
+                <div class="inArti-conterbox">
+                    <inArti-item v-for="num in 3">
+                        </inArti-left-item>
+                </div>
+            </div>
+            <div class="inArti_right">
+                <inArti-item v-for="num in 4">
                     </inArti-left-item>
             </div>
         </div>
-        <div class="inArti_right">
-            <inArti-item v-for="num in 4">
-                </inArti-left-item>
-        </div>
+        
     </div>
     <script>
         // inArti
@@ -769,32 +773,6 @@
         })
     </script>
     <div class="inCard" id="inCard">
-        <!-- 傷心的失敗作 -->
-        <!-- <div class="inCard_text">透過神諭卡，看看當下最需要的訊息</div>
-        <a href="javascript:void:(0)">抽取今日神諭卡</a>
-        <div class="inCard_body">
-                <div> 
-                    <div></div>
-                </div>
-                <div> 
-                    <div></div>
-                </div>
-                <div> 
-                    <div></div>
-                </div>
-                <div> 
-                    <div></div>
-                </div>
-                <div> 
-                    <div></div>
-                </div>
-                <div> 
-                    <div></div>
-                </div>
-                <div> 
-                    <div></div>
-                </div>
-        </div> -->
         <div class="inCard_block">
             <!-- <h1>神諭卡</h1> -->
             <div class="inCard_text">透過神諭卡，看看當下最需要的訊息</div>
@@ -824,6 +802,7 @@
     <script>
     </script>
     <div class="inAbout" id="inAbout">
+        <h1 class="rwd_h1">關於我們</h1>
         <div class="inAbout-left_block">
             <div class="inAbout-text_block">
                 <h1>關於我們</h1>

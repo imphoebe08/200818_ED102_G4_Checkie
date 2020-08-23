@@ -5553,7 +5553,7 @@ p {
 }
 
 .inAct {
-  padding-top: 300px;
+  padding-top: 100px;
 }
 
 .inAct .inAct_body {
@@ -5770,7 +5770,7 @@ p {
 .inCard .inCard_block .inCard_body {
   width: 100%;
   display: flex;
-  height: 80vh;
+  height: 70vh;
   position: relative;
 }
 
@@ -5778,8 +5778,8 @@ p {
   transition: all 1s linear;
   position: absolute;
   transform: translateY(-50%) perspective(600px) scale(0);
-  width: 300px;
-  height: 480px;
+  width: 250px;
+  height: 400px;
   top: 50%;
 }
 
@@ -5794,40 +5794,20 @@ p {
   box-shadow: 2px 5px 15px 3px #313131;
 }
 
-.inCard .inCard_block .inCard_body > div:nth-child(1) {
-  left: 0%;
-}
-
 .inCard .inCard_block .inCard_body > div:nth-child(1) a {
   background-image: url("../img/index/InCard/card_1.jpg");
-}
-
-.inCard .inCard_block .inCard_body > div:nth-child(2) {
-  left: 20%;
 }
 
 .inCard .inCard_block .inCard_body > div:nth-child(2) a {
   background-image: url("../img/index/InCard/card_2.jpg");
 }
 
-.inCard .inCard_block .inCard_body > div:nth-child(3) {
-  left: 40%;
-}
-
 .inCard .inCard_block .inCard_body > div:nth-child(3) a {
   background-image: url("../img/index/InCard/card_3.jpg");
 }
 
-.inCard .inCard_block .inCard_body > div:nth-child(4) {
-  left: 60%;
-}
-
 .inCard .inCard_block .inCard_body > div:nth-child(4) a {
   background-image: url("../img/index/InCard/card_4.jpg");
-}
-
-.inCard .inCard_block .inCard_body > div:nth-child(5) {
-  left: 80%;
 }
 
 .inCard .inCard_block .inCard_body > div:nth-child(5) a {
@@ -5836,6 +5816,7 @@ p {
 
 .inCard .inCard_block .inCard_body > div:nth-child(1) {
   z-index: 1;
+  left: 10%;
 }
 
 .inCard .inCard_block .inCard_body > div:nth-child(1) > a {
@@ -5844,6 +5825,7 @@ p {
 
 .inCard .inCard_block .inCard_body > div:nth-child(2) {
   z-index: 2;
+  left: 25%;
 }
 
 .inCard .inCard_block .inCard_body > div:nth-child(2) > a {
@@ -5852,6 +5834,7 @@ p {
 
 .inCard .inCard_block .inCard_body > div:nth-child(3) {
   z-index: 3;
+  left: 40%;
 }
 
 .inCard .inCard_block .inCard_body > div:nth-child(3) > a {
@@ -5860,6 +5843,7 @@ p {
 
 .inCard .inCard_block .inCard_body > div:nth-child(4) {
   z-index: 2;
+  right: 20%;
 }
 
 .inCard .inCard_block .inCard_body > div:nth-child(4) > a {
@@ -5868,6 +5852,7 @@ p {
 
 .inCard .inCard_block .inCard_body > div:nth-child(5) {
   z-index: 1;
+  right: 10%;
 }
 
 .inCard .inCard_block .inCard_body > div:nth-child(5) > a {
@@ -5907,12 +5892,46 @@ p {
   display: none;
 }
 
+@media all and (max-width: 1024px) {
+  .inCard .inCard_block .inCard_body > div {
+    transform-origin: center center -1000px;
+    transform: translateY(-50%) perspective(600px);
+  }
+  .inCard .inCard_block .inCard_body > div:nth-child(1) {
+    display: none;
+  }
+  .inCard .inCard_block .inCard_body > div:nth-child(5) {
+    display: none;
+  }
+}
+
 .inAbout {
   margin: auto;
   max-width: 1200px;
   height: 720px;
   margin-top: 300px;
   display: flex;
+}
+
+.inAbout > .rwd_h1 {
+  display: inline-block;
+  font-size: 40px;
+  line-height: 1.8;
+  letter-spacing: 1.5px;
+  align-self: center;
+  position: relative;
+  display: none;
+}
+
+.inAbout > .rwd_h1:after {
+  content: "";
+  width: 100%;
+  height: 10%;
+  border-radius: 30px;
+  background-color: #FFA492;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
 }
 
 .inAbout .inAbout-left_block {
@@ -6192,7 +6211,7 @@ p {
   position: absolute;
   left: 50%;
   width: 2.5%;
-  height: 100%;
+  height: 97.5%;
   background-color: #fff;
   transform-origin: center;
   transition: transform 1.2s;
@@ -6240,6 +6259,33 @@ p {
   transform: translateX(-100%);
   transform-origin: center;
   transition-delay: 0s;
+}
+
+@media all and (max-width: 1200px) {
+  .inAbout {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .inAbout > .rwd_h1 {
+    display: inline-block;
+    margin: 0 200px;
+    margin-bottom: 50px;
+  }
+  .inAbout .inAbout-left_block {
+    width: 100%;
+    order: 2;
+  }
+  .inAbout .inAbout-left_block .inAbout-text_block h1 {
+    display: none;
+  }
+  .inAbout .inAbout-left_block .inAbout-area_block {
+    height: auto;
+  }
+  .inAbout .inAbout-right_block {
+    margin: auto;
+    width: 620px;
+    height: 620px;
+  }
 }
 
 .inBanner {
@@ -6486,52 +6532,80 @@ p {
   margin: auto;
   max-width: 1200px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.inArti > div {
+.inArti h1 {
+  display: inline-block;
+  font-size: 40px;
+  line-height: 1.8;
+  letter-spacing: 1.5px;
+  align-self: center;
+  position: relative;
+  margin: 100px;
+  margin-bottom: 150px;
+}
+
+.inArti h1:after {
+  content: "";
+  width: 100%;
+  height: 10%;
+  border-radius: 30px;
+  background-color: #FFA492;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+}
+
+.inArti .inArti_body {
+  display: flex;
+}
+
+.inArti .inArti_body > div {
   z-index: 2;
   background-color: white;
 }
 
-.inArti > div a {
+.inArti .inArti_body > div a {
   text-decoration: none;
   display: inline-block;
   width: 100%;
   color: black;
 }
 
-.inArti > div a:hover .inArti-left_title h2 {
+.inArti .inArti_body > div a:hover .inArti-left_title h2 {
   color: #FFA492;
 }
 
-.inArti > div a:hover .inArti-left_border1::before {
+.inArti .inArti_body > div a:hover .inArti-left_border1::before {
   width: 100%;
 }
 
-.inArti > div a article {
+.inArti .inArti_body > div a article {
   width: 90%;
   margin: auto;
 }
 
-.inArti > div a article > div {
+.inArti .inArti_body > div a article > div {
   width: 100%;
 }
 
-.inArti > div a article .inArti-left_pic1 img {
+.inArti .inArti_body > div a article .inArti-left_pic1 img {
   width: 100%;
 }
 
-.inArti > div a article .inArti-left_detail {
+.inArti .inArti_body > div a article .inArti-left_detail {
   display: flex;
   justify-content: space-between;
 }
 
-.inArti > div a article .inArti-left_detail .inArti-left-detail_block {
+.inArti .inArti_body > div a article .inArti-left_detail .inArti-left-detail_block {
   display: flex;
   justify-content: flex-start;
 }
 
-.inArti > div a article .inArti-left_detail .inArti-left-detail_block .inArti-left-detail_pic {
+.inArti .inArti_body > div a article .inArti-left_detail .inArti-left-detail_block .inArti-left-detail_pic {
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -6539,11 +6613,11 @@ p {
   align-self: center;
 }
 
-.inArti > div a article .inArti-left_detail .inArti-left-detail_block .inArti-left-detail_pic img {
+.inArti .inArti_body > div a article .inArti-left_detail .inArti-left-detail_block .inArti-left-detail_pic img {
   width: 100%;
 }
 
-.inArti > div a article .inArti-left_detail .inArti-left-detail_block .inArti-left-detail_text {
+.inArti .inArti_body > div a article .inArti-left_detail .inArti-left-detail_block .inArti-left-detail_text {
   padding-left: 5px;
   font-size: 16px;
   font-family: "Noto Sans TC", sans-serif;
@@ -6553,7 +6627,7 @@ p {
   font-size: 16px;
 }
 
-.inArti > div a article .inArti-left_detail .inArti-left-detail_title {
+.inArti .inArti_body > div a article .inArti-left_detail .inArti-left-detail_title {
   font-size: 16px;
   font-family: "Noto Sans TC", sans-serif;
   font-weight: 300;
@@ -6561,14 +6635,14 @@ p {
   line-height: 2;
 }
 
-.inArti > div a article .inArti-left_border1 {
+.inArti .inArti_body > div a article .inArti-left_border1 {
   width: 100%;
   height: 10px;
   background-color: #ddd;
   position: relative;
 }
 
-.inArti > div a article .inArti-left_border1::before {
+.inArti .inArti_body > div a article .inArti-left_border1::before {
   content: "";
   position: absolute;
   width: 0;
@@ -6577,13 +6651,13 @@ p {
   background-color: #FFA492;
 }
 
-.inArti > div a article .inArti-left_title h2 {
+.inArti .inArti_body > div a article .inArti-left_title h2 {
   font-size: 24px;
   line-height: 1.5;
   letter-spacing: 1.5px;
 }
 
-.inArti > div a article .inArti-left_partner {
+.inArti .inArti_body > div a article .inArti-left_partner {
   font-size: 16px;
   font-family: "Noto Sans TC", sans-serif;
   font-weight: 300;
@@ -6593,17 +6667,17 @@ p {
   line-height: 1.5em;
 }
 
-.inArti .inArti_left, .inArti .inArti_conter {
+.inArti .inArti_body .inArti_left, .inArti .inArti_body .inArti_conter {
   width: 25%;
   border-right: 1px solid #ddd;
 }
 
-.inArti .inArti_conter .inArti-conterbox {
+.inArti .inArti_body .inArti_conter .inArti-conterbox {
   position: sticky;
   top: 80px;
 }
 
-.inArti .inArti_right {
+.inArti .inArti_body .inArti_right {
   width: 50%;
 }
 

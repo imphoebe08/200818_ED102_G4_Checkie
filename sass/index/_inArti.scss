@@ -2,106 +2,119 @@
     margin: auto;
     max-width: 1200px;
     display: flex;
-    >div{
-    z-index: 2;
-    background-color: white;
-        a{
-            text-decoration: none;
-            display: inline-block;
-            width: 100%;
-            color: black;
-            &:hover{
-                .inArti-left_title{
-                    h2{
-                        color:$color-pink;
-                    }
-                }
-                .inArti-left_border1{
-                    &::before{
-                        width: 100%;
-                    }
-                }
-            }
-            article{
-                width: 90%;
-                margin: auto;
-                >div{
-                    width: 100%;
-                }
-                .inArti-left_pic1{
-                    img{
-                        width: 100%;
+    flex-direction: column;
+    align-items: center;
+    h1{
+        @include title;
+        margin: 100px;
+        margin-bottom: 150px;
+        
+    }
+    .inArti_body{
+        display: flex;
 
-                    }
-                }
-                .inArti-left_detail{
-                    display: flex;
-                    justify-content: space-between;
-                    .inArti-left-detail_block{
-                        display: flex;
-                        justify-content: flex-start;
-                        .inArti-left-detail_pic{
-                            width: 25px;
-                            height: 25px;
-                            border-radius: 50%;
-                            overflow: hidden;
-                            // padding-right: 5px;
-                            align-self: center;
-                            img{
+        >div{
+            z-index: 2;
+            background-color: white;
+                a{
+                    text-decoration: none;
+                    display: inline-block;
+                    width: 100%;
+                    color: black;
+                    &:hover{
+                        .inArti-left_title{
+                            h2{
+                                color:$color-pink;
+                            }
+                        }
+                        .inArti-left_border1{
+                            &::before{
                                 width: 100%;
                             }
                         }
-                        .inArti-left-detail_text{
-                            padding-left: 5px;
-                            @include p;
+                    }
+                    article{
+                        width: 90%;
+                        margin: auto;
+                        >div{
+                            width: 100%;
+                        }
+                        .inArti-left_pic1{
+                            img{
+                                width: 100%;
+        
+                            }
+                        }
+                        .inArti-left_detail{
+                            display: flex;
+                            justify-content: space-between;
+                            .inArti-left-detail_block{
+                                display: flex;
+                                justify-content: flex-start;
+                                .inArti-left-detail_pic{
+                                    width: 25px;
+                                    height: 25px;
+                                    border-radius: 50%;
+                                    overflow: hidden;
+                                    // padding-right: 5px;
+                                    align-self: center;
+                                    img{
+                                        width: 100%;
+                                    }
+                                }
+                                .inArti-left-detail_text{
+                                    padding-left: 5px;
+                                    @include p;
+                                    font-size: 16px;
+                                }
+                            }
+                            .inArti-left-detail_title{
+                                @include p;
+        
+                            }
+                        }
+                        .inArti-left_border1
+                        {
+                            width: 100%;
+                            height: 10px;
+                            background-color: #ddd;
+                            position: relative;
+                            &::before{
+                                content: "";
+                                position: absolute;
+                                width:0;
+                                height: 100%;
+                                transition: all .2s linear;
+                                background-color: $color-pink;
+                            }
+                        }
+                        .inArti-left_title{
+                            h2{
+                                @include h5;
+                            }
+                        }
+                        .inArti-left_partner{
+                            @include p ;
                             font-size: 16px;
+                            line-height: 1.5em;
                         }
                     }
-                    .inArti-left-detail_title{
-                        @include p;
-
-                    }
-                }
-                .inArti-left_border1
-                {
-                    width: 100%;
-                    height: 10px;
-                    background-color: #ddd;
-                    position: relative;
-                    &::before{
-                        content: "";
-                        position: absolute;
-                        width:0;
-                        height: 100%;
-                        transition: all .2s linear;
-                        background-color: $color-pink;
-                    }
-                }
-                .inArti-left_title{
-                    h2{
-                        @include h5;
-                    }
-                }
-                .inArti-left_partner{
-                    @include p ;
-                    font-size: 16px;
-                    line-height: 1.5em;
                 }
             }
-        }
+            .inArti_left{
+                width: 25%;
+                border-right: 1px solid #ddd;
+            }
+            .inArti_conter{
+                @extend .inArti_left;
+                .inArti-conterbox{
+                    position: sticky;
+                    top: 80px;
+                }
+            }
+            .inArti_right{
+                width: 50%;
+            }
     }
-    .inArti_left{
-        width: 25%;
-        border-right: 1px solid #ddd;
-    }
-    .inArti_conter{
-        @extend .inArti_left;
-        .inArti-conterbox{
-            position: sticky;
-            top: 80px;
-        }
-    }
-    .inArti_right{
-        width: 50%;
-    }
+    
 }

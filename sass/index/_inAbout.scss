@@ -19,6 +19,10 @@
     height: 720px;
     margin-top: $space;//?
     display: flex;
+    >.rwd_h1{
+        @include title;
+        display: none;
+    }
     .inAbout-left_block{
         width: 50%;
         display: flex;
@@ -247,7 +251,7 @@
                     position: absolute;
                     left: 50%;
                     width: 2.5%;
-                    height: 100%;
+                    height: 97.5%;
                     background-color: #fff;
                     transform-origin: center;
                     transition: transform 1.2s;
@@ -309,4 +313,31 @@
     }
 
 }
-
+@media all and (max-width:1200px){
+    .inAbout{
+        flex-wrap: wrap;
+        justify-content: center;
+        >.rwd_h1{
+            display: inline-block;
+            margin: 0 200px;
+            margin-bottom: 50px;
+        }
+        .inAbout-left_block{
+            width: 100%;
+            order: 2;
+            .inAbout-text_block{
+                h1{
+                    display: none;
+                }
+            }
+            .inAbout-area_block{
+                height: auto;
+            }
+        }
+        .inAbout-right_block{
+            margin: auto;
+            width: 620px;
+            height: 620px;
+        }
+    }
+}

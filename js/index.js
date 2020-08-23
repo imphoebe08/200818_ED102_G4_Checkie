@@ -26,6 +26,7 @@ $(function(){
         })
         }else{
             $(this).off("scroll");
+            $(".inAct_block").css("transform",`translateX(0px)`)
         }
       });
         
@@ -154,35 +155,13 @@ $(function(){
     var t9 = TweenMax.to('.inBanner-circle', 2, {backgroundImage: "linear-gradient(135deg,   #7DE2FC,  #B9B6E5)"});
     // 下面這個是大圈圈 因為有兩層 所以多寫一個css
     var t10 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 2, {backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg,   #7DE2FC,  #B9B6E5)"});
-        var scene04 = new ScrollMagic.Scene({
-            triggerElement: "#inCs",
+        var scene05 = new ScrollMagic.Scene({
+            triggerElement: ".inCs_group",
             offset: 0,
             triggerHook: .5
         }).setTween([t9,t10])
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
-        
-
-    // card_t1.fromTo('.inCard_body>div', 1, {
-    //     scale:0,
-    //     rotationX: 200,
-    // },{scale:1,rotationX: 360,})
-    // var card_t1 = new TimelineMax();
-    // card_t1.fromTo('.inCard_body>div', 1, {
-    //     scale:0,
-    //     rotationX: 200,
-    // },{scale:1,rotationX: 360,})
-
-    // var scene04 = new ScrollMagic.Scene({
-    //     triggerElement: "#inCard",
-    //     offset: 0,
-    //     triggerHook : 0,
-    //     duration: '100%'
-    // }).setPin('#inCard').setTween(card_t1)
-    // .addTo(controller);
-
-
-
     var a = 0;
     function card(){
 
@@ -198,7 +177,10 @@ $(function(){
     }
     // 圈圈結束
     $(window).scroll(function(e){
+        if($(window).width()>1024){
         card()
+
+        }
     })
 
 
