@@ -17,22 +17,15 @@
 
 }
 
-.bg_container{
-    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
-    width: 100%;
-    height: 100vh;
-    display: inline-block;
-    position: relative;
-    z-index: -5;
-}
-
 .bg_all{
+    // background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
     display: block;
+    z-index: -990;
     
     .bg-big_circle{
         @include circle(550px,550px,0,30%,225deg);
@@ -41,29 +34,34 @@
     }
     .bg-circle_1{
         @include circle(200px,200px,50%,10%,200deg);
+        background-image:linear-gradient(200deg,#91d0ebc2,#ffa492bb);
         
 
     }
     .bg-circle_2{
         @include circle(120px,120px,30%,58%,45deg);
         animation: float 5s infinite;
+        background-image:linear-gradient(45deg,#ace6ff96,#ffa49294);
         
     }
     .bg-circle_3{
         @include circle(100px,100px,80%,10%,30deg);
         animation: float2 5s infinite;
+        background-image:linear-gradient(30deg,#91d0eb8a,#ffa4928e);
         
 
     }
     .bg-circle_4{
         @include circle(50px,50px,90%,60%,80deg);
-        
+        background-image:linear-gradient(80deg,#c0ecff,#ddaea5);
+        animation: float 5s infinite;
 
     }
 
     .bg-circle_5{
         @include circle(120px,120px,70%,90%,80deg);
         animation: float3 5s infinite;
+        
         
 
     }
