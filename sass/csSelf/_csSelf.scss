@@ -2,8 +2,8 @@
 
 .csSelf {
     display: block;
-    border: 1px solid rgb(8, 8, 8);
     max-width: 1200px;
+    border: 1px solid #333;
 
     .csS-info {
         padding: 20px;
@@ -160,6 +160,7 @@
                     text-decoration: none;
                     text-align: center;
                     margin: 0 10px;
+                    font-size: 18px;
                 }
 
             }
@@ -250,7 +251,8 @@
 		position: relative;
 		.card-image {
 			padding: 15.15% 0 0;
-			position: relative;
+            position: relative;
+            cursor: pointer;
 			img {
 				position: absolute;
 				width: 100%;
@@ -264,7 +266,8 @@
 			padding: 10px 10px 30px;
 			position: relative;
 			h5 {
-				padding: 10px 0;
+                padding: 10px 0;
+                cursor: pointer;
 			}
 			p {
 				padding: 10px 0;
@@ -336,7 +339,8 @@
 			width: 100%;
 			max-height: 250px;
 			border-radius: 20px 20px 0 0;
-			overflow: hidden;
+            overflow: hidden;
+            cursor: pointer;
 			img {
 				width: 100%;
 				max-height: 250px;
@@ -348,7 +352,8 @@
 			// border: 1px solid red;
 			padding: 15px 10px;
 			background: white;
-			border-radius: 0 0 20px 20px;
+            border-radius: 0 0 20px 20px;
+            cursor: pointer;
 		}
 		.card__info {
 			// border: 1px solid red;
