@@ -36,6 +36,8 @@ main{
         margin:30px 50px;
         box-shadow: $boxshadow;
         display: flex;
+        background: rgba(255, 255, 255, 0.795);
+        box-shadow: $boxshadow;
         .chatRoom_left{
             padding:0;
             border-right: 3px solid grey;
