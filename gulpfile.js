@@ -15,7 +15,7 @@ const clean = require('gulp-clean');
 
 //Copy 所有js img到dist
 gulp.task('copyjs', function() {
-    return gulp.src('./js/**/*.js').pipe(gulp.dest('./dist/js'));
+    return gulp.src(['./js/*.js' ,'./js/**/*.js']).pipe(gulp.dest('./dist/js'));
 })
 gulp.task('copyimg', function() {
     return gulp.src('./img/**/*').pipe(gulp.dest('./dist/img'));
@@ -61,7 +61,7 @@ gulp.task('default', function() {
 
     gulp.watch(['./sass/*.scss', './sass/**/*.scss'], ['sass']).on('change',reload);
     gulp.watch(['./*.html', '**/*.html'], ['fileinclude']).on('change',reload);
-    gulp.watch('./js/*.js', ['babels']).on('change', reload);
+    gulp.watch('./js/*.js', ['copyjs']).on('change', reload);
 
 });
 
@@ -104,7 +104,7 @@ gulp.task('sass', function() {
 //npm install --save-dev gulp-babel@7 babel-core babel-preset-env
 
 gulp.task('babels', () =>
-    gulp.src('./js/*.js')
+    gulp.src(['./js/*.js' , './js/**/*.js'])
     .pipe(babel({
         presets: ['@babel/env']
     }))
