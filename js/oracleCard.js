@@ -107,9 +107,9 @@ function rotateFoo(){
 }
 
 //checkbox單選
-$('.stepNum li input').click(function(){
-  if($(this).prop('checked')){
-  $('.stepNum li input:checkbox').prop('checked',false);
-  $(this).prop('checked',true);
-  }
-  });
+// $('.stepNum li input').click(function(){
+//   if($(this).prop('checked')){
+//   $('.stepNum li input:checkbox').prop('checked',false);
+//   $(this).prop('checked',true);
+//   }
+//   });
