@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap-grid.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="./css/fullpage.min.css">
+    <script src="./js/chatbot.js"></script>
+    <script src="./js/header.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <link rel="stylesheet" href="./css/main.css">
-    
     <title>oracleCard</title>
 </head>
 <body>
@@ -33,9 +34,18 @@
     <section class="oracleCardStep page page2 section">
       <div class="stepBg">
         <ol class="stepNum">
-          <li id="step1" class="step"><h3 class="h3Color">1</h3></li>
-          <li id="step2" class="step"><h3>2</h3></li>
-          <li id="step3" class="step"><h3>3</h3></li>
+          <li id="step1" class="step">
+            <input type="checkbox" id="sp1" checked>
+            <label class="h3Color" for="sp1">1</label>
+          </li>
+          <li id="step2" class="step">
+            <input type="checkbox" id="sp2">
+            <label for="sp2">2</label>
+          </li>
+          <li id="step3" class="step">
+            <input type="checkbox" id="sp3">
+            <label for="sp3">3</label>
+          </li>
         </ol>
         <div class="showImg">
           <div class="showImgBg" id="showImgBg">
@@ -78,7 +88,7 @@
         <div class="cards col-12">
           <div class="item col-3 col-sm-3 col-md-3 col-lg-2">
             <div class="itemImg sameSet">
-              <img src="./img/oracleCard/card1.png"  crossOrigin="anonymous" alt="">
+              <img src="./img/oracleCard/card_cover/cover_angel.png"  crossOrigin="anonymous" alt="angel">
             </div>
             <div class="itemImgBack sameSet">
               <img src="./img/oracleCard/card2.png" crossOrigin="anonymous" alt="">
@@ -90,7 +100,7 @@
           </div>
           <div class="item col-3 col-sm-3 col-md-3 col-lg-2">
             <div class="itemImg sameSet">
-              <img src="./img/oracleCard/card2.png" crossOrigin="anonymous" alt="">
+              <img src="./img/oracleCard/card_cover/cover_heaven.png" crossOrigin="anonymous" alt="heaven">
             </div>
             <div class="itemImgBack sameSet">
               <img src="./img/oracleCard/card1.png" crossOrigin="anonymous" alt="">
@@ -102,7 +112,7 @@
           </div>
           <div class="item col-3 col-sm-3 col-md-3 col-lg-2">
             <div class="itemImg sameSet">
-              <img src="./img/oracleCard/card3.png" crossOrigin="anonymous" alt="">
+              <img src="./img/oracleCard/card_cover/cover_illustration.png" crossOrigin="anonymous" alt="illustration">
             </div>
             <div class="itemImgBack sameSet">
               <img src="./img/oracleCard/card1.png" crossOrigin="anonymous" alt="">
