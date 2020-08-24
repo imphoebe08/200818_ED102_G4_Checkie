@@ -1,4 +1,6 @@
 
+@import 'variable.scss';
+@import 'var.scss';
 
 @mixin circle($width,$hight,$left,$top,$deg) {
     width: $width;
@@ -15,114 +17,55 @@
 
 }
 
-#trigger1{
-    opacity: 0;
-}
-
-.bg_eachpage{
-    position: absolute;
-    width: 100%;
-    margin: auto;
-    padding: 0;
-    // height: 100vh;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -3;
-
-    .box{
-        width: 100px;
-        height: 100px;
-        background-color: rgba(32, 70, 60,.3);
-        margin-bottom: 30px;
-        border-radius: 50%;
-    }
-
-    .m_1{
-        background-image: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
-        position: absolute;
-        top:0;
-        left: 45%;
-        z-index: -3;
-        animation: float3 5s infinite;
-    }
-
-    .m_2{
-        width: 60px;
-        height: 60px;
-        background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
-        position: absolute;
-        top: 700px;
-        left: 75%;
-        z-index: -1;
-    }
-   
-    .m_5{
-        background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
-        position: absolute;
-        top:400px;
-        left: 70%;
-        z-index: -1;
-        
-    }
-    .m_6{
-        background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
-        position: absolute;
-        top: 700px;
-        left: 10%;
-        z-index: -2;
-        box-shadow: 0px 3px 20px rgba(224, 255, 247, 0.5);
-    }
-
-}
-
-.bg_container{
-    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+.bg_all{
+    // background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
     width: 100%;
     height: 100%;
-    display: inline-block;
-    position: relative;
-    z-index: -5;
-    
-}
-
-.bg_ball{
-    width: 100%;
-    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     display: block;
-    
+    z-index: -990;
     
     .bg-big_circle{
-        @include circle(400px,400px,0,0,135deg);
+        @include circle(550px,550px,0,30%,225deg);
         transform: translateX(-50%);
-        border:250px transparent solid;
         
     }
     .bg-circle_1{
         @include circle(200px,200px,50%,10%,200deg);
+        background-image:linear-gradient(200deg,#91d0ebc2,#ffa492bb);
         
 
     }
     .bg-circle_2{
         @include circle(120px,120px,30%,58%,45deg);
         animation: float 5s infinite;
+        background-image:linear-gradient(45deg,#ace6ff96,#ffa49294);
         
     }
     .bg-circle_3{
-        @include circle(50px,50px,80%,10%,30deg);
+        @include circle(100px,100px,80%,10%,30deg);
         animation: float2 5s infinite;
+        background-image:linear-gradient(30deg,#91d0eb8a,#ffa4928e);
         
 
     }
     .bg-circle_4{
-        @include circle(80px,80px,90%,60%,80deg);
+        @include circle(50px,50px,90%,60%,80deg);
+        background-image:linear-gradient(80deg,#c0ecff,#ddaea5);
         animation: float 5s infinite;
 
     }
-}
 
+    .bg-circle_5{
+        @include circle(120px,120px,70%,90%,80deg);
+        animation: float3 5s infinite;
+        
+        
+
+    }
+}
 
 @keyframes float{
     0%{top:60%}
@@ -139,13 +82,15 @@
     75%{top:15%}
     100%{top:10%}
 }
+
 @keyframes float3{
-    0%{top:0%}
-    25%{top:5%}
-    50%{top:2%}
-    75%{top:5%}
-    100%{top:0%}
+    0%{top:90%}
+    25%{top:92%}
+    50%{top:90%}
+    75%{top:89%}
+    100%{top:90%}
 }
+
 
 
 

@@ -1,14 +1,15 @@
 .inSc-h1 {
-    @include title;
-    display: block;
-    margin: 0 auto;
-    max-width: 208px;
+	@include title;
+	display: block;
+	margin: 0 auto;
+	max-width: 208px;
 }
 
 div.inCs_group {
 	position: relative;
-    height: 100vh;
-    margin: 0 0 100px;
+	height: 100vh;
+	margin: 0 0 100px;
+
 	div.inCs.inCs--large {
 		width: 100%;
 		max-width: 1200px;
@@ -17,6 +18,7 @@ div.inCs_group {
 		left: 50%;
 		transform: translate(-50%, -50%);
 		border-radius: 1rem;
+
 		ul.leftList {
 			height: 70vh;
 			width: 45%;
@@ -28,6 +30,8 @@ div.inCs_group {
 			transform: translate(-100%, -50%);
 			overflow: hidden;
 			border-radius: 1rem 0 0 1rem;
+			box-shadow: -12px 0px 20px -10px #333;
+
 			li {
 				padding: 10px 0 0 20px;
 				width: 100%;
@@ -36,21 +40,26 @@ div.inCs_group {
 				left: -5%;
 				top: 0%;
 				background: white;
+
 				img {
 					display: block;
 					width: 100%;
 					height: 70%;
 					object-fit: cover;
 					margin: 0 auto;
+					cursor: pointer;
 				}
+
 				&.move {
 					animation: leftToCenter 1s ease-in-out both;
 					z-index: 50;
 				}
+
 				h5 {
 					width: 100%;
 					@include h5;
 					padding: 0 10px;
+
 					&:after {
 						content: "";
 						display: block;
@@ -59,17 +68,20 @@ div.inCs_group {
 						background: $color-blue;
 					}
 				}
+
 				p {
 					@include p;
 					line-height: 1.5rem;
 					padding: 0 10px 20px;
 				}
+
 				.inConselor__chart {
 					display: block;
 					margin: 0 auto;
 					width: 70%;
 					height: 70%;
 				}
+
 				h1 {
 					position: absolute;
 					bottom: 15%;
@@ -77,6 +89,7 @@ div.inCs_group {
 					padding: 0 10px;
 					@include h1;
 				}
+
 				button {
 					position: absolute;
 					bottom: 5%;
@@ -87,6 +100,7 @@ div.inCs_group {
 				}
 			}
 		}
+
 		ul.rightList {
 			height: 70vh;
 			width: 45%;
@@ -98,6 +112,8 @@ div.inCs_group {
 			transform: translate(100%, -50%);
 			overflow: hidden;
 			border-radius: 0 1rem 1rem 0;
+			box-shadow: 12px 0px 20px -10px #333;
+
 			li {
 				padding: 10px 20px 0 0;
 				width: 100%;
@@ -106,6 +122,7 @@ div.inCs_group {
 				right: -5%;
 				top: 0%;
 				background: white;
+
 				img {
 					display: block;
 					width: 100%;
@@ -113,14 +130,17 @@ div.inCs_group {
 					object-fit: cover;
 					margin: 0 auto;
 				}
+
 				&.move {
 					animation: rightToCenter 1s ease-in-out both;
 					z-index: 50;
 				}
+
 				h5 {
 					width: 100%;
 					@include h5;
 					padding: 0 10px;
+
 					&:after {
 						content: "";
 						display: block;
@@ -129,17 +149,20 @@ div.inCs_group {
 						background: $color-blue;
 					}
 				}
+
 				p {
 					@include p;
 					line-height: 1.5rem;
 					padding: 0 10px 20px;
 				}
+
 				.inConselor__chart {
 					display: block;
 					margin: 0 auto;
 					width: 70%;
 					height: 70%;
 				}
+
 				h1 {
 					position: absolute;
 					bottom: 15%;
@@ -147,6 +170,7 @@ div.inCs_group {
 					padding: 0 10px;
 					@include h1;
 				}
+
 				button {
 					position: absolute;
 					bottom: 5%;
@@ -157,6 +181,7 @@ div.inCs_group {
 				}
 			}
 		}
+
 		ul.slide-button {
 			width: 100%;
 			display: flex;
@@ -167,6 +192,7 @@ div.inCs_group {
 			left: 50%;
 			transform: translate(-50%, -50%);
 			list-style: none;
+
 			li.point {
 				width: 20px;
 				height: 20px;
@@ -175,6 +201,7 @@ div.inCs_group {
 				border-radius: 50%;
 				background: white;
 				cursor: pointer;
+
 				&.activeNow {
 					background: pink;
 				}
@@ -182,10 +209,12 @@ div.inCs_group {
 		}
 	}
 }
+
 @keyframes leftToCenter {
 	from {
 		left: -100%;
 	}
+
 	to {
 		left: -5%;
 	}
@@ -195,6 +224,7 @@ div.inCs_group {
 	from {
 		right: -100%;
 	}
+
 	to {
 		right: -5%;
 	}
@@ -209,33 +239,46 @@ div.inCs.swiper-container {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	border-radius: 1rem;
+
 	.inCs-under576 {
 		display: flex;
 		height: 100%;
 		flex-flow: nowrap row;
+
 		li.inCs-slide__item {
+			background: white;
+			border-radius: 30px;
+			overflow: hidden;
+
 			img {
 				display: block;
 				margin: 0 10px;
 				width: calc(100% - 20px);
 				height: 50%;
 				object-fit: cover;
+				cursor: pointer;
 			}
-			h1 {
+
+			h3 {
+				@include h3;
+				cursor: pointer;
 			}
+
 			.inConselor__chart {
 				height: 200px;
 				width: 200px;
 				margin: 0 auto;
 			}
+
 			button {
+				@include btn-more($bw, $color-pink, $fontsize);
 				display: block;
-				margin: 0 auto;
-				cursor: pointer;
+				margin: 5px auto;
 			}
 		}
 	}
 }
+
 .swiper-button-prev,
 .swiper-button-next {
 	color: pink;
