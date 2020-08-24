@@ -117,18 +117,124 @@
     }
 }
 @media all and (max-width:1024px){
+    @keyframes drop {
+        0% {
+            transform: scale(2, 2) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            // opacity: 0;
+        }
+        50% {
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(2deg);
+            // opacity: 0.75;
+        }
+        100% {
+            transform: scale(0.97, 0.97) rotateX(0deg) rotateY(0deg) rotateZ(4deg);
+            // opacity: 1;
+        }
+    }
+    @keyframes drop2 {
+        0% {
+            transform: scale(2, 2) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translate(-50%,-50%);
+        }
+        
+        50% {
+            transform: rotateX(0deg) rotateY(50deg) rotateZ(0deg) translate(-50%,-50%);
+        }
+        100% {
+            transform: scale(0.98, 0.98) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translate(-50%,-50%);
+        }
+    }
+    @keyframes drop3 {
+        0% {
+            transform: scale(2, 2) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        }
+        50% {
+            transform: rotateX(0deg) rotateY(50deg) rotateZ(-2deg);
+        }
+        100% {
+            transform: scale(0.98, 0.98) rotateX(0deg) rotateY(0deg) rotateZ(-4deg);
+        }
+    }
     .inCard{
+        overflow: hidden;
         .inCard_block{
             .inCard_body{
-                >div{
-                    transform-origin: center center -1000px;
-                    transform: translateY(-50%) perspective(600px)
+                >div.inCard_item{
+                    width: 500px*0.6;
+                    height: 750px*0.6;
+                    >a{
+                        transform: rotate(0);
+                    }
                 }
                 >div:nth-child(1){
                     display: none;
                 }
                 >div:nth-child(5){
                     display: none;
+                }
+                >div:nth-child(2){
+                    top: 0;
+                    left: 0;
+                    
+
+                }
+
+                >div:nth-child(3){
+                    transform: translate(-50%,-50%) scale(0);
+                    
+                    left:50%
+                }
+                >div:nth-child(4){
+                    top: unset;
+                    bottom: 0;
+                    transform: translate(0%,0%) scale(0);
+                    left: unset;
+                    right: 0;
+                    
+
+                }
+            }
+            .inCard_body.rwd_ani{
+                >div{
+                    animation-fill-mode: forwards;
+                    animation-duration: 1s;
+                }
+                >div:nth-child(2){
+                    transform: translate(0%,0%) scale(0);
+                    animation-name: drop;
+
+                }
+                >div:nth-child(3){
+                    animation-name: drop2;
+                    animation-delay: 0.5s;
+                }
+                >div:nth-child(4){
+                    animation-name: drop3;
+                    animation-delay: 1.5s;
+                }
+            }
+        }
+    }
+
+};
+@media all and (max-width:768px){
+    .inCard{
+        .inCard_block{
+            .inCard_body{
+                >div.inCard_item{
+                    width: 500px*0.5;
+                    height: 750px*0.5;
+                }
+            }
+        }
+    }
+}
+@media all and (max-width:576px){
+    .inCard{
+        .inCard_block{
+            .inCard_body{
+                >div.inCard_item{
+                    width: 500px*0.3;
+                    height: 750px*0.3;
                 }
             }
         }
