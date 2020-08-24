@@ -214,7 +214,17 @@ p{
                             transform: translateX(-50%);
                         }
                         
-                        h3{
+                        input{
+                            opacity: 0;
+                            z-index: 1;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translateX(-50%) translateY(-50%);
+                        }
+                        
+                        label{
+                            position: relative;
                             cursor: pointer;
                             @include h3;
                             width: 50px;
@@ -226,12 +236,67 @@ p{
                             color: #000000;
                             text-align: center;
                             transition: 0.5s;
+                            background-color: #000;
+                            color: #fff;
+
+                            &::before{
+                                display: none;
+                                z-index: -1;
+                                content: '';
+                                position: absolute;
+                                background: linear-gradient(45deg,#085ddd,transparent,transparent,transparent);
+                                width: calc(100% + 10px);
+                                height: calc(100% + 10px);
+                                top: -5px;
+                                left: -5px;
+                                border-radius: 50%;
+                                animation: rotate 2s linear infinite;
+                            }
+                            // &::after{
+                            //     filter: blur(30px);
+                            // }
+
+                            @keyframes line {
+                                0%{background-position: 0 0;}
+                                50%{background-position: 300%;}
+                                100%{background-position: 0 0;}
+                            }
+                            @keyframes rotate {
+                                0%{transform: rotate(0deg);}
+                                50%{transform: rotate(180deg);}
+                                100%{transform: rotate(360deg);}
+                            }
+                            
+                                // &::before{
+                                //     opacity: 0;
+                                //     z-index: -1;
+                                //     content: '';
+                                //     position: absolute;
+                                //     background: linear-gradient(45deg,#085ddd,transparent,transparent,transparent);
+                                //     width: calc(100% + 10px);
+                                //     height: calc(100% + 10px);
+                                //     top: -5px;
+                                //     left: -5px;
+                                //     border-radius: 50%;
+                                //     animation: rotate 2s linear infinite;
+                                // }
+                            
                         }
                         .h3Color{
                             background-color: #ffa492;
                             color: #fff;
                             transition: 0.5s;
                         }
+                        #sp1:checked ~ label::before{
+                            display: block;
+                        }
+                        #sp2:checked ~ label::before{
+                            display: block;
+                        }
+                        #sp3:checked ~ label::before{
+                            display: block;
+                        }
+                        
                     }
                     
                 }
@@ -525,13 +590,29 @@ p{
                             overflow: hidden;
                             
                             h2{
+                                @include h4;
                                 width: 100%;
-                                margin-bottom: 50px;
+                                margin-bottom: 20px;
+                                text-align: left;
+                                padding: 0 20px;
                                 opacity: 0;
                                 transition: 2s ease-in-out;
-                                // transform: translateX(-100%);
+                                position: relative;
+
+                                &::after{
+                                    content: '';
+                                    width: 90%;
+                                    height: 1px;
+                                    background: #000;
+                                    position: absolute;
+                                    bottom: -5px;
+                                    left: 20px;
+                                    display: inline-block;
+                                }
                             }
                             p{
+                                @include p;
+                                font-size: 12px;
                                 opacity: 0;
                                 padding: 0 20px;
                                 letter-spacing: 0.8px;

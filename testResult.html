@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/chatbot.js"></script>
+
+</head>
+
+<body>
+    <div class="test_content">
+        <div class="test-content_box">
+            <div class="test-content-box_title">您的心理評估分數：</div>
+            <div class="test-content-box_pic">
+                <canvas class="myChart" width="200" height="200" id="myChart"></canvas>
+            </div>
+            <div class="test-content-box_word">欲看分數示詳情請登入會員</div>
+            <a href="">
+                <div class="test-content-box_but">
+                    <input type="submit" class="test_submit" value=登入會員>
+                </div>
+            </a>
+
+        </div>
+        <div class="test-content_result">
+
+            <div class="test-content-result_word">
+                <div class="test-content-result-word_title">自我評估：</div>
+                <ul>
+                    <li>0~20%:屬於較穩定的狀況</li>
+                    <li>20~40%:大部分清況下穩定，偶爾會出現小小失落感。</li>
+                    <li>40%~60:經常出現失落感，建議找尋抒發管道。</li>
+                    <li>60%~80%:時常出現失落感，建議找尋轉業抒發管道。</li>
+                    <li>80%~100%:大部分時間都處於失落狀態下，建議預約諮商。</li>
+                </ul>
+            </div>
+            <a href="">
+                <div class="test-content-result_but">
+                    <input type="submit" class="test_submit" value=預約諮商>
+                </div>
+            </a>
+
+
+        </div>
+    </div>
+
+
+
+    <script>
+        // options = {
+        //     scale: {
+        //         angleLines: {
+        //             display: false
+        //         },
+        //         ticks: {
+        //             suggestedMin: 50,
+        //             suggestedMax: 100
+        //         }
+        //     }
+        // };
+        var ctx = document.getElementById('myChart').getContext("2d");
+        var myRadarChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ["Coding", "Swimming", "Eating", "Cycling", "Sleeping"],
+                datasets: [{
+                    label: "分數",
+                    data: [60, 40, 50, 52, 75]
+                }],
+            },
+            options: {
+                scale: {
+                    angleLines: {
+                        display: false
+                    },
+                    ticks: {
+                        suggestedMin: 50,
+                        suggestedMax: 100
+                    }
+                }
+            },
+        });
+
+
+        // ctx = $(".myChart").getContext("2d");
+        //         myChart = new Chart(ctx, {
+        //             type: "radar",
+        //             data: datas,
+        //             options: option
+        //         })
+    </script>
+</body>
+
+</html>
