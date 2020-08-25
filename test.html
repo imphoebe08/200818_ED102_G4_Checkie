@@ -102,7 +102,7 @@
                 <ask-content questions="您對於目前的感情狀態滿意嗎？" v-show="display"></ask-content>
                 <ans-buttons-grades v-show="display" @submit_value="changeA" name="q11"></ans-buttons-grades>
                 <ans-content :answers="a11.content" v-show="display"></ans-content>
-                <input type="submit" class="test_submit" value="完成測驗" v-show="finish">
+                <input type="submit" class="test_submit" value="完成測驗" v-show="finish" @click="finish_form">
             </div>
 
             

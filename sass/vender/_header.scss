@@ -1,3 +1,7 @@
+.ansButtons-grades>input{
+    display: none;
+}
+
 .hamburger {
     padding: 5px 0;
     float: left;
@@ -215,40 +219,15 @@ header{
     opacity: 0;
     transition: background-color 0s;
     z-index: 51;
-}
-
-@media (max-width: 768px){
-    .navbar__menu{
-        width: 0;
-    }
-}
-
-.navbar__menu--active {
-    opacity: 1;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    position: absolute;
-    padding-top: 50px;
-    top: 80px;
-    height: 100vh;
-    width: 100vw;
-    //background-color: rgba(22, 22, 22, 0.85);
-    background-color: #ffcbbf;
-    transition: background-color .4s; 
-}
-
-.navbar__sign{
-    line-height: 78px;
-    margin: auto 0;
-    margin-left: 20px;
-    list-style: none;
-    color: rgb(0, 0, 0);
 
     .test_button{
         @include btn-modules($bw, $color-pink, $fontsize);
-        padding:0 8px;
-        margin-right:10px;
+        display: inline-block;
+        margin:auto 0;
+        padding: 0 20px;
+        height: 30px;
+        text-align: center;
+        line-height: 20px;
         background: transparent;
         font-size: 16px;
         font-weight: 400;
@@ -261,6 +240,52 @@ header{
         }
   
     }
+}
+
+@media (max-width: 800px){
+    .navbar__menu{
+        width: 0;
+
+        .test_button{
+            width: 150px;
+            height: 50px;
+            margin:10px auto 0;
+            border-radius: 300px;
+            text-align: center;
+            border: 2px solid #fff;
+
+            &:hover{
+                background:transparent;
+                color:#fff;
+                border: 2px solid #fff;
+            }
+            
+        }
+    }
+}
+
+.navbar__menu--active {
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    position: absolute;
+    padding-top: 50px;
+    top: 80px;
+    height: 100vh;
+    width: 100vw;
+    //background-color: rgba(22, 22, 22, 0.85);
+    background-color: #ffcbbf;
+    transition: background-color .4s; 
+}
+
+.navbar__sign{
+    line-height: 80px;
+    margin: auto 0;
+    margin-left: 20px;
+    list-style: none;
+    color: rgb(0, 0, 0);
 
     
     .navbar__sign__item{
@@ -268,7 +293,7 @@ header{
         border:0;
         background-color:transparent;
         font-size: $fontsize;
-        margin: 0;
+        margin: auto 0;
         padding: 0;
         cursor: pointer;
         &:focus{
@@ -295,7 +320,7 @@ header{
 
 /*-----------------Desktop-------------------*/
 
-@media (min-width: 768px) {
+@media (min-width: 799px) {
 
     .navbar__menu {
         opacity: 1;

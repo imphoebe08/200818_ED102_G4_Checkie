@@ -9,11 +9,51 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./js/chatbot.js"></script>
-
+    <script src="./js/header.js"></script>
 </head>
 
 <body>
+
+    <div class="signup_overlay signup_overlay-none" id="signup_overlay">
+        <div class="container" id="container">
+            <span class="container_close" id="close">&times;</span>
+            <div class="form-container sign-up-container">
+                <form action="#">
+                    <h3>加入會員</h3>
+                    <span>請填寫以下資訊完成註冊</span>
+                    <input type="text" placeholder="Name" />
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button>註冊</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="#">
+                    <h3>登入會員</h3>
+                    <span>請輸入您的帳號密碼</span>
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <a href="#">忘記密碼？</a>
+                    <button>登入</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h3>歡迎回來！</h3>
+                        <p>登入會員享有更多服務</p>
+                        <button class="ghost" id="signIn">登入會員</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h3>歡迎加入Checkie！</h3>
+                        <p>為生命帶來一些新的可能，<br>只需簡單完成申請</p>
+                        <button class="ghost" id="signUp">加入會員</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="test_content">
         <div class="test-content_box">
             <div class="test-content-box_title">您的心理評估分數：</div>
@@ -21,9 +61,13 @@
                 <canvas class="myChart" width="200" height="200" id="myChart"></canvas>
             </div>
             <div class="test-content-box_word">欲看分數示詳情請登入會員</div>
-            <a href="">
+            <a href="#">
                 <div class="test-content-box_but">
+<<<<<<< HEAD
                     <input type="submit" class="testResult_submit" value=登入會員>
+=======
+                    <input type="button" id="signin" class="test_submit" value=登入會員>
+>>>>>>> 12eb88658db3c9ac72f6c1cfd0ecfeeffd819ed2
                 </div>
             </a>
 
@@ -40,7 +84,7 @@
                     <li>80%~100%:大部分時間都處於失落狀態下，建議預約諮商。</li>
                 </ul>
             </div>
-            <a href="">
+            <a href="csMain.html">
                 <div class="test-content-result_but">
                     <input type="submit" class="testResult_reservation" value=預約諮商>
                 </div>
