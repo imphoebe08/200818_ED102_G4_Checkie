@@ -495,6 +495,41 @@ header {
   color: black;
 }
 
+.navbar__sign .test_button {
+  display: inline-block;
+  padding: 5px 30px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 30px;
+  border: 2px solid #FFA492;
+  color: #fff;
+  cursor: pointer;
+  background-color: #FFA492;
+  transition: .2s all ease-in;
+  padding: 0 8px;
+  margin-right: 10px;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 400;
+  background: #FFA492;
+  color: white;
+}
+
+.navbar__sign .test_button:hover {
+  background-color: #ff6446;
+  border: 2px solid #ff6446;
+}
+
+.navbar__sign .test_button:focus {
+  display: none;
+}
+
+.navbar__sign .test_button:hover {
+  background: #fff;
+  color: #FFA492;
+}
+
 .navbar__sign .navbar__sign__item {
   display: inline-block;
   border: 0;
@@ -1130,6 +1165,8 @@ input {
   position: relative;
   line-height: 50px;
   font-size: 20px;
+  transition: all 0.5 linear;
+  transition-delay: 0.5s;
 }
 
 .step.active {
@@ -1141,6 +1178,7 @@ input {
   height: 2px;
   background: #c2c2c2;
   flex: 1;
+  transition: all 0.5 linear;
 }
 
 .indicator-line.active {
@@ -8061,7 +8099,7 @@ p {
 
 #oracleCard .oracleCardInner .oracleCardStep .stepBg .stepNum li input {
   opacity: 0;
-  z-index: 1;
+  z-index: -10;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -9041,8 +9079,8 @@ body {
   position: absolute;
   top: 40%;
   left: 0;
-  background-clip: padding-box,border-box;
-  background-origin: padding-box,border-box;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
   background-image: linear-gradient(225deg, #91D0EB, #FFA492);
   border: 2px transparent solid;
   opacity: 0.7;
@@ -9056,8 +9094,8 @@ body {
   position: absolute;
   top: 10%;
   left: 50%;
-  background-clip: padding-box,border-box;
-  background-origin: padding-box,border-box;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
   background-image: linear-gradient(200deg, #91D0EB, #FFA492);
   border: 2px transparent solid;
   opacity: 0.7;
@@ -9071,8 +9109,8 @@ body {
   position: absolute;
   top: 58%;
   left: 30%;
-  background-clip: padding-box,border-box;
-  background-origin: padding-box,border-box;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
   background-image: linear-gradient(45deg, #91D0EB, #FFA492);
   border: 2px transparent solid;
   opacity: 0.7;
@@ -9087,8 +9125,8 @@ body {
   position: absolute;
   top: 10%;
   left: 80%;
-  background-clip: padding-box,border-box;
-  background-origin: padding-box,border-box;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
   background-image: linear-gradient(30deg, #91D0EB, #FFA492);
   border: 2px transparent solid;
   opacity: 0.7;
@@ -9103,8 +9141,8 @@ body {
   position: absolute;
   top: 60%;
   left: 90%;
-  background-clip: padding-box,border-box;
-  background-origin: padding-box,border-box;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
   background-image: linear-gradient(80deg, #91D0EB, #FFA492);
   border: 2px transparent solid;
   opacity: 0.7;
@@ -9119,8 +9157,8 @@ body {
   position: absolute;
   top: 90%;
   left: 70%;
-  background-clip: padding-box,border-box;
-  background-origin: padding-box,border-box;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
   background-image: linear-gradient(80deg, #91D0EB, #FFA492);
   border: 2px transparent solid;
   opacity: 0.7;
@@ -9310,8 +9348,7 @@ body {
 }
 
 .mem-order-each {
-  -webkit-box-shadow: 0 0 5px rgba(75, 83, 94, 0.28);
-          box-shadow: 0 0 5px rgba(75, 83, 94, 0.28);
+  box-shadow: 0 0 5px rgba(75, 83, 94, 0.28);
   margin: 10px;
   border-radius: 5px;
 }
