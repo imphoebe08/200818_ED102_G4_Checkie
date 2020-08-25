@@ -56,6 +56,31 @@ Vue.component("csselfact-layout", {
     }
 });
 
+Vue.component("csselfreco-layout", {
+    template: `
+	<div class="csSelfReco-card">
+                        <div class="card__image" @click="openSelfPage">
+                            <img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1437388/517313_37962.jpg"
+                                alt="">
+                        </div>
+                        <div class="card__title">
+                            <h5  @click="openSelfPage">勞樂程 實習心理師</h5>
+                        </div>
+                        <div class="card__info">
+                            <p>
+                                國立臺灣師範大學教育心理與輔導學系 諮商組碩士班 在學<br>
+                                香港樹仁大學 輔導與心理學系 學士<br>
+                            </p>
+                        </div>
+                    </div>
+`,
+    methods: {
+        openSelfPage() {
+            window.open("./csSelf.html", "_self");
+        },
+    }
+});
+
 let vmcssart = new Vue({
     el: "#app",
     methods: {
