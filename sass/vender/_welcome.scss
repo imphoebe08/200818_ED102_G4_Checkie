@@ -1,0 +1,215 @@
+
+@import 'variable.scss';
+@import 'var.scss';
+
+body {
+    overflow: hidden;
+  }
+  
+  .welcome_container {
+    background-image: linear-gradient(to top, #d1e3f5 0%, white 100%);
+    height: 100vh;
+    max-width: 100%;
+    overflow: hidden;
+
+    .welcome_logo{
+        display: inline-block;
+        width:300px;
+
+        img{
+            width:100%;
+        }
+    }
+
+    .welcome_entry{
+        margin: auto;
+        max-width: 1000px;
+        height: 500px;
+        display: flex;
+        justify-content: space-between;
+        
+
+        .left_btn{
+            width: 50%;
+            height: 100%;
+            position: relative;
+            margin:auto;
+        
+
+        .welcome_front{
+            display: inline-block;
+            margin: auto 0;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform:translateY(-50%) translateX(-50%);
+            z-index: 11;
+            cursor: pointer;
+           
+
+            &:after {
+                content: '';
+                position: absolute;
+                background: linear-gradient(120deg,#91d0ebd7,#ffa492c4);
+                border-radius:50%;
+                border: 0 solid white;
+                top: -5px;
+                right: -5px;
+                bottom: -5px;
+                left: -5px;
+                transition:border 0.25s;
+              }
+              
+              &:hover {
+                &:after {
+                  border: 15px solid white;
+                }
+              }
+
+              h3{
+                  @include h3;
+                  color:#000;
+                  position:absolute;
+                  top: 40%;
+                  left: 50%;
+                  transform:translateY(-50%) translateX(-50%);
+                  z-index: 20;
+              }
+
+        }
+
+    }
+
+    
+    .right_btn{
+            width: 50%;
+            height: 100%;
+            position: relative;
+            margin:auto;
+   
+        .welcome_back{
+            display: inline-block;
+            margin: auto 0;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border:none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform:translateY(-50%) translateX(-50%);
+            z-index: 11;
+            cursor: pointer;
+
+            &:focus {
+                outline: none;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                background: linear-gradient(220deg,#baeaffb7,#ffa694a4);
+                border-radius:50%;
+                border: 0 solid white;
+                top: -5px;
+                right: -5px;
+                bottom: -5px;
+                left: -5px;
+                transition:border 0.25s;
+              }
+              
+              &:hover {
+                &:after {
+                  border: 15px solid white;
+                }
+              }
+
+              h3{
+                @include h3;
+                position:absolute;
+                top: 40%;
+                left: 50%;
+                transform:translateY(-50%) translateX(-50%);
+                z-index: 20;
+            }
+        }
+
+    }
+
+
+    }
+  }
+  
+  .circle {
+    mix-blend-mode: multiply;
+    border-radius: 100%;
+    min-height: 100px;
+    min-width: 100px;
+    position: absolute;
+    transform: translate3d(0,0,0);
+    will-change: left, top;
+    
+    &.pink1 {
+      background-color: #FFA492;
+    }
+
+    &.pink2 {
+        background-color: #ffded7;
+      }
+    
+    &.blue1 {
+      background-color: #91D0EB;
+    }
+    
+    &.blue2 {
+      background-color: #cbf5ff;
+    }
+  }
+
+  @media screen and(max-width:768px){
+
+    .welcome_container{
+
+        .welcome_entry{
+        flex-direction: column;
+        justify-content: center;
+
+            .left_btn{
+
+                .welcome_front{
+                    width: 200px;
+                    height: 200px;
+
+                    h3{
+                        font-size:24px;
+                    }
+            
+                }
+        
+            }
+
+            .right_btn{
+                .welcome_back{
+                    width: 200px;
+                    height: 200px;
+
+                    h3{
+                        font-size:24px;
+                    }
+
+                }
+            }
+
+           
+
+        }
+    }
+
+
+
+ 
+
+}

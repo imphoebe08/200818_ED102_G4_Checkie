@@ -1,0 +1,189 @@
+
+ <div id="form">
+        <section class="step-indicator">
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+        </section>
+        <form action="" >
+        <!-- 點下skip 要關閉表單 ok -->
+            <div id="qsBox">
+                <input type="button" value="SKIP" class="text_skip" @click="skip">
+                <ask-content questions="您好，歡迎來到Checkie。"></ask-content>
+                <ask-content questions="請問您願意填寫心理評估表嗎？如果願意，請您選擇開始測驗，若不願意可以點按右上角的SKIP終止測驗。"></ask-content>
+                <div class="ansButton--start" style="display: none;">
+                    <input class="qsStart" type="button" value="開始測驗" @click="form_start">
+                </div>
+                <ans-content answers="好的，我願意開始測驗。" v-show="display"></ans-content>
+                <ask-content questions="請依照問題及您自身的狀況，從一到五之間選擇最符合您狀況的狀態。" v-show="display"></ask-content>
+                
+                <!-- 第一題 -->
+                <ask-content questions="您對目前家庭關係的滿意度為何？" v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q1"></ans-buttons-grades>
+                <ans-content :answers="a1.content" v-show="display"></ans-content>
+                <!-- 第二題 -->
+                <ask-content questions="您對自己在家庭關係中的滿意度為何？"v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q2"></ans-buttons-grades>
+                <ans-content :answers="a2.content" v-show="display"></ans-content>
+                <!-- 第三題 -->
+                <ask-content questions="您對自己目前的人際關係滿意度為何？" v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q3"></ans-buttons-grades>
+                <ans-content :answers="a3.content" v-show="display"></ans-content>
+                <!-- 第四題 -->
+                <ask-content questions="您對人際交際的狀況給自己幾分？" v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q4"></ans-buttons-grades>
+                <ans-content :answers="a4.content" v-show="display"></ans-content>
+    
+                <!-- 第五題 -->
+                <ask-content questions="您目前感覺外界環境給你的壓力程度為何？"v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q5"></ans-buttons-grades>
+                <ans-content :answers="a5.content" v-show="display"></ans-content>
+    
+                <!-- 第六題 -->
+                <ask-content questions="您是否能承受目前所有的壓力？" v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q6"></ans-buttons-grades>
+                <ans-content :answers="a6.content" v-show="display"></ans-content>
+    
+                <!-- 第七題 -->
+                <ask-content questions="您是否能承受當前大部分感受到的壓力？" v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display"  @submit_value="changeA" name="q7"></ans-buttons-grades>
+                <ans-content :answers="a7.content" v-show="display"></ans-content>
+    
+                <!-- 第八題 -->
+                <ask-content questions="您對自己目前的人生歷程滿意嗎？" v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q8"></ans-buttons-grades>
+                <ans-content :answers="a8.content" v-show="display"></ans-content>
+    
+                <!-- 第九題 -->
+                <ask-content questions="您對自己目前的人生歷程滿意嗎？" v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q9"></ans-buttons-grades>
+                <ans-content :answers="a9.content" v-show="display"></ans-content>
+    
+                <!-- 第十題 -->
+                <ask-content questions="您對自己未來的生人規劃清楚嗎？"  v-show="display"></ask-content>
+                <ans-buttons-grades  v-show="display" @submit_value="changeA" name="q10"></ans-buttons-grades>
+                <ans-content :answers="a10.content" v-show="display"></ans-content>
+    
+                <!-- 第十一題 -->
+                <ask-content questions="您對於目前的感情狀態滿意嗎？" v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q11"></ans-buttons-grades>
+                <ans-content :answers="a11.content" v-show="display"></ans-content>
+                <input type="submit" class="test_submit" value="完成測驗" v-show="finish">
+            </div>
+
+            
+        </form>
+    </div>
+    <div id="form">
+        <section class="step-indicator">
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+            <lines></lines>
+            <steps></steps>
+        </section>
+        <form action="" >
+        <!-- 點下skip 要關閉表單 ok -->
+            <div id="qsBox">
+                <input type="button" value="SKIP" class="text_skip" @click="skip">
+                <ask-content questions="您好，歡迎來到Checkie。"></ask-content>
+                <ask-content questions="請問您願意填寫心理評估表嗎？如果願意，請您選擇開始測驗，若不願意可以點按右上角的SKIP終止測驗。"></ask-content>
+                <div class="ansButton--start" style="display: none;">
+                    <input class="qsStart" type="button" value="開始測驗" @click="form_start">
+                </div>
+                <ans-content answers="好的，我願意開始測驗。" v-show="display"></ans-content>
+                <ask-content questions="請依照問題及您自身的狀況，從一到五之間選擇最符合您狀況的狀態。" v-show="display"></ask-content>
+                
+                <!-- 第一題 -->
+                <ask-content questions="您對目前家庭關係的滿意度為何？" v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q1"></ans-buttons-grades>
+                <ans-content :answers="a1.content" v-show="display"></ans-content>
+                <!-- 第二題 -->
+                <ask-content questions="您對自己在家庭關係中的滿意度為何？"v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q2"></ans-buttons-grades>
+                <ans-content :answers="a2.content" v-show="display"></ans-content>
+                <!-- 第三題 -->
+                <ask-content questions="您對自己目前的人際關係滿意度為何？" v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q3"></ans-buttons-grades>
+                <ans-content :answers="a3.content" v-show="display"></ans-content>
+                <!-- 第四題 -->
+                <ask-content questions="您對人際交際的狀況給自己幾分？" v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q4"></ans-buttons-grades>
+                <ans-content :answers="a4.content" v-show="display"></ans-content>
+    
+                <!-- 第五題 -->
+                <ask-content questions="您目前感覺外界環境給你的壓力程度為何？"v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q5"></ans-buttons-grades>
+                <ans-content :answers="a5.content" v-show="display"></ans-content>
+    
+                <!-- 第六題 -->
+                <ask-content questions="您是否能承受目前所有的壓力？" v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q6"></ans-buttons-grades>
+                <ans-content :answers="a6.content" v-show="display"></ans-content>
+    
+                <!-- 第七題 -->
+                <ask-content questions="您是否能承受當前大部分感受到的壓力？" v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display"  @submit_value="changeA" name="q7"></ans-buttons-grades>
+                <ans-content :answers="a7.content" v-show="display"></ans-content>
+    
+                <!-- 第八題 -->
+                <ask-content questions="您對自己目前的人生歷程滿意嗎？" v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q8"></ans-buttons-grades>
+                <ans-content :answers="a8.content" v-show="display"></ans-content>
+    
+                <!-- 第九題 -->
+                <ask-content questions="您對自己目前的人生歷程滿意嗎？" v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q9"></ans-buttons-grades>
+                <ans-content :answers="a9.content" v-show="display"></ans-content>
+    
+                <!-- 第十題 -->
+                <ask-content questions="您對自己未來的生人規劃清楚嗎？"  v-show="display"></ask-content>
+                <ans-buttons-grades  v-show="display" @submit_value="changeA" name="q10"></ans-buttons-grades>
+                <ans-content :answers="a10.content" v-show="display"></ans-content>
+    
+                <!-- 第十一題 -->
+                <ask-content questions="您對於目前的感情狀態滿意嗎？" v-show="display"></ask-content>
+                <ans-buttons-grades v-show="display" @submit_value="changeA" name="q11"></ans-buttons-grades>
+                <ans-content :answers="a11.content" v-show="display"></ans-content>
+                <input type="submit" class="test_submit" value="完成測驗" v-show="finish">
+            </div>
+
+            
+        </form>
+    </div>
+    
+
