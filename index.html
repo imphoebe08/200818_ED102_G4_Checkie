@@ -11,12 +11,11 @@
     <!-- ---------- -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r119/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     <!-- navbar js -->
     <script src="./js/index-header.js"></script>
     <script src="./js/chatbot.js"></script>
@@ -27,11 +26,11 @@
         .st0 {
             fill: url(#SVGID_1_);
         }
-
+        
         .st1 {
             fill: url(#SVGID_2_);
         }
-
+        
         .st2 {
             fill: url(#SVGID_3_);
         }
@@ -42,8 +41,7 @@
     <!------導覽列------>
     <div class="top">
         <div class="navbar">
-            <a href="./index.html" class="navbar__item logo"><img src="./img/navbar/cklogo.png" alt
-                    class="desktop_logo"><img src="./img/navbar/cklogo2.png" alt class="mobile_logo"></a>
+            <a href="./index.html" class="navbar__item logo"><img src="./img/navbar/cklogo.png" alt class="desktop_logo"><img src="./img/navbar/cklogo2.png" alt class="mobile_logo"></a>
             <div class="navbar__menu">
                 <a class="navbar__item navbar__link" href="./csMain.html">預約諮詢</a>
                 <a class="navbar__item navbar__link" href="./chatRoom.html">線上諮商</a>
@@ -63,7 +61,7 @@
             <span class="hamburger hamburger--collapse navbar__item" id="js-navbar-toggle">
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
-                </span>
+            </span>
             </span>
         </div>
     </div>
@@ -165,9 +163,7 @@
         <!-- logo 特校 -->
         <div class="inBanner-logo_block">
             <div class="inBanner-logo">
-                <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 259 210"
-                    style="enable-background:new 0 0 259 210;" xml:space="preserve" class="inBanner-hide_svg">
+                <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 259 210" style="enable-background:new 0 0 259 210;" xml:space="preserve" class="inBanner-hide_svg">
                     <g>
                         <!-- 漸層色 -->
                         <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="118.2956" y1="33.1352"
@@ -376,7 +372,7 @@
                 },
             },
             watch: {
-                iMode: function () {
+                iMode: function() {
                     if (this.iMode !== "諮商方式") {
                         document.getElementById("iModeBut").style.color = "red";
                         if (this.iMode == "現場諮商") {
@@ -400,7 +396,7 @@
                         document.getElementById("iModeBut").style.color = "black";
                     }
                 },
-                iPos: function () {
+                iPos: function() {
                     if (this.iPos !== "地區") {
                         document.getElementById("iPosBut").style.color = "red";
                         this.stage2 = true;
@@ -409,7 +405,7 @@
                         document.getElementById("iPosBut").style.color = "black";
                     }
                 },
-                iType: function () {
+                iType: function() {
                     if (this.iType !== "專業") {
                         document.getElementById("iTypeBut").style.color = "red";
                         this.stage3 = true;
@@ -418,7 +414,7 @@
                         document.getElementById("iTypeBut").style.color = "black";
                     }
                 },
-                iCs: function () {
+                iCs: function() {
                     if (this.iType !== "諮商師") {
                         document.getElementById("iCsBut").style.color = "red";
                         this.stage4 = true;
@@ -428,19 +424,19 @@
                     }
                     this.doFirst();
                 },
-                stage1: function () {
+                stage1: function() {
                     if (this.stage1 == false) {
                         this.iPos = "地區";
                     }
                 },
-                stage2: function () {
+                stage2: function() {
                     if (this.stage2 == false) {
                         this.iType = "專業";
                         this.iCs = "諮商師";
                         this.stage4 = false;
                     }
                 },
-                stage3: function () {
+                stage3: function() {
                     if (this.stage3 == false) {
                         this.stage4 = false;
                     }
@@ -690,8 +686,8 @@
                     template: `
                     <div class="inAct_item">
                                     <!-- 帶資料 -->
-                        <a href="javascript:void(0)">
-                            <img src="./img/index/inAct/image_1.jpg">
+                        <a href="javascript:void(0)" draggable="false">
+                            <img src="./img/index/inAct/image_1.jpg" draggable="false">
                         </a>
                         <div class="inAct_text">
                             <div class="inAct-top_text">
@@ -701,12 +697,12 @@
                                     <div class="inAct-date_text">2020-08-14(五) ~ 2020-08-16(日)</div>  
                                 </div>
                                 <div class="inAct-icon_block">
-                                    <a href="javascript:void(0)" class="inAct-icon_1"></a>
-                                    <a href="javascript:void(0)" class="inAct-icon_2"></a>
+                                    <a href="javascript:void(0)" class="inAct-icon_1" draggable="false"></a>
+                                    <a href="javascript:void(0)" class="inAct-icon_2" draggable="false"s></a>
                                 </div>
                             </div>
                                     <!-- 帶資料 -->
-                            <div class="inAct_title"><a href="javascript:void(0)">從陌生人到貴人，打造職涯路上的黃金人脈法則</a> </div>
+                            <div class="inAct_title"><a href="javascript:void(0)" draggable="false">從陌生人到貴人，打造職涯路上的黃金人脈法則</a> </div>
     
                             <div class="inAct_location">
                                 <div class="inAct-location_icon"></div>
@@ -718,24 +714,188 @@
                          `,
                 },
             },
+            mounted() {
+                onWndLoad();
+
+                function onWndLoad() {
+
+                    var slider = document.querySelector('.inAct_block');
+                    var sliders = slider.children;
+                    console.log(sliders)
+                    var initX = null;
+                    var transX = 0;
+                    var rotZ = 0;
+                    var transY = 0;
+
+                    var curSlide = null;
+
+                    var Z_DIS = 50;
+                    var Y_DIS = 10;
+                    var TRANS_DUR = 0.4;
+                    // 關閉drag
+                    var images = document.querySelectorAll('inAct_item>a>img');
+                    for (var i = 0; i < images.length; i++) {
+                        images[i].onmousemove = function(e) {
+                            e.preventDefault()
+
+                        }
+                        images[i].ondragstart = function(e) {
+                            return false;
+
+                        }
+                    }
+                    // 1
+                    function init() {
+                        var z = 0,
+                            y = 0;
+                        for (var i = sliders.length - 1; i >= 0; i--) {
+                            sliders[i].style.transform = 'translateZ(' + z + 'px) translateY(' + y + 'px)';
+
+                            z -= Z_DIS;
+                            y += Y_DIS;
+                        }
+                        attachEvents(sliders[sliders.length - 1]);
+
+
+
+                    }
+                    // 2
+                    function attachEvents(elem) {
+                        curSlide = elem;
+
+                        curSlide.addEventListener('mousedown', slideMouseDown);
+                        curSlide.addEventListener('touchstart', slideMouseDown);
+                    }
+                    init();
+
+                    function slideMouseDown(e) {
+
+                        if (e.touches) {
+                            initX = e.touches[0].clientX;
+                        } else {
+                            initX = e.pageX;
+                        }
+
+
+                        document.addEventListener('mousemove', slideMouseMove);
+                        document.addEventListener('touchmove', slideMouseMove);
+
+                        document.addEventListener('mouseup', slideMouseUp);
+                        document.addEventListener('touchend', slideMouseUp);
+                    }
+                    var prevSlide = null;
+
+                    function slideMouseMove(e) {
+                        var mouseX;
+
+                        if (e.touches) {
+                            mouseX = e.touches[0].clientX;
+                        } else {
+                            mouseX = e.pageX;
+                        }
+
+                        transX += mouseX - initX;
+                        rotZ = transX / 20;
+
+                        transY = -Math.abs(transX / 15);
+
+
+
+                        curSlide.style.transition = 'none';
+                        curSlide.style.webkitTransform = 'translateX(' + transX + 'px)' + ' rotateZ(' + rotZ + 'deg)' + ' translateY(' + transY + 'px)';
+                        curSlide.style.transform = 'translateX(' + transX + 'px)' + ' rotateZ(' + rotZ + 'deg)' + ' translateY(' + transY + 'px)';
+                        var j = 1;
+                        //remains elements
+                        for (var i = sliders.length - 2; i >= 0; i--) {
+
+                            sliders[i].style.webkitTransform = 'translateX(' + transX / (2 * j) + 'px)' + ' rotateZ(' + rotZ / (2 * j) + 'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' + ' translateZ(' + (-Z_DIS * j) + 'px)';
+                            sliders[i].style.transform = 'translateX(' + transX / (2 * j) + 'px)' + ' rotateZ(' + rotZ / (2 * j) + 'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' + ' translateZ(' + (-Z_DIS * j) + 'px)';
+                            sliders[i].style.transition = 'none';
+                            j++;
+                        }
+
+
+
+                        initX = mouseX;
+                        e.preventDefault();
+                        if (Math.abs(transX) >= curSlide.offsetWidth - 30) {
+
+                            document.removeEventListener('mousemove', slideMouseMove);
+                            document.removeEventListener('touchmove', slideMouseMove);
+                            curSlide.style.transition = 'ease 0.2s';
+                            curSlide.style.opacity = 0;
+                            prevSlide = curSlide;
+                            attachEvents(sliders[sliders.length - 2]);
+                            slideMouseUp();
+                            setTimeout(function() {
+
+
+
+
+
+                                slider.insertBefore(prevSlide, slider.firstChild);
+
+                                prevSlide.style.transition = 'none';
+                                prevSlide.style.opacity = '1';
+                                slideMouseUp();
+
+                            }, 201);
+
+
+
+                            return;
+                        }
+                    }
+
+                    function slideMouseUp() {
+                        transX = 0;
+                        rotZ = 0;
+                        transY = 0;
+
+                        curSlide.style.transition = 'cubic-bezier(0,1.95,.49,.73) ' + TRANS_DUR + 's';
+
+                        curSlide.style.webkitTransform = 'translateX(' + transX + 'px)' + 'rotateZ(' + rotZ + 'deg)' + ' translateY(' + transY + 'px)';
+                        curSlide.style.transform = 'translateX(' + transX + 'px)' + 'rotateZ(' + rotZ + 'deg)' + ' translateY(' + transY + 'px)';
+                        //remains elements
+                        var j = 1;
+                        for (var i = sliders.length - 2; i >= 0; i--) {
+                            sliders[i].style.transition = 'cubic-bezier(0,1.95,.49,.73) ' + TRANS_DUR / (j + 0.9) + 's';
+                            sliders[i].style.webkitTransform = 'translateX(' + transX + 'px)' + 'rotateZ(' + rotZ + 'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' + ' translateZ(' + (-Z_DIS * j) + 'px)';
+                            sliders[i].style.transform = 'translateX(' + transX + 'px)' + 'rotateZ(' + rotZ + 'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' + ' translateZ(' + (-Z_DIS * j) + 'px)';
+
+                            j++;
+                        }
+
+                        document.removeEventListener('mousemove', slideMouseMove);
+                        document.removeEventListener('touchmove', slideMouseMove);
+
+                    }
+
+
+                }
+            },
         })
     </script>
 
     <div class="inArti" id="inArti">
-        <div class="inArti_left">
-            <inArti-item v-for="num in 5">
-                </inArti-left-item>
-        </div>
-        <div class="inArti_conter">
-            <div class="inArti-conterbox">
-                <inArti-item v-for="num in 3">
+        <h1>專欄文章</h1>
+        <div class="inArti_body">
+            <div class="inArti_left">
+                <inArti-item v-for="num in 5">
+                    </inArti-left-item>
+            </div>
+            <div class="inArti_conter">
+                <div class="inArti-conterbox">
+                    <inArti-item v-for="num in 3">
+                        </inArti-left-item>
+                </div>
+            </div>
+            <div class="inArti_right">
+                <inArti-item v-for="num in 4">
                     </inArti-left-item>
             </div>
         </div>
-        <div class="inArti_right">
-            <inArti-item v-for="num in 4">
-                </inArti-left-item>
-        </div>
+
     </div>
     <script>
         // inArti
@@ -758,7 +918,7 @@
             <a href="javascript:void(0)">
                 <article>
                     <div class="inArti-left_pic1">
-                        <img src="./img/index/inArti/family/family2-2.png" alt="">
+                        <img src="./img/index/inArti/family/family2-2.png" alt="" >
                     </div>
                     <div class="inArti-left_detail">
                         <div class="inArti-left-detail_block">
@@ -783,35 +943,10 @@
 
 
             },
+
         })
     </script>
     <div class="inCard" id="inCard">
-        <!-- 傷心的失敗作 -->
-        <!-- <div class="inCard_text">透過神諭卡，看看當下最需要的訊息</div>
-        <a href="javascript:void:(0)">抽取今日神諭卡</a>
-        <div class="inCard_body">
-                <div> 
-                    <div></div>
-                </div>
-                <div> 
-                    <div></div>
-                </div>
-                <div> 
-                    <div></div>
-                </div>
-                <div> 
-                    <div></div>
-                </div>
-                <div> 
-                    <div></div>
-                </div>
-                <div> 
-                    <div></div>
-                </div>
-                <div> 
-                    <div></div>
-                </div>
-        </div> -->
         <div class="inCard_block">
             <!-- <h1>神諭卡</h1> -->
             <div class="inCard_text">透過神諭卡，看看當下最需要的訊息</div>
@@ -841,6 +976,7 @@
     <script>
     </script>
     <div class="inAbout" id="inAbout">
+        <h1 class="rwd_h1">關於我們</h1>
         <div class="inAbout-left_block">
             <div class="inAbout-text_block">
                 <h1>關於我們</h1>
@@ -850,7 +986,7 @@
                 </div>
                 <div class="inAbout-place_block">
                     <div class="inAbout-place_btn">
-                        <div class="inAbout-place_block" @click="list">
+                        <div class="inAbout-place_block" @click="!select">
                             <div class="inAbout-btn_text">{{about[about_nowNum].area}}區</div>
                             <div class="inAbout-btn_icon"></div>
                         </div>
@@ -886,9 +1022,7 @@
                     <div class="inAbout_text">
                         <div class="inAbout_content">{{about[about_nowNum].tel}}
                             <div class="inAbout-area_icon inAbout-icon_tel"></div>
-
                         </div>
-
                         <!-- <div class="inAbout_content">臺北市大安區忠孝東路三段5樓之2</div> -->
                     </div>
                 </div>
@@ -979,9 +1113,6 @@
                 },
             },
             methods: {
-                list() {
-                    this.select = true;
-                },
                 changeAboutNum2() {
                     let nowNum = this.about_nowNum;
                     this.about_nowNum = this.about_Num2;
