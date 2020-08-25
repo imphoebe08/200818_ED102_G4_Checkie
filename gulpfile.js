@@ -89,7 +89,7 @@ gulp.task('default', function() {
 
     // backstageWatch
     gulp.watch(['./backstage/html/*.html', './backstage/html/**/*.html'], ['bghtml']).on('change', reload);
-    gulp.watch(['./backstage/sass/*.scss', './backstage/sass/**/*.scss'], ['copyjs']).on('change', reload);
+    gulp.watch(['./backstage/sass/*.scss', './backstage/sass/**/*.scss'], ['bgsass']).on('change', reload);
 });
 
 //壓縮圖檔
