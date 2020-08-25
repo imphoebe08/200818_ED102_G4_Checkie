@@ -5,15 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>諮商師內頁 | CHECKIE</title>
-    <link rel="stylesheet"
-        href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap-grid.min.css'>
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap-grid.min.css'>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-    @@include('template/header.html')
-    @@include('template/bg.html')
+    @@include('template/header.html') @@include('template/bg.html')
 
     <div id="app" class="container-fluid csSelf">
         <div class="row csS-info">
@@ -70,29 +68,29 @@
             </div>
         </div>
 
-        <h2>醫師撰寫專欄</h1>
+        <h2>醫師撰寫專欄</h2>
 
-            <div class="row csS-art">
-                <cssart-layout></cssart-layout>
-                <cssart-layout></cssart-layout>
-                <cssart-layout></cssart-layout>
-            </div>
+        <div class="row csS-art">
+            <cssart-layout></cssart-layout>
+            <cssart-layout></cssart-layout>
+            <cssart-layout></cssart-layout>
+        </div>
 
-            <h2>醫師參與活動</h1>
+        <h2>醫師參與活動</h2>
 
-                <div id="csSelfAct">
-                    <csselfact-layout></csselfact-layout>
-                    <csselfact-layout></csselfact-layout>
-                    <csselfact-layout></csselfact-layout>
-                </div>
+        <div id="csSelfAct">
+            <csselfact-layout></csselfact-layout>
+            <csselfact-layout></csselfact-layout>
+            <csselfact-layout></csselfact-layout>
+        </div>
 
-                <h2>其他推薦醫師</h2>
+        <h2>其他推薦醫師</h2>
 
-                <div id="csSelfReco">
-                    <csselfreco-layout></csselfreco-layout>
-                    <csselfreco-layout></csselfreco-layout>
-                    <csselfreco-layout></csselfreco-layout>
-                </div>
+        <div id="csSelfReco">
+            <csselfreco-layout></csselfreco-layout>
+            <csselfreco-layout></csselfreco-layout>
+            <csselfreco-layout></csselfreco-layout>
+        </div>
     </div>
 
     @@include('template/footer.html')
