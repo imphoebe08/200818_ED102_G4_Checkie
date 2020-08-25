@@ -245,6 +245,23 @@ header{
     list-style: none;
     color: rgb(0, 0, 0);
 
+    .test_button{
+        @include btn-modules($bw, $color-pink, $fontsize);
+        padding:0 8px;
+        margin-right:10px;
+        background: transparent;
+        font-size: 16px;
+        font-weight: 400;
+        background:$color-pink;
+        color:white;
+
+        &:hover{
+            background:#fff;
+            color:$color-pink;
+        }
+  
+    }
+
     
     .navbar__sign__item{
         display: inline-block;
