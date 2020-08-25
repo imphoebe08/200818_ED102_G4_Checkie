@@ -22,8 +22,13 @@
                             font-size: 22px;
                             color: #949494;
                         }
-                        .test-content-box_but {
-                            margin-bottom: 4%;
+                        a {
+                            .test-content-box_but {
+                                margin-bottom: 4%;
+                                input {
+                                    @include btn-modules($bw, $color-pink, $fontsize);
+                                }
+                            }
                         }
                     }
                     .test-content_result {
