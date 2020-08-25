@@ -29,8 +29,8 @@
                 transition: all 1s linear;
                 position: absolute;
                 transform: translateY(-50%) perspective(600px) scale(0);
-                width: 250px;
-                height: 400px;
+                width: 240px;
+                height: 420px;
                 top: 50%;
                 // transform-origin: top center -1000px;
                 >a {
@@ -39,13 +39,15 @@
                     height: 100%;
                     @include bg;
                     background-size: cover;
-                    box-shadow: 2px 5px 15px 3px rgb(49, 49, 49);
+                    border-radius: 10px;
+                    box-shadow: 2px 5px 10px rgba(143, 143, 143, 0.562);
                 }
             }
             @for $i from 1 through 5 {
                 >div:nth-child(#{$i}) {
                     a {
-                        background-image: url("../img/index/InCard/card_#{$i}.jpg");
+                        //background-image: url("../img/index/InCard/card_#{$i}.jpg");
+                        background-image: url("../img/oracleCard/cards/heaven/heaven_#{$i}.png");
                     }
                 }
             }
@@ -86,10 +88,8 @@
             }
         }
         .inCard_btn {
-            @include btn-modules($bw,
-            $color-pink,
-            $fontsize);
-            width: $bw;
+            @include btn-modules($bw,$color-pink,$fontsize);
+            width: 150px;
             display: block;
             border-radius: $border-radius;
             background-clip: padding-box, border-box;
@@ -99,6 +99,13 @@
             text-decoration: none;
             color: black;
             margin: auto;
+            padding: 10px 10px;
+            transition: padding .5s ease;
+
+            &:hover {
+                padding:10px 25px;
+                border:2px solid $color-pink;
+            }
         }
     }
 }

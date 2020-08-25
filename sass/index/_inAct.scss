@@ -61,6 +61,7 @@ $space:300px;
                 align-items: center;
                 justify-content: space-around;
                 .inAct_item {
+                    background:rgba(255, 255, 255, 0.801);
                     display: inline-block;
                     width: 350px;
                     height: 400px;
@@ -83,18 +84,20 @@ $space:300px;
                                 display: flex;
                                 align-items: center;
                                 .inAct-date_icon {
+                                    margin-left: 10px;
                                     background-image: url("../img/icon/clock.png");
                                     @include bg;
                                     @include icon opacity: 0.5;
                                 }
                                 .inAct-date_text {
                                     @include p;
-                                    margin-left: 10px; //?
+                                    margin-left: 5px;
                                 }
                             }
                             .inAct-icon_block {
                                 display: flex;
                                 align-items: center;
+                                margin-right:8px;
                                 .inAct-icon_1 {
                                     background-image: url("../img/icon/share.png");
                                     @include bg;
@@ -108,16 +111,18 @@ $space:300px;
                             }
                         }
                         .inAct_title {
+                            margin:0 10px;
                             a {
                                 text-decoration: none;
                                 @include h6; //?
                                 color: black;
-                                margin-top: 5px; //?
-                                margin-bottom: 10px; //?
+                                margin-top: 5px; 
+                                margin-bottom: 5px; 
                             }
                         }
                         .inAct_location {
                             display: flex;
+                            margin:0 10px;
                             .inAct-location_icon {
                                 align-self: center;
                                 background-image: url("../img/icon/place.png");
