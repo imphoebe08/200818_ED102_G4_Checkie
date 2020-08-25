@@ -136,6 +136,7 @@ $space:300px;
 }
 
 @media all and (max-width :768px) {
+    @keyframes Act_move {}
     .inAct {
         .inAct_body {
             height: 100vh;
@@ -148,16 +149,10 @@ $space:300px;
                     height: 500px;
                     >div {
                         opacity: 1;
-                        transition: all 0.4s linear;
+                        transform-style: preserve-3d;
+                        transition: all 0.2s linear;
                         background-color: #fff;
                         position: absolute;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                    }
-                    @for $i from 1 through 6 {
-                        >div:nth-child(#{$i}) {
-                            top: (56%-($i*2));
-                        }
                     }
                 }
             }

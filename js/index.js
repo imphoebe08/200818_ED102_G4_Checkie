@@ -105,8 +105,11 @@ $(function() {
     var scene01 = new ScrollMagic.Scene({
             triggerElement: "#inAct",
             offset: 300,
-            triggerHook: .5
+            // triggerHook: .5
         }).setTween([t1, t2])
+        .addIndicators({
+            name: 'key_01'
+        })
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
 
@@ -118,8 +121,11 @@ $(function() {
     var scene02 = new ScrollMagic.Scene({
             triggerElement: "#inArti",
             offset: 0,
-            triggerHook: .5
+            // triggerHook: .5
         }).setTween([t3, t4])
+        .addIndicators({
+            name: 'key_02'
+        })
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
 
@@ -131,8 +137,11 @@ $(function() {
     var scene03 = new ScrollMagic.Scene({
             triggerElement: "#inCard",
             offset: 0,
-            triggerHook: .5
+            // triggerHook: .5
         }).setTween([t5, t6, btn])
+        .addIndicators({
+            name: 'key_03'
+        })
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
 
@@ -144,8 +153,11 @@ $(function() {
     var scene04 = new ScrollMagic.Scene({
             triggerElement: "#inAbout",
             offset: 0,
-            triggerHook: .5
+            // triggerHook: .5
         }).setTween([t7, t8])
+        .addIndicators({
+            name: 'key_04'
+        })
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
 
@@ -158,30 +170,31 @@ $(function() {
     var scene05 = new ScrollMagic.Scene({
             triggerElement: ".inCs_group",
             offset: 0,
-            triggerHook: .5
+            // triggerHook: .5
         }).setTween([t9, t10])
+        .addIndicators({
+            name: 'key_05'
+        })
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
-    var a = 0;
 
     function card() {
         $(".inCard_body").removeClass("rwd_ani")
         var win_scroll = $(window).scrollTop();
         var inCard = $("#inCard").offset().top;
         var win_H = $(window).height();
-        if (win_scroll > inCard - 0.1 * win_H && a == 0) {
+        if (win_scroll > inCard - 0.1 * win_H) {
             // $(".inCard_body>div").css("transformOrigin","top center -1000px")
             $(".inCard_body").addClass("inCard_ani")
         }
     }
-    var b = 0
 
     function rwd_card() {
         $(".inCard_body").removeClass("inCard_ani");
         var win_scroll = $(window).scrollTop();
         var inCard = $("#inCard").offset().top;
         var win_H = $(window).height();
-        if (win_scroll > inCard - 0.5 * win_H && b == 0) {
+        if (win_scroll > inCard - 0.5 * win_H) {
             // $(".inCard_body>div").css("transformOrigin","top center -1000px")
             $(".inCard_body").addClass("rwd_ani")
 
@@ -196,68 +209,12 @@ $(function() {
         }
     })
     $(window).resize(function() {
-            if ($(window).width() >= 1024) {
-                card()
-            } else {
-                rwd_card();
-            }
-        })
-        // mouse 轉touch
-    var mouseEventTypes = {
-        touchstart: "mousedown",
-        touchmove: "mousemove",
-        touchend: "mouseup"
-    };
-
-    for (originalType in mouseEventTypes) {
-        document.addEventListener(originalType, function(originalEvent) {
-            event = document.createEvent("MouseEvents");
-            touch = originalEvent.changedTouches[0];
-            event.initMouseEvent(mouseEventTypes[originalEvent.type], true, true,
-                window, 0, touch.screenX, touch.screenY, touch.clientX,
-                touch.clientY, touch.ctrlKey, touch.altKey, touch.shiftKey,
-                touch.metaKey, 0, null);
-            originalEvent.target.dispatchEvent(event);
-        });
-    }
-    // rwd 活動
-    $(".inAct_block>.inAct_item:last-child").on("mousedown", function() {
-        console.log(123)
-        var start_x = event.x;
-        var clone = $(".inAct_block>.inAct_item:last-child").clone();
-
-        $(".inAct_block").mousemove(function() {
-
-            var move_x = event.x,
-                dis = move_x - start_x,
-                k = 1;
-
-            for (i = 6; i > 0; i--) {
-                var pow = Math.pow(0.5, k);
-
-                $(`.inAct_block>.inAct_item:nth-child(${i})`).css("transform", `translate(${-50+dis*pow}%,-50%) rotateZ(${dis*0.01*i}deg)`)
-                k++;
-            }
-        })
-        $(".inAct_block").mouseup(function() {
-            $(".inAct_block").off("mousemove");
-            $(".inAct_block>.inAct_item:last-child").css({
-                opacity: "0",
-            });
-            $(".inAct_item").css({
-                transform: "translate(-50%,-50%)",
-            });
-            $(".inAct_block>.inAct_item:last-child").remove();
-            // setTimeout(function() {
-            //     $(".inAct_block>.inAct_item").css({
-            //         transition: "none",
-            //         transform: "translate(-50%,-50%)",
-            //     });
-            //     $(".inAct_block>.inAct_item:last-child").remove();
-            //     $(".inAct_block").prepend(clone);
-
-            // }, 500);
-
-        })
+        if ($(window).width() >= 1024) {
+            card()
+        } else {
+            rwd_card();
+        }
     })
+
+
 });
