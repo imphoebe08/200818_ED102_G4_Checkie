@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>CoreUI Free Bootstrap Admin Template</title>
     <!-- Icons-->
-    <link href="node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+    <!-- <link href="node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
     <link href="node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
     <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet"> -->
     <!-- Main styles for this application-->
     <link href="css/style.css" rel="stylesheet">
 </head>
@@ -349,12 +349,17 @@
     </div>
     @@include('layout/footer.html')
     <!-- CoreUI and necessary plugins-->
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <!-- <script src="node_modules/popper.js/dist/umd/popper.min.js"></script> -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="node_modules/pace-progress/pace.min.js"></script>
-    <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
-    <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+    <!-- <script src="node_modules/pace-progress/pace.min.js"></script> -->
+    <!-- <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script> -->
+    <!-- <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script> -->
+    <script src="../../node_modules/coreui/dist/coreui.js"></script>
+    <script src="https://cdnjs.com/libraries/Chart.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js'></script>
+    <script src="../../js/backstage_chart.js"></script>
+
 </body>
 
 </html>
