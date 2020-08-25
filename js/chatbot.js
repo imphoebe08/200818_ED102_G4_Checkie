@@ -1,6 +1,6 @@
 $(function(){
     
-    var CLASS_CIRCLE = '.circle';
+    var CLASS_CIRCLE = '.chatbot_circle';
     var CLASS_ICON = '.icon-elements';
     var CLASS_MODAL = '.modal-wrapper';
     var CLASS_ICON_ACTIVE = 'js-icon-active';

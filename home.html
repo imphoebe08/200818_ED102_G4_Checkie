@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- navbar & footer css -->
+    <link rel="stylesheet" href="./css/main.css">
+
+    <!-- ---------- -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <!-- navbar js -->
+    <script src="./js/index-header.js"></script>
+    <script src="./js/chatbot.js"></script>
+    <!-- --------- -->
+    <script src="./js/index.js"></script>
+    <title>index</title>
+    <style type="text/css">
+        .st0 {
+            fill: url(#SVGID_1_);
+        }
+        
+        .st1 {
+            fill: url(#SVGID_2_);
+        }
+        
+        .st2 {
+            fill: url(#SVGID_3_);
+        }
+    </style>
+</head>
+
+<body id="body">
+
+    @@include('template/index-navbar.html')
+
+    <div class="inBanner" id="inBanner">
+        <!-- 背景圖圈圈 -->
+        <div class="inBanner_bgImg">
+            <div class="inBanner-big_circle"></div>
+            <div class="inBanner-circle_1 inBanner-circle"></div>
+            <div class="inBanner-circle_2 inBanner-circle"></div>
+            <div class="inBanner-circle_3 inBanner-circle"></div>
+            <div class="inBanner-circle_4 inBanner-circle"></div>
+        </div>
+        <!-- 飛入特效 -->
+        <div class="inBanner_cImg">
+            <div class="inBanner-fly_block">
+                <div class="inBanner-fly_item_1"></div>
+                <div class="inBanner-fly_item_2"></div>
+                <div class="inBanner-fly_item_3"></div>
+            </div>
+            <div class="inBanner-fly_block">
+                <div class="inBanner-fly_item_4"></div>
+                <div class="inBanner-fly_item_5"></div>
+                <div class="inBanner-fly_item_6"></div>
+            </div>
+            <div class="inBanner-fix_img"></div>
+        </div>
+        <!-- logo 特校 -->
+        <div class="inBanner-logo_block">
+            <div class="inBanner-logo">
+                <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 259 210" style="enable-background:new 0 0 259 210;" xml:space="preserve" class="inBanner-hide_svg">
+                    <g>
+                        <!-- 漸層色 -->
+                        <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="118.2956" y1="33.1352"
+                            x2="74.4876" y2="160.8226" style="transition: all 1s linear;">
+                            <stop offset="1.047867e-02" style="stop-color:#FC987C; " />
+                            <stop offset="0.5277" style="stop-color:#FDC0AF;" />
+                            <stop offset="1" style="stop-color:#FDE0D8;" />
+                        </linearGradient>
+                        <!-- 路徑 -->
+                        <path class="st0" d="M112.4,154.6c-7.9,0-15.9-1.4-23.1-4.6c-16.7-7.3-25.6-20.6-25.6-41.5l0,0c0-13.1,4.7-24.5,12.2-33.1
+                    c9.3-10.8,23.1-16.5,37.3-16.5h21.3c9.3,0,16.9-8,16.9-17.9v0c0-15.8-12.1-28.7-27-28.7h-19.1c-48.9,0-88.9,42.5-88.9,94.4v0
+                    c0,51.9,40,94.4,88.9,94.4h19.1c14.8,0,27-12.9,27-28.7v0c0-9.9-7.6-17.9-16.9-17.9L112.4,154.6z" />
+                        <!-- 漸層色 -->
+                        <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="215.858" y1="31.5315"
+                            x2="132.5854" y2="124.5265">
+                            <stop offset="1.047867e-02" style="stop-color:#FC987C;" />
+                            <stop offset="0.5277" style="stop-color:#FDC0AF;" />
+                            <stop offset="1" style="stop-color:#FEE8EB;" />
+                        </linearGradient>
+                        <!-- 路徑 -->
+                        <path class="st1" d="M231.3,55.2l-70.6,63.7c-13.3,11.8-9.1,15.4-9.5,33.2l1.5,2.9L121,121.3c-10.1-11.5-9-29.2,2.4-39.3L198,17.4
+                    c9.3-8.2,23.6-7.3,31.8,2l3.5,4C241.5,32.7,240.6,47,231.3,55.2z" />
+                        <!-- 漸層色 -->
+                        <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="172.8579" y1="126.1594"
+                            x2="231.934" y2="193.5782">
+                            <stop offset="1.047867e-02" style="stop-color:#FC987C;" />
+                            <stop offset="0.5277" style="stop-color:#FDC0AF;" />
+                            <stop offset="1" style="stop-color:#FEE8EB;" />
+                        </linearGradient>
+                        <!-- 路徑 -->
+                        <path class="st2" d="M192.3,194l-36.9-35.9c-10-10-9.5-24.5,0.5-34.5l33.2-30.8l-1,5.2c-1.3,7.1,0.4,14.6,5.1,20
+                    c0.4,0.5,0.8,0.9,1.2,1.3l36.8,35.6c10,10,10,26.4,0,36.3l-2.6,2.6C218.7,204,202.3,204,192.3,194z" />
+                    </g>
+                </svg>
+                <span class="inBanner-logo_text">CHECKIE</span>
+            </div>
+            <div class="inBanner_text">
+                {{inBanner.text}}
+            </div>
+        </div>
+    </div>
+    <!-- Banner -->
+    <script>
+        new Vue({
+            el: "#inBanner",
+            data: {
+                inBanner: {
+                    text: "為美好的世界獻上祝福<3",
+
+                }
+            },
+
+        });
+    </script>
+    <!-- 搜尋bar -->
+    <div class="index-search-bar" id="app1">
+        <div class="select-block">
+            <span id="iModeBut" @click="slideToggleUl">{{iMode}}</span>
+            <p>選擇你希望的諮商方式</p>
+            <ul>
+                <li v-for="(item, index) in iModes" @click="closeToggle">
+                    <input type="radio" :id="item.id" name="iMode" v-model="iMode" :value="item.value">
+                    <label :for="item.id" @click="changeWord0" v-text="item.value"></label>
+                </li>
+            </ul>
+        </div>
+        <transition name="fade" mode="out-in">
+            <div class="select-block" v-if="stage1">
+                <span id="iPosBut" @click="slideToggleUl">{{iPos}}</span>
+                <p>選擇距離您最近的位置</p>
+                <ul>
+                    <li v-for="(item, index) in iPoss" @click="closeToggle">
+                        <input type="radio" :id="item.id" name="iPos" v-model="iPos" :value="item.value">
+                        <label :for="item.id" @click="changeWord1" v-text="item.value"></label>
+                    </li>
+                </ul>
+            </div>
+        </transition>
+        <transition name="fade" mode="out-in">
+            <div class="select-block" v-if="stage2">
+                <span id="iTypeBut" @click="slideToggleUl">{{iType}}</span>
+                <p>選擇離您的需求</p>
+                <ul>
+                    <li v-for="(item, index) in iTypes" @click="closeToggle">
+                        <input type="radio" :id="item.id" name="iType" v-model="iType" :value="item.value">
+                        <label :for="item.id" @click="changeWord2" v-text="item.value"></label>
+                    </li>
+                </ul>
+            </div>
+        </transition>
+        <transition name="fade" mode="out-in">
+            <div class="select-block" v-if="stage3">
+                <span id="iCsBut" @click="slideToggleUl">{{iCs}}</span>
+                <p>選擇預約諮商師</p>
+                <ul>
+                    <li v-for="(item, index) in iCss" @click="closeToggle">
+                        <input type="radio" :id="item.id" name="iCs" v-model="iCs" :value="item.value">
+                        <label :for="item.id" @click="changeWord3" v-text="item.value"></label>
+                    </li>
+                </ul>
+            </div>
+        </transition>
+        <button v-if="stage4" class="button1" @click="openOrderPage">預約</button>
+    </div>
+    <script>
+        new Vue({
+            el: "#app1",
+            data: {
+                iMode: "諮商方式",
+                iModes: [{
+                    id: "iMode1",
+                    value: "語音諮商"
+                }, {
+                    id: "iMode2",
+                    value: "視訊諮商"
+                }, {
+                    id: "iMode3",
+                    value: "現場諮商"
+                }, {
+                    id: "iMode4",
+                    value: "線上諮商"
+                }],
+                iPos: "地區",
+                iPoss: [{
+                    id: "iNorth",
+                    value: "北"
+                }, {
+                    id: "iCenter",
+                    value: "中"
+                }, {
+                    id: "iSouth",
+                    value: "南"
+                }],
+                iType: "專業",
+                iTypes: [{
+                    id: "iType1",
+                    value: "問題一一"
+                }, {
+                    id: "iType2",
+                    value: "問題二二"
+                }, {
+                    id: "iType3",
+                    value: "問題三三"
+                }, {
+                    id: "iType4",
+                    value: "問題四四"
+                }, {
+                    id: "iType5",
+                    value: "問題五五"
+                }],
+                iCs: "諮商師",
+                iCss: [{
+                    id: "iCs1",
+                    value: "醫師一"
+                }, {
+                    id: "iCs2",
+                    value: "醫師二"
+                }, {
+                    id: "iCs3",
+                    value: "醫師三"
+                }, {
+                    id: "iCs4",
+                    value: "醫師四"
+                }, {
+                    id: "iCs5",
+                    value: "醫師五"
+                }],
+                stage1: false,
+                stage2: false,
+                stage3: false,
+                stage4: false
+            },
+            methods: {
+                changeWord0(e) {
+                    this.iMode = e.target.innerText;
+                    this.doFirst();
+                },
+                changeWord1(e) {
+                    this.iPos = e.target.innerText;
+                    this.doFirst();
+                },
+                changeWord2(e) {
+                    this.iType = e.target.innerText;
+                    this.doFirst();
+                },
+                changeWord3(e) {
+                    this.iCs = e.target.innerText;
+                    this.doFirst();
+                },
+                doFirst() {
+                    $("span").next().next().hide();
+                },
+                slideToggleUl(e) {
+                    // $("span:not(this)").next().next().hide();
+                    if ($(e.target).next().next().css("display") == "none") {
+                        $(e.target).next().next().show();
+                    } else {
+                        $("span").next().next().hide();
+                    }
+                },
+                closeToggle(e) {
+                    $(e.target).parent().parent().hide();
+                },
+                openOrderPage() {
+                    window.open("./coCheck.html", "_self");
+                },
+            },
+            watch: {
+                iMode: function() {
+                    if (this.iMode !== "諮商方式") {
+                        document.getElementById("iModeBut").style.color = "red";
+                        if (this.iMode == "現場諮商") {
+                            this.stage1 = true;
+                            if (this.iPos == "地區") {
+                                this.stage2 = false;
+                                this.stage3 = false;
+                            } else {
+                                this.stage2 = true;
+                                this.stage3 = false;
+                            }
+                            this.iType = "專業";
+                            this.iCs = "諮商師";
+                            this.doFirst();
+                        } else {
+                            this.stage1 = false;
+                            this.stage2 = true;
+                            this.doFirst();
+                        }
+                    } else {
+                        document.getElementById("iModeBut").style.color = "black";
+                    }
+                },
+                iPos: function() {
+                    if (this.iPos !== "地區") {
+                        document.getElementById("iPosBut").style.color = "red";
+                        this.stage2 = true;
+                        this.doFirst();
+                    } else {
+                        document.getElementById("iPosBut").style.color = "black";
+                    }
+                },
+                iType: function() {
+                    if (this.iType !== "專業") {
+                        document.getElementById("iTypeBut").style.color = "red";
+                        this.stage3 = true;
+                        this.doFirst();
+                    } else {
+                        document.getElementById("iTypeBut").style.color = "black";
+                    }
+                },
+                iCs: function() {
+                    if (this.iType !== "諮商師") {
+                        document.getElementById("iCsBut").style.color = "red";
+                        this.stage4 = true;
+                    } else {
+                        document.getElementById("iCsBut").style.color = "black";
+                        this.stage4 = false;
+                    }
+                    this.doFirst();
+                },
+                stage1: function() {
+                    if (this.stage1 == false) {
+                        this.iPos = "地區";
+                    }
+                },
+                stage2: function() {
+                    if (this.stage2 == false) {
+                        this.iType = "專業";
+                        this.iCs = "諮商師";
+                        this.stage4 = false;
+                    }
+                },
+                stage3: function() {
+                    if (this.stage3 == false) {
+                        this.stage4 = false;
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- 諮商師卡片開始 -->
+    <h1 class="inSc-h1">諮商師介紹</h1>
+    <div class="inCs_group" id="inCsGroup">
+        <keep-alive>
+            <div class="inCs inCs--large" v-show="screenWidth >= 576">
+                <ul class="leftList">
+                    <first-layout myclass="leftLi move"></first-layout>
+                    <second-layout myclass="leftLi"></second-layout>
+                    <first-layout myclass="leftLi"></first-layout>
+                    <second-layout myclass="leftLi"></second-layout>
+                    <first-layout myclass="leftLi"></first-layout>
+                    <second-layout myclass="leftLi"></second-layout>
+                    <first-layout myclass="leftLi"></first-layout>
+                </ul>
+                <ul class="rightList">
+                    <second-layout myclass="rightLi move"></second-layout>
+                    <first-layout myclass="rightLi"></first-layout>
+                    <second-layout myclass="rightLi"></second-layout>
+                    <first-layout myclass="rightLi"></first-layout>
+                    <second-layout myclass="rightLi"></second-layout>
+                    <first-layout myclass="rightLi"></first-layout>
+                    <second-layout myclass="rightLi"></second-layout>
+                </ul>
+                <ul class="slide-button">
+                    <li class="point activeNow" id="point1"></li>
+                    <li class="point" id="point2"></li>
+                    <li class="point" id="point3"></li>
+                    <li class="point" id="point4"></li>
+                    <li class="point" id="point5"></li>
+                    <li class="point" id="point6"></li>
+                    <li class="point" id="point7"></li>
+                </ul>
+            </div>
+        </keep-alive>
+        <keep-alive>
+            <div class="inCs swiper-container" v-show="screenWidth < 576">
+                <ul class="inCs-under576 swiper-wrapper">
+                    <third-layout v-for="i in 7"></third-layout>
+                </ul>
+            </div>
+        </keep-alive>
+        <div class="swiper-button-prev" v-show="screenWidth < 576"></div>
+        <div class="swiper-button-next" v-show="screenWidth < 576"></div>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
+    <script>
+        Vue.component("first-layout", {
+            props: ["myclass"],
+            template: `<li :class="myclass">
+                    <img src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg" @click="openSelfPage">
+                    <h1 @click="openSelfPage">蔡佳穎</h1>
+                   	<button @click="openSelfPage">立即預約</button>
+               </li>`,
+            methods: {
+                openSelfPage() {
+                    window.open("./csSelf.html", "_self");
+                },
+            }
+        });
+
+        Vue.component("second-layout", {
+            props: ["myclass"],
+            template: `<li :class="myclass">
+					<h5>認識諮商師</h5>
+					<p>能夠在治療室裡真實地陪伴每個靈魂之外，也是希望能在行有餘力時，盡可能地透過演講或團體的方式，讓沒機會走進治療室的人可以有一個或者有一次被好好看見與照顧的經驗。</p>
+					<h5>治療專業</h5>
+					<div class="inConselor__chart">
+						<canvas class="myChart" width="200" height="200"></canvas>
+					</div>
+                </li>`,
+        });
+
+        Vue.component("third-layout", {
+            template: `<li class="inCs-slide__item swiper-slide">
+					<img src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg" @click="openSelfPage">
+					<h3  @click="openSelfPage">蔡佳穎</h3>
+					<div class="inConselor__chart">
+						<canvas class="myChart" width="200" height="200"></canvas>
+					</div>
+					<button @click="openSelfPage">立即預約</button>
+                </li>`,
+            methods: {
+                openSelfPage() {
+                    window.open("./csSelf.html", "_self");
+                },
+            }
+        });
+
+        new Vue({
+            el: "#inCsGroup",
+            data: {
+                screenWidth: window.innerWidth
+            },
+            mounted() {
+                window.onresize = () => {
+                    this.screenWidth = window.innerWidth;
+                };
+            }
+        });
+
+        // ========================================
+        // slider
+        // ========================================
+
+        function move() {
+            if (
+                window.innerWidth >= 576 &&
+                document.querySelector(".activeNow").nextElementSibling == null
+            ) {
+                $("li.point").removeClass("activeNow");
+                $("li.point:nth-child(1)").addClass("activeNow");
+                $("li.leftLi").removeClass("move");
+                $("li.rightLi").removeClass("move");
+                $("li.leftLi:nth-child(1)").addClass("move");
+                $("li.rightLi:nth-child(1)").addClass("move");
+            } else if (window.innerWidth >= 576) {
+                $(".activeNow").next().addClass("activeNow");
+                $(".activeNow").prev().removeClass("activeNow");
+                $(".move").next().addClass("move");
+                $(".move").prev().removeClass("move");
+            } else {}
+        }
+
+        function clickChange(e) {
+            $("li.point").removeClass("activeNow");
+            $(this).addClass("activeNow");
+            $("li.leftLi").removeClass("move");
+            $("li.rightLi").removeClass("move");
+
+            let index = $("li.activeNow").attr("id").split("point")[1];
+            $(`li.leftLi:nth-child(${index})`).addClass("move");
+            $(`li.rightLi:nth-child(${index})`).addClass("move");
+        }
+
+        function startSlider() {
+            let point = $("li.point");
+            for (let i = 0; i < point.length; i++) {
+                point[i].addEventListener("click", clickChange);
+            }
+            setInterval(move, 5000);
+        }
+
+        startSlider();
+        radarChart();
+        // ========================================
+        // radar.chart
+        // ========================================
+
+        function radarChart() {
+            let datas = {
+                labels: ["家庭關係", "人際關係", "伴侶關係", "壓力創傷", "自我探索"],
+                datasets: [{
+                    label: "分數",
+                    data: [60, 40, 50, 52, 75]
+                }]
+            };
+
+            let option = {
+                legend: {
+                    display: 0,
+                    labels: {
+                        fontColor: "rgb(255, 99, 132)"
+                    }
+                },
+                scale: {
+                    angleLines: {
+                        display: false
+                    },
+                    ticks: {
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                }
+            };
+
+            let ctx = [];
+            let myChart = [];
+            for (let i = 0; i < $(".myChart").length; i++) {
+                ctx[i] = $(".myChart")[i].getContext("2d");
+                myChart[i] = new Chart(ctx[i], {
+                    type: "radar",
+                    data: datas,
+                    options: option
+                });
+            }
+        }
+
+        // ========================================
+        // swiper
+        // ========================================
+        let swiper = new Swiper(".swiper-container", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            }
+        });
+    </script>
+    <!-- 諮商師卡片結束 -->
+    <div class="inAct" id="inAct">
+        <div class="inAct_move"></div>
+        <div class="inAct_body">
+            <div class="inAct-sticky_block">
+                <h1>活動講座</h1>
+                <div class="inAct_block">
+                    <!-- vue -->
+                    <inact-item></inact-item>
+                    <inact-item></inact-item>
+                    <inact-item></inact-item>
+                    <inact-item></inact-item>
+                    <inact-item></inact-item>
+                    <inact-item></inact-item>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 活動
+        new Vue({
+            el: "#inAct",
+
+            data: {
+                date: "",
+            },
+            methods: {
+
+            },
+            components: {
+                "inact-item": {
+                    template: `
+                    <div class="inAct_item">
+                                    <!-- 帶資料 -->
+                        <a href="javascript:void(0)" draggable="false">
+                            <img src="./img/index/inAct/image_1.jpg" draggable="false">
+                        </a>
+                        <div class="inAct_text">
+                            <div class="inAct-top_text">
+                                <div class="inAct-left_date">
+                                    <div class="inAct-date_icon"></div>
+                                    <!-- 帶資料 -->
+                                    <div class="inAct-date_text">2020-08-14(五) ~ 2020-08-16(日)</div>  
+                                </div>
+                                <div class="inAct-icon_block">
+                                    <a href="javascript:void(0)" class="inAct-icon_1" draggable="false"></a>
+                                    <a href="javascript:void(0)" class="inAct-icon_2" draggable="false"s></a>
+                                </div>
+                            </div>
+                                    <!-- 帶資料 -->
+                            <div class="inAct_title"><a href="javascript:void(0)" draggable="false">從陌生人到貴人，打造職涯路上的黃金人脈法則</a> </div>
+    
+                            <div class="inAct_location">
+                                <div class="inAct-location_icon"></div>
+                                    <!-- 帶資料 -->
+                                <div class="inAct-location_text">台灣文創教育中心</div>
+                            </div>
+                        </div>
+                    </div>
+                         `,
+                },
+            },
+            mounted() {
+                onWndLoad();
+
+                function onWndLoad() {
+
+                    var slider = document.querySelector('.inAct_block');
+                    var sliders = slider.children;
+                    console.log(sliders)
+                    var initX = null;
+                    var transX = 0;
+                    var rotZ = 0;
+                    var transY = 0;
+
+                    var curSlide = null;
+
+                    var Z_DIS = 50;
+                    var Y_DIS = 10;
+                    var TRANS_DUR = 0.4;
+                    // 關閉drag
+                    var images = document.querySelectorAll('inAct_item>a>img');
+                    for (var i = 0; i < images.length; i++) {
+                        images[i].onmousemove = function(e) {
+                            e.preventDefault()
+
+                        }
+                        images[i].ondragstart = function(e) {
+                            return false;
+
+                        }
+                    }
+                    // 1
+                    function init() {
+                        var z = 0,
+                            y = 0;
+                        for (var i = sliders.length - 1; i >= 0; i--) {
+                            sliders[i].style.transform = 'translateZ(' + z + 'px) translateY(' + y + 'px)';
+
+                            z -= Z_DIS;
+                            y += Y_DIS;
+                        }
+                        attachEvents(sliders[sliders.length - 1]);
+
+
+
+                    }
+                    // 2
+                    function attachEvents(elem) {
+                        curSlide = elem;
+
+                        curSlide.addEventListener('mousedown', slideMouseDown);
+                        curSlide.addEventListener('touchstart', slideMouseDown);
+                    }
+                    init();
+
+                    function slideMouseDown(e) {
+
+                        if (e.touches) {
+                            initX = e.touches[0].clientX;
+                        } else {
+                            initX = e.pageX;
+                        }
+
+
+                        document.addEventListener('mousemove', slideMouseMove);
+                        document.addEventListener('touchmove', slideMouseMove);
+
+                        document.addEventListener('mouseup', slideMouseUp);
+                        document.addEventListener('touchend', slideMouseUp);
+                    }
+                    var prevSlide = null;
+
+                    function slideMouseMove(e) {
+                        var mouseX;
+
+                        if (e.touches) {
+                            mouseX = e.touches[0].clientX;
+                        } else {
+                            mouseX = e.pageX;
+                        }
+
+                        transX += mouseX - initX;
+                        rotZ = transX / 20;
+
+                        transY = -Math.abs(transX / 15);
+
+
+
+                        curSlide.style.transition = 'none';
+                        curSlide.style.webkitTransform = 'translateX(' + transX + 'px)' + ' rotateZ(' + rotZ + 'deg)' + ' translateY(' + transY + 'px)';
+                        curSlide.style.transform = 'translateX(' + transX + 'px)' + ' rotateZ(' + rotZ + 'deg)' + ' translateY(' + transY + 'px)';
+                        var j = 1;
+                        //remains elements
+                        for (var i = sliders.length - 2; i >= 0; i--) {
+
+                            sliders[i].style.webkitTransform = 'translateX(' + transX / (2 * j) + 'px)' + ' rotateZ(' + rotZ / (2 * j) + 'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' + ' translateZ(' + (-Z_DIS * j) + 'px)';
+                            sliders[i].style.transform = 'translateX(' + transX / (2 * j) + 'px)' + ' rotateZ(' + rotZ / (2 * j) + 'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' + ' translateZ(' + (-Z_DIS * j) + 'px)';
+                            sliders[i].style.transition = 'none';
+                            j++;
+                        }
+
+
+
+                        initX = mouseX;
+                        e.preventDefault();
+                        if (Math.abs(transX) >= curSlide.offsetWidth - 30) {
+
+                            document.removeEventListener('mousemove', slideMouseMove);
+                            document.removeEventListener('touchmove', slideMouseMove);
+                            curSlide.style.transition = 'ease 0.2s';
+                            curSlide.style.opacity = 0;
+                            prevSlide = curSlide;
+                            attachEvents(sliders[sliders.length - 2]);
+                            slideMouseUp();
+                            setTimeout(function() {
+
+
+
+
+
+                                slider.insertBefore(prevSlide, slider.firstChild);
+
+                                prevSlide.style.transition = 'none';
+                                prevSlide.style.opacity = '1';
+                                slideMouseUp();
+
+                            }, 201);
+
+
+
+                            return;
+                        }
+                    }
+
+                    function slideMouseUp() {
+                        transX = 0;
+                        rotZ = 0;
+                        transY = 0;
+
+                        curSlide.style.transition = 'cubic-bezier(0,1.95,.49,.73) ' + TRANS_DUR + 's';
+
+                        curSlide.style.webkitTransform = 'translateX(' + transX + 'px)' + 'rotateZ(' + rotZ + 'deg)' + ' translateY(' + transY + 'px)';
+                        curSlide.style.transform = 'translateX(' + transX + 'px)' + 'rotateZ(' + rotZ + 'deg)' + ' translateY(' + transY + 'px)';
+                        //remains elements
+                        var j = 1;
+                        for (var i = sliders.length - 2; i >= 0; i--) {
+                            sliders[i].style.transition = 'cubic-bezier(0,1.95,.49,.73) ' + TRANS_DUR / (j + 0.9) + 's';
+                            sliders[i].style.webkitTransform = 'translateX(' + transX + 'px)' + 'rotateZ(' + rotZ + 'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' + ' translateZ(' + (-Z_DIS * j) + 'px)';
+                            sliders[i].style.transform = 'translateX(' + transX + 'px)' + 'rotateZ(' + rotZ + 'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' + ' translateZ(' + (-Z_DIS * j) + 'px)';
+
+                            j++;
+                        }
+
+                        document.removeEventListener('mousemove', slideMouseMove);
+                        document.removeEventListener('touchmove', slideMouseMove);
+
+                    }
+
+
+                }
+            },
+        })
+    </script>
+
+    <div class="inArti" id="inArti">
+        <h1>專欄文章</h1>
+        <div class="inArti_body">
+            <div class="inArti_left">
+                <inArti-item v-for="num in 5">
+                    </inArti-left-item>
+            </div>
+            <div class="inArti_conter">
+                <div class="inArti-conterbox">
+                    <inArti-item v-for="num in 3">
+                        </inArti-left-item>
+                </div>
+            </div>
+            <div class="inArti_right">
+                <inArti-item v-for="num in 4">
+                    </inArti-left-item>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        // inArti
+        new Vue({
+            el: "#inArti",
+            date: {
+                Arti: {
+                    author: "溫在涵",
+                    date: "JUL 20,2020",
+                    category: "人際關係",
+                    title: "品格出眾的人，都懂得避開「巴納姆效應」",
+                    content: "有一個朋友，什麼感情上的疑難雜症全都依賴星座命盤去分析，還常常對我們其他朋友說，「我以前也沒那麼信星座，但有時候真的很準。」The post 品格出眾的人，都懂得避開「巴納姆效應」心理陷阱 appeared first on A Day Magazine....",
+
+                }
+            },
+            components: {
+                "inarti-item": {
+                    // 要有一個主標籤
+                    template: `
+            <a href="javascript:void(0)">
+                <article>
+                    <div class="inArti-left_pic1">
+                        <img src="./img/index/inArti/family/family2-2.png" alt="" >
+                    </div>
+                    <div class="inArti-left_detail">
+                        <div class="inArti-left-detail_block">
+                            <div class="inArti-left-detail_pic"><img src="./img/index/inArti/doctors/doctors1.jpeg" ></div>
+                            <div class="inArti-left-detail_text">留佩萱醫師</div>
+
+                        </div>
+                        <div class="inArti-left-detail_title">家庭關係</div>
+                    </div>
+                    <div class="inArti-left_border1"></div>
+                    <div class="inArti-left_title">
+                        <h2>受傷的童年，受創的大腦</h2>
+                    </div>
+                    <div class="inArti-left_partner">
+                        ACE研究是在1990年左右由美國醫師等人所做的研究，當時研究了17,000多個對象，想要探討童年的創傷經驗和成人時期的健康之間的關聯性。當時的研究結果非常的驚人受試的研究對象中...
+                    </div>
+                   
+                </article>
+            </a>
+                    `,
+                },
+
+
+            },
+
+        })
+    </script>
+    <div class="inCard" id="inCard">
+        <div class="inCard_block">
+            <!-- <h1>神諭卡</h1> -->
+            <div class="inCard_text">透過神諭卡，看看當下最需要的訊息</div>
+            <div class="inCard_body">
+                <div class="inCard_item">
+                    <a href="./oracleCard.html" class="inCard_1"></a>
+                </div>
+                <div class="inCard_item">
+                    <a href="./oracleCard.html" class="inCard_2"></a>
+                </div>
+                <div class="inCard_item">
+                    <a href="./oracleCard.html" class="inCard_3"></a>
+                </div>
+                <div class="inCard_item">
+                    <a href="./oracleCard.html" class="inCard_4"></a>
+                </div>
+                <div class="inCard_item">
+                    <a href="./oracleCard.html" class="inCard_5"></a>
+                </div>
+
+            </div>
+            <a href="./oracleCard.html" class="inCard_btn">抽取今日神諭卡</a>
+
+        </div>
+    </div>
+    <!-- 神諭卡js -->
+    <script>
+    </script>
+    <div class="inAbout" id="inAbout">
+        <h1 class="rwd_h1">關於我們</h1>
+        <div class="inAbout-left_block">
+            <div class="inAbout-text_block">
+                <h1>關於我們</h1>
+                <div class="inAbout-text_body">
+                    <div class="inAbout-text">&emsp;細心挑選的沙發，柔和舒適的燈光，</div>
+                    <div class="inAbout-text">在這裡，我們陪伴您，傾聽您也接著您</div>
+                </div>
+                <div class="inAbout-place_block">
+                    <div class="inAbout-place_btn">
+                        <div class="inAbout-place_block" @click="!select">
+                            <div class="inAbout-btn_text">{{about[about_nowNum].area}}區</div>
+                            <div class="inAbout-btn_icon"></div>
+                        </div>
+                        <div class="inAbout-ano_place" v-show="select">
+                            <!-- 點擊時將自己的NUM與NOWNUM交換 -->
+                            <div class="inAbout_ano" @click="changeAboutNum2">{{about[about_Num2].area}}區</div>
+                            <div class="inAbout_ano" @click="changeAboutNum3">{{about[about_Num3].area}}區</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inAbout-area_block">
+                <div class="inAbout_area">
+                    <div class="inAbout_text">
+                        <div class="inAbout_content">Checkie{{about[about_nowNum].area}}區諮商中心
+                            <div class="inAbout-area_icon inAbout-icon_place"></div>
+
+                        </div>
+                        <div class="inAbout_content">{{about[about_nowNum].place}}</div>
+                    </div>
+                </div>
+                <div class="inAbout_area">
+                    <div class="inAbout_text">
+                        <div class="inAbout_content">{{about[about_nowNum].Weekdays}}
+                            <div class="inAbout-area_icon inAbout-icon_clock"></div>
+
+                        </div>
+                        <div class="inAbout_content">{{about[about_nowNum].Weekend}}</div>
+                        <div class="inAbout_content">全預約制</div>
+                    </div>
+                </div>
+                <div class="inAbout_area">
+                    <div class="inAbout_text">
+                        <div class="inAbout_content">{{about[about_nowNum].tel}}
+                            <div class="inAbout-area_icon inAbout-icon_tel"></div>
+                        </div>
+                        <!-- <div class="inAbout_content">臺北市大安區忠孝東路三段5樓之2</div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="inAbout-right_block">
+            <!-- 單圖 -->
+            <div class="inAbout_block inAbout-show">
+                <a href="javascript:void(0)" class="inAbout-page_block">
+                    <img :src="imgUrl" class="inAbout-page_pic_1">
+                </a>
+            </div>
+            <!-- 4圖 -->
+            <div class="inAbout_block">
+                <div class="inAbout-slide_grid">
+                    <a href="javascipr:void(0)" class="inAbout-grid_block">
+                        <img :src="imgUrl" class="inAbout-grid_pic_1">
+                    </a>
+                </div>
+                <div class="inAbout-slide_grid">
+                    <template v-for="num in 4">
+                        <a href="javascipr:void(0)" class="inAbout-grid_mini_block">
+                            <img :src="imgUrl" class="inAbout-grid_pic_2">
+                        </a>
+                    </template>
+                    <inabout-grid-line></inabout-grid-line>
+                </div>
+                <inabout-slide-grid></inabout-slide-grid>
+                <inabout-slide-grid></inabout-slide-grid>
+                <inabout-grid-line></inabout-grid-line>
+            </div>
+            <!-- 是否再做一組? -->
+
+        </div>
+    </div>
+    <script>
+        // 關於我們
+        new Vue({
+            el: "#inAbout",
+
+            data: {
+                imgUrl: "./img/index/inAbout/rock.jpg",
+                select: false,
+                about_nowNum: 0,
+                about_Num2: 1,
+                about_Num3: 2,
+                about: [{
+                    area: '北',
+                    place: '臺北市大安區忠孝東路三段5樓之2',
+                    Weekdays: "星期一-星期五 10AM-10PM",
+                    Weekend: "星期六-星期日 10AM-9PM",
+                    tel: "02-1109-8885"
+                }, {
+                    area: '中',
+                    place: '台中',
+                    Weekdays: "星期二-星期五 11AM-10PM",
+                    Weekend: "星期六 10AM-9PM",
+                    tel: "04-1109-8885"
+                }, {
+                    area: '南',
+                    place: '高雄',
+                    Weekdays: "星期一-星期五 11AM-10PM",
+                    Weekend: "星期六-星期日 10AM-9PM",
+                    tel: "07-1109-8885"
+                }, ],
+
+
+
+            },
+            components: {
+                "inabout-grid-line": {
+                    template: `
+                    <div class="inAbout-grid_line">
+                        <div class="inAbout-line_1"></div>
+                        <div class="inAbout-line_2"></div>
+                    </div>
+                    `,
+
+                },
+                "inabout-slide-grid": {
+                    template: `
+                    <div class="inAbout-slide_grid">
+                    <a href="javascipr:void(0)" class="inAbout-grid_block">
+                        <img src="./img/index/inAbout/rock.jpg" class="inAbout-grid_pic_1">
+                    </a>
+                    </div>
+                    `,
+                },
+            },
+            methods: {
+                changeAboutNum2() {
+                    let nowNum = this.about_nowNum;
+                    this.about_nowNum = this.about_Num2;
+                    this.about_Num2 = nowNum;
+                    this.select = false;
+                },
+                changeAboutNum3() {
+                    let nowNum = this.about_nowNum;
+                    this.about_nowNum = this.about_Num3;
+                    this.about_Num3 = nowNum;
+                    this.select = false;
+                },
+            }
+        })
+    </script>
+    <!-- footer -->
+
+    <!-- footer -->
+    <script src="./js/indexVue.js"></script>
+</body>
+
+</html>
