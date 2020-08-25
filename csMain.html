@@ -5,18 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>諮商師 | CHECKIE</title>
-    <!-- <link rel="stylesheet" href="css/csMain.css"> -->
     <link rel="stylesheet"
         href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap-grid.min.css'>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
-    <!-- <link rel="stylesheet" type="text/css" href="./css/header.css" />
-    <link rel="stylesheet" type="text/css" href="./css/chatbot.css" />
-    <link rel="stylesheet" type="text/css" href="./css/footer.css" /> -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 
 <body>
     @@include('template/header.html')
+    @@include('template/bg.html')
 
     <div id="appCsMain">
         <div class="csMain-container" id="csMainContainer" @click="clickWhite">
@@ -47,30 +45,31 @@
                     <span>請依醫師專業篩選</span>
                     <input type="checkbox" name="csProblem[]" value="problem1" id="problem1" v-model="csProblem">
                     <label for="problem1" class="button3">家庭關係</label>
-   
+
                     <input type="checkbox" name="csProblem[]" value="problem2" id="problem2" v-model="csProblem">
                     <label for="problem2" class="button3">人際關係</label>
-   
+
                     <input type="checkbox" name="csProblem[]" value="problem3" id="problem3" v-model="csProblem">
                     <label for="problem3" class="button3">伴侶關係</label>
-   
+
                     <input type="checkbox" name="csProblem[]" value="problem4" id="problem4" v-model="csProblem">
                     <label for="problem4" class="button3">壓力創傷</label>
-   
+
                     <input type="checkbox" name="csProblem[]" value="problem5" id="problem5" v-model="csProblem">
-                    <label for="problem5" class="button3">職場壓力</label>
+                    <label for="problem5" class="button3">自我探索</label>
                 </div>
             </div>
         </div>
         <div class="csCounselor-cards">
             <p id="csC-countCards">總共有{{countCards}}位符合您需求的諮商師</p>
-            <ul class="csCounselor-gallery">
-                <cscounselor-layout v-for="item in countCards" :key="item"></cscounselor-layout>
-            </ul>
-            <div class="csC-changeSlide">
-                <button id="pre" class="button4">前一位</button>
-                <button id="next" class="button4">後一位</button>
+            <div class="swiper-container">
+                <div class="csCounselor-gallery swiper-wrapper">
+                    <cscounselor-layout v-for="item in countCards" :key="item"></cscounselor-layout>
+                </div>
+                <!-- Add Arrows -->
             </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </div>
 
@@ -81,6 +80,7 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js'></script>
     <script src='./js/csMain.js'></script>
     <script src="./js/header.js"></script>
     <script src="./js/chatbot.js"></script>

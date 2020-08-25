@@ -22,10 +22,12 @@ Vue.component('user-chatbox', {
     props:['text'],
     template: `
     <div class="chatRoom_userConver">
-    <div class="chatRoom_conver--more"><img src="./img/icon/conver_more.svg" alt=""></div>
+    <div class="chatRoom_conver--more">
+    <span>09:00:11</span>
+    <img src="./img/icon/conver_more.svg" alt="">
+    </div>
     <div class="chatRoom_conver--userText">{{text}}</div>
     <div class="chatRoom_conver--userPic"><img src="./img/chatRoom/userPic.png" alt=""></div>
-    
     </div>`,
     methods: {
         
@@ -41,7 +43,10 @@ Vue.component('doctor-chatbox', {
     <div class="chatRoom_drConver">
     <div class="chatRoom_conver--drPic"><img src="./img/chatRoom/drPic.png" alt=""></div>
     <div class="chatRoom_conver--drText">{{text}}</div>
-    <div class="chatRoom_conver--more"><img src="./img/icon/conver_more.svg" alt=""></div>
+    <div class="chatRoom_conver--more">
+    <span>09:00:11</span>
+    <img src="./img/icon/conver_more.svg" alt="">
+    </div>
     </div>`,
     methods: {
         
@@ -51,4 +56,9 @@ Vue.component('doctor-chatbox', {
 // 呼叫Vue
 new Vue({
     el:"#chatRoom",
+    
+    data:{
+        date: "08/30",
+        time: "11:11:11",
+    },
 })

@@ -36,7 +36,10 @@ main{
         margin:30px 50px;
         box-shadow: $boxshadow;
         display: flex;
+        background: rgba(255, 255, 255, 0.795);
+        box-shadow: $boxshadow;
         .chatRoom_left{
+            padding:0;
             border-right: 3px solid grey;
             width: 30%;
             max-height: 85vh;
@@ -52,15 +55,94 @@ main{
                     width: 100%;
                 }
             }
-        .chatRoom_userInfo{
-            text-align: center;
-            margin: 10px 0;
+            @media screen and (max-width:1199px){
+                .chatRomm_userPic{
+                    // border: 1px solid red;
+                    width: 150px;
+                    height: 150px;
+                }
+            }
+            .chatRoom_userInfo{
+                text-align: center;
+                margin: 10px 0;
+            }
+        @media screen and (max-width:767px){
+            .chatRomm_userPic{
+                display: none;
+            }
+            .chatRoom_userInfo{
+                display: none;
+            }
         }
         .chatRoom_drChatbox{
-            border: 1px solid lightgrey;
-            box-shadow: $boxshadow;
-            display: flex;
-            padding: 10px 0;
+                // border: 1px solid lightgrey;
+                box-shadow: $boxshadow;
+                display: flex;
+                padding: 10px 0;
+                justify-content: center;
+                .chatRoom_drPic{
+                    border: 1px solid darkgray;
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    margin: 5px 5% 5px 5%;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .chatRoom_light{
+                    // border: 1px solid red;
+                    background-color: green;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    margin: auto 0 auto 5%;
+                }
+                h5{
+                    margin: auto 0;
+                }
+
+                p{
+                    margin: auto 0;
+                }
+                .chatRoom_more{
+                    width: 20px;
+                    height: 20px;
+                    margin: auto 10px;
+                    cursor: pointer;
+                    img{
+                        height: 100%;
+                    }
+                }
+            }
+        }
+
+    //諮商師infoRWD
+    @media screen and (max-width: 1199px){
+        .chatRoom_drChatbox{
+            justify-content: center;
+            h5{
+                display: none;
+            }
+            p{
+                display: none;
+            }
+            .chatRoom_more{
+                width: 15px;
+                height: 15px;
+                margin: auto 10px;
+                cursor: pointer;
+                img{
+                    height: 100%;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 767px){ 
+        .chatRoom_drChatbox{
+            // border: 1px solid lightgrey;
+            box-shadow:none !important;
             .chatRoom_drPic{
                 border: 1px solid darkgray;
                 width: 60px;
@@ -83,46 +165,81 @@ main{
             h5{
                 margin: auto 0;
             }
+
             p{
                 margin: auto 0;
             }
             .chatRoom_more{
-                width: 20px;
-                height: 20px;
-                margin: auto 10px;
-                cursor: pointer;
-                img{
-                    height: 100%;
-                }
+                display: none;
             }
         }
     }
+
+
+
+    // -----------------------
     .chatRoom_right{
         // border: 1px solid blue;
-        width: 70%;
+        width: 100%;
         max-height: 85vh;
+        padding: 0;
+    
     // -----------手機＆平板RWD用-------------
+        
         .chatRoom_drInfo{
+                position: absolute;
+                left:0;
                 display: flex;
                 border: 1px solid lightgray;
                 box-shadow: $boxshadow;
                 display: none;
+                justify-content: center;
+                background-color: white;
+                z-index: 1;
+                padding: 1% 0;
+                min-height: 10%;
                 .doctor{
-                    width: 80px;
-                    height: 80px;
+                    width: 13%;
+                    height: 13%;
                     border: 1px solid lightgray;
                     border-radius: 50%;
-                    margin-left:30% ;
+                    margin: auto 0;
                 }
                 h4{
                     margin: auto 5%;
+                    display: flex;
+                    p{
+                        margin: auto 0;
+                    }
                 }
-                .more{
-                    width: 30px;
-                    height: 30px;
+                .chatRoom_drInfo-more{
+                    width: 15px;
+                    height: 15px;
                     margin: auto 0;
+                    display: none;
+                    cursor: pointer;
+                    img{
+                        width:100%;
+                    }
+                }
+        }
+        @media screen and (max-width: 1199px){
+            .chatRoom_drInfo{
+                display: flex;
+            }
+        }
+        @media screen and (max-width: 767px){
+
+            .chatRoom_drInfo{
+                display: flex;
+                .chatRoom_drInfo-more{
+                    display: block;
                 }
             }
+        }
+    }
+
+
 //-------------------------------
 
             .chatRoom_conver{
@@ -132,8 +249,8 @@ main{
                 .chatRoom_drConver{
                     display: flex;
                     .chatRoom_conver--drPic{
-                        width: 80px;
-                        height: 80px;
+                        width: 50px;
+                        height: 50px;
                         margin: 20px;
                         border-radius: 50%;
                         border: 1px solid darkgrey;
@@ -146,15 +263,19 @@ main{
                         background-color: rgb(197, 221, 248);
                         border-radius: 0 24px 24px 24px;
                         width: fit-content;
-                        padding: 25px 21px 25px 21px;
+                        padding: 18px 14px 18px 14px;
                         margin:30px 0;
                         height: fit-content;
                     }
                     .chatRoom_conver--more{
                         display: block;
-                        width: 20px;
+                        width: 10px;
                         position: relative;
                         top: 90px;
+                        cursor: pointer;
+                        span{
+                            color:lightgrey;
+                        }
                     }
                 }
                 .chatRoom_userConver{
@@ -167,13 +288,13 @@ main{
                         background-color:pink;
                         border-radius: 0 24px 24px 24px;
                         width: fit-content;
-                        padding: 25px 21px 25px 21px;
+                        padding: 18px 14px 18px 14px;
                         margin:30px 0;
                         height: fit-content;
                 }
                     .chatRoom_conver--userPic{
-                        width: 80px;
-                        height: 80px;
+                        width: 50px;
+                        height: 50px;
                         margin: 20px;
                         border-radius: 50%;
                         border: 1px solid darkgrey;
@@ -183,10 +304,18 @@ main{
                         }
                     }
                     .chatRoom_conver--more{
-                        display: block;
-                        width: 20px;
+                        // display: block;
+                        width: 10px;
                         position: relative;
                         top: 90px;
+                        cursor: pointer;
+                        img{
+                            display: inline-block;
+                        }
+                        span{
+                            display: inline-block;
+                            color: lightgrey;
+                        }
                     }
                 }
             }
@@ -195,6 +324,7 @@ main{
                 height: 20%;
                 display: flex;
                 z-index: 999;
+                padding:0 4%;
                 background-color: rgb(235, 229, 229);
                 .chatRoom_innertext{
                     border: 5px solid darkgray;
@@ -204,11 +334,11 @@ main{
                     background-color: white;
                 }
                 .chatRoom_send{
-                    width: 5%;
+                    width: 30px;
                     margin: auto 0;
                 }
             }
         }
 
-    }
+    
 }

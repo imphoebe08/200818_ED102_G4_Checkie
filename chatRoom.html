@@ -13,6 +13,7 @@
 </head>
 <body>
     @@include('template/header.html')
+    @@include('template/bg.html')
     <main>
         <div id="chatRoom">
             <div class="chatRoom_left col-xl-4 col-lg-3">
@@ -27,11 +28,13 @@
                 <doctors doctor="姜律丞"></doctors>
                 <doctors doctor="姜律丞"></doctors>
             </div>
-            <div class="chatRoom_right">
-                <div class="chatRoom_drInfo">
+            <div class="chatRoom_right col-xl-8 col-lg-9">
+                <div class="chatRoom_drInfo col-12">
                     <img class="doctor"src="./img/chatRoom/drPic.png" alt="">
-                    <h4>姜律丞</h4> <h4>諮商師</h4>
-                    <img class="more"src="./img/icon/conver_more.svg" alt="">
+                    <h4>姜律丞<p>諮商師</p></h4>
+                    <div class="chatRoom_drInfo-more">
+                        <img src="./img/icon/more.svg" alt="">
+                    </div>
                 </div>
                 <div class="chatRoom_conver">
                     <user-chatbox text="醫生幫幫我。"></user-chatbox>
@@ -48,7 +51,7 @@
             </div>
         </div>
     </main>
-     @@include('template/footer.html')
+     <!-- @@include('template/footer.html') -->
     <script src="./js/chatRoom.js"></script>
 </body>
 </html>

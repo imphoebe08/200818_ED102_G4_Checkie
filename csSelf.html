@@ -5,18 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>諮商師內頁 | CHECKIE</title>
-    <!-- <link rel="stylesheet" href="css/csSelf.css"> -->
     <link rel="stylesheet"
         href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap-grid.min.css'>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
-    <!-- <link rel="stylesheet" type="text/css" href="./css/header.css" />
-    <link rel="stylesheet" type="text/css" href="./css/chatbot.css" />
-    <link rel="stylesheet" type="text/css" href="./css/footer.css" /> -->
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
     @@include('template/header.html')
+    @@include('template/bg.html')
 
     <div id="app" class="container-fluid csSelf">
         <div class="row csS-info">
@@ -27,7 +24,7 @@
                 <div class="row">
                     <div class="col-md-6 intro-left">
                         <div class="intro-left__top">
-                            <h2>蔡醫師</h2>
+                            <h2>蔡佳穎 醫師</h2>
                             <h4>醫師專長</h4>
                             <div class="csS-skills">
                                 <span>家庭關係</span>
@@ -59,13 +56,6 @@
                                     <li class="small"><i class="fas fa-circle"></i>台北醫學大學醫學系醫學士</li>
                                 </ul>
                             </li>
-                            <li>
-                                <p class="js-list-toggle">專科證書</p>
-                                <ul class="csS-list js-item-toggle">
-                                    <li class="small"><i class="fas fa-circle"></i>台灣老年精神醫學專科醫師</li>
-                                    <li class="small"><i class="fas fa-circle"></i>台灣精神科專科醫師</li>
-                                </ul>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -82,69 +72,69 @@
 
         <h2>醫師撰寫專欄</h1>
 
-        <div class="row csS-art">
-            <cssart-layout></cssart-layout>
-            <cssart-layout></cssart-layout>
-            <cssart-layout></cssart-layout>
-        </div>
-
-        <h2>醫師參與活動</h1>
-
-        <div id="csSelfAct">
-            <csselfact-layout></csselfact-layout>
-            <csselfact-layout></csselfact-layout>
-            <csselfact-layout></csselfact-layout>
-        </div>
-
-        <h2>其他推薦醫師</h2>
-
-        <div id="csSelfReco">
-            <div class="csSelfReco-card">
-                <div class="card__image">
-                    <img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1437388/517313_37962.jpg"
-                        alt="">
-                </div>
-                <div class="card__title">
-                    <h5>勞樂程 實習心理師</h5>
-                </div>
-                <div class="card__info">
-                    <p>
-                        國立臺灣師範大學教育心理與輔導學系 諮商組碩士班 在學<br>
-                        香港樹仁大學 輔導與心理學系 學士<br>
-                    </p>
-                </div>
+            <div class="row csS-art">
+                <cssart-layout></cssart-layout>
+                <cssart-layout></cssart-layout>
+                <cssart-layout></cssart-layout>
             </div>
-            <div class="csSelfReco-card">
-                <div class="card__image">
-                    <img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1437388/517313_37962.jpg"
-                        alt="">
+
+            <h2>醫師參與活動</h1>
+
+                <div id="csSelfAct">
+                    <csselfact-layout></csselfact-layout>
+                    <csselfact-layout></csselfact-layout>
+                    <csselfact-layout></csselfact-layout>
                 </div>
-                <div class="card__title">
-                    <h5>勞樂程 實習心理師</h5>
+
+                <h2>其他推薦醫師</h2>
+
+                <div id="csSelfReco">
+                    <div class="csSelfReco-card">
+                        <div class="card__image" @click="openSelfPage">
+                            <img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1437388/517313_37962.jpg"
+                                alt="">
+                        </div>
+                        <div class="card__title">
+                            <h5  @click="openSelfPage">勞樂程 實習心理師</h5>
+                        </div>
+                        <div class="card__info">
+                            <p>
+                                國立臺灣師範大學教育心理與輔導學系 諮商組碩士班 在學<br>
+                                香港樹仁大學 輔導與心理學系 學士<br>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="csSelfReco-card">
+                        <div class="card__image" @click="openSelfPage">
+                            <img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1437388/517313_37962.jpg"
+                                alt="">
+                        </div>
+                        <div class="card__title">
+                            <h5  @click="openSelfPage">勞樂程 實習心理師</h5>
+                        </div>
+                        <div class="card__info">
+                            <p>
+                                國立臺灣師範大學教育心理與輔導學系 諮商組碩士班 在學<br>
+                                香港樹仁大學 輔導與心理學系 學士<br>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="csSelfReco-card">
+                        <div class="card__image" @click="openSelfPage">
+                            <img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1437388/517313_37962.jpg"
+                                alt="">
+                        </div>
+                        <div class="card__title">
+                            <h5  @click="openSelfPage">勞樂程 實習心理師</h5>
+                        </div>
+                        <div class="card__info">
+                            <p>
+                                國立臺灣師範大學教育心理與輔導學系 諮商組碩士班 在學<br>
+                                香港樹仁大學 輔導與心理學系 學士<br>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card__info">
-                    <p>
-                        國立臺灣師範大學教育心理與輔導學系 諮商組碩士班 在學<br>
-                        香港樹仁大學 輔導與心理學系 學士<br>
-                    </p>
-                </div>
-            </div>
-            <div class="csSelfReco-card">
-                <div class="card__image">
-                    <img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1437388/517313_37962.jpg"
-                        alt="">
-                </div>
-                <div class="card__title">
-                    <h5>勞樂程 實習心理師</h5>
-                </div>
-                <div class="card__info">
-                    <p>
-                        國立臺灣師範大學教育心理與輔導學系 諮商組碩士班 在學<br>
-                        香港樹仁大學 輔導與心理學系 學士<br>
-                    </p>
-                </div>
-            </div>
-        </div>
     </div>
 
     @@include('template/footer.html')

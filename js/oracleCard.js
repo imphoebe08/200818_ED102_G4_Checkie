@@ -28,7 +28,7 @@ function doFirst(){
         $(".item").css({"left":"20%"});
         $(".item").css({"top":"-100%"});
         $(this).children(".itemImgBack").children(".cardTxt").children("h2").text("hello,World!");
-        $(this).children(".itemImgBack").children(".cardTxt").children("p").text("干安捏干安捏干安捏干安捏干安捏干安捏干安捏干安捏干安捏干安捏干安捏干安捏干安捏干安捏干安捏干安捏干安捏干安捏干安捏干安捏干安捏");
+        $(this).children(".itemImgBack").children(".cardTxt").children("p").text(`「懷著無條件的愛與包容心，用天使的眼光看待自己與他人，你就能夠激發與提升任何人，達到他們最高的潛力。」你收到這張牌，意味著天使正在協助你處理自己與他人的關係。下次你想要嚴厲地批評自己或他人時，請將這個批評轉化為健康與快樂的祈福。正面的作法能夠培養自尊心與心理和諧，並能夠從中療癒關係。請對自己與他人都保持正面的看法，這樣會使你的心裡更好過。不要試圖控制或改變他人，反而會更平靜地得到自己想要或甚至更好的結果。`);
         $(this).children(".itemImgBack").children(".cardTxt").addClass('cardTxtLeft');
         $(this).children(".itemImgBack").children(".cardTxt").children("h2").addClass('h2AddOpacity');
         $(this).children(".itemImgBack").children(".cardTxt").children("p").addClass('pAddOpacity');
@@ -62,8 +62,8 @@ function getScreenshot(){
 
 function step(){
   $('.step').click(function(){
-    $(this).children('h3').addClass('h3Color');
-    $(this).siblings('li').children('h3').removeClass('h3Color');
+    $(this).children('label').addClass('h3Color');
+    $(this).siblings('li').children('label').removeClass('h3Color');
   });
   $('#step1').click(function(){
     rotateFoo();
@@ -105,3 +105,11 @@ function rotateFoo(){
   $('#showImgBg').css({'transform': 'rotate(' + angle + 'deg)'});
   $('#showImgBg').data('angle', angle);
 }
+
+//checkbox單選
+// $('.stepNum li input').click(function(){
+//   if($(this).prop('checked')){
+//   $('.stepNum li input:checkbox').prop('checked',false);
+//   $(this).prop('checked',true);
+//   }
+//   });

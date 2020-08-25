@@ -15,7 +15,7 @@ const clean = require('gulp-clean');
 
 //Copy 所有js img到dist
 gulp.task('copyjs', function() {
-    return gulp.src('./js/**/*.js').pipe(gulp.dest('./dist/js'));
+    return gulp.src(['./js/*.js', './js/**/*.js']).pipe(gulp.dest('./dist/js'));
 })
 gulp.task('copyimg', function() {
     return gulp.src('./img/**/*').pipe(gulp.dest('./dist/img'));
@@ -23,7 +23,7 @@ gulp.task('copyimg', function() {
 
 // 將main.scss導入dist的css資料夾
 gulp.task('sass', function() {
-    return gulp.src('./sass/*.scss') //來源
+    return gulp.src('./sass/*.scss', './backstage/sass/*.scss') //來源
         .pipe(sass().on('error', sass.logError)) //Sass轉譯 -> 一個pipe是一個流程
         .pipe(cleanCSS({
             compatibility: 'ie8' //轉譯成相容ie8的CSS
@@ -34,7 +34,7 @@ gulp.task('sass', function() {
 
 //將html搬進dist
 gulp.task('fileinclude', function() {
-    return gulp.src(['*.html']) //來源
+    return gulp.src('*.html') //來源
         .pipe(fileinclude({
             prefix: '@@', //前綴符號（帶入時使用）
             basepath: '@file'
@@ -42,8 +42,32 @@ gulp.task('fileinclude', function() {
         .pipe(gulp.dest('./dist')); //目的地
 });
 
-// 同步執行兩個以上的指令：
-gulp.task('all', ['copyjs', 'sass', 'copyimg', 'fileinclude']); //在終端機執行 gulp all即可同時執行兩個task
+//後台搬進dist
+
+gulp.task('bghtml', function() {
+    return gulp.src('./backstage/html/*.html') //來源
+        .pipe(fileinclude({
+            prefix: '@@', //前綴符號（帶入時使用）
+            basepath: '@file'
+        }))
+        .pipe(gulp.dest('./dist/backstage')); //目的地
+});
+
+
+gulp.task('bgimg', function() {
+    return gulp.src(['./backstage/img/**/*', './backstage/icons/*']).pipe(gulp.dest('./dist/backstage/img'));
+})
+
+gulp.task('bgsass', function() {
+        return gulp.src('./backstage/sass/*.scss') //來源
+            .pipe(sass().on('error', sass.logError)) //Sass轉譯 -> 一個pipe是一個流程
+            .pipe(cleanCSS({
+                compatibility: 'ie8' //轉譯成相容ie8的CSS
+            }))
+            .pipe(gulp.dest('./dist/backstage/css')); //目的地
+    })
+    // 同步執行兩個以上的指令：
+gulp.task('all', ['copyjs', 'sass', 'copyimg', 'fileinclude', 'bgimg', 'bgsass', 'bghtml']); //在終端機執行 gulp all即可同時執行兩個task
 
 
 // Browser應用 => 即時監看fileinclude出來的檔案
@@ -59,10 +83,13 @@ gulp.task('default', function() {
         }
     });
 
-    gulp.watch(['./sass/*.scss', './sass/**/*.scss'], ['sass']).on('change',reload);
-    gulp.watch(['./*.html', '**/*.html'], ['fileinclude']).on('change',reload);
-    gulp.watch('./js/*.js', ['babels']).on('change', reload);
+    gulp.watch(['./sass/*.scss', './sass/**/*.scss'], ['sass']).on('change', reload);
+    gulp.watch(['./*.html', '**/*.html', ], ['fileinclude']).on('change', reload);
+    gulp.watch('./js/*.js', ['copyjs']).on('change', reload);
 
+    // backstageWatch
+    gulp.watch(['./backstage/html/*.html', './backstage/html/**/*.html'], ['bghtml']).on('change', reload);
+    gulp.watch(['./backstage/sass/*.scss', './backstage/sass/**/*.scss'], ['copyjs']).on('change', reload);
 });
 
 //壓縮圖檔
@@ -104,7 +131,7 @@ gulp.task('sass', function() {
 //npm install --save-dev gulp-babel@7 babel-core babel-preset-env
 
 gulp.task('babels', () =>
-    gulp.src('./js/*.js')
+    gulp.src(['./js/*.js', './js/**/*.js'])
     .pipe(babel({
         presets: ['@babel/env']
     }))

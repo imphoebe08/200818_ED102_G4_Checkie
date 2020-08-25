@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=" https://unpkg.com/swiper/swiper-bundle.min.css">
     <!-- navbar & footer css -->
     <link rel="stylesheet" href="./css/main.css">
 
@@ -38,7 +39,32 @@
 
 <body id="body">
     <!------導覽列------>
+    <div class="top">
+        <div class="navbar">
+            <a href="./index.html" class="navbar__item logo"><img src="./img/navbar/cklogo.png" alt class="desktop_logo"><img src="./img/navbar/cklogo2.png" alt class="mobile_logo"></a>
+            <div class="navbar__menu">
+                <a class="navbar__item navbar__link" href="./csMain.html">預約諮詢</a>
+                <a class="navbar__item navbar__link" href="./chatRoom.html">線上諮商</a>
+                <a class="navbar__item navbar__link" href="./acMain.html">活動報名</a>
+                <a class="navbar__item navbar__link" href="./atMain.html">專欄文章</a>
+                <a class="navbar__item navbar__link" href="./oracleCard.html">神諭卡</a>
+                <a class="navbar__item navbar__link" href="./test.html">心理評估測驗</a>
 
+            </div>
+
+            <ul class="navbar__sign">
+                <li><button class="navbar__sign__item" id="signup">加入會員</button></li>
+                <li> ｜</li>
+                <li><button class="navbar__sign__item" id="signin">登入</button></li>
+            </ul>
+
+            <span class="hamburger hamburger--collapse navbar__item" id="js-navbar-toggle">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+            </span>
+            </span>
+        </div>
+    </div>
 
     <!------註冊登入會員----->
     <div class="signup_overlay signup_overlay-none" id="signup_overlay">
@@ -240,7 +266,7 @@
                 </ul>
             </div>
         </transition>
-        <button v-if="stage4" class="button1">預約</button>
+        <button v-if="stage4" class="button1" @click="openOrderPage">預約</button>
     </div>
     <script>
         new Vue({
@@ -340,7 +366,10 @@
                 },
                 closeToggle(e) {
                     $(e.target).parent().parent().hide();
-                }
+                },
+                openOrderPage() {
+                    window.open("./coCheck.html", "_self");
+                },
             },
             watch: {
                 iMode: function() {
@@ -465,10 +494,15 @@
         Vue.component("first-layout", {
             props: ["myclass"],
             template: `<li :class="myclass">
-                    <img src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg">
-                    <h1>蔡佳穎</h1>
-                   	<button>立即預約</button>
-               </li>`
+                    <img src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg" @click="openSelfPage">
+                    <h1 @click="openSelfPage">蔡佳穎</h1>
+                   	<button @click="openSelfPage">立即預約</button>
+               </li>`,
+            methods: {
+                openSelfPage() {
+                    window.open("./csSelf.html", "_self");
+                },
+            }
         });
 
         Vue.component("second-layout", {
@@ -480,18 +514,23 @@
 					<div class="inConselor__chart">
 						<canvas class="myChart" width="200" height="200"></canvas>
 					</div>
-				</li>`
+                </li>`,
         });
 
         Vue.component("third-layout", {
             template: `<li class="inCs-slide__item swiper-slide">
-					<img src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg">
-					<h1>蔡佳穎</h1>
+					<img src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg" @click="openSelfPage">
+					<h3  @click="openSelfPage">蔡佳穎</h3>
 					<div class="inConselor__chart">
 						<canvas class="myChart" width="200" height="200"></canvas>
 					</div>
-					<button>立即預約</button>
-				</li>`
+					<button @click="openSelfPage">立即預約</button>
+                </li>`,
+            methods: {
+                openSelfPage() {
+                    window.open("./csSelf.html", "_self");
+                },
+            }
         });
 
         new Vue({
@@ -556,7 +595,7 @@
 
         function radarChart() {
             let datas = {
-                labels: ["Coding", "Swimming", "Eating", "Cycling", "Sleeping"],
+                labels: ["家庭關係", "人際關係", "伴侶關係", "壓力創傷", "自我探索"],
                 datasets: [{
                     label: "分數",
                     data: [60, 40, 50, 52, 75]

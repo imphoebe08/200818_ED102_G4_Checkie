@@ -6,9 +6,10 @@
     max-width: 1200px;
     overflow: hidden;
     margin: 20px auto 0;
-    padding: 0 10px;
+    padding: 10px;
     border-radius: 30px;
-    box-shadow: 0 0 5px 0 black;
+    box-shadow: 3px 3px 10px rgba(146, 146, 146, 0.603);
+    background: rgb(255, 255, 255);
 
     .csMain {
         z-index: 50;
@@ -60,7 +61,6 @@
         border-radius: 0;
         box-shadow: none;
         position: absolute;
-        height: 100vh;
         width: 100%;
         z-index: 99;
 
@@ -159,138 +159,132 @@
 
 .csCounselor-cards {
     width: 100%;
-    height: 600px;
-    padding: 50px 0;
-    overflow: hidden;
-    position: relative;
+    margin: 0 auto 100px;
+    overflow-x: hidden;
 
     #csC-countCards {
         text-align: center;
+        margin: 20px 0;
+        @include h6;
     }
 
-    .csC-changeSlide {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        flex-flow: nowrap row;
-        position: absolute;
-        bottom: 0;
+    .swiper-container {
+        width: 320px;
+        overflow: initial;
+        margin: 100px auto;
 
-        #pre,
-        #next {
-            flex: 1 0 80px;
-            max-width: 120px;
-            margin: 20px;
-            outline: none;
-        }
-    }
-
-    .csCounselor-gallery {
-        width: 100%;
-        height: 500px;
-        display: flex;
-        flex-flow: nowrap row;
-        position: absolute;
-        left: 0%;   
-
-        .csCounselor-card {
-            min-width: 350px;
-            box-shadow: 0 0 10px 5px rgba(63, 63, 63, 0.2);
-            margin: 10px 40px;
-            transition: transform 0.3s ease;
-            transform: scale(0.65);
-            border-radius: $border-radius;
-            overflow: hidden;
-            background-color: white;
-            z-index: 2;
-            border-radius: $border-radius;
-            padding: 30px;
-
-            &.bigger {
-                transform: scale(0.7);
-                &:hover{
-                    transform: scale(1);
+        .csCounselor-gallery {
+            .swiper-slide {
+                width: 300px;
+                &.swiper-slide-active{
+                    transform: scale(1.2);
                 }
-            }
 
-            .csCounselor-image {
-                width: 100%;
-                height: 40%;
-                cursor: pointer;
+                .csCounselor-card {
+                    width: calc(100% - 60px);
+                    box-shadow: 0 0 10px 5px rgba(63, 63, 63, 0.2);
+                    border-radius: $border-radius;
+                    overflow: hidden;
+                    background-color: white;
+                    z-index: 2;
+                    border-radius: $border-radius;
+                    padding: 30px;
 
-                img {
-                    max-height: 100%;
-                    width: 100%;
-                    object-fit: cover;
-                }
-            }
-
-            .csC-doctor__name {
-                text-align: center;
-                width: 100%;
-                @include h5;
-                cursor: pointer;
-                padding: 0 10px;
-            }
-
-            .csC-type_title {
-                text-align: left;
-                width: 100%;
-                @include h6;
-                padding: 0 10px;
-            }
-
-            .csC-type_tag {
-                justify-content: center;
-                padding: 10px 0;
-
-                span {
-                    text-align: center;
-                    margin: 0 5px;
-                }
-            }
-
-            .csC-doctor__info {
-                width: 100%;
-                padding: 0 10px;
-
-                .csC-doctor__list>li {
-                    p {
+                    .csCounselor-image {
+                        width: 100%;
+                        height: 40%;
                         cursor: pointer;
-                        font-weight: 700;
+
+                        img {
+                            max-height: 100%;
+                            width: 100%;
+                            object-fit: cover;
+                        }
                     }
 
-                    .csS-list>li {
-                        display: block;
-                        line-height: 1.5em;
+                    .csC-doctor__name {
+                        text-align: center;
+                        width: 100%;
+                        @include h5;
+                        cursor: pointer;
+                        padding: 0 10px;
+                    }
 
-                        i {
-                            display: inline-block;
-                            font-size: 10px;
-                            transform: scale(0.8);
-                            padding-right: 5px;
-                            vertical-align: middle;
-                            color: rgb(101, 179, 145);
+                    .csC-type_title {
+                        text-align: left;
+                        width: 100%;
+                        @include h6;
+                        padding: 0 10px;
+                    }
+
+                    .csC-type_tag {
+                        justify-content: center;
+                        padding: 10px 0;
+
+                        span {
+                            text-align: center;
+                            margin: 0 5px;
+                        }
+                    }
+
+                    .csC-doctor__info {
+                        width: 100%;
+                        padding: 0 10px;
+
+                        .csC-doctor__list>li {
+                            p {
+                                cursor: pointer;
+                                font-weight: 700;
+                            }
+
+                            .csS-list>li {
+                                display: block;
+                                line-height: 1.5em;
+
+                                i {
+                                    display: inline-block;
+                                    font-size: 10px;
+                                    transform: scale(0.8);
+                                    padding-right: 5px;
+                                    vertical-align: middle;
+                                    color: rgb(101, 179, 145);
+                                }
+                            }
                         }
                     }
                 }
             }
         }
     }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        position: absolute;
+        top: 75%;
+        outline: none;
+        color: $color-pink;
+        background: white;
+        padding: 40px;
+        border-radius: 50%;
+
+        &:active {
+            background: $color-pink;
+            color: white;
+        }
+    }
+
+    .swiper-button-prev {
+        right: 0;
+    }
+
+    .swiper-button-prev {
+        left: 0;
+    }
 }
 
-@media (max-width: 576px) {
-    .container-fluid.csMain .csCounselor-cards {
-        .csCounselor-gallery .csCounselor-card {
-            transform: scale(0.5);
-
-            &.bigger {
-                transform: scale(0.6);
-            }
-        }
-
-        .csC-changeSlide {
-            bottom: 10%;
-        }
+@media (max-width:576px){
+    .csCounselor-cards .swiper-button-next,
+    .csCounselor-cards .swiper-button-prev {
+        display:  none;
     }
 }

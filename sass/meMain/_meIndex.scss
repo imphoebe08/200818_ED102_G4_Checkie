@@ -1,0 +1,190 @@
+.me-board--style {
+    margin: 15px 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
+}
+
+.me-selectNav {
+    // border: darkgoldenrod solid 3px;
+    background-color: white;
+    z-index: 1314;
+    text-align: center;
+}
+
+.me-content {
+    // border: darkcyan solid 3px;
+    margin-bottom: 70px;
+}
+
+@media only screen and (max-width: 768px) {
+    .me-selectNav {
+        position: fixed;
+        bottom: 0;
+        box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
+    }
+}
+
+.me-select_item {
+    cursor: pointer;
+    & :hover {}
+}
+
+@media only screen and (max-width: 576px) {
+    .me-select_item {
+        padding: 0;
+    }
+}
+
+.me-select_item--selected {
+    background-color: #FFA492;
+}
+
+.memIcon-block {
+    .memIcon {
+        // border: #FFA492 solid 1px;
+        width: 35px;
+        max-width: 35px;
+        padding-right: 15px;
+        padding-left: 0;
+        cursor: pointer;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.row-10 {
+    border: #91D0EB solid 1px;
+}
+
+.memPhoto--bgc {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 200px;
+    min-width: 150px;
+    border-radius: 50%;
+    border: $color-blue;
+    padding: 5px;
+    background: -webkit-linear-gradient(to right, #FFA492, #91D0EB);
+    background: linear-gradient(to right, #FFA492, #91D0EB);
+    & :hover img {
+        transform: scale(1.05);
+    }
+    .memPhoto {
+        width: 100%;
+        border-radius: 50%;
+        border: $color-blue;
+        overflow: hidden;
+        cursor: pointer;
+        img {
+            width: 100%;
+            transition: all 2.2 ease-in-out;
+        }
+    }
+}
+
+.mem-driver {
+    padding: 1px;
+    border: none;
+    border-width: 0;
+    // border-top: crimson solid 1px;
+    height: 1px;
+    background: -webkit-linear-gradient(to right, #FFA492, #91D0EB);
+    background: linear-gradient(to right, #FFA492, #91D0EB);
+}
+
+.mem-coOrder,
+.mem-acOrder {
+    text-align: center;
+}
+
+.mem-radarChart-container {
+    // border: #91D0EB solid 1px;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.mem-barChart-container {
+    // border: #91D0EB solid 1px;
+    width: 600px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.memI {
+    font-size: 16px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.memI-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.mem-modify-padding {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.mem-order-subtitle {
+    padding-left: 25px;
+}
+
+.mem-order-each {
+    box-shadow: 0 0 5px rgba(75, 83, 94, 0.28);
+    margin: 10px;
+    border-radius: 5px;
+    >div {
+        .mem-order-left {
+            border-right: #ccc solid 1px;
+            .mem-order-dcName {
+                text-align: center;
+                margin-bottom: 5px;
+                // border: #FFA492 solid 1px;
+            }
+            .mem-order-img {
+                margin: 0 auto;
+                border-radius: 3px;
+                max-height: 180px;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.mem-order-table {
+    margin-bottom: 20px;
+    // border: #FFA492 solid 1px;
+    tr {
+        height: 35px;
+        vertical-align: middle;
+        line-height: 35px;
+        // border: tomato solid 1px;
+        th {
+            text-align: left;
+            padding-right: 5px;
+            // border-right: #ccc solid 1px;
+            // background-color: #f2edeb;
+            border-radius: 3px;
+        }
+        td {}
+    }
+}
+
+.mem-coOrder-total {
+    // margin-top: 20px;
+}
+
+.order-justDele {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: right;
+    color: #ccc;
+    cursor: pointer;
+}

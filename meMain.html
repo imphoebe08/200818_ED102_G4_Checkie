@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./vender/bootstrap-grid.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap-grid.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.js"></script>
+    <!-- <script src="./js/header.js"></script>
+    <script src="./js/chatbot.js"></script> -->
+
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://kit.fontawesome.com/3a9b8bb651.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    @@include('./template/header.html')
+
+
+
+    <!--------CC-CODE-------->
+    <div class="meMain me--allStyle">
+        <div class="container-lg">
+            <main id="app" class="row me-board--style">
+                <div class="me-selectNav col-md-3 col-lg-2 col-12 order-md-1 order-2">
+                    <me-head>
+                        <me-select_item :item="0" @click.native="selectIt(titles.z)" :selected="currentPage==titles.z">{{titles.z}}</me-select_item>
+                        <me-select_item :item="1" @click.native="selectIt(titles.a)" :selected="currentPage==titles.a">{{titles.a}}</me-select_item>
+                        <me-select_item :item="2" @click.native="selectIt(titles.b)" :selected="currentPage==titles.b">{{titles.b}}</me-select_item>
+                        <me-select_item :item="3" @click.native="selectIt(titles.c)" :selected="currentPage==titles.c">{{titles.c}}</me-select_item>
+                        <me-select_item :item="4" @click.native="selectIt(titles.d)" :selected="currentPage==titles.d">{{titles.d}}</me-select_item>
+                    </me-head>
+                </div>
+                <div class="me-content col-md-9 col-lg-10 col-12 order-md-2 order-1">
+                    <select-page-content>
+                        <transition>
+                            <select-page v-if="currentPage == titles.z">
+                                <div class="col-12">
+                                    <div class="row justify-content-between memIcon-block">
+                                        <h6 class="col-3">{{titles.a}}</h6>
+                                        <div class="col-1 memIcon" @click="pageChange(titles.a)">
+                                            <img src="./img/icon/select_down.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4 col-4 offset-4 offset-sm-0 order-sm-2">
+                                            <div class="memPhoto--bgc">
+                                                <div class="memPhoto">
+                                                    <img src="./img/chatRoom/userPic.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8 col-12 order-sm-1">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-12">
+                                                    <span class="mem-show-title">{{memTitle.name}}：</span>
+                                                    <span>{{memName}}</span>
+
+                                                </div>
+                                                <div class="col-sm-6 col-12">
+                                                    <span class="mem-show-title">{{memTitle.gender}}：</span>
+                                                    <span>{{memGender}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6 col-12">
+                                                    <span class="mem-show-title">{{memTitle.bDay}}：</span>
+                                                    <span>{{memBD}}</span>
+
+                                                </div>
+                                                <div class="col-sm-6 col-12">
+                                                    <span class="mem-show-title">{{memTitle.occ}}：</span>
+                                                    <span>{{memOcc}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <span class="mem-show-title">{{memTitle.email}}：</span>
+                                                    <span>{{memEmail.value}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <mem-driver></mem-driver>
+                                <div class="col-sm-6 col-12">
+                                    <div class="row justify-content-between memIcon-block">
+                                        <h6 class="col-sm-6 col-3">{{titles.b}}</h6>
+                                        <div class="col-sm-2 col-1 memIcon" @click="pageChange(titles.b)">
+                                            <img src="./img/icon/select_down.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="row mem-coOrder">
+                                        <div class="col-12">
+                                            <span>日期</span>
+                                            <span>時間</span>
+                                        </div>
+                                        <div class="col-12 ">
+                                            <span>日期</span>
+                                            <span>時間</span>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-sm-6 col-12">
+                                    <div class="row justify-content-between memIcon-block">
+                                        <h6 class="col-sm-6 col-3">{{titles.c}}</h6>
+                                        <div class="col-sm-2 col-1 memIcon" @click="pageChange(titles.c)">
+                                            <img src="./img/icon/select_down.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="row mem-acOrder">
+                                        <div class="col-12">
+                                            <span>課程名稱</span>
+                                            <span>（體驗課程）</span>
+                                        </div>
+                                        <div class="col-12 ">
+                                            <span>課程名稱</span>
+                                            <span>（體驗課程）</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <mem-driver></mem-driver>
+                                <div class="col-12">
+                                    <div class="row justify-content-between memIcon-block">
+                                        <h6 class="col-3">{{titles.d}}</h6>
+                                        <div class="col-1 memIcon" @click="pageChange(titles.d)">
+                                            <img src="./img/icon/select_down.png" alt="">
+                                        </div>
+                                    </div>
+                                    <chart></chart>
+                                </div>
+
+                            </select-page>
+                            <select-page v-if="currentPage == titles.a">
+                                <div class="col-12">
+                                    <div class="row justify-content-between memIcon-block">
+                                        <!-- <back-btn @click="backToIndex(titles.z)">back</back-btn> -->
+                                        <h6 class="col-3">{{titles.a}}</h6>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4 col-4 offset-4 offset-sm-0 order-sm-2">
+                                            <div class="memPhoto--bgc">
+                                                <div class="memPhoto">
+                                                    <img src="./img/chatRoom/userPic.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8 col-12 order-sm-1 mem-modifyBlock">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-12 mem-modify-name">
+                                                    <div class="row ">
+                                                        <div class="col-10 mem-modify-padding">
+                                                            <span class="mem-show-title">{{memTitle.name}}：</span>
+                                                            <span>{{memName}}</span>
+                                                        </div>
+                                                        <div class="col-1 mem-modify-padding"><i class="far fa-edit memI"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-12">
+                                                    <div class="row ">
+                                                        <div class="col-10 mem-modify-padding">
+                                                            <span class="mem-show-title">{{memTitle.gender}}：</span>
+                                                            <span>{{memGender}}</span>
+                                                        </div>
+                                                        <div class="col-1 mem-modify-padding"><i class="far fa-edit memI"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row">
+                                                <div class="col-sm-6 col-12">
+                                                    <div class="row ">
+                                                        <div class="col-10 mem-modify-padding">
+                                                            <span class="mem-show-title">{{memTitle.bDay}}：</span>
+                                                            <span>{{memBD}}</span>
+                                                        </div>
+                                                        <div class="col-1 mem-modify-padding"><i class="far fa-edit memI"></i></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-12">
+                                                    <div class="row ">
+                                                        <div class="col-10 mem-modify-padding">
+                                                            <span class="mem-show-title">{{memTitle.occ}}：</span>
+                                                            <span>{{memOcc}}</span>
+                                                        </div>
+                                                        <div class="col-1 mem-modify-padding"><i class="far fa-edit memI"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div class="col-10 mem-modify-padding">
+                                                            <span class="mem-show-title">{{memTitle.email}}：</span>
+                                                            <span>{{memEmail.value}}</span>
+                                                        </div>
+                                                        <div class="col-1 mem-modify-padding"><i class="far fa-edit memI"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <mem-driver></mem-driver>
+                                    <div class="row justify-content-center">
+                                        <back-btn @click="backToIndex(titles.z)">back</back-btn>
+                                    </div>
+                                </div>
+
+
+
+
+
+                            </select-page>
+                            <select-page v-if="currentPage == titles.b">
+                                <div class="col-12">
+                                    <div class="row justify-content-between memIcon-block">
+                                        <!-- <back-btn @click="backToIndex(titles.z)">back</back-btn> -->
+                                        <h6 class="col-3">{{titles.b}}</h6>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 mem-order-subtitle">{{coOrder.a}}</div>
+                                    </div>
+
+
+
+                                    <div class="row justify-content-center" v-for="each in coData">
+                                        <div class="mem-order-each col-10">
+                                            <div class="row">
+                                                <div class="mem-order-left col-4 mem-modify-padding">
+                                                    <div class="mem-order-dcName">
+                                                        {{each.csName}}
+                                                    </div>
+                                                    <div class="mem-order-img">
+                                                        <img :src="each.csPic" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="mem-order-right col-8 mem-modify-padding">
+                                                    <div class="row justify-content-end">
+                                                        <div v-if="orderShow" class=" order-justDele  col-2">刪除</div>
+                                                        <i class="far fa-edit memI col-1" @click="orderShow =!orderShow"></i>
+                                                    </div>
+                                                    <div class="row justify-content-center">
+                                                        <table class="mem-order-table">
+                                                            <tr>
+                                                                <th>地點:</th>
+                                                                <td>{{each.coPos}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>時間:</th>
+                                                                <td>{{each.csODate}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>諮商時間:</th>
+                                                                <td>{{each.csOHour}}</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div class="row ">
+                                                        <mem-driver></mem-driver>
+                                                        <div class="col-6 offset-6 mem-coOrder-total">
+                                                            <span>費⽤：</span>
+                                                            <span>{{each.csOCost}}</span>
+                                                            <span>.NT</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-3 mem-order-subtitle">{{coOrder.b}}</div>
+                                    </div>
+
+
+                                    <div class="row justify-content-center" v-for="each in coPastData">
+                                        <div class="mem-order-each col-10">
+                                            <div class="row">
+                                                <div class="mem-order-left col-4 mem-modify-padding">
+                                                    <div class="mem-order-dcName">
+                                                        {{each.csName}}
+                                                    </div>
+                                                    <div class="mem-order-img">
+                                                        <img :src="each.csPic" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="mem-order-right col-8 mem-modify-padding">
+                                                    <div class="row justify-content-center">
+                                                        <table class="mem-order-table">
+                                                            <tr>
+                                                                <th>地點:</th>
+                                                                <td>{{each.coPos}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>時間:</th>
+                                                                <td>{{each.csODate}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>諮商時間:</th>
+                                                                <td>{{each.csOHour}}</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div class="row ">
+                                                        <mem-driver></mem-driver>
+                                                        <div class="col-6 offset-6 mem-coOrder-total">
+                                                            <span>費⽤：</span>
+                                                            <span>{{each.csOCost}}</span>
+                                                            <span>.NT</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-center">
+                                        <back-btn @click="backToIndex(titles.z)">back</back-btn>
+                                    </div>
+
+                                </div>
+                            </select-page>
+
+                            <select-page v-if="currentPage == titles.c">
+                                <div class="col-12">
+                                    <div class="row justify-content-between memIcon-block">
+                                        <!-- <back-btn @click="backToIndex(titles.z)">back</back-btn> -->
+                                        <h6 class="col-3">{{titles.c}}</h6>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3 mem-order-subtitle">{{coOrder.a}}</div>
+                                    </div>
+
+                                    <div class="row justify-content-center" v-for="each in aoData">
+                                        <div class="mem-order-each col-10">
+                                            <div class="row">
+                                                <div class="mem-order-left col-4 mem-modify-padding">
+                                                    <div class="mem-order-dcName">
+                                                        {{each.csName}}
+                                                    </div>
+                                                    <div class="mem-order-img">
+                                                        <img :src="each.csPic" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="mem-order-right col-8 mem-modify-padding">
+                                                    <div class="row justify-content-end">
+                                                        <div v-if="orderShow" class=" order-justDele  col-2">刪除</div>
+                                                        <i class="far fa-edit memI col-1" @click="orderShow =!orderShow"></i>
+                                                    </div>
+                                                    <div class="row justify-content-center">
+                                                        <table class="mem-order-table">
+                                                            <tr>
+                                                                <th>地點:</th>
+                                                                <td>{{each.coPos}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>時間:</th>
+                                                                <td>{{each.csODate}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>諮商時間:</th>
+                                                                <td>{{each.csOHour}}</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div class="row ">
+                                                        <mem-driver></mem-driver>
+                                                        <div class="col-6 offset-6 mem-coOrder-total">
+                                                            <span>費⽤：</span>
+                                                            <span>{{each.csOCost}}</span>
+                                                            <span>.NT</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                    <div class="row">
+                                        <div class="col-3 mem-order-subtitle">{{coOrder.b}}</div>
+                                    </div>
+
+                                    <div class="row justify-content-center" v-for="each in aoPastData">
+                                        <div class="mem-order-each col-10">
+                                            <div class="row">
+                                                <div class="mem-order-left col-4 mem-modify-padding">
+                                                    <div class="mem-order-dcName">
+                                                        {{each.csName}}
+                                                    </div>
+                                                    <div class="mem-order-img">
+                                                        <img :src="each.csPic" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="mem-order-right col-8 mem-modify-padding">
+                                                    <div class="row justify-content-center">
+                                                        <table class="mem-order-table">
+                                                            <tr>
+                                                                <th>地點:</th>
+                                                                <td>{{each.coPos}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>時間:</th>
+                                                                <td>{{each.csODate}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>諮商時間:</th>
+                                                                <td>{{each.csOHour}}</td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div class="row ">
+                                                        <mem-driver></mem-driver>
+                                                        <div class="col-6 offset-6 mem-coOrder-total">
+                                                            <span>費⽤：</span>
+                                                            <span>{{each.csOCost}}</span>
+                                                            <span>.NT</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row justify-content-center">
+                                        <back-btn @click="backToIndex(titles.z)">back</back-btn>
+                                    </div>
+
+                                </div>
+
+
+
+
+                            </select-page>
+                            <select-page v-if="currentPage == titles.d">
+                                <div class="col-12">
+                                    <div class="row justify-content-between memIcon-block">
+                                        <h6 class="col-3">{{titles.d}}</h6>
+                                    </div>
+                                    <chart></chart>
+                                    <div class="row justify-content-center">
+                                        <back-btn @click="backToIndex(titles.z)">back</back-btn>
+                                    </div>
+                                </div>
+                            </select-page>
+                        </transition>
+                        <select-page-content>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!--------CC-CODE-------->
+
+    <!-- @@include('./template/header.html') -->
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="./js/meMain.js"></script>
+
+
+    <script>
+    </script>
+
+
+
+</body>
+
+</html>
