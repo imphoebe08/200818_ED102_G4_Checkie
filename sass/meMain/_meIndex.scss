@@ -20,6 +20,7 @@
 @media only screen and (max-width: 768px) {
     .me-selectNav {
         position: fixed;
+        left: 0;
         bottom: 0;
         box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
     }
@@ -27,17 +28,36 @@
 
 .me-select_item {
     cursor: pointer;
-    & :hover {}
+    // border: yellow solid 1px;
 }
 
-@media only screen and (max-width: 576px) {
+.homeIcon {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+    #homeNone {
+        display: none;
+    }
+    .homeIcon {
+        display: block;
+    }
     .me-select_item {
         padding: 0;
     }
 }
 
+.me-select_item--unselected {
+    padding: 10px 0;
+}
+
 .me-select_item--selected {
+    padding: 10px 0;
     background-color: #FFA492;
+    color: white;
 }
 
 .memIcon-block {
@@ -94,6 +114,10 @@
     background: linear-gradient(to right, #FFA492, #91D0EB);
 }
 
+.mem-coOrder-total {
+    text-align: center;
+}
+
 .mem-coOrder,
 .mem-acOrder {
     text-align: center;
@@ -101,14 +125,16 @@
 
 .mem-radarChart-container {
     // border: #91D0EB solid 1px;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     height: 400px;
     margin: 0 auto;
 }
 
 .mem-barChart-container {
     // border: #91D0EB solid 1px;
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     height: 300px;
     margin: 0 auto;
 }
@@ -158,6 +184,32 @@
     }
 }
 
+@media only screen and (max-width: 576px) {
+    .mem-order-table {
+        margin: 10px 0;
+        width: 100%;
+        // border: #FFA492 solid 1px;
+        tr {
+            width: 100%;
+            // border: tomato solid 1px;
+            th {
+                display: none;
+            }
+            td {
+                width: 100%;
+                text-align: center;
+                &:before {
+                    width: 100%;
+                    text-align: center;
+                    background-color: rgb(227, 227, 227);
+                    content: attr(data-title);
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
 .mem-order-table {
     margin-bottom: 20px;
     // border: #FFA492 solid 1px;
@@ -168,12 +220,14 @@
         // border: tomato solid 1px;
         th {
             text-align: left;
-            padding-right: 5px;
+            padding-right: 15px;
             // border-right: #ccc solid 1px;
             // background-color: #f2edeb;
             border-radius: 3px;
         }
-        td {}
+        td {
+            text-align: right;
+        }
     }
 }
 
@@ -187,4 +241,8 @@
     text-align: right;
     color: #ccc;
     cursor: pointer;
+}
+
+.oooo {
+    border: solid 1px darkblue;
 }

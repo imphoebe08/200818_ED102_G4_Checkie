@@ -1,6 +1,6 @@
 Vue.component('me-head', {
     template: `
-        <div class="me-head row">
+        <div class="me-head row justify-content-start">
         <slot></slot>
         </div>
     `,
@@ -21,13 +21,15 @@ Vue.component('me-select_item', {
         return {}
     },
     template: `
-            <div :class="'me-select_item--'+footPrint" class="me-select_item col-2 col-md-12"><slot></slot></div> 
+            <div :class="'me-select_item--'+footPrint" class="me-select_item col-3 col-md-12"><slot></slot></div> 
     `,
 
     computed: {
         footPrint() {
             if (this.selected) {
                 return "selected"
+            } else {
+                return "unselected"
             }
         }
     },
@@ -104,7 +106,7 @@ Vue.component('chart', {
     <div class="row">
         <div class="col-12">
             <div class="mem-radarChart-container">
-                <canvas class="ccChartOnly"></canvas>
+                <canvas class="ccChartOnly" width="500" height="500"></canvas>
             </div>
         </div>
         <div class="col-12">
@@ -178,6 +180,7 @@ let vm = new Vue({
             coPastData: [{}],
             aoData: [{}],
             aoPastData: [{}],
+            step: '',
             currentPage: '',
             errors: [],
             memName: 'cc',
@@ -193,6 +196,7 @@ let vm = new Vue({
                 value: 'misvamda@gmail.com',
                 valid: true,
             },
+            memAdd: '台北市南港區南港路一段四號之一',
             // checkbox: '',
 
             orderShow: false,
@@ -213,6 +217,8 @@ let vm = new Vue({
                 bDay: '出生日期',
                 occ: '職業',
                 email: '電子信箱',
+                tel: '電話',
+                add: '地址',
             },
             coOrder: {
                 a: '已預約',
