@@ -40,6 +40,11 @@
     right: 0;
     transform: skewY(49deg) rotate(-70deg);
   }
+
+  @media screen and(max-width:500px) {
+    left: 0;
+    top: 0;
+  }
 }
   
 .js-icon-active{
@@ -63,7 +68,7 @@
   background-color: #fff;
   box-shadow: 0 5px 10px rgba(black ,.16);
   width: 300px;
-  height: 400px;
+  height: 420px;
   position: fixed;
   right: 20px;
   opacity: 0;
@@ -174,7 +179,7 @@
   
 .modal-input{
   display: inline-block;
-  width: 240px;
+  width: 220px;
   height: 30px;
   border: 1px solid #E6E7F0;
   font-size: 14px;
