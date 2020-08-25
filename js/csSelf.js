@@ -64,6 +64,9 @@ let vmcssart = new Vue({
         },
         openSelfPage() {
             window.open("./csSelf.html", "_self");
+        },
+        openCharRoomPage() {
+            window.open("./chatRoom.html", "_self");
         }
     }
 })
@@ -100,9 +103,20 @@ let vmcssart = new Vue({
 
     let option = {
         legend: {
-            display: 0,
-            labels: {
-                fontColor: "rgb(255, 99, 132)"
+            display: 0
+        },
+        tooltips: {},
+        elements: {
+            line: {
+                backgroundColor: "rgba(255, 99, 160, 0.2)",
+                borderColor: "rgba(255, 99, 160, 0.2)"
+            },
+            point: {
+                backgroundColor: "rgba(255, 99, 132, 0.2)",
+                hoverBackgroundColor: "rgba(255, 99, 132, 0.8)",
+                radius: 5,
+                pointStyle: "circle",
+                hoverRadius: 8
             }
         },
         scale: {
@@ -111,10 +125,25 @@ let vmcssart = new Vue({
             },
             ticks: {
                 suggestedMin: 0,
-                suggestedMax: 100
+                suggestedMax: 100,
+                stepSize: 20,
+                display: false
+            },
+            pointLabels: {
+                fontSize: 18,
+                fontFamily: "微軟正黑體"
+            }
+        },
+        layout: {
+            padding: {
+                left: 20,
+                right: 20,
+                top: 10,
+                bottom: 10
             }
         }
     };
+
     let myChart = new Chart(ctx, {
         type: "radar",
         data: datas,
