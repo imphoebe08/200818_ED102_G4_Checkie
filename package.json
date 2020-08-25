@@ -37,6 +37,7 @@
     },
     "homepage": "https://github.com/imphoebe08/200818_ED102_G4_Checkie#readme",
     "dependencies": {
+        "chart.js": "^2.9.3",
         "coreui": "^0.4.2-alpha2"
     }
 }

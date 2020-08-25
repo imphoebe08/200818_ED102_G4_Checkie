@@ -84,8 +84,12 @@ gulp.task('default', function() {
     });
 
     gulp.watch(['./sass/*.scss', './sass/**/*.scss'], ['sass']).on('change', reload);
-    gulp.watch(['./*.html', '**/*.html'], ['fileinclude']).on('change', reload);
+    gulp.watch(['./*.html', '**/*.html', ], ['fileinclude']).on('change', reload);
     gulp.watch('./js/*.js', ['copyjs']).on('change', reload);
+
+    // backstageWatch
+    gulp.watch(['./backstage/html/*.html', './backstage/html/**/*.html'], ['bghtml']).on('change', reload);
+    gulp.watch(['./backstage/sass/*.scss', './backstage/sass/**/*.scss'], ['copyjs']).on('change', reload);
 });
 
 //壓縮圖檔
