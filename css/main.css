@@ -9465,19 +9465,20 @@ input::placeholder {
 }
 
 .me-board--style {
+  margin: 15px 0;
+  overflow: hidden;
   border-radius: 10px;
   -webkit-box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
           box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
 }
 
 .me-selectNav {
-  border: darkgoldenrod solid 3px;
   background-color: white;
   z-index: 1314;
+  text-align: center;
 }
 
 .me-content {
-  border: darkcyan solid 3px;
   margin-bottom: 70px;
 }
 
@@ -9492,6 +9493,12 @@ input::placeholder {
 
 .me-select_item {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 576px) {
+  .me-select_item {
+    padding: 0;
+  }
 }
 
 .me-select_item--selected {
@@ -9515,6 +9522,7 @@ input::placeholder {
 }
 
 .memPhoto--bgc {
+  margin: 0 auto;
   width: 100%;
   max-width: 200px;
   min-width: 150px;
@@ -9558,9 +9566,86 @@ input::placeholder {
   text-align: center;
 }
 
-.mem-chart-container {
-  border: #91D0EB solid 1px;
+.mem-radarChart-container {
   width: 400px;
   height: 400px;
+  margin: 0 auto;
+}
+
+.mem-barChart-container {
+  width: 600px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.memI {
+  font-size: 16px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.memI-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.mem-modify-padding {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.mem-order-subtitle {
+  padding-left: 25px;
+}
+
+.mem-order-each {
+  -webkit-box-shadow: 0 0 5px rgba(75, 83, 94, 0.28);
+          box-shadow: 0 0 5px rgba(75, 83, 94, 0.28);
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.mem-order-each > div .mem-order-left {
+  border-right: #ccc solid 1px;
+}
+
+.mem-order-each > div .mem-order-left .mem-order-dcName {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.mem-order-each > div .mem-order-left .mem-order-img {
+  margin: 0 auto;
+  border-radius: 3px;
+  max-height: 180px;
+  overflow: hidden;
+}
+
+.mem-order-each > div .mem-order-left .mem-order-img img {
+  width: 100%;
+}
+
+.mem-order-table {
+  margin-bottom: 20px;
+}
+
+.mem-order-table tr {
+  height: 35px;
+  vertical-align: middle;
+  line-height: 35px;
+}
+
+.mem-order-table tr th {
+  text-align: left;
+  padding-right: 5px;
+  border-radius: 3px;
+}
+
+.order-justDele {
+  padding-left: 0;
+  padding-right: 0;
+  text-align: right;
+  color: #ccc;
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */
