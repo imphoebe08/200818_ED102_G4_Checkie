@@ -1,23 +1,20 @@
-
-@import 'variable.scss';
-@import 'var.scss';
-
-@mixin circle($width,$hight,$left,$top,$deg) {
+@import 'variable';
+@import 'var';
+@mixin circle($width, $hight, $left, $top, $deg) {
     width: $width;
     height: $hight;
     border-radius: 50%;
     position: absolute;
     top: $top;
     left: $left;
-    background-clip:padding-box,border-box;
-    background-origin:padding-box,border-box;
-    background-image:linear-gradient($deg,$color-blue,$color-pink);
-    border:2px transparent solid;
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    background-image: linear-gradient($deg, $color-blue, $color-pink);
+    border: 2px transparent solid;
     opacity: 0.7;
-
 }
 
-.bg_all{
+.bg_all {
     background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
     width: 100%;
     height: 100%;
@@ -26,71 +23,85 @@
     left: 0;
     display: block;
     z-index: -990;
-    
-    .bg-big_circle{
-        @include circle(400px,400px,0,40%,225deg);
+    .bg-big_circle {
+        @include circle(400px, 400px, 0, 40%, 225deg);
         transform: translateX(-50%);
-        
     }
-    .bg-circle_1{
-        @include circle(200px,200px,50%,10%,200deg);
-        background-image:linear-gradient(200deg,#91d0ebc2,#ffa492bb);
-        
-
+    .bg-circle_1 {
+        @include circle(200px, 200px, 50%, 10%, 200deg);
+        background-image: linear-gradient(200deg, #91d0ebc2, #ffa492bb);
     }
-    .bg-circle_2{
-        @include circle(120px,120px,30%,58%,45deg);
+    .bg-circle_2 {
+        @include circle(120px, 120px, 30%, 58%, 45deg);
         animation: float 5s infinite;
-        background-image:linear-gradient(45deg,#ace6ff96,#ffa49294);
-        
+        background-image: linear-gradient(45deg, #ace6ff96, #ffa49294);
     }
-    .bg-circle_3{
-        @include circle(100px,100px,80%,10%,30deg);
+    .bg-circle_3 {
+        @include circle(100px, 100px, 80%, 10%, 30deg);
         animation: float2 5s infinite;
-        background-image:linear-gradient(30deg,#91d0eb8a,#ffa4928e);
-        
-
+        background-image: linear-gradient(30deg, #91d0eb8a, #ffa4928e);
     }
-    .bg-circle_4{
-        @include circle(50px,50px,90%,60%,80deg);
-        background-image:linear-gradient(80deg,#c0ecff,#ddaea5);
+    .bg-circle_4 {
+        @include circle(50px, 50px, 90%, 60%, 80deg);
+        background-image: linear-gradient(80deg, #c0ecff, #ddaea5);
         animation: float 5s infinite;
-
     }
-
-    .bg-circle_5{
-        @include circle(120px,120px,70%,90%,80deg);
+    .bg-circle_5 {
+        @include circle(120px, 120px, 70%, 90%, 80deg);
         animation: float3 5s infinite;
-        
-        
-
     }
 }
 
-@keyframes float{
-    0%{top:60%}
-    25%{top:58%}
-    50%{top:60%}
-    75%{top:58%}
-    100%{top:60%}
+@keyframes float {
+    0% {
+        top: 60%
+    }
+    25% {
+        top: 58%
+    }
+    50% {
+        top: 60%
+    }
+    75% {
+        top: 58%
+    }
+    100% {
+        top: 60%
+    }
 }
 
-@keyframes float2{
-    0%{top:10%}
-    25%{top:15%}
-    50%{top:13%}
-    75%{top:15%}
-    100%{top:10%}
+@keyframes float2 {
+    0% {
+        top: 10%
+    }
+    25% {
+        top: 15%
+    }
+    50% {
+        top: 13%
+    }
+    75% {
+        top: 15%
+    }
+    100% {
+        top: 10%
+    }
 }
 
-@keyframes float3{
-    0%{top:90%}
-    25%{top:92%}
-    50%{top:90%}
-    75%{top:89%}
-    100%{top:90%}
+@keyframes float3 {
+    0% {
+        top: 90%
+    }
+    25% {
+        top: 92%
+    }
+    50% {
+        top: 90%
+    }
+    75% {
+        top: 89%
+    }
+    100% {
+        top: 90%
+    }
 }
-
-
-
-
