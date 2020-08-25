@@ -215,11 +215,43 @@ header{
     opacity: 0;
     transition: background-color 0s;
     z-index: 51;
+
+    .test_button{
+        @include btn-modules($bw, $color-pink, $fontsize);
+        display: inline-block;
+        margin:auto 0;
+        padding: 0 20px;
+        height: 30px;
+        text-align: center;
+        line-height: 20px;
+        background: transparent;
+        font-size: 16px;
+        font-weight: 400;
+        background:$color-pink;
+        color:white;
+
+        &:hover{
+            background:#fff;
+            color:$color-pink;
+        }
+  
+    }
 }
 
-@media (max-width: 768px){
+@media (max-width: 800px){
     .navbar__menu{
         width: 0;
+
+        .test_button{
+            height: 60px;
+            text-align: center;
+            border-radius: 0;
+            &:hover{
+                background:#fff;
+                border:#fff;
+                color:$color-pink;
+            }
+        }
     }
 }
 
@@ -239,28 +271,11 @@ header{
 }
 
 .navbar__sign{
-    line-height: 78px;
+    line-height: 80px;
     margin: auto 0;
     margin-left: 20px;
     list-style: none;
     color: rgb(0, 0, 0);
-
-    .test_button{
-        @include btn-modules($bw, $color-pink, $fontsize);
-        padding:0 8px;
-        margin-right:10px;
-        background: transparent;
-        font-size: 16px;
-        font-weight: 400;
-        background:$color-pink;
-        color:white;
-
-        &:hover{
-            background:#fff;
-            color:$color-pink;
-        }
-  
-    }
 
     
     .navbar__sign__item{
@@ -268,7 +283,7 @@ header{
         border:0;
         background-color:transparent;
         font-size: $fontsize;
-        margin: 0;
+        margin: auto 0;
         padding: 0;
         cursor: pointer;
         &:focus{
@@ -295,7 +310,7 @@ header{
 
 /*-----------------Desktop-------------------*/
 
-@media (min-width: 768px) {
+@media (min-width: 799px) {
 
     .navbar__menu {
         opacity: 1;
