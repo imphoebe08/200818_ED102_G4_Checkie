@@ -1,5 +1,5 @@
 .me-board--style {
-    margin: 15px 0;
+    margin: 15px 0 70px 0;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(75, 83, 94, 0.58);
@@ -8,7 +8,7 @@
 .me-selectNav {
     // border: darkgoldenrod solid 3px;
     background-color: white;
-    z-index: 1314;
+    z-index: 87;
     text-align: center;
 }
 
@@ -27,7 +27,13 @@
 }
 
 .me-select_item {
+    margin: 10px 0;
     cursor: pointer;
+    transition: all .3s ease-in-out;
+    &:hover {
+        border-radius: 30px;
+        box-shadow: 0 0 3px rgba(75, 83, 94, 0.28);
+    }
     // border: yellow solid 1px;
 }
 
@@ -47,6 +53,7 @@
     }
     .me-select_item {
         padding: 0;
+        margin: 0;
     }
 }
 
@@ -56,7 +63,8 @@
 
 .me-select_item--selected {
     padding: 10px 0;
-    background-color: #FFA492;
+    border-radius: 30px;
+    background-color: $color-pink;
     color: white;
 }
 
@@ -81,8 +89,8 @@
 .memPhoto--bgc {
     margin: 0 auto;
     width: 100%;
-    max-width: 200px;
-    min-width: 150px;
+    max-width: 150px;
+    min-width: 120px;
     border-radius: 50%;
     border: $color-blue;
     padding: 5px;
@@ -243,6 +251,143 @@
     cursor: pointer;
 }
 
-.oooo {
-    border: solid 1px darkblue;
+.mem-modify-table {
+    width: 100%;
+    margin: 0 15px;
+    //border: solid 5px darkblue;
+    tr {
+        width: 100%;
+        th {
+            width: 90px;
+            padding: 10px 0;
+            //background-color: darkgrey;
+            text-align: left;
+        }
+        td {
+            //width: 40%;
+        }
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .mem-modify-table {
+        width: 100%;
+        margin: 0 15px;
+        //border: solid 5px darkblue;
+        tr {
+            width: 100%;
+            th {
+                width: 90px;
+                padding: 10px 0;
+                //background-color: darkgrey;
+                text-align: left;
+            }
+            td {
+                //width: 40%;
+            }
+        }
+    }
+}
+
+.mem-show-title {
+    display: inline-block;
+    width: 30%;
+    // border: darkmagenta solid 1px;
+}
+
+.mem-modify-paddingLess {
+    padding: 8px 0;
+}
+
+.modifyForm {
+    border: darkgrey solid 1px;
+    border-radius: 3px;
+    padding: 0 3px;
+    width: 65%;
+    height: 90%;
+    display: inline-block;
+}
+
+.modifyCountryCode {
+    width: 20%;
+}
+
+.modifyMobile {
+    width: 45%;
+}
+
+.mem-modify-radio {
+    >label {
+        .radio {
+            display: inline-block;
+            position: relative;
+            padding-left: 35px;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            &:hover input~.checkmark {
+                background-color: #ccc;
+            }
+            input {
+                // border: blue solid 5px;
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                &:checked~.checkmark {
+                    background-color: $color-blue;
+                    &::after {
+                        display: block;
+                    }
+                }
+            }
+            .checkmark {
+                position: absolute;
+                left: 5px;
+                height: 20px;
+                width: 20px;
+                background-color: #eee;
+                border-radius: 50%;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    display: none;
+                    top: 6px;
+                    left: 6px;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: white;
+                }
+            }
+        }
+    }
+}
+
+.buttonFlex {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    .fuckingButton {
+        padding: 0;
+        //border: darkgreen solid 1px;
+        button {
+            margin: 0;
+            //border: darkmagenta solid 1px;
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .buttonFlex {
+        .fuckingButton {
+            button {
+                padding: 5px 15px;
+                font-size: 18px;
+                margin: 0;
+                // border: darkmagenta solid 5px;
+            }
+        }
+    }
 }
