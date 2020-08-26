@@ -168,6 +168,72 @@ Vue.component('co-order', {
 });
 
 
+Vue.component('inact-item', {
+    template: `
+        <div class="inAct_item">
+            <!-- 帶資料 -->
+            <a href="javascript:void(0)" draggable="false">
+                <img src="./img/index/inAct/image_1.jpg" draggable="false">
+            </a>
+            <div class="inAct_text">
+                <div class="inAct-top_text">
+                    <div class="inAct-left_date">
+                        <div class="inAct-date_icon"></div>
+                        <!-- 帶資料 -->
+                        <div class="inAct-date_text">2020-08-14(五)</div>
+                    </div>
+                    <div class="inAct-icon_block">
+                        <a href="javascript:void(0)" class="inAct-icon_1" draggable="false"></a>
+                        <a href="javascript:void(0)" class="inAct-icon_2" draggable="false" s></a>
+                    </div>
+                </div>
+                <!-- 帶資料 -->
+                <div class="inAct_title"><a href="javascript:void(0)" draggable="false">從陌生人到貴人，打造職涯路上的黃金人脈法則</a> </div>
+
+                <div class="inAct_location">
+                    <div class="inAct-location_icon"></div>
+                    <!-- 帶資料 -->
+                    <div class="inAct-location_text">台灣文創教育中心</div>
+                </div>
+            </div>
+        </div>
+    `,
+});
+
+
+
+Vue.component('cssart-layout', {
+    template: `
+    <div class="csS-art__card">
+                    <a href="./atSelf.html">
+                        <img class="img-responsive"
+                            src="https://image1.thenewslens.com/2018/12/n2gvdi810gmxufwkn726jbt5fypicc.jpg?auto=compress&h=648&q=80&w=1080">
+                    </a>
+                    <div class="card-Info">
+                        <span class="card-Info__times small"><img src="img//icon//clock.png" alt="">2018/12/15</span>
+                        <span class="card-Info__category small">| 蔡XX醫師</span>
+                    </div>
+                    <p @click="openArtPage">因感情問題來看診的年輕女性，有這四個共同特點</p>
+
+                    <div class="row card-tag">
+                        <a href="./atSelf.html" class="button2">More...</a>
+                    </div>
+                    <div class="card-share">
+                        <span>Share : </span>
+                        <a href="" class="small"><img src="img//icon//facebook.png" alt=""></a>
+                        <a href="" class="small"><img src="img//icon//share.png" alt=""></a>
+                        <a href="" class="small"><img src="img//icon//bookmark.png" alt=""></a>
+                    </div>
+                </div>`,
+    methods: {
+        openArtPage() {
+            window.open("./atSelf.html", "_self");
+        },
+    }
+})
+
+
+
 var option = {
     legend: {
         display: 0
@@ -288,6 +354,12 @@ let vm = new Vue({
                 a: '已預約',
                 b: '預約記錄',
             },
+            mentalTitles: {
+                a: '測驗歷史紀錄',
+                b: '⾃我評估：',
+                c: '推薦專欄',
+                d: '推薦活動',
+            }
 
         }
     },
