@@ -168,6 +168,49 @@ Vue.component('co-order', {
 });
 
 
+var option = {
+    legend: {
+        display: 0
+    },
+    tooltips: {},
+    elements: {
+        line: {
+            backgroundColor: "rgba(255, 99, 160, 0.2)",
+            borderColor: "rgba(255, 99, 160, 0.2)"
+        },
+        point: {
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            hoverBackgroundColor: "rgba(255, 99, 132, 0.8)",
+            radius: 5,
+            pointStyle: "circle",
+            hoverRadius: 8
+        }
+    },
+    scale: {
+        angleLines: {
+            display: false
+        },
+        ticks: {
+            suggestedMin: 0,
+            suggestedMax: 100,
+            stepSize: 20,
+            display: false
+        },
+        pointLabels: {
+            fontSize: 18,
+            fontFamily: "微軟正黑體"
+        }
+    },
+    // layout: {
+    //     padding: {
+    //         left: 20,
+    //         right: 20,
+    //         top: 10,
+    //         bottom: 10
+    //     }
+    // }
+};
+
 
 
 
@@ -176,6 +219,7 @@ let vm = new Vue({
     el: '#app',
     data: () => {
         return {
+            option: option,
             coData: [{}],
             coPastData: [{}],
             aoData: [{}],
@@ -300,18 +344,10 @@ let vm = new Vue({
                     }],
 
                 },
-                options: {
-                    scale: {
-                        angleLines: {
-                            display: false
-                        },
-                        ticks: {
-                            suggestedMin: 50,
-                            suggestedMax: 100
-                        }
-                    }
-                }
+                options: this.option,
             });
+
+
             var ctx = $('.bbChartOnly');
             myBarChart = new Chart(ctx, {
                 type: 'horizontalBar',
