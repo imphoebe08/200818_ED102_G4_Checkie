@@ -27,11 +27,11 @@ $space:300px;
     &:after {
         content: "";
         width: 100%;
-        height: 10%; //?
+        height: 5%;
         border-radius: $border-radius;
         background-color: #FFA492;
         position: absolute;
-        bottom: -10px; //?
+        bottom: -5px; 
         left: 0;
         // 問珮菁
     }

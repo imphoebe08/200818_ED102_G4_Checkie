@@ -1,14 +1,20 @@
-.inSc-h1 {
-	@include title;
-	display: block;
-	margin: 0 auto;
-	max-width: 208px;
-}
+
 
 div.inCs_group {
 	position: relative;
 	height: 100vh;
 	margin: 0 0 100px;
+
+	.inSc-h1 {
+		@include title;
+		display: block;
+		margin: 0 auto;
+		max-width: 208px;
+
+		@media screen and(max-width:768px) {
+			max-width: 156px;
+		}
+	}
 
 	div.inCs.inCs--large {
 		width: 100%;
@@ -96,7 +102,7 @@ div.inCs_group {
 					left: 50%;
 					transform: translate(-50%, 0);
 					margin: 10px;
-					@include btn-modules($bw, $color-pink, $fontsize * 1.25);
+					@include btn-modules($bw, $color-pink, $fontsize);
 				}
 			}
 		}
@@ -194,16 +200,16 @@ div.inCs_group {
 			list-style: none;
 
 			li.point {
-				width: 20px;
-				height: 20px;
-				border: 3px solid black;
+				width: 10px;
+				height: 10px;
+				border: 1px solid black;
 				margin: 0 10px;
 				border-radius: 50%;
 				background: white;
 				cursor: pointer;
 
 				&.activeNow {
-					background: pink;
+					background: $color-pink;
 				}
 			}
 		}

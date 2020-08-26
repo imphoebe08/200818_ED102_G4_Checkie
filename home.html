@@ -351,8 +351,9 @@
         });
     </script>
     <!-- 諮商師卡片開始 -->
-    <h1 class="inSc-h1">諮商師介紹</h1>
+    
     <div class="inCs_group" id="inCsGroup">
+        <h1 class="inSc-h1">諮商師介紹</h1>
         <keep-alive>
             <div class="inCs inCs--large" v-show="screenWidth >= 576">
                 <ul class="leftList">
@@ -1071,9 +1072,11 @@
                 },
             }
         })
+
+        
     </script>
     <!-- footer -->
-
+    @@include('template/footer.html')
     <!-- footer -->
     <script src="./js/indexVue.js"></script>
 </body>
