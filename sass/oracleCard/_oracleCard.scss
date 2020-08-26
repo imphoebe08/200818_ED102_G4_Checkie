@@ -853,6 +853,29 @@ p {
                     }
                 }
             }
+            .oracleCardStep {
+                .stepBg {
+                    .showImg {
+                        width: 300px;
+                        margin-bottom: 30px;
+                        .mainImg {
+                            left: 25px;
+                            top: 25px;
+                            max-width: 250px;
+                            max-height: 250px;
+                        }
+                    }
+                    .showTxt {
+                        .txt {
+                            p {
+                                margin: auto;
+                                width: 300px;
+                                padding: 0;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
