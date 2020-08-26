@@ -13,8 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.js"></script>
-    <!-- <script src="./js/header.js"></script>
-    <script src="./js/chatbot.js"></script> -->
+    <script src="./js/header.js"></script>
+    <script src="./js/chatbot.js"></script>
 
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://kit.fontawesome.com/3a9b8bb651.js" crossorigin="anonymous"></script>
@@ -24,7 +24,7 @@
 <body>
 
 
-    <!-- @@include('./template/header.html') -->
+    @@include('./template/header.html')
 
 
 
@@ -39,9 +39,9 @@
                         <me-select_item :item="2" @click.native="selectIt(titles.b)" :selected="currentPage==titles.b">{{titles.b}}</me-select_item>
                         <me-select_item :item="3" @click.native="selectIt(titles.c)" :selected="currentPage==titles.c">{{titles.c}}</me-select_item>
                         <me-select_item :item="4" @click.native="selectIt(titles.d)" :selected="currentPage==titles.d">{{titles.d}}</me-select_item>
-                        <div class="homeIcon">
+                        <!-- <div class="homeIcon">
                             <back-btn @click="backToIndex(titles.z)">H</back-btn>
-                        </div>
+                        </div> -->
                     </me-head>
                 </div>
                 <div class="me-content col-md-9 col-lg-10 col-12 order-md-2 order-1">
