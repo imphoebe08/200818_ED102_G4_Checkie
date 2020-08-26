@@ -107,9 +107,9 @@ $(function() {
             offset: 300,
             // triggerHook: .5
         }).setTween([t1, t2])
-        .addIndicators({
-            name: 'key_01'
-        })
+        // .addIndicators({
+        //     name: 'key_01'
+        // })
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
 
@@ -123,9 +123,9 @@ $(function() {
             offset: 0,
             // triggerHook: .5
         }).setTween([t3, t4])
-        .addIndicators({
-            name: 'key_02'
-        })
+        // .addIndicators({
+        //     name: 'key_02'
+        // })
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
 
@@ -139,9 +139,9 @@ $(function() {
             offset: 0,
             // triggerHook: .5
         }).setTween([t5, t6, btn])
-        .addIndicators({
-            name: 'key_03'
-        })
+        // .addIndicators({
+        //     name: 'key_03'
+        // })
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
 
@@ -155,9 +155,9 @@ $(function() {
             offset: 0,
             // triggerHook: .5
         }).setTween([t7, t8])
-        .addIndicators({
-            name: 'key_04'
-        })
+        // .addIndicators({
+        //     name: 'key_04'
+        // })
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
 
@@ -172,9 +172,9 @@ $(function() {
             offset: 0,
             // triggerHook: .5
         }).setTween([t9, t10])
-        .addIndicators({
-            name: 'key_05'
-        })
+        // .addIndicators({
+        //     name: 'key_05'
+        // })
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
 
