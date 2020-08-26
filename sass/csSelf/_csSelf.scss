@@ -61,6 +61,7 @@
 
                 .intro-right {
                     background-color: rgba(240, 240, 240, 0.404);
+                    padding-left: 10px;
 
                     .list-wrapper>li {
                         margin: 12px 0 0;
@@ -208,7 +209,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 760px) {
     .csS-info__intro {
         order: 2;
     }

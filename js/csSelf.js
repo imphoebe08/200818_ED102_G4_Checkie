@@ -56,6 +56,31 @@ Vue.component("csselfact-layout", {
     }
 });
 
+Vue.component("csselfreco-layout", {
+    template: `
+	<div class="csSelfReco-card">
+                        <div class="card__image" @click="openSelfPage">
+                            <img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1437388/517313_37962.jpg"
+                                alt="">
+                        </div>
+                        <div class="card__title">
+                            <h5  @click="openSelfPage">勞樂程 實習心理師</h5>
+                        </div>
+                        <div class="card__info">
+                            <p>
+                                國立臺灣師範大學教育心理與輔導學系 諮商組碩士班 在學<br>
+                                香港樹仁大學 輔導與心理學系 學士<br>
+                            </p>
+                        </div>
+                    </div>
+`,
+    methods: {
+        openSelfPage() {
+            window.open("./csSelf.html", "_self");
+        },
+    }
+});
+
 let vmcssart = new Vue({
     el: "#app",
     methods: {
@@ -64,6 +89,9 @@ let vmcssart = new Vue({
         },
         openSelfPage() {
             window.open("./csSelf.html", "_self");
+        },
+        openCharRoomPage() {
+            window.open("./chatRoom.html", "_self");
         }
     }
 })
@@ -100,9 +128,20 @@ let vmcssart = new Vue({
 
     let option = {
         legend: {
-            display: 0,
-            labels: {
-                fontColor: "rgb(255, 99, 132)"
+            display: 0
+        },
+        tooltips: {},
+        elements: {
+            line: {
+                backgroundColor: "rgba(255, 99, 160, 0.2)",
+                borderColor: "rgba(255, 99, 160, 0.2)"
+            },
+            point: {
+                backgroundColor: "rgba(255, 99, 132, 0.2)",
+                hoverBackgroundColor: "rgba(255, 99, 132, 0.8)",
+                radius: 5,
+                pointStyle: "circle",
+                hoverRadius: 8
             }
         },
         scale: {
@@ -111,10 +150,25 @@ let vmcssart = new Vue({
             },
             ticks: {
                 suggestedMin: 0,
-                suggestedMax: 100
+                suggestedMax: 100,
+                stepSize: 20,
+                display: false
+            },
+            pointLabels: {
+                fontSize: 18,
+                fontFamily: "微軟正黑體"
+            }
+        },
+        layout: {
+            padding: {
+                left: 20,
+                right: 20,
+                top: 10,
+                bottom: 10
             }
         }
     };
+
     let myChart = new Chart(ctx, {
         type: "radar",
         data: datas,

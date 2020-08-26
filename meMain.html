@@ -24,7 +24,7 @@
 <body>
 
 
-    @@include('./template/header.html')
+    <!-- @@include('./template/header.html') -->
 
 
 
@@ -56,40 +56,39 @@
                                         </div>
                                     </div>
                                     <div class="row justify-content-center">
-                                        <div class="col-sm-4 col-12 order-sm-2">
+                                        <div class="col-sm-3 col-12 order-sm-2">
                                             <div class="memPhoto--bgc">
                                                 <div class="memPhoto">
                                                     <img src="./img/chatRoom/userPic.png" alt="">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-8 col-12 order-sm-1">
+                                        <div class="col-sm-9 col-12 order-sm-1">
                                             <div class="row">
                                                 <div class="col-sm-6 col-12">
                                                     <span class="mem-show-title">{{memTitle.name}}：</span>
-                                                    <span>{{memName}}</span>
-
+                                                    <span>{{member.memName}}</span>
                                                 </div>
                                                 <div class="col-sm-6 col-12">
                                                     <span class="mem-show-title">{{memTitle.gender}}：</span>
-                                                    <span>{{memGender}}</span>
+                                                    <span>{{member.memGender}}</span>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-6 col-12">
                                                     <span class="mem-show-title">{{memTitle.bDay}}：</span>
-                                                    <span>{{memBD}}</span>
+                                                    <span>{{member.memBD}}</span>
 
                                                 </div>
                                                 <div class="col-sm-6 col-12">
                                                     <span class="mem-show-title">{{memTitle.occ}}：</span>
-                                                    <span>{{memOcc}}</span>
+                                                    <span>{{member.memOcc}}</span>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-12">
                                                     <span class="mem-show-title">{{memTitle.email}}：</span>
-                                                    <span>{{memEmail.value}}</span>
+                                                    <span>{{member.memEmail.value}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -151,135 +150,116 @@
                                     <div class="row justify-content-between memIcon-block">
                                         <!-- <back-btn @click="backToIndex(titles.z)">back</back-btn> -->
                                         <h6 class="col-sm-3 col-6">{{titles.a}}</h6>
-                                        <i class="far fa-edit memI col-2 col-sm-2"></i>
+                                        <i class="far fa-edit memI col-2 col-sm-2" @click="goModify(!iWantModify)"></i>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-4 col-12 order-sm-2">
+                                        <div class="col-sm-3 col-12 order-sm-2">
                                             <div class="memPhoto--bgc">
                                                 <div class="memPhoto">
                                                     <img src="./img/chatRoom/userPic.png" alt="">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-8 col-12 order-sm-1 mem-modifyBlock">
+                                        <div class="col-sm-9 col-12 order-sm-1 mem-modifyBlock">
                                             <div class="row">
-                                                <table class="col-12">
-                                                    <tr>
-                                                        <th>{{memTitle.name}}：</th>
-                                                        <td>{{memName}}</td>
-                                                        <th>{{memTitle.gender}}：</th>
-                                                        <td>{{memGender}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>{{memTitle.bDay}}：</th>
-                                                        <td>{{memBD}}</td>
-                                                        <th>{{memTitle.occ}}：</th>
-                                                        <td>{{memOcc}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>{{memTitle.email}}：</td>
-                                                        <th>{{memEmail.value}}</th>
-                                                    </tr>
-                                                </table>
-                                                <!-- <div class="col-sm-6 col-12 mem-modify-name">
+                                                <div class="col-sm-6 col-12 ">
                                                     <div class="row ">
                                                         <div class="col-12 mem-modify-padding">
-                                                            <span class="mem-show-title">{{memTitle.name}}：</span>
-                                                            <span>{{memName}}</span>
+                                                            <label for="moName" class="">
+                                                                <span class="mem-show-title">{{memTitle.name}}：</span>
+                                                                <span v-if="!iWantModify" class="">{{member.memName}}</span>
+                                                                <input v-if="iWantModify" name="moName" type="text" class="modifyForm" v-model="momentModify.memName" :placeholder="member.memName">
+                                                            </label>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-12">
+                                                    <div class="row ">
+                                                        <div class="col-12 mem-modify-padding mem-modify-radio ">
+                                                            <label for="moGender" class="">
+                                                                <span class="mem-show-title">{{memTitle.gender}}：</span>
+                                                                <span v-if="!iWantModify">{{member.memGender}}</span>
+                                                                <label class="radio" v-if="iWantModify">
+                                                                    <input v-if="iWantModify" name="moGender" type="radio" class="modifyRadio" v-model="momentModify.memGender" value="男">男
+                                                                    <span v-if="iWantModify" class="checkmark"></span>
+                                                                </label>
 
+                                                            <label class="radio" v-if="iWantModify">
+                                                                    <input v-if="iWantModify" name="moGender" type="radio" class="modifyRadio" v-model="momentModify.memGender" value="女">女
+                                                                    <span v-if="iWantModify" class="checkmark"></span>
+                                                                </label>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-6 col-12">
+                                                    <div class="row ">
+                                                        <div class="col-12 mem-modify-padding">
+                                                            <label for="moBD" class="">
+                                                                <span class="mem-show-title">{{memTitle.bDay}}：</span>
+                                                                <span v-if="!iWantModify">{{member.memBD}}</span>
+                                                                <input v-if="iWantModify" type="text" name="moBD" class="modifyForm" v-model="momentModify.memBD" :placeholder="member.memBD">
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6 col-12">
                                                     <div class="row ">
                                                         <div class="col-12 mem-modify-padding">
-                                                            <span class="mem-show-title">{{memTitle.gender}}：</span>
-                                                            <span>{{memGender}}</span>
+                                                            <label for="moOcc" class="">
+                                                                <span class="mem-show-title">{{memTitle.occ}}：</span>
+                                                                <span v-if="!iWantModify">{{member.memOcc}}</span>
+                                                                <input v-if="iWantModify" type="text" name="moOcc" class="modifyForm" v-model="momentModify.memOcc" :placeholder="member.memOcc">
+                                                            </label>
                                                         </div>
-
-                                                    </div>
-                                                </div> -->
-                                            </div>
-
-
-                                            <!-- <div class="row">
-                                                <div class="col-sm-6 col-12">
-                                                    <div class="row ">
-                                                        <div class="col-12 mem-modify-padding">
-                                                            <span class="mem-show-title">{{memTitle.bDay}}：</span>
-                                                            <span>{{memBD}}</span>
-                                                        </div>
-
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6 col-12">
-                                                    <div class="row ">
-                                                        <div class="col-12 mem-modify-padding">
-                                                            <span class="mem-show-title">{{memTitle.occ}}：</span>
-                                                            <span>{{memOcc}}</span>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
                                                 <div class="col-12">
                                                     <div class="row">
                                                         <div class="col-12 mem-modify-padding">
-                                                            <span class="mem-show-title">{{memTitle.email}}：</span>
-                                                            <span>{{memEmail.value}}</span>
+                                                            <label for="moEmail" class="">
+                                                                <span class="mem-show-title">{{memTitle.email}}：</span>
+                                                                <span v-if="!iWantModify">{{member.memEmail.value}}</span> 
+                                                                <input v-if="iWantModify" type="email" name="moEmail" class="modifyForm" v-model="momentModify.memEmail.value" :placeholder="member.memEmail.value">
+                                                            </label>
                                                         </div>
-
                                                     </div>
                                                 </div>
-                                            </div> -->
-                                        </div>
-                                    </div>
-                                    <mem-driver></mem-driver>
-                                    <div class="row">
-                                        <div class="col-sm-8 col-12 order-sm-1 mem-modifyBlock">
-                                            <div class="row">
-                                                <div class="col-sm-6 col-12 mem-modify-name">
+                                                <div class="col-12">
                                                     <div class="row ">
                                                         <div class="col-12 mem-modify-padding">
-                                                            <span class="mem-show-title">{{memTitle.add}}：</span>
-                                                            <span>{{memName}}</span>
+                                                            <label for="moAdd" class="">
+                                                                <span class="mem-show-title">{{memTitle.add}}：</span>
+                                                                <span v-if="!iWantModify">{{member.memAdd}}</span>
+                                                                <input v-if="iWantModify" type="text" name="moAdd" class="modifyForm" v-model="momentModify.memAdd" :placeholder="member.memAdd">
+                                                            </label>
                                                         </div>
-                                                        <!-- <div class="col-1 mem-modify-padding"><i class="far fa-edit memI"></i></div> -->
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6 col-12">
+                                                <div class="col-12">
                                                     <div class="row ">
                                                         <div class="col-12 mem-modify-padding">
-                                                            <span class="mem-show-title">{{memTitle.tel}}：</span>
-                                                            <span>{{memGender}}</span>
+                                                            <label for="moTel" class="">
+                                                                <span class="mem-show-title">{{memTitle.tel}}：</span>
+                                                                <span v-if="!iWantModify">{{member.memTel.countryCode}}{{member.memTel.mobile}}</span>
+                                                                <input v-if="iWantModify" type="text" name="moTel" class="modifyForm modifyCountryCode" v-model="momentModify.memTel.countryCode" :placeholder="member.memTel.countryCode">
+                                                                <input v-if="iWantModify" type="tel" name="moTel" class="modifyForm modifyMobile" v-model="momentModify.memTel.mobile" :placeholder="member.memTel.mobile">
+                                                            </label>
                                                         </div>
-                                                        <!-- <div class="col-1 mem-modify-padding"><i class="far fa-edit memI"></i></div> -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-                                    <mem-driver></mem-driver>
-                                    <div class="row">
-                                        <div class="col-sm-8 col-12 order-sm-1 mem-modifyBlock">
-                                            <div class="row">
-                                                <div class="col-sm-6 col-12 mem-modify-name">
-                                                    <div class="row ">
-                                                        <div class="col-12 mem-modify-padding">
-                                                            <span class="mem-show-title">{{memTitle.add}}：</span>
-                                                            <span>{{memAdd}}</span>
-                                                        </div>
-                                                        <!-- <div class="col-1 mem-modify-padding"><i class="far fa-edit memI"></i></div> -->
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div class="buttonFlex" v-if="iWantModify">
+                                        <div class=" fuckingButton">
+                                            <button class="button2" @click="giveUpModify(!iWantModify)">放棄修改</button>
+                                        </div>
+                                        <div class="fuckingButton">
+                                            <button class="button" @click="confirmModify(!iWantModify)">確認修改</button>
+                                        </div>
+                                    </div>
                                 </div>
 
 
