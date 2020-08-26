@@ -76,7 +76,7 @@ div.inCs_group {
                 p {
                     @include p;
                     line-height: 1.5rem;
-                    padding: 0 10px 20px;
+                    padding: 10px 10px 20px;
                 }
 
                 .inConselor__chart {
@@ -157,7 +157,7 @@ div.inCs_group {
                 p {
                     @include p;
                     line-height: 1.5rem;
-                    padding: 0 10px 20px;
+                    padding: 10px 10px 20px;
                 }
 
                 .inConselor__chart {
@@ -181,7 +181,7 @@ div.inCs_group {
                     left: 50%;
                     transform: translate(-50%, 0);
                     margin: 10px;
-                    @include btn-modules($bw, $color-pink, $fontsize * 1.25);
+                    @include btn-modules($bw, $color-pink, $fontsize);
                 }
             }
         }
