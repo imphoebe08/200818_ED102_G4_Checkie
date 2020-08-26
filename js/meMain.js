@@ -182,21 +182,25 @@ let vm = new Vue({
             aoPastData: [{}],
             step: '',
             currentPage: '',
+            iWantModify: false,
             errors: [],
-            memName: 'cc',
-            memGender: 'female',
-            memBD: '1999/99/99',
-            memAdd: 'hahahahahaha',
-            memOcc: 'makeup artist',
-            memTel: {
-                countryCode: '886',
-                mobile: '0921132409',
+            member: {
+                memName: 'cc',
+                memGender: '女',
+                memBD: '1999/99/99',
+                memAdd: 'hahahahahaha',
+                memOcc: 'makeup artist',
+                memTel: {
+                    countryCode: '886',
+                    mobile: '0921132409',
+                },
+                memEmail: {
+                    value: 'misvamda@gmail.com',
+                    valid: true,
+                },
+                memAdd: '台北市南港區南港路一段四號之一',
             },
-            memEmail: {
-                value: 'misvamda@gmail.com',
-                valid: true,
-            },
-            memAdd: '台北市南港區南港路一段四號之一',
+
             // checkbox: '',
 
             orderShow: false,
@@ -204,6 +208,22 @@ let vm = new Vue({
             //showModal: false,
             //go: true,
             ////////////
+            momentModify: {
+                memName: 'cc',
+                memGender: '女',
+                memBD: '1999/99/99',
+                memAdd: 'hahahahahaha',
+                memOcc: 'makeup artist',
+                memTel: {
+                    countryCode: '886',
+                    mobile: '0921132409',
+                },
+                memEmail: {
+                    value: 'misvamda@gmail.com',
+                    valid: true,
+                },
+                memAdd: '台北市南港區南港路一段四號之一',
+            },
             titles: {
                 z: '會員總攬',
                 a: '會員資料',
@@ -214,7 +234,7 @@ let vm = new Vue({
             memTitle: {
                 name: '姓名',
                 gender: '性別',
-                bDay: '出生日期',
+                bDay: '生日',
                 occ: '職業',
                 email: '電子信箱',
                 tel: '電話',
@@ -241,7 +261,33 @@ let vm = new Vue({
         backToIndex(c) {
             this.currentPage = c;
         },
-
+        goModify(d) {
+            this.iWantModify = d;
+        },
+        giveUpModify(f) {
+            this.iWantModify = f;
+            // vm.momentModify = Object.assign({}, vm.momentModify, {
+            //         memName: '',
+            //         memGender: '',
+            //         memBD: '',
+            //         memAdd: '',
+            //         memOcc: '',
+            //         memTel: {
+            //             countryCode: '',
+            //             mobile: '',
+            //         },
+            //         memEmail: {
+            //             value: '',
+            //             valid: true,
+            //         },
+            //         memAdd: '',
+            //     })
+            vm.momentModify = Object.assign({}, vm.momentModify, vm.member);
+        },
+        confirmModify(k) {
+            vm.member = Object.assign({}, vm.member, vm.momentModify);
+            this.iWantModify = k;
+        },
 
         chart() {
             var cerise = document.querySelector('.ccChartOnly');
@@ -321,6 +367,7 @@ let vm = new Vue({
         window.onresize = () => {
             this.chart();
         };
+
 
 
     },
