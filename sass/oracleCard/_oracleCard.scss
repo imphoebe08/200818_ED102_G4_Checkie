@@ -30,6 +30,19 @@ p {
 }
 
 #oracleCard {
+    .top {
+        .navbar {
+            .navbar__menu {
+                a:nth-child(5) {
+                    color: $color-pink;
+                }
+                a:nth-child(5)::after {
+                    transform: scaleX(1);
+                    visibility: visible;
+                }
+            }
+        }
+    }
     .oracleCardInner {
         width: 100%;
         margin: auto;
