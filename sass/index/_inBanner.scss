@@ -170,8 +170,9 @@
             }
         }
         .inBanner_text{
-            @include h1;
+            @include h2;
             font-weight: bold;
+            color:rgba(0, 0, 0, 0.774);
             padding-left: 10px;
         }
     }

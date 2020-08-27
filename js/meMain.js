@@ -168,6 +168,115 @@ Vue.component('co-order', {
 });
 
 
+Vue.component('inact-item', {
+    template: `
+        <div class="inAct_item">
+            <!-- 帶資料 -->
+            <a href="javascript:void(0)" draggable="false">
+                <img src="./img/index/inAct/image_1.jpg" draggable="false">
+            </a>
+            <div class="inAct_text">
+                <div class="inAct-top_text">
+                    <div class="inAct-left_date">
+                        <div class="inAct-date_icon"></div>
+                        <!-- 帶資料 -->
+                        <div class="inAct-date_text">2020-08-14(五)</div>
+                    </div>
+                    <div class="inAct-icon_block">
+                        <a href="javascript:void(0)" class="inAct-icon_1" draggable="false"></a>
+                        <a href="javascript:void(0)" class="inAct-icon_2" draggable="false" s></a>
+                    </div>
+                </div>
+                <!-- 帶資料 -->
+                <div class="inAct_title"><a href="javascript:void(0)" draggable="false">從陌生人到貴人，打造職涯路上的黃金人脈法則</a> </div>
+
+                <div class="inAct_location">
+                    <div class="inAct-location_icon"></div>
+                    <!-- 帶資料 -->
+                    <div class="inAct-location_text">台灣文創教育中心</div>
+                </div>
+            </div>
+        </div>
+    `,
+});
+
+
+
+Vue.component('cssart-layout', {
+    template: `
+    <div class="csS-art__card">
+                    <a href="./atSelf.html">
+                        <img class="img-responsive"
+                            src="https://image1.thenewslens.com/2018/12/n2gvdi810gmxufwkn726jbt5fypicc.jpg?auto=compress&h=648&q=80&w=1080">
+                    </a>
+                    <div class="card-Info">
+                        <span class="card-Info__times small"><img src="img//icon//clock.png" alt="">2018/12/15</span>
+                        <span class="card-Info__category small">| 蔡XX醫師</span>
+                    </div>
+                    <p @click="openArtPage">因感情問題來看診的年輕女性，有這四個共同特點</p>
+
+                    <div class="row card-tag">
+                        <a href="./atSelf.html" class="button2">More...</a>
+                    </div>
+                    <div class="card-share">
+                        <span>Share : </span>
+                        <a href="" class="small"><img src="img//icon//facebook.png" alt=""></a>
+                        <a href="" class="small"><img src="img//icon//share.png" alt=""></a>
+                        <a href="" class="small"><img src="img//icon//bookmark.png" alt=""></a>
+                    </div>
+                </div>`,
+    methods: {
+        openArtPage() {
+            window.open("./atSelf.html", "_self");
+        },
+    }
+})
+
+
+
+var option = {
+    legend: {
+        display: 0
+    },
+    tooltips: {},
+    elements: {
+        line: {
+            backgroundColor: "rgba(255, 99, 160, 0.2)",
+            borderColor: "rgba(255, 99, 160, 0.2)"
+        },
+        point: {
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            hoverBackgroundColor: "rgba(255, 99, 132, 0.8)",
+            radius: 5,
+            pointStyle: "circle",
+            hoverRadius: 8
+        }
+    },
+    scale: {
+        angleLines: {
+            display: false
+        },
+        ticks: {
+            suggestedMin: 0,
+            suggestedMax: 100,
+            stepSize: 20,
+            display: false
+        },
+        pointLabels: {
+            fontSize: 18,
+            fontFamily: "微軟正黑體"
+        }
+    },
+    // layout: {
+    //     padding: {
+    //         left: 20,
+    //         right: 20,
+    //         top: 10,
+    //         bottom: 10
+    //     }
+    // }
+};
+
 
 
 
@@ -176,27 +285,32 @@ let vm = new Vue({
     el: '#app',
     data: () => {
         return {
+            option: option,
             coData: [{}],
             coPastData: [{}],
             aoData: [{}],
             aoPastData: [{}],
             step: '',
             currentPage: '',
+            iWantModify: false,
             errors: [],
-            memName: 'cc',
-            memGender: 'female',
-            memBD: '1999/99/99',
-            memAdd: 'hahahahahaha',
-            memOcc: 'makeup artist',
-            memTel: {
-                countryCode: '886',
-                mobile: '0921132409',
+            member: {
+                memName: 'cc',
+                memGender: '女',
+                memBD: '1999/99/99',
+                memAdd: 'hahahahahaha',
+                memOcc: 'makeup artist',
+                memTel: {
+                    countryCode: '886',
+                    mobile: '0921132409',
+                },
+                memEmail: {
+                    value: 'misvamda@gmail.com',
+                    valid: true,
+                },
+                memAdd: '台北市南港區南港路一段四號之一',
             },
-            memEmail: {
-                value: 'misvamda@gmail.com',
-                valid: true,
-            },
-            memAdd: '台北市南港區南港路一段四號之一',
+
             // checkbox: '',
 
             orderShow: false,
@@ -204,6 +318,22 @@ let vm = new Vue({
             //showModal: false,
             //go: true,
             ////////////
+            momentModify: {
+                memName: 'cc',
+                memGender: '女',
+                memBD: '1999/99/99',
+                memAdd: 'hahahahahaha',
+                memOcc: 'makeup artist',
+                memTel: {
+                    countryCode: '886',
+                    mobile: '0921132409',
+                },
+                memEmail: {
+                    value: 'misvamda@gmail.com',
+                    valid: true,
+                },
+                memAdd: '台北市南港區南港路一段四號之一',
+            },
             titles: {
                 z: '會員總攬',
                 a: '會員資料',
@@ -214,7 +344,7 @@ let vm = new Vue({
             memTitle: {
                 name: '姓名',
                 gender: '性別',
-                bDay: '出生日期',
+                bDay: '生日',
                 occ: '職業',
                 email: '電子信箱',
                 tel: '電話',
@@ -224,6 +354,12 @@ let vm = new Vue({
                 a: '已預約',
                 b: '預約記錄',
             },
+            mentalTitles: {
+                a: '測驗歷史紀錄',
+                b: '⾃我評估：',
+                c: '推薦專欄',
+                d: '推薦活動',
+            }
 
         }
     },
@@ -241,7 +377,33 @@ let vm = new Vue({
         backToIndex(c) {
             this.currentPage = c;
         },
-
+        goModify(d) {
+            this.iWantModify = d;
+        },
+        giveUpModify(f) {
+            this.iWantModify = f;
+            // vm.momentModify = Object.assign({}, vm.momentModify, {
+            //         memName: '',
+            //         memGender: '',
+            //         memBD: '',
+            //         memAdd: '',
+            //         memOcc: '',
+            //         memTel: {
+            //             countryCode: '',
+            //             mobile: '',
+            //         },
+            //         memEmail: {
+            //             value: '',
+            //             valid: true,
+            //         },
+            //         memAdd: '',
+            //     })
+            vm.momentModify = Object.assign({}, vm.momentModify, vm.member);
+        },
+        confirmModify(k) {
+            vm.member = Object.assign({}, vm.member, vm.momentModify);
+            this.iWantModify = k;
+        },
 
         chart() {
             var cerise = document.querySelector('.ccChartOnly');
@@ -254,18 +416,10 @@ let vm = new Vue({
                     }],
 
                 },
-                options: {
-                    scale: {
-                        angleLines: {
-                            display: false
-                        },
-                        ticks: {
-                            suggestedMin: 50,
-                            suggestedMax: 100
-                        }
-                    }
-                }
+                options: this.option,
             });
+
+
             var ctx = $('.bbChartOnly');
             myBarChart = new Chart(ctx, {
                 type: 'horizontalBar',
@@ -321,6 +475,7 @@ let vm = new Vue({
         window.onresize = () => {
             this.chart();
         };
+
 
 
     },

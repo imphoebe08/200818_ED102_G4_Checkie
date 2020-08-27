@@ -21,6 +21,12 @@ gulp.task('copyimg', function() {
     return gulp.src('./img/**/*').pipe(gulp.dest('./dist/img'));
 })
 
+
+//Copy 所有json到dist
+gulp.task('copyjson', function() {
+    return gulp.src('./json/*.json').pipe(gulp.dest('./dist/json'));
+})
+
 // 將main.scss導入dist的css資料夾
 gulp.task('sass', function() {
     return gulp.src('./sass/*.scss', './backstage/sass/*.scss') //來源
@@ -67,7 +73,7 @@ gulp.task('bgsass', function() {
             .pipe(gulp.dest('./dist/backstage/css')); //目的地
     })
     // 同步執行兩個以上的指令：
-gulp.task('all', ['copyjs', 'sass', 'copyimg', 'fileinclude', 'bgimg', 'bgsass', 'bghtml']); //在終端機執行 gulp all即可同時執行兩個task
+gulp.task('all', ['copyjs', 'sass', 'copyimg', 'fileinclude', 'bgimg', 'bgsass', 'bghtml', 'copyjson']); //在終端機執行 gulp all即可同時執行兩個task
 
 
 // Browser應用 => 即時監看fileinclude出來的檔案
@@ -86,6 +92,7 @@ gulp.task('default', function() {
     gulp.watch(['./sass/*.scss', './sass/**/*.scss'], ['sass']).on('change', reload);
     gulp.watch(['./*.html', '**/*.html', ], ['fileinclude']).on('change', reload);
     gulp.watch('./js/*.js', ['copyjs']).on('change', reload);
+    gulp.watch('./json/*.json', ['copyjson']).on('change', reload);
 
     // backstageWatch
     gulp.watch(['./backstage/html/*.html', './backstage/html/**/*.html'], ['bghtml']).on('change', reload);

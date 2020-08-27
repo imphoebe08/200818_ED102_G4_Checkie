@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,36 +16,37 @@
     <!-- <link rel="stylesheet" href="./css/acMain.css"> -->
     <link rel="stylesheet" href="./css/main.css">
 
-    <body id="body"> 
-    @@include('template/header.html')
-    @@include('template/bg.html')
-    
-    <!-- acMain -->
+
+
+    <body id="body">
+        @@include('template/header.html') @@include('template/bg.html') @@include('./test.html')
+
+        <!-- acMain -->
         <main id="acMain" class="acMain container-fluid">
             <div class="acBanner owl-carousel owl-theme">
-                    <div><img src="./img/acMain/banner1.jpg" alt="..."></div>
-                    <div><img src="./img/acMain/banner2.jpg" alt="..."></div>
-                    <div><img src="./img/acMain/banner3.jpg" alt="..."></div>
+                <div><img src="./img/acMain/banner1.jpg" alt="..."></div>
+                <div><img src="./img/acMain/banner2.jpg" alt="..."></div>
+                <div><img src="./img/acMain/banner3.jpg" alt="..."></div>
             </div>
 
             <div id="acSearch" class="acSearch container-sm container-md">
                 <ul class="acSearch_ul">
                     <li v-for="(num,index) in title" @click="category_click(index)"><a href="javascript:void(0)">{{num}}</a></li>
-                    
+
                 </ul>
-                
+
             </div>
             <!-- <h1 class="asSelect_title container-sm container-md">{{now_title}}</h1> -->
 
             <div id="acSelect" class="acSelect container-sm container-md">
-                <ac-select-card   v-for="num in nums"></ac-select-card>
-            
+                <ac-select-card v-for="num in nums"></ac-select-card>
+
                 <div class="acSelect-wrapper_btnMore col-12">
                     <button class="acSelectMore" @click="nums+=3">更多活動</button>
                 </div>
             </div>
-            
-            <h1  class="acComment_title container-sm container-md">會員好評</h1>
+
+            <h1 class="acComment_title container-sm container-md">會員好評</h1>
             <div class="acComment container-sm container-md" id="acComment">
                 <ac-comment-list doctor="陳立德" v-for="num in 4">
             </div>
@@ -54,31 +56,33 @@
         @@include('template/footer.html')
 
         <!-- 資料庫帶入 -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <!-- Header & Footer -->
-        <script src="./js/header.js"></script>
-        <script src="./js/chatbot.js"></script>
         <!-- 輪播 -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
         <!-- 活動好評小卡Vue -->
         <script src="./js/acMain.js"></script>
+        <!-- <script src="./js/test.js"></script> -->
 
+        <!-- Header & Footer -->
+        <script src="./js/header.js"></script>
+        <script src="./js/chatbot.js"></script>
         <script>
             $('.owl-carousel').owlCarousel({
-                items:1,
-                loop:true,
-                margin:10,
-                touchDrag:true,
-                autoplay:true,
+                items: 1,
+                loop: true,
+                margin: 10,
+                touchDrag: true,
+                autoplay: true,
                 autoplayTimeout: 2000,
-                autoplayHoverPause:false,
-                nav:true,
+                autoplayHoverPause: false,
+                nav: true,
             });
         </script>
-        
+
     </body>
 </head>
+
 </html>

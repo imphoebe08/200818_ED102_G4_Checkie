@@ -27,11 +27,11 @@ $space:300px;
     &:after {
         content: "";
         width: 100%;
-        height: 10%; //?
+        height: 5%;
         border-radius: $border-radius;
         background-color: #FFA492;
         position: absolute;
-        bottom: -10px; //?
+        bottom: -5px;
         left: 0;
         // 問珮菁
     }
@@ -61,7 +61,7 @@ $space:300px;
                 align-items: center;
                 justify-content: space-around;
                 .inAct_item {
-                    background:rgba(255, 255, 255, 0.801);
+                    background: #fff;
                     display: inline-block;
                     width: 350px;
                     height: 400px;
@@ -97,7 +97,7 @@ $space:300px;
                             .inAct-icon_block {
                                 display: flex;
                                 align-items: center;
-                                margin-right:8px;
+                                margin-right: 8px;
                                 .inAct-icon_1 {
                                     background-image: url("../img/icon/share.png");
                                     @include bg;
@@ -111,18 +111,18 @@ $space:300px;
                             }
                         }
                         .inAct_title {
-                            margin:0 10px;
+                            margin: 0 10px;
                             a {
                                 text-decoration: none;
                                 @include h6; //?
                                 color: black;
-                                margin-top: 5px; 
-                                margin-bottom: 5px; 
+                                margin-top: 5px;
+                                margin-bottom: 5px;
                             }
                         }
                         .inAct_location {
                             display: flex;
-                            margin:0 10px;
+                            margin: 0 10px;
                             .inAct-location_icon {
                                 align-self: center;
                                 background-image: url("../img/icon/place.png");
