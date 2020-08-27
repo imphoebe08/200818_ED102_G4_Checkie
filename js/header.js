@@ -135,6 +135,7 @@ Vue.component('ans-buttons-grades', {
     props: ["name"],
     data() {
         return {
+            now_Q: 2,
             sub_value: 0,
             id: [this.name + "-1", this.name + "-2", this.name + "-3", this.name + "-4", this.name + "-5"],
         };
@@ -174,7 +175,7 @@ Vue.component('ans-buttons-grades', {
                     event.target.parentNode.nextElementSibling.nextElementSibling.style.display = 'flex';
                     var form_H = $("#form>form").height();
                     var box_H = $("#qsBox").height();
-                    if (box_H > form_H) {
+                    if (box_H > form_H * 0.8) {
                         document.getElementById("qsBox");
                         qsBox.style.height = "100%";
                     };
@@ -202,6 +203,7 @@ Vue.component('ans-buttons-grades', {
 let vm0 = new Vue({
     el: "#form",
     data: {
+        now_Q: 0,
         display: false,
         count: 0,
         finish: false,
@@ -220,7 +222,17 @@ let vm0 = new Vue({
 
     },
     methods: {
+        change_line() {
+            $(".step-icon").eq(this.now_Q).css("background", "#FFA492");
+            if (this.now_Q == 0) {
+
+            } else {
+                $(".indicator-line").eq(this.now_Q - 1).css("background", "#FFA492");
+            }
+        },
         form_start() {
+            this.change_line();
+            this.now_Q++;
             var scrollHeight = $('#body').prop("scrollHeight");
             event.target.style.display = 'none';
             event.target.parentNode.nextElementSibling.style.display = 'flex';
@@ -238,57 +250,48 @@ let vm0 = new Vue({
 
         },
         changeA(data, name) {
+            this.change_line();
+            this.now_Q++
+                switch (name) {
+                    case "q1":
+                        this.a1.content = data;
 
-            switch (name) {
-                case "q1":
-                    this.a1.content = data;
+                        break;
+                    case "q2":
+                        this.a2.content = data;
 
-                    break;
-                case "q2":
-                    this.a2.content = data;
+                        break;
+                    case "q3":
+                        this.a3.content = data;
 
-                    break;
-                case "q3":
-                    this.a3.content = data;
-
-                    break;
-                case "q4":
-                    this.a4.content = data;
-                    break;
-                case "q5":
-                    this.a5.content = data;
-                    break;
-                case "q6":
-                    this.a6.content = data;
-                    break;
-                case "q7":
-                    this.a7.content = data;
-                    break;
-                case "q8":
-                    this.a8.content = data;
-                    break;
-                case "q9":
-                    this.a9.content = data;
-                    break;
-                case "q10":
-                    this.a10.content = data;
-                    break;
-                case "q11":
-                    this.a11.content = data;
-                    break;
+                        break;
+                    case "q4":
+                        this.a4.content = data;
+                        break;
+                    case "q5":
+                        this.a5.content = data;
+                        break;
+                    case "q6":
+                        this.a6.content = data;
+                        break;
+                    case "q7":
+                        this.a7.content = data;
+                        break;
+                    case "q8":
+                        this.a8.content = data;
+                        break;
+                    case "q9":
+                        this.a9.content = data;
+                        break;
+                    case "q10":
+                        this.a10.content = data;
+                        break;
+                    case "q11":
+                        this.a11.content = data;
+                        break;
 
 
-            }
-            // var win_H =window.height();
-            // var i = 0;
-            // var box_H = $("#qsBox").height()
-            // // 加true 代表包含margin 的高
-            // var btn_H = $(".text_skip").outerHeight(true) 
-            // if(box_H>(win_H-btn_H)&&i==0){
-            //     $("#form>form").css("height","auto");
-            //     i++
-            // }
-
+                }
 
 
 
@@ -296,6 +299,9 @@ let vm0 = new Vue({
         },
 
         skip() {
+            $("#form").css("display", "none");
+        },
+        finish_form() {
             $("#form").css("display", "none");
         }
     },
