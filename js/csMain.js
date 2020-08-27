@@ -70,7 +70,7 @@ let vm = new Vue({
 		},
 		clickWhite(e) {
 			let csMain = document.getElementById("csMain");
-			if (e.target.contains(csMain)) {
+			if (e.target !== (csMain) && !csMain.contains(e.target)) {
 				csMain.classList.remove("slideIn");
 				csMain.classList.add("slideOut");
 				this.slideBool = true;
