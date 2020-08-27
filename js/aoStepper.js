@@ -163,19 +163,19 @@ let vm = new Vue({
 
     methods: {
 
-        //this.memName&& this.memGender && this.memBD && this.memTel.mobile && this.memEmail.value && this.checkbox == "yes"
         checkForm() {
             this.errors = [];
-            if (this.checkbox == "yes") {
+            if (this.memName && this.memGender && this.memBD && this.memTel.mobile && this.memEmail.value && this.checkbox == "yes") {
                 this.update(this.currentStep + 1);
             } else {
                 this.showModal = true;
             };
-            //if (!this.memName) this.errors.splice(1, 0, "姓名");
-            //if (!this.memGender) this.errors.splice(2, 0, "性別");
-            //if (!this.memBD) this.errors.splice(3, 0, "年齡");
-            //if (!this.memTel.mobile) this.errors.splice(6, 0, "電話");
-            //if (!this.memEmail.value) this.errors.splice(7, 0, "信箱");
+            if (!this.memName) this.errors.splice(1, 0, "姓名");
+            if (!this.memGender) this.errors.splice(2, 0, "性別");
+            if (!this.memBD) this.errors.splice(3, 0, "年齡");
+            if (!this.memTel.mobile) this.errors.splice(6, 0, "電話");
+            if (!this.memEmail.value) this.errors.splice(7, 0, "信箱");
+            if (!this.checkbox) this.errors.splice(8, 0, "與勾選確認");
         },
         parentOpen(data) {
             this.listDataHide = data;
