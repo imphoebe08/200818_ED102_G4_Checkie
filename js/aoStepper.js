@@ -215,6 +215,9 @@ let vm = new Vue({
                 // console.log("nowhref=" + href);
             }
         },
+        memberCenter() {
+            window.open('./meMain.html', "_self");
+        }
     },
     updated() {
         if (this.currentStep == 4) {
