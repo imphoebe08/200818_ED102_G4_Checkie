@@ -103,15 +103,13 @@ $(function() {
     var t2 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 2, { backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg, #fddb92, #d1fdff)" });
     var controller = new ScrollMagic.Controller();
     var scene01 = new ScrollMagic.Scene({
-            triggerElement: "#inAct",
-            offset: 300,
-            // triggerHook: .5
-        }).setTween([t1, t2])
-        .addIndicators({
-            name: 'key_01'
-        })
-        // debug用 不太重要 若要關掉 要連同cdn 一起關
-        .addTo(controller);
+        triggerElement: "#inAct",
+        offset: 300,
+        // triggerHook: .5
+    }).setTween([t1, t2])
+
+    // debug用 不太重要 若要關掉 要連同cdn 一起關
+    .addTo(controller);
 
     // inArti
 
@@ -119,15 +117,13 @@ $(function() {
     // 下面這個是大圈圈 因為有兩層 所以多寫一個css
     var t4 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 2, { backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg,  #e9defa, #fbfcdb)" });
     var scene02 = new ScrollMagic.Scene({
-            triggerElement: "#inArti",
-            offset: 0,
-            // triggerHook: .5
-        }).setTween([t3, t4])
-        .addIndicators({
-            name: 'key_02'
-        })
-        // debug用 不太重要 若要關掉 要連同cdn 一起關
-        .addTo(controller);
+        triggerElement: "#inArti",
+        offset: 0,
+        // triggerHook: .5
+    }).setTween([t3, t4])
+
+    // debug用 不太重要 若要關掉 要連同cdn 一起關
+    .addTo(controller);
 
     // inCard
     var btn = TweenMax.to('.inBanner_bgImg', 1, { zIndex: "-1" });
@@ -135,15 +131,13 @@ $(function() {
     // 下面這個是大圈圈 因為有兩層 所以多寫一個css
     var t6 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 2, { backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg,  #fff1eb,   #ace0f9)" });
     var scene03 = new ScrollMagic.Scene({
-            triggerElement: "#inCard",
-            offset: 0,
-            // triggerHook: .5
-        }).setTween([t5, t6, btn])
-        .addIndicators({
-            name: 'key_03'
-        })
-        // debug用 不太重要 若要關掉 要連同cdn 一起關
-        .addTo(controller);
+        triggerElement: "#inCard",
+        offset: 0,
+        // triggerHook: .5
+    }).setTween([t5, t6, btn])
+
+    // debug用 不太重要 若要關掉 要連同cdn 一起關
+    .addTo(controller);
 
     // inAbout
 
@@ -151,15 +145,13 @@ $(function() {
     // 下面這個是大圈圈 因為有兩層 所以多寫一個css
     var t8 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 2, { backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg,   #accbee,  #e7f0fd)" });
     var scene04 = new ScrollMagic.Scene({
-            triggerElement: "#inAbout",
-            offset: 0,
-            // triggerHook: .5
-        }).setTween([t7, t8])
-        .addIndicators({
-            name: 'key_04'
-        })
-        // debug用 不太重要 若要關掉 要連同cdn 一起關
-        .addTo(controller);
+        triggerElement: "#inAbout",
+        offset: 0,
+        // triggerHook: .5
+    }).setTween([t7, t8])
+
+    // debug用 不太重要 若要關掉 要連同cdn 一起關
+    .addTo(controller);
 
 
     // inCS
@@ -168,15 +160,13 @@ $(function() {
     // 下面這個是大圈圈 因為有兩層 所以多寫一個css
     var t10 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 2, { backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg,   #7DE2FC,  #B9B6E5)" });
     var scene05 = new ScrollMagic.Scene({
-            triggerElement: ".inCs_group",
-            offset: 0,
-            // triggerHook: .5
-        }).setTween([t9, t10])
-        .addIndicators({
-            name: 'key_05'
-        })
-        // debug用 不太重要 若要關掉 要連同cdn 一起關
-        .addTo(controller);
+        triggerElement: ".inCs_group",
+        offset: 0,
+        // triggerHook: .5
+    }).setTween([t9, t10])
+
+    // debug用 不太重要 若要關掉 要連同cdn 一起關
+    .addTo(controller);
 
     function card() {
         $(".inCard_body").removeClass("rwd_ani")
