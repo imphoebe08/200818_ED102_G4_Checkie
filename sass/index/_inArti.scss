@@ -39,6 +39,11 @@
         }
         .inArti_left {
             clip-path: polygon(0 0, 60% 0, 40% 100%, 0% 100%);
+            div {
+                transition: all 1s linear;
+                transform: translateY(100%);
+                transform: translateY(0%);
+            }
             .inArti-text_block {
                 background-color: $color-blue;
                 a {

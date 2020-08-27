@@ -228,8 +228,8 @@ $(function() {
             right = $(".inArti_right>div"),
             all = left.length,
             now = 0;
-        console.log(left)
-        console.log(right)
+        left.eq(now).addClass("goTop");
+        right.eq(now).addClass("goDown");
 
 
 
