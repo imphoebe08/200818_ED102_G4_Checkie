@@ -510,6 +510,7 @@ p {
             height: 100vh;
             display: flex;
             flex-wrap: wrap;
+            background-image: linear-gradient(to bottom, #d6ebfb 0%, #eddeff 100%);
             .oracleCardStepOneBox {
                 width: 100%;
                 height: 100vh;
@@ -801,6 +802,7 @@ p {
         .oracleCardRecommend {
             width: 100%;
             margin: auto;
+            background-image: linear-gradient(to bottom, #eddeff 0%, #d6ebfb 100%);
             >.fp-tableCell {
                 >fieldset {
                     width: 1200px;
