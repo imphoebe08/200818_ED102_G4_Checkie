@@ -1,286 +1,291 @@
-.inSc-h1 {
-	@include title;
-	display: block;
-	margin: 0 auto;
-	max-width: 208px;
-}
-
 div.inCs_group {
-	position: relative;
-	height: 100vh;
-	margin: 0 0 100px;
+    position: relative;
+    height: 100vh;
+    margin: 0 0 100px;
 
-	div.inCs.inCs--large {
-		width: 100%;
-		max-width: 1200px;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		border-radius: 1rem;
+    .inSc-h1 {
+        @include title;
+        display: block;
+        margin: 0 auto;
+        max-width: 208px;
 
-		ul.leftList {
-			height: 70vh;
-			width: 45%;
-			max-width: 400px;
-			min-width: 160px;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-100%, -50%);
-			overflow: hidden;
-			border-radius: 1rem 0 0 1rem;
-			box-shadow: -12px 0px 20px -10px #333;
+        @media screen and(max-width:768px) {
+            max-width: 156px;
+        }
+    }
 
-			li {
-				padding: 10px 0 0 20px;
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				left: -5%;
-				top: 0%;
-				background: white;
+    div.inCs.inCs--large {
+        width: 100%;
+        max-width: 1200px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 1rem;
 
-				img {
-					display: block;
-					width: 100%;
-					height: 70%;
-					object-fit: cover;
-					margin: 0 auto;
-					cursor: pointer;
-				}
+        ul.leftList {
+            height: 70vh;
+            width: 45%;
+            max-width: 400px;
+            min-width: 160px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-100%, -50%);
+            overflow: hidden;
+            border-radius: 1rem 0 0 1rem;
+            box-shadow: -12px 0px 20px -10px #333;
 
-				&.move {
-					animation: leftToCenter 1s ease-in-out both;
-					z-index: 50;
-				}
+            li {
+                padding: 10px 0 0 20px;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: -5%;
+                top: 0%;
+                background: white;
 
-				h5 {
-					width: 100%;
-					@include h5;
-					padding: 0 10px;
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 70%;
+                    object-fit: cover;
+                    margin: 0 auto;
+                    cursor: pointer;
+                }
 
-					&:after {
-						content: "";
-						display: block;
-						width: 90%;
-						height: 2px;
-						background: $color-blue;
-					}
-				}
+                &.move {
+                    animation: leftToCenter 1s ease-in-out both;
+                    z-index: 50;
+                }
 
-				p {
-					@include p;
-					line-height: 1.5rem;
-					padding: 0 10px 20px;
-				}
+                h5 {
+                    width: 100%;
+                    @include h5;
+                    padding: 0 10px;
 
-				.inConselor__chart {
-					display: block;
-					margin: 0 auto;
-					width: 70%;
-					height: 70%;
-				}
+                    &:after {
+                        content: "";
+                        display: block;
+                        width: 90%;
+                        height: 2px;
+                        background: $color-blue;
+                    }
+                }
 
-				h1 {
-					position: absolute;
-					bottom: 15%;
-					right: 5%;
-					padding: 0 10px;
-					@include h1;
-				}
+                p {
+                    @include p;
+                    line-height: 1.5rem;
+                    padding: 10px 10px 20px;
+                }
 
-				button {
-					position: absolute;
-					bottom: 5%;
-					left: 50%;
-					transform: translate(-50%, 0);
-					margin: 10px;
-					@include btn-modules($bw, $color-pink, $fontsize * 1.25);
-				}
-			}
-		}
+                .inConselor__chart {
+                    display: block;
+                    margin: 0 auto;
+                    width: 70%;
+                    height: 70%;
+                }
 
-		ul.rightList {
-			height: 70vh;
-			width: 45%;
-			max-width: 400px;
-			min-width: 160px;
-			position: absolute;
-			top: 50%;
-			right: 50%;
-			transform: translate(100%, -50%);
-			overflow: hidden;
-			border-radius: 0 1rem 1rem 0;
-			box-shadow: 12px 0px 20px -10px #333;
+                h1 {
+                    position: absolute;
+                    bottom: 15%;
+                    right: 5%;
+                    padding: 0 10px;
+                    @include h1;
+                }
 
-			li {
-				padding: 10px 20px 0 0;
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				right: -5%;
-				top: 0%;
-				background: white;
+                button {
+                    position: absolute;
+                    bottom: 5%;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    margin: 10px;
+                    @include btn-modules($bw, $color-pink, $fontsize);
+                }
+            }
+        }
 
-				img {
-					display: block;
-					width: 100%;
-					height: 70%;
-					object-fit: cover;
-					margin: 0 auto;
-				}
+        ul.rightList {
+            height: 70vh;
+            width: 45%;
+            max-width: 400px;
+            min-width: 160px;
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(100%, -50%);
+            overflow: hidden;
+            border-radius: 0 1rem 1rem 0;
+            box-shadow: 12px 0px 20px -10px #333;
 
-				&.move {
-					animation: rightToCenter 1s ease-in-out both;
-					z-index: 50;
-				}
+            li {
+                padding: 10px 20px 0 0;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                right: -5%;
+                top: 0%;
+                background: white;
 
-				h5 {
-					width: 100%;
-					@include h5;
-					padding: 0 10px;
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 70%;
+                    object-fit: cover;
+                    margin: 0 auto;
+                }
 
-					&:after {
-						content: "";
-						display: block;
-						width: 90%;
-						height: 2px;
-						background: $color-blue;
-					}
-				}
+                &.move {
+                    animation: rightToCenter 1s ease-in-out both;
+                    z-index: 50;
+                }
 
-				p {
-					@include p;
-					line-height: 1.5rem;
-					padding: 0 10px 20px;
-				}
+                h5 {
+                    width: 100%;
+                    @include h5;
+                    padding: 0 10px;
 
-				.inConselor__chart {
-					display: block;
-					margin: 0 auto;
-					width: 70%;
-					height: 70%;
-				}
+                    &:after {
+                        content: "";
+                        display: block;
+                        width: 90%;
+                        height: 2px;
+                        background: $color-blue;
+                    }
+                }
 
-				h1 {
-					position: absolute;
-					bottom: 15%;
-					right: 5%;
-					padding: 0 10px;
-					@include h1;
-				}
+                p {
+                    @include p;
+                    line-height: 1.5rem;
+                    padding: 10px 10px 20px;
+                }
 
-				button {
-					position: absolute;
-					bottom: 5%;
-					left: 50%;
-					transform: translate(-50%, 0);
-					margin: 10px;
-					@include btn-modules($bw, $color-pink, $fontsize * 1.25);
-				}
-			}
-		}
+                .inConselor__chart {
+                    display: block;
+                    margin: 0 auto;
+                    width: 70%;
+                    height: 70%;
+                }
 
-		ul.slide-button {
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			flex-flow: nowrap row;
-			position: absolute;
-			bottom: -350px;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			list-style: none;
+                h1 {
+                    position: absolute;
+                    bottom: 15%;
+                    right: 5%;
+                    padding: 0 10px;
+                    @include h1;
+                }
 
-			li.point {
-				width: 20px;
-				height: 20px;
-				border: 3px solid black;
-				margin: 0 10px;
-				border-radius: 50%;
-				background: white;
-				cursor: pointer;
+                button {
+                    position: absolute;
+                    bottom: 5%;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    margin: 10px;
+                    @include btn-modules($bw, $color-pink, $fontsize);
+                }
+            }
+        }
 
-				&.activeNow {
-					background: pink;
-				}
-			}
-		}
-	}
+        ul.slide-button {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-flow: nowrap row;
+            position: absolute;
+            bottom: -350px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            list-style: none;
+
+            li.point {
+                width: 10px;
+                height: 10px;
+                border: 1px solid black;
+                margin: 0 10px;
+                border-radius: 50%;
+                background: white;
+                cursor: pointer;
+
+                &.activeNow {
+                    background: $color-pink;
+                }
+            }
+        }
+    }
 }
 
 @keyframes leftToCenter {
-	from {
-		left: -100%;
-	}
+    from {
+        left: -100%;
+    }
 
-	to {
-		left: -5%;
-	}
+    to {
+        left: -5%;
+    }
 }
 
 @keyframes rightToCenter {
-	from {
-		right: -100%;
-	}
+    from {
+        right: -100%;
+    }
 
-	to {
-		right: -5%;
-	}
+    to {
+        right: -5%;
+    }
 }
 
 div.inCs.swiper-container {
-	padding: 10px;
-	max-height: 600px;
-	width: 250px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	border-radius: 1rem;
+    padding: 10px;
+    max-height: 600px;
+    width: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+    margin: 50px auto;
 
-	.inCs-under576 {
-		display: flex;
-		height: 100%;
-		flex-flow: nowrap row;
+    .inCs-under576 {
+        display: flex;
+        height: 100%;
+        flex-flow: nowrap row;
 
-		li.inCs-slide__item {
-			background: white;
-			border-radius: 30px;
-			overflow: hidden;
+        li.inCs-slide__item {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
 
-			img {
-				display: block;
-				margin: 0 10px;
-				width: calc(100% - 20px);
-				height: 50%;
-				object-fit: cover;
-				cursor: pointer;
-			}
+            img {
+                display: block;
+                margin: 0 10px;
+                width: calc(100% - 20px);
+                height: 50%;
+                object-fit: cover;
+                cursor: pointer;
+            }
 
-			h3 {
-				@include h3;
-				cursor: pointer;
-			}
+            h3 {
+                @include h3;
+                cursor: pointer;
+            }
 
-			.inConselor__chart {
-				height: 200px;
-				width: 200px;
-				margin: 0 auto;
-			}
+            .inConselor__chart {
+                height: 200px;
+                width: 200px;
+                margin: 0 auto;
+            }
 
-			button {
-				@include btn-more($bw, $color-pink, $fontsize);
-				display: block;
-				margin: 5px auto;
-			}
-		}
-	}
+            button {
+                @include btn-more($bw, $color-pink, $fontsize);
+                display: block;
+                margin: 5px auto;
+            }
+        }
+    }
 }
 
 .swiper-button-prev,
 .swiper-button-next {
-	color: pink;
-	outline: none;
+    color: pink;
+    outline: none;
 }
