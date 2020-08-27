@@ -5,6 +5,10 @@ input {
     outline: none;
 }
 
+#form {
+    display: none;
+}
+
 #form>form {
     display: flex;
     height: 70vh;
