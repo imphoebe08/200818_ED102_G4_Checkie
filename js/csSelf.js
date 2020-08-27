@@ -85,7 +85,7 @@ let vmcssart = new Vue({
     el: "#app",
     methods: {
         openOrderPage() {
-            window.open("./aoStepper.html", "_self");
+            window.open("./coCalender.html", "_self");
         },
         openSelfPage() {
             window.open("./csSelf.html", "_self");
