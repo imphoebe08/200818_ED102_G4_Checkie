@@ -218,3 +218,20 @@ $(function() {
 
 
 });
+// 專欄文章
+$(function() {
+    arti()
+
+    function arti() {
+        var time = 3000,
+            left = $(".inArti_left>div"),
+            right = $(".inArti_right>div"),
+            all = left.length,
+            now = 0;
+        console.log(left)
+        console.log(right)
+
+
+
+    }
+})
