@@ -217,7 +217,7 @@ let vm = new Vue({
         },
         memberCenter() {
             window.open('./meMain.html', "_self");
-        }
+        },
     },
     updated() {
         if (this.currentStep == 4) {

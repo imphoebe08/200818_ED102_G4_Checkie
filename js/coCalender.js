@@ -182,7 +182,7 @@ new Vue({
     methods: {
         memberCenter() {
             window.open('./meMain.html', "_self");
-        }
+        },
 
         checkForm() {
             this.errors = [];
