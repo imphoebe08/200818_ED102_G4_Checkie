@@ -50,7 +50,6 @@ $scrollTime: 1s;
         width: 140%;
         height: 100%;
         transform: skewX($skewDeg * -1);
-        background: #000;
         .inArti-page__half--left & {
             left: -40%;
         }
@@ -93,6 +92,7 @@ $scrollTime: 1s;
     &__description {
         font-size: 18px;
         text-align: center;
+        width: 50%;
     }
     &__link {
         color: #FFA0A0;

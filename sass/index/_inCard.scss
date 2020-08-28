@@ -29,8 +29,8 @@
                 transition: all 1s linear;
                 position: absolute;
                 transform: translateY(-50%) perspective(600px) scale(0);
-                width: 240px;
-                height: 420px;
+                width: 240px*0.9;
+                height: 420px*0.9;
                 top: 50%;
                 // transform-origin: top center -1000px;
                 >a {
@@ -74,7 +74,7 @@
             }
             >div:nth-child(4) {
                 z-index: 2;
-                right: 20%;
+                right: 25%;
                 >a {
                     transform: rotate(-4deg);
                 }
@@ -88,7 +88,9 @@
             }
         }
         .inCard_btn {
-            @include btn-modules($bw,$color-pink,$fontsize);
+            @include btn-modules($bw,
+            $color-pink,
+            $fontsize);
             width: 150px;
             display: block;
             border-radius: $border-radius;
@@ -101,10 +103,9 @@
             margin: 40px auto 20px;
             padding: 10px 10px;
             transition: padding .5s ease;
-
             &:hover {
-                padding:10px 25px;
-                border:2px solid $color-pink;
+                padding: 10px 25px;
+                border: 2px solid $color-pink;
             }
         }
     }

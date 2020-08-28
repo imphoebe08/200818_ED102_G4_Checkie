@@ -835,8 +835,8 @@
                 <div class="inArti-page__half inArti-page__half--right">
                     <div class="inArti-page__skewed">
                         <a href="javascript:void(0)" class="inArti-page__content">
-                            <h2 class="inArti-page__heading">Skewed One Page Scroll</h2>
-                            <p class="inArti-page__description">Just scroll down</p>
+                            <h2 class="inArti-page__heading">{{Arti[0].title}}</h2>
+                            <p class="inArti-page__description">{{Arti[0].content}}</p>
                         </a>
                     </div>
                 </div>
@@ -845,8 +845,8 @@
                 <div class="inArti-page__half inArti-page__half--left">
                     <div class="inArti-page__skewed">
                         <a href="javascript:void(0)" class="inArti-page__content">
-                            <h2 class="inArti-page__heading">Page 2</h2>
-                            <p class="inArti-page__description">Nothing to do here, continue scrolling.</p>
+                            <h2 class="inArti-page__heading">{{Arti[1].title}}</h2>
+                            <p class="inArti-page__description">{{Arti[1].content}}</p>
                         </a>
                     </div>
                 </div>
@@ -869,8 +869,8 @@
                 <div class="inArti-page__half inArti-page__half--right">
                     <div class="inArti-page__skewed">
                         <a href="javascript:void(0)" class="inArti-page__content">
-                            <h2 class="inArti-page__heading">Page 3</h2>
-                            <p class="inArti-page__description">The end is near, I promise!</p>
+                            <h2 class="inArti-page__heading">{{Arti[2].title}}</h2>
+                            <p class="inArti-page__description">{{Arti[2].content}}</p>
                         </a>
                     </div>
                 </div>
@@ -885,16 +885,31 @@
     <script>
         // inArti
         new Vue({
-            el: "#inArti-pages",
-            date: {
-                Arti: {
+            el: "#inArti",
+            data: {
+                Arti: [{
                     author: "溫在涵",
                     date: "JUL 20,2020",
                     category: "人際關係",
                     title: "品格出眾的人，都懂得避開「巴納姆效應」",
                     content: "有一個朋友，什麼感情上的疑難雜症全都依賴星座命盤去分析，還常常對我們其他朋友說，「我以前也沒那麼信星座，但有時候真的很準。」The post 品格出眾的人，都懂得避開「巴納姆效應」心理陷阱 appeared first on A Day Magazine....",
 
-                }
+                }, {
+                    author: "溫在涵",
+                    date: "JUL 20,2020",
+                    category: "人際關係",
+                    title: "品格出眾的人，都懂得避開「巴納姆效應」",
+                    content: "有一個朋友，什麼感情上的疑難雜症全都依賴星座命盤去分析，還常常對我們其他朋友說，「我以前也沒那麼信星座，但有時候真的很準。」The post 品格出眾的人，都懂得避開「巴納姆效應」心理陷阱 appeared first on A Day Magazine....",
+
+                }, {
+                    author: "溫在涵",
+                    date: "JUL 20,2020",
+                    category: "人際關係",
+                    title: "品格出眾的人，都懂得避開「巴納姆效應」",
+                    content: "有一個朋友，什麼感情上的疑難雜症全都依賴星座命盤去分析，還常常對我們其他朋友說，「我以前也沒那麼信星座，但有時候真的很準。」The post 品格出眾的人，都懂得避開「巴納姆效應」心理陷阱 appeared first on A Day Magazine....",
+
+                }],
+
             },
 
 
