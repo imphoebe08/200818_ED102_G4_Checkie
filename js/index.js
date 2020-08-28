@@ -107,9 +107,6 @@ $(function() {
             offset: 300,
             // triggerHook: .5
         }).setTween([t1, t2])
-        // .addIndicators({
-        //     name: 'key_01'
-        // })
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
 
@@ -119,15 +116,13 @@ $(function() {
     // 下面這個是大圈圈 因為有兩層 所以多寫一個css
     var t4 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 2, { backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg,  #e9defa, #fbfcdb)" });
     var scene02 = new ScrollMagic.Scene({
-            triggerElement: "#inArti",
-            offset: 0,
-            // triggerHook: .5
-        }).setTween([t3, t4])
-        // .addIndicators({
-        //     name: 'key_02'
-        // })
-        // debug用 不太重要 若要關掉 要連同cdn 一起關
-        .addTo(controller);
+        triggerElement: "#inArti",
+        offset: 0,
+        // triggerHook: .5
+    }).setTween([t3, t4])
+
+    // debug用 不太重要 若要關掉 要連同cdn 一起關
+    .addTo(controller);
 
     // inCard
     var btn = TweenMax.to('.inBanner_bgImg', 1, { zIndex: "-1" });
@@ -135,15 +130,13 @@ $(function() {
     // 下面這個是大圈圈 因為有兩層 所以多寫一個css
     var t6 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 2, { backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg,  #fff1eb,   #ace0f9)" });
     var scene03 = new ScrollMagic.Scene({
-            triggerElement: "#inCard",
-            offset: 0,
-            // triggerHook: .5
-        }).setTween([t5, t6, btn])
-        // .addIndicators({
-        //     name: 'key_03'
-        // })
-        // debug用 不太重要 若要關掉 要連同cdn 一起關
-        .addTo(controller);
+        triggerElement: "#inCard",
+        offset: 0,
+        // triggerHook: .5
+    }).setTween([t5, t6, btn])
+
+    // debug用 不太重要 若要關掉 要連同cdn 一起關
+    .addTo(controller);
 
     // inAbout
 
@@ -151,15 +144,13 @@ $(function() {
     // 下面這個是大圈圈 因為有兩層 所以多寫一個css
     var t8 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 2, { backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg,   #accbee,  #e7f0fd)" });
     var scene04 = new ScrollMagic.Scene({
-            triggerElement: "#inAbout",
-            offset: 0,
-            // triggerHook: .5
-        }).setTween([t7, t8])
-        // .addIndicators({
-        //     name: 'key_04'
-        // })
-        // debug用 不太重要 若要關掉 要連同cdn 一起關
-        .addTo(controller);
+        triggerElement: "#inAbout",
+        offset: 0,
+        // triggerHook: .5
+    }).setTween([t7, t8])
+
+    // debug用 不太重要 若要關掉 要連同cdn 一起關
+    .addTo(controller);
 
 
     // inCS
@@ -172,9 +163,6 @@ $(function() {
             offset: 0,
             // triggerHook: .5
         }).setTween([t9, t10])
-        // .addIndicators({
-        //     name: 'key_05'
-        // })
         // debug用 不太重要 若要關掉 要連同cdn 一起關
         .addTo(controller);
 
@@ -218,20 +206,58 @@ $(function() {
 
 
 });
-// 專欄文章
-$(function() {
-    arti()
+// 向惡勢力低頭
 
-    function arti() {
-        var time = 3000,
-            left = $(".inArti_left>div"),
-            right = $(".inArti_right>div"),
-            all = left.length,
-            now = 0;
-        left.eq(now).addClass("goTop");
-        right.eq(now).addClass("goDown");
+$(document).ready(function() {
+
+    var curPage = 1;
+    var numOfPages = $(".inArti-page").length;
+    var animTime = 1000;
+    var scrolling = false;
+    var pgPrefix = ".inArti-page-";
+
+    function pagination() {
+        scrolling = true;
+
+        $(pgPrefix + curPage).removeClass("inactive").addClass("active");
+        $(pgPrefix + (curPage - 1)).addClass("inactive");
+        $(pgPrefix + (curPage + 1)).removeClass("active");
+
+        setTimeout(function() {
+            scrolling = false;
+        }, animTime);
+        console.log(curPage)
+    };
+
+    function navigateUp() {
+        if (curPage === 1) return;
+        curPage--;
+        pagination();
+    };
+
+    function navigateDown() {
+        if (curPage === numOfPages) return;
+        curPage++;
+        pagination();
+    };
+
+    $("#inArti-pages").on("mousewheel DOMMouseScroll", function(e) {
+        if (scrolling) return;
+        if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
+            navigateUp();
+        } else {
+            navigateDown();
+        }
+    });
+
+    $("#inArti-pages").on("keydown", function(e) {
+        if (scrolling) return;
+        if (e.which === 38) {
+            navigateUp();
+        } else if (e.which === 40) {
+            navigateDown();
+        }
+    });
 
 
-
-    }
-})
+});

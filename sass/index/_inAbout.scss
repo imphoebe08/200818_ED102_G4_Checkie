@@ -283,8 +283,7 @@
 
 @media all and (max-width:1200px) {
     .inAbout {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
         >.rwd_h1 {
             display: inline-block;
             margin: 0 auto;

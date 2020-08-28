@@ -1,100 +1,145 @@
+$skewDeg: 18deg;
+$magicVH: 32.4vh;
+$scrollTime: 1s;
+// .inArti {
+//     @include title;
+//     margin: 30px;
+//     position: relative;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     opacity: 0;
+// }
 .inArti {
-    width: 100%;
-    h1 {
-        @include title;
-        margin: 30px;
-        margin-bottom: 150px;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
+    height: 200vh;
+    .inArti-pages {
+        top: 80px;
+        height: 100vh;
+        overflow: hidden;
+        position: sticky;
+        top: 80px;
     }
-    .inArti_body {
-        max-width: 1200px;
-        margin: auto;
-        height: 70vh;
-        position: relative;
-        >div {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
+}
+
+.inArti-page {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    &__half {
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100vh;
+        transition: transform $scrollTime;
+        &--left {
             left: 0;
-            >div {
+            transform: translate3d(-$magicVH, 100%, 0);
+        }
+        &--right {
+            left: 50%;
+            transform: translate3d($magicVH, -100%, 0);
+        }
+        .inArti-page.active & {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    &__skewed {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 140%;
+        height: 100%;
+        transform: skewX($skewDeg * -1);
+        .inArti-page__half--left & {
+            left: -40%;
+        }
+        .inArti-page__half--right & {
+            right: -40%;
+        }
+    }
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column wrap;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        //   padding: 0 30%;
+        color: #fff;
+        transform: skewX($skewDeg);
+        transition: transform $scrollTime, opacity $scrollTime;
+        background-size: cover;
+        .inArti-page__half--left & {
+            transform-origin: 100% 0;
+        }
+        .inArti-page__half--right & {
+            transform-origin: 0 100%;
+        }
+        .inArti-page.inactive & {
+            opacity: 0.5;
+            transform: skewX($skewDeg) scale(0.95);
+        }
+    }
+    &__heading {
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        font-size: 25px;
+        text-align: center;
+    }
+    &__description {
+        font-size: 18px;
+        text-align: center;
+        width: 50%;
+    }
+    &__link {
+        color: #FFA0A0;
+    }
+    &-1 {
+        .inArti-page__half--left .inArti-page__content {
+            padding: 0 30%;
+            img {
+                position: relative;
+                top: 0;
+                left: -30%;
                 width: 100%;
                 height: 100%;
-                position: absolute;
+            }
+        }
+        .inArti-page__half--right .inArti-page__content {
+            background: lighten($color-blue, 5%);
+        }
+    }
+    &-2 {
+        .inArti-page__half--left .inArti-page__content {
+            background: lighten($color-pink, 5%);
+        }
+        .inArti-page__half--right .inArti-page__content {
+            padding: 0 30%;
+            img {
+                position: relative;
                 top: 0;
-                left: 0;
-                >a {
-                    display: inline-block;
-                    width: 100%;
-                    height: 100%;
-                    >img {
-                        display: inline-block;
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
+                left: -30%;
+                width: 100%;
+                height: 100%;
             }
         }
-        .inArti_left {
-            clip-path: polygon(0 0, 60% 0, 40% 100%, 0% 100%);
-            div {
-                transition: all 1s linear;
-                transform: translateY(100%);
-                transform: translateY(0%);
-            }
-            .inArti-text_block {
-                background-color: $color-blue;
-                a {
-                    display: flex;
-                    width: 40%;
-                    height: 80%;
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    left: 5%;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    h2 {
-                        color: #fff;
-                        text-align: center;
-                    }
-                    div {
-                        text-align: center;
-                        color: #fff;
-                        line-height: 1.5em;
-                    }
-                }
+    }
+    &-3 {
+        .inArti-page__half--left .inArti-page__content {
+            padding: 0 30%;
+            img {
+                position: relative;
+                top: 0;
+                left: -30%;
+                width: 100%;
+                height: 100%;
             }
         }
-        .inArti_right {
-            clip-path: polygon(100% 0, 60% 0, 40% 100%, 100% 100%);
-            .inArti-text_block {
-                background-color: $color-blue;
-                a {
-                    display: flex;
-                    width: 40%;
-                    height: 80%;
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    right: 5%;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    h2 {
-                        color: #fff;
-                        text-align: center;
-                    }
-                    div {
-                        text-align: center;
-                        color: #fff;
-                        line-height: 1.5em;
-                    }
-                }
-            }
+        .inArti-page__half--right .inArti-page__content {
+            background: lighten($color-blue, 5%);
         }
     }
 }

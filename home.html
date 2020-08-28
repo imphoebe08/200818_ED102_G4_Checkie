@@ -819,98 +819,99 @@
             },
         })
     </script>
+    <!-- <h1 class="inArti" id="inArti">專欄文章</h1> -->
 
     <div class="inArti" id="inArti">
-        <h1>專欄文章</h1>
-        <div class="inArti_body">
-            <div class="inArti_left">
-                <div class="inArti-img_block">
-                    <a href="javascript:void(0)">
-                        <img src="./img/index/inArti/family/family2-2.png">
-                    </a>
+
+        <div class="inArti-pages" id="inArti-pages">
+            <div class="inArti-page inArti-page-1 active">
+                <div class="inArti-page__half inArti-page__half--left">
+                    <div class="inArti-page__skewed">
+                        <a href="javascript:void(0)" class="inArti-page__content">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/mousover-img-1.jpg">
+                        </a>
+                    </div>
                 </div>
-                <div class="inArti-text_block">
-                    <a href="javascript:void(0)">
-                        <h2>品格出眾的人，都懂得避開「巴納姆效應」</h2>
-                        <div>有一個朋友，什麼感情上的疑難雜症全都依賴星座命盤去分析，還常常對我們其他朋友說，「我以前也沒那麼信星座，但有時候真的很準。」The post 品格出眾的人，都懂得避開「巴納姆效應」心理陷阱 appeared first on A Day Magazine....</div>
-                    </a>
+                <div class="inArti-page__half inArti-page__half--right">
+                    <div class="inArti-page__skewed">
+                        <a href="javascript:void(0)" class="inArti-page__content">
+                            <h2 class="inArti-page__heading">{{Arti[0].title}}</h2>
+                            <p class="inArti-page__description">{{Arti[0].content}}</p>
+                        </a>
+                    </div>
                 </div>
-                <div class="inArti-img_block">
-                    <a href="javascript:void(0)">
-                        <img src="./img/index/inArti/family/family2-2.png">
-                    </a>
+            </div>
+            <div class="inArti-page inArti-page-2">
+                <div class="inArti-page__half inArti-page__half--left">
+                    <div class="inArti-page__skewed">
+                        <a href="javascript:void(0)" class="inArti-page__content">
+                            <h2 class="inArti-page__heading">{{Arti[1].title}}</h2>
+                            <p class="inArti-page__description">{{Arti[1].content}}</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="inArti-page__half inArti-page__half--right">
+                    <div class="inArti-page__skewed">
+                        <a href="javascript:void(0)" class="inArti-page__content">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/slider-2.jpg">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="inArti-page inArti-page-3">
+                <div class="inArti-page__half inArti-page__half--left">
+                    <div class="inArti-page__skewed">
+                        <a href="javascript:void(0)" class="inArti-page__content">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/mousover-img-2.jpg">
+                        </a>
+                    </div>
+                </div>
+                <div class="inArti-page__half inArti-page__half--right">
+                    <div class="inArti-page__skewed">
+                        <a href="javascript:void(0)" class="inArti-page__content">
+                            <h2 class="inArti-page__heading">{{Arti[2].title}}</h2>
+                            <p class="inArti-page__description">{{Arti[2].content}}</p>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="inArti_right">
-                <div class="inArti-text_block">
-                    <a href="javascript:void(0)">
-                        <h2>品格出眾的人，都懂得避開「巴納姆效應」</h2>
-                        <div>有一個朋友，什麼感情上的疑難雜症全都依賴星座命盤去分析，還常常對我們其他朋友說，「我以前也沒那麼信星座，但有時候真的很準。」The post 品格出眾的人，都懂得避開「巴納姆效應」心理陷阱 appeared first on A Day Magazine....</div>
-                    </a>
-                </div>
-                <div class="inArti-img_block">
-                    <a href="javascript:void(0)">
-                        <img src="./img/index/inArti/family/family2-2.png">
-                    </a>
-                </div>
-                <div class="inArti-text_block">
-                    <a href="javascript:void(0)">
-                        <h2>品格出眾的人，都懂得避開「巴納姆效應」</h2>
-                        <div>有一個朋友，什麼感情上的疑難雜症全都依賴星座命盤去分析，還常常對我們其他朋友說，「我以前也沒那麼信星座，但有時候真的很準。」The post 品格出眾的人，都懂得避開「巴納姆效應」心理陷阱 appeared first on A Day Magazine....</div>
-                    </a>
-                </div>
-            </div>
         </div>
-
     </div>
 
+
+    <script>
+    </script>
     <script>
         // inArti
         new Vue({
             el: "#inArti",
-            date: {
-                Arti: {
+            data: {
+                Arti: [{
                     author: "溫在涵",
                     date: "JUL 20,2020",
                     category: "人際關係",
                     title: "品格出眾的人，都懂得避開「巴納姆效應」",
                     content: "有一個朋友，什麼感情上的疑難雜症全都依賴星座命盤去分析，還常常對我們其他朋友說，「我以前也沒那麼信星座，但有時候真的很準。」The post 品格出眾的人，都懂得避開「巴納姆效應」心理陷阱 appeared first on A Day Magazine....",
 
-                }
-            },
-            components: {
-                "inarti-item": {
-                    // 要有一個主標籤
-                    template: `
-            <a href="javascript:void(0)">
-                <article>
-                    <div class="inArti-left_pic1">
-                        <img src="./img/index/inArti/family/family2-2.png" alt="" >
-                    </div>
-                    <div class="inArti-left_detail">
-                        <div class="inArti-left-detail_block">
-                            <div class="inArti-left-detail_pic"><img src="./img/index/inArti/doctors/doctors1.jpeg" ></div>
-                            <div class="inArti-left-detail_text">留佩萱醫師</div>
+                }, {
+                    author: "溫在涵",
+                    date: "JUL 20,2020",
+                    category: "人際關係",
+                    title: "品格出眾的人，都懂得避開「巴納姆效應」",
+                    content: "有一個朋友，什麼感情上的疑難雜症全都依賴星座命盤去分析，還常常對我們其他朋友說，「我以前也沒那麼信星座，但有時候真的很準。」The post 品格出眾的人，都懂得避開「巴納姆效應」心理陷阱 appeared first on A Day Magazine....",
 
-                        </div>
-                        <div class="inArti-left-detail_title">家庭關係</div>
-                    </div>
-                    <div class="inArti-left_border1"></div>
-                    <div class="inArti-left_title">
-                        <h2>受傷的童年，受創的大腦</h2>
-                    </div>
-                    <div class="inArti-left_partner">
-                        ACE研究是在1990年左右由美國醫師等人所做的研究，當時研究了17,000多個對象，想要探討童年的創傷經驗和成人時期的健康之間的關聯性。當時的研究結果非常的驚人受試的研究對象中...
-                    </div>
-                   
-                </article>
-            </a>
-                    `,
-                },
+                }, {
+                    author: "溫在涵",
+                    date: "JUL 20,2020",
+                    category: "人際關係",
+                    title: "品格出眾的人，都懂得避開「巴納姆效應」",
+                    content: "有一個朋友，什麼感情上的疑難雜症全都依賴星座命盤去分析，還常常對我們其他朋友說，「我以前也沒那麼信星座，但有時候真的很準。」The post 品格出眾的人，都懂得避開「巴納姆效應」心理陷阱 appeared first on A Day Magazine....",
 
+                }],
 
             },
+
 
         })
     </script>
