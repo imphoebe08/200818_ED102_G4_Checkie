@@ -158,12 +158,12 @@
 @media (max-width: 600px) {
 	.index-search-bar {
 		display: block;
-		width: 90%;
+		width: 70%;
 		max-width: 320px;
 		margin: 0 auto;
 		text-align: center;
-		position: static;
-		transform: none;
+		transform: translate(-50%,0);
+		z-index: 500;
 
 		.select-block {
 			display: block;

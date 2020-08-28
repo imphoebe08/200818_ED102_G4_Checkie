@@ -34,10 +34,10 @@ div.inCs_group {
             transform: translate(-100%, -50%);
             overflow: hidden;
             border-radius: 1rem 0 0 1rem;
-            box-shadow: -12px 0px 20px -10px #333;
+            box-shadow: -12px 0px 10px 3px rgba(117, 117, 117, 0.2);
 
             li {
-                padding: 10px 0 0 20px;
+                padding: 20px 20px 0 30px;
                 width: 100%;
                 height: 100%;
                 position: absolute;
@@ -47,7 +47,6 @@ div.inCs_group {
 
                 img {
                     display: block;
-                    width: 100%;
                     height: 70%;
                     object-fit: cover;
                     margin: 0 auto;
@@ -83,15 +82,13 @@ div.inCs_group {
                     display: block;
                     margin: 0 auto;
                     width: 70%;
-                    height: 70%;
                 }
 
                 h1 {
-                    position: absolute;
-                    bottom: 15%;
-                    right: 5%;
                     padding: 0 10px;
                     @include h1;
+                    display: block;
+                    text-align: center;
                 }
 
                 button {
@@ -116,10 +113,10 @@ div.inCs_group {
             transform: translate(100%, -50%);
             overflow: hidden;
             border-radius: 0 1rem 1rem 0;
-            box-shadow: 12px 0px 20px -10px #333;
+            box-shadow: 12px 0px 10px 3px rgba(117, 117, 117, 0.2);
 
             li {
-                padding: 10px 20px 0 0;
+                padding: 20px 30px 0 20px;
                 width: 100%;
                 height: 100%;
                 position: absolute;
@@ -129,7 +126,6 @@ div.inCs_group {
 
                 img {
                     display: block;
-                    width: 100%;
                     height: 70%;
                     object-fit: cover;
                     margin: 0 auto;
@@ -143,7 +139,7 @@ div.inCs_group {
                 h5 {
                     width: 100%;
                     @include h5;
-                    padding: 0 10px;
+                    padding: 0 20px;
 
                     &:after {
                         content: "";
@@ -157,22 +153,20 @@ div.inCs_group {
                 p {
                     @include p;
                     line-height: 1.5rem;
-                    padding: 10px 10px 20px;
+                    padding: 10px 20px 20px;
                 }
 
                 .inConselor__chart {
                     display: block;
                     margin: 0 auto;
                     width: 70%;
-                    height: 70%;
                 }
 
                 h1 {
-                    position: absolute;
-                    bottom: 15%;
-                    right: 5%;
                     padding: 0 10px;
                     @include h1;
+                    display: block;
+                    text-align: center;
                 }
 
                 button {
@@ -192,7 +186,7 @@ div.inCs_group {
             justify-content: center;
             flex-flow: nowrap row;
             position: absolute;
-            bottom: -350px;
+            bottom: -280px;
             left: 50%;
             transform: translate(-50%, -50%);
             list-style: none;
@@ -267,6 +261,8 @@ div.inCs.swiper-container {
             h3 {
                 @include h3;
                 cursor: pointer;
+                text-align: center;
+                margin-top: 15px;
             }
 
             .inConselor__chart {
