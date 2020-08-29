@@ -46,6 +46,15 @@ $(function() {
             $("#signup_overlay").hide();
         });
 
+        $("#forgetpwd").click(function() {
+            $("#forgetpwd_from").css("display", "inline-block");
+        });
+
+        $("#forgetpwd_close").click(function() {
+            $("#forgetpwd_from").css("display", "none");
+        });
+
+
 
     });
 

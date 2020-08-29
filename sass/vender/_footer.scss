@@ -9,6 +9,7 @@ footer{
 
     .footer_socialmedia{
         margin: 10px auto 0;
+        padding-top:10px;
         width: 300px;
         height: 50px;
 
@@ -75,6 +76,12 @@ footer{
         font-weight: 500;
         margin: 0;
         }
+    }
+
+    span{
+        @include p;
+        font-size: $fontsize - 4px; 
+        padding-bottom:10px;
     }
 
 }
