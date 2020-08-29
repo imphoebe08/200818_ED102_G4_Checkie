@@ -155,16 +155,16 @@ let vmcssart = new Vue({
                 display: false
             },
             pointLabels: {
-                fontSize: 18,
+                fontSize: 16,
                 fontFamily: "微軟正黑體"
             }
         },
         layout: {
             padding: {
-                left: 20,
-                right: 20,
-                top: 10,
-                bottom: 10
+                // left: 20,
+                // right: 20,
+                // top: 10,
+                // bottom: 10
             }
         }
     };
@@ -174,17 +174,4 @@ let vmcssart = new Vue({
         data: datas,
         options: option,
     });
-})();
-
-
-;
-(function () {
-    let jsList = document.getElementsByClassName('js-list-toggle');
-    let jsItem = document.getElementsByClassName('js-item-toggle');
-    for (let i = 0; i < jsList.length; i++) {
-        jsList[i].addEventListener('click', function () {
-            console.log('hi');
-            $(jsItem[i]).slideToggle();
-        });
-    }
 })();
