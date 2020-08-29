@@ -26,6 +26,24 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
+
+#body {
+    .top {
+        .navbar {
+            .navbar__menu {
+                a:nth-child(3) {
+                    color: $color-pink;
+                }
+                a:nth-child(3)::after {
+                    transform: scaleX(1);
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+
+
 .acMain{
     // border: $border;
     padding: 0;

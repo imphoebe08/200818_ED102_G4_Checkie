@@ -1,4 +1,19 @@
 
+#nav4 {
+    .top {
+        .navbar {
+            .navbar__menu {
+                a:nth-child(4) {
+                    color: $color-pink;
+                }
+                a:nth-child(4)::after {
+                    transform: scaleX(1);
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
 
 .blank{
     height: 9vw;

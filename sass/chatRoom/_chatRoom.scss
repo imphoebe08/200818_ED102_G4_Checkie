@@ -29,6 +29,22 @@ p{
     @include p;
 }
 
+#nav2 {
+    .top {
+        .navbar {
+            .navbar__menu {
+                a:nth-child(2) {
+                    color: $color-pink;
+                }
+                a:nth-child(2)::after {
+                    transform: scaleX(1);
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+
 
 main{
 

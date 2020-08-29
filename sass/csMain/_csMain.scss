@@ -1,5 +1,21 @@
 @import './style';
 
+#nav1 {
+    .top {
+        .navbar {
+            .navbar__menu {
+                a:nth-child(1) {
+                    color: $color-pink;
+                }
+                a:nth-child(1)::after {
+                    transform: scaleX(1);
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+
 #csMainContainer {
     position: relative;
     width: calc(100% - 40px);
