@@ -617,4 +617,30 @@ header{
 	transform: translateX(20%);
 }
 
+@media (max-width: 600px) {
 
+        .overlay-container{
+            display: none;
+        }
+
+
+        .sign-in-container {
+            
+            width: 100%;
+         
+        }
+        
+        .sign-up-container {
+            width: 100%;
+            opacity: 1;
+          
+        }
+
+        .container.right-panel-active .sign-up-container {
+            transform: translateX(0);
+            animation: show 0.6s;
+           
+        }
+
+
+}
