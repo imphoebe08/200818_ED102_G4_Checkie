@@ -3,11 +3,11 @@ Vue.component("cscounselor-layout", {
                     <div class="csCounselor-card">
                         <div class="csCounselor-image" @click="openSelfPage">
                             <img class="img-responsive"
-                                src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg">
-                        </div>
-                        <p class="csC-doctor__name" @click="openSelfPage">吳醫師</p>
+								src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg">
+						</div>
+						<p class="csC-doctor__name" @click="openSelfPage">吳醫師</p>
                         <p class="csC-type_title">醫師專長</p>
-                        <div class="csC-type_tag row">
+						<div class="csC-type_tag row">
                             <span class="col-4">家庭關係</span>
                             <span class="col-4">人際關係</span>
                         </div>
@@ -15,7 +15,7 @@ Vue.component("cscounselor-layout", {
                             <ul class="csC-doctor__list">
                                 <li>
                                     <p class="js-list-toggle">經歷</p>
-                                    <ul class="csS-list js-item-toggle">
+									<ul class="csS-list js-item-toggle">				
                                         <li class="small"><i class="fas fa-circle"></i>新光醫院精神科病房主任</li>
                                         <li class="small"><i class="fas fa-circle"></i>新光醫院精神科主治醫師</li>
                                         <li class="small"><i class="fas fa-circle"></i>國家衛生研究院台灣成癮次專科醫師訓練</li>
@@ -34,6 +34,40 @@ Vue.component("cscounselor-layout", {
 		}
 	}
 });
+
+// template: `<div class="swiper-slide">
+//                     <div class="csCounselor-card">
+//                         <div class="csCounselor-image" @click="openSelfPage">
+//                             <img class="img-responsive"
+// 								src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg">
+// // 	<img class="img-responsive" :src="csData.img">
+// 						</div>
+// 						<p class="csC-doctor__name" @click="openSelfPage">吳醫師</p>
+// //	<p class="csC-doctor__name" @click="openSelfPage">{{csData.name}} 醫師</p>
+//                         <p class="csC-type_title">醫師專長</p>
+// 						<div class="csC-type_tag row">
+// // <span v-for="item in csData.typeTop">{{item}}</span>
+//                             <span class="col-4">家庭關係</span>
+//                             <span class="col-4">人際關係</span>
+//                         </div>
+//                         <div class="csC-doctor__info">
+//                             <ul class="csC-doctor__list">
+//                                 <li>
+//                                     <p class="js-list-toggle">經歷</p>
+// 									<ul class="csS-list js-item-toggle">
+// // <li v-for="item in csData.his"><i class="fas fa-circle">{{item}}</li>						
+//                                         <li class="small"><i class="fas fa-circle"></i>新光醫院精神科病房主任</li>
+//                                         <li class="small"><i class="fas fa-circle"></i>新光醫院精神科主治醫師</li>
+//                                         <li class="small"><i class="fas fa-circle"></i>國家衛生研究院台灣成癮次專科醫師訓練</li>
+//                                         <li class="small"><i class="fas fa-circle"></i>新光醫院精神科臨床研究員醫師</li>
+//                                         <li class="small"><i class="fas fa-circle"></i>新光醫院精神科總醫師</li>
+//                                         <li class="small"><i class="fas fa-circle"></i>新光醫院精神科住院醫師</li>
+//                                     </ul>
+//                                 </li>
+//                             </ul>
+//                         </div>
+//                     </div>
+//                 </div>`,
 
 let vm = new Vue({
 	el: "#appCsMain",
@@ -79,45 +113,7 @@ let vm = new Vue({
 	}
 });
 
-(function () {
-	let ctx = document.getElementsByClassName("myChart");
 
-	let datas = {
-		labels: ["Coding", "Swimming", "Eating", "Cycling", "Sleeping"],
-		datasets: [
-			{
-				label: "分數",
-				data: [60, 40, 50, 52, 75]
-			}
-		]
-	};
-
-	let option = {
-		legend: {
-			display: 0,
-			labels: {
-				fontColor: "rgb(255, 99, 132)"
-			}
-		},
-		scale: {
-			angleLines: {
-				display: false
-			},
-			ticks: {
-				suggestedMin: 0,
-				suggestedMax: 100
-			}
-		}
-	};
-
-	for (let i = 0; i < ctx.length; i++) {
-		new Chart(ctx[i].getContext("2d"), {
-			type: "radar",
-			data: datas,
-			options: option
-		});
-	}
-})();
 
 (function () {
 	let jsList = document.getElementsByClassName("js-list-toggle");

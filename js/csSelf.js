@@ -96,33 +96,26 @@ let vmcssart = new Vue({
     }
 })
 
-
-// $(".csSelfReco-card").mouseenter(cardInfoToggle);
-
-// $(".csSelfReco-card").mouseleave(cardInfoToggle);
-
-// $(window).resize(function () {
-//     if (window.innerWidth > 800 || window.innerWidth < 576) {
-//         $(".csSelfReco-card").find(".card__info").show();
-//     } else {
-//         $(".csSelfReco-card").find(".card__info").hide();
-//     }
-// });
-
-// function cardInfoToggle(e) {
-//     if (window.innerWidth < 800 && window.innerWidth > 576) {
-//         $(this).find(".card__info").slideToggle();
-//     }
-// }
-
 ;
 (function () {
     let ctx = document.getElementById("myChart").getContext("2d");
+    let dataNumbers = [];
+
+    axios.get('../json/cs.json')
+        .then((res) => {
+            for (let i = 0; i < 5; i++)
+                dataNumbers[i] = res.data[3].csType[0][`csType${i+1}`];
+                myChart.update();
+        })
+        .catch((error) => {
+            console.log(error)
+        });
+
     let datas = {
         labels: ["家庭關係", "人際關係", "伴侶關係", "壓力創傷", "自我探索"],
         datasets: [{
             label: "分數",
-            data: [60, 40, 50, 52, 75],
+            data: dataNumbers,
         }]
     };
 
@@ -159,14 +152,6 @@ let vmcssart = new Vue({
                 fontFamily: "微軟正黑體"
             }
         },
-        layout: {
-            padding: {
-                // left: 20,
-                // right: 20,
-                // top: 10,
-                // bottom: 10
-            }
-        }
     };
 
     let myChart = new Chart(ctx, {

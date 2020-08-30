@@ -1,0 +1,92 @@
+[{
+        "csId": 100,
+        "csName": "cillum fugiat elit",
+        "csHis": "f984ee91-a33b-4ba5-a592-03ff63d8c219",
+        "csEdu": "919cdfad-96ae-4cff-865d-ddb47aa52dfd",
+        "csType": [{
+            "csType1": 65,
+            "csType2": 14,
+            "csType3": 93,
+            "csType4": 1,
+            "csType5": 47
+        }]
+    },
+    {
+        "csId": 101,
+        "csName": "velit laborum aute",
+        "csHis": "b1003fb2-0cb1-42fc-9743-805ba6dcf772",
+        "csEdu": "a8ce1784-e45c-43b9-ba7c-85c5645f09b5",
+        "csType": [{
+            "csType1": 69,
+            "csType2": 49,
+            "csType3": 62,
+            "csType4": 43,
+            "csType5": 33
+        }]
+    },
+    {
+        "csId": 102,
+        "csName": "et dolore ut",
+        "csHis": "a01423de-b9f6-43f4-bd14-468ab09eba7d",
+        "csEdu": "fac7833b-7bbc-4b22-a8d9-75078e026936",
+        "csType": [{
+            "csType1": 44,
+            "csType2": 41,
+            "csType3": 74,
+            "csType4": 12,
+            "csType5": 32
+        }]
+    },
+    {
+        "csId": 103,
+        "csName": "do exercitation ullamco",
+        "csHis": "d2780182-e76d-498c-bcd1-5894148f75f2",
+        "csEdu": "ea6c2d4d-7249-4f28-8edd-4430a48ef749",
+        "csType": [{
+            "csType1": 96,
+            "csType2": 5,
+            "csType3": 93,
+            "csType4": 67,
+            "csType5": 69
+        }]
+    },
+    {
+        "csId": 104,
+        "csName": "laborum eiusmod elit",
+        "csHis": "e9cb2246-a819-4c06-a7a5-390f25e949ef",
+        "csEdu": "bdfcbe4c-aa83-4405-885d-fe8c0f27e98e",
+        "csType": [{
+            "csType1": 28,
+            "csType2": 79,
+            "csType3": 79,
+            "csType4": 87,
+            "csType5": 98
+        }]
+    },
+    {
+        "csId": 105,
+        "csName": "id sunt qui",
+        "csHis": "ce88d004-8bd4-4c01-9a76-e4734aee7f8f",
+        "csEdu": "85cc2190-12f2-45ea-a2f1-6f8592da8a4a",
+        "csType": [{
+            "csType1": 40,
+            "csType2": 81,
+            "csType3": 1,
+            "csType4": 47,
+            "csType5": 74
+        }]
+    },
+    {
+        "csId": 106,
+        "csName": "adipisicing velit incididunt",
+        "csHis": "125f1ea5-6ffc-4250-9053-6c693001869f",
+        "csEdu": "bec43463-479f-4555-8f96-39beaaf5b998",
+        "csType": [{
+            "csType1": 37,
+            "csType2": 65,
+            "csType3": 50,
+            "csType4": 30,
+            "csType5": 68
+        }]
+    }
+]

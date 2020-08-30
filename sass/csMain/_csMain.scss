@@ -240,6 +240,7 @@
                         span {
                             text-align: center;
                             margin: 0 5px;
+                            color: #c43261;
                         }
                     }
 
@@ -250,12 +251,13 @@
                         .csC-doctor__list>li {
                             p {
                                 cursor: pointer;
-                                font-weight: 700;
                             }
 
                             .csS-list>li {
                                 display: block;
                                 line-height: 1.5em;
+                                text-indent: -7.5px;
+                                padding-left: 13.5px;
 
                                 i {
                                     display: inline-block;
@@ -276,7 +278,7 @@
     .swiper-button-next,
     .swiper-button-prev {
         position: absolute;
-        top: 75%;
+        top: 700px;
         outline: none;
         color: $color-pink;
         background: white;
