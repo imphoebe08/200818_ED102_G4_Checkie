@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>諮商師 | CHECKIE</title>
-    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap-grid.min.css'>
+    <link rel="stylesheet"
+        href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap-grid.min.css'>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -59,18 +60,13 @@
             </div>
         </div>
         <div class="csCounselor-cards">
-            <p id="csC-countCards">總共有{{countCards}}位符合您需求的諮商師</p>
-            <div class="swiper-container">
-                <div class="csCounselor-gallery swiper-wrapper">
-                    <cscounselor-layout v-for="item in countCards" :key="item"></cscounselor-layout>
-                </div>
-                <!-- Add Arrows -->
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <p id="csC-countCards">總共有{{slideResult}}位符合您需求的諮商師</p>
+            <cscounselor-layout :slide-info="csData" 
+                                :cs-gender="csGender" 
+                                :cs-position="csPosition"
+                                :cs-problem="csProblem"></cscounselor-layout>
         </div>
     </div>
-
     @@include('template/footer.html')
 
 
@@ -79,9 +75,10 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/vue-awesome-swiper@4.1.1/dist/vue-awesome-swiper.min.js'></script>
     <script src='./js/csMain.js'></script>
-    <script src="./js/header.js"></script>
-    <script src="./js/chatbot.js"></script>
+    <script src='./js/header.js'></script>
+    <script src='./js/chatbot.js'></script>
 </body>
 
 </html>

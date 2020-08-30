@@ -175,7 +175,7 @@
 
 .csCounselor-cards {
     width: 100%;
-    margin: 0 auto 100px;
+    margin: 0 auto;
     overflow-x: hidden;
 
     #csC-countCards {
@@ -187,13 +187,14 @@
     .swiper-container {
         width: 320px;
         overflow: initial;
-        margin: 100px auto;
+        margin: 50px auto;
 
         .csCounselor-gallery {
             .swiper-slide {
                 width: 300px;
+                transform: scale(0.8);
                 &.swiper-slide-active{
-                    transform: scale(1.2);
+                    transform: scale(1);
                 }
 
                 .csCounselor-card {
@@ -278,7 +279,6 @@
     .swiper-button-next,
     .swiper-button-prev {
         position: absolute;
-        top: 700px;
         outline: none;
         color: $color-pink;
         background: white;
@@ -291,12 +291,12 @@
         }
     }
 
-    .swiper-button-prev {
-        right: 0;
+    .swiper-button-next {
+        right: -60%;
     }
 
     .swiper-button-prev {
-        left: 0;
+        left: -60%;
     }
 }
 
