@@ -2,7 +2,7 @@ Vue.component("cscounselor-layout", {
 	template: `
 	<div class="swiper-container">
 		<div class="csCounselor-gallery swiper-wrapper">
-			<div class="swiper-slide"  v-for="(item,index) in slideResult" :key="item.csId">
+			<div class="swiper-slide"  v-for="(item,index) in slideInfo" :key="item.csId">
 				<div class="csCounselor-card">
 					<div class="csCounselor-image" @click="openSelfPage">
 						<img class="img-responsive" src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg">
@@ -33,7 +33,7 @@ Vue.component("cscounselor-layout", {
 			window.open("./csSelf.html", "_self");
 		},
 	},
-	props: ['slide-info', 'cs-gender', 'cs-position', 'cs-problem'],
+	props: ['slide-info'],
 	data() {
 		return {
 			mySwiper: '',
@@ -51,26 +51,10 @@ Vue.component("cscounselor-layout", {
 			}
 		});
 	},
-	computed: {
-		slideResult() {
-			if (this.csGender.length == 0 && this.csPosition.length == 0 && this.csProblem.length == 0) {
-				return this.slideInfo;
-			} else {
-				return this.slideInfo.filter(item => {
-					return (this.csGender.indexOf(item.csGender) > -1 || this.csGender.length == 0) &&
-						(this.csPosition.indexOf(item.csPosition) > -1 || this.csPosition.length == 0) &&
-						(this.csProblem.indexOf(item.csProblem) > -1 || this.csProblem.length == 0);
-				})
-			}
-		},
-
-	},
 	updated() {
 		this.mySwiper.update();
 	}
 });
-
-
 
 let vmCs = new Vue({
 	el: "#appCsMain",
@@ -125,15 +109,14 @@ let vmCs = new Vue({
 	computed: {
 		slideResult() {
 			if (this.csGender.length == 0 && this.csPosition.length == 0 && this.csProblem.length == 0) {
-				return this.csData.length;
+				return this.csData;
 			} else {
 				return this.csData.filter(item => {
 					return (this.csGender.indexOf(item.csGender) > -1 || this.csGender.length == 0) &&
 						(this.csPosition.indexOf(item.csPosition) > -1 || this.csPosition.length == 0) &&
 						(this.csProblem.indexOf(item.csProblem) > -1 || this.csProblem.length == 0);
-				}).length
+				})
 			}
 		},
-
 	},
 });

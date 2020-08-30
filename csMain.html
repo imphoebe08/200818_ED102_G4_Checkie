@@ -60,11 +60,8 @@
             </div>
         </div>
         <div class="csCounselor-cards">
-            <p id="csC-countCards">總共有{{slideResult}}位符合您需求的諮商師</p>
-            <cscounselor-layout :slide-info="csData" 
-                                :cs-gender="csGender" 
-                                :cs-position="csPosition"
-                                :cs-problem="csProblem"></cscounselor-layout>
+            <p id="csC-countCards">總共有{{slideResult.length}}位符合您需求的諮商師</p>
+            <cscounselor-layout :slide-info="slideResult"></cscounselor-layout>
         </div>
     </div>
     @@include('template/footer.html')
