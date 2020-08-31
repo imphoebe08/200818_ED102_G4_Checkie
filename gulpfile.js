@@ -64,8 +64,11 @@ gulp.task('bgimg', function() {
     return gulp.src(['./backstage/img/**/*', './backstage/icons/*']).pipe(gulp.dest('./dist/backstage/img'));
 })
 
+gulp.task('bgjs', function() {
+    return gulp.src(['./node_modules/@coreui/coreui/dist/js/*.js'], ['./backstage/js/backstage_chart.js']).pipe(gulp.dest('./dist/backstage/js'))
+})
 gulp.task('bgsass', function() {
-        return gulp.src('./backstage/sass/*.scss') //來源
+        return gulp.src(['./backstage/sass/*.scss'], ['./node_modules/@coreui/coreui/dist/css']) //來源
             .pipe(sass().on('error', sass.logError)) //Sass轉譯 -> 一個pipe是一個流程
             .pipe(cleanCSS({
                 compatibility: 'ie8' //轉譯成相容ie8的CSS
@@ -73,7 +76,7 @@ gulp.task('bgsass', function() {
             .pipe(gulp.dest('./dist/backstage/css')); //目的地
     })
     // 同步執行兩個以上的指令：
-gulp.task('all', ['copyjs', 'sass', 'copyimg', 'fileinclude', 'bgimg', 'bgsass', 'bghtml', 'copyjson']); //在終端機執行 gulp all即可同時執行兩個task
+gulp.task('all', ['copyjs', 'sass', 'copyimg', 'fileinclude', 'bgimg', 'bgsass', 'bghtml', 'copyjson', 'bgjs']); //在終端機執行 gulp all即可同時執行兩個task
 
 
 // Browser應用 => 即時監看fileinclude出來的檔案
@@ -97,6 +100,7 @@ gulp.task('default', function() {
     // backstageWatch
     gulp.watch(['./backstage/html/*.html', './backstage/html/**/*.html'], ['bghtml']).on('change', reload);
     gulp.watch(['./backstage/sass/*.scss', './backstage/sass/**/*.scss'], ['bgsass']).on('change', reload);
+    gulp.watch(['./backstage/js/*.js'], ['bgjs']).on('change', reload);
 });
 
 //壓縮圖檔
