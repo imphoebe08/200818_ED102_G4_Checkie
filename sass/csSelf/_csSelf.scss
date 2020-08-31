@@ -8,7 +8,8 @@
 
 
     .csS-info {
-        border: 1px solid rgb(9, 11, 15);
+        // border: 1px solid rgb(9, 11, 15);
+        box-shadow: $boxshadow;
         padding: 20px;
         background: rgba(255, 255, 255, 0.801);
         display: flex;
@@ -34,9 +35,10 @@
 
         .csS-info__type {
             flex: 1 1 250px;
-            height: 416.47px;
+            height: 416.74px;
             border: 1px solid rgb(9, 11, 15);
             padding: 20px;
+            margin: 0 10px;
 
             h3 {
                 display: block;
@@ -56,22 +58,21 @@
             }
 
             .inCs-chart {
-                width: 300px;
-                margin: auto;
+                width: 100%;
+
+                div {}
             }
         }
 
         .csS-info__hisEdu {
             border: 1px solid rgb(9, 11, 15);
-            flex: 0 0 300px;
-            height: 416.47px;
+            flex: 1 0 300px;
+            height: 416.74px;
             margin: 10px;
             padding: 20px;
 
             ul {
                 padding: 0 0 10px;
-
-                h5 {}
 
                 li {
                     text-indent: -8px;
@@ -92,7 +93,7 @@
         }
 
         .csS-buttons {
-            flex: 1 0 300px;
+            flex: 0 0 100%;
 
             .buttons {
                 display: flex;
@@ -224,8 +225,6 @@
             }
 
             .csS-buttons {
-                flex: 1 0 80px;
-
                 .buttons {
                     flex-flow: nowrap row;
                 }
@@ -278,9 +277,10 @@
 @media (max-width: 375px) {
     .csSelf {
         .csS-info {
-            .csS-info__image{
+            .csS-info__image {
                 flex: 0 1 auto;
             }
+
             .csS-info__type {
                 .inCs-chart {
                     width: 240px;

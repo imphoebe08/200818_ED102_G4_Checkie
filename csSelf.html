@@ -8,7 +8,9 @@
     <link rel="stylesheet"
         href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap-grid.min.css'>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/main.css">
+
 </head>
 
 <body id="nav1">
@@ -18,19 +20,17 @@
         <div class="csS-info">
             <div class="csS-info__image">
                 <img class="img-responsive" src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg">
-                <!-- <h2>{{csData.name}} 醫師</h2> -->
-                <h2>蔡佳穎 醫師</h2>
+                <h2>{{ csData.csName }} 醫師</h2>
             </div>
 
             <div class="csS-info__type">
                 <h3>醫師專長</h3>
                 <div class='csS-type__tag'>
-                    <!-- <span v-for="item in csData.typeTop">{{item}}</span> -->
-                    <span>家庭關係</span>
-                    <span>人際關係</span>
+                    <span>{{ csData.csType && csData.csType.length > 0 ? csData.csType[0].csTypeName :'' }}</span>
+                    <span>{{ csData.csType && csData.csType.length > 0 ? csData.csType[1].csTypeName :'' }}</span>
                 </div>
                 <div class="inCs-chart">
-                    <canvas id="myChart" width="800" height="800"></canvas>
+                    <radar-chart></radar-chart>
                 </div>
             </div>
 
@@ -64,27 +64,16 @@
 
         <h2>醫師撰寫專欄</h2>
 
-        <div class="row csS-art">
             <cssart-layout></cssart-layout>
-            <cssart-layout></cssart-layout>
-            <cssart-layout></cssart-layout>
-        </div>
 
         <h2>醫師參與活動</h2>
-
-        <div id="csSelfAct">
+        
             <csselfact-layout></csselfact-layout>
-            <csselfact-layout></csselfact-layout>
-            <csselfact-layout></csselfact-layout>
-        </div>
 
         <h2>其他推薦醫師</h2>
 
-        <div id="csSelfReco">
             <csselfreco-layout></csselfreco-layout>
-            <csselfreco-layout></csselfreco-layout>
-            <csselfreco-layout></csselfreco-layout>
-        </div>
+
     </div>
 
     @@include('template/footer.html')
@@ -94,7 +83,7 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
     <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js'></script>
     <script src='./js/csSelf.js'></script>
     <script src="./js/header.js"></script>
     <script src="./js/chatbot.js"></script>

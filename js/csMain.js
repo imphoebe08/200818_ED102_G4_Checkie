@@ -1,16 +1,21 @@
+// 元件: 諮商師卡片
 Vue.component("cscounselor-layout", {
 	template: `
 	<div class="swiper-container">
 		<div class="csCounselor-gallery swiper-wrapper">
 			<div class="swiper-slide"  v-for="(item,index) in slideInfo" :key="item.csId">
 				<div class="csCounselor-card">
-					<div class="csCounselor-image" @click="openSelfPage">
+					<div class="csCounselor-image">
+					<a href="./csSelf.html">
 						<img class="img-responsive" src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg">
+					</a>
 					</div>
-					<p class="csC-doctor__name" @click="openSelfPage">{{item.csName}}醫師</p>
+					<a href="./csSelf.html">
+						<p class="csC-doctor__name">{{item.csName}}醫師</p>
+					</a>
 					<p class="csC-type_title">醫師專長</p>
 					<div class="csC-type_tag row">
-					<span class="col-4" v-for="(type, index2) in 2">{{item.csType[index2].csTypeName}}</span>
+					<span class="col-4" v-for="(type, index) in 2">{{item.csType[index].csTypeName}}</span>
 					</div>
 					<div class="csC-doctor__info">
 						<ul class="csC-doctor__list">
@@ -28,16 +33,12 @@ Vue.component("cscounselor-layout", {
 		<div class="swiper-button-next"></div>
 		<div class="swiper-button-prev"></div>
 	</div>`,
-	methods: {
-		openSelfPage() {
-			window.open("./csSelf.html", "_self");
-		},
-	},
 	props: ['slide-info'],
 	data() {
 		return {
 			mySwiper: '',
-		};
+			mySlide: this.slideInfo
+		}
 	},
 	mounted() {
 		this.mySwiper = new Swiper('.swiper-container', {
@@ -56,6 +57,10 @@ Vue.component("cscounselor-layout", {
 	}
 });
 
+
+
+
+// 掛載new Vue
 let vmCs = new Vue({
 	el: "#appCsMain",
 	data: {
@@ -80,23 +85,15 @@ let vmCs = new Vue({
 			});
 	},
 	methods: {
-		cleanSelect() {
-			this.csGender = [];
-			this.csPosition = [];
-			this.csProblem = [];
-		},
+		// 開關縮小視窗後的選單用
 		slideToggle() {
 			let csMain = document.getElementById("csMain");
-			if (this.slideBool) {
-				csMain.classList.add("slideIn");
-				csMain.classList.remove("slideOut");
-				this.slideBool = !this.slideBool;
-			} else {
-				csMain.classList.remove("slideIn");
-				csMain.classList.add("slideOut");
-				this.slideBool = !this.slideBool;
-			}
+			csMain.classList.toggle("slideIn");
+			csMain.classList.toggle("slideOut");
+			this.slideBool = !this.slideBool;
 		},
+
+		// 關閉縮小視窗後的選單用
 		clickWhite(e) {
 			let csMain = document.getElementById("csMain");
 			if (e.target !== (csMain) && !csMain.contains(e.target)) {
@@ -107,8 +104,9 @@ let vmCs = new Vue({
 		}
 	},
 	computed: {
+		// 回傳篩選後的結果
 		slideResult() {
-			if (this.csGender.length == 0 && this.csPosition.length == 0 && this.csProblem.length == 0) {
+			if (this.csGender.length + this.csPosition.length + this.csProblem.length == 0) {
 				return this.csData;
 			} else {
 				return this.csData.filter(item => {
