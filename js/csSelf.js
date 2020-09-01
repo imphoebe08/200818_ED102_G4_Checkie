@@ -194,7 +194,7 @@ let vmcssart = new Vue({
         csRecoData: {},
         series: [{
             name: 'Series 1',
-            data: [80, 50, 30, 40, 100],
+            data: [50, 50, 50, 50, 50],
         }],
         chartOptions: {
             chart: {
@@ -213,6 +213,11 @@ let vmcssart = new Vue({
                     },
                 },
                 range: 100,
+            },
+            yaxis: {
+                min: 0,
+                max: 100,
+                tickAmount: 4,
             },
             fill: {
                 colors: ['#e05891']
@@ -273,6 +278,9 @@ let vmcssart = new Vue({
         csData: function () {
             for (let i = 0; i < 5; i++)
                 this.series[0].data[i] = this.csData.csType[i].csTypeNum;
+            this.$refs.newChart.updateSeries([{
+                data: this.series[0].data
+            }], false, true)
         }
     }
 })
