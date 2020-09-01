@@ -36,7 +36,8 @@
         .csS-info__type {
             flex: 1 1 250px;
             height: 416.74px;
-            border: 1px solid rgb(9, 11, 15);
+            border: 1px solid $color-pink;
+            border-radius: 30px;
             padding: 20px;
             margin: 0 10px;
 
@@ -59,13 +60,12 @@
 
             .inCs-chart {
                 width: 100%;
-
-                div {}
             }
         }
 
         .csS-info__hisEdu {
-            border: 1px solid rgb(9, 11, 15);
+            border: 1px solid $color-pink;
+            border-radius: 30px;
             flex: 1 0 300px;
             height: 416.74px;
             margin: 10px;
@@ -85,7 +85,7 @@
                         transform: scale(.8);
                         padding-right: 5px;
                         vertical-align: middle;
-                        color: #65b391;
+                        color: $color-pink;
                     }
 
                 }
@@ -121,8 +121,8 @@
 
     .csS-art__card {
         overflow: hidden;
-        flex-basis: 300px;
-        flex: 1 0;
+        flex: 1 1 300px;
+        max-width: 400px;
         border-radius: 1rem;
         margin: 10px;
         background: #fff;
@@ -148,6 +148,7 @@
                 height: 14px;
                 vertical-align: middle;
                 margin-right: 5px;
+                display: inline-block;
             }
         }
 
@@ -273,6 +274,13 @@
     }
 }
 
+@media (max-width: 576px) {
+    .csSelf {
+        .csS-art .csS-art__card {
+            margin: 10px auto;
+        }
+    }
+}
 
 @media (max-width: 375px) {
     .csSelf {
@@ -280,16 +288,13 @@
             .csS-info__image {
                 flex: 0 1 auto;
             }
-
-            .csS-info__type {
-                .inCs-chart {
-                    width: 240px;
-                }
-            }
         }
 
-        .csS-art>.csS-art__card>.card-tag>a {
-            font-size: 14px;
+        .csS-art>.csS-art__card {
+
+            .card-tag>a {
+                font-size: 14px;
+            }
         }
     }
 
@@ -396,7 +401,6 @@
 
 #csSelfReco {
     box-sizing: border-box;
-    // border: 1px solid red;
     height: 400px;
     display: flex;
     flex-flow: nowrap row;
@@ -465,15 +469,13 @@
 @media (max-width: 576px) {
     #csSelfReco {
         height: auto;
-        flex-flow: nowrap column;
         align-items: center;
 
         .csSelfReco-card {
             max-width: 300px;
             flex: 0 1 200px;
+            margin: 0 auto;
             margin-top: 15px;
-
-            .card__image {}
 
             .card__info {
                 border: none;

@@ -1,4 +1,10 @@
 Vue.component('cssart-layout', {
+    props: ['art-Data'],
+    data() {
+        return {
+            csArtData: this.artData,
+        }
+    },
     template: `<div class="row csS-art">
                     <div v-for="i in 3" class="csS-art__card">
                         <a href="./atSelf.html">
@@ -26,10 +32,21 @@ Vue.component('cssart-layout', {
         openArtPage() {
             window.open("./atSelf.html", "_self");
         },
+    },
+    watch: {
+        artData: function () {
+            this.csArtData = this.artData;
+        }
     }
 })
 
 Vue.component("csselfact-layout", {
+    props: ['act-data'],
+    data() {
+        return {
+            csActData: this.actData,
+        }
+    },
     template: `
     <div id="csSelfAct">
         <div v-for="i in 3" class="csSelfAct-card row">
@@ -58,9 +75,20 @@ Vue.component("csselfact-layout", {
             window.open("./acSelf.html", "_self");
         },
     },
+    watch: {
+        actData: function () {
+            this.csActData = this.actData;
+        }
+    }
 });
 
 Vue.component("csselfreco-layout", {
+    props: ['reco-data'],
+    data() {
+        return {
+            csRecoData: this.recoData,
+        }
+    },
     template: `
                 <div id="csSelfReco">
 	                <div v-for="i in 3" class="csSelfReco-card">
@@ -84,85 +112,147 @@ Vue.component("csselfreco-layout", {
         openSelfPage() {
             window.open("./csSelf.html", "_self");
         },
+    },
+    watch: {
+        recoData: function () {
+            this.csRecoData = this.recoData;
+        }
     }
 });
 
-Vue.component('radar-chart', {
-    extends: VueChartJs.Radar,
-    async mounted() {
-        axios.get('../json/cs.json')
-            .then((res) => {
-                for (let i = 0; i < 5; i++)
-                    this.data.datasets[0].data[i] = res.data[5].csType[i].csTypeNum;
-            })
-            .catch((error) => {
-                console.log(error)
-            });
-
-        this.renderChart(this.data, this.option);
-    },
-    data() {
-        return {
-            dataNumbers: [],
-            data: {
-                labels: ["家庭關係", "人際關係", "伴侶關係", "壓力創傷", "自我探索"],
-                datasets: [{
-                    label: "分數",
-                    data: [0, 0, 0, 0, 0],
-                }]
-            },
-            option: {
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {
-                    display: 0
-                },
-                tooltips: {},
-                elements: {
-                    line: {
-                        backgroundColor: "rgba(255, 99, 160, 0.2)",
-                        borderColor: "rgba(255, 99, 160, 0.2)"
-                    },
-                    point: {
-                        backgroundColor: "rgba(255, 99, 132, 0.2)",
-                        hoverBackgroundColor: "rgba(255, 99, 132, 0.8)",
-                        radius: 5,
-                        pointStyle: "circle",
-                        hoverRadius: 8
-                    }
-                },
-                scale: {
-                    angleLines: {
-                        display: false
-                    },
-                    ticks: {
-                        suggestedMin: 0,
-                        suggestedMax: 100,
-                        stepSize: 20,
-                        display: false
-                    },
-                    pointLabels: {
-                        fontSize: 16,
-                        fontFamily: "微軟正黑體"
-                    }
-                },
-            }
-        }
-    }
-
-})
-
+// Vue.component('radar-chart', {
+//     extends: VueChartJs.Radar,
+//     props: ['radar-data'],
+//     data() {
+//         return {
+//             csData: this.radarData,
+//             dataNumbers: [],
+//             data: {
+//                 labels: ["家庭關係", "人際關係", "伴侶關係", "壓力創傷", "自我探索"],
+//                 datasets: [{
+//                     label: "分數",
+//                     data: [0, 0, 0, 0, 0],
+//                 }]
+//             },
+//             option: {
+//                 responsive: true,
+//                 maintainAspectRatio: false,
+//                 legend: {
+//                     display: 0
+//                 },
+//                 tooltips: {},
+//                 elements: {
+//                     line: {
+//                         backgroundColor: "rgba(255, 99, 160, 0.2)",
+//                         borderColor: "rgba(255, 99, 160, 0.2)"
+//                     },
+//                     point: {
+//                         backgroundColor: "rgba(255, 99, 132, 0.2)",
+//                         hoverBackgroundColor: "rgba(255, 99, 132, 0.8)",
+//                         radius: 5,
+//                         pointStyle: "circle",
+//                         hoverRadius: 8
+//                     }
+//                 },
+//                 scale: {
+//                     angleLines: {
+//                         display: false
+//                     },
+//                     ticks: {
+//                         suggestedMin: 0,
+//                         suggestedMax: 100,
+//                         stepSize: 20,
+//                         display: false
+//                     },
+//                     pointLabels: {
+//                         fontSize: 16,
+//                         fontFamily: "微軟正黑體"
+//                     }
+//                 },
+//             }
+//         }
+//     },
+//     watch: {
+//         radarData: function () {
+//             this.csData = this.radarData;
+//             for (let i = 0; i < 5; i++)
+//                 this.data.datasets[0].data[i] = this.csData.csType[i].csTypeNum;
+//         }
+//     }
+// })
 
 
 let vmcssart = new Vue({
     el: "#app",
+    components: {
+        apexchart: VueApexCharts,
+    },
     data: {
-        csData: {}
+        csData: {},
+        csArtData: {},
+        csActData: {},
+        csRecoData: {},
+        series: [{
+            name: 'Series 1',
+            data: [80, 50, 30, 40, 100],
+        }],
+        chartOptions: {
+            chart: {
+                height: 250,
+                type: 'radar',
+            },
+            xaxis: {
+                categories: ['家庭關係', '人際關係', '伴侶關係', '壓力創傷', '自我探索'],
+                labels: {
+                    style: {
+                        colors: ['#666', '#666', '#666', '#666', '#666'],
+                        fontSize: '12px',
+                        fontFamily: '微軟正黑體,Helvetica, Arial, sans-serif',
+                        fontWeight: 600,
+                        cssClass: 'apexcharts-xaxis-label',
+                    },
+                },
+                range: 100,
+            },
+            fill: {
+                colors: ['#e05891']
+            },
+            colors: ['pink'],
+            chart: {
+                toolbar: {
+                    show: false,
+                }
+            }
+        },
+
     },
     mounted() {
         axios.get('../json/cs.json')
             .then((res) => {
                 this.csData = res.data[0];
+                for (let i = 0; i < 5; i++)
+                    this.series[0].data[i] = this.csData.csType[i].csTypeNum;
+            })
+            .catch((error) => {
+                console.log(error)
+            });
+        axios.get('../json/cs.json')
+            .then((res) => {
+                this.csArtData = res.data[0];
+            })
+            .catch((error) => {
+                console.log(error)
+            });
+        axios.get('../json/cs.json')
+            .then((res) => {
+                this.csActData = res.data[0];
+            })
+            .catch((error) => {
+                console.log(error)
+            });
+        axios.get('../json/cs.json')
+            .then((res) => {
+                this.csRecoData = res.data[0];
             })
             .catch((error) => {
                 console.log(error)
@@ -178,5 +268,70 @@ let vmcssart = new Vue({
         openCharRoomPage() {
             window.open("./chatRoom.html", "_self");
         }
+    },
+    watch: {
+        csData: function () {
+            for (let i = 0; i < 5; i++)
+                this.series[0].data[i] = this.csData.csType[i].csTypeNum;
+        }
     }
 })
+
+
+$('.owl-carousel1').owlCarousel({
+    loop: false,
+    mouseDrag: true,
+    touchDrag: true,
+    center: false,
+    autoplay: true,
+    autoplayTimeout: 2000,
+    autoplayHoverPause: false,
+    responsive: {
+        0: {
+            items: 1,
+        },
+        576: {
+            items: 2,
+        },
+        768: {
+            items: 3,
+        }
+    }
+});
+
+$('.owl-carousel2').owlCarousel({
+    loop: false,
+    mouseDrag: true,
+    touchDrag: true,
+    center: false,
+    autoplay: true,
+    autoplayTimeout: 2000,
+    autoplayHoverPause: false,
+    responsive: {
+        0: {
+            items: 1,
+        },
+        768: {
+            items: 3,
+        }
+    }
+});
+
+$('.owl-carousel3').owlCarousel({
+    loop: false,
+    mouseDrag: true,
+    touchDrag: true,
+    center: false,
+    autoplay: true,
+    autoplayTimeout: 2000,
+    autoplayHoverPause: false,
+    dots: true,
+    responsive: {
+        0: {
+            items: 1,
+        },
+        576: {
+            items: 3,
+        }
+    }
+});

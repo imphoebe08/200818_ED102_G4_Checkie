@@ -9,6 +9,7 @@
         href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap-grid.min.css'>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css">
     <link rel="stylesheet" href="css/main.css">
 
 </head>
@@ -30,7 +31,10 @@
                     <span>{{ csData.csType && csData.csType.length > 0 ? csData.csType[1].csTypeName :'' }}</span>
                 </div>
                 <div class="inCs-chart">
-                    <radar-chart></radar-chart>
+                    <!-- <radar-chart :radar-data="csData"></radar-chart> -->
+                    <div id="chart">
+                        <apexchart type="radar" width="100%" height="300" :options="chartOptions" :series="series"></apexchart>
+                    </div>
                 </div>
             </div>
 
@@ -64,15 +68,15 @@
 
         <h2>醫師撰寫專欄</h2>
 
-            <cssart-layout></cssart-layout>
+        <cssart-layout class="owl-carousel owl-theme owl-carousel1" :art-data="csArtData"></cssart-layout>
 
         <h2>醫師參與活動</h2>
-        
-            <csselfact-layout></csselfact-layout>
+
+        <csselfact-layout class="owl-carousel owl-theme owl-carousel2" :act-data="csActData"></csselfact-layout>
 
         <h2>其他推薦醫師</h2>
 
-            <csselfreco-layout></csselfreco-layout>
+        <csselfreco-layout class="owl-carousel owl-theme owl-carousel3" :reco-data="csRecoData"></csselfreco-layout>
 
     </div>
 
@@ -81,9 +85,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js'></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
     <script src='./js/csSelf.js'></script>
     <script src="./js/header.js"></script>
     <script src="./js/chatbot.js"></script>
