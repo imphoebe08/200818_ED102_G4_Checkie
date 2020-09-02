@@ -12,11 +12,11 @@ $scrollTime: 1s;
 .inArti {
     height: 200vh;
     .inArti-pages {
-        top: 80px;
-        height: 100vh;
+        top: calc(10vh + 40px);
+        height: 80vh;
         overflow: hidden;
         position: sticky;
-        top: 80px;
+        margin-top: 50px;
     }
 }
 

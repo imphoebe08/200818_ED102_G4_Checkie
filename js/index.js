@@ -1,15 +1,7 @@
 $(function() {
     // 活動滾動視差 
-    var win = $(window),
-        hWin = win.height(),
-        inAct = $("#inAct").offset().top,
-        inArti = $(".inArti").offset().top,
+    var win = $(window);
 
-        inAct_block_w = $(".inAct_block").width(),
-        inAct_block_p = $(".inAct_block").css("paddingLeft"),
-        inAct_body_w = $(".inAct_body").width(),
-        // inAct_block 最多往左的距離
-        distance = parseInt(inAct_block_w) - parseInt(inAct_body_w) + parseInt(inAct_block_p);
     if (win.width() > 768) {
         Scroll();
         win.scroll(function() {
@@ -20,10 +12,12 @@ $(function() {
     // 判斷開不開js
     win.resize(function() {
         if (win.width() > 768) {
+            $(this).on("scroll");
             Scroll();
             win.scroll(function() {
                 Scroll();
-            })
+            });
+
         } else {
             $(this).off("scroll");
             $(".inAct_block").css("transform", `translateX(0px)`)
@@ -34,6 +28,14 @@ $(function() {
 
     function Scroll() {
         var scroll = $(window).scrollTop(),
+            hWin = win.height(),
+            inAct = $("#inAct").offset().top,
+            inArti = $(".inArti").offset().top,
+            inAct_block_w = $(".inAct_block").width(),
+            inAct_block_p = $(".inAct_block").css("paddingLeft"),
+            inAct_body_w = $(".inAct_body").width(),
+            // inAct_block 最多往左的距離
+            distance = parseInt(inAct_block_w) - parseInt(inAct_body_w) + parseInt(inAct_block_p),
             // 現在滾動條變化
             scroll_distance = scroll - inAct,
             trs = (scroll_distance / (inArti - inAct - hWin)) * distance;
@@ -171,7 +173,7 @@ $(function() {
         var win_scroll = $(window).scrollTop();
         var inCard = $("#inCard").offset().top;
         var win_H = $(window).height();
-        if (win_scroll > inCard - 0.1 * win_H) {
+        if (win_scroll > inCard - 0.5 * win_H) {
             // $(".inCard_body>div").css("transformOrigin","top center -1000px")
             $(".inCard_body").addClass("inCard_ani")
         }
@@ -187,6 +189,11 @@ $(function() {
             $(".inCard_body").addClass("rwd_ani")
 
         }
+    }
+    if ($(window).width() >= 1024) {
+        card()
+    } else {
+        rwd_card();
     }
     // 圈圈結束
     $(window).scroll(function(e) {
@@ -206,6 +213,7 @@ $(function() {
 
 
 });
+
 // 向惡勢力低頭
 
 $(document).ready(function() {
