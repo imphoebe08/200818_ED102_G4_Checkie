@@ -307,25 +307,25 @@ $('.owl-carousel1').owlCarousel({
     }
 });
 
-$('.owl-carousel2').owlCarousel({
-    loop: false,
-    mouseDrag: true,
-    touchDrag: true,
-    center: false,
-    autoplay: true,
-    autoplayTimeout: 2000,
-    autoplayHoverPause: false,
-    responsive: {
-        0: {
-            items: 1,
+$('.slider').slick({
+    dots: false,
+    vertical: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    verticalSwiping: false,
+    autoplay: false,
+    autoplaySpeed: 2000,
+    responsive: [{
+        breakpoint: 767,
+        settings: {
+            vertical: false,
+            slidesToShow: 1,
+            autoplay: true,
         },
-        768: {
-            items: 3,
-        }
-    }
+    }]
 });
 
-$('.owl-carousel3').owlCarousel({
+$('.owl-carousel2').owlCarousel({
     loop: false,
     mouseDrag: true,
     touchDrag: true,
