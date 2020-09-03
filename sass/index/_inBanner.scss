@@ -1,18 +1,18 @@
-@mixin circle($width,$hight,$left,$top,$deg) {
+@mixin circle($width, $hight, $left, $top, $deg) {
     width: $width;
     height: $hight;
     border-radius: 50%;
     position: absolute;
     top: $top;
     left: $left;
-    background-clip:padding-box,border-box;
-    background-origin:padding-box,border-box;
-    background-image:linear-gradient($deg,$color-blue,$color-pink);
-    border:2px transparent solid;
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    background-image: linear-gradient($deg, $color-blue, $color-pink);
+    border: 2px transparent solid;
     opacity: 0.7;
-
 }
-.inBanner{
+
+.inBanner {
     width: 100%;
     height: 100vh;
     display: inline-block;
@@ -21,42 +21,56 @@
     background-image: url("../img/index/inBanner/bannerbg.png");
     background-size: cover;
     // 固定的div
-    .inBanner_bgImg{
+    .inBanner_bgImg {
         width: 100%;
         height: 100%;
         position: fixed;
         top: 0;
         left: 0;
         display: block;
-        
-        .inBanner-big_circle{
-            @include circle(550px,550px,0,0,135deg);
+        .inBanner-big_circle {
+            @include circle(550px,
+            550px,
+            0,
+            0,
+            135deg);
             transform: translateX(-50%);
-            background-image:linear-gradient(135deg,#fff,#fff),linear-gradient(135deg,$color-blue,$color-pink);
-            border:250px transparent solid;
-            
+            background-image: linear-gradient(135deg, #fff, #fff), linear-gradient(135deg, $color-blue, $color-pink);
+            border: 250px transparent solid;
         }
-        .inBanner-circle_1{
-            @include circle(200px,200px,50%,10%,200deg);
-
+        .inBanner-circle_1 {
+            @include circle(200px,
+            200px,
+            50%,
+            10%,
+            200deg);
         }
-        .inBanner-circle_2{
+        .inBanner-circle_2 {
             // @include circle(100px,100px);
-            @include circle(120px,120px,48%,58%,45deg);
+            @include circle(120px,
+            120px,
+            48%,
+            58%,
+            45deg);
         }
-        .inBanner-circle_3{
+        .inBanner-circle_3 {
             // @include circle(20px,20px);
-            @include circle(100px,100px,80%,10%,30deg);
-
+            @include circle(100px,
+            100px,
+            80%,
+            10%,
+            30deg);
         }
-        .inBanner-circle_4{
+        .inBanner-circle_4 {
             // @include circle(20px,20px);
-            @include circle(50px,50px,90%,60%,80deg);
-
+            @include circle(50px,
+            50px,
+            90%,
+            60%,
+            80deg);
         }
-        
     }
-    .inBanner_cImg{
+    .inBanner_cImg {
         position: absolute;
         @include bg;
         // background-image: url("../img/index/inBanner/fullwhite.png");
@@ -64,7 +78,7 @@
         height: 100%;
         background-position: 90% 0;
         overflow: hidden;
-        .inBanner-fix_img{
+        .inBanner-fix_img {
             position: absolute;
             @include bg;
             width: 100%;
@@ -73,13 +87,12 @@
             background-position: 90% 0;
             opacity: 0;
         }
-        .inBanner-fly_block{
+        .inBanner-fly_block {
             position: absolute;
             width: 100%;
             height: 100%;
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-
-            div{
+            div {
                 width: 100%;
                 height: 100%;
                 position: absolute;
@@ -87,35 +100,29 @@
                 left: 0;
                 @include bg;
                 background-position: 90% 0;
-
             }
-            .inBanner-fly_item_1{
+            .inBanner-fly_item_1 {
                 background-image: url("../img/index/inBanner/apart1.png");
             }
-            .inBanner-fly_item_2{
+            .inBanner-fly_item_2 {
                 background-image: url("../img/index/inBanner/apart3.png");
-
             }
-            .inBanner-fly_item_3{
+            .inBanner-fly_item_3 {
                 background-image: url("../img/index/inBanner/apart5.png");
-
             }
-            .inBanner-fly_item_4{
+            .inBanner-fly_item_4 {
                 background-image: url("../img/index/inBanner/apart2.png");
-
             }
-            .inBanner-fly_item_5{
+            .inBanner-fly_item_5 {
                 background-image: url("../img/index/inBanner/apart4.png");
-
             }
-            .inBanner-fly_item_6{
+            .inBanner-fly_item_6 {
                 background-image: url("../img/index/inBanner/apart6.png");
             }
         }
     }
-    
-    .inBanner-logo_block{
-        width: 40   0px;
+    .inBanner-logo_block {
+        width: 40 0px;
         height: 250px;
         position: absolute;
         left: 10%;
@@ -123,45 +130,41 @@
         // *{
         //     border: 1px solid black;
         // }
-        .inBanner-logo{
+        .inBanner-logo {
             display: flex;
             align-items: flex-end;
-            svg.inBanner-hide_svg{
-                g{
-                    linearGradient{
-
-                        stop{
+            svg.inBanner-hide_svg {
+                g {
+                    linearGradient {
+                        stop {
                             stop-opacity: 0;
                         }
                     }
                 }
             }
-            svg{
+            svg {
                 width: 150px;
                 height: 150px;
-                g{
-                    linearGradient{
-
-                        stop{
+                g {
+                    linearGradient {
+                        stop {
                             stop-opacity: 1;
                         }
                     }
-                    @for $i  from 1 through 3 {
-                        #SVGID_#{$i}_{
-                            @for $a  from 1 through 3{
-                                stop:nth-child(#{$a}){
+                    @for $i from 1 through 3 {
+                        #SVGID_#{$i}_ {
+                            @for $a from 1 through 3 {
+                                stop:nth-child(#{$a}) {
                                     transition-delay: $a*0.1s+0.3s*$i;
                                 }
-                            };
-                            
-    
+                            }
+                            ;
                         }
-                    }; 
-                    
+                    }
+                    ;
                 }
-                
             }
-            .inBanner-logo_text{
+            .inBanner-logo_text {
                 @include h1;
                 font-size: 75px;
                 color: $color-pink;
@@ -169,11 +172,24 @@
                 font-weight: bold;
             }
         }
-        .inBanner_text{
+        .inBanner_text {
             @include h2;
             font-weight: bold;
-            color:rgba(0, 0, 0, 0.774);
+            color: rgba(0, 0, 0, 0.705);
             padding-left: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .inBanner {
+        .inBanner-logo_block {
+            .inBanner-logo {
+                svg {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
         }
     }
 }
