@@ -21,9 +21,9 @@
                 <div class="checkbox-form">
                     <span v-if="screenWidth < 576" id="openForm" @click="slideToggle">搜尋篩選</span>
                     <span>請依醫師性別篩選</span>
-                    <input type="checkbox" name="csGender[]" value="male" id="male" v-model="csGender">
+                    <input type="checkbox" name="csGender[]" value="m" id="male" v-model="csGender">
                     <label for="male" class="button3">男</label>
-                    <input type="checkbox" name="csGender[]" value="female" id="female" v-model="csGender">
+                    <input type="checkbox" name="csGender[]" value="f" id="female" v-model="csGender">
                     <label for="female" class="button3">女</label>
                     <span v-if="screenWidth > 576"></span>
                     <span v-if="screenWidth > 576"></span>
@@ -31,30 +31,30 @@
                 </div>
                 <div class="checkbox-form">
                     <span>請依地區篩選</span>
-                    <input type="checkbox" name="csPosition[]" value="north" id="north" v-model="csPosition">
+                    <input type="checkbox" name="csPosition[]" value="北部" id="north" v-model="csPosition">
                     <label for="north" class="button3">北部</label>
-                    <input type="checkbox" name="csPosition[]" value="center" id="center" v-model="csPosition">
+                    <input type="checkbox" name="csPosition[]" value="中部" id="center" v-model="csPosition">
                     <label for="center" class="button3">中部</label>
-                    <input type="checkbox" name="csPosition[]" value="south" id="south" v-model="csPosition">
+                    <input type="checkbox" name="csPosition[]" value="南部" id="south" v-model="csPosition">
                     <label for="south" class="button3">南部</label>
                     <span v-if="screenWidth > 576"></span>
                     <span v-if="screenWidth > 576"></span>
                 </div>
                 <div class="checkbox-form">
                     <span>請依醫師專業篩選</span>
-                    <input type="checkbox" name="csProblem[]" value="problem1" id="problem1" v-model="csProblem">
+                    <input type="checkbox" name="csType[]" value="家庭關係" id="problem1" v-model="csType">
                     <label for="problem1" class="button3">家庭關係</label>
 
-                    <input type="checkbox" name="csProblem[]" value="problem2" id="problem2" v-model="csProblem">
+                    <input type="checkbox" name="csType[]" value="人際關係" id="problem2" v-model="csType">
                     <label for="problem2" class="button3">人際關係</label>
 
-                    <input type="checkbox" name="csProblem[]" value="problem3" id="problem3" v-model="csProblem">
+                    <input type="checkbox" name="csType[]" value="伴侶關係" id="problem3" v-model="csType">
                     <label for="problem3" class="button3">伴侶關係</label>
 
-                    <input type="checkbox" name="csProblem[]" value="problem4" id="problem4" v-model="csProblem">
+                    <input type="checkbox" name="csType[]" value="壓力創傷" id="problem4" v-model="csType">
                     <label for="problem4" class="button3">壓力創傷</label>
 
-                    <input type="checkbox" name="csProblem[]" value="problem5" id="problem5" v-model="csProblem">
+                    <input type="checkbox" name="csType[]" value="自我探索" id="problem5" v-model="csType">
                     <label for="problem5" class="button3">自我探索</label>
                 </div>
             </div>

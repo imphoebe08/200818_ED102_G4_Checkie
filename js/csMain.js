@@ -3,7 +3,7 @@ Vue.component("cscounselor-layout", {
 	template: `
 	<div class="swiper-container">
 		<div class="csCounselor-gallery swiper-wrapper">
-			<div class="swiper-slide"  v-for="(item,index) in slideInfo" :key="item.csId">
+			<div class="swiper-slide"  v-for="(item,index) in mySlide" :key="item.csId">
 				<div class="csCounselor-card">
 					<div class="csCounselor-image">
 					<a href="./csSelf.html">
@@ -15,14 +15,14 @@ Vue.component("cscounselor-layout", {
 					</a>
 					<p class="csC-type_title">醫師專長</p>
 					<div class="csC-type_tag row">
-					<span class="col-4" v-for="(type, index) in 2">{{item.csType[index].csTypeName}}</span>
+					<span class="col-4" v-for="(type, index) in 2">{{item.csType[index]}}</span>
 					</div>
 					<div class="csC-doctor__info">
 						<ul class="csC-doctor__list">
 							<li>
 								<p>經歷</p>
 								<ul class="csS-list">
-									<li class="small" v-for="item in 7"><i class="fas fa-circle"></i>新光醫院精神科病房主任</li>
+									<li class="small" v-for="his in strToArray(index)"><i class="fas fa-circle"></i>{{his}}</li>
 								</ul>
 							</li>
 						</ul>
@@ -52,8 +52,18 @@ Vue.component("cscounselor-layout", {
 			}
 		});
 	},
+	watch: {
+		slideInfo: function () {
+			this.mySlide = this.slideInfo;
+		}
+	},
 	updated() {
 		this.mySwiper.update();
+	},
+	methods: {
+		strToArray(index) {
+			return this.mySlide[index].csHis.split(",");
+		}
 	}
 });
 
@@ -67,16 +77,16 @@ let vmCs = new Vue({
 		screenWidth: window.innerWidth,
 		csGender: [],
 		csPosition: [],
-		csProblem: [],
+		csType: [],
 		slideBool: true,
-		csData: []
+		csData: [],
 	},
 	mounted() {
 		window.onresize = () => {
 			this.screenWidth = window.innerWidth;
 		};
 
-		axios.get('../json/cs.json')
+		axios.get('../json/csMain.json')
 			.then((res) => {
 				this.csData = res.data;
 			})
@@ -105,14 +115,16 @@ let vmCs = new Vue({
 	},
 	computed: {
 		// 回傳篩選後的結果
+		// 篩選器的結果為一陣列，如果篩選器陣列中的任一元素 == 諮商師條件，就顯示那位諮商師的資料。
 		slideResult() {
-			if (this.csGender.length + this.csPosition.length + this.csProblem.length == 0) {
+			// 如果都不選，就全部回傳
+			if (this.csGender.length + this.csPosition.length + this.csType.length == 0) {
 				return this.csData;
 			} else {
 				return this.csData.filter(item => {
 					return (this.csGender.indexOf(item.csGender) > -1 || this.csGender.length == 0) &&
 						(this.csPosition.indexOf(item.csPosition) > -1 || this.csPosition.length == 0) &&
-						(this.csProblem.indexOf(item.csProblem) > -1 || this.csProblem.length == 0);
+						(this.csType.indexOf(item.csType[0]) > -1 || this.csType.indexOf(item.csType[1]) > -1 || this.csType.length == 0);
 				})
 			}
 		},
