@@ -4,129 +4,128 @@
 @import './acSelectCard';
 @import './acCommentList';
 // @import './acSearch--open';
-
-
-button:focus{
+button:focus {
     outline: none;
 }
-a{
+
+a {
     text-decoration: none;
 }
 
-h1{
+h1 {
     @include h1;
 }
-h6{
+
+h6 {
     @include h6;
     margin: 10px 3%;
 }
-body{
+
+body {
     // border: $border;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
-.acMain{
+.acMain {
     // border: $border;
     padding: 0;
-    
+    .acSelect-wrapper_btnMore {
+        text-align: center;
+        margin: 20px 0;
+        .acSelectMore {
+            @include btn-modules($bw, $color-pink, $fontsize);
+        }
+    }
 }
-    .acBanner{
-        // border: 1px solid blue;
-        width: 100vw;
-        // z-index: -1;
-        max-height: 50vh;
-        overflow: hidden;
-    }
-    .owl-height{
-        min-width: 30%;
-    }
-    .owl-theme .owl-dots{
+
+.acBanner {
+    // border: 1px solid blue;
+    width: 100vw;
+    // z-index: -1;
+    max-height: 50vh;
+    overflow: hidden;
+}
+
+.owl-height {
+    min-width: 30%;
+}
+
+.owl-theme .owl-dots {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    ;
+}
+
+.owl-carousel .owl-nav {
+    color: white;
+    font-size: 50px;
+    button.owl-prev {
+        // background-color: grey;
         position: absolute;
-        bottom: 0;
-        right: 50%;
-        transform: translateX(50%);;
+        top: 50%;
+        left: 3%;
+        transform: translateY(-50%);
     }
-    .owl-carousel .owl-nav{
-        color: white;
-        font-size: 50px;
-
-        button.owl-prev{
-            // background-color: grey;
-            position: absolute;
-            top: 50%;
-            left: 3%;
-            transform: translateY(-50%);
-        }
-
-        button.owl-next{
-            // background-color: grey;
-            position: absolute;
-            top: 50%;
-            right: 3%;
-            transform: translateY(-50%);
-        }
+    button.owl-next {
+        // background-color: grey;
+        position: absolute;
+        top: 50%;
+        right: 3%;
+        transform: translateY(-50%);
     }
+}
 
-    .acSearch{
-        // border: 1px solid red;
-        margin-top: 3%;
-        margin-bottom: 3%;
-        box-shadow: $boxshadow;
-
-        .acSearch_ul{
-            margin: auto 0;
-            display: flex;
-            justify-content: space-around;
-            margin-left: 8%;
-        
-
-            
-            li{
-                border-right: 1px solid darkgray;
-                display: inline-block;
-                padding-right: 8%;
-                text-align: center;
-                justify-content: space-between;
-                margin: 20px ;
-                &:last-child{
-                    border:none;
-                }
-            }
-                a{
-                    font-size:20px;
-                    text-decoration: none;
-                    color: rgb(77, 75, 75);
-                    &:focus{
-                        color: maroon;
-                    }
-            }
-        }
-    }
-    .acSelect{
-        // border: 1px solid green;
+.acSearch {
+    // border: 1px solid red;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    box-shadow: $boxshadow;
+    .acSearch_ul {
+        margin: auto 0;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        .acSelectCard{
-            border-radius: $border-radius;
-            width: 350px;
-            height: 400px;
-            margin: 10px;
-            flex-wrap: wrap;
-        }
-        .acSelect-wrapper_btnMore{
+        justify-content: space-around;
+        margin-left: 8%;
+        li {
+            border-right: 1px solid darkgray;
+            display: inline-block;
+            padding-right: 8%;
             text-align: center;
-            margin: 20px 0;
-            .acSelectMore{
-                @include btn-modules($bw, $color-pink, $fontsize);
+            justify-content: space-between;
+            margin: 20px;
+            &:last-child {
+                border: none;
+            }
+        }
+        a {
+            font-size: 20px;
+            text-decoration: none;
+            color: rgb(77, 75, 75);
+            &:focus {
+                color: maroon;
             }
         }
     }
-    .acComment{
-        // border: $border;
-        margin-bottom: 20px;
+}
 
+.acSelect {
+    // border: 1px solid green;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .acSelectCard {
+        border-radius: $border-radius;
+        width: 350px;
+        height: 400px;
+        margin: 10px;
+        flex-wrap: wrap;
     }
+}
+
+.acComment {
+    // border: $border;
+    margin-bottom: 20px;
+}
