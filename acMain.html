@@ -28,16 +28,12 @@
             <div id="acSearch" class="acSearch container-sm container-md">
                 <ul class="acSearch_ul">
                     <li v-for="(num,index) in title" @click="category_click(index)"><a href="javascript:void(0)">{{num}}</a></li>
-
                 </ul>
-
             </div>
             <!-- <h1 class="asSelect_title container-sm container-md">{{now_title}}</h1> -->
 
             <ac-select-card :ac-contents="contents"></ac-select-card>
-
             <h1 class="acComment_title container-sm container-md">會員好評</h1>
-
             <ac-comment-list :ac-comments="comments"></ac-comment-list>
 
 
