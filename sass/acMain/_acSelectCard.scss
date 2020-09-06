@@ -60,6 +60,7 @@ $space:300px;
         background-color: white;
         box-shadow: $boxshadow;
         overflow: hidden;
+        position: relative;
         a {
             // padding-left: 4%;
             display: inline-block;
@@ -68,6 +69,17 @@ $space:300px;
             img {
                 width: 100%;
             }
+        }
+    }
+    .acSelectCard_icon {
+        text-align: right;
+        margin-right: 20px;
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+        img {
+            margin: 0 5px;
+            width: 20px;
         }
     }
     .acSelectCard_text {
@@ -82,12 +94,6 @@ $space:300px;
         .acSelectCard-time_icon {
             margin-left: 20px;
         }
-        .acSelectCard_icon {
-            margin-left: 10%;
-            img {
-                margin: 0 5px;
-            }
-        }
         .acSelectCard_time {
             margin: 0 15% 0 3%;
         }
@@ -95,6 +101,7 @@ $space:300px;
     .acSelectCard_title {
         border-bottom: 1px solid lightgray;
         margin: 10px 20px;
+        padding-bottom: 10px;
     }
     .acSelectCard_bottomBlock {
         display: flex;
@@ -102,6 +109,9 @@ $space:300px;
         padding-left: 20px;
         .acSelectCard_person {
             display: inline-block;
+            font-weight: 400;
+            color: darkgray;
+            padding: 2% 0;
         }
         #acSelectCard_register {
             display: inline-block;

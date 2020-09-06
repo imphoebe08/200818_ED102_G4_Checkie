@@ -1,7 +1,7 @@
  [{
          "acId": 1,
          "acTypeId": 4,
-         "acName": "假日藝術體驗工坊 開心玩著療癒紓壓 自由的 流動畫",
+         "acName": "藝術體驗工坊 療癒紓壓流動畫",
          "acRegDate": "2020/10/31 00:00",
          "acRedEndDate": "2020/11/31 23:59",
          "acStartDate": "2020/12/06 11:30",
@@ -29,7 +29,7 @@
          "acCurrentReg": "12",
          "acFee": "250NTD",
          "acCondi": "0",
-         "acPic": [".https://picsum.photos/200", "https://picsum.photos/200", "https://picsum.photos/200"],
+         "acPic": ["https://picsum.photos/200", "https://picsum.photos/200", "https://picsum.photos/200"],
          "acHolder": "https://picsum.photos/200"
      },
      {

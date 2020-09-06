@@ -119,8 +119,9 @@ body {
     .acSelectCard {
         border-radius: $border-radius;
         width: 350px;
-        height: 400px;
+        height: fit-content;
         margin: 10px;
+        padding-bottom: 15px;
         flex-wrap: wrap;
     }
 }
