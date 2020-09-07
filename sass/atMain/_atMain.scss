@@ -1,25 +1,4 @@
-<<<<<<< HEAD
-
-#nav4 {
-    .top {
-        .navbar {
-            .navbar__menu {
-                a:nth-child(4) {
-                    color: $color-pink;
-                }
-                a:nth-child(4)::after {
-                    transform: scaleX(1);
-                    visibility: visible;
-                }
-            }
-        }
-    }
-}
-
-.blank{
-=======
 .blank {
->>>>>>> joe-ye
     height: 9vw;
 }
 
@@ -449,13 +428,8 @@
             width: 100%;
             height: 79%;
             top: 10%;
-<<<<<<< HEAD
-            background: #b5e9ff;
-            right:0;
-=======
             background: #75c4e6;
             right: 0;
->>>>>>> joe-ye
             transform: scaleX(0.0001) translateX(100%);
             transform-origin: left center;
             transition: all .5s linear;

@@ -21,6 +21,7 @@
     <main>
         <div id="acSelf" class="acSelf fluid">
             <div class="acSelf-Banner">
+
                 <div class="acSelf-Banner_pic col-xl-7 col-sm-12"><img :src="contents[0].acPic[0]" alt=""></div>
                 <div class="acSelf-Banner_intro col-xl-5 col-sm-12">
                     <h5>{{contents[0].acType}}</h5><br>
@@ -53,14 +54,14 @@
                     <p v-html="contents[0].acInfo"></p><br>
                 </div>
                 <div class="acInfo_pic col-12">
-                    <img class="acInfo_pic--1 col-xl-5 col-12" src="./img/acSelf/活動介紹圖1.jpg" alt="">
-                    <img class="acInfo_pic--2 col-xl-5 col-12" src="./img/acSelf/活動介紹圖2.jpg" alt="">
+                    <img class="acInfo_pic--1 col-xl-5 col-12" :src="contents[0].acPic[1]" alt="">
+                    <img class="acInfo_pic--2 col-xl-5 col-12" :src="contents[0].acPic[2]" alt="">
                 </div>
             </div>
             <h4 class="acTeacher-title">講師介紹</h4>
             <div class="acTeacher">
                 <div class="acTeacher_pic col-xl-4 col-12">
-                    <img src="./img/acSelf/活動老師.jpg" alt="">
+                    <img :src="contents[0].acHolderPic" alt="">
                     <h6 style="text-align: center;">{{contents[0].acHolderTilte}}｜{{contents[0].acHolder}}</h6>
                 </div>
                 <div class="acTeacher_intro col-xl-7 col-12">

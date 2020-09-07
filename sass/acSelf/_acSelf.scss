@@ -60,6 +60,10 @@ a {
     }
 }
 
+.acSelf-Banner_intro {
+    padding-top: 50px;
+}
+
 .acSelf-btns {
     // border: 1px solid red;
     .acSelf-btns-markshare {
@@ -141,8 +145,10 @@ a {
 
 .acTeacher_pic {
     margin-right: 4%;
+    text-align: center;
+    ;
     img {
-        width: 100%;
+        width: 300px;
         border-radius: 50%;
     }
 }

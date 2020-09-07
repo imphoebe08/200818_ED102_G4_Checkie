@@ -14,9 +14,9 @@
     "acCurrentReg": "15",
     "acFee": "$480",
     "acCondi": "0",
-    "acPic": ["https://picsum.photos/200", "https://picsum.photos/200", "https://picsum.photos/200"],
+    "acPic": ["./img/acSelf/ac1/ac1_banner.jpg", "./img/acSelf/ac1/ac1_inner1.jpg", "./img/acSelf/ac1/ac1_inner2.jpg"],
     "acHolder": "邱宇晴",
     "acHolderTilte": "插畫家",
-    "acHolderPic": "https://picsum.photos/200",
+    "acHolderPic": "./img/acSelf/ac1/ac1_holder.jpg",
     "acHolderIntro": "Facebook ｜ https://www.facebook.com/dollyruins/<br> Instagram｜https://www.instagram.com/dollyruins/<br><br>「療癒是我創作中最大的主題，就和毀滅同等重要。」<br>展覽期間、地點 ｜08/02-08/30 嗯！Café<br>本次展覽展出插畫家邱宇晴近期所創作的寵物療癒繪本原作，包含數張草稿及完稿，讓觀眾透過最真實的筆觸與用色，一同進入一段寵物療癒創傷、救贖人心的繪本故事。"
 }]
