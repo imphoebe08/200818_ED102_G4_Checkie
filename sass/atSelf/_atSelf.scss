@@ -1,17 +1,16 @@
 @import './atSelfRwd';
 // @import './atSelf-rwd';
-
-.blank{
+.blank {
     height: 9vw;
 }
-.seTitle{
+
+.seTitle {
     max-width: 1200px;
     margin: 0 auto;
     margin-bottom: 3%;
-    display:flex;
+    display: flex;
     position: relative;
-    
-    &::after{
+    &::after {
         position: absolute;
         content: "";
         width: 100%;
@@ -19,9 +18,8 @@
         bottom: -30%;
         left: 0;
         background-color: black;
-
     }
-    &::before{
+    &::before {
         position: absolute;
         content: "";
         width: 49%;
@@ -30,86 +28,87 @@
         left: 0;
         background-color: $color-pink;
     }
-    .seTitle-content{
+    .seTitle-content {
         width: 70%;
         // order: 1;
         text-align: start;
-       .seTitle-content_title{
-        font-size: 28px;
-        width: 100%;
-        text-align: start;
-       }
-       .seTitle-content_detail{
-        font-size: 20px;
-        margin-top: 1%;
-        margin-left: 7%;
-        width: 100%;
-        font-weight: 300;
-
-        text-align:center;
-       } 
-     
+        .seTitle-content_title {
+            font-size: 28px;
+            width: 100%;
+            text-align: start;
+        }
+        .seTitle-content_detail {
+            font-size: 20px;
+            margin-top: 1%;
+            margin-left: 7%;
+            width: 100%;
+            font-weight: 300;
+            text-align: center;
+        }
     }
-    .seTitle-content_icon{
+    .seTitle-content_icon {
         width: 30%;
         height: 100%;
         text-align: end;
         margin-top: 4%;
-        >img{
-            width: 30px;
+        display: flex;
+        .seTitle-content-icon_title {
+            font-size: 28px;
+            margin-right: 16%;
+            margin-left: 34%;
+        }
+        .seTitle-content-icon_but {
+            >img {
+                width: 30px;
+            }
         }
     }
-
 }
-.seTitle-content_bigpic{
+
+.seTitle-content_bigpic {
     max-width: 1200px;
     // height: 30vh;
     margin: auto;
-   
-    >img{
+    >img {
         width: 100%;
     }
- 
 }
-.seContent_box{
+
+.seContent_box {
     max-width: 1000px;
     margin: auto;
     margin-top: 50px;
     box-shadow: 2px 10px 10px 5px #ddd;
-    .seContent-box＿top{
+    .seContent-box＿top {
         width: 100%;
         display: flex;
-
-        .seClassTitle-content_pic{
+        .seClassTitle-content_pic {
             width: 50%;
             margin-right: 10%;
             margin-left: 2%;
-            >img{
+            >img {
                 width: 100%;
                 // height: 50%;
             }
         }
-        .seClassTitle-content_detail{
+        .seClassTitle-content_detail {
             line-height: 2;
             letter-spacing: 2px;
             font-size: 16px;
             width: 50%;
             margin-right: 2%;
-
         }
-     
     }
-    .seContent-box＿center{
+    .seContent-box＿center {
         width: 95%;
         line-height: 2;
         letter-spacing: 2px;
         font-size: 16px;
         margin: 2% auto;
-
     }
-    .seContent-box_beneath{
+    .seContent-box_beneath {
         @extend .seContent-box＿top;
-        .seContent-box-beneath_detail{
+        .seContent-box-beneath_detail {
             line-height: 2.5;
             letter-spacing: 2px;
             font-size: 16px;
@@ -117,142 +116,136 @@
             margin-right: 7%;
             margin-left: 3%;
         }
-        .seContent-box-beneath_pic{
+        .seContent-box-beneath_pic {
             width: 50%;
             margin-right: 2%;
             margin-bottom: 2%;
-            >img{
+            >img {
                 width: 100%;
                 height: 100%;
             }
         }
     }
 }
-.seButton{
+
+.seButton {
     width: 100%;
     text-align: start;
     margin-top: 2%;
-    input{
+    input {
         @include btn-more($bw, $color-pink, $fontsize)
-
     }
 }
 
-
-.seRecommend_box{
+.seRecommend_box {
     max-width: 1200px;
     margin: auto;
     margin-top: 3%;
     margin-bottom: 3%;
-    >div:nth-child(2){
+    >div:nth-child(2) {
         border-right: 1px solid #ddd;
     }
-    >div:nth-child(3){
+    >div:nth-child(3) {
         border-right: 1px solid #ddd;
     }
-    .seRecommend-box_title{
+    .seRecommend-box_title {
         width: 100%;
         font-size: 28px;
         margin-bottom: 3%;
         text-align: center;
-      
     }
-    .seRecommend-box_center{
+    .seRecommend-box_center {
         margin: auto;
         width: 25%;
         padding: 0 45px;
         display: inline-block;
-      
-        
-        .seRecommend-box-center_pic{
+        .seRecommend-box-center_pic {
             width: 100%;
-            >img{
+            >img {
                 width: 100%;
             }
-       
         }
-        .seRecommend-box-center_name{
+        .seRecommend-box-center_name {
             text-align: center;
         }
-        .seRecommend-box-center_detail{
+        .seRecommend-box-center_detail {
             width: 100%;
         }
     }
 }
-@media screen and (max-width:768px){
-    .seTitle{
+
+@media screen and (max-width:768px) {
+    .seTitle {
         display: block;
         margin-bottom: 5%;
-        &::before{
+        &::before {
             width: 77%;
             top: -19%;
             right: 0;
             left: unset;
         }
-        &::after{
+        &::after {
             bottom: -10%;
         }
-        .seTitle-content{
+        .seTitle-content {
             width: 100%;
             .seTitle-content_title {
                 text-align: end;
             }
-            .seTitle-content_detail{
+            .seTitle-content_detail {
                 margin-left: 0;
                 text-align: end;
             }
         }
-      .seTitle-content_icon{
-          text-align:start;
-      }
-
+        .seTitle-content_icon {
+            text-align: start;
+        }
     }
-    .seContent_box{
-        .seContent-box＿top{
+    .seContent_box {
+        .seContent-box＿top {
             display: block;
-            .seClassTitle-content_pic{
+            .seClassTitle-content_pic {
                 // margin-left: 0;
                 width: 95%;
                 margin-right: 0;
             }
-            .seClassTitle-content_detail{
+            .seClassTitle-content_detail {
                 width: 90%;
                 margin: auto;
                 // margin-right: 0;
             }
         }
-        .seContent-box＿center{
+        .seContent-box＿center {
             width: 90%;
             margin: auto;
         }
         .seContent-box_beneath {
             display: block;
-            .seContent-box-beneath_detail{
+            .seContent-box-beneath_detail {
                 width: 90%;
-                margin:auto;
+                margin: auto;
                 // margin-left: 0;
                 // margin-right: 0;
             }
-            .seContent-box-beneath_pic{
+            .seContent-box-beneath_pic {
                 width: 60%;
                 margin: auto;
             }
         }
-      
     }
-    .seRecommend{
-        .seRecommend_box{
-            .seRecommend-box_center{
+    .seRecommend {
+        .seRecommend_box {
+            .seRecommend-box_center {
                 border-right: none;
                 padding: 0;
                 display: block;
                 width: 70%;
-                .seRecommend-box-center_name{
-                    h2{
+                .seRecommend-box-center_name {
+                    h2 {
                         font-size: 28px;
                     }
                 }
-                .seRecommend-box-center_detail{
+                .seRecommend-box-center_detail {
                     line-height: 1.5;
                     margin-bottom: 2%;
                     font-weight: 300;
