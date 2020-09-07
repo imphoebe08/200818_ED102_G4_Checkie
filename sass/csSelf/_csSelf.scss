@@ -2,181 +2,364 @@
 
 .csSelf {
     display: block;
+    width: 100%;
     max-width: 1200px;
-    
+    margin: 0 auto;
+
 
     .csS-info {
+        // border: 1px solid rgb(9, 11, 15);
+        box-shadow: $boxshadow;
         padding: 20px;
         background: rgba(255, 255, 255, 0.801);
+        display: flex;
+        flex-flow: wrap row;
+        align-items: center;
 
         .csS-info__image {
-            text-align: center;
-            padding: 20px;
+            flex: 0 0 300px;
+            margin: 10px;
 
             img {
                 width: 100%;
                 object-fit: cover;
             }
+
+            h2 {
+                display: block;
+                margin: 0 auto;
+                text-align: center;
+                padding: 10px 0;
+            }
         }
 
-        .csS-info__intro {
-            border: 1px solid rgb(9, 11, 15);
+        .csS-info__type {
+            flex: 1 1 250px;
+            height: 416.74px;
+            border: 1px solid $color-pink;
+            border-radius: 30px;
+            padding: 20px;
+            margin: 0 10px;
 
-            div.row {
-                height: 100%;
+            h3 {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
 
-                .intro-left {
+            .csS-type__tag {
+                display: flex;
+                justify-content: center;
 
-                    .intro-left__top {
-                        h2 {
-                            display: inline-block;
-                            width: 100%;
-                            padding-left: 50px;
-                            margin-top: 50px;
-                        }
-
-                        h4 {
-                            display: inline-block;
-                            width: 100%;
-                            padding-left: 50px;
-                            margin: 20px 0;
-                        }
-
-                        .csS-skills {
-                            display: flex;
-                            width: 100%;
-                            justify-content: center;
-
-                            span {
-                                margin: 0 10px;
-                                @include p;
-                            }
-                        }
-                    }
-
-                    .intro-left__bottom {
-                        margin-top: 30px;
-                    }
+                span {
+                    flex: 0 0 100px;
+                    text-align: center;
+                    padding: 20px 0;
                 }
+            }
 
-                .intro-right {
-                    background-color: rgba(240, 240, 240, 0.404);
-                    padding-left: 10px;
+            .inCs-chart {
+                width: 100%;
+            }
+        }
 
-                    .list-wrapper>li {
-                        margin: 12px 0 0;
+        .csS-info__hisEdu {
+            border: 1px solid $color-pink;
+            border-radius: 30px;
+            flex: 1 0 300px;
+            height: 416.74px;
+            margin: 10px;
+            padding: 20px;
 
-                        p {
-                            cursor: pointer;
-                            font-weight: 700;
-                        }
+            ul {
+                padding: 0 0 10px;
 
-                        .csS-list>li {
-                            display: inline-block;
-                            line-height: 1.5em;
+                li {
+                    text-indent: -8px;
+                    padding-left: 15px;
+                    line-height: 1.5rem;
 
-                            i {
-                                display: inline-block;
-                                font-size: 10px;
-                                transform: scale(0.8);
-                                padding-right: 5px;
-                                vertical-align: middle;
-                                color: rgb(101, 179, 145);
-                            }
-                        }
+                    i {
+                        display: inline-block;
+                        font-size: 10px;
+                        transform: scale(.8);
+                        padding-right: 5px;
+                        vertical-align: middle;
+                        color: $color-pink;
                     }
+
                 }
             }
         }
 
         .csS-buttons {
-            div.row {
-                margin: 20px 0px;
-                justify-content: flex-end;
+            flex: 0 0 100%;
+
+            .buttons {
+                display: flex;
+                justify-content: center;
 
                 button {
                     max-width: 120px;
                     height: 40px;
                 }
             }
+        }
+    }
+}
 
+>h2 {
+    display: block;
+    padding-top: 50px;
+    height: 150px;
+    line-height: 100px;
+}
+
+.csS-art {
+    flex-flow: nowrap row;
+    justify-content: space-between;
+
+    .csS-art__card {
+        overflow: hidden;
+        flex: 1 1 300px;
+        max-width: 400px;
+        border-radius: 1rem;
+        margin: 10px;
+        background: #fff;
+        box-shadow: $boxshadow;
+
+
+        a {
+            display: block;
+            color: black;
+            cursor: pointer;
+
+            img {
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+            }
+        }
+
+        .card-Info {
+            padding: 10px;
+
+            .card-Info__times>img {
+                width: 14px;
+                height: 14px;
+                vertical-align: middle;
+                margin-right: 5px;
+                display: inline-block;
+            }
+        }
+
+        p {
+            line-height: 1.5em;
+            padding: 5px 0;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .card-tag {
+            flex-flow: nowrap row;
+            margin: 20px 0;
+            justify-content: flex-end;
+
+            a {
+                flex: 1 0 80px;
+                max-width: 120px;
+                text-decoration: none;
+                text-align: center;
+                margin: 0 10px;
+                font-size: 18px;
+                color: white;
+            }
+
+        }
+
+        .card-share {
+            display: flex;
+            width: 100%;
+            height: 30px;
+            justify-content: flex-end;
+            flex-flow: nowrap row;
+            align-items: center;
+            padding: 0 10px 10px 0;
+
+            a {
+                margin: 5px;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
+    }
+}
+
+.csS-act {
+    margin: 10px 20px;
+
+    img {
+        width: 100%;
+        border-radius: 20px;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .csSelf {
+        .csS-art {
+            flex-flow: nowrap column;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    .csSelf {
+        .csS-info {
+            // flex-flow: nowrap column;
+
+            .csS-info__type {
+                padding: 20px 5px;
+            }
+
+            .csS-buttons {
+                .buttons {
+                    flex-flow: nowrap row;
+                }
+
+            }
+        }
+    }
+}
+
+
+@media (max-width: 760px) {
+
+    .csSelf {
+        .csS-info {
+            padding: 0px;
+            margin: 0 10px;
+            flex-flow: nowrap column;
+
+            .csS-info__image {
+                margin: 0 auto;
+                order: 1;
+            }
+
+            .csS-info__type,
+            .csS-info__hisEdu {
+                margin: 10px auto;
+                order: 3;
+                width: 100%;
+            }
+
+            .csS-info__hisEdu {
+                flex: 1 1 250px;
+            }
+
+
+            .csS-buttons {
+                order: 2;
+
+                .buttons {
+                    flex-flow: wrap row;
+                }
+
+            }
+        }
+
+    }
+}
+
+@media (max-width: 576px) {
+    .csSelf {
+        .csS-art .csS-art__card {
+            margin: 10px auto;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .csSelf {
+        .csS-info {
+            .csS-info__image {
+                flex: 0 1 auto;
+            }
+        }
+
+        .csS-art>.csS-art__card {
+
+            .card-tag>a {
+                font-size: 14px;
+            }
         }
     }
 
-    >h2 {
-        display: block;
-        padding-top: 50px;
-        height: 150px;
-        line-height: 100px;
-    }
+}
 
-    .csS-art {
-        flex-flow: nowrap row;
-        justify-content: space-between;
 
-        .csS-art__card {
-            overflow: hidden;
-            flex-basis: 300px;
-            flex: 1 0;
-            border-radius: 1rem;
-            margin: 10px;
-            background:#fff;
-            box-shadow: $boxshadow;
-    
+
+#csSelfAct {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .csSelfAct-card {
+        background: #fff;
+        margin: 10px 0;
+        min-height: 200px;
+        border-radius: 30px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+
+        .card-image {
+            padding: 15.15% 0 0;
+            position: relative;
+            cursor: pointer;
+
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                object-fit: cover;
+            }
+        }
+
+        .card-info {
+            padding: 10px 10px 30px;
+            position: relative;
 
             a {
-                display: block;
+                color: black;
                 cursor: pointer;
 
-                img {
-                    width: 100%;
-                    height: 300px;
-                    object-fit: cover;
+                h5 {
+                    padding: 10px 0;
                 }
-            }
 
-            .card-Info {
-                padding: 10px;
-
-                .card-Info__times>img {
-                    width: 14px;
-                    height: 14px;
-                    vertical-align: middle;
-                    margin-right: 5px;
-                }
             }
 
             p {
-                line-height: 1.5em;
-                padding: 5px 0;
-                padding: 10px;
-                cursor: pointer;
+                margin: 10px 0;
+                padding: 10px 0;
+                line-height: 1.5rem;
             }
 
-            .card-tag {
-                flex-flow: nowrap row;
-                margin: 20px 0;
-                justify-content: flex-end;
-
-                a {
-                    flex: 1 0 80px;
-                    max-width: 120px;
-                    text-decoration: none;
-                    text-align: center;
-                    margin: 0 10px;
-                    font-size: 18px;
-                }
-
-            }
-
-            .card-share {
+            .share-buttons {
                 display: flex;
                 width: 100%;
                 height: 30px;
                 justify-content: flex-end;
                 flex-flow: nowrap row;
                 align-items: center;
-                padding:0 10px 10px 0;
 
                 a {
                     margin: 5px;
@@ -187,224 +370,139 @@
                     }
                 }
             }
-
-        }
-    }
-
-    .csS-act {
-        margin: 10px 20px;
-
-        img {
-            width: 100%;
-            border-radius: 20px;
-        }
-    }
-}
-
-@media (max-width: 1140px) {
-    .csSelf .csS-art {
-        flex-flow: nowrap column;
-        justify-content: space-between;
-    }
-}
-
-
-@media (max-width: 760px) {
-    .csS-info__intro {
-        order: 2;
-    }
-
-    .csS-buttons {
-        order: 1;
-    }
-}
-
-@media (max-width: 600px) {
-    .csSelf .csS-info .csS-buttons {
-        div.row {
-            justify-content: center;
-
-            button {
-                margin: 10px;
-                padding: 0;
-                height: 40px;
-                flex: 0 0 40%;
-            }
         }
 
-    }
-}
-
-@media (max-width: 375px) {
-    .csSelf>.csS-art>.csS-art__card>.card-tag>a {
-        font-size: 14px;
-    }
-}
-
-
-
-#csSelfAct {
-	width: 100%;
-	max-width: 1200px;
-	margin: 0 auto;
-	.csSelfAct-card {
-        background:#fff;
-		margin: 10px 0;
-		min-height: 200px;
-		border-radius: 30px;
-		overflow: hidden;
-		position: relative;
-		.card-image {
-			padding: 15.15% 0 0;
-            position: relative;
-            cursor: pointer;
-			img {
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				left: 0;
-				top: 0;
-				object-fit: cover;
-			}
-		}
-		.card-info {
-			padding: 10px 10px 30px;
-			position: relative;
-			h5 {
-                padding: 10px 0;
-                cursor: pointer;
-			}
-			p {
-                margin:10px 0;
-				padding: 10px 0;
-				line-height: 1.5rem;
-			}
-			.share-buttons {
-				display: flex;
-                width: 100%;
-                height: 30px;
-                justify-content: flex-end;
-                flex-flow: nowrap row;
-                align-items: center;
-				a {
-                    margin: 5px;
-
-                    img {
-                        width: 20px;
-                        height: 20px;
-                    }
-                }
-			}
-		}
-		.joinBut {
-			position: absolute;
-			right: 1%;
+        .joinBut {
+            position: absolute;
+            right: 1%;
             bottom: 2%;
             height: 30px;
             font-size: 18px;
             margin: 10px 0;
             @include btn-more($bw, $color-pink, $fontsize);
-		}
-	}
+
+            a {
+                color: $color-pink;
+                cursor: pointer;
+
+            }
+
+            &:hover a {
+                color: white;
+            }
+        }
+    }
 }
 
 @media (max-width: 400px) {
-	#csSelfAct {
-		.csSelfAct-card {
+    #csSelfAct {
+        .csSelfAct-card {
             flex-flow: nowrap column;
-			.card-image {
-				max-width: 100%;
-				padding: 60% 0 0;
-				img {
-					width: 100%;
-					height: 100%;
-				}
-			}
-			.card-info {
-				max-width: 100%;
-			}
-		}
-	}
+
+            .card-image {
+                max-width: 100%;
+                padding: 60% 0 0;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .card-info {
+                max-width: 100%;
+            }
+        }
+    }
 }
 
 
 #csSelfReco {
-	box-sizing: border-box;
-	// border: 1px solid red;
-	height: 400px;
-	display: flex;
-	flex-flow: nowrap row;
-	justify-content: center;
-	max-width: 1200px;
-	margin: 0 auto 100px;
-	.csSelfReco-card {
-		margin: 0 10px;
+    box-sizing: border-box;
+    height: 400px;
+    display: flex;
+    flex-flow: nowrap row;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto 100px;
+
+    .csSelfReco-card {
+        margin: 0 10px;
         background: #fff;
         box-shadow: $boxshadow;
-		border-radius: 20px;
-		flex: 0 1 300px;
-		.card__image {
-			width: 100%;
-			max-height: 250px;
-			border-radius: 20px 20px 0 0;
+        border-radius: 20px;
+        flex: 0 1 300px;
+
+        .card__image {
+            width: 100%;
+            max-height: 250px;
+            border-radius: 20px 20px 0 0;
             overflow: hidden;
             cursor: pointer;
-			img {
-				width: 100%;
-				max-height: 250px;
-				object-position: center top;
-				object-fit: cover;
-			}
-		}
-		.card__title {
-			// border: 1px solid red;
-			padding: 15px 10px;
-			background: white;
+
+            img {
+                width: 100%;
+                max-height: 250px;
+                object-position: center top;
+                object-fit: cover;
+            }
+        }
+
+        .card__title {
+            padding: 15px 10px;
+            background: white;
             border-radius: 0 0 20px 20px;
             cursor: pointer;
-		}
-		.card__info {
-			// border: 1px solid red;
-			padding: 5px 10px;
-			background: white;
-			border-radius: 20px 20px 20px 20px;
+            h5{
+                a{
+                    color: rgb(0, 0, 0);
+                }
+            }
+        }
 
-			p {
-				line-height: 1.5rem;
-			}
-		}
-	}
+        .card__info {
+            padding: 5px 10px;
+            background: white;
+            border-radius: 20px 20px 20px 20px;
+
+            p {
+                line-height: 1.5rem;
+            }
+        }
+    }
 }
 
 @media (max-width: 800px) {
-	#csSelfReco {
-		height: 300px;
-		.csSelfReco-card {
-			.card__image {
-				cursor: pointer;
-			}
-			.card__info {
-				display: none;
-				border: 1px solid pink;
-			}
-		}
-	}
+    #csSelfReco {
+        height: 300px;
+
+        .csSelfReco-card {
+            .card__image {
+                cursor: pointer;
+            }
+
+            .card__info {
+                display: none;
+                border: 1px solid pink;
+            }
+        }
+    }
 }
 
 @media (max-width: 576px) {
-	#csSelfReco {
-		height: auto;
-		flex-flow: nowrap column;
-		align-items: center;
-		.csSelfReco-card {
-			max-width: 300px;
-			flex: 0 1 200px;
-			margin-top: 15px;
-			.card__image {
-			}
-			.card__info {
-				border: none;
-			}
-		}
-	}
+    #csSelfReco {
+        height: auto;
+        align-items: center;
+
+        .csSelfReco-card {
+            max-width: 300px;
+            flex: 0 1 200px;
+            margin: 0 auto;
+            margin-top: 15px;
+
+            .card__info {
+                border: none;
+            }
+        }
+    }
 }

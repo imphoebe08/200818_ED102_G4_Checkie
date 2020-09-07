@@ -1,3 +1,19 @@
+#nav3 {
+    .top {
+        .navbar {
+            .navbar__menu {
+                a:nth-child(3) {
+                    color: $color-pink;
+                }
+                a:nth-child(3)::after {
+                    transform: scaleX(1);
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+
 .aoCheck>.container-lg {
     // border: 1px solid red;
     .row {

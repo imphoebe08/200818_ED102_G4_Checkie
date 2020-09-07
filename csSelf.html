@@ -5,100 +5,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>諮商師內頁 | CHECKIE</title>
-    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap-grid.min.css'>
+    <link rel="stylesheet"
+        href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap-grid.min.css'>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="css/main.css">
+
 </head>
 
-<body>
-    @@include('template/header.html') @@include('template/bg.html')
+<body id="nav1">
+    @@include('template/header.html') @@include('template/bg.html') @@include('./test.html')
 
-    <div id="app" class="container-fluid csSelf">
-        <div class="row csS-info">
-            <div class="col-md-5 csS-info__image">
+    <div id="app" class="csSelf">
+        <div class="csS-info">
+            <div class="csS-info__image">
                 <img class="img-responsive" src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg">
+                <h2>{{ csData.csName }} 醫師</h2>
             </div>
-            <div class="col-md-7 csS-info__intro">
-                <div class="row">
-                    <div class="col-md-6 intro-left">
-                        <div class="intro-left__top">
-                            <h2>蔡佳穎 醫師</h2>
-                            <h4>醫師專長</h4>
-                            <div class="csS-skills">
-                                <span>家庭關係</span>
-                                <span>人際關係</span>
-                            </div>
-                        </div>
-                        <div class="intro-left__bottom">
-                            <canvas id="myChart" width="300" height="300"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-md-6 intro-right">
-                        <ul class="list-wrapper">
-                            <li>
-                                <p class="js-list-toggle">經歷</p>
-                                <ul class="csS-list js-item-toggle">
-                                    <li class="small"><i class="fas fa-circle"></i>新光醫院精神科病房主任</li>
-                                    <li class="small"><i class="fas fa-circle"></i>新光醫院精神科主治醫師</li>
-                                    <li class="small"><i class="fas fa-circle"></i>國家衛生研究院台灣成癮次專科醫師訓練</li>
-                                    <li class="small"><i class="fas fa-circle"></i>新光醫院精神科臨床研究員醫師</li>
-                                    <li class="small"><i class="fas fa-circle"></i>新光醫院精神科總醫師</li>
-                                    <li class="small"><i class="fas fa-circle"></i>新光醫院精神科住院醫師</li>
-                                </ul>
-                            </li>
 
-                            <li>
-                                <p class="js-list-toggle">學歷</p>
-                                <ul class="csS-list js-item-toggle">
-                                    <li class="small"><i class="fas fa-circle"></i>台大醫學院腦與心智科學研究所碩士</li>
-                                    <li class="small"><i class="fas fa-circle"></i>台北醫學大學醫學系醫學士</li>
-                                </ul>
-                            </li>
-                        </ul>
+            <div class="csS-info__type">
+                <h3>醫師專長</h3>
+                <div class='csS-type__tag'>
+                    <span>{{ csData.csType && csData.csType.length > 0 ? csData.csType[0].csTypeName :'' }}</span>
+                    <span>{{ csData.csType && csData.csType.length > 0 ? csData.csType[1].csTypeName :'' }}</span>
+                </div>
+                <div class="inCs-chart">
+                    <!-- <radar-chart :radar-data="csData"></radar-chart> -->
+                    <div id="chart">
+                        <apexchart ref="newChart" type="radar" width="100%" height="300" :options="chartOptions"
+                            :series="series"></apexchart>
                     </div>
                 </div>
             </div>
-            <div class="col-12 csS-buttons">
-                <div class="row">
-                    <button type="button" class="button3 col-2" @click="openOrderPage">現場諮商</button>
-                    <button type="button" class="button3 col-2" @click="openOrderPage">語音諮商</button>
-                    <button type="button" class="button3 col-2" @click="openOrderPage">視訊諮商</button>
-                    <button type="button" class="button3 col-2" @click="openCharRoomPage">線上諮商</button>
+
+            <div class="csS-info__hisEdu">
+                <ul>
+                    <h5>經歷</h5>
+                    <!-- <li v-for="item in csData.his"><i class="fas fa-circle">{{item}}</li> -->
+                    <li><i class="fas fa-circle"></i>新光醫院精神科病房主任</li>
+                    <li><i class="fas fa-circle"></i>新光醫院精神科主治醫師</li>
+                    <li><i class="fas fa-circle"></i>國家衛生研究院台灣成癮次專科醫師訓練</li>
+                    <li><i class="fas fa-circle"></i>新光醫院精神科臨床研究員醫師</li>
+                    <li><i class="fas fa-circle"></i>新光醫院精神科總醫師</li>
+                </ul>
+                <ul>
+                    <h5>學歷</h5>
+                    <!-- <li v-for="item in csData.edu"><i class="fas fa-circle">{{item}}</li> -->
+                    <li><i class="fas fa-circle"></i>台大醫學院腦與心智科學研究所碩士</li>
+                    <li><i class="fas fa-circle"></i>台北醫學大學醫學系醫學士</li>
+                </ul>
+            </div>
+
+            <div class="csS-buttons">
+                <div class="buttons">
+                    <button type="button" class="button3" @click="openOrderPage">現場諮商</button>
+                    <button type="button" class="button3" @click="openOrderPage">語音諮商</button>
+                    <button type="button" class="button3" @click="openOrderPage">視訊諮商</button>
+                    <button type="button" class="button3" @click="openCharRoomPage">線上諮商</button>
                 </div>
             </div>
         </div>
 
         <h2>醫師撰寫專欄</h2>
 
-        <div class="row csS-art">
-            <cssart-layout></cssart-layout>
-            <cssart-layout></cssart-layout>
-            <cssart-layout></cssart-layout>
-        </div>
+        <cssart-layout class="owl-carousel owl-theme owl-carousel1" :art-data="csArtData"></cssart-layout>
 
         <h2>醫師參與活動</h2>
 
-        <div id="csSelfAct">
-            <csselfact-layout></csselfact-layout>
-            <csselfact-layout></csselfact-layout>
-            <csselfact-layout></csselfact-layout>
-        </div>
+        <csselfact-layout class="slider" :act-data="csActData"></csselfact-layout>
 
         <h2>其他推薦醫師</h2>
 
-        <div id="csSelfReco">
-            <csselfreco-layout></csselfreco-layout>
-            <csselfreco-layout></csselfreco-layout>
-            <csselfreco-layout></csselfreco-layout>
-        </div>
+        <csselfreco-layout class="owl-carousel owl-theme owl-carousel2" :reco-data="csRecoData"></csselfreco-layout>
+
     </div>
 
     @@include('template/footer.html')
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js'></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
+    <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" type="text/javascript"></script>
     <script src='./js/csSelf.js'></script>
     <script src="./js/header.js"></script>
     <script src="./js/chatbot.js"></script>

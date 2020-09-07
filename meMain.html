@@ -24,550 +24,732 @@
 <body>
 
 
-    @@include('./template/header.html')
+    @@include('./template/header.html') @@include('./test.html')
 
 
 
     <!--------CC-CODE-------->
-    <div class="meMain me--allStyle">
-        <div class="container-lg">
-            <main id="app" class="row me-board--style">
-                <div class="me-selectNav col-md-3 col-lg-2 col-12 order-md-1 order-2 ">
-                    <me-head>
-                        <me-select_item :item="0" @click.native="selectIt(titles.z)" :selected="currentPage==titles.z" id="homeNone">{{titles.z}}</me-select_item>
-                        <me-select_item :item="1" @click.native="selectIt(titles.a)" :selected="currentPage==titles.a">{{titles.a}}</me-select_item>
-                        <me-select_item :item="2" @click.native="selectIt(titles.b)" :selected="currentPage==titles.b">{{titles.b}}</me-select_item>
-                        <me-select_item :item="3" @click.native="selectIt(titles.c)" :selected="currentPage==titles.c">{{titles.c}}</me-select_item>
-                        <me-select_item :item="4" @click.native="selectIt(titles.d)" :selected="currentPage==titles.d">{{titles.d}}</me-select_item>
-                        <!-- <div class="homeIcon">
-                            <back-btn @click="backToIndex(titles.z)">H</back-btn>
-                        </div> -->
-                    </me-head>
-                </div>
-                <div class="me-content col-md-9 col-lg-10 col-12 order-md-2 order-1">
-                    <select-page-content>
+    <div class="meMain me--allStyle ">
+        <div class="container-lg me-board--style">
+            <main id="app" class="row me-inner-style">
+                <div class="mem-pic-style col-12 mem-md">
+                    <div class="style-1">
+                        <div class="style-3">
+                            <div class="mem-name-style">
+                                {{member.memName}}
+                            </div>
+                        </div>
+                        <div class="style-4"></div>
+                        <div class="style-5"></div>
+                        <div class="style-6"></div>
+                    </div>
+                    <div class="style-2"></div>
+
+
+                    <div class="aaa">
+                        <div class="memPhoto--bgc">
+                            <div class="memPhoto">
+                                <img :src="newPic" alt="">
+                            </div>
+                            <input type="file" name="memPic" id="hideThis" @change="changePic()">
+                            <label class="meSvg" for="hideThis"> 
+                                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="277.33" r="106.67"/><path d="M469.33,106.67H401.68A31.83,31.83,0,0,1,379,97.29l-39-39a53,53,0,0,0-37.72-15.62H209.68A53,53,0,0,0,172,58.29l-39,39a31.83,31.83,0,0,1-22.64,9.38H42.67A42.71,42.71,0,0,0,0,149.33V426.67a42.71,42.71,0,0,0,42.67,42.66H469.33A42.71,42.71,0,0,0,512,426.67V149.33A42.71,42.71,0,0,0,469.33,106.67ZM256,405.33a128,128,0,1,1,128-128A128.14,128.14,0,0,1,256,405.33Zm170.67-192A21.33,21.33,0,1,1,448,192,21.36,21.36,0,0,1,426.67,213.33Z"/></svg>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="style-3">
                         <transition name="coSlide" mode="out-in">
-                            <select-page :step="1" v-if="currentPage == titles.z">
-                                <div class="col-12">
-                                    <div class="row justify-content-between memIcon-block">
-                                        <h6 class="col-sm-3 col-6">{{titles.a}}</h6>
-                                        <div class="col-sm-1 col-3 memIcon" @click="pageChange(titles.a)">
-                                            <img src="./img/icon/select_down.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="row justify-content-center">
-                                        <div class="col-sm-3 col-12 order-sm-2">
-                                            <div class="memPhoto--bgc">
-                                                <div class="memPhoto">
-                                                    <img src="./img/chatRoom/userPic.png" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-9 col-12 order-sm-1">
-                                            <div class="row">
-                                                <div class="col-sm-6 col-12">
-                                                    <span class="mem-show-title">{{memTitle.name}}：</span>
-                                                    <span>{{member.memName}}</span>
-                                                </div>
-                                                <div class="col-sm-6 col-12">
-                                                    <span class="mem-show-title">{{memTitle.gender}}：</span>
-                                                    <span>{{member.memGender}}</span>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-6 col-12">
-                                                    <span class="mem-show-title">{{memTitle.bDay}}：</span>
-                                                    <span>{{member.memBD}}</span>
-
-                                                </div>
-                                                <div class="col-sm-6 col-12">
-                                                    <span class="mem-show-title">{{memTitle.occ}}：</span>
-                                                    <span>{{member.memOcc}}</span>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <span class="mem-show-title">{{memTitle.email}}：</span>
-                                                    <span>{{member.memEmail.value}}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <mem-driver></mem-driver>
-                                <div class="col-sm-6 col-12">
-                                    <div class="row justify-content-between memIcon-block">
-                                        <h6 class="col-sm-6 col-6">{{titles.b}}</h6>
-                                        <div class="col-sm-2 col-3 memIcon" @click="pageChange(titles.b)">
-                                            <img src="./img/icon/select_down.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="row mem-coOrder">
-                                        <div class="col-12">
-                                            <span>日期</span>
-                                            <span>時間</span>
-                                        </div>
-                                        <div class="col-12 ">
-                                            <span>日期</span>
-                                            <span>時間</span>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                                <div class="col-sm-6 col-12">
-                                    <div class="row justify-content-between memIcon-block">
-                                        <h6 class="col-sm-6 col-6">{{titles.c}}</h6>
-                                        <div class="col-sm-2 col-3 memIcon" @click="pageChange(titles.c)">
-                                            <img src="./img/icon/select_down.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="row mem-acOrder">
-                                        <div class="col-12">
-                                            <span>課程名稱</span>
-                                            <span>（體驗課程）</span>
-                                        </div>
-                                        <div class="col-12 ">
-                                            <span>課程名稱</span>
-                                            <span>（體驗課程）</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <mem-driver></mem-driver>
-                                <div class="col-12">
-                                    <div class="row justify-content-between memIcon-block">
-                                        <h6 class="col-sm-3 col-6">{{titles.d}}</h6>
-                                        <div class="col-sm-1 col-3 memIcon" @click="pageChange(titles.d)">
-                                            <img src="./img/icon/select_down.png" alt="">
-                                        </div>
-                                    </div>
-                                    <chart></chart>
-                                </div>
-
-                            </select-page>
-                            <select-page :step="2" v-if="currentPage == titles.a">
-                                <div class="col-12">
-                                    <div class="row justify-content-between memIcon-block">
-                                        <!-- <back-btn @click="backToIndex(titles.z)">back</back-btn> -->
-                                        <h6 class="col-sm-3 col-6">{{titles.a}}</h6>
-                                        <i class="far fa-edit memI col-2 col-sm-2" @click="goModify(!iWantModify)"></i>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-3 col-12 order-sm-2">
-                                            <div class="memPhoto--bgc">
-                                                <div class="memPhoto">
-                                                    <img src="./img/chatRoom/userPic.png" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-9 col-12 order-sm-1 mem-modifyBlock">
-                                            <div class="row">
-                                                <div class="col-sm-6 col-12 ">
-                                                    <div class="row ">
-                                                        <div class="col-12 mem-modify-padding">
-                                                            <label for="moName" class="">
-                                                                <span class="mem-show-title">{{memTitle.name}}：</span>
-                                                                <span v-if="!iWantModify" class="">{{member.memName}}</span>
-                                                                <input v-if="iWantModify" name="moName" type="text" class="modifyForm" v-model="momentModify.memName" :placeholder="member.memName">
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6 col-12">
-                                                    <div class="row ">
-                                                        <div class="col-12 mem-modify-padding mem-modify-radio ">
-                                                            <label for="moGender" class="">
-                                                                <span class="mem-show-title">{{memTitle.gender}}：</span>
-                                                                <span v-if="!iWantModify">{{member.memGender}}</span>
-                                                                <label class="radio" v-if="iWantModify">
-                                                                    <input v-if="iWantModify" name="moGender" type="radio" class="modifyRadio" v-model="momentModify.memGender" value="男">男
-                                                                    <span v-if="iWantModify" class="checkmark"></span>
-                                                                </label>
-
-                                                            <label class="radio" v-if="iWantModify">
-                                                                    <input v-if="iWantModify" name="moGender" type="radio" class="modifyRadio" v-model="momentModify.memGender" value="女">女
-                                                                    <span v-if="iWantModify" class="checkmark"></span>
-                                                                </label>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-6 col-12">
-                                                    <div class="row ">
-                                                        <div class="col-12 mem-modify-padding">
-                                                            <label for="moBD" class="">
-                                                                <span class="mem-show-title">{{memTitle.bDay}}：</span>
-                                                                <span v-if="!iWantModify">{{member.memBD}}</span>
-                                                                <input v-if="iWantModify" type="text" name="moBD" class="modifyForm" v-model="momentModify.memBD" :placeholder="member.memBD">
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6 col-12">
-                                                    <div class="row ">
-                                                        <div class="col-12 mem-modify-padding">
-                                                            <label for="moOcc" class="">
-                                                                <span class="mem-show-title">{{memTitle.occ}}：</span>
-                                                                <span v-if="!iWantModify">{{member.memOcc}}</span>
-                                                                <input v-if="iWantModify" type="text" name="moOcc" class="modifyForm" v-model="momentModify.memOcc" :placeholder="member.memOcc">
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="row">
-                                                        <div class="col-12 mem-modify-padding">
-                                                            <label for="moEmail" class="">
-                                                                <span class="mem-show-title">{{memTitle.email}}：</span>
-                                                                <span v-if="!iWantModify">{{member.memEmail.value}}</span> 
-                                                                <input v-if="iWantModify" type="email" name="moEmail" class="modifyForm" v-model="momentModify.memEmail.value" :placeholder="member.memEmail.value">
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="row ">
-                                                        <div class="col-12 mem-modify-padding">
-                                                            <label for="moAdd" class="">
-                                                                <span class="mem-show-title">{{memTitle.add}}：</span>
-                                                                <span v-if="!iWantModify">{{member.memAdd}}</span>
-                                                                <input v-if="iWantModify" type="text" name="moAdd" class="modifyForm" v-model="momentModify.memAdd" :placeholder="member.memAdd">
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="row ">
-                                                        <div class="col-12 mem-modify-padding">
-                                                            <label for="moTel" class="">
-                                                                <span class="mem-show-title">{{memTitle.tel}}：</span>
-                                                                <span v-if="!iWantModify">{{member.memTel.countryCode}}{{member.memTel.mobile}}</span>
-                                                                <input v-if="iWantModify" type="text" name="moTel" class="modifyForm modifyCountryCode" v-model="momentModify.memTel.countryCode" :placeholder="member.memTel.countryCode">
-                                                                <input v-if="iWantModify" type="tel" name="moTel" class="modifyForm modifyMobile" v-model="momentModify.memTel.mobile" :placeholder="member.memTel.mobile">
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="buttonFlex" v-if="iWantModify">
-                                        <div class=" fuckingButton">
-                                            <button class="button2" @click="giveUpModify(!iWantModify)">放棄修改</button>
-                                        </div>
-                                        <div class="fuckingButton">
-                                            <button class="button" @click="confirmModify(!iWantModify)">確認修改</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-
-
-                            </select-page>
-                            <select-page :step="3" v-if="currentPage == titles.b">
-                                <div class="col-12">
-                                    <div class="row justify-content-between memIcon-block">
-                                        <!-- <back-btn @click="backToIndex(titles.z)">back</back-btn> -->
-                                        <h6 class="col-sm-3 col-6">{{titles.b}}</h6>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-3 col-6 mem-order-subtitle">{{coOrder.a}}</div>
-                                    </div>
-
-
-
-                                    <div class="row justify-content-center" v-for="each in coData">
-                                        <div class="mem-order-each col-10">
-                                            <div class="row">
-                                                <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                    <div class="mem-order-dcName">
-                                                        {{each.csName}}
-                                                    </div>
-                                                    <div class="mem-order-img">
-                                                        <img :src="each.csPic" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
-                                                    <div class="row justify-content-end">
-                                                        <div v-if="orderShow" class=" order-justDele  col-2">刪除</div>
-                                                        <i class="far fa-edit memI col-2" @click="orderShow =!orderShow"></i>
-                                                    </div>
-                                                    <div class="row justify-content-center">
-                                                        <table class="mem-order-table">
-                                                            <tr>
-                                                                <th>地點:</th>
-                                                                <td data-title="地點">{{each.coPos}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>時間:</th>
-                                                                <td data-title="時間">{{each.csODate}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>諮商時間:</th>
-                                                                <td data-title="諮商時間">{{each.csOHour}}</td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                    <div class="row ">
-                                                        <mem-driver></mem-driver>
-                                                        <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
-                                                            <span>費⽤：</span>
-                                                            <span>{{each.csOCost}}</span>
-                                                            <span>.NT</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-sm-3 col-6 mem-order-subtitle">{{coOrder.b}}</div>
-                                    </div>
-
-
-                                    <div class="row justify-content-center" v-for="each in coPastData">
-                                        <div class="mem-order-each col-10">
-                                            <div class="row">
-                                                <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                    <div class="mem-order-dcName">
-                                                        {{each.csName}}
-                                                    </div>
-                                                    <div class="mem-order-img">
-                                                        <img :src="each.csPic" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
-                                                    <div class="row justify-content-center">
-                                                        <table class="mem-order-table">
-                                                            <tr>
-                                                                <th>地點:</th>
-                                                                <td data-title="地點">{{each.coPos}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>時間:</th>
-                                                                <td data-title="時間">{{each.csODate}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>諮商時間:</th>
-                                                                <td data-title="諮商時間">{{each.csOHour}}</td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                    <div class="row ">
-                                                        <mem-driver></mem-driver>
-                                                        <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
-                                                            <span>費⽤：</span>
-                                                            <span>{{each.csOCost}}</span>
-                                                            <span>.NT</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                </div>
-                            </select-page>
-
-                            <select-page :step="4" v-if="currentPage == titles.c">
-                                <div class="col-12">
-                                    <div class="row justify-content-between memIcon-block">
-                                        <!-- <back-btn @click="backToIndex(titles.z)">back</back-btn> -->
-                                        <h6 class="col-sm-3 col-6">{{titles.c}}</h6>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-3 col-6 mem-order-subtitle">{{coOrder.a}}</div>
-                                    </div>
-
-                                    <div class="row justify-content-center" v-for="each in aoData">
-                                        <div class="mem-order-each col-10">
-                                            <div class="row">
-                                                <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                    <div class="mem-order-dcName">
-                                                        {{each.csName}}
-                                                    </div>
-                                                    <div class="mem-order-img">
-                                                        <img :src="each.csPic" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
-                                                    <div class="row justify-content-end">
-                                                        <div v-if="orderShow" class=" order-justDele  col-2">刪除</div>
-                                                        <i class="far fa-edit memI col-2" @click="orderShow =!orderShow"></i>
-                                                    </div>
-                                                    <div class="row justify-content-center">
-                                                        <table class="mem-order-table">
-                                                            <tr>
-                                                                <th>地點:</th>
-                                                                <td data-title="地點">{{each.coPos}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>時間:</th>
-                                                                <td data-title="時間">{{each.csODate}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>諮商時間:</th>
-                                                                <td data-title="諮商時間">{{each.csOHour}}</td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                    <div class="row ">
-                                                        <mem-driver></mem-driver>
-                                                        <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
-                                                            <span>費⽤：</span>
-                                                            <span>{{each.csOCost}}</span>
-                                                            <span>.NT</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-
-
-                                    <div class="row">
-                                        <div class="col-sm-3 col-6 mem-order-subtitle">{{coOrder.b}}</div>
-                                    </div>
-
-                                    <div class="row justify-content-center" v-for="each in aoPastData">
-                                        <div class="mem-order-each col-10">
-                                            <div class="row">
-                                                <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                    <div class="mem-order-dcName">
-                                                        {{each.csName}}
-                                                    </div>
-                                                    <div class="mem-order-img">
-                                                        <img :src="each.csPic" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
-                                                    <div class="row justify-content-center">
-                                                        <table class="mem-order-table">
-                                                            <tr>
-                                                                <th>地點:</th>
-                                                                <td data-title="地點">{{each.coPos}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>時間:</th>
-                                                                <td data-title="時間">{{each.csODate}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>諮商時間:</th>
-                                                                <td data-title="諮商時間">{{each.csOHour}}</td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                    <div class="row ">
-                                                        <mem-driver></mem-driver>
-                                                        <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
-                                                            <span>費⽤：</span>
-                                                            <span>{{each.csOCost}}</span>
-                                                            <span>.NT</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-
-                                </div>
-
-
-
-
-                            </select-page>
-                            <select-page :step="5" v-if="currentPage == titles.d">
-                                <div class="col-12">
-                                    <div class="row justify-content-between memIcon-block">
-                                        <h6 class="col-sm-3 col-6">{{titles.d}}</h6>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-3 col-6 mem-order-subtitle">{{mentalTitles.a}}</div>
-                                    </div>
-                                    <chart></chart>
-                                    <mem-driver></mem-driver>
-                                    <div class="row ">
-                                        <div class="col-sm-3 col-6 mem-order-subtitle">{{mentalTitles.b}}</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-10 offset-1">
-                                            <table class="mem-order-table mem-table-mental">
-                                                <tr>
-                                                    <th>0~20%：</th>
-                                                    <td data-title="0~20%">屬於較穩定的狀況。</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>20~40%：</th>
-                                                    <td data-title="20~40%">⼤部分情況下穩定，偶爾會出現⼩⼩失落感。</td>
-                                                </tr>
-
-                                                <tr>
-                                                    <th>40~60%：</th>
-                                                    <td data-title="40~60%">經常出現失落感，建議找尋抒發管道。</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>60~80%：</th>
-                                                    <td data-title="60~80%">時常出現失落感，建議找尋專業抒發管道。</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>80~100%：</th>
-                                                    <td data-title="80~100%">⼤部分時間都處於失落狀態下，建議預約諮商</td>
-                                                </tr>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                    <div class="row justify-content-center">
-                                        <div class="col-12 col-md-6 offset-0 offset-md-6 cc">
-                                            <button class="button3">預約諮商</button>
-                                        </div>
-                                    </div>
-                                    <mem-driver></mem-driver>
-                                    <div class="row">
-                                        <div class="col-sm-3 col-6 mem-order-subtitle">{{mentalTitles.c}}</div>
-                                    </div>
-                                    <div class="row mem-inActCsSelfAct_block mem-csSelfAct_block--style">
-                                        <div class="mem-inActCsSelfAct--hide mem-inActCsSelfAct--hide--style">
-                                            <cssart-layout></cssart-layout>
-                                            <cssart-layout></cssart-layout>
-                                            <cssart-layout></cssart-layout>
-                                            <cssart-layout></cssart-layout>
-                                            <cssart-layout></cssart-layout>
-                                        </div>
-
-                                    </div>
-                                    <mem-driver></mem-driver>
-                                    <div class="row">
-                                        <div class="col-sm-3 col-6 mem-order-subtitle">{{mentalTitles.d}}</div>
-                                    </div>
-                                    <div class="row mem-inActCsSelfAct_block">
-                                        <div class="mem-inActCsSelfAct--hide">
-                                            <inact-item></inact-item>
-                                            <inact-item></inact-item>
-                                            <inact-item></inact-item>
-                                            <inact-item></inact-item>
-                                            <inact-item></inact-item>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </select-page>
+                            <div class="mem-name-style" v-if="currentPage==''" :key="currentPage==''">
+                                {{member.memName}}
+                            </div>
+                            <div class="mem-name-style" v-if="currentPage==titles.z" :key="currentPage==titles.z">
+                                {{titles.z}}
+                            </div>
+                            <div class="mem-name-style" v-if="currentPage==titles.a" :key="currentPage==titles.a">
+                                {{titles.a}}
+                            </div>
+                            <div class="mem-name-style" v-if="currentPage==titles.b" :key="currentPage==titles.b">
+                                {{titles.b}}
+                            </div>
+                            <div class="mem-name-style" v-if="currentPage==titles.c" :key="currentPage==titles.c">
+                                {{titles.c}}
+                            </div>
+                            <div class="mem-name-style" v-if="currentPage==titles.d" :key="currentPage==titles.d">
+                                {{titles.d}}
+                            </div>
+                            <div class="mem-name-style" v-if="currentPage==titles.e" :key="currentPage==titles.e">
+                                {{titles.e}}
+                            </div>
+                            <div class="mem-name-style" v-if="currentPage==titles.f" :key="currentPage==titles.f">
+                                {{titles.f}}
+                            </div>
                         </transition>
-                        <select-page-content>
+                    </div>
                 </div>
+
+                <transition name="topSlide" mode="out-in">
+                    <div class="me-selectNav col-md-3 col-lg-3 col-12 " v-if="selectNav || windowSize>768">
+
+
+                        <me-head>
+                            <me-select_item :item="0" @click.native="selectIt(titles.z)" :selected="currentPage==titles.z">{{titles.z}}</me-select_item>
+                            <me-select_item :item="1" @click.native="selectIt(titles.a)" :selected="currentPage==titles.a">{{titles.a}}</me-select_item>
+                            <me-select_item :item="2" @click.native="selectIt(titles.b)" :selected="currentPage==titles.b">{{titles.b}}</me-select_item>
+                            <me-select_item :item="3" @click.native="selectIt(titles.c)" :selected="currentPage==titles.c">{{titles.c}}</me-select_item>
+                            <me-select_item :item="4" @click.native="selectIt(titles.d)" :selected="currentPage==titles.d">{{titles.d}}</me-select_item>
+                            <me-select_item :item="5" @click.native="selectIt(titles.e)" :selected="currentPage==titles.e">{{titles.e}}</me-select_item>
+                            <me-select_item :item="6" @click.native="selectIt(titles.f)" :selected="currentPage==titles.f">{{titles.f}}</me-select_item>
+                            <!-- <div class="homeIcon">
+                                        <back-btn @click="backToIndex(titles.z)">H</back-btn>
+                                    </div> -->
+                        </me-head>
+
+                    </div>
+                </transition>
+                <transition name="bottomSlide" mode="out-in">
+
+                    <div class="me-content col-md-9 col-lg-9 col-12 " v-if="windowSize>768 || currentPage!==''">
+                        <div class=" mem-pic-style mem-lg">
+                            <div class="memSearch">
+                                <div class="searchIconSvg">
+                                    <svg id="圖層_1" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155.76 155.76"><path d="M154.81,145.63l-45.25-45.24a61.78,61.78,0,1,0-9.17,9.17l45.24,45.25a3.24,3.24,0,0,0,4.59,0l4.59-4.59A3.24,3.24,0,0,0,154.81,145.63Zm-93.15-35.3a48.68,48.68,0,1,1,48.67-48.67A48.72,48.72,0,0,1,61.66,110.33Z"/></svg>
+                                </div>
+                                <input type="search" placeholder="請輸入搜尋指令">
+                            </div>
+                            <div class="aaa">
+                                <div class="mem-name-style">
+                                    {{member.memName}}
+                                </div>
+                                <div class="memPhoto--bgc">
+                                    <div class="memPhoto">
+                                        <img :src="newPic" alt="">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <select-page-content>
+
+                            <transition name="coSlide" mode="out-in">
+
+                                <select-page :step="1" v-if="currentPage == titles.z" :key="titles.z">
+                                    <div class="col-12 me-page-title" v-if="windowSize<768" @click="backToSelect">
+                                        <div class="selectIcon">
+                                            <i class="fas fa-caret-left backToSelect"></i>
+                                            <div>
+                                                回到選單
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="me-for-content">
+                                        <div class="meInsideBlock ">
+                                            <div class="mem-header-singleRow mem-header-flex">
+                                                <div class="more-title">{{titles.a}}</div>
+                                                <div class="more--color" @click="pageChange(titles.a)">MORE<i class="fas fa-angle-right"></i></div>
+                                            </div>
+                                            <div class="figMother">
+                                                <div class="fig">
+                                                    <div class="mem-modify-singleRow">
+                                                        <label for="moName" class="">
+                                                        <span class="mem-show-title ">{{memTitle.name}}</span>
+                                                        <span  class="mem-show-confirmData">{{member.memName}}</span>
+                                                       
+                                                </label>
+                                                    </div>
+                                                    <div class="mem-modify-singleRow">
+                                                        <label for="moPetName" class="">
+                                                        <span class="mem-show-title">{{memTitle.petName}}</span>
+                                                        <span  class="mem-show-confirmData">{{member.memPetName}}</span>
+                                                        
+                                                </label>
+                                                    </div>
+                                                    <div class=" mem-modify-singleRow">
+                                                        <label for="moEmail" class="">
+                                                        <span class="mem-show-title">{{memTitle.email}}</span>
+                                                        <span  class="mem-show-confirmData">{{member.memEmail.value}}</span> 
+                                                        
+                                                    </label>
+                                                    </div>
+
+                                                </div>
+                                                <div class="fig">
+                                                    <div class=" mem-modify-singleRow mem-modify-radio ">
+                                                        <label for="moGender" class="">
+                                                        <span class="mem-show-title">{{memTitle.gender}}</span>
+                                                        <span  class="mem-show-confirmData">{{member.memGender}}</span>
+                                                            
+                                                    </div>
+                                                    <div class="mem-modify-singleRow">
+                                                        <label for="moTel" class="">
+                                                        <span class="mem-show-title">{{memTitle.tel}}</span>
+                                                        <span  class="mem-show-confirmData">{{member.memTel.countryCode}}{{member.memTel.mobile}}</span>
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="meInsideBlock-half-contain">
+                                            <div class="meInsideBlock meInsideBlock-half">
+                                                <div class="mem-header-singleRow mem-header-flex">
+                                                    <div class="more-title">{{titles.b}}</div>
+                                                    <div class="more--color" @click="pageChange(titles.b)">MORE<i class="fas fa-angle-right"></i></div>
+                                                </div>
+                                                <div class="me-index_block" v-for="(each,index) in coData" v-if="index<2">
+                                                    <div class="me-index_each">
+                                                        <a href="">
+                                                            <div>{{each.csODate}}</div>
+                                                            <div>{{each.coPos}}</div>
+                                                        </a>
+                                                    </div>
+                                                    <mem-driver></mem-driver>
+                                                </div>
+
+                                            </div>
+                                            <div class="meInsideBlock meInsideBlock-half ">
+                                                <div class="mem-header-singleRow mem-header-flex">
+                                                    <div class="more-title">{{titles.c}}</div>
+                                                    <div class="more--color" @click="pageChange(titles.c)">MORE<i class="fas fa-angle-right"></i></div>
+                                                </div>
+                                                <div class="me-index_block" v-for="(each,index) in aoData" v-if="index<2">
+                                                    <div class="me-index_each">
+                                                        <a href="">
+                                                            <div>{{each.csODate}}</div>
+                                                            <div>{{each.coPos}}</div>
+                                                        </a>
+                                                    </div>
+                                                    <mem-driver></mem-driver>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="meInsideBlock">
+                                            <div class="mem-header-singleRow mem-header-flex">
+                                                <div class="more-title">{{titles.d}}</div>
+                                                <div class="more--color" @click="pageChange(titles.d)">MORE<i class="fas fa-angle-right"></i></div>
+                                            </div>
+
+                                            <div class="me-index_block ">
+                                                <div class="me-index-block-flexCenter">
+                                                    <chart></chart>
+                                                </div>
+                                                <div class="me-index-block-flexCenter">chart</div>
+                                                <div class="me-index-block-flexCenter">chart</div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="meInsideBlock">
+                                            <div class="mem-header-singleRow mem-header-flex">
+                                                <div class="more-title">{{titles.e}}</div>
+                                                <div class="more--color" @click="pageChange(titles.e)">MORE<i class="fas fa-angle-right"></i></div>
+                                            </div>
+
+                                        </div>
+                                        <div class="meInsideBlock">
+                                            <div class="mem-header-singleRow mem-header-flex">
+                                                <div class="more-title">{{titles.f}}</div>
+                                                <div class="more--color" @click="pageChange(titles.f)">MORE<i class="fas fa-angle-right"></i></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </select-page>
+                                <select-page :step="2" v-if="currentPage == titles.a" :key="titles.a">
+                                    <div class="col-12 me-page-title" v-if="windowSize<768" @click="backToSelect">
+                                        <div class="selectIcon">
+                                            <i class="fas fa-caret-left backToSelect"></i>
+                                            <div>
+                                                回到選單
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="me-for-content">
+                                        <div class=" mem-modifyBlock">
+                                            <div class="mem-modify-singleRow">
+                                                <label for="moName" class="">
+                                                    <span class="mem-show-title">{{memTitle.name}}</span>
+                                                    <span v-if="!iWantModify" class="mem-show-confirmData">{{member.memName}}</span>
+                                                    <input v-if="iWantModify" name="moName" type="text" class="modifyForm" v-model="momentModify.memName" :placeholder="member.memName">
+                                            </label>
+                                            </div>
+                                            <div class="mem-modify-singleRow">
+                                                <label for="moPetName" class="">
+                                                    <span class="mem-show-title">{{memTitle.petName}}</span>
+                                                    <span v-if="!iWantModify" class="mem-show-confirmData">{{member.memPetName}}</span>
+                                                    <input v-if="iWantModify" name="moPetName" type="text" class="modifyForm" v-model="momentModify.memPetName" :placeholder="member.memPetName">
+                                            </label>
+                                            </div>
+                                            <div class=" mem-modify-singleRow mem-modify-radio ">
+                                                <label for="moGender" class="">
+                                                    <span class="mem-show-title">{{memTitle.gender}}</span>
+                                                    <span v-if="!iWantModify" class="mem-show-confirmData">{{member.memGender}}</span>
+                                                        <label class="radio" v-if="iWantModify">
+                                                            <input v-if="iWantModify" name="moGender" type="radio" class="modifyRadio" v-model="momentModify.memGender" value="男">男
+                                                            <span v-if="iWantModify" class="checkmark"></span>
+                                                        </label>
+                                                <label class="radio" v-if="iWantModify">
+                                                            <input v-if="iWantModify" name="moGender" type="radio" class="modifyRadio" v-model="momentModify.memGender" value="女">女
+                                                            <span v-if="iWantModify" class="checkmark"></span>
+                                                        </label>
+                                                </label>
+                                            </div>
+
+                                            <div class=" mem-modify-singleRow">
+                                                <label for="moEmail" class="">
+                                                    <span class="mem-show-title">{{memTitle.email}}</span>
+                                                    <span  class="mem-show-confirmData">{{member.memEmail.value}}</span> 
+                                                    <!-- <input v-if="iWantModify" type="email" name="moEmail" class="modifyForm" v-model="momentModify.memEmail.value" :placeholder="member.memEmail.value"> -->
+                                                </label>
+                                            </div>
+                                            <div class="mem-modify-singleRow">
+                                                <label for="moTel" class="">
+                                                    <span class="mem-show-title">{{memTitle.tel}}</span>
+                                                    <span v-if="!iWantModify" class="mem-show-confirmData">{{member.memTel.countryCode}}{{member.memTel.mobile}}</span>
+                                                    <input v-if="iWantModify" type="text" name="moTel" class="modifyForm modifyCountryCode" v-model="momentModify.memTel.countryCode" :placeholder="member.memTel.countryCode">
+                                                    <input v-if="iWantModify" type="tel" name="moTel" class="modifyForm modifyMobile" v-model="momentModify.memTel.mobile" :placeholder="member.memTel.mobile">
+                                                </label>
+                                            </div>
+                                            <div class="mem-modify-singleRow" v-if="iWantModify">
+                                                <label for="moPsw" class="">
+                                                    <span class="mem-show-title">{{memTitle.password}}</span>
+                                                    <span class="mem-show-confirmData" id="memPsw">{{memPsw_length}}</span>
+                                                    <span class="mem-show-confirmData mem-memPsw-confirmData memPswToggle" @click="modifyMemPsw(true)">修改密碼</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="modifyMemPsw ao-co-error-overlay" v-if="myMemPsw" @click="myMemPsw = false"></div>
+                                        <div v-if="myMemPsw" class="co-ao-error--border">
+                                            <div class=" modifyMemPsw-block" v-if="mePswFinalizeConfirm">
+                                                <!-- 舊密碼區 -->
+                                                <div class="modifyMemPswOld" v-if="!showNewMemPsw">
+                                                    <label for="memPsw" class="memPswLabel">
+                                                        <span class="mem-show-title">請輸入舊密碼共{{memPswLength}}個字元</span>
+                                                        <span  class="mem-show-confirmData"></span>
+                                                        <input name="memPsw" type="password" class="modifyForm" v-model="memPswModel" :placeholder="memPsw_length" :class="{bigShake : bigShake}" id="bigShake">
+                                                </label>
+                                                </div>
+                                                <!-- 新密碼區 -->
+                                                <div class="modifyMemPswOld" v-if="showNewMemPsw">
+                                                    <label for="memPsw" class="memPswLabel">
+                                                        <span class="mem-show-title">請輸入新密碼</span>
+                                                        <input name="moPetName" type="password" class="modifyForm" v-model="textMemPsw" :class="{bigShake: bigShake}" >
+                                                        <span class="mem-show-title">請確認新密碼</span>
+                                                        <input name="moPetName" type="password" class="modifyForm" v-model="memPswModel" :class="{bigShake: bigShake}" >
+                                                        <span class="mem-show-title" v-if="errorText">密碼不相符</span>
+                                                </label>
+                                                </div>
+
+                                                <div class="modifyMemCheck">
+                                                    <button class="button2-1 error-modal-closer" @click="giveUpMemPsw(false)">放棄修改</button>
+                                                    <!-- 舊密碼確認區 -->
+                                                    <button class="button2-1 error-modal-closer" v-if="!showNewMemPsw" @click="confirmMemPsw(true)">確認密碼</button>
+                                                    <!-- 新密碼確認區 -->
+                                                    <button class="button2-1 error-modal-closer" v-if="showNewMemPsw" @click="finalizeMemPsw(false)">送出密碼</button>
+                                                </div>
+                                            </div>
+                                            <div v-if="!mePswFinalizeConfirm" class="modifyMemPsw-block">
+                                                <div class="modifyMemPswOld">
+                                                    <div>更改密碼成功！<br>請完成確認修改會員資料</div>
+                                                </div>
+                                                <div class="modifyMemCheck">
+                                                    <button class="button2-1 error-modal-closer" @click="iKnowIChangeMemPsw(false)">我知道了</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="mem-modifyBlock">
+                                            <div class="mem-modify-singleRow mem-modify-flex" v-if="windowSize<768">
+                                                <div @click="toggleOtherInfo(!otherInfo)">其他項目<i class="fas fa-arrow-down"></i></div>
+                                            </div>
+                                            <transition name="listTransition" mode="out-in">
+                                                <div class="hide" v-if="otherInfo || windowSize>768">
+                                                    <div class="mem-modify-singleRow">
+                                                        <label for="moAdd" class="">
+                                                            <span class="mem-show-title">{{memTitle.add}}</span>
+                                                            <span v-if="!iWantModify" class="mem-show-confirmData">{{member.memAdd}}</span>
+                                                            <input v-if="iWantModify" type="text" name="moAdd" class="modifyForm" v-model="momentModify.memAdd" :placeholder="member.memAdd">
+                                                        </label>
+                                                    </div>
+                                                    <div class=" mem-modify-singleRow">
+                                                        <label for="moOcc" class="">
+                                                            <span class="mem-show-title">{{memTitle.occ}}</span>
+                                                            <span v-if="!iWantModify" class="mem-show-confirmData">{{member.memOcc}}</span>
+                                                            <input v-if="iWantModify" type="text" name="moOcc" class="modifyForm" v-model="momentModify.memOcc" :placeholder="member.memOcc">
+                                                        </label>
+                                                    </div>
+                                                    <div class=" mem-modify-singleRow">
+                                                        <label for="moBD" class="">
+                                                            <span class="mem-show-title">{{memTitle.bDay}}</span>
+                                                            <span v-if="!iWantModify" class="mem-show-confirmData">{{member.memBD}}</span>
+                                                            <input v-if="iWantModify" type="text" name="moBD" class="modifyForm" v-model="momentModify.memBD" :placeholder="member.memBD">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </transition>
+
+                                        </div>
+
+                                        <div class="mem-modify-goButton" v-if="!iWantModify">
+                                            <div @click="goModify(!iWantModify)">修改資料</div>
+                                        </div>
+
+                                        <div class="buttonFlex" v-if="iWantModify">
+                                            <div class="fuckingButton" @click="giveUpModify(!iWantModify)">
+                                                放棄修改
+                                            </div>
+                                            <div class="fuckingButton fuckingButton2" @click="confirmModify(!iWantModify)">
+                                                確認修改
+                                            </div>
+                                        </div>
+                                    </div>
+                                </select-page>
+                                <select-page :step="3" v-if="currentPage == titles.b" :key="titles.b">
+
+                                    <div class="col-12 me-page-title" v-if="windowSize<768" @click="backToSelect">
+                                        <div class="selectIcon">
+                                            <i class="fas fa-caret-left backToSelect"></i>
+                                            <div>
+                                                回到選單
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 meOrderTab">
+                                        <div @click="ocg(true)" :class="{meOrderTabSelect: ccOrder}">已預訂</div>
+                                        <div @click="ocg(false)" :class="{meOrderTabSelect: !ccOrder}">歷史訂單</div>
+                                    </div>
+                                    <div class="col-12 meOrderBlock">
+
+                                        <transition name="orderSlide" mode="out-in">
+                                            <div class="  meOrderBlock-content" v-if="ccOrder" key="ccOrder">
+                                                <div class="row justify-content-center delete" v-for="(each,index) in coData">
+                                                    <div class="mem-order-each col-10">
+                                                        <div class="row">
+                                                            <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
+                                                                <div class="mem-order-dcName">
+                                                                    {{each.csName}}{{index}}
+                                                                </div>
+                                                                <div class="mem-order-img">
+                                                                    <img :src="each.csPic" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
+                                                                <div class="row justify-content-end mem-modify--delete">
+                                                                    <div v-if="!orderShow" class=" order-justDele" @click="deleteOrder(coData,index)"><i class="far fa-edit memI"></i>刪除</div>
+                                                                </div>
+                                                                <div class="row justify-content-center">
+                                                                    <table class="mem-order-table">
+                                                                        <tr>
+                                                                            <th>地點:</th>
+                                                                            <td data-title="地點">{{each.coPos}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>時間:</th>
+                                                                            <td data-title="時間">{{each.csODate}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>諮商時間:</th>
+                                                                            <td data-title="諮商時間">{{each.csOHour}}</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="row ">
+                                                                    <mem-driver></mem-driver>
+                                                                    <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
+                                                                        <span>費⽤</span>
+                                                                        <span>{{each.csOCost}}</span>
+                                                                        <span>.NT</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class=" meOrderBlock-content" v-if="!ccOrder" key="!ccOrder">
+                                                <div class="row justify-content-center delete" v-for="(each,index) in coPastData">
+                                                    <div class="mem-order-each col-10">
+                                                        <div class="row">
+                                                            <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
+                                                                <div class="mem-order-dcName">
+                                                                    {{each.csName}}{{index}}
+                                                                </div>
+                                                                <div class="mem-order-img">
+                                                                    <img :src="each.csPic" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
+                                                                <div class="row justify-content-center">
+                                                                    <table class="mem-order-table">
+                                                                        <tr>
+                                                                            <th>地點:</th>
+                                                                            <td data-title="地點">{{each.coPos}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>時間:</th>
+                                                                            <td data-title="時間">{{each.csODate}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>諮商時間:</th>
+                                                                            <td data-title="諮商時間">{{each.csOHour}}</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="row ">
+                                                                    <mem-driver></mem-driver>
+                                                                    <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
+                                                                        <span>費⽤</span>
+                                                                        <span>{{each.csOCost}}</span>
+                                                                        <span>.NT</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </transition>
+
+                                    </div>
+
+
+                                </select-page>
+
+                                <select-page :step="4 " v-if="currentPage==titles.c " :key="titles.c ">
+                                    <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect ">
+                                        <div class="selectIcon ">
+                                            <i class="fas fa-caret-left backToSelect "></i>
+                                            <div>
+                                                回到選單
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 meOrderTab">
+                                        <div @click="oag(true)" :class="{meOrderTabSelect: acOrder}">已預訂</div>
+                                        <div @click="oag(false)" :class="{meOrderTabSelect: !acOrder}">歷史訂單</div>
+                                    </div>
+
+
+                                    <div class="col-12 meOrderBlock">
+                                        <transition name="orderSlide" mode="out-in">
+                                            <div class="  meOrderBlock-content" v-if="acOrder" key="acOrder">
+                                                <div class="row justify-content-center" v-for="(each,index) in aoData">
+                                                    <div class="mem-order-each col-10">
+                                                        <div class="row">
+                                                            <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
+                                                                <div class="mem-order-dcName">
+                                                                    {{each.csName}}
+                                                                </div>
+                                                                <div class="mem-order-img">
+                                                                    <img :src="each.csPic" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
+                                                                <div class="row justify-content-end mem-modify--delete">
+                                                                    <div v-if="!orderShow" class=" order-justDele" @click="deleteOrder(aoData,index)"><i class="far fa-edit memI"></i>刪除</div>
+                                                                </div>
+                                                                <div class="row justify-content-center">
+                                                                    <table class="mem-order-table">
+                                                                        <tr>
+                                                                            <th>地點:</th>
+                                                                            <td data-title="地點">{{each.coPos}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>時間:</th>
+                                                                            <td data-title="時間">{{each.csODate}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>諮商時間:</th>
+                                                                            <td data-title="諮商時間">{{each.csOHour}}</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="row ">
+                                                                    <mem-driver></mem-driver>
+                                                                    <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
+                                                                        <span>費⽤：</span>
+                                                                        <span>{{each.csOCost}}</span>
+                                                                        <span>.NT</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class=" meOrderBlock-content" v-if="!acOrder" key="!acOrder">
+                                                <div class="row justify-content-center" v-for="each in aoPastData">
+                                                    <div class="mem-order-each col-10">
+                                                        <div class="row">
+                                                            <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
+                                                                <div class="mem-order-dcName">
+                                                                    {{each.csName}}
+                                                                </div>
+                                                                <div class="mem-order-img">
+                                                                    <img :src="each.csPic" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
+                                                                <div class="row justify-content-center">
+                                                                    <table class="mem-order-table">
+                                                                        <tr>
+                                                                            <th>地點:</th>
+                                                                            <td data-title="地點">{{each.coPos}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>時間:</th>
+                                                                            <td data-title="時間">{{each.csODate}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>諮商時間:</th>
+                                                                            <td data-title="諮商時間">{{each.csOHour}}</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="row ">
+                                                                    <mem-driver></mem-driver>
+                                                                    <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
+                                                                        <span>費⽤：</span>
+                                                                        <span>{{each.csOCost}}</span>
+                                                                        <span>.NT</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </transition>
+                                    </div>
+
+
+
+
+
+                                </select-page>
+
+                                <select-page :step="5 " v-if="currentPage==titles.d " :key="titles.d ">
+                                    <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect ">
+                                        <div class="selectIcon ">
+                                            <i class="fas fa-caret-left backToSelect "></i>
+                                            <div>
+                                                回到選單
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="me-for-content">
+                                        <div class="meInsideBlock ">
+                                            <div class="mem-header-singleRow mem-header-flex">
+                                                <div class="more-title">{{mentalTitles.a}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="meInsideBlock ">
+                                            <div class="mem-header-singleRow mem-header-flex">
+                                                <div class="more-title">{{mentalTitles.b}}</div>
+                                            </div>
+                                            <div class="mem-table-contain">
+                                                <table class="mem-order-table mem-table-mental">
+                                                    <tr>
+                                                        <th>0~20%</th>
+                                                        <td data-title="0~20%">屬於較穩定的狀況。</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>20~40%</th>
+                                                        <td data-title="20~40%">⼤部分情況下穩定，偶爾會出現⼩⼩失落感。</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th>40~60%</th>
+                                                        <td data-title="40~60%">經常出現失落感，建議找尋抒發管道。</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>60~80%</th>
+                                                        <td data-title="60~80%">時常出現失落感，建議找尋專業抒發管道。</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>80~100%</th>
+                                                        <td data-title="80~100%">⼤部分時間都處於失落狀態下，建議預約諮商</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="mem-phy-go_button_contain">
+                                                <div class="col-12 col-md-6 offset-0 offset-md-6 mem-phy-go_button">
+                                                    <button class="button3">預約諮商</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="meInsideBlock ">
+                                            <div class="mem-header-singleRow mem-header-flex">
+                                                <div class="more-title">{{mentalTitles.c}}</div>
+                                            </div>
+                                            <div class="row mem-inActCsSelfAct_block mem-csSelfAct_block--style">
+                                                <div class="mem-inActCsSelfAct--hide mem-inActCsSelfAct--hide--style">
+                                                    <cssart-layout></cssart-layout>
+                                                    <cssart-layout></cssart-layout>
+                                                    <cssart-layout></cssart-layout>
+                                                    <cssart-layout></cssart-layout>
+                                                    <cssart-layout></cssart-layout>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="meInsideBlock ">
+                                            <div class="mem-header-singleRow mem-header-flex">
+                                                <div class="more-title">{{mentalTitles.d}}</div>
+                                            </div>
+                                            <div class="row mem-inActCsSelfAct_block">
+                                                <div class="mem-inActCsSelfAct--hide">
+                                                    <inact-item></inact-item>
+                                                    <inact-item></inact-item>
+                                                    <inact-item></inact-item>
+                                                    <inact-item></inact-item>
+                                                    <inact-item></inact-item>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </select-page>
+                                <select-page :step="6 " v-if="currentPage==titles.e " :key="titles.e ">
+                                    <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect ">
+                                        <div class="selectIcon ">
+                                            <i class="fas fa-caret-left backToSelect "></i>
+                                            <div>
+                                                回到選單
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div></div>
+
+                                </select-page>
+                                <select-page :step="7 " v-if="currentPage==titles.f " :key="titles.f ">
+                                    <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect ">
+                                        <div class="selectIcon ">
+                                            <i class="fas fa-caret-left backToSelect "></i>
+                                            <div>
+                                                回到選單
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </select-page>
+                            </transition>
+                            <select-page-content>
+                    </div>
+                </transition>
+
             </main>
         </div>
     </div>

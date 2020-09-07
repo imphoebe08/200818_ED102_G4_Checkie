@@ -1,6 +1,6 @@
 Vue.component('me-head', {
     template: `
-        <div class="me-head row justify-content-start">
+        <div class="me-head row justify-content-center">
         <slot></slot>
         </div>
     `,
@@ -21,7 +21,7 @@ Vue.component('me-select_item', {
         return {}
     },
     template: `
-            <div :class="'me-select_item--'+footPrint" class="me-select_item col-3 col-md-12"><slot></slot></div> 
+            <div  class="col-8  offset-2 col-md-12  me-select_item--padding "><div class="me-select_item" :class="'me-select_item--'+footPrint"><slot></slot></div></div> 
     `,
 
     computed: {
@@ -67,7 +67,7 @@ Vue.component('select-page', {
     // },
     template: `
         <div class="select-page col-12">
-            <div class="row">
+            <div class="row select-page-hide">
                 <slot></slot>
             </div>
         </div>
@@ -234,48 +234,7 @@ Vue.component('cssart-layout', {
 
 
 
-var option = {
-    legend: {
-        display: 0
-    },
-    tooltips: {},
-    elements: {
-        line: {
-            backgroundColor: "rgba(255, 99, 160, 0.2)",
-            borderColor: "rgba(255, 99, 160, 0.2)"
-        },
-        point: {
-            backgroundColor: "rgba(255, 99, 132, 0.2)",
-            hoverBackgroundColor: "rgba(255, 99, 132, 0.8)",
-            radius: 5,
-            pointStyle: "circle",
-            hoverRadius: 8
-        }
-    },
-    scale: {
-        angleLines: {
-            display: false
-        },
-        ticks: {
-            suggestedMin: 0,
-            suggestedMax: 100,
-            stepSize: 20,
-            display: false
-        },
-        pointLabels: {
-            fontSize: 18,
-            fontFamily: "微軟正黑體"
-        }
-    },
-    // layout: {
-    //     padding: {
-    //         left: 20,
-    //         right: 20,
-    //         top: 10,
-    //         bottom: 10
-    //     }
-    // }
-};
+
 
 
 
@@ -285,17 +244,31 @@ let vm = new Vue({
     el: '#app',
     data: () => {
         return {
-            option: option,
-            coData: [{}],
+            errorText: false,
+            mePswFinalizeConfirm: true,
+            memPswModel: "",
+            textMemPsw: '',
+            bigShake: false,
+            showNewMemPsw: false,
+            myMemPsw: false,
+            otherInfo: false,
+            newPic: './img/chatRoom/userPic.png',
+            ccOrder: true,
+            acOrder: true,
+            selectNav: true,
+            coData: [],
             coPastData: [{}],
             aoData: [{}],
             aoPastData: [{}],
+            windowSize: '',
+            pageShow: false,
             step: '',
             currentPage: '',
             iWantModify: false,
             errors: [],
             member: {
-                memName: 'cc',
+                memName: '閻掬容',
+                memPetName: 'CC',
                 memGender: '女',
                 memBD: '1999/99/99',
                 memAdd: 'hahahahahaha',
@@ -309,6 +282,7 @@ let vm = new Vue({
                     valid: true,
                 },
                 memAdd: '台北市南港區南港路一段四號之一',
+                memPsw: 'cerise0324',
             },
 
             // checkbox: '',
@@ -319,7 +293,8 @@ let vm = new Vue({
             //go: true,
             ////////////
             momentModify: {
-                memName: 'cc',
+                memName: '閻掬容',
+                memPetName: 'CC',
                 memGender: '女',
                 memBD: '1999/99/99',
                 memAdd: 'hahahahahaha',
@@ -333,15 +308,19 @@ let vm = new Vue({
                     valid: true,
                 },
                 memAdd: '台北市南港區南港路一段四號之一',
+                memPsw: 'cerise0324',
             },
             titles: {
-                z: '會員總攬',
+                z: '會員總覽',
                 a: '會員資料',
                 b: '諮商預約',
                 c: '活動報名',
                 d: '心理評估',
+                e: '我的收藏',
+                f: '線上諮商',
             },
             memTitle: {
+                petName: '暱稱',
                 name: '姓名',
                 gender: '性別',
                 bDay: '生日',
@@ -349,6 +328,7 @@ let vm = new Vue({
                 email: '電子信箱',
                 tel: '電話',
                 add: '地址',
+                password: '密碼',
             },
             coOrder: {
                 a: '已預約',
@@ -356,7 +336,7 @@ let vm = new Vue({
             },
             mentalTitles: {
                 a: '測驗歷史紀錄',
-                b: '⾃我評估：',
+                b: '⾃我評估',
                 c: '推薦專欄',
                 d: '推薦活動',
             }
@@ -366,10 +346,12 @@ let vm = new Vue({
 
     methods: {
         selectIt(v) {
-            //console.log(typeof(v))
-            this.currentPage = v;
-            // console.log(this.currentPage);
-            //console.log(123)
+            var v = v;
+            setTimeout(function() {
+                vm.$data.currentPage = v;
+
+            }, 400);
+            this.selectNav = false
         },
         pageChange(a) {
             this.currentPage = a;
@@ -382,74 +364,97 @@ let vm = new Vue({
         },
         giveUpModify(f) {
             this.iWantModify = f;
-            // vm.momentModify = Object.assign({}, vm.momentModify, {
-            //         memName: '',
-            //         memGender: '',
-            //         memBD: '',
-            //         memAdd: '',
-            //         memOcc: '',
-            //         memTel: {
-            //             countryCode: '',
-            //             mobile: '',
-            //         },
-            //         memEmail: {
-            //             value: '',
-            //             valid: true,
-            //         },
-            //         memAdd: '',
-            //     })
-            vm.momentModify = Object.assign({}, vm.momentModify, vm.member);
+            vm.member = Object.assign({}, vm.momentModify, vm.member);
+            vm.momentModify = Object.assign({}, vm.momentModify, vm.member)
         },
         confirmModify(k) {
             vm.member = Object.assign({}, vm.member, vm.momentModify);
+
             this.iWantModify = k;
         },
+        onResize() {
+            this.windowSize = window.innerWidth;
+        },
+        backToSelect() {
+            this.currentPage = '';
+            setTimeout(function() {
+                vm.$data.selectNav = true;
+            }, 400);
+        },
+        ocg(g) {
+            this.ccOrder = g;
+        },
+        oag(m) {
+            this.acOrder = m;
+        },
+        changePic() {
+            let pic = event.target.files[0];
+            let reader = new FileReader();
+            reader.onload = function() {
+                vm.$data.newPic = reader.result;
+            }
+            reader.readAsDataURL(pic);
+        },
+        // changeSize() {
+        //     if (this.windowSize > 768) {
+        //         this.pageShow = true;
+        //     };
+        // },
+        deleteOrder(a, e) {
+            a.splice(e, 1);
+        },
+        toggleOtherInfo(OwO) {
+            this.otherInfo = OwO;
+        },
+        modifyMemPsw(QAQ) {
+            this.myMemPsw = QAQ;
+            this.showNewMemPsw = !QAQ;
+        },
+        giveUpMemPsw(OuO) {
+            this.myMemPsw = OuO;
+            this.showNewMemPsw = OuO;
+            this.memPswModel = "";
+            this.textMemPsw = "";
+        },
+        confirmMemPsw(BwB) {
+            if (this.memPswModel == this.momentModify.memPsw) {
+                this.showNewMemPsw = BwB;
+                this.memPswModel = "";
+                $('.memPswLabel>input').css('border', '#e0ddd8 solid 1px');
 
-        chart() {
-            var cerise = document.querySelector('.ccChartOnly');
-            myChart = new Chart(cerise, {
-                type: 'radar',
-                data: {
-                    labels: ['自我探索', '家庭關係', '人際關係', '伴侶關係', '壓力創傷'],
-                    datasets: [{
-                        data: [60, 70, 94, 82, 61]
-                    }],
-
-                },
-                options: this.option,
-            });
-
-
-            var ctx = $('.bbChartOnly');
-            myBarChart = new Chart(ctx, {
-                type: 'horizontalBar',
-                data: {
-                    labels: ['自我探索', '家庭關係', '人際關係', '伴侶關係', '壓力創傷'],
-                    datasets: [{
-                        label: "Test",
-                        data: [90, 75, 80, 60, 55],
-                        backgroundColor: '#91D0EB',
-                        hoverBackgroundColor: '#FFA492',
-                    }],
-                },
-                options: {
-                    scales: {
-                        xAxes: [{
-                            ticks: {
-                                min: 50,
-                                max: 100,
-                            }
-                        }],
-                        yAxes: [{
-                            stacked: true
-                        }]
-                    }
-                }
-            });
-        }
+            } else {
+                this.bigShake = BwB;
+                $('.memPswLabel>input').css('border', 'tomato solid 1px');
+                setTimeout(function() {
+                    vm.$data.bigShake = false;
+                }, 350);
+            }
+        },
+        finalizeMemPsw(sexyFox) {
+            if (this.textMemPsw == this.memPswModel) {
+                // this.$set(this.member, 'memPsw', this.textMemPsw)
+                this.momentModify.memPsw = this.memPswModel;
+                this.memPswModel = "";
+                this.textMemPsw = "";
+                this.mePswFinalizeConfirm = sexyFox;
+                $('.memPswLabel>input').css('border', '#e0ddd8 solid 1px');
+                this.errorText = false;
+            } else {
+                this.bigShake = true;
+                $('.memPswLabel>input').css('border', 'tomato solid 1px');
+                setTimeout(function() {
+                    vm.$data.bigShake = false;
+                }, 350);
+                this.errorText = true;
+            }
+        },
+        iKnowIChangeMemPsw(littleFox) {
+            this.myMemPsw = littleFox;
+        },
 
     },
     mounted() {
+        this.show_len = this.member.memPsw.length
         axios.get('./json/test.json')
             .then(response => {
                 this.coData = response.data;
@@ -469,26 +474,29 @@ let vm = new Vue({
             .then(response => {
                 this.aoPastData = response.data;
             });
-
-
-        this.chart();
-        window.onresize = () => {
-            this.chart();
-        };
-
-
-
-    },
-    updated() {
-        if (this.currentPage == this.titles.z || this.currentPage == this.titles.d) {
-            this.chart();
-        }
-
-    },
-
-    created() {
+        this.windowSize = window.innerWidth;
         this.currentPage = this.titles.z;
     },
+    updated() {},
 
+    created() {
+        //this.currentPage = this.titles.z;
+        window.addEventListener('resize', this.onResize);
+    },
+
+    destroyed() {
+        window.removeEventListener('resize', this.onResize);
+    },
+    computed: {
+
+        memPswLength: function() {
+            return this.momentModify.memPsw.length;
+        },
+        memPsw_length: function() {
+            var y = this.momentModify.memPsw.length;
+            var u = '*';
+            return u.repeat(y);
+        },
+    },
 
 });

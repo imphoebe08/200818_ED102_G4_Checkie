@@ -1,140 +1,132 @@
+// 元件: 諮商師卡片
 Vue.component("cscounselor-layout", {
-	template: `<div class="swiper-slide">
-                    <div class="csCounselor-card">
-                        <div class="csCounselor-image" @click="openSelfPage">
-                            <img class="img-responsive"
-                                src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg">
-                        </div>
-                        <p class="csC-doctor__name" @click="openSelfPage">吳醫師</p>
-                        <p class="csC-type_title">醫師專長</p>
-                        <div class="csC-type_tag row">
-                            <span class="col-4">家庭關係</span>
-                            <span class="col-4">人際關係</span>
-                        </div>
-                        <div class="csC-doctor__info">
-                            <ul class="csC-doctor__list">
-                                <li>
-                                    <p class="js-list-toggle">經歷</p>
-                                    <ul class="csS-list js-item-toggle">
-                                        <li class="small"><i class="fas fa-circle"></i>新光醫院精神科病房主任</li>
-                                        <li class="small"><i class="fas fa-circle"></i>新光醫院精神科主治醫師</li>
-                                        <li class="small"><i class="fas fa-circle"></i>國家衛生研究院台灣成癮次專科醫師訓練</li>
-                                        <li class="small"><i class="fas fa-circle"></i>新光醫院精神科臨床研究員醫師</li>
-                                        <li class="small"><i class="fas fa-circle"></i>新光醫院精神科總醫師</li>
-                                        <li class="small"><i class="fas fa-circle"></i>新光醫院精神科住院醫師</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>`,
+	template: `
+	<div class="swiper-container">
+		<div class="csCounselor-gallery swiper-wrapper">
+			<div class="swiper-slide"  v-for="(item,index) in mySlide" :key="item.csId">
+				<div class="csCounselor-card">
+					<div class="csCounselor-image">
+					<a href="./csSelf.html">
+						<img class="img-responsive" src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg">
+					</a>
+					</div>
+					<a href="./csSelf.html">
+						<p class="csC-doctor__name">{{item.csName}}醫師</p>
+					</a>
+					<p class="csC-type_title">醫師專長</p>
+					<div class="csC-type_tag row">
+					<span class="col-4" v-for="(type, index) in 2">{{item.csType[index]}}</span>
+					</div>
+					<div class="csC-doctor__info">
+						<ul class="csC-doctor__list">
+							<li>
+								<p>經歷</p>
+								<ul class="csS-list">
+									<li class="small" v-for="his in strToArray(index)"><i class="fas fa-circle"></i>{{his}}</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+	</div>`,
+	props: ['slide-info'],
+	data() {
+		return {
+			mySwiper: '',
+			mySlide: this.slideInfo
+		}
+	},
+	mounted() {
+		this.mySwiper = new Swiper('.swiper-container', {
+			centeredSlides: true,
+			spaceBetween: 100,
+			direction: 'horizontal',
+			centeredSlides: true,
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev'
+			}
+		});
+	},
+	watch: {
+		slideInfo: function () {
+			this.mySlide = this.slideInfo;
+		}
+	},
+	updated() {
+		this.mySwiper.update();
+	},
 	methods: {
-		openSelfPage() {
-			window.open("./csSelf.html", "_self");
+		strToArray(index) {
+			return this.mySlide[index].csHis.split(",");
 		}
 	}
 });
 
-let vm = new Vue({
+
+
+
+// 掛載new Vue
+let vmCs = new Vue({
 	el: "#appCsMain",
 	data: {
 		screenWidth: window.innerWidth,
 		csGender: [],
 		csPosition: [],
-		csProblem: [],
+		csType: [],
 		slideBool: true,
-		countCards: 10
+		csData: [],
 	},
 	mounted() {
 		window.onresize = () => {
 			this.screenWidth = window.innerWidth;
 		};
+
+		axios.get('../json/csMain.json')
+			.then((res) => {
+				this.csData = res.data;
+			})
+			.catch((error) => {
+				console.log(error)
+			});
 	},
 	methods: {
-		cleanSelect() {
-			this.csGender = [];
-			this.csPosition = [];
-			this.csProblem = [];
-		},
+		// 開關縮小視窗後的選單用
 		slideToggle() {
 			let csMain = document.getElementById("csMain");
-			if (this.slideBool) {
-				csMain.classList.add("slideIn");
-				csMain.classList.remove("slideOut");
-				this.slideBool = !this.slideBool;
-			} else {
-				csMain.classList.remove("slideIn");
-				csMain.classList.add("slideOut");
-				this.slideBool = !this.slideBool;
-			}
+			csMain.classList.toggle("slideIn");
+			csMain.classList.toggle("slideOut");
+			this.slideBool = !this.slideBool;
 		},
+
+		// 關閉縮小視窗後的選單用
 		clickWhite(e) {
 			let csMain = document.getElementById("csMain");
-			if (e.target.contains(csMain)) {
+			if (e.target !== (csMain) && !csMain.contains(e.target)) {
 				csMain.classList.remove("slideIn");
 				csMain.classList.add("slideOut");
 				this.slideBool = true;
 			}
 		}
-	}
-});
-
-(function () {
-	let ctx = document.getElementsByClassName("myChart");
-
-	let datas = {
-		labels: ["Coding", "Swimming", "Eating", "Cycling", "Sleeping"],
-		datasets: [
-			{
-				label: "分數",
-				data: [60, 40, 50, 52, 75]
-			}
-		]
-	};
-
-	let option = {
-		legend: {
-			display: 0,
-			labels: {
-				fontColor: "rgb(255, 99, 132)"
+	},
+	computed: {
+		// 回傳篩選後的結果
+		// 篩選器的結果為一陣列，如果篩選器陣列中的任一元素 == 諮商師條件，就顯示那位諮商師的資料。
+		slideResult() {
+			// 如果都不選，就全部回傳
+			if (this.csGender.length + this.csPosition.length + this.csType.length == 0) {
+				return this.csData;
+			} else {
+				return this.csData.filter(item => {
+					return (this.csGender.indexOf(item.csGender) > -1 || this.csGender.length == 0) &&
+						(this.csPosition.indexOf(item.csPosition) > -1 || this.csPosition.length == 0) &&
+						(this.csType.indexOf(item.csType[0]) > -1 || this.csType.indexOf(item.csType[1]) > -1 || this.csType.length == 0);
+				})
 			}
 		},
-		scale: {
-			angleLines: {
-				display: false
-			},
-			ticks: {
-				suggestedMin: 0,
-				suggestedMax: 100
-			}
-		}
-	};
-
-	for (let i = 0; i < ctx.length; i++) {
-		new Chart(ctx[i].getContext("2d"), {
-			type: "radar",
-			data: datas,
-			options: option
-		});
-	}
-})();
-
-(function () {
-	let jsList = document.getElementsByClassName("js-list-toggle");
-	let jsItem = document.getElementsByClassName("js-item-toggle");
-	for (let i = 0; i < jsList.length; i++) {
-		jsList[i].addEventListener("click", function () {
-			$(jsItem[i]).slideToggle();
-		});
-	}
-})();
-
-let swiper = new Swiper(".swiper-container", {
-	spaceBetween: 100,
-	centeredSlides: true,
-	initialSlide: Math.ceil(vm.$data.countCards / 2),
-	navigation: {
-		nextEl: ".swiper-button-next",
-		prevEl: ".swiper-button-prev"
-	}
+	},
 });
