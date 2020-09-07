@@ -59,6 +59,24 @@ p {
             background-position: center center;
             background-size: contain;
             background-repeat: no-repeat;
+            animation: backCloud 10s linear infinite;
+        }
+        @keyframes backCloud {
+            0% {
+                transform: translateX(0px);
+            }
+            25% {
+                transform: translateX(10px);
+            }
+            50% {
+                transform: translateX(0px);
+            }
+            75% {
+                transform: translateX(-10px);
+            }
+            100% {
+                transform: translateX(0px);
+            }
         }
         .oracleCardBanner {
             display: block;
@@ -107,32 +125,6 @@ p {
                     padding: 20px 60px 0px;
                     margin-bottom: 20px;
                     position: relative;
-                    &::before {
-                        content: '';
-                        display: block;
-                        position: absolute;
-                        left: -20%;
-                        top: 30px;
-                        width: 400px;
-                        height: 500px;
-                        background-image: url(../img/oracleCard/cloud_h.png);
-                        background-position: center center;
-                        background-size: contain;
-                        background-repeat: no-repeat;
-                    }
-                    &::after {
-                        content: '';
-                        display: block;
-                        position: absolute;
-                        right: -20%;
-                        top: 130px;
-                        width: 400px;
-                        height: 200px;
-                        background-image: url(../img/oracleCard/cloud_i.png);
-                        background-position: center center;
-                        background-size: contain;
-                        background-repeat: no-repeat;
-                    }
                     h1 {
                         text-align: center;
                         position: relative;
@@ -148,6 +140,8 @@ p {
                             background-position: center center;
                             background-size: contain;
                             background-repeat: no-repeat;
+                            animation: frontMoon 20s linear infinite;
+                            animation-delay: 1s;
                         }
                         &::after {
                             content: '';
@@ -161,6 +155,60 @@ p {
                             background-position: center center;
                             background-size: contain;
                             background-repeat: no-repeat;
+                        }
+                    }
+                    #forCloud {
+                        display: block;
+                        width: 100%;
+                        height: 100px;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        &::before {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            left: -20%;
+                            top: 30px;
+                            width: 400px;
+                            height: 500px;
+                            background-image: url(../img/oracleCard/cloud_h.png);
+                            background-position: center center;
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            animation: backMoon 5s linear infinite;
+                            animation-delay: 1s;
+                        }
+                        &::after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            right: -20%;
+                            top: 130px;
+                            width: 400px;
+                            height: 200px;
+                            background-image: url(../img/oracleCard/cloud_i.png);
+                            background-position: center center;
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            animation: backMoon 5s linear infinite;
+                        }
+                        @keyframes backMoon {
+                            0% {
+                                transform: translateX(0px);
+                            }
+                            25% {
+                                transform: translateX(10px);
+                            }
+                            50% {
+                                transform: translateX(0px);
+                            }
+                            75% {
+                                transform: translateX(-10px);
+                            }
+                            100% {
+                                transform: translateX(0px);
+                            }
                         }
                     }
                 }
@@ -180,6 +228,24 @@ p {
                         background-position: center center;
                         background-size: contain;
                         background-repeat: no-repeat;
+                        animation: frontMoon 15s linear infinite;
+                    }
+                    @keyframes frontMoon {
+                        0% {
+                            transform: translateX(0px);
+                        }
+                        25% {
+                            transform: translateX(8px);
+                        }
+                        50% {
+                            transform: translateX(0px);
+                        }
+                        75% {
+                            transform: translateX(-8px);
+                        }
+                        100% {
+                            transform: translateX(0px);
+                        }
                     }
                 }
             }
@@ -541,32 +607,51 @@ p {
                     margin: 0 auto;
                     width: 100%;
                     position: relative;
+                    backface-visibility: hidden;
                     .item {
-                        position: relative;
-                        transition: all 1s linear;
                         perspective: 300px;
                         transform-style: preserve-3d;
                         transition: 2s;
-                        .sameSet {
-                            position: absolute;
-                            left: 0;
-                            right: 0;
-                            border-radius: 10px;
-                            transition: transform 2s;
-                            height: 100%;
-                        }
+                        backface-visibility: hidden;
                         .itemImg {
-                            width: 100%;
                             cursor: pointer;
+                            perspective: 1500px;
+                            text-transform: uppercase;
+                            position: relative;
+                            width: 100%;
+                            height: 360px;
                             opacity: 1;
-                            img {
-                                animation: cardShack 2s infinite linear;
-                                transform: rotateY(0deg) translateZ(1px) scale(1);
-                                width: 100%;
-                                vertical-align: bottom;
-                                border-radius: 10px;
-                                transition: 2s;
-                                box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+                            transition: all 1s;
+                            .card__side--back.backRotate {
+                                transform: rotateY(-540deg);
+                            }
+                            .card__side--front.frontRotate {
+                                transform: rotateY(-360deg);
+                            }
+                            .card__side {
+                                border-radius: 5px;
+                                position: absolute;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                top: 0;
+                                left: 0;
+                                transition: all .9s ease;
+                                backface-visibility: hidden;
+                                img {
+                                    width: 100%;
+                                    vertical-align: bottom;
+                                    border-radius: 10px;
+                                    transition: 2s;
+                                    box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+                                    height: 100%;
+                                }
+                            }
+                            .card__side--front {
+                                transform: rotateY(180deg);
+                            }
+                            .card__side--back {
+                                transform: rotateY(0deg);
                             }
                             @keyframes cardShack {
                                 0% {
@@ -585,80 +670,21 @@ p {
                                     transform: rotate(0deg);
                                 }
                             }
-                            @keyframes cardShack1 {
-                                0% {
-                                    transform: rotate(0deg);
-                                }
-                                25% {
-                                    transform: rotate(2deg);
-                                }
-                                50% {
-                                    transform: rotate(0deg);
-                                }
-                                75% {
-                                    transform: rotate(-2deg);
-                                }
-                                100% {
-                                    transform: rotate(0deg);
-                                }
-                            }
-                            @keyframes cardShackHover {
-                                0% {
-                                    transform: rotate(0deg);
-                                }
-                                25% {
-                                    transform: rotate(-5deg);
-                                }
-                                50% {
-                                    transform: rotate(0deg);
-                                }
-                                75% {
-                                    transform: rotate(5deg);
-                                }
-                                100% {
-                                    transform: rotate(0deg);
-                                }
-                            }
                         }
-                        .itemRemoveOpacity {
-                            opacity: 0 !important;
-                            transition: .3s;
-                            transition-delay: .3s;
-                            img {
-                                transform: scale(1);
-                            }
-                        }
-                        .itemImgBack {
-                            width: 100%;
-                            cursor: pointer;
-                            transform: rotateY(180deg);
-                            transition: 2s;
-                            >img {
-                                width: 100%;
-                                animation: cardShack1 2s infinite linear;
-                                vertical-align: bottom;
-                                border-radius: 10px;
-                                transition: 2s;
-                                // transform: scale(0.95);
-                                transform: scale(1);
-                                box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-                            }
-                        }
-                        .cardTxt {
+                        .itemTxt {
                             position: absolute;
-                            left: 0;
-                            margin-left: 80px;
-                            top: 50px;
-                            max-width: 600px;
-                            width: 500px;
-                            display: inline-block;
-                            transition: 2s;
-                            overflow: hidden;
+                            left: 200%;
+                            top: 0;
+                            width: 200%;
+                            opacity: 1;
+                            z-index: 1;
+                            transition: opacity 1s 1.5s linear;
                             fieldset {
+                                // width: 100%;
                                 border: 3px solid #ffa492;
                                 padding: 10px;
                                 margin-bottom: 10px;
-                                opacity: 0;
+                                // opacity: 0;
                                 transition: 2s ease-in-out;
                                 position: relative;
                                 cursor: auto;
@@ -670,16 +696,14 @@ p {
                                 }
                                 >p {
                                     @include p;
-                                    font-size: 12px;
-                                    opacity: 0;
+                                    // font-size: 12px;
+                                    // opacity: 0;
                                     letter-spacing: 0.8px;
                                     width: 100%;
                                     padding: 0 10px;
-                                    // transform: translateX(-100%);
                                     transition: 2s ease-in-out;
                                     text-align: left;
                                     margin-bottom: 20px;
-                                    // word-wrap:break-word;
                                 }
                                 >img {
                                     width: 20px;
@@ -690,23 +714,13 @@ p {
                                     cursor: pointer;
                                 }
                             }
-                            .h2AddOpacity {
-                                opacity: 1;
-                                // transition: 2s ease-in-out;
-                                transform: translateX(0);
-                                transition-delay: 1.5s;
-                            }
-                            .pAddOpacity {
-                                opacity: 1;
-                                transform: translateX(0);
-                                transition-delay: 2.5s;
-                            }
                         }
-                        .cardTxtLeft {
-                            left: 100%;
+                        .itemTxt.txtOpacityOne {
+                            opacity: 0;
+                            left: 3000px;
                         }
-                        .cardHeight {
-                            height: 0;
+                        .itemImg.animationShack {
+                            animation: cardShack 2s infinite linear;
                         }
                     }
                     //cardBtn
@@ -727,6 +741,9 @@ p {
                     }
                     .item.middle {
                         left: 50%;
+                    }
+                    .item.left {
+                        left: 30%;
                     }
                 }
                 .cardBtn {
@@ -808,6 +825,7 @@ p {
                     border: 1px solid #333;
                     canvas {
                         width: 100%;
+                        height: 100%;
                     }
                 }
             }
