@@ -1,0 +1,374 @@
+[
+  {
+    "csId": 100,
+    "csName": "王小明8",
+    "csHis": "5c1cc36d-6e8e-49e4-b2bd-6c74947aa57c",
+    "csEdu": "7cea59ec-27f2-4dd5-88dc-b61cb2c58415",
+    "csType": [
+      {
+        "csTypeName": "家庭關係",
+        "csTypeNum": 100
+      },
+      {
+        "csTypeName": "人際關係",
+        "csTypeNum": 94
+      },
+      {
+        "csTypeName": "伴侶關係",
+        "csTypeNum": 72
+      },
+      {
+        "csTypeName": "壓力創傷",
+        "csTypeNum": 3
+      },
+      {
+        "csTypeName": "自我探索",
+        "csTypeNum": 60
+      }
+    ],
+    "csGender": "male",
+    "csPosition": "south",
+    "csProblem": "problem5"
+  },
+  {
+    "csId": 101,
+    "csName": "王小明5",
+    "csHis": "cd643faa-2d44-4c29-bb8d-e033400af633",
+    "csEdu": "94b9dd30-305f-4e90-a4c3-b15ad6e80467",
+    "csType": [
+      {
+        "csTypeName": "家庭關係",
+        "csTypeNum": 22
+      },
+      {
+        "csTypeName": "人際關係",
+        "csTypeNum": 29
+      },
+      {
+        "csTypeName": "伴侶關係",
+        "csTypeNum": 91
+      },
+      {
+        "csTypeName": "壓力創傷",
+        "csTypeNum": 68
+      },
+      {
+        "csTypeName": "自我探索",
+        "csTypeNum": 76
+      }
+    ],
+    "csGender": "male",
+    "csPosition": "south",
+    "csProblem": "problem5"
+  },
+  {
+    "csId": 102,
+    "csName": "王小明8",
+    "csHis": "531bb785-8965-4561-84c8-24ff75163842",
+    "csEdu": "9d6af810-26f2-4755-9d3a-baa2f6cb0313",
+    "csType": [
+      {
+        "csTypeName": "家庭關係",
+        "csTypeNum": 78
+      },
+      {
+        "csTypeName": "人際關係",
+        "csTypeNum": 61
+      },
+      {
+        "csTypeName": "伴侶關係",
+        "csTypeNum": 47
+      },
+      {
+        "csTypeName": "壓力創傷",
+        "csTypeNum": 69
+      },
+      {
+        "csTypeName": "自我探索",
+        "csTypeNum": 11
+      }
+    ],
+    "csGender": "male",
+    "csPosition": "center",
+    "csProblem": "problem3"
+  },
+  {
+    "csId": 103,
+    "csName": "王小明8",
+    "csHis": "3c398bfe-5755-4846-b868-d9a7e14645dd",
+    "csEdu": "cea99fab-0e6f-417c-8bc8-d12771ec1b55",
+    "csType": [
+      {
+        "csTypeName": "家庭關係",
+        "csTypeNum": 73
+      },
+      {
+        "csTypeName": "人際關係",
+        "csTypeNum": 13
+      },
+      {
+        "csTypeName": "伴侶關係",
+        "csTypeNum": 68
+      },
+      {
+        "csTypeName": "壓力創傷",
+        "csTypeNum": 28
+      },
+      {
+        "csTypeName": "自我探索",
+        "csTypeNum": 40
+      }
+    ],
+    "csGender": "male",
+    "csPosition": "center",
+    "csProblem": "problem3"
+  },
+  {
+    "csId": 104,
+    "csName": "王小明1",
+    "csHis": "09673b4f-4feb-4cd2-b22c-0d5b1880f5cb",
+    "csEdu": "3b4d6515-0a88-4d53-bdbf-138609c21b99",
+    "csType": [
+      {
+        "csTypeName": "家庭關係",
+        "csTypeNum": 61
+      },
+      {
+        "csTypeName": "人際關係",
+        "csTypeNum": 56
+      },
+      {
+        "csTypeName": "伴侶關係",
+        "csTypeNum": 61
+      },
+      {
+        "csTypeName": "壓力創傷",
+        "csTypeNum": 99
+      },
+      {
+        "csTypeName": "自我探索",
+        "csTypeNum": 65
+      }
+    ],
+    "csGender": "female",
+    "csPosition": "north",
+    "csProblem": "problem2"
+  },
+  {
+    "csId": 105,
+    "csName": "王小明2",
+    "csHis": "ac924a76-791a-4569-8a44-0a712633a496",
+    "csEdu": "3f9318e9-27aa-4636-8be1-3f1c7d9c9b90",
+    "csType": [
+      {
+        "csTypeName": "家庭關係",
+        "csTypeNum": 65
+      },
+      {
+        "csTypeName": "人際關係",
+        "csTypeNum": 46
+      },
+      {
+        "csTypeName": "伴侶關係",
+        "csTypeNum": 61
+      },
+      {
+        "csTypeName": "壓力創傷",
+        "csTypeNum": 36
+      },
+      {
+        "csTypeName": "自我探索",
+        "csTypeNum": 95
+      }
+    ],
+    "csGender": "female",
+    "csPosition": "north",
+    "csProblem": "problem4"
+  },
+  {
+    "csId": 106,
+    "csName": "王小明0",
+    "csHis": "bfde35fd-3d9e-4ef2-809e-b5bf4c1dbe6d",
+    "csEdu": "0bab2331-66e1-4837-9ad2-dda03f5726b4",
+    "csType": [
+      {
+        "csTypeName": "家庭關係",
+        "csTypeNum": 11
+      },
+      {
+        "csTypeName": "人際關係",
+        "csTypeNum": 95
+      },
+      {
+        "csTypeName": "伴侶關係",
+        "csTypeNum": 43
+      },
+      {
+        "csTypeName": "壓力創傷",
+        "csTypeNum": 26
+      },
+      {
+        "csTypeName": "自我探索",
+        "csTypeNum": 64
+      }
+    ],
+    "csGender": "female",
+    "csPosition": "south",
+    "csProblem": "problem2"
+  },
+  {
+    "csId": 107,
+    "csName": "王小明9",
+    "csHis": "6b9f8742-c89d-43ae-a4f8-819390ae458d",
+    "csEdu": "1e7e603b-dfa0-41d9-a267-ffd3782a7d76",
+    "csType": [
+      {
+        "csTypeName": "家庭關係",
+        "csTypeNum": 74
+      },
+      {
+        "csTypeName": "人際關係",
+        "csTypeNum": 36
+      },
+      {
+        "csTypeName": "伴侶關係",
+        "csTypeNum": 37
+      },
+      {
+        "csTypeName": "壓力創傷",
+        "csTypeNum": 69
+      },
+      {
+        "csTypeName": "自我探索",
+        "csTypeNum": 9
+      }
+    ],
+    "csGender": "male",
+    "csPosition": "north",
+    "csProblem": "problem3"
+  },
+  {
+    "csId": 108,
+    "csName": "王小明7",
+    "csHis": "24d29786-9955-4cb2-bb54-1ddddb24bdab",
+    "csEdu": "e084a446-e47c-46b1-994c-5323aab324bb",
+    "csType": [
+      {
+        "csTypeName": "家庭關係",
+        "csTypeNum": 90
+      },
+      {
+        "csTypeName": "人際關係",
+        "csTypeNum": 81
+      },
+      {
+        "csTypeName": "伴侶關係",
+        "csTypeNum": 98
+      },
+      {
+        "csTypeName": "壓力創傷",
+        "csTypeNum": 35
+      },
+      {
+        "csTypeName": "自我探索",
+        "csTypeNum": 44
+      }
+    ],
+    "csGender": "female",
+    "csPosition": "north",
+    "csProblem": "problem1"
+  },
+  {
+    "csId": 109,
+    "csName": "王小明6",
+    "csHis": "2e4d810b-5abe-40f3-9f58-731acabac1b7",
+    "csEdu": "8e8ec969-71dd-40b5-8192-fbed9d3c4caa",
+    "csType": [
+      {
+        "csTypeName": "家庭關係",
+        "csTypeNum": 94
+      },
+      {
+        "csTypeName": "人際關係",
+        "csTypeNum": 61
+      },
+      {
+        "csTypeName": "伴侶關係",
+        "csTypeNum": 37
+      },
+      {
+        "csTypeName": "壓力創傷",
+        "csTypeNum": 59
+      },
+      {
+        "csTypeName": "自我探索",
+        "csTypeNum": 53
+      }
+    ],
+    "csGender": "female",
+    "csPosition": "center",
+    "csProblem": "problem1"
+  },
+  {
+    "csId": 110,
+    "csName": "王小明3",
+    "csHis": "05c352e1-bf14-4897-accd-0fd66f643649",
+    "csEdu": "7add1ebf-16c0-4fca-8d75-e40f526dbf96",
+    "csType": [
+      {
+        "csTypeName": "家庭關係",
+        "csTypeNum": 67
+      },
+      {
+        "csTypeName": "人際關係",
+        "csTypeNum": 25
+      },
+      {
+        "csTypeName": "伴侶關係",
+        "csTypeNum": 30
+      },
+      {
+        "csTypeName": "壓力創傷",
+        "csTypeNum": 76
+      },
+      {
+        "csTypeName": "自我探索",
+        "csTypeNum": 22
+      }
+    ],
+    "csGender": "male",
+    "csPosition": "south",
+    "csProblem": "problem5"
+  },
+  {
+    "csId": 111,
+    "csName": "王小明3",
+    "csHis": "78a21985-399f-45f0-a7e5-c44173d156a5",
+    "csEdu": "fe240ecd-656c-4ef1-9413-bbca4aff6940",
+    "csType": [
+      {
+        "csTypeName": "家庭關係",
+        "csTypeNum": 37
+      },
+      {
+        "csTypeName": "人際關係",
+        "csTypeNum": 33
+      },
+      {
+        "csTypeName": "伴侶關係",
+        "csTypeNum": 64
+      },
+      {
+        "csTypeName": "壓力創傷",
+        "csTypeNum": 83
+      },
+      {
+        "csTypeName": "自我探索",
+        "csTypeNum": 90
+      }
+    ],
+    "csGender": "male",
+    "csPosition": "south",
+    "csProblem": "problem1"
+  }
+]

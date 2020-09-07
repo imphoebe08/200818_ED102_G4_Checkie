@@ -1,29 +1,24 @@
-
-footer{
+footer {
     display: inline-block;
     width: 100%;
     text-align: center;
     background-color: #fdd1c89f;
     z-index: 999;
-    
-
-    .footer_socialmedia{
+    .footer_socialmedia {
         margin: 10px auto 0;
+        padding-top: 10px;
         width: 300px;
         height: 50px;
-
-        .socialmedia_link{
+        .socialmedia_link {
             display: inline-block;
             width: 50px;
             height: 50px;
             position: relative;
             z-index: 1;
-
-            img.black{
-                width: 100%; 
+            img.black {
+                width: 100%;
             }
-
-            img.pink{
+            img.pink {
                 width: 100%;
                 position: absolute;
                 left: 0;
@@ -34,47 +29,44 @@ footer{
                 height: 50px;
                 opacity: 0;
                 transition: all .3s ease;
-                
             }
-
-    
-            &:hover{
-                img.black{
+            &:hover {
+                img.black {
                     opacity: 0;
                 }
-                img.pink{
+                img.pink {
                     opacity: 1;
-                    
                 }
-
             }
-
-
         }
-
     }
-
-    p{
+    p {
         @include p;
-        font-size: $fontsize - 4px; 
+        font-size: $fontsize - 4px;
         display: inline-block;
         padding-right: 5px;
         margin: 0;
-        
     }
-
-    .footer_address{
+    .footer_address {
         display: inline-block;
         width: 100%;
-
-    h6{
-        padding-right: 5px;
-        @include h6;
-        font-size: $fontsize - 4px; 
-        display: inline-block;
-        font-weight: 500;
-        margin: 0;
+        h6 {
+            padding-right: 5px;
+            @include h6;
+            font-size: $fontsize - 4px;
+            display: inline-block;
+            font-weight: 500;
+            margin: 0;
+        }
+        @media screen and (max-width:768px) {
+            h6 {
+                font-size: $fontsize - 4px;
+            }
         }
     }
-
+    span {
+        @include p;
+        font-size: $fontsize - 4px;
+        padding-bottom: 10px;
+    }
 }

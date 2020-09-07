@@ -13,36 +13,61 @@ body{
     font-size: $fontsize*2.5;
     line-height: $line-height;
     letter-spacing:$letter-spacing;
+
+    @media screen and(max-width:768px) {
+        font-size: $fontsize*1.8;
+    }
 }
 
 @mixin h2{
     font-size: $fontsize*2.25;
     line-height: 1.5;
     letter-spacing:$letter-spacing;
+
+    @media screen and(max-width:768px) {
+        font-size: $fontsize*1.6;
+    }
 }
 
 @mixin h3{
     font-size: $fontsize*2;
     line-height: 1.5;
     letter-spacing:$letter-spacing;
+
+    @media screen and(max-width:768px) {
+        font-size: $fontsize*1.55;
+    }
 }
 
 @mixin h4{
     font-size: $fontsize*1.75;
     line-height: 1.5;
     letter-spacing:$letter-spacing;
+
+    @media screen and(max-width:768px) {
+        font-size: $fontsize*1.4;
+    }
 }
 
 @mixin h5{
     font-size: $fontsize*1.5;
     line-height: 1.5;
     letter-spacing:$letter-spacing;
+
+    @media screen and(max-width:768px) {
+        font-size: $fontsize*1.2;
+    }
 }
 
 @mixin h6{
     font-size: $fontsize*1.25;
     line-height: 1.5;
     letter-spacing:$letter-spacing;
+
+    @media screen and(max-width:768px) {
+        font-size: $fontsize*1.1;
+    }
+
 }
 
 

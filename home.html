@@ -8,7 +8,7 @@
     <!-- navbar & footer css -->
     <link rel="stylesheet" href="./css/main.css">
 
-    <!-- ---------- -->
+    <!-- ------------ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
@@ -38,104 +38,8 @@
 </head>
 
 <body id="body">
-    <!------導覽列------>
-    <div class="top">
-        <div class="navbar">
-            <a href="./index.html" class="navbar__item logo"><img src="./img/navbar/cklogo.png" alt class="desktop_logo"><img src="./img/navbar/cklogo2.png" alt class="mobile_logo"></a>
-            <div class="navbar__menu">
-                <a class="navbar__item navbar__link" href="./csMain.html">預約諮詢</a>
-                <a class="navbar__item navbar__link" href="./chatRoom.html">線上諮商</a>
-                <a class="navbar__item navbar__link" href="./acMain.html">活動報名</a>
-                <a class="navbar__item navbar__link" href="./atMain.html">專欄文章</a>
-                <a class="navbar__item navbar__link" href="./oracleCard.html">神諭卡</a>
-                <a class="navbar__item navbar__link" href="./test.html">心理評估測驗</a>
 
-            </div>
-
-            <ul class="navbar__sign">
-                <li><button class="navbar__sign__item" id="signup">加入會員</button></li>
-                <li> ｜</li>
-                <li><button class="navbar__sign__item" id="signin">登入</button></li>
-            </ul>
-
-            <span class="hamburger hamburger--collapse navbar__item" id="js-navbar-toggle">
-                <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-            </span>
-            </span>
-        </div>
-    </div>
-
-    <!------註冊登入會員----->
-    <div class="signup_overlay signup_overlay-none" id="signup_overlay">
-        <div class="container" id="container">
-            <span class="container_close" id="close">&times;</span>
-            <div class="form-container sign-up-container">
-                <form action="#">
-                    <h3>加入會員aaaa</h3>
-                    <span>請填寫以下資訊完成註冊</span>
-                    <input type="text" placeholder="Name" />
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <button>註冊</button>
-                </form>
-            </div>
-            <div class="form-container sign-in-container">
-                <form action="#">
-                    <h3>登入會員</h3>
-                    <span>請輸入您的帳號密碼</span>
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <a href="#">忘記密碼？</a>
-                    <button>登入</button>
-                </form>
-            </div>
-            <div class="overlay-container">
-                <div class="overlay">
-                    <div class="overlay-panel overlay-left">
-                        <h3>歡迎回來！</h3>
-                        <p>登入會員享有更多服務</p>
-                        <button class="ghost" id="signIn">登入會員</button>
-                    </div>
-                    <div class="overlay-panel overlay-right">
-                        <h3>歡迎加入Checkie！</h3>
-                        <p>為生命帶來一些新的可能，<br>只需簡單完成申請</p>
-                        <button class="ghost" id="signUp">加入會員</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--------Chatbot-------->
-    <button class="circle" type="button">
-
-        <span class="icon-elements">
-        </span>
-    </button>
-    <div class="modal-wrapper">
-
-        <header class="modal-header">
-            <span class="title">Checkie線上客服</span>
-            <p>您好！很高興為您服務</p>
-        </header>
-
-        <div class="modal-chatbox">
-            <span class="reply" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
-            <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
-            <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
-            <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
-        </div>
-        <form action="">
-            <div class="modal-inputbox">
-                <input class="modal-input" type="text" placeholder="輸入您的問題...">
-                <input class="modal-input_submit" type="button" value="送出">
-            </div>
-        </form>
-    </div>
-
-    <!-- ----------------------------------- -->
-
+    @@include('template/index-navbar.html')
 
     <div class="inBanner" id="inBanner">
         <!-- 背景圖圈圈 -->
@@ -445,8 +349,9 @@
         });
     </script>
     <!-- 諮商師卡片開始 -->
-    <h1 class="inSc-h1">諮商師介紹</h1>
+
     <div class="inCs_group" id="inCsGroup">
+        <h1 class="inSc-h1">諮商師介紹</h1>
         <keep-alive>
             <div class="inCs inCs--large" v-show="screenWidth >= 576">
                 <ul class="leftList">
@@ -604,9 +509,20 @@
 
             let option = {
                 legend: {
-                    display: 0,
-                    labels: {
-                        fontColor: "rgb(255, 99, 132)"
+                    display: 0
+                },
+                tooltips: {},
+                elements: {
+                    line: {
+                        backgroundColor: "rgba(255, 99, 160, 0.2)",
+                        borderColor: "rgba(255, 99, 160, 0.2)"
+                    },
+                    point: {
+                        backgroundColor: "rgba(255, 99, 132, 0.2)",
+                        hoverBackgroundColor: "rgba(255, 99, 132, 0.8)",
+                        radius: 5,
+                        pointStyle: "circle",
+                        hoverRadius: 8
                     }
                 },
                 scale: {
@@ -615,8 +531,22 @@
                     },
                     ticks: {
                         suggestedMin: 0,
-                        suggestedMax: 100
+                        suggestedMax: 100,
+                        stepSize: 20,
+                        display: false
+                    },
+                    pointLabels: {
+                        fontSize: 16,
+                        fontFamily: "微軟正黑體"
                     }
+                },
+                layout: {
+                    // padding: {
+                    //     left: 20,
+                    //     right: 20,
+                    //     top: 10,
+                    //     bottom: 10
+                    // }
                 }
             };
 
@@ -694,7 +624,7 @@
                                 <div class="inAct-left_date">
                                     <div class="inAct-date_icon"></div>
                                     <!-- 帶資料 -->
-                                    <div class="inAct-date_text">2020-08-14(五) ~ 2020-08-16(日)</div>  
+                                    <div class="inAct-date_text">2020-08-14(五)</div>  
                                 </div>
                                 <div class="inAct-icon_block">
                                     <a href="javascript:void(0)" class="inAct-icon_1" draggable="false"></a>
@@ -802,14 +732,20 @@
 
 
                         curSlide.style.transition = 'none';
-                        curSlide.style.webkitTransform = 'translateX(' + transX + 'px)' + ' rotateZ(' + rotZ + 'deg)' + ' translateY(' + transY + 'px)';
-                        curSlide.style.transform = 'translateX(' + transX + 'px)' + ' rotateZ(' + rotZ + 'deg)' + ' translateY(' + transY + 'px)';
+                        curSlide.style.webkitTransform = 'translateX(' + transX + 'px)' + ' rotateZ(' + rotZ +
+                            'deg)' + ' translateY(' + transY + 'px)';
+                        curSlide.style.transform = 'translateX(' + transX + 'px)' + ' rotateZ(' + rotZ +
+                            'deg)' + ' translateY(' + transY + 'px)';
                         var j = 1;
                         //remains elements
                         for (var i = sliders.length - 2; i >= 0; i--) {
 
-                            sliders[i].style.webkitTransform = 'translateX(' + transX / (2 * j) + 'px)' + ' rotateZ(' + rotZ / (2 * j) + 'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' + ' translateZ(' + (-Z_DIS * j) + 'px)';
-                            sliders[i].style.transform = 'translateX(' + transX / (2 * j) + 'px)' + ' rotateZ(' + rotZ / (2 * j) + 'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' + ' translateZ(' + (-Z_DIS * j) + 'px)';
+                            sliders[i].style.webkitTransform = 'translateX(' + transX / (2 * j) + 'px)' +
+                                ' rotateZ(' + rotZ / (2 * j) + 'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' +
+                                ' translateZ(' + (-Z_DIS * j) + 'px)';
+                            sliders[i].style.transform = 'translateX(' + transX / (2 * j) + 'px)' +
+                                ' rotateZ(' + rotZ / (2 * j) + 'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' +
+                                ' translateZ(' + (-Z_DIS * j) + 'px)';
                             sliders[i].style.transition = 'none';
                             j++;
                         }
@@ -854,14 +790,21 @@
 
                         curSlide.style.transition = 'cubic-bezier(0,1.95,.49,.73) ' + TRANS_DUR + 's';
 
-                        curSlide.style.webkitTransform = 'translateX(' + transX + 'px)' + 'rotateZ(' + rotZ + 'deg)' + ' translateY(' + transY + 'px)';
-                        curSlide.style.transform = 'translateX(' + transX + 'px)' + 'rotateZ(' + rotZ + 'deg)' + ' translateY(' + transY + 'px)';
+                        curSlide.style.webkitTransform = 'translateX(' + transX + 'px)' + 'rotateZ(' + rotZ +
+                            'deg)' + ' translateY(' + transY + 'px)';
+                        curSlide.style.transform = 'translateX(' + transX + 'px)' + 'rotateZ(' + rotZ + 'deg)' +
+                            ' translateY(' + transY + 'px)';
                         //remains elements
                         var j = 1;
                         for (var i = sliders.length - 2; i >= 0; i--) {
-                            sliders[i].style.transition = 'cubic-bezier(0,1.95,.49,.73) ' + TRANS_DUR / (j + 0.9) + 's';
-                            sliders[i].style.webkitTransform = 'translateX(' + transX + 'px)' + 'rotateZ(' + rotZ + 'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' + ' translateZ(' + (-Z_DIS * j) + 'px)';
-                            sliders[i].style.transform = 'translateX(' + transX + 'px)' + 'rotateZ(' + rotZ + 'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' + ' translateZ(' + (-Z_DIS * j) + 'px)';
+                            sliders[i].style.transition = 'cubic-bezier(0,1.95,.49,.73) ' + TRANS_DUR / (j +
+                                0.9) + 's';
+                            sliders[i].style.webkitTransform = 'translateX(' + transX + 'px)' + 'rotateZ(' +
+                                rotZ + 'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' + ' translateZ(' + (-
+                                    Z_DIS * j) + 'px)';
+                            sliders[i].style.transform = 'translateX(' + transX + 'px)' + 'rotateZ(' + rotZ +
+                                'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' + ' translateZ(' + (-Z_DIS * j) +
+                                'px)';
 
                             j++;
                         }
@@ -876,73 +819,99 @@
             },
         })
     </script>
+    <!-- <h1 class="inArti" id="inArti">專欄文章</h1> -->
 
     <div class="inArti" id="inArti">
-        <h1>專欄文章</h1>
-        <div class="inArti_body">
-            <div class="inArti_left">
-                <inArti-item v-for="num in 5">
-                    </inArti-left-item>
-            </div>
-            <div class="inArti_conter">
-                <div class="inArti-conterbox">
-                    <inArti-item v-for="num in 3">
-                        </inArti-left-item>
+
+        <div class="inArti-pages" id="inArti-pages">
+            <div class="inArti-page inArti-page-1 active">
+                <div class="inArti-page__half inArti-page__half--left">
+                    <div class="inArti-page__skewed">
+                        <a href="javascript:void(0)" class="inArti-page__content">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/mousover-img-1.jpg">
+                        </a>
+                    </div>
+                </div>
+                <div class="inArti-page__half inArti-page__half--right">
+                    <div class="inArti-page__skewed">
+                        <a href="javascript:void(0)" class="inArti-page__content">
+                            <h2 class="inArti-page__heading">{{Arti[0].title}}</h2>
+                            <p class="inArti-page__description">{{Arti[0].content}}</p>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="inArti_right">
-                <inArti-item v-for="num in 4">
-                    </inArti-left-item>
+            <div class="inArti-page inArti-page-2">
+                <div class="inArti-page__half inArti-page__half--left">
+                    <div class="inArti-page__skewed">
+                        <a href="javascript:void(0)" class="inArti-page__content">
+                            <h2 class="inArti-page__heading">{{Arti[1].title}}</h2>
+                            <p class="inArti-page__description">{{Arti[1].content}}</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="inArti-page__half inArti-page__half--right">
+                    <div class="inArti-page__skewed">
+                        <a href="javascript:void(0)" class="inArti-page__content">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/slider-2.jpg">
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
+            <div class="inArti-page inArti-page-3">
+                <div class="inArti-page__half inArti-page__half--left">
+                    <div class="inArti-page__skewed">
+                        <a href="javascript:void(0)" class="inArti-page__content">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/mousover-img-2.jpg">
+                        </a>
+                    </div>
+                </div>
+                <div class="inArti-page__half inArti-page__half--right">
+                    <div class="inArti-page__skewed">
+                        <a href="javascript:void(0)" class="inArti-page__content">
+                            <h2 class="inArti-page__heading">{{Arti[2].title}}</h2>
+                            <p class="inArti-page__description">{{Arti[2].content}}</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
+        </div>
     </div>
+
+
+    <script>
+    </script>
     <script>
         // inArti
         new Vue({
             el: "#inArti",
-            date: {
-                Arti: {
+            data: {
+                Arti: [{
                     author: "溫在涵",
                     date: "JUL 20,2020",
                     category: "人際關係",
                     title: "品格出眾的人，都懂得避開「巴納姆效應」",
                     content: "有一個朋友，什麼感情上的疑難雜症全都依賴星座命盤去分析，還常常對我們其他朋友說，「我以前也沒那麼信星座，但有時候真的很準。」The post 品格出眾的人，都懂得避開「巴納姆效應」心理陷阱 appeared first on A Day Magazine....",
 
-                }
-            },
-            components: {
-                "inarti-item": {
-                    // 要有一個主標籤
-                    template: `
-            <a href="javascript:void(0)">
-                <article>
-                    <div class="inArti-left_pic1">
-                        <img src="./img/index/inArti/family/family2-2.png" alt="" >
-                    </div>
-                    <div class="inArti-left_detail">
-                        <div class="inArti-left-detail_block">
-                            <div class="inArti-left-detail_pic"><img src="./img/index/inArti/doctors/doctors1.jpeg" ></div>
-                            <div class="inArti-left-detail_text">留佩萱醫師</div>
+                }, {
+                    author: "溫在涵",
+                    date: "JUL 20,2020",
+                    category: "人際關係",
+                    title: "品格出眾的人，都懂得避開「巴納姆效應」",
+                    content: "有一個朋友，什麼感情上的疑難雜症全都依賴星座命盤去分析，還常常對我們其他朋友說，「我以前也沒那麼信星座，但有時候真的很準。」The post 品格出眾的人，都懂得避開「巴納姆效應」心理陷阱 appeared first on A Day Magazine....",
 
-                        </div>
-                        <div class="inArti-left-detail_title">家庭關係</div>
-                    </div>
-                    <div class="inArti-left_border1"></div>
-                    <div class="inArti-left_title">
-                        <h2>受傷的童年，受創的大腦</h2>
-                    </div>
-                    <div class="inArti-left_partner">
-                        ACE研究是在1990年左右由美國醫師等人所做的研究，當時研究了17,000多個對象，想要探討童年的創傷經驗和成人時期的健康之間的關聯性。當時的研究結果非常的驚人受試的研究對象中...
-                    </div>
-                   
-                </article>
-            </a>
-                    `,
-                },
+                }, {
+                    author: "溫在涵",
+                    date: "JUL 20,2020",
+                    category: "人際關係",
+                    title: "品格出眾的人，都懂得避開「巴納姆效應」",
+                    content: "有一個朋友，什麼感情上的疑難雜症全都依賴星座命盤去分析，還常常對我們其他朋友說，「我以前也沒那麼信星座，但有時候真的很準。」The post 品格出眾的人，都懂得避開「巴納姆效應」心理陷阱 appeared first on A Day Magazine....",
 
+                }],
 
             },
+
 
         })
     </script>
@@ -981,12 +950,11 @@
             <div class="inAbout-text_block">
                 <h1>關於我們</h1>
                 <div class="inAbout-text_body">
-                    <div class="inAbout-text">&emsp;細心挑選的沙發，柔和舒適的燈光，</div>
-                    <div class="inAbout-text">在這裡，我們陪伴您，傾聽您也接著您</div>
+                    <div class="inAbout-text">細心挑選的沙發，柔和舒適的燈光，在這裡，我們陪伴您，傾聽您也接著您</div>
                 </div>
                 <div class="inAbout-place_block">
                     <div class="inAbout-place_btn">
-                        <div class="inAbout-place_block" @click="!select">
+                        <div class="inAbout-place_block" @click="changeSelect(!select)">
                             <div class="inAbout-btn_text">{{about[about_nowNum].area}}區</div>
                             <div class="inAbout-btn_icon"></div>
                         </div>
@@ -1113,6 +1081,9 @@
                 },
             },
             methods: {
+                changeSelect(v) {
+                    this.select = v
+                },
                 changeAboutNum2() {
                     let nowNum = this.about_nowNum;
                     this.about_nowNum = this.about_Num2;
@@ -1129,7 +1100,7 @@
         })
     </script>
     <!-- footer -->
-
+    @@include('template/footer.html')
     <!-- footer -->
     <script src="./js/indexVue.js"></script>
 </body>

@@ -1,8 +1,11 @@
 // If you want to override variables do it here
-@import "variables";
+@import "../../sass/vender/var";
+@import "../../sass/vender/variable";
 // Import styles
 @import "../../node_modules/@coreui/coreui/scss/coreui.scss";
+@import "../../node_modules/flag-icon-css/sass/flag-icon.scss";
+@import "../../node_modules/font-awesome/scss/font-awesome.scss";
 // If you want to add something do it here
-@import "custom";
+@import "./custom";
 // 外部資源
 @import "vendors/pace-progress/pace";

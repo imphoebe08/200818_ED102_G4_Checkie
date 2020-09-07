@@ -1,3 +1,93 @@
+@keyframes cardFloat1 {
+    0% {
+        transform: translateY(0) rotate(8deg);
+    }
+    25% {
+        transform: translateY(8px) rotate(6deg);
+    }
+    50% {
+        transform: translateY(0) rotate(4deg);
+    }
+    75% {
+        transform: translateY(-8px) rotate(6deg);
+    }
+    100% {
+        transform: translateY(0) rotate(8deg);
+    }
+}
+
+@keyframes cardFloat2 {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-5px) rotate(2deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(5px) rotate(-1deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes cardFloat3 {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(6px) rotate(1deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(2px) rotate(-1deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes cardFloat4 {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-5px) rotate(-2deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(5px) rotate(2deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+@keyframes cardFloat5 {
+    0% {
+        transform: translateY(0) rotate(-8deg);
+    }
+    25% {
+        transform: translateY(8px) rotate(-6deg);
+    }
+    50% {
+        transform: translateY(0) rotate(-4deg);
+    }
+    75% {
+        transform: translateY(-8px) rotate(-6deg);
+    }
+    100% {
+        transform: translateY(0) rotate(-8deg);
+    }
+}
+
 .inCard {
     margin-top: 300px;
     width: 100%;
@@ -23,14 +113,14 @@
         .inCard_body {
             width: 100%;
             display: flex;
-            height: 70vh;
+            height: 60vh;
             position: relative;
             >div {
                 transition: all 1s linear;
                 position: absolute;
                 transform: translateY(-50%) perspective(600px) scale(0);
-                width: 250px;
-                height: 400px;
+                width: 240px*0.9;
+                height: 420px*0.9;
                 top: 50%;
                 // transform-origin: top center -1000px;
                 >a {
@@ -39,13 +129,16 @@
                     height: 100%;
                     @include bg;
                     background-size: cover;
-                    box-shadow: 2px 5px 15px 3px rgb(49, 49, 49);
+                    border-radius: 10px;
+                    box-shadow: 2px 5px 10px rgba(143, 143, 143, 0.562);
                 }
             }
             @for $i from 1 through 5 {
                 >div:nth-child(#{$i}) {
-                    a {
-                        background-image: url("../img/index/InCard/card_#{$i}.jpg");
+                    >a {
+                        animation: cardFloat#{$i} 14s linear infinite;
+                        //background-image: url("../img/index/InCard/card_#{$i}.jpg");
+                        background-image: url("../img/oracleCard/cards/heaven/heaven_#{$i}.png");
                     }
                 }
             }
@@ -72,7 +165,7 @@
             }
             >div:nth-child(4) {
                 z-index: 2;
-                right: 20%;
+                right: 25%;
                 >a {
                     transform: rotate(-4deg);
                 }
@@ -89,7 +182,7 @@
             @include btn-modules($bw,
             $color-pink,
             $fontsize);
-            width: $bw;
+            width: 150px;
             display: block;
             border-radius: $border-radius;
             background-clip: padding-box, border-box;
@@ -98,63 +191,18 @@
             border: 2px transparent solid;
             text-decoration: none;
             color: black;
-            margin: auto;
+            margin: 40px auto 20px;
+            padding: 10px 10px;
+            transition: padding .5s ease;
+            &:hover {
+                padding: 10px 25px;
+                border: 2px solid $color-pink;
+            }
         }
     }
 }
 
 @media all and (max-width:1024px) {
-    @keyframes float1 {
-        0% {
-            transform: translateY(0) rotate(0deg);
-        }
-        25% {
-            transform: translateY(8px) rotate(2deg);
-        }
-        50% {
-            transform: translateY(0) rotate(0deg);
-        }
-        75% {
-            transform: translateY(-8px) rotate(-1deg);
-        }
-        100% {
-            transform: translateY(0) rotate(0deg);
-        }
-    }
-    @keyframes float2 {
-        0% {
-            transform: translateY(0) rotate(0deg);
-        }
-        25% {
-            transform: translateY(-10px) rotate(-1deg);
-        }
-        50% {
-            transform: translateY(0) rotate(0deg);
-        }
-        75% {
-            transform: translateY(10px) rotate(1deg);
-        }
-        100% {
-            transform: translateY(0) rotate(0deg);
-        }
-    }
-    @keyframes float3 {
-        0% {
-            transform: translateY(0) rotate(0deg);
-        }
-        25% {
-            transform: translateY(-5px) rotate(2deg);
-        }
-        50% {
-            transform: translateY(0) rotate(0deg);
-        }
-        75% {
-            transform: translateY(5px) rotate(-1deg);
-        }
-        100% {
-            transform: translateY(0) rotate(0deg);
-        }
-    }
     @keyframes drop {
         0% {
             transform: scale(2, 2) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
@@ -196,8 +244,8 @@
         .inCard_block {
             .inCard_body {
                 >div.inCard_item {
-                    width: 500px*0.6;
-                    height: 750px*0.6;
+                    width: 440px*0.5;
+                    height: 760px*0.5;
                     >a {
                         transform: rotate(0);
                     }
@@ -252,8 +300,8 @@
         .inCard_block {
             .inCard_body {
                 >div.inCard_item {
-                    width: 500px*0.5;
-                    height: 750px*0.5;
+                    width: 440px*0.5;
+                    height: 760px*0.5;
                 }
             }
         }
@@ -265,8 +313,8 @@
         .inCard_block {
             .inCard_body {
                 >div.inCard_item {
-                    width: 500px*0.3;
-                    height: 750px*0.3;
+                    width: 440px*0.3;
+                    height: 760px*0.3;
                 }
             }
         }

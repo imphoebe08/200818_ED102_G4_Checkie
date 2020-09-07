@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,136 +9,207 @@
     <link rel="stylesheet" href="./css/fullpage.min.css">
     <script src="./js/chatbot.js"></script>
     <script src="./js/header.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="http://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <link rel="stylesheet" href="./css/main.css">
     <title>oracleCard</title>
 </head>
+
 <body>
-<div id="oracleCard">
- 
-    @@include('template/index-navbar.html')
+    <div id="oracleCard">
 
-  <div class="oracleCardInner" id="fullpage">
+        @@include('template/index-navbar.html') @@include('./test.html')
 
-    <section class="oracleCardBanner page page1 section">
-      <div class="oracleCardBox">
-        <div class="title">
-          <h1>什麼是神諭卡</h1>
-        </div>
-        <div class="txt">
-          <p>神諭卡可以協助我們與自我潛意識進行交流，主要的目的是用來傳遞與接收訊息，我們可以選擇自己有感覺的牌卡，與牌卡進行互動。神諭卡會因為個案的人、事、物不同，而傳遞不同的消息，牌卡不會告訴你「Yes」Or 「No」，但是會給予您相對應的建議。
-          </p>
-        </div>
-      </div>
-    </section>
+        <div class="oracleCardInner" id="fullpage">
 
-    <section class="oracleCardStep page page2 section">
-      <div class="stepBg">
-        <ol class="stepNum">
-          <li id="step1" class="step">
-            <input type="radio" id="sp1" name="cardRadio" checked>
-            <label class="h3Color" for="sp1">1</label>
-          </li>
-          <li id="step2" class="step">
-            <input type="radio" name="cardRadio" id="sp2">
-            <label for="sp2">2</label>
-          </li>
-          <li id="step3" class="step">
-            <input type="radio" name="cardRadio" id="sp3">
-            <label for="sp3">3</label>
-          </li>
-        </ol>
-        <div class="showImg">
-          <div class="showImgBg" id="showImgBg">
-            <img src="./img/oracleCard/mahojin.png" alt="">
-          </div>
-          <div class="mainImg">
-            <img class="opacity1" id="stepImg1" src="./img/oracleCard/step1.png" alt="">
-            <img class="" id="stepImg2" src="./img/oracleCard/step2.png" alt="">
-            <img class="" id="stepImg3" src="./img/oracleCard/step3.png" alt="">
-          </div>
-        </div>
-        <div class="showTxt">
-          <div class="txt txt1 opacity2" id="txt1">
-            <h2>Step1</h2>
-            <h3>選擇喜歡的牌卡</h3>
-            <p>請按照自己今天的直覺，選擇一副自己最喜歡的牌卡。</p>
-          </div>
-          <div class="txt txt2" id="txt2">
-            <h2>Step2</h2>
-            <h3>默念三次問題</h3>
-            <p>在心中默念三次問題，問題最好是開放式問題。如：我該怎麼辦，這類邀請建議的問題。</p>
-          </div>
-          <div class="txt txt3" id="txt3">
-            <h2>Step3</h2>
-            <h3>依直覺選取牌卡</h3>
-            <p>不要想太多，按照直覺選取有感應的牌卡，再依照直覺解讀牌卡即可。</p>
-          </div>
-        </div>
-        <div class="cardBtn">
-          <button id="cardBtn">開始抽牌</button>
-        </div>
-      </div>
-    </section>
+            <section class="oracleCardBanner page page1 section">
+                <div class="oracleCardBox">
+                    <div class="title">
+                        <h1>什麼是神諭卡</h1>
+                    </div>
+                    <div class="txt">
+                        <p>神諭卡可以協助我們與自我潛意識進行交流，主要的目的是用來傳遞與接收訊息，我們可以選擇自己有感覺的牌卡，與牌卡進行互動。神諭卡會因為個案的人、事、物不同，而傳遞不同的消息，牌卡不會告訴你「Yes」Or 「No」，但是會給予您相對應的建議。
+                        </p>
+                    </div>
+                </div>
+                <div class="cardBtn">
+                    <button id="cardBtn1">查看詳情</button>
+                </div>
+            </section>
 
-    <section class="oracleCardStepOne page page3 section">
-      <div class="oracleCardStepOneBox"  id="cutScreen">
-        <div class="title">
-          <h2>Step1. 選擇喜歡的牌卡</h2>
+            <section class="oracleCardStep page page2 section">
+                <div class="stepBg">
+                    <ol class="stepNum">
+                        <li id="step1" class="step">
+                            <input type="radio" id="sp1" name="cardRadio" checked>
+                            <label class="h3Color" for="sp1">1</label>
+                        </li>
+                        <li id="step2" class="step">
+                            <input type="radio" name="cardRadio" id="sp2">
+                            <label for="sp2">2</label>
+                        </li>
+                        <li id="step3" class="step">
+                            <input type="radio" name="cardRadio" id="sp3">
+                            <label for="sp3">3</label>
+                        </li>
+                    </ol>
+                    <div class="showImg">
+                        <div class="showImgBg" id="showImgBg">
+                            <img src="./img/oracleCard/mahojin.png" alt="">
+                        </div>
+                        <div class="mainImg">
+                            <img class="opacity1" id="stepImg1" src="./img/oracleCard/step1.png" alt="">
+                            <img class="" id="stepImg2" src="./img/oracleCard/step2.png" alt="">
+                            <img class="" id="stepImg3" src="./img/oracleCard/step3.png" alt="">
+                        </div>
+                    </div>
+                    <div class="showTxt">
+                        <div class="txt txt1 opacity2" id="txt1">
+                            <h2>Step1</h2>
+                            <h3>選擇喜歡的牌卡</h3>
+                            <p>請按照自己今天的直覺，選擇一副自己最喜歡的牌卡。</p>
+                        </div>
+                        <div class="txt txt2" id="txt2">
+                            <h2>Step2</h2>
+                            <h3>默念三次問題</h3>
+                            <p>在心中默念三次問題，問題最好是開放式問題。如：我該怎麼辦，這類邀請建議的問題。</p>
+                        </div>
+                        <div class="txt txt3" id="txt3">
+                            <h2>Step3</h2>
+                            <h3>依直覺選取牌卡</h3>
+                            <p>不要想太多，按照直覺選取有感應的牌卡，再依照直覺解讀牌卡即可。</p>
+                        </div>
+                    </div>
+                    <div class="cardBtn">
+                        <button id="cardBtn2">開始抽牌</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="oracleCardStepOne page page3 section" id="cutScreen">
+                <div class="oracleCardStepOneBox">
+                    <div class="title">
+                        <h2>Step1. 選擇喜歡的牌組</h2>
+                    </div>
+                    <div class="cards col-12">
+                        <div class="item col-2 col-lg-2">
+                            <div class="itemImg sameSet">
+                                <img src="./img/oracleCard/card_cover/cover_angel.png" crossOrigin="anonymous" alt="angel">
+                            </div>
+                            <div class="itemImgBack sameSet">
+                                <img src="./img/oracleCard/cards/angel/angel_1.png" crossOrigin="anonymous" alt="">
+                                <div class="cardTxt cardHeight">
+                                    <fieldset>
+                                        <legend></legend>
+                                        <p></p>
+                                        <img src="./img/icon/share.png" alt="" class="acSelectCard-share_icon">
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item col-2 col-lg-2">
+                            <div class="itemImg sameSet">
+                                <img src="./img/oracleCard/card_cover/cover_heaven.png" crossOrigin="anonymous" alt="heaven">
+                            </div>
+                            <div class="itemImgBack sameSet">
+                                <img src="./img/oracleCard/cards/heaven/heaven_1.png" crossOrigin="anonymous" alt="">
+                                <div class="cardTxt cardHeight">
+                                    <fieldset>
+                                        <legend></legend>
+                                        <p></p>
+                                        <img src="./img/icon/share.png" alt="" class="acSelectCard-share_icon">
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item col-2 col-lg-2">
+                            <div class="itemImg sameSet">
+                                <img src="./img/oracleCard/card_cover/cover_illustration.png" crossOrigin="anonymous" alt="illustration">
+                            </div>
+                            <div class="itemImgBack sameSet">
+                                <img src="./img/oracleCard/cards/illustration/illustration_1.png" crossOrigin="anonymous" alt="">
+                                <div class="cardTxt cardHeight">
+                                    <fieldset>
+                                        <legend></legend>
+                                        <p></p>
+                                        <img src="./img/icon/share.png" alt="" class="acSelectCard-share_icon">
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardBtn">
+                        <button id="cardBtn3">為您推薦</button>
+                    </div>
+                    <!-- <a href="javascript:getScreenshot()" id="getPhoto">get photo</a>
+                    <div id="cutPhoto"></div> -->
+                </div>
+            </section>
+
+
+            <section class="oracleCardRecommend page page4 section">
+                <fieldset>
+                    <legend>適合您的活動</legend>
+                    <div id="acSelect" class="acSelect container-sm container-md">
+                        <div class="acSelectCard">
+                            <a href="./acSelf.html">
+                                <img src="./img/acMain/acCard.jpg">
+                            </a>
+                            <div class="acSelectCard_text">
+                                <img src="./img/icon/clock.png" alt="" class="acSelectCard-time_icon">
+                                <p class="acSelectCard_time">2020-08-15（六<br> 14:00 - 16:00</p>
+                                <div class="acSelectCard_icon">
+                                    <img src="./img/icon/share.png" alt="" class="acSelectCard-share_icon">
+                                    <img src="./img/icon/bookmark.png" alt="" class="acSelectCard-bookmark_icon">
+                                </div>
+                            </div>
+                            <h6 class="acSelectCard_title"><a href="./acSelf.html">信念探索團：親密關係</a></h6>
+                            <div class="acSelectCard_bottomBlock">
+                                <p class="acSelectCard_person"> 剩餘名額：10人</p>
+                                <input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register"></div>
+                        </div>
+                        <div class="acSelectCard">
+                            <a href="./acSelf.html">
+                                <img src="./img/acMain/acCard.jpg">
+                            </a>
+                            <div class="acSelectCard_text"><img src="./img/icon/clock.png" alt="" class="acSelectCard-time_icon">
+                                <p class="acSelectCard_time">2020-08-15（六）<br> 14:00 - 16:00</p>
+                                <div class="acSelectCard_icon"><img src="./img/icon/share.png" alt="" class="acSelectCard-share_icon">
+                                    <img src="./img/icon/bookmark.png" alt="" class="acSelectCard-bookmark_icon"></div>
+                            </div>
+                            <h6 class="acSelectCard_title"><a href="./acSelf.html">信念探索團：親密關係</a></h6>
+                            <div class="acSelectCard_bottomBlock">
+                                <p class="acSelectCard_person"> 剩餘名額：10人</p>
+                                <input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register"></div>
+                        </div>
+                        <div class="acSelectCard">
+                            <a href="./acSelf.html">
+                                <img src="./img/acMain/acCard.jpg">
+                            </a>
+                            <div class="acSelectCard_text"><img src="./img/icon/clock.png" alt="" class="acSelectCard-time_icon">
+                                <p class="acSelectCard_time">2020-08-15（六）<br> 14:00 - 16:00</p>
+                                <div class="acSelectCard_icon"><img src="./img/icon/share.png" alt="" class="acSelectCard-share_icon">
+                                    <img src="./img/icon/bookmark.png" alt="" class="acSelectCard-bookmark_icon"></div>
+                            </div>
+                            <h6 class="acSelectCard_title"><a href="./acSelf.html">信念探索團：親密關係</a></h6>
+                            <div class="acSelectCard_bottomBlock">
+                                <p class="acSelectCard_person"> 剩餘名額：10人</p>
+                                <input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register"></div>
+                        </div>
+                    </div>
+                </fieldset>
+            </section>
+
+
         </div>
-        <div class="cards col-12">
-          <div class="item col-3 col-sm-3 col-md-3 col-lg-2">
-            <div class="itemImg sameSet">
-              <img src="./img/oracleCard/card_cover/cover_angel.png"  crossOrigin="anonymous" alt="angel">
-            </div>
-            <div class="itemImgBack sameSet">
-              <img src="./img/oracleCard/card2.png" crossOrigin="anonymous" alt="">
-              <div class="cardTxt">
-                <h2></h2>
-                <p></p>
-              </div>
-            </div>
-          </div>
-          <div class="item col-3 col-sm-3 col-md-3 col-lg-2">
-            <div class="itemImg sameSet">
-              <img src="./img/oracleCard/card_cover/cover_heaven.png" crossOrigin="anonymous" alt="heaven">
-            </div>
-            <div class="itemImgBack sameSet">
-              <img src="./img/oracleCard/card1.png" crossOrigin="anonymous" alt="">
-              <div class="cardTxt">
-                <h2></h2>
-                <p></p>
-              </div>
-            </div>
-          </div>
-          <div class="item col-3 col-sm-3 col-md-3 col-lg-2">
-            <div class="itemImg sameSet">
-              <img src="./img/oracleCard/card_cover/cover_illustration.png" crossOrigin="anonymous" alt="illustration">
-            </div>
-            <div class="itemImgBack sameSet">
-              <img src="./img/oracleCard/card1.png" crossOrigin="anonymous" alt="">
-              <div class="cardTxt">
-                <h2></h2>
-                <p></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a href="javascript:getScreenshot()" id="getPhoto">get photo</a>
-        <div id="cutPhoto"></div>
-      </div>
-      
-    </section>
+    </div>
 
 
-  </div>
-</div>
+    <!-- <script src="./js/html2canvas.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./js/oracleCard.js"></script>
+    <script src="./js/vender/fullpage.js"></script>
 
-  
-<!-- <script src="./js/html2canvas.js"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-<script src="./js/vender/fullpage.js"></script>
-<script src="./js/oracleCard.js"></script>
-  
+
 </body>
+
 </html>

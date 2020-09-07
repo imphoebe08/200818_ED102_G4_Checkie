@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +12,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>chatRoom</title>
 </head>
-<body>
-    @@include('template/header.html')
-    @@include('template/bg.html')
+
+<body id="nav2">
+    @@include('template/header.html') @@include('template/bg.html') @@include('./test.html')
     <main>
         <div id="chatRoom">
             <div class="chatRoom_left col-xl-4 col-lg-3">
@@ -30,8 +31,10 @@
             </div>
             <div class="chatRoom_right col-xl-8 col-lg-9">
                 <div class="chatRoom_drInfo col-12">
-                    <img class="doctor"src="./img/chatRoom/drPic.png" alt="">
-                    <h4>姜律丞<p>諮商師</p></h4>
+                    <img class="doctor" src="./img/chatRoom/drPic.png" alt="">
+                    <h4>姜律丞
+                        <p>諮商師</p>
+                    </h4>
                     <div class="chatRoom_drInfo-more">
                         <img src="./img/icon/more.svg" alt="">
                     </div>
@@ -51,7 +54,8 @@
             </div>
         </div>
     </main>
-     <!-- @@include('template/footer.html') -->
+    <!-- @@include('template/footer.html') -->
     <script src="./js/chatRoom.js"></script>
 </body>
+
 </html>

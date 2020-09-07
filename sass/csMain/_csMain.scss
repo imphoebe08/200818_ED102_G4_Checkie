@@ -1,5 +1,22 @@
 @import './style';
 
+#nav1 {
+    .top {
+        .navbar {
+            .navbar__menu {
+                a:nth-child(1) {
+                    color: $color-pink;
+                }
+
+                a:nth-child(1)::after {
+                    transform: scaleX(1);
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+
 #csMainContainer {
     position: relative;
     width: calc(100% - 40px);
@@ -159,7 +176,7 @@
 
 .csCounselor-cards {
     width: 100%;
-    margin: 0 auto 100px;
+    margin: 0 auto;
     overflow-x: hidden;
 
     #csC-countCards {
@@ -171,13 +188,15 @@
     .swiper-container {
         width: 320px;
         overflow: initial;
-        margin: 100px auto;
+        margin: 50px auto;
 
         .csCounselor-gallery {
             .swiper-slide {
                 width: 300px;
-                &.swiper-slide-active{
-                    transform: scale(1.2);
+                transform: scale(0.8);
+
+                &.swiper-slide-active {
+                    transform: scale(1);
                 }
 
                 .csCounselor-card {
@@ -193,21 +212,31 @@
                     .csCounselor-image {
                         width: 100%;
                         height: 40%;
-                        cursor: pointer;
 
-                        img {
-                            max-height: 100%;
-                            width: 100%;
-                            object-fit: cover;
+                        a {
+                            display: block;
+                            height: 100%;
+                            cursor: pointer;
+
+                            img {
+                                max-height: 100%;
+                                width: 100%;
+                                object-fit: cover;
+                            }
                         }
+
                     }
 
-                    .csC-doctor__name {
-                        text-align: center;
-                        width: 100%;
-                        @include h5;
+                    a {
+                        color: black;
                         cursor: pointer;
-                        padding: 0 10px;
+
+                        .csC-doctor__name {
+                            text-align: center;
+                            width: 100%;
+                            @include h5;
+                            padding: 0 10px;
+                        }
                     }
 
                     .csC-type_title {
@@ -224,6 +253,7 @@
                         span {
                             text-align: center;
                             margin: 0 5px;
+                            color: #c43261;
                         }
                     }
 
@@ -232,14 +262,12 @@
                         padding: 0 10px;
 
                         .csC-doctor__list>li {
-                            p {
-                                cursor: pointer;
-                                font-weight: 700;
-                            }
 
                             .csS-list>li {
                                 display: block;
                                 line-height: 1.5em;
+                                text-indent: -7.5px;
+                                padding-left: 13.5px;
 
                                 i {
                                     display: inline-block;
@@ -260,7 +288,6 @@
     .swiper-button-next,
     .swiper-button-prev {
         position: absolute;
-        top: 75%;
         outline: none;
         color: $color-pink;
         background: white;
@@ -273,18 +300,19 @@
         }
     }
 
-    .swiper-button-prev {
-        right: 0;
+    .swiper-button-next {
+        right: -60%;
     }
 
     .swiper-button-prev {
-        left: 0;
+        left: -60%;
     }
 }
 
-@media (max-width:576px){
+@media (max-width:576px) {
+
     .csCounselor-cards .swiper-button-next,
     .csCounselor-cards .swiper-button-prev {
-        display:  none;
+        display: none;
     }
 }

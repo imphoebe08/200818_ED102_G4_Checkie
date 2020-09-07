@@ -235,7 +235,7 @@ header{
         color:white;
 
         &:hover{
-            background:#fff;
+            background:transparent;
             color:$color-pink;
         }
   
@@ -273,6 +273,7 @@ header{
     position: absolute;
     padding-top: 50px;
     top: 80px;
+    left:0;
     height: 100vh;
     width: 100vw;
     //background-color: rgba(22, 22, 22, 0.85);
@@ -516,7 +517,19 @@ header{
 .sign-in-container {
 	left: 0;
 	width: 50%;
-	z-index: 2;
+    z-index: 2;
+
+    #forgetpwd{
+        border:none;
+        background:#fff;
+        color:$color-blue;
+        
+
+        &:hover{
+            text-decoration-line: underline;
+        }
+    }
+    
 }
 
 .container.right-panel-active .sign-in-container {
@@ -616,4 +629,58 @@ header{
 	transform: translateX(20%);
 }
 
+.forgetpwd_from{
+    padding:70px 20px;
+    width: 60%;
+    height: 70%;
+    background: #fff;
+    z-index: 999;
+    position: absolute;
+    left:50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: $border-radius;
+    box-shadow: 5px 5px 10px 3px rgba(117, 117, 117, 0.2);
+    display: none;
 
+    input.forget {
+        background-color: #eee;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 80%;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+        .overlay-container{
+            display: none;
+        }
+
+
+        .sign-in-container {
+            
+            width: 100%;
+         
+        }
+        
+        .sign-up-container {
+            width: 100%;
+            opacity: 1;
+          
+        }
+
+        .container.right-panel-active .sign-up-container {
+            transform: translateX(0);
+            animation: show 0.6s;
+           
+        }
+
+        .forgetpwd_from{
+            width: 80%;
+        }
+
+
+}

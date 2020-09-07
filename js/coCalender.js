@@ -180,6 +180,9 @@ new Vue({
         names: ['Meeting', 'Holiday', 'PTO', 'Travel', 'Event', 'Birthday', 'Conference', 'Party'],
     }),
     methods: {
+        memberCenter() {
+            window.open('./meMain.html', "_self");
+        },
 
         checkForm() {
             this.errors = [];
