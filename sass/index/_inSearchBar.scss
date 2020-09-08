@@ -69,6 +69,10 @@
             flex-flow: nowrap row;
             justify-content: flex-start;
             box-shadow: 5px 5px 10px 5px #ccc;
+            overflow-y: auto;
+            width: 100%;
+            overflow-x: hidden;
+        }
             &:not(:first-child) {
                 display: none;
             }

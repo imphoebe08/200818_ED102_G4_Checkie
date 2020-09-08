@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href=" https://unpkg.com/swiper/swiper-bundle.min.css">
     <!-- navbar & footer css -->
     <link rel="stylesheet" href="./css/main.css">
@@ -14,8 +15,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
     <!-- navbar js -->
     <script src="./js/index-header.js"></script>
     <script src="./js/chatbot.js"></script>
@@ -26,11 +31,11 @@
         .st0 {
             fill: url(#SVGID_1_);
         }
-        
+
         .st1 {
             fill: url(#SVGID_2_);
         }
-        
+
         .st2 {
             fill: url(#SVGID_3_);
         }
@@ -67,7 +72,9 @@
         <!-- logo 特校 -->
         <div class="inBanner-logo_block">
             <div class="inBanner-logo">
-                <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 259 210" style="enable-background:new 0 0 259 210;" xml:space="preserve" class="inBanner-hide_svg">
+                <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 259 210"
+                    style="enable-background:new 0 0 259 210;" xml:space="preserve" class="inBanner-hide_svg">
                     <g>
                         <!-- 漸層色 -->
                         <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="118.2956" y1="33.1352"
@@ -172,182 +179,7 @@
         </transition>
         <button v-if="stage4" class="button1" @click="openOrderPage">預約</button>
     </div>
-    <script>
-        new Vue({
-            el: "#app1",
-            data: {
-                iMode: "諮商方式",
-                iModes: [{
-                    id: "iMode1",
-                    value: "語音諮商"
-                }, {
-                    id: "iMode2",
-                    value: "視訊諮商"
-                }, {
-                    id: "iMode3",
-                    value: "現場諮商"
-                }, {
-                    id: "iMode4",
-                    value: "線上諮商"
-                }],
-                iPos: "地區",
-                iPoss: [{
-                    id: "iNorth",
-                    value: "北"
-                }, {
-                    id: "iCenter",
-                    value: "中"
-                }, {
-                    id: "iSouth",
-                    value: "南"
-                }],
-                iType: "專業",
-                iTypes: [{
-                    id: "iType1",
-                    value: "問題一一"
-                }, {
-                    id: "iType2",
-                    value: "問題二二"
-                }, {
-                    id: "iType3",
-                    value: "問題三三"
-                }, {
-                    id: "iType4",
-                    value: "問題四四"
-                }, {
-                    id: "iType5",
-                    value: "問題五五"
-                }],
-                iCs: "諮商師",
-                iCss: [{
-                    id: "iCs1",
-                    value: "醫師一"
-                }, {
-                    id: "iCs2",
-                    value: "醫師二"
-                }, {
-                    id: "iCs3",
-                    value: "醫師三"
-                }, {
-                    id: "iCs4",
-                    value: "醫師四"
-                }, {
-                    id: "iCs5",
-                    value: "醫師五"
-                }],
-                stage1: false,
-                stage2: false,
-                stage3: false,
-                stage4: false
-            },
-            methods: {
-                changeWord0(e) {
-                    this.iMode = e.target.innerText;
-                    this.doFirst();
-                },
-                changeWord1(e) {
-                    this.iPos = e.target.innerText;
-                    this.doFirst();
-                },
-                changeWord2(e) {
-                    this.iType = e.target.innerText;
-                    this.doFirst();
-                },
-                changeWord3(e) {
-                    this.iCs = e.target.innerText;
-                    this.doFirst();
-                },
-                doFirst() {
-                    $("span").next().next().hide();
-                },
-                slideToggleUl(e) {
-                    // $("span:not(this)").next().next().hide();
-                    if ($(e.target).next().next().css("display") == "none") {
-                        $(e.target).next().next().show();
-                    } else {
-                        $("span").next().next().hide();
-                    }
-                },
-                closeToggle(e) {
-                    $(e.target).parent().parent().hide();
-                },
-                openOrderPage() {
-                    window.open("./coCheck.html", "_self");
-                },
-            },
-            watch: {
-                iMode: function() {
-                    if (this.iMode !== "諮商方式") {
-                        document.getElementById("iModeBut").style.color = "red";
-                        if (this.iMode == "現場諮商") {
-                            this.stage1 = true;
-                            if (this.iPos == "地區") {
-                                this.stage2 = false;
-                                this.stage3 = false;
-                            } else {
-                                this.stage2 = true;
-                                this.stage3 = false;
-                            }
-                            this.iType = "專業";
-                            this.iCs = "諮商師";
-                            this.doFirst();
-                        } else {
-                            this.stage1 = false;
-                            this.stage2 = true;
-                            this.doFirst();
-                        }
-                    } else {
-                        document.getElementById("iModeBut").style.color = "black";
-                    }
-                },
-                iPos: function() {
-                    if (this.iPos !== "地區") {
-                        document.getElementById("iPosBut").style.color = "red";
-                        this.stage2 = true;
-                        this.doFirst();
-                    } else {
-                        document.getElementById("iPosBut").style.color = "black";
-                    }
-                },
-                iType: function() {
-                    if (this.iType !== "專業") {
-                        document.getElementById("iTypeBut").style.color = "red";
-                        this.stage3 = true;
-                        this.doFirst();
-                    } else {
-                        document.getElementById("iTypeBut").style.color = "black";
-                    }
-                },
-                iCs: function() {
-                    if (this.iType !== "諮商師") {
-                        document.getElementById("iCsBut").style.color = "red";
-                        this.stage4 = true;
-                    } else {
-                        document.getElementById("iCsBut").style.color = "black";
-                        this.stage4 = false;
-                    }
-                    this.doFirst();
-                },
-                stage1: function() {
-                    if (this.stage1 == false) {
-                        this.iPos = "地區";
-                    }
-                },
-                stage2: function() {
-                    if (this.stage2 == false) {
-                        this.iType = "專業";
-                        this.iCs = "諮商師";
-                        this.stage4 = false;
-                    }
-                },
-                stage3: function() {
-                    if (this.stage3 == false) {
-                        this.stage4 = false;
-                    }
-                }
-            }
-        });
-    </script>
+    <script src="./js/inSearchbar.js"></script>
     <!-- 諮商師卡片開始 -->
 
     <div class="inCs_group" id="inCsGroup">
@@ -355,22 +187,22 @@
         <keep-alive>
             <div class="inCs inCs--large" v-show="screenWidth >= 576">
                 <ul class="leftList">
-                    <first-layout myclass="leftLi move"></first-layout>
-                    <second-layout myclass="leftLi"></second-layout>
-                    <first-layout myclass="leftLi"></first-layout>
-                    <second-layout myclass="leftLi"></second-layout>
-                    <first-layout myclass="leftLi"></first-layout>
-                    <second-layout myclass="leftLi"></second-layout>
-                    <first-layout myclass="leftLi"></first-layout>
+                    <first-layout class="leftLi move" :cs-datas="csData[0]"></first-layout>
+                    <second-layout class="leftLi" :cs-datas="csData[1]"></second-layout>
+                    <first-layout class="leftLi" :cs-datas="csData[2]"></first-layout>
+                    <second-layout class="leftLi" :cs-datas="csData[3]"></second-layout>
+                    <first-layout class="leftLi" :cs-datas="csData[4]"></first-layout>
+                    <second-layout class="leftLi" :cs-datas="csData[5]"></second-layout>
+                    <first-layout class="leftLi" :cs-datas="csData[6]"></first-layout>
                 </ul>
                 <ul class="rightList">
-                    <second-layout myclass="rightLi move"></second-layout>
-                    <first-layout myclass="rightLi"></first-layout>
-                    <second-layout myclass="rightLi"></second-layout>
-                    <first-layout myclass="rightLi"></first-layout>
-                    <second-layout myclass="rightLi"></second-layout>
-                    <first-layout myclass="rightLi"></first-layout>
-                    <second-layout myclass="rightLi"></second-layout>
+                    <second-layout class="rightLi move" :cs-datas="csData[0]"></second-layout>
+                    <first-layout class="rightLi" :cs-datas="csData[1]"></first-layout>
+                    <second-layout class="rightLi" :cs-datas="csData[2]"></second-layout>
+                    <first-layout class="rightLi" :cs-datas="csData[3]"></first-layout>
+                    <second-layout class="rightLi" :cs-datas="csData[4]"></second-layout>
+                    <first-layout class="rightLi" :cs-datas="csData[5]"></first-layout>
+                    <second-layout class="rightLi" :cs-datas="csData[6]"></second-layout>
                 </ul>
                 <ul class="slide-button">
                     <li class="point activeNow" id="point1"></li>
@@ -386,7 +218,9 @@
         <keep-alive>
             <div class="inCs swiper-container" v-show="screenWidth < 576">
                 <ul class="inCs-under576 swiper-wrapper">
-                    <third-layout v-for="i in 7"></third-layout>
+                    <third-layout :cs-datas="csData[0]"></third-layout>
+                    <third-layout :cs-datas="csData[1]"></third-layout>
+                    <third-layout :cs-datas="csData[2]"></third-layout>
                 </ul>
             </div>
         </keep-alive>
@@ -395,193 +229,7 @@
     </div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
-    <script>
-        Vue.component("first-layout", {
-            props: ["myclass"],
-            template: `<li :class="myclass">
-                    <img src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg" @click="openSelfPage">
-                    <h1 @click="openSelfPage">蔡佳穎</h1>
-                   	<button @click="openSelfPage">立即預約</button>
-               </li>`,
-            methods: {
-                openSelfPage() {
-                    window.open("./csSelf.html", "_self");
-                },
-            }
-        });
-
-        Vue.component("second-layout", {
-            props: ["myclass"],
-            template: `<li :class="myclass">
-					<h5>認識諮商師</h5>
-					<p>能夠在治療室裡真實地陪伴每個靈魂之外，也是希望能在行有餘力時，盡可能地透過演講或團體的方式，讓沒機會走進治療室的人可以有一個或者有一次被好好看見與照顧的經驗。</p>
-					<h5>治療專業</h5>
-					<div class="inConselor__chart">
-						<canvas class="myChart" width="200" height="200"></canvas>
-					</div>
-                </li>`,
-        });
-
-        Vue.component("third-layout", {
-            template: `<li class="inCs-slide__item swiper-slide">
-					<img src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg" @click="openSelfPage">
-					<h3  @click="openSelfPage">蔡佳穎</h3>
-					<div class="inConselor__chart">
-						<canvas class="myChart" width="200" height="200"></canvas>
-					</div>
-					<button @click="openSelfPage">立即預約</button>
-                </li>`,
-            methods: {
-                openSelfPage() {
-                    window.open("./csSelf.html", "_self");
-                },
-            }
-        });
-
-        new Vue({
-            el: "#inCsGroup",
-            data: {
-                screenWidth: window.innerWidth
-            },
-            mounted() {
-                window.onresize = () => {
-                    this.screenWidth = window.innerWidth;
-                };
-            }
-        });
-
-        // ========================================
-        // slider
-        // ========================================
-
-        function move() {
-            if (
-                window.innerWidth >= 576 &&
-                document.querySelector(".activeNow").nextElementSibling == null
-            ) {
-                $("li.point").removeClass("activeNow");
-                $("li.point:nth-child(1)").addClass("activeNow");
-                $("li.leftLi").removeClass("move");
-                $("li.rightLi").removeClass("move");
-                $("li.leftLi:nth-child(1)").addClass("move");
-                $("li.rightLi:nth-child(1)").addClass("move");
-            } else if (window.innerWidth >= 576) {
-                $(".activeNow").next().addClass("activeNow");
-                $(".activeNow").prev().removeClass("activeNow");
-                $(".move").next().addClass("move");
-                $(".move").prev().removeClass("move");
-            } else {}
-        }
-
-        function clickChange(e) {
-            $("li.point").removeClass("activeNow");
-            $(this).addClass("activeNow");
-            $("li.leftLi").removeClass("move");
-            $("li.rightLi").removeClass("move");
-
-            let index = $("li.activeNow").attr("id").split("point")[1];
-            $(`li.leftLi:nth-child(${index})`).addClass("move");
-            $(`li.rightLi:nth-child(${index})`).addClass("move");
-        }
-
-        function startSlider() {
-            let point = $("li.point");
-            for (let i = 0; i < point.length; i++) {
-                point[i].addEventListener("click", clickChange);
-            }
-            setInterval(move, 5000);
-        }
-
-        startSlider();
-        radarChart();
-        // ========================================
-        // radar.chart
-        // ========================================
-
-        function radarChart() {
-            let datas = {
-                labels: ["家庭關係", "人際關係", "伴侶關係", "壓力創傷", "自我探索"],
-                datasets: [{
-                    label: "分數",
-                    data: [60, 40, 50, 52, 75]
-                }]
-            };
-
-            let option = {
-                legend: {
-                    display: 0
-                },
-                tooltips: {},
-                elements: {
-                    line: {
-                        backgroundColor: "rgba(255, 99, 160, 0.2)",
-                        borderColor: "rgba(255, 99, 160, 0.2)"
-                    },
-                    point: {
-                        backgroundColor: "rgba(255, 99, 132, 0.2)",
-                        hoverBackgroundColor: "rgba(255, 99, 132, 0.8)",
-                        radius: 5,
-                        pointStyle: "circle",
-                        hoverRadius: 8
-                    }
-                },
-                scale: {
-                    angleLines: {
-                        display: false
-                    },
-                    ticks: {
-                        suggestedMin: 0,
-                        suggestedMax: 100,
-                        stepSize: 20,
-                        display: false
-                    },
-                    pointLabels: {
-                        fontSize: 16,
-                        fontFamily: "微軟正黑體"
-                    }
-                },
-                layout: {
-                    // padding: {
-                    //     left: 20,
-                    //     right: 20,
-                    //     top: 10,
-                    //     bottom: 10
-                    // }
-                }
-            };
-
-            let ctx = [];
-            let myChart = [];
-            for (let i = 0; i < $(".myChart").length; i++) {
-                ctx[i] = $(".myChart")[i].getContext("2d");
-                myChart[i] = new Chart(ctx[i], {
-                    type: "radar",
-                    data: datas,
-                    options: option
-                });
-            }
-        }
-
-        // ========================================
-        // swiper
-        // ========================================
-        let swiper = new Swiper(".swiper-container", {
-            spaceBetween: 30,
-            centeredSlides: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            }
-        });
-    </script>
+    <script src="./js/inCs.js"></script>
     <!-- 諮商師卡片結束 -->
     <div class="inAct" id="inAct">
         <div class="inAct_move"></div>
@@ -665,11 +313,11 @@
                     // 關閉drag
                     var images = document.querySelectorAll('inAct_item>a>img');
                     for (var i = 0; i < images.length; i++) {
-                        images[i].onmousemove = function(e) {
+                        images[i].onmousemove = function (e) {
                             e.preventDefault()
 
                         }
-                        images[i].ondragstart = function(e) {
+                        images[i].ondragstart = function (e) {
                             return false;
 
                         }
@@ -763,7 +411,7 @@
                             prevSlide = curSlide;
                             attachEvents(sliders[sliders.length - 2]);
                             slideMouseUp();
-                            setTimeout(function() {
+                            setTimeout(function () {
 
 
 
