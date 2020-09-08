@@ -13,8 +13,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
+                <h1 class="acRegistration_h1">活動報名管理</h1>
                 <div class="card">
-                    <div class="card-header">諮商收益｜
+                    <div class="card-header">活動查詢｜
                         <span>區間查詢：</span>
                         <select name="" id="table_condition_year">
                             <option value="">2020</option>
@@ -55,77 +56,45 @@
                             <option value="">02月</option>
                             <option value="">01月</option>
                         </select>
+                        <span>分類查詢：</span>
+                        <select name="" id="table_condition_year">
+                            <option value="">講座</option>
+                            <option value="">療癒</option>
+                            <option value="">戶外</option>
+                            <option value="">藝文</option>
+                        </select>
                     </div>
                     <div class="card-body">
                         <table class="table table-responsive-sm table-sm">
                             <thead>
                                 <tr>
-                                    <th>年度</th>
-                                    <th>月份</th>
-                                    <th>收益（萬）</th>
+                                    <th>活動標題</th>
+                                    <th>類別</th>
+                                    <th>目前報名人數</th>
+                                    <th>下限人數</th>
+                                    <th>上限人數</th>
+                                    <th>報名開始時間</th>
+                                    <th>報名結束時間</th>
+                                    <th>活動開始時間</th>
+                                    <th>活動結束時間</th>
+                                    <th>報名狀態</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>2020</td>
-                                    <td>9月</td>
-                                    <td>333,000</td>
+                                    <td>藝術體驗工坊 療癒紓壓流動畫</td>
+                                    <td>藝文</td>
+                                    <td>15</td>
+                                    <td>10</td>
+                                    <td>30</td>
+                                    <td>2020/12/06 14:00</td>
+                                    <td>2020/12/06 14:00</td>
+                                    <td>2020/12/06 14:00</td>
+                                    <td>2020/12/06 14:00</td>
+                                    <td>報名中</td>
+                                    <td><a href="./acDetail.html"><button class="acRegistration_edit">查看明細</button></a></td>
                                 </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>8月</td>
-                                    <td>333,000</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>7月</td>
-                                    <td>333,000</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>6月</td>
-                                    <td>333,000</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>5月</td>
-                                    <td>333,000</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>4月</td>
-                                    <td>333,000</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>3月</td>
-                                    <td>333,000</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>2月</td>
-                                    <td>333,000</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>1月</td>
-                                    <td>333,000</td>
-                                </tr>
-                                <tr>
-                                    <td>2019</td>
-                                    <td>12月</td>
-                                    <td>333,000</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>11月</td>
-                                    <td>333,000</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>10月</td>
-                                    <td>333,000</td>
-                                </tr>
+
                             </tbody>
                         </table>
                     </div>

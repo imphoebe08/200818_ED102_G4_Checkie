@@ -65,10 +65,11 @@ gulp.task('bgimg', function() {
 })
 
 gulp.task('bgjs', function() {
-    return gulp.src(['./node_modules/@coreui/coreui/dist/js/*.js'], ['./backstage/js/backstage_chart.js']).pipe(gulp.dest('./dist/backstage/js'))
+    return gulp.src(['./node_modules/@coreui/coreui/dist/js/*.js', './backstage/js/*.js']).pipe(gulp.dest('./dist/backstage/js'))
 })
 gulp.task('bgsass', function() {
         return gulp.src(['./backstage/sass/*.scss'], ['./node_modules/@coreui/coreui/dist/css']) //來源
+            .pipe(sourcemaps.init())
             .pipe(sass().on('error', sass.logError)) //Sass轉譯 -> 一個pipe是一個流程
             .pipe(cleanCSS({
                 compatibility: 'ie8' //轉譯成相容ie8的CSS
