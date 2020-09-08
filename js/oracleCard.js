@@ -179,8 +179,8 @@ function getCenterPosition(element) {
 $(document).on('mousemove', '#oracleCard', function(e) {
     //console.log(e.clientX,e.clientY)
     CenterPosition = getCenterPosition($('#forCloud'))
-    moveY = (CenterPosition.x - e.clientX) / 30
-    moveX = 0 - (CenterPosition.y - e.clientY) / 27
+    moveY = (CenterPosition.x - e.clientX) / 100
+    moveX = 0 - (CenterPosition.y - e.clientY) / 95
         //console.log(moveX,moveY)
     $('#forCloud').css('transform', 'translateX(' + moveX + 'px)' + '' + 'translateY(' + moveY + 'px)')
     $('#forCloud').css('webKitTransform', 'translateX(' + moveX + 'px)' + '' + 'translateY(' + moveY + 'px)')
