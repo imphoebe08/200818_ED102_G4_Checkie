@@ -1,0 +1,6 @@
+#acDtail_back_wrapper {
+    text-align: center;
+    #acDtail_back {
+        @include btn-modules($bw, $color-pink, $fontsize)
+    }
+}
