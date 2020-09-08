@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/bgHead.html')
+    <!-- dateTimePicker CSS -->
+    <!-- Default Theme (Core) -->
+    <link rel="stylesheet" href="./css/dateTimePicker/default.css">
+    <!-- Default Theme (Date Picker) -->
+    <link rel="stylesheet" href="./css/dateTimePicker/default.date.css">
+    <!-- Default Theme (Time Picker If Needed)-->
+    <link rel="stylesheet" href="./css/dateTimePicker/default.time.css">
+    <link rel="stylesheet" href="./css/confirmation.css">
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <!-- top_header -->
+    @@include('layout/top_header.html')
+
+    <!-- 中間內容 -->
+    <div class="container-fluid">
+        <form action="" id="acAdd_form">
+            <h1>活動新增與修改</h1><br>
+            <span>活動標題：</span><input type="text" maxlength="16"><br><br>
+            <span>活動類別：</span>
+            <select name="acType" id="acType">
+                    <option value="">講座</option>
+                    <option value="">療癒</option>
+                    <option value="">戶外</option>
+                    <option value="">藝文</option>
+                </select><br><br>
+            <span>活動地點：</span><input type="text" maxlength="16"><br><br>
+            <span>活動報名開始日期：</span>
+            <input id="exampleDate" class="datepicker" name="date" type="text" value="" placeholder="" data-value="today" />
+            <input id="exampleTime" class="timepicker" type="time" name="time" value="" data-value="9:00" /><br><br>
+            <span>活動報名結束日期：</span>
+            <input id="exampleDate" class="datepicker" name="date" type="text" value="" placeholder="" data-value="today" />
+            <input id="exampleTime" class="timepicker" type="time" name="time" value="" data-value="9:00" /><br><br>
+            <span>活動開始日期：</span>
+            <input id="exampleDate" class="datepicker" name="date" type="text" value="" placeholder="" data-value="today" />
+            <input id="exampleTime" class="timepicker" type="time" name="time" value="" data-value="9:00" /><br><br>
+            <span>活動結束日期：</span>
+            <input id="exampleDate" class="datepicker" name="date" type="text" value="" placeholder="" data-value="today" />
+            <input id="exampleTime" class="timepicker" type="time" name="time" value="" data-value="9:00" /><br><br>
+            <span>上限人數：</span><input type="number"><br><br>
+            <span>下限人數：</span><input type="number"><br><br>
+            <span>費用（NTD）：</span><input type="number"><br><br>
+            <span>活動狀態：</span>
+            <input type="radio" name=" " id=" "><label for=" ">上架</label>
+            <input type="radio" name=" " id=" "><label for=" ">下架</label>
+            <input type="radio" name=" " id=" "><label for=" ">取消</label>
+            <br><br>
+            <span>活動介紹：</span><pre><textarea name="" id="" cols="200" rows="15" style="resize: none;"></textarea></pre>
+            <label for="">圖片一：</label><input type="file" name="" id=""><br>
+            <label for="">圖片二：</label><input type="file" name="" id=""><br><br>
+            <span>舉辦人：</span><input type="text"><br><br>
+            <span>舉辦人稱謂：</span><input type="text"><br><br>
+            <span>舉辦人介紹：</span><pre><textarea name="" id="" cols="200" rows="10" style="resize: none;"></textarea></pre><br><br>
+            <label for="">舉辦人圖片：</label><input type="file" name="" id=""><br><br>
+            <div id="acAdd_submit_wrapper">
+                <button id="acAdd_submit">完成</button>
+            </div>
+        </form>
+
+
+    </div>
+
+    @@include('layout/footer.html')
+
+    <!-- DateTimePicker -->
+    <!-- Core -->
+    <script src="./js/picker.js "></script>
+    <!-- Date Picker -->
+    <script src="./js/picker.date.js "></script>
+    <!-- Time Picker -->
+    <script src="./js/picker.time.js "></script>
+    <!-- Language -->
+    <script src="./js/zh_TW.js "></script>
+    <script>
+        // date picker
+        $('.datepicker').pickadate({
+            labelMonthSelect: 'Select a month',
+            labelYearSelect: 'Select a year',
+            selectMonth: 'picker__select--month',
+            selectYear: 'picker__select--year',
+            min: new Date(),
+
+        });
+
+        // time picker
+        $('.timepicker').pickatime({
+            interval: 60,
+
+        });
+    </script>
+</body>
+
+</html>
