@@ -24,6 +24,7 @@ function doFirst() {
                 $(this).children(".itemImg").removeClass("animationShack");
                 $(this).siblings(".item").children(".itemImg").css({ "opacity": "0" });
                 $(this).children(".itemTxt").removeClass("txtOpacityOne");
+                $(this).parent(".cards").siblings("#mediaCardBtn").removeClass("mediaCardBtnNone");
                 $(".item").addClass("left");
                 // $(this).siblings(".item").children(".itemImg").css({ "display": "none" });
                 //             $(".item").parent(".cards").siblings(".title").css({ "padding": "20" });
@@ -180,8 +181,12 @@ $(document).on('mousemove', '#oracleCard', function(e) {
     //console.log(e.clientX,e.clientY)
     CenterPosition = getCenterPosition($('#forCloud'))
     moveY = (CenterPosition.x - e.clientX) / 100
-    moveX = 0 - (CenterPosition.y - e.clientY) / 95
+    moveX = 0 - (CenterPosition.y - e.clientY) / 28
+    move1Y = (CenterPosition.x + e.clientX) / 100
+    move1X = 0 - (CenterPosition.y + e.clientY) / 28
         //console.log(moveX,moveY)
     $('#forCloud').css('transform', 'translateX(' + moveX + 'px)' + '' + 'translateY(' + moveY + 'px)')
     $('#forCloud').css('webKitTransform', 'translateX(' + moveX + 'px)' + '' + 'translateY(' + moveY + 'px)')
+    $('#forCloud1').css('transform', 'translateX(' + move1X + 'px)' + '' + 'translateY(' + move1Y + 'px)')
+    $('#forCloud1').css('webKitTransform', 'translateX(' + move1X + 'px)' + '' + 'translateY(' + move1Y + 'px)')
 })
