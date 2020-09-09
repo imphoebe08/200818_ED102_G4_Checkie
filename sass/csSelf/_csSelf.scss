@@ -308,7 +308,6 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-
     .csSelfAct-card {
         background: #fff;
         margin: 10px 0;
@@ -392,6 +391,18 @@
             }
         }
     }
+}
+@media (max-width: 500px) {
+    #csSelfAct {
+        .slick-list{
+            margin: 0 -10px;
+            .slick-slide {
+                margin: 10px;
+              }
+        }
+    
+    }
+
 }
 
 @media (max-width: 400px) {

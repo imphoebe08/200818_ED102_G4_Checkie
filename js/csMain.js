@@ -37,24 +37,17 @@ Vue.component("cscounselor-layout", {
 	data() {
 		return {
 			mySwiper: '',
-			mySlide: this.slideInfo
+			mySlide: this.slideInfo,
 		}
 	},
 	mounted() {
-		this.mySwiper = new Swiper('.swiper-container', {
-			centeredSlides: true,
-			spaceBetween: 100,
-			direction: 'horizontal',
-			centeredSlides: true,
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev'
-			}
-		});
+		this.swiperInit();
 	},
 	watch: {
 		slideInfo: function () {
 			this.mySlide = this.slideInfo;
+			this.swiperInit();
+			this.mySwiper.update();
 		}
 	},
 	updated() {
@@ -63,7 +56,23 @@ Vue.component("cscounselor-layout", {
 	methods: {
 		strToArray(index) {
 			return this.mySlide[index].csHis.split(",");
+		},
+		swiperInit() {
+			this.$nextTick().then(() => {
+				this.mySwiper = new Swiper('.swiper-container', {
+					centeredSlides: true,
+					spaceBetween: 100,
+					direction: 'horizontal',
+					initialSlide: 15,
+					centeredSlides: true,
+					navigation: {
+						nextEl: '.swiper-button-next',
+						prevEl: '.swiper-button-prev'
+					},
+				})
+			})
 		}
+
 	}
 });
 

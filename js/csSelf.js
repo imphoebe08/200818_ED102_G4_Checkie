@@ -115,7 +115,7 @@ Vue.component("csselfact-layout", {
                         <a href="" class="small"><img src="img//icon//share.png" alt=""></a>
                         <a href="" class="small"><img src="img//icon//bookmark.png" alt=""></a>
                 </div>
-                <p>{{item.actContext}}</p>
+                <p>{{item.actContext | ellipsisWords}}</p>
             </div>
 
             <button class="joinBut button2"><a href="./acSelf.html">立即報名</a></button>
@@ -127,6 +127,14 @@ Vue.component("csselfact-layout", {
         actData: function () {
             this.csActData = this.actData;
         }
+    },
+    filters: {
+        ellipsisWords: function (str) {
+            // 加上 $ 字號
+            let str2 = str.slice(0, 30);
+            str2 += '...';
+            return str2;
+        },
     }
 });
 
@@ -270,17 +278,7 @@ let vmcss = new Vue({
                 console.log(error)
             });
     },
-    methods: {
-        openOrderPage() {
-            window.open("./coCalender.html", "_self");
-        },
-        openSelfPage() {
-            window.open("./csSelf.html", "_self");
-        },
-        openCharRoomPage() {
-            window.open("./chatRoom.html", "_self");
-        }
-    },
+    methods: {},
     watch: {
         csData: function () {
             for (let i = 0; i < 5; i++)
@@ -331,7 +329,7 @@ $('.slider').slick({
     autoplaySpeed: 2000,
     centerMode: true,
     responsive: [{
-        breakpoint: 767,
+        breakpoint: 500,
         settings: {
             vertical: false,
             slidesToShow: 1,
