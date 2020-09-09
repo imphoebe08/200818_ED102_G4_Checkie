@@ -30,7 +30,7 @@ Vue.component('acSelectCard', {
                 </a>
             
             <!-- 卡片文字 -->
-            <h6 class="acSelectCard_title"><a href="./acSelf.html">{{acContent.acName}}</a></h6>
+            <h6 class="acSelectCard_title"><a href="./acSelf.html">{{acContent.actName}}</a></h6>
             
             <!-- 卡片時間 -->
             <div class="acSelectCard_icon">
@@ -39,15 +39,15 @@ Vue.component('acSelectCard', {
             </div>
             <div class="acSelectCard_text">
             <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
-            <p class="acSelectCard_time">活動日期：<br>{{acContent.acStartDate}} ~ <br>{{acContent.acEndDate}}</p>
+            <p class="acSelectCard_time">活動日期：<br>{{acContent.actStart}} ~ <br>{{acContent.actEnd}}</p>
             </div>
             <div class="acSelectCard_text">
                 <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
-                <p class="acSelectCard_time">報名截止日期：<br>{{acContent.acRedEndDate}}</p>
+                <p class="acSelectCard_time">報名截止日期：<br>{{acContent.actPend}}</p>
             </div>
 
             <div class="acSelectCard_bottomBlock">
-            <p class="acSelectCard_person"> 剩餘名額：{{acContent.acMax - acContent.acMin}}</p>
+            <p class="acSelectCard_person"> 剩餘名額：{{acContent.actMax - acContent.actCount}}</p>
             <input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register">
             </div>
         </div>
@@ -73,8 +73,10 @@ new Vue({
 
     },
     mounted() {
-        axios.get('./json/acMain.json').then((data) => {
-            this.contents = data.data
+        axios.get('../php/acMain.php').then((res) => {
+            this.contents = res.data
+            console.log(res);
+            console.log(res.data);
         })
 
         axios.get('./json/acMain_comments.json').then((data) => {
