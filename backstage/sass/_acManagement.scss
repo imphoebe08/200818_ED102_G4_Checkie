@@ -1,0 +1,23 @@
+.acManagement_title {
+    display: flex;
+    margin-bottom: 10px;
+    .acManagement_newAc {
+        margin-left: auto;
+    }
+    .acManagement_addAc {
+        @include btn-modules($bw, $color-pink, $fontsize);
+    }
+}
+
+.table-sm td,
+.table-sm th {
+    padding: .75rem;
+}
+
+.acManagement_edit {
+    text-decoration: none;
+    @include btn-more($bw, $color-pink, $fontsize);
+    a {
+        color: $color-pink;
+    }
+}

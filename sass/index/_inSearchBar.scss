@@ -11,6 +11,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, 0);
+
     .select-block {
         display: inline-block;
         height: 80px;
@@ -18,16 +19,20 @@
         position: relative;
         margin: 0 5px;
         border-radius: 40px;
+
         &:first-child {
             margin-left: 50px;
         }
+
         &:last-child {
             margin-right: 50px;
         }
+
         &:active {
             box-shadow: 0 0 15px 5px $color-pink;
             background-color: $color-pink;
         }
+
         span {
             width: 105px;
             height: 40px;
@@ -37,6 +42,7 @@
             top: 50%;
             transform: translate(-50%, -70%);
             cursor: pointer;
+
             &::after {
                 display: inline-block;
                 content: url(https://image.flaticon.com/icons/svg/566/566015.svg);
@@ -45,6 +51,7 @@
                 margin-left: 10px;
             }
         }
+
         p {
             width: 130px;
             position: absolute;
@@ -54,6 +61,7 @@
             font-size: 12px;
             color: $color-pink;
         }
+
         ul {
             position: absolute;
             background: #fff;
@@ -69,21 +77,29 @@
             flex-flow: nowrap row;
             justify-content: flex-start;
             box-shadow: 5px 5px 10px 5px #ccc;
+            overflow-y: auto;
+            width: 100%;
+            overflow-x: hidden;
+
             &:not(:first-child) {
                 display: none;
             }
+
             li {
                 height: 40px;
                 text-align: left;
                 line-height: 40px;
                 margin: 10px 0;
                 z-index: 100;
+
                 input {
                     display: none;
+
                     &:checked+label {
                         background: $color-pink;
                     }
                 }
+
                 label {
                     border: 1px solid $color-pink;
                     display: inline-block;
@@ -96,6 +112,7 @@
             }
         }
     }
+
     button {
         display: inline-block;
         cursor: pointer;
@@ -126,16 +143,20 @@
         flex-flow: nowrap row;
         min-width: 200px;
         justify-content: center;
+
         .select-block {
             height: 80px;
+
             p {
                 top: 80%;
             }
+
             ul {
                 position: static;
                 transform: translate(0%, 80px);
             }
         }
+
         button {
             position: static;
         }
@@ -152,25 +173,31 @@
         text-align: center;
         transform: translate(-50%, 0);
         z-index: 500;
+
         button {
             margin: 0 0 10px 0;
         }
+
         .select-block {
             display: block;
             margin: 0 auto;
             width: 120px;
             min-height: 80px;
             height: initial;
+
             &:first-child {
                 margin-left: auto;
             }
+
             &:last-child {
                 margin-right: auto;
             }
+
             &:active {
                 box-shadow: none;
                 background-color: white;
             }
+
             span {
                 display: inline-block;
                 width: 120px;
@@ -178,16 +205,19 @@
                 transform: none;
                 border-radius: 20px;
                 padding: 5px 0;
+
                 &:active {
                     box-shadow: 0 0 15px 5px $color-pink;
                     background-color: $color-pink;
                 }
             }
+
             p {
                 position: static;
                 transform: none;
                 padding: 0 0 5px;
             }
+
             ul {
                 background: none;
                 box-shadow: none;
@@ -196,6 +226,7 @@
                 padding: 0;
                 display: block;
                 width: 100%;
+
                 li {
                     display: inline-block;
                     width: 100%;

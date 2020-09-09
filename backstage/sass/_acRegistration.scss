@@ -1,0 +1,8 @@
+.table-sm td,
+.table-sm th {
+    padding: .75rem;
+}
+
+.acRegistration_edit {
+    @include btn-more($bw, $color-pink, $fontsize);
+}

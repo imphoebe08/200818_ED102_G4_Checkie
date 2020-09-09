@@ -89,6 +89,10 @@ div.inCs_group {
                     @include h1;
                     display: block;
                     text-align: center;
+
+                    a {
+                        color: black;
+                    }
                 }
 
                 button {
@@ -98,6 +102,10 @@ div.inCs_group {
                     transform: translate(-50%, 0);
                     margin: 10px;
                     @include btn-modules($bw, $color-pink, $fontsize);
+
+                    a {
+                        color: #fff;
+                    }
                 }
             }
         }
@@ -167,6 +175,10 @@ div.inCs_group {
                     @include h1;
                     display: block;
                     text-align: center;
+
+                    a {
+                        color: black;
+                    }
                 }
 
                 button {
@@ -176,6 +188,10 @@ div.inCs_group {
                     transform: translate(-50%, 0);
                     margin: 10px;
                     @include btn-modules($bw, $color-pink, $fontsize);
+
+                    a {
+                        color: #fff;
+                    }
                 }
             }
         }
