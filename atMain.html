@@ -35,7 +35,7 @@
     <div class="atContent" id="atcontent">
 
         <div class="atContent_left" id="atContent_left">
-            <ever :inpu="each" v-for="each in arr1"></ever>
+            <!-- <ever :inpu="each" v-for="each in arr1"></ever> -->
             <ever1 :in="each" v-for="each in arr"></ever1>
         </div>
 
@@ -45,7 +45,7 @@
 
         <div class="atContent_conter">
             <div class="atContent-conterbox">
-                <cam1 :can1="each" v-for="each in conter1"></cam1>
+                <!-- <cam1 :can1="each" v-for="each in conter1"></cam1> -->
 
                 <cam :can="each" v-for="each in conter"></cam>
 
@@ -321,33 +321,33 @@
                 },
                 props: ["in"],
                 template: `
-        <a href="https://www.iiispace.com/2017/07/10/000203/">
-                <article>
-                    <div class="atContent-left_pic">
-                        <img :src="each.img" alt="">
-                    </div>
-                    <div class="atContent-left_detail">
-                        <div class="atContent-left-detail_pic"><img :src="each.doctorimg" alt=""></div>
-                        <div class="atContent-left-detail_text">
-                            <p>{{each.doctor}}</p>
-                        </div>
-                        <div class="atContent-left-detail_title">
-                            <p>{{each.class}}</p>
-                        </div>
-                    </div>
-                    <div class="atContent-left_border1"></div>
-
-                    <div class="atContent-left_title">
-                        {{each.title}}
-                    </div>
-                    <div class="atContent-left_partner">
-                        <p>
-                            {{each.detial}}
-                        </p>
-                    </div>
-
-                </article>
-            </a>
+                            <a href="https://www.iiispace.com/2017/07/10/000203/">
+                                    <article>
+                                        <div class="atContent-left_pic">
+                                            <img :src="each.img" alt="">
+                                        </div>
+                                        <div class="atContent-left_detail">
+                                            <div class="atContent-left-detail_pic"><img :src="each.doctorimg" alt=""></div>
+                                            <div class="atContent-left-detail_text">
+                                                <p>{{each.doctor}}</p>
+                                            </div>
+                                            <div class="atContent-left-detail_title">
+                                                <p>{{each.class}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="atContent-left_border1"></div>
+                                    
+                                        <div class="atContent-left_title">
+                                            {{each.title}}
+                                        </div>
+                                        <div class="atContent-left_partner">
+                                            <p>
+                                                {{each.detial}}
+                                            </p>
+                                        </div>
+                                    
+                                    </article>
+                            </a>
         `
             }
 
@@ -360,33 +360,33 @@
                 }
             },
             template: `
-            <a href="https://www.iiispace.com/2019/06/26/000543/">
-                <article>
-                    <div class="atContent-left_pic1">
-                        <img :src="each.img" alt="">
-                    </div>
-                    <div class="atContent-left_detail">
-                        <div class="atContent-left-detail_pic"><img :src="each.doctorimg" alt=""></div>
-                        <div class="atContent-left-detail_text">
-                            <p>{{each.doctor}}</p>
-                        </div>
-                        <div class="atContent-left-detail_title">
-                            <p>{{each.class}}</p>
-                        </div>
-                    </div>
-                    <div class="atContent-left_border1"></div>
-
-                    <div class="atContent-left_title">
-                        {{each.title}}
-                    </div>
-                    <div class="atContent-left_partner">
-                        <p>
-                            {{each.detial}}
-                        </p>
-                    </div>
-
-                </article>
-            </a>
+                        <a href="https://www.iiispace.com/2019/06/26/000543/">
+                            <article>
+                                <div class="atContent-left_pic1">
+                                    <img :src="each.img" alt="">
+                                </div>
+                                <div class="atContent-left_detail">
+                                    <div class="atContent-left-detail_pic"><img :src="each.doctorimg" alt=""></div>
+                                    <div class="atContent-left-detail_text">
+                                        <p>{{each.doctor}}</p>
+                                    </div>
+                                    <div class="atContent-left-detail_title">
+                                        <p>{{each.class}}</p>
+                                    </div>
+                                </div>
+                                <div class="atContent-left_border1"></div>
+                            
+                                <div class="atContent-left_title">
+                                    {{each.title}}
+                                </div>
+                                <div class="atContent-left_partner">
+                                    <p>
+                                        {{each.detial}}
+                                    </p>
+                                </div>
+                            
+                            </article>
+                        </a>
             `
         })
         Vue.component("cam", {
@@ -398,33 +398,33 @@
                 }
             },
             template: `
-                 <a href="https://www.iiispace.com/2020/07/27/000797/">
-                         <article>
-                             <div class="atContent-conter_pic">
-                                 <img :src="each.img" alt="">
-                             </div>
-                             <div class="atContent-conter_detail">
-                                 <div class="atContent-conter-detail_pic"><img :src="each.doctorimg" alt=""></div>
-                                 <div class="atContent-conter-detail_text">
-                                     <p>{{each.doctor}}</p>
-                                 </div>
-                                 <div class="atContent-conter-detail_title">
-                                     <p>{{each.class}}</p>
-                                 </div>
-                             </div>
-                             <div class="atContent-conter_border1"></div>
-
-                             <div class="atContent-conter_title">
-                                 {{each.title}}
-                             </div>
-                             <div class="atContent-conter_partner">
-                                 <p>
-                                     {{each.detial}}
-                                 </p>
-                             </div>
-
-                        </article>
-                     </a>
+                         <a href="https://www.iiispace.com/2020/07/27/000797/">
+                                 <article>
+                                     <div class="atContent-conter_pic">
+                                         <img :src="each.img" alt="">
+                                     </div>
+                                     <div class="atContent-conter_detail">
+                                         <div class="atContent-conter-detail_pic"><img :src="each.doctorimg" alt=""></div>
+                                         <div class="atContent-conter-detail_text">
+                                             <p>{{each.doctor}}</p>
+                                         </div>
+                                         <div class="atContent-conter-detail_title">
+                                             <p>{{each.class}}</p>
+                                         </div>
+                                     </div>
+                                     <div class="atContent-conter_border1"></div>
+                                 
+                                     <div class="atContent-conter_title">
+                                         {{each.title}}
+                                     </div>
+                                     <div class="atContent-conter_partner">
+                                         <p>
+                                             {{each.detial}}
+                                         </p>
+                                     </div>
+                                 
+                                </article>
+                         </a>
              `
         })
         Vue.component("cam1", {
@@ -436,33 +436,33 @@
             props: ["can1"],
 
             template: `
-            <a href="https://www.iiispace.com/2020/07/27/000797/">
-                        <article>
-                            <div class="atContent-conter_pic1">
-                                <img :src="each.img" alt="">
-                            </div>
-                            <div class="atContent-conter_detail">
-                                <div class="atContent-conter-detail_pic"><img :src="each.doctorimg" alt=""></div>
-                                <div class="atContent-conter-detail_text">
-                                    <p>{{each.doctor}}</p>
-                                </div>
-                                <div class="atContent-conter-detail_title">
-                                    <p>{{each.class}}</p>
-                                </div>
-                            </div>
-                            <div class="atContent-conter_border1"></div>
-
-                            <div class="atContent-conter_title">
-                                {{each.title}}
-                            </div>
-                            <div class="atContent-conter_partner">
-                                <p>
-                                    {{each.detial}}
-                                </p>
-                            </div>
-
-                        </article>
-                    </a>
+                        <a href="https://www.iiispace.com/2020/07/27/000797/">
+                                    <article>
+                                        <div class="atContent-conter_pic1">
+                                            <img :src="each.img" alt="">
+                                        </div>
+                                        <div class="atContent-conter_detail">
+                                            <div class="atContent-conter-detail_pic"><img :src="each.doctorimg" alt=""></div>
+                                            <div class="atContent-conter-detail_text">
+                                                <p>{{each.doctor}}</p>
+                                            </div>
+                                            <div class="atContent-conter-detail_title">
+                                                <p>{{each.class}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="atContent-conter_border1"></div>
+                                    
+                                        <div class="atContent-conter_title">
+                                            {{each.title}}
+                                        </div>
+                                        <div class="atContent-conter_partner">
+                                            <p>
+                                                {{each.detial}}
+                                            </p>
+                                        </div>
+                                    
+                                    </article>
+                         </a>
             `
         })
         Vue.component("ri", {
