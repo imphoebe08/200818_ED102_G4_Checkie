@@ -1,177 +1,190 @@
 // @import '../vender/reset';
 // @import '../vender/var';
 // @import '../vender/variable';
-@import './acRelateCard';
-
+// @import './acRelateCard';
 $border-bottom: 1px solid lightgrey;
 $title-margin: 30px 30px;
 $content-margin: 0px 30px;
-
-input:focus{
+input:focus {
     outline: none;
 }
 
-h2{
+h2 {
     @include h2;
 }
-h3{
+
+h3 {
     @include h3;
 }
-h4{
+
+h4 {
     @include h4;
 }
-h5{
+
+h5 {
     @include h5;
 }
-h6{
+
+h6 {
     @include h6;
 }
-p{
+
+p {
     @include p;
 }
-a{
+
+a {
     text-decoration: none;
 }
-.acSelf{
+
+.acSelf {
     // border: 1px solid blue;
-    margin:30px 50px;
+    margin: 30px 50px;
     box-shadow: $boxshadow;
     background: rgba(255, 255, 255, 0.801);
 }
-.acSelf-Banner{
+
+.acSelf-Banner {
     // border: 1px solid red;
     display: flex;
     flex-wrap: wrap;
-
 }
-    .acSelf-Banner_pic{
-        // border: 1px solid chartreuse;
-        padding: 0;
+
+.acSelf-Banner_pic {
+    // border: 1px solid chartreuse;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    img {
         width: 100%;
-        height: 100%;
-        img{
-            width: 100%;
-        }
     }
-.acSelf-btns{
+}
+
+.acSelf-Banner_intro {
+    padding-top: 50px;
+}
+
+.acSelf-btns {
     // border: 1px solid red;
-
-
-    .acSelf-btns-markshare{
+    .acSelf-btns-markshare {
         margin-left: 3%;
         display: inline-block;
         width: 80%;
         vertical-align: bottom;
-            #acSelf-btns_share{
-                width: 30px;
-                height: 30px;
-                margin: 10px 10px 0 0;
-            }
-            #acSelf-btns_save{
-                width: 30px;
-                height: 30px;
-                margin: 10px 10px 0 0;
-            }
-        
+        #acSelf-btns_share {
+            width: 30px;
+            height: 30px;
+            margin: 10px 10px 0 0;
+        }
+        #acSelf-btns_save {
+            width: 30px;
+            height: 30px;
+            margin: 10px 10px 0 0;
+        }
     }
-    .acSelf-btns_apply{
+    .acSelf-btns_apply {
         display: inline-block;
         @include btn-modules($bw, $color-pink, $fontsize);
     }
     // 按鈕RWD
 }
-@media screen and (max-width: 986px){
-    .acSelf-btns{
+
+@media screen and (max-width: 986px) {
+    .acSelf-btns {
         // border: 1px solid red;
         text-align: unset;
         display: flex;
-        .acSelf-btns-markshare{
+        .acSelf-btns-markshare {
             flex-grow: 1;
         }
-        .acSelf-btns_apply{
-            margin-right:5px;
+        .acSelf-btns_apply {
+            margin-right: 5px;
         }
     }
 }
 
-.acInfo-title{
+.acInfo-title {
     border-bottom: $border-bottom;
-    margin:$title-margin;
+    margin: $title-margin;
 }
 
-.acInfo{
+.acInfo {
     margin: $content-margin;
 }
-.acInfo_pic{
+
+.acInfo_pic {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
-
-    .acInfo_pic--1{
+    .acInfo_pic--1 {
         width: 40%;
         height: 100%;
         margin: 5% 5% 0 0;
     }
-
-    .acInfo_pic--2{
+    .acInfo_pic--2 {
         width: 40%;
         height: 100%;
         margin: 10% 5% 0 0;
     }
 }
 
-.acTeacher-title{
+.acTeacher-title {
     border-bottom: $border-bottom;
-    margin:$title-margin;
+    margin: $title-margin;
 }
-.acTeacher{
+
+.acTeacher {
     margin: $content-margin;
     display: flex;
     flex-wrap: wrap;
 }
-.acTeacher_intro{
+
+.acTeacher_intro {
     margin: auto 0;
 }
-.acTeacher_pic{
+
+.acTeacher_pic {
     margin-right: 4%;
-    img{
-        width: 100%;
+    text-align: center;
+    ;
+    img {
+        width: 300px;
         border-radius: 50%;
     }
 }
 
-.acLocation-title{
+.acLocation-title {
     border-bottom: $border-bottom;
     margin: $title-margin;
 }
-.acLocation{
+
+.acLocation {
     border-top: 1px solid lightgray;
     margin: 10px 30px;
 }
-.acAttension{
-    .acAttension-title{
+
+.acAttension {
+    .acAttension-title {
         text-align: center;
         margin-top: 50px;
     }
-    #acAttension_arrow{
+    #acAttension_arrow {
         border-bottom: 1px solid lightgrey;
-        border-right: 1px solid lightgrey ;
+        border-right: 1px solid lightgrey;
         width: 20px;
         height: 20px;
         margin: 0 auto;
         cursor: pointer;
     }
-    .acAttension_arrow--up{
+    .acAttension_arrow--up {
         transform: rotate(45deg);
         background-color: white;
     }
-
-    .acAttension_arrow--down{
+    .acAttension_arrow--down {
         transform: rotate(225deg) translate(-28px, -28px);
         transition: transform 0.5s;
-
     }
-    .acAttension-text{
+    .acAttension-text {
         border: 1px solid lightgray;
         padding: 30px 80px;
         margin: 30px;
@@ -180,31 +193,28 @@ a{
     }
 }
 
-.acRelate{
+.acRelate {
     background-color: #F5F5F5;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     padding-bottom: 50px;
     margin-top: 30px;
-    text-align: center;
-    
-    .acRelate-title{
+    // text-align: center;
+    .acRelate-title {
         text-align: center;
         margin: $title-margin;
     }
-
-    .acRelateCard{
+    .acRelateCard {
         border-radius: $border-radius;
         width: 350px;
         height: 400px;
-        margin:10px
-        
+        margin: 10px
     }
 }
-// 貓頭鷹點點
 
-.owl-theme .owl-dots{
+// 貓頭鷹點點
+.owl-theme .owl-dots {
     position: relative;
     bottom: -30px;
 }

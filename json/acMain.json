@@ -12,7 +12,7 @@
          "acCurrentReg": "15",
          "acFee": "480NTD",
          "acCondi": "0",
-         "acPic": ["https://picsum.photos/200", "https://picsum.photos/200", "https://picsum.photos/200"],
+         "acPic": ["<./img/acSelf/ac1/ac1_banner.jpg>", "https://picsum.photos/200", "https://picsum.photos/200"],
          "acHolder": "https://picsum.photos/200"
      },
      {

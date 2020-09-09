@@ -3,9 +3,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Checkie Logo -->
-    <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="../img/navbar/cklogo2.png" width="100%" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
+    <a class="navbar-brand" href="./bgHome.html">
+        <img class="navbar-brand-full" src="../img/navbar/cklogo2.png" width="100%" alt="Checkie Logo">
     </a>
     <!-- 側邊欄漢堡 -->
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
@@ -13,19 +12,13 @@
     </button>
     <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-3">
-            <a class="nav-link" href="#">首頁總覽</a>
+            <a class="nav-link" href="../home.html">前台首頁</a>
         </li>
         <li class="nav-item px-3">
             <a class="nav-link" href="#">設定</a>
         </li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item d-md-down-none">
-            <a class="nav-link" href="#">
-                <i class="icon-bell"></i>
-                <span class="badge badge-pill badge-danger">5</span>
-            </a>
-        </li>
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 <img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
@@ -77,3 +70,85 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 </header>
+
+<div class="app-body">
+    <div class="sidebar">
+        <!-- sidebar menu-->
+        <nav class="sidebar-nav">
+            <ul class="nav">
+                <li class="nav-title">人員管理</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="colors.html">
+                        <i class="nav-icon icon-drop"></i> 管理員管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="typography.html">
+                        <i class="nav-icon icon-pencil"></i> 會員管理</a>
+                </li>
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="typography.html">
+                        <i class="nav-icon icon-pencil"></i> 諮商師管理</a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" href="base/breadcrumb.html">
+                                <i class="nav-icon icon-puzzle"></i> 工作時間管理</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="base/cards.html">
+                                <i class="nav-icon icon-puzzle"></i>已預約時間管理</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-title">前台內容管理</li>
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="#">
+                        <i class="nav-icon icon-puzzle"></i>活動管理</a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./acManagement.html">
+                                <i class="nav-icon icon-puzzle"></i> 活動上下架</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./acRegistration.html">
+                                <i class="nav-icon icon-puzzle"></i>活動報名管理</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="#">
+                        <i class="nav-icon icon-cursor"></i> 線上諮商管理</a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" href="buttons/buttons.html">
+                                <i class="nav-icon icon-cursor"></i> 線上諮商回覆</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="buttons/button-group.html">
+                                <i class="nav-icon icon-cursor"></i>回覆機器人</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="charts.html">
+                        <i class="nav-icon icon-pie-chart"></i>專欄上下架</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="testQuestion.html">
+                        <i class="nav-icon icon-pie-chart"></i>心理評估問券管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="charts.html">
+                        <i class="nav-icon icon-pie-chart"></i>神諭卡管理</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <main class="main">
+        <!-- Breadcrumb-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">首頁</li>
+            <li class="breadcrumb-item">
+                <a href="#">管理員</a>
+            </li>
+            <li class="breadcrumb-item active">後台管理</li>
+        </ol>

@@ -1,32 +1,36 @@
 Vue.component('acRelateCard', {
-    props: {},
+    props: { acContents: Array },
     template: `
-    <div class="acRelateCard">
-        <a href="./ac_content.html">
-            <img src="./img/acSelf/acCard.jpg">
-        </a>
+    <div id="acSelect" class="acSelect container-sm container-md">
+            <div class="acSelectCard" v-for="acContent in acContents">
+                    <a href="./acSelf.html">
+                        <img src="./img/acMain/acCard.jpg">
+                    </a>
+                
+                <!-- 卡片文字 -->
+                <h6 class="acSelectCard_title"><a href="./acSelf.html">{{acContent.acName}}</a></h6>
+                
+                <!-- 卡片時間 -->
+                <div class="acSelectCard_icon">
+                <img class="acSelectCard-share_icon"src="./img/icon/share.png" alt="">
+                <img class="acSelectCard-bookmark_icon"src="./img/icon/bookmark.png" alt="">
+                </div>
+                <div class="acSelectCard_text">
+                <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
+                <p class="acSelectCard_time">活動日期：<br>{{acContent.acStartDate}} ~ <br>{{acContent.acEndDate}}</p>
+                </div>
+                <div class="acSelectCard_text">
+                    <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
+                    <p class="acSelectCard_time">報名截止日期：<br>{{acContent.acRedEndDate}}</p>
+                </div>
 
-        <!-- 卡片時間 -->
-        <div class="acRelateCard_text">
-            <img class="acRelateCard-time_icon"src="./img/icon/clock.png" alt="">
-            <p class="acRelateCard_time">2020-08-15（六）<br> 14:00 - 16:00</p>
-            <div class="acRelateCard_icon">
-                <img class="acRelateCard-share_icon"src="./img/icon/share.png" alt="">
-                <img class="acRelateCard-bookmark_icon"src="./img/icon/bookmark.png" alt="">
+                <div class="acSelectCard_bottomBlock">
+                <p class="acSelectCard_person"> 剩餘名額：{{acContent.acMax - acContent.acMin}}</p>
+                <input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register">
+                </div>
             </div>
         </div>
-
-        <!-- 卡片文字 -->
-        <h6 class="acRelateCard_title"><a href="./ac_content.html">信念探索團：親密關係</a></h6>
-        <div class="acRelateCard_bottomBlock">
-            <p class="acRelateCard_person"> 剩餘名額：10人</p>
-            <input id="acRelateCard_register" type="button" value="立即報名" class="acRelateCard_register">
-        </div>
-    </div>
     `,
-    methods: {
-
-    },
 });
 
 new Vue({
@@ -35,14 +39,42 @@ new Vue({
     data: {
         date: "",
         contents: [],
+        cards: [],
     },
     methods: {
-
+        installOwlCarousel: function() {
+            $('.owl-carousel').owlCarousel({
+                loop: false,
+                touchDrag: true,
+                autoplay: false,
+                // autoplayTimeout: 2000,
+                autoplayHoverPause: false,
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    576: {
+                        items: 1,
+                    },
+                    1180: {
+                        items: 3,
+                    }
+                }
+            });
+        }
     },
     mounted() {
-        axios.get('./json/acSelf.json').then((data) => {
-            this.contents = data.data
+        var vm = this;
+        axios.get('./json/acSelf.json').then((res) => {
+            this.contents = res.data
                 // console.log(data)
+        })
+        axios.get('./json/acMain.json').then((res) => {
+            this.cards = res.data
+                // console.log(res)
+            Vue.nextTick().then(function() {
+                vm.installOwlCarousel();
+            });
         })
     },
 })

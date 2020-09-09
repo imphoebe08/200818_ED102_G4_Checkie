@@ -321,13 +321,15 @@ $('.owl-carousel1').owlCarousel({
 
 // 活動卡片
 $('.slider').slick({
+    arrows: false,
     dots: false,
     vertical: true,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
-    verticalSwiping: false,
+    verticalSwiping: true,
     autoplay: false,
     autoplaySpeed: 2000,
+    centerMode: true,
     responsive: [{
         breakpoint: 767,
         settings: {

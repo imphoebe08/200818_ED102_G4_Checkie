@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .btn {
+            width: 50px;
+        }
+        
+        img {
+            width: 100%;
+        }
+        
+        form {
+            margin: 10px;
+            padding: 10px;
+            border: solid 1px #DEDEDE;
+        }
+        
+        form>div {
+            overflow: auto;
+            zoom: 1;
+            margin: 15px 0;
+        }
+        
+        form>div label:first-child {
+            display: block;
+            margin: 0 0 5px 0;
+        }
+        
+        select,
+        textarea,
+        input[type="text"],
+        input[type="password"],
+        input[type="datetime"],
+        input[type="datetime-local"],
+        input[type="date"],
+        input[type="month"],
+        input[type="time"],
+        input[type="week"],
+        input[type="number"],
+        input[type="email"],
+        input[type="url"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="color"] {
+            font-size: 16px;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            -webkit-border-radius: 0;
+            border-radius: 0;
+            -webkit-tap-highlight-color: #CF0;
+        }
+        
+        select:focus,
+        textarea:focus,
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus {
+            box-shadow: 0 0 5px #CF0;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"],
+        input[type="color"],
+        select {
+            border: 1px solid #CCC;
+            width: 100%;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            height: 40px;
+            padding: 10px;
+            -webkit-tap-highlight-color: #CF0;
+        }
+        
+        .input-radio label:nth-child(n+2),
+        .input-checkbox label:nth-child(n+2) {
+            margin: 0 15px 0 0;
+        }
+        
+        input[type=checkbox],
+        input[type=radio] {
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            border: solid 1px #CCC;
+            height: 15px;
+            width: 15px;
+            margin: 0 5px 0 0;
+            -webkit-border-radius: 0;
+            border-radius: 0;
+            -webkit-tap-highlight-color: #CF0;
+        }
+        
+        input[type=radio] {
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+        
+        input[type=radio]:checked {
+            background: #333;
+        }
+        
+        input[type=checkbox]:checked {
+            background: #333;
+            /*background: url(../images/check.svg) no-repeat;
+	background-size: cover;*/
+        }
+        
+        select {
+            /* background: url(../images/down-arrow.svg) no-repeat right 10px; */
+            background-size: 30px;
+            -webkit-tap-highlight-color: #CF0;
+        }
+        
+        #btn-submit {
+            background: #333;
+            text-align: center;
+            color: #FFF;
+            border: none;
+            display: block;
+            width: 100%;
+            font-size: 18px;
+            padding: 20px 0;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+        }
+        
+        #results {
+            margin: 10px;
+            background: #333;
+            color: #FFF;
+        }
+        
+        #results div {
+            font-size: 18px;
+            border-bottom: solid 1px #666;
+            padding: 10px;
+        }
+        
+        #results div span {
+            font-size: 12px;
+            color: #CCC;
+        }
+        
+        #results .name {}
+        
+        #results .name span {
+            color: #FFF;
+            font-size: 18px;
+        }
+        
+        #results .name .fname {}
+        
+        #results .name .lname {}
+        
+        #results .email {}
+        
+        #results .bday {}
+        
+        #results .role {}
+        
+        #results .os {}
+        
+        #results .skills {}
+        
+        #results .skills ul {
+            list-style: none;
+        }
+        
+        #results .skills ul .frontEnd {}
+        
+        #results .skills ul .backEnd {}
+        
+        #results .skills ul .business {}
+        
+        #results .experience {}
+        
+        #results .color {}
+    </style>
+
+    @@include('layout/bgHead.html')
+
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <!-- top_header -->
+    @@include('layout/top_header.html')
+
+    <!-- 中間內容 -->
+    <div class="container-fluid">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        心理評估問券管理
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-condensed table-striped">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>問題編號</th>
+                                    <th>問題類別</th>
+                                    <th>問題內容</th>
+                                    <th>上架狀態</th>
+                                    <th>更新日期</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
+                                    <td><button class="btn btn-default btn-xs"><img src="./img/icon/edit.png"></button></td>
+                                    <td>01</td>
+                                    <td>家庭關係</td>
+                                    <td>近期的家庭關係是否正常</td>
+                                    <td>上架中</td>
+                                    <td>2020/09/08</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="12" class="hiddenRow">
+                                        <div class="accordian-body collapse" id="demo1">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr class="info">
+                                                        <th>Job</th>
+                                                        <th>Company</th>
+                                                        <th>Salary</th>
+                                                        <th>Date On</th>
+                                                        <th>Date off</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+
+                                                    <tr data-toggle="collapse" class="accordion-toggle" data-target="#demo10">
+                                                        <td> <a href="#">Enginner Software</a></td>
+                                                        <td>Google</td>
+                                                        <td>U$8.00000 </td>
+                                                        <td> 2016/09/27</td>
+                                                        <td> 2017/09/27</td>
+                                                        <td>
+                                                            <a href="#" class="btn btn-default btn-sm">
+                                                                <i class="glyphicon glyphicon-cog"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+
+
+
+                                                    <tr>
+                                                        <td>Scrum Master</td>
+                                                        <td>Google</td>
+                                                        <td>U$8.00000 </td>
+                                                        <td> 2016/09/27</td>
+                                                        <td> 2017/09/27</td>
+                                                        <td>
+                                                            <a href="#" class="btn btn-default btn-sm">
+                                                                <i class="glyphicon glyphicon-cog"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+
+
+                                                    <tr>
+                                                        <td>Back-end</td>
+                                                        <td>Google</td>
+                                                        <td>U$8.00000 </td>
+                                                        <td> 2016/09/27</td>
+                                                        <td> 2017/09/27</td>
+                                                        <td>
+                                                            <a href="#" class="btn btn-default btn-sm">
+                                                                <i class="glyphicon glyphicon-cog"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+
+
+                                                    <tr>
+                                                        <td>Front-end</td>
+                                                        <td>Google</td>
+                                                        <td>U$8.00000 </td>
+                                                        <td> 2016/09/27</td>
+                                                        <td> 2017/09/27</td>
+                                                        <td>
+                                                            <a href="#" class="btn btn-default btn-sm">
+                                                                <i class="glyphicon glyphicon-cog"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+
+                                <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
+                                    <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+                                    <td>Silvio</td>
+                                    <td>Santos</td>
+                                    <td>São Paulo</td>
+                                    <td>SP</td>
+                                    <td> new</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="hiddenRow">
+                                        <div id="demo2" class="accordian-body collapse">Demo2</div>
+                                    </td>
+                                </tr>
+                                <tr data-toggle="collapse" data-target="#demo3" class="accordion-toggle">
+                                    <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+                                    <td>John</td>
+                                    <td>Doe</td>
+                                    <td>Dracena</td>
+                                    <td>SP</td>
+                                    <td> New</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="hiddenRow">
+                                        <div id="demo3" class="accordian-body collapse">Demo3</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <form id="info">
+            <div class="input-radio">
+                <label>問題類別</label>
+                <label><input type="radio" name="os" value="Mac OS"> 家庭關係</label>
+                <label><input type="radio" name="os" value="Windows"> 人際關係</label>
+
+                <label><input type="radio" name="os" value="Windows"> 伴侶關係</label>
+
+                <label><input type="radio" name="os" value="Windows"> 壓力創傷</label>
+
+                <label><input type="radio" name="os" value="Windows"> 自我探索</label>
+            </div>
+
+            <div class="input">
+                <label>問題內容</label>
+                <input type="text" name="testcontent" placeholder="輸入問題內容">
+            </div>
+
+
+            <div class="input-btn">
+                <div id="btn-submit">Submit</div>
+            </div>
+
+        </form>
+
+
+        <div id="results"></div>
+
+    </div>
+
+    @@include('layout/footer.html')
+</body>
+
+</html>

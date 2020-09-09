@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/bgHead.html')
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <!-- top_header -->
+    @@include('layout/top_header.html')
+
+    <!-- 中間內容 -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="acManagement_title">
+                    <h1 class="acManagement_h1">活動管理</h1>
+                    <a class="acManagement_newAc" href=" ./acAdd.html "><button class="acManagement_addAc ">新增活動</button></a>
+                </div>
+                <div class="card ">
+                    <div class="card-header ">活動查詢｜
+                        <span>區間查詢：</span>
+                        <select name=" " id="table_condition_year ">
+                            <option value=" ">2020</option>
+                            <option value=" ">2019</option>
+                        </select>
+                        <span>年</span>
+                        <select name=" " id="table_condition_mon ">
+                            <option value=" ">12月</option>
+                            <option value=" ">11月</option>
+                            <option value=" ">10月</option>
+                            <option value=" ">09月</option>
+                            <option value=" ">08月</option>
+                            <option value=" ">07月</option>
+                            <option value=" ">06月</option>
+                            <option value=" ">05月</option>
+                            <option value=" ">04月</option>
+                            <option value=" ">03月</option>
+                            <option value=" ">02月</option>
+                            <option value=" ">01月</option>
+                        </select>
+                        <span>至</span>
+                        <select name=" " id="table_condition_year ">
+                            <option value=" ">2020</option>
+                            <option value=" ">2019</option>
+                        </select>
+                        <span>年</span>
+                        <select name=" " id="table_condition_mon ">
+                            <option value=" ">12月</option>
+                            <option value=" ">11月</option>
+                            <option value=" ">10月</option>
+                            <option value=" ">09月</option>
+                            <option value=" ">08月</option>
+                            <option value=" ">07月</option>
+                            <option value=" ">06月</option>
+                            <option value=" ">05月</option>
+                            <option value=" ">04月</option>
+                            <option value=" ">03月</option>
+                            <option value=" ">02月</option>
+                            <option value=" ">01月</option>
+                        </select>
+                        <span>分類查詢：</span>
+                        <select name=" " id="table_condition_year ">
+                            <option value=" ">講座</option>
+                            <option value=" ">療癒</option>
+                            <option value=" ">戶外</option>
+                            <option value=" ">藝文</option>
+                        </select>
+                    </div>
+                    <div class="card-body ">
+                        <table class="table table-responsive-sm table-sm ">
+                            <thead>
+                                <tr>
+                                    <th>活動標題</th>
+                                    <th>分類編號</th>
+                                    <th>分類</th>
+                                    <th>報名開始時間</th>
+                                    <th>報名結束時間</th>
+                                    <th>活動開始時間</th>
+                                    <th>活動結束時間</th>
+                                    <th>上限人數</th>
+                                    <th>下限人數</th>
+                                    <th>報名人數</th>
+                                    <th>費用</th>
+                                    <th>活動狀態</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>藝術體驗工坊 療癒紓壓流動畫</td>
+                                    <td>4,3</td>
+                                    <td>藝文、戶外</td>
+                                    <td>2020/10/31 00:00</td>
+                                    <td>2020/11/31 23:59</td>
+                                    <td>2020/12/06 11:30</td>
+                                    <td>2020/12/06 14:00</td>
+                                    <td>30</td>
+                                    <td>10</td>
+                                    <td>15</td>
+                                    <td>$480</td>
+                                    <td>上架</td>
+                                    <td><a href="./acAdd.html "><button class="acManagement_edit ">編輯</button></a></td>
+                                </tr>
+                                <tr>
+                                    <td>藝術體驗工坊 療癒紓壓流動畫</td>
+                                    <td>4,3</td>
+                                    <td>藝文、戶外</td>
+                                    <td>2020/10/31 00:00</td>
+                                    <td>2020/11/31 23:59</td>
+                                    <td>2020/12/06 11:30</td>
+                                    <td>2020/12/06 14:00</td>
+                                    <td>30</td>
+                                    <td>10</td>
+                                    <td>15</td>
+                                    <td>$480</td>
+                                    <td>上架</td>
+                                    <td><a href="./acAdd.html "><button class="acManagement_edit ">編輯</button></a></td>
+                                </tr>
+                                <tr>
+                                    <td>藝術體驗工坊 療癒紓壓流動畫</td>
+                                    <td>4,3</td>
+                                    <td>藝文、戶外</td>
+                                    <td>2020/10/31 00:00</td>
+                                    <td>2020/11/31 23:59</td>
+                                    <td>2020/12/06 11:30</td>
+                                    <td>2020/12/06 14:00</td>
+                                    <td>30</td>
+                                    <td>10</td>
+                                    <td>15</td>
+                                    <td>$480</td>
+                                    <td>上架</td>
+                                    <td>
+                                        <a href="./acAdd.html "><button class="acManagement_edit ">編輯</button></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @@include('layout/footer.html')
+</body>
+
+</html>

@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap-grid.min.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="./css/fullpage.min.css">
-    <script src="./js/chatbot.js"></script>
-    <script src="./js/header.js"></script>
-    <script src="http://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <link rel="stylesheet" href="./css/main.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
+    <script src="./js/chatbot.js"></script>
+    <!-- <script src="./js/header.js"></script> -->
     <title>oracleCard</title>
 </head>
 
@@ -23,8 +26,9 @@
 
             <section class="oracleCardBanner page page1 section">
                 <div class="oracleCardBox">
-                    <div class="title">
+                    <div class="title" id="forWatch">
                         <h1>什麼是神諭卡</h1>
+                        <div id="forCloud" class="forCloud"></div>
                     </div>
                     <div class="txt">
                         <p>神諭卡可以協助我們與自我潛意識進行交流，主要的目的是用來傳遞與接收訊息，我們可以選擇自己有感覺的牌卡，與牌卡進行互動。神諭卡會因為個案的人、事、物不同，而傳遞不同的消息，牌卡不會告訴你「Yes」Or 「No」，但是會給予您相對應的建議。
@@ -85,58 +89,66 @@
                 </div>
             </section>
 
-            <section class="oracleCardStepOne page page3 section" id="cutScreen">
-                <div class="oracleCardStepOneBox">
+            <section class="oracleCardStepOne page page3 section">
+                <div class="oracleCardStepOneBox" id="cutScreen">
                     <div class="title">
                         <h2>Step1. 選擇喜歡的牌組</h2>
                     </div>
-                    <div class="cards col-12">
-                        <div class="item col-2 col-lg-2">
-                            <div class="itemImg sameSet">
-                                <img src="./img/oracleCard/card_cover/cover_angel.png" crossOrigin="anonymous" alt="angel">
-                            </div>
-                            <div class="itemImgBack sameSet">
-                                <img src="./img/oracleCard/cards/angel/angel_1.png" crossOrigin="anonymous" alt="">
-                                <div class="cardTxt cardHeight">
-                                    <fieldset>
-                                        <legend></legend>
-                                        <p></p>
-                                        <img src="./img/icon/share.png" alt="" class="acSelectCard-share_icon">
-                                    </fieldset>
+                    <div class="cards">
+                        <div class="item forMedia">
+                            <div class="itemImg sameSet animationShack">
+                                <div class="front card__side card__side--front">
+                                    <img class="cardFront" :src="cards[0].cardPic" crossOrigin="anonymous" alt="">
+                                </div>
+                                <div class="back card__side card__side--back card__side--back">
+                                    <img class="cardBack" :src="cardsBack[0]" @click="cardChangeData(cardsBack[0])" crossOrigin="anonymous" alt="angel">
                                 </div>
                             </div>
-                        </div>
-                        <div class="item col-2 col-lg-2">
-                            <div class="itemImg sameSet">
-                                <img src="./img/oracleCard/card_cover/cover_heaven.png" crossOrigin="anonymous" alt="heaven">
+                            <div class="itemTxt txtOpacityOne">
+                                <fieldset>
+                                    <legend>{{cards[0].cardTitle}}</legend>
+                                    <p>{{cards[0].cardContent}}</p>
+                                    <img src="./img/icon/share.png" alt="" class="acSelectCard-share_icon">
+                                </fieldset>
                             </div>
-                            <div class="itemImgBack sameSet">
-                                <img src="./img/oracleCard/cards/heaven/heaven_1.png" crossOrigin="anonymous" alt="">
-                                <div class="cardTxt cardHeight">
-                                    <fieldset>
-                                        <legend></legend>
-                                        <p></p>
-                                        <img src="./img/icon/share.png" alt="" class="acSelectCard-share_icon">
-                                    </fieldset>
+                        </div>
+                        <div class="item forMedia">
+                            <div class="itemImg sameSet animationShack">
+                                <div class="front card__side card__side--front">
+                                    <img class="cardFront" :src="cards[1].cardPic" crossOrigin="anonymous" alt="">
+                                </div>
+                                <div class="back card__side card__side--back card__side--back">
+                                    <img class="cardBack" :src="cardsBack[1]" @click="cardChangeData(cardsBack[1])" crossOrigin="anonymous" alt="angel">
                                 </div>
                             </div>
-                        </div>
-                        <div class="item col-2 col-lg-2">
-                            <div class="itemImg sameSet">
-                                <img src="./img/oracleCard/card_cover/cover_illustration.png" crossOrigin="anonymous" alt="illustration">
+                            <div class="itemTxt txtOpacityOne">
+                                <fieldset>
+                                    <legend>{{cards[1].cardTitle}}</legend>
+                                    <p>{{cards[1].cardContent}}</p>
+                                    <img src="./img/icon/share.png" alt="" class="acSelectCard-share_icon">
+                                </fieldset>
                             </div>
-                            <div class="itemImgBack sameSet">
-                                <img src="./img/oracleCard/cards/illustration/illustration_1.png" crossOrigin="anonymous" alt="">
-                                <div class="cardTxt cardHeight">
-                                    <fieldset>
-                                        <legend></legend>
-                                        <p></p>
-                                        <img src="./img/icon/share.png" alt="" class="acSelectCard-share_icon">
-                                    </fieldset>
+                        </div>
+                        <div class="item forMedia">
+                            <div class="itemImg sameSet animationShack">
+                                <div class="front card__side card__side--front">
+                                    <img class="cardFront" :src="cards[2].cardPic" crossOrigin="anonymous" alt="">
+                                </div>
+                                <div class="back card__side card__side--back card__side--back">
+                                    <img class="cardBack" @click="cardChangeData(cardsBack[2])" :src="cardsBack[2]" crossOrigin="anonymous" alt="angel">
                                 </div>
                             </div>
+                            <div class="itemTxt txtOpacityOne">
+                                <fieldset>
+                                    <legend>{{cards[2].cardTitle}}</legend>
+                                    <p>{{cards[2].cardContent}}</p>
+                                    <img src="./img/icon/share.png" alt="" class="acSelectCard-share_icon">
+                                </fieldset>
+                            </div>
                         </div>
+
                     </div>
+                    <div href="#" id="mediaCardBtn">Button</div>
                     <div class="cardBtn">
                         <button id="cardBtn3">為您推薦</button>
                     </div>
@@ -204,12 +216,14 @@
     </div>
 
 
-    <!-- <script src="./js/html2canvas.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./js/cardData.js"></script>
     <script src="./js/oracleCard.js"></script>
     <script src="./js/vender/fullpage.js"></script>
+    <!-- <script src="./js/html2canvas.js"></script> -->
 
 
 </body>
+
+
 
 </html>

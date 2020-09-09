@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>活動介紹</title>
     <!-- 套件（owl、bootstrap） -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css' />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap-grid.min.css">
+
     <!-- Main.css -->
     <link rel="stylesheet" href="./css/main.css">
 </head>
@@ -19,20 +21,19 @@
     <main>
         <div id="acSelf" class="acSelf fluid">
             <div class="acSelf-Banner">
-                <div class="acSelf-Banner_pic col-xl-7 col-sm-12"><img src="./img/acSelf/活動內頁Banner.jpg" alt=""></div>
+
+                <div class="acSelf-Banner_pic col-xl-7 col-sm-12"><img :src="contents[0].acPic[0]" alt=""></div>
                 <div class="acSelf-Banner_intro col-xl-5 col-sm-12">
-                    <h5>{{contents.acType}}</h5><br>
-                    <h5>{{contents.acName}}</h5>
+                    <h5>{{contents[0].acType}}</h5><br>
+                    <h5>{{contents[0].acName}}</h5>
                     <br>
                     <br>
                     <h6>活動時間：</h6>
-                    <p>2020-08-29(六) 10:00 ~ 2020-08-30(日) 17:00</p><br>
+                    <p>{{contents[0].acStartDate}} ~ {{contents[0].acEndDate}}</p><br>
                     <h6>活動地點：</h6>
-                    <p><a href="https://goo.gl/maps/beao5HYxaUkrLHQ3A">台灣台北市八德路二段366巷</a></p><br>
-                    <h6>相關連結：</h6>
-                    <p><a href="https://www.facebook.com/Double.J.GO.GE">創新課程行銷聯盟</a></p><br>
+                    <p><a :href="'https://www.google.com/maps/place/' + contents[0].acLocation">{{contents[0].acLocation}}</a></p><br>
                     <h6>費用：</h6><br>
-                    <p>$450/人</p>
+                    <p>{{contents[0].acFee}}/人</p>
 
 
                 </div>
@@ -50,32 +51,26 @@
             <h4 class="acInfo-title">活動介紹</h4>
             <div class="acInfo">
                 <div class="acInfo_content col-12">
-                    <p>插畫家與牠：談繪本創作與寵物療癒</p><br>
-                    <p>「當我因為愛人而感到太過痛苦時，愛動物成了我排解痛苦的方式。」 插畫家-邱宇晴透過親身分享自己的心路歷程與創作發展，一起來談談，當藝術創作者受心靈之苦時，寵物如何成為最重要的力量來源，療癒創傷，並且促使插畫家繪出動人的故事。
-                    </p>
+                    <p v-html="contents[0].acInfo"></p><br>
                 </div>
                 <div class="acInfo_pic col-12">
-                    <img class="acInfo_pic--1 col-xl-5 col-12" src="./img/acSelf/活動介紹圖1.jpg" alt="">
-                    <img class="acInfo_pic--2 col-xl-5 col-12" src="./img/acSelf/活動介紹圖2.jpg" alt="">
+                    <img class="acInfo_pic--1 col-xl-5 col-12" :src="contents[0].acPic[1]" alt="">
+                    <img class="acInfo_pic--2 col-xl-5 col-12" :src="contents[0].acPic[2]" alt="">
                 </div>
             </div>
             <h4 class="acTeacher-title">講師介紹</h4>
             <div class="acTeacher">
                 <div class="acTeacher_pic col-xl-4 col-12">
-                    <img src="./img/acSelf/活動老師.jpg" alt="">
-                    <h6 style="text-align: center;">插畫家｜邱宇晴</h6>
+                    <img :src="contents[0].acHolderPic" alt="">
+                    <h6 style="text-align: center;">{{contents[0].acHolderTilte}}｜{{contents[0].acHolder}}</h6>
                 </div>
                 <div class="acTeacher_intro col-xl-7 col-12">
-                    <p>Facebook ｜ https://www.facebook.com/dollyruins/<br> Instagram｜https://www.instagram.com/dollyruins/
-                    </p><br><br>
-                    <p>「療癒是我創作中最大的主題，就和毀滅同等重要。」<br> 展覽期間、地點 ｜08/02-08/30 嗯！Café </p><br><br>
-                    <p>本次展覽展出插畫家邱宇晴近期所創作的寵物療癒繪本原作，包含數張草稿及完稿，讓觀眾透過最真實的筆觸與用色，一同進入一段寵物療癒創傷、救贖人心的繪本故事。</p>
+                    <p v-html="contents[0].acHolderIntro"></p>
                 </div>
             </div>
             <h4 class="acLocation-title">活動地點</h4>
             <div class="acLocation">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.625749049438!2d121.54380391498823!3d25.04677184393333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abdc8272b0cf%3A0xf3338068dc86748d!2zMTA15Y-w5YyX5biC5p2-5bGx5Y2A5YWr5b636Lev5LqM5q61MzY25be3!5e0!3m2!1szh-TW!2stw!4v1596938021053!5m2!1szh-TW!2stw"
-                    width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <iframe :src="'https://maps.google.com?output=embed&q=' + contents[0].acLocation " width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
             <div class="acAttension">
                 <p class="acAttension-title">活動注意事項</p>
@@ -105,13 +100,8 @@
             </div>
             <div id="acRelate" class="acRelate">
                 <p class="acRelate-title col-12">您可能會喜歡這些活動</p>
-                <div class="owl-carousel owl-theme">
-                    <ac-relate-card></ac-relate-card>
-                    <ac-relate-card></ac-relate-card>
-                    <ac-relate-card></ac-relate-card>
-                    <ac-relate-card></ac-relate-card>
-                    <ac-relate-card></ac-relate-card>
-                </div>
+                <ac-relate-card class="owl-carousel owl-theme" :ac-contents="cards"></ac-relate-card>
+
             </div>
 
         </div>
@@ -128,11 +118,11 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <!-- Header & Footer -->
     <script src="./js/header.js"></script>
     <script src="./js/chatbot.js"></script>
     <!-- 活動小卡Vue -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="./js/acSelf_acRelateCard.js"></script>
 
     <!-- 注意事項箭頭 -->
@@ -144,28 +134,11 @@
 
                 $(".acAttension-text").slideToggle(500, "linear");
             });
+
         })
     </script>
 
     <script>
-        $('.owl-carousel').owlCarousel({
-            loop: false,
-            touchDrag: true,
-            autoplay: false,
-            autoplayTimeout: 2000,
-            autoplayHoverPause: false,
-            responsive: {
-                0: {
-                    items: 1,
-                },
-                576: {
-                    items: 1,
-                },
-                1180: {
-                    items: 3,
-                }
-            }
-        });
     </script>
 
 </body>
