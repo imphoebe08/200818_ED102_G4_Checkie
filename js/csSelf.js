@@ -328,12 +328,17 @@ $('.slider').slick({
     autoplay: false,
     autoplaySpeed: 2000,
     centerMode: true,
+    swipeToSlide: true,
     responsive: [{
         breakpoint: 500,
         settings: {
             vertical: false,
+            verticalSwiping: false,
             slidesToShow: 1,
             autoplay: true,
+            swipeToSlide: true,
+            slidesToScroll: 1,
+            centerMode: true,
         },
     }]
 });

@@ -1,6 +1,6 @@
 div.inCs_group {
     position: relative;
-    height: 100vh;
+    height: 700px;
     margin: 0 0 100px;
 
     .inSc-h1 {
@@ -24,7 +24,7 @@ div.inCs_group {
         border-radius: 1rem;
 
         ul.leftList {
-            height: 70vh;
+            height: 500px;
             width: 45%;
             max-width: 400px;
             min-width: 160px;
@@ -111,7 +111,7 @@ div.inCs_group {
         }
 
         ul.rightList {
-            height: 70vh;
+            height: 500px;
             width: 45%;
             max-width: 400px;
             min-width: 160px;
@@ -285,6 +285,10 @@ div.inCs.swiper-container {
                 height: 200px;
                 width: 200px;
                 margin: 0 auto;
+
+                #chart {
+                    bottom: 30px;
+                }
             }
 
             button {

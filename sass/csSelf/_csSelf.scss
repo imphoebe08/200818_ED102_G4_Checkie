@@ -122,7 +122,7 @@
     .csS-art__card {
         overflow: hidden;
         flex: 1 1 300px;
-        max-width: 400px;
+        max-width: calc(320px + 5vw);
         border-radius: 1rem;
         margin: 10px;
         background: #fff;
@@ -308,6 +308,8 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    overflow: hidden;
+
     .csSelfAct-card {
         background: #fff;
         margin: 10px 0;
@@ -392,15 +394,17 @@
         }
     }
 }
+
 @media (max-width: 500px) {
     #csSelfAct {
-        .slick-list{
+        .slick-list {
             margin: 0 -10px;
+
             .slick-slide {
                 margin: 10px;
-              }
+            }
         }
-    
+
     }
 
 }
@@ -464,8 +468,9 @@
             background: white;
             border-radius: 0 0 20px 20px;
             cursor: pointer;
-            h5{
-                a{
+
+            h5 {
+                a {
                     color: rgb(0, 0, 0);
                 }
             }
