@@ -46,11 +46,10 @@
                                             <table class="table table-striped">
                                                 <thead>
                                                     <tr class="info">
-                                                        <th>Job</th>
-                                                        <th>Company</th>
-                                                        <th>Salary</th>
-                                                        <th>Date On</th>
-                                                        <th>Date off</th>
+                                                        <th>問題編號</th>
+                                                        <th>問題類別</th>
+                                                        <th>問題內容</th>
+                                                        <th>上架狀態</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -58,58 +57,26 @@
                                                 <tbody>
 
                                                     <tr data-toggle="collapse" class="accordion-toggle" data-target="#demo10">
-                                                        <td> <a href="#">Enginner Software</a></td>
-                                                        <td>Google</td>
-                                                        <td>U$8.00000 </td>
-                                                        <td> 2016/09/27</td>
-                                                        <td> 2017/09/27</td>
+                                                        <td>01</td>
                                                         <td>
-                                                            <a href="#" class="btn btn-default btn-sm">
-                                                                <i class="glyphicon glyphicon-cog"></i>
-                                                            </a>
+                                                            <select>
+                                                            <option value ="#">1-家庭關係</option>
+                                                            <option value ="#">2-人際關係</option>
+                                                            <option value="#">3-伴侶關係</option>
+                                                            <option value="#">4-壓力創傷</option>
+                                                            <option value="#">5-自我探索</option>
+                                                        </select>
                                                         </td>
-                                                    </tr>
-
-
-
-                                                    <tr>
-                                                        <td>Scrum Master</td>
-                                                        <td>Google</td>
-                                                        <td>U$8.00000 </td>
-                                                        <td> 2016/09/27</td>
-                                                        <td> 2017/09/27</td>
+                                                        <td><textarea style="width:500px;height:50px;" name="testcontent">近期的家庭關係是否正常</textarea></td>
                                                         <td>
-                                                            <a href="#" class="btn btn-default btn-sm">
-                                                                <i class="glyphicon glyphicon-cog"></i>
-                                                            </a>
+                                                            <select>
+                                                            <option value ="#">上架</option>
+                                                            <option value ="#">下架</option>
+                                                        </select>
                                                         </td>
-                                                    </tr>
-
-
-                                                    <tr>
-                                                        <td>Back-end</td>
-                                                        <td>Google</td>
-                                                        <td>U$8.00000 </td>
-                                                        <td> 2016/09/27</td>
-                                                        <td> 2017/09/27</td>
                                                         <td>
-                                                            <a href="#" class="btn btn-default btn-sm">
-                                                                <i class="glyphicon glyphicon-cog"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-
-
-                                                    <tr>
-                                                        <td>Front-end</td>
-                                                        <td>Google</td>
-                                                        <td>U$8.00000 </td>
-                                                        <td> 2016/09/27</td>
-                                                        <td> 2017/09/27</td>
-                                                        <td>
-                                                            <a href="#" class="btn btn-default btn-sm">
-                                                                <i class="glyphicon glyphicon-cog"></i>
-                                                            </a>
+                                                            <button class="btn btn-default btn-xs">確認修改</button>
+                                                            <button class="btn btn-default btn-xs">刪除</button>
                                                         </td>
                                                     </tr>
 
@@ -163,22 +130,29 @@
                     <h3>新增問題</h3>
                 </div>
 
-                <form id="tQinfo">
-                    <div class="input-radio">
-                        <label>問題類別</label>
-                        <label><input type="radio" name="os" value="Mac OS">1-家庭關係</label>
-                        <label><input type="radio" name="os" value="Windows">2-人際關係</label>
+                <form id="tQinfo" method="#">
+                    <div class="input-sort">
+                        <label><h5>問題類別</h5></label>
+                        <label><input type="radio" name="sort" value="#">1-家庭關係</label>
+                        <label><input type="radio" name="sort" value="#">2-人際關係</label>
 
-                        <label><input type="radio" name="os" value="Windows">3-伴侶關係</label>
+                        <label><input type="radio" name="sort" value="#">3-伴侶關係</label>
 
-                        <label><input type="radio" name="os" value="Windows">4-壓力創傷</label>
+                        <label><input type="radio" name="sort" value="#">4-壓力創傷</label>
 
-                        <label><input type="radio" name="os" value="Windows">5-自我探索</label>
+                        <label><input type="radio" name="sort" value="#">5-自我探索</label>
                     </div>
 
-                    <div class="input">
-                        <label>問題內容</label>
+                    <div class="input-quest">
+                        <label><h5>問題內容</h5></label>
                         <textarea style="width:500px;height:100px;" name="testcontent" placeholder="輸入問題內容"></textarea>
+                    </div>
+
+                    <div class="input-status">
+                        <label><h5>上架狀態</h5></label>
+                        <label><input type="radio" name="status" value="on">上架</label>
+                        <label><input type="radio" name="status" value="off">下架</label>
+
                     </div>
 
 
