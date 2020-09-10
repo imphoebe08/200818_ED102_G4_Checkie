@@ -1,13 +1,16 @@
 .accordion-toggle {
     .btn {
         width: 50px;
+        @include btn-more($bw, $color-pink, $fontsize);
     }
 }
 
 #tQinfo {
     margin: 10px;
-    padding: 10px;
+    padding: 30px;
     border: solid 1px #DEDEDE;
+    background: #fff;
+    border-radius: 30px;
     div {
         overflow: auto;
         zoom: 1;
@@ -49,18 +52,8 @@
         -webkit-tap-highlight-color: #CF0;
     }
     #btn-submit {
-        background: #333;
-        text-align: center;
-        color: #FFF;
-        border: none;
-        display: block;
-        width: 100%;
-        font-size: 18px;
-        padding: 20px 0;
-        -webkit-border-radius: 10px;
-        border-radius: 10px;
-        -moz-appearance: none;
-        -webkit-appearance: none;
+        @include btn-modules($bw, $color-pink, $fontsize);
+        float: right;
     }
 }
 
