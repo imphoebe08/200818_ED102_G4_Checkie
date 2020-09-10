@@ -4,6 +4,16 @@
 <head>
     @@include('layout/bgHead.html')
 </head>
+<style>
+    input {
+        width: 100%;
+    }
+
+    input[readonly] {
+        border: none;
+        outline: none;
+    }
+</style>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     <!-- top_header -->
@@ -17,39 +27,24 @@
                     <h1 class="acManagement_h1">會員管理</h1>
                 </div>
                 <div class="card ">
-                    <div class="card-body ">
-                        <table class="table table-responsive-sm table-sm ">
+                    <div class="card-body" style=" overflow-x: auto;">
+                        <table class=" table table-responsive-sm table-sm ">
                             <thead>
                                 <tr>
-                                    <th>會員編號</th>
-                                    <th>會員名稱</th>
-                                    <th>會員帳號</th>
-                                    <th>會員密碼</th>
-                                    <th>會員生日</th>
-                                    <th>會員性別</th>
-                                    <th>會員email</th>
-                                    <th>會員電話</th>
-                                    <th>會員地址</th>
-                                    <th>會員照片</th>
-                                    <th>會員停權</th>
+                                    <th>編號</th>
+                                    <th>帳號</th>
+                                    <th>名稱</th>
+                                    <th>生日</th>
+                                    <th>性別</th>
+                                    <th>電話</th>
+                                    <th>地址</th>
+                                    <th>照片</th>
+                                    <th>停權</th>
+                                    <th>編輯</th>
+                                    <th>刪除</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr v-for="i in 3" :key="i">
-                                    <td>藝術體驗工坊 療癒紓壓流動畫</td>
-                                    <td>4,3</td>
-                                    <td>藝文、戶外</td>
-                                    <td>2020/10/31 00:00</td>
-                                    <td>2020/11/31 23:59</td>
-                                    <td>2020/12/06 11:30</td>
-                                    <td>2020/12/06 14:00</td>
-                                    <td>30</td>
-                                    <td>10</td>
-                                    <td>15</td>
-                                    <td>上架</td>
-                                    <td><a href="./acAdd.html "><button class="acManagement_edit ">編輯</button></a></td>
-                                </tr>
-                            </tbody>
+                            <tbody is="input-layout" :transport-data="transport"></tbody>
                         </table>
                     </div>
                 </div>
@@ -61,10 +56,166 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
     <script>
+        Vue.component("input-layout", {
+            props: ["transport-data"],
+            data() {
+                return {
+                    transport: JSON.parse(JSON.stringify(this.transportData)),
+                    memberData: [{
+                            memNo: "1",
+                            memId: "YiReFan@dayrep.com",
+                            memName: "施若凡",
+                            memBD: "1987-05-13",
+                            memGender: "f",
+                            memTel: "(778)0955457019",
+                            memAdd: "4593 Lake City Way Burnaby, BC V5A 2Z6",
+                            memPic: "https://images.pexels.com/photos/3727149/pexels-photo-3727149.jpeg",
+                            memBool: "0"
+                        },{
+                            memNo: "2",
+                            memId: "LiangYingMei@jourrapide.com",
+                            memName: "梁映梅",
+                            memBD: "1982-11-02",
+                            memGender: "f",
+                            memTel: "(903)0979801073",
+                            memAdd: "2873 Grant Street Texarkana, TX 75501",
+                            memPic: "https://images.pexels.com/photos/4026110/pexels-photo-4026110.jpeg",
+                            memBool: "0"
+                        },{
+                            memNo: "3",
+                            memId: "FuShiJie@jourrapide.com",
+                            memName: "傅詩婕",
+                            memBD: "2001-02-03",
+                            memGender: "f",
+                            memTel: "(210)0962656632",
+                            memAdd: "2835 Fidler Drive San Antonio, TX 78221",
+                            memPic: "https://images.pexels.com/photos/3270230/pexels-photo-3270230.jpeg",
+                            memBool: "0"
+                        }
+                    ]
+                };
+            },
+            template: ` <tbody>
+                                <tr class="buttonGroup" v-for="(value,index) in memberData" :key="value.memNo">
+                                    <input type="hidden" placeholder="會員編號" v-model="value.memNo"
+                                            :class="'buttonGroup' + index" readonly>
+                                    <td><span style="width: 40px;display: block;">{{value.memNo}}</span></td>
+                                    <td><input style="width: 150px;" type="text" placeholder="會員帳號"
+                                            v-model="value.memId" :class="'buttonGroup' + index" readonly></td>
+                                    <td><input style="width: 60px;" type="text" placeholder="會員名稱"
+                                            v-model="value.memName" :class="'buttonGroup' + index" readonly></td>
+                                    <td><input style="width: 80px;" type="text" placeholder="會員生日"
+                                            v-model="value.memBD" :class="'buttonGroup' + index" readonly></td>
+                                    <td><select style="width: 50px;" v-model="value.memGender" @change="updateMemGenderBool(index)">
+                                            <option value="m">男</option>
+                                            <option value="f">女</option>
+                                        </select></td>
+                                    <td><input style="width: 110px;" type="text" placeholder="會員電話"
+                                            v-model="value.memTel" :class="'buttonGroup' + index" readonly></td>
+                                    <td><input type="text" placeholder="會員地址" v-model="value.memAdd"
+                                            :class="'buttonGroup' + index" readonly></td>
+                                    <td><img :src="value.memPic" alt="會員照片"
+                                            style="object-fit: cover;width: 50px;height: 50px;">
+                                    </td>
+                                    <td><select v-model="value.memBool" @change="updateMemGenderBool(index)">
+                                            <option value="0">正常</option>
+                                            <option value="1">停權</option>
+                                        </select></td>
+                                    <td><button @click="editToggle($event,index)">編輯</button></td>
+			                        <td><button @click="deleteData($event,index)">刪除</button></td>
+                                </tr>
+                        </tbody>`,
+            methods: {
+                editToggle(e, index) {
+                    let input = document.querySelectorAll(`.buttonGroup${index}`);
+                    if (input[0].getAttribute("readonly")) {
+                        this.inputToEdit(e, index);
+                    } else {
+                        let check = confirm(`確認修改會員編號 ${this.memberData[index].memNo} 的資料嗎?`);
+                        if (check) {
+                            //使用axios=> update
+                            this.updateMemInfo(index);
+                            this.inputToForbid(e, index);
+                        } else {
+                            this.inputToEdit(e, index);
+                        }
+                    }
+                },
+                inputToForbid(e, index) {
+                    let input = document.querySelectorAll(`.buttonGroup${index}`);
+                    for (let j = 0; j < input.length; j++) {
+                        e.currentTarget.innerText = "編輯";
+                        input[j].setAttribute("readonly", true);
+                    }
+                },
+                inputToEdit(e, index) {
+                    let input = document.querySelectorAll(`.buttonGroup${index}`);
+                    for (let j = 0; j < input.length; j++) {
+                        input[j].removeAttribute("readonly");
+                        e.currentTarget.innerText = "送出";
+                    }
+                },
+                deleteData(e, index) {
+                    let check = confirm(`確認刪除會員編號 ${this.memberData[index].memNo} 的資料嗎?`);
+                    if (check)
+                        this.memberData.splice(index, 1);
+                    //使用axios=> delete
+                },
+                updateMemGenderBool(index) {
+                    // axios.get('修改會員停權的php.php', {
+                    //         params: {
+                    //             memNo: this.memberData[index].memNo,
+                    //             memGender: this.memberData[index].memGender,
+                    //             memBool: this.memberData[index].memBool
+                    //         }
+                    //     })
+                    //     .then((res) => {
+                    //         console.log('會員更新成功')
+                    //     })
+                    //     .catch((error) => {
+                    //         console.error(error)
+                    //     })
+                },
+                updateMemInfo(index) {
+                    // axios.get('修改會員資料的php.php', {
+                    //         params: {
+                    //             memBool: this.memberData[index].memBool,
+                    //             memId: this.memberData[index].memId,
+                    //             memName: this.memberData[index].memName,
+                    //             memBD: this.memberData[index].memBD,
+                    //             memGender: this.memberData[index].memGender,
+                    //             memTel: this.memberData[index].memTel,
+                    //             memAdd: this.memberData[index].memAdd,
+                    //         }
+                    //     })
+                    //     .then((res) => {
+                    //         console.log('會員更新成功')
+                    //     })
+                    //     .catch((error) => {
+                    //         console.error(error)
+                    //     })
+                }
+            },
+            watch: {
+                transportData: function () {
+                    this.transport = JSON.parse(JSON.stringify(this.transportData));
+                    this.memberData.push(this.transport);
+                    this.transport = {};
+                }
+            }
+        });
+
         new Vue({
-            el: '#bgMem',
+            el: "#bgMem",
             data: {
                 memberList: [],
+                newData: {
+                    _id: "",
+                    name: "",
+                    email: "",
+                    phone: ""
+                },
+                transport: {}
             },
             mounted() {
                 axios.get('../json/cs.json')
@@ -74,8 +225,15 @@
                     .catch((error) => {
                         console.log(error)
                     });
+            },
+            methods: {
+                // insertData() {
+                //     this.transport = JSON.parse(JSON.stringify(this.newData)); //將新增區域的值送到元件
+                //     this.newData = {}; //清除新增區域的placeholder
+                //     //使用axios=> insert
+                // }
             }
-        })
+        });
     </script>
 </body>
 
