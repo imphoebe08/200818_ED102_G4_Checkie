@@ -2,200 +2,7 @@
 <html lang="en">
 
 <head>
-    <style>
-        .btn {
-            width: 50px;
-        }
-        
-        img {
-            width: 100%;
-        }
-        
-        form {
-            margin: 10px;
-            padding: 10px;
-            border: solid 1px #DEDEDE;
-        }
-        
-        form>div {
-            overflow: auto;
-            zoom: 1;
-            margin: 15px 0;
-        }
-        
-        form>div label:first-child {
-            display: block;
-            margin: 0 0 5px 0;
-        }
-        
-        select,
-        textarea,
-        input[type="text"],
-        input[type="password"],
-        input[type="datetime"],
-        input[type="datetime-local"],
-        input[type="date"],
-        input[type="month"],
-        input[type="time"],
-        input[type="week"],
-        input[type="number"],
-        input[type="email"],
-        input[type="url"],
-        input[type="search"],
-        input[type="tel"],
-        input[type="color"] {
-            font-size: 16px;
-            -moz-appearance: none;
-            -webkit-appearance: none;
-            -webkit-border-radius: 0;
-            border-radius: 0;
-            -webkit-tap-highlight-color: #CF0;
-        }
-        
-        select:focus,
-        textarea:focus,
-        input[type="text"]:focus,
-        input[type="password"]:focus,
-        input[type="datetime"]:focus,
-        input[type="datetime-local"]:focus,
-        input[type="date"]:focus,
-        input[type="month"]:focus,
-        input[type="time"]:focus,
-        input[type="week"]:focus,
-        input[type="number"]:focus,
-        input[type="email"]:focus,
-        input[type="url"]:focus,
-        input[type="search"]:focus,
-        input[type="tel"]:focus,
-        input[type="color"]:focus {
-            box-shadow: 0 0 5px #CF0;
-        }
-        
-        input[type="text"],
-        input[type="email"],
-        input[type="number"],
-        input[type="date"],
-        input[type="color"],
-        select {
-            border: 1px solid #CCC;
-            width: 100%;
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            height: 40px;
-            padding: 10px;
-            -webkit-tap-highlight-color: #CF0;
-        }
-        
-        .input-radio label:nth-child(n+2),
-        .input-checkbox label:nth-child(n+2) {
-            margin: 0 15px 0 0;
-        }
-        
-        input[type=checkbox],
-        input[type=radio] {
-            -moz-appearance: none;
-            -webkit-appearance: none;
-            border: solid 1px #CCC;
-            height: 15px;
-            width: 15px;
-            margin: 0 5px 0 0;
-            -webkit-border-radius: 0;
-            border-radius: 0;
-            -webkit-tap-highlight-color: #CF0;
-        }
-        
-        input[type=radio] {
-            -webkit-border-radius: 50%;
-            border-radius: 50%;
-        }
-        
-        input[type=radio]:checked {
-            background: #333;
-        }
-        
-        input[type=checkbox]:checked {
-            background: #333;
-            /*background: url(../images/check.svg) no-repeat;
-	background-size: cover;*/
-        }
-        
-        select {
-            /* background: url(../images/down-arrow.svg) no-repeat right 10px; */
-            background-size: 30px;
-            -webkit-tap-highlight-color: #CF0;
-        }
-        
-        #btn-submit {
-            background: #333;
-            text-align: center;
-            color: #FFF;
-            border: none;
-            display: block;
-            width: 100%;
-            font-size: 18px;
-            padding: 20px 0;
-            -webkit-border-radius: 10px;
-            border-radius: 10px;
-            -moz-appearance: none;
-            -webkit-appearance: none;
-        }
-        
-        #results {
-            margin: 10px;
-            background: #333;
-            color: #FFF;
-        }
-        
-        #results div {
-            font-size: 18px;
-            border-bottom: solid 1px #666;
-            padding: 10px;
-        }
-        
-        #results div span {
-            font-size: 12px;
-            color: #CCC;
-        }
-        
-        #results .name {}
-        
-        #results .name span {
-            color: #FFF;
-            font-size: 18px;
-        }
-        
-        #results .name .fname {}
-        
-        #results .name .lname {}
-        
-        #results .email {}
-        
-        #results .bday {}
-        
-        #results .role {}
-        
-        #results .os {}
-        
-        #results .skills {}
-        
-        #results .skills ul {
-            list-style: none;
-        }
-        
-        #results .skills ul .frontEnd {}
-        
-        #results .skills ul .backEnd {}
-        
-        #results .skills ul .business {}
-        
-        #results .experience {}
-        
-        #results .color {}
-    </style>
-
     @@include('layout/bgHead.html')
-
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -208,11 +15,11 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        心理評估問券管理
+                        <h3>心理評估問券管理</h3>
                     </div>
-                    <div class="panel-body">
-                        <table class="table table-condensed table-striped">
-                            <thead>
+                    <div class="panel-body card" style="overflow: hidden;">
+                        <table class="table table-condensed table-striped ">
+                            <thead class="card-header">
                                 <tr>
                                     <th></th>
                                     <th>問題編號</th>
@@ -225,9 +32,9 @@
 
                             <tbody>
                                 <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
-                                    <td><button class="btn btn-default btn-xs"><img src="./img/icon/edit.png"></button></td>
+                                    <td><button class="btn btn-default btn-xs">編輯</button></td>
                                     <td>01</td>
-                                    <td>家庭關係</td>
+                                    <td>1</td>
                                     <td>近期的家庭關係是否正常</td>
                                     <td>上架中</td>
                                     <td>2020/09/08</td>
@@ -350,34 +157,41 @@
 
             </div>
         </div>
-        <form id="info">
-            <div class="input-radio">
-                <label>問題類別</label>
-                <label><input type="radio" name="os" value="Mac OS"> 家庭關係</label>
-                <label><input type="radio" name="os" value="Windows"> 人際關係</label>
+        <div class="container">
+            <div class="col-md-12">
+                <div class="panel-heading">
+                    <h3>新增問題</h3>
+                </div>
 
-                <label><input type="radio" name="os" value="Windows"> 伴侶關係</label>
+                <form id="tQinfo">
+                    <div class="input-radio">
+                        <label>問題類別</label>
+                        <label><input type="radio" name="os" value="Mac OS">1-家庭關係</label>
+                        <label><input type="radio" name="os" value="Windows">2-人際關係</label>
 
-                <label><input type="radio" name="os" value="Windows"> 壓力創傷</label>
+                        <label><input type="radio" name="os" value="Windows">3-伴侶關係</label>
 
-                <label><input type="radio" name="os" value="Windows"> 自我探索</label>
+                        <label><input type="radio" name="os" value="Windows">4-壓力創傷</label>
+
+                        <label><input type="radio" name="os" value="Windows">5-自我探索</label>
+                    </div>
+
+                    <div class="input">
+                        <label>問題內容</label>
+                        <input type="text" name="testcontent" placeholder="輸入問題內容">
+                    </div>
+
+
+                    <div class="input-btn">
+                        <button id="btn-submit">Submit</button>
+                    </div>
+
+                </form>
+
+
+                <div id="results"></div>
             </div>
-
-            <div class="input">
-                <label>問題內容</label>
-                <input type="text" name="testcontent" placeholder="輸入問題內容">
-            </div>
-
-
-            <div class="input-btn">
-                <div id="btn-submit">Submit</div>
-            </div>
-
-        </form>
-
-
-        <div id="results"></div>
-
+        </div>
     </div>
 
     @@include('layout/footer.html')
