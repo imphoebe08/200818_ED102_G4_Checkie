@@ -22,15 +22,20 @@ Vue.component('acCommentList', {
 //acMain-selectCard-分類小卡
 Vue.component('acSelectCard', {
     props: { acContents: Array },
+    data() {
+        return {
+            num: 3,
+        }
+    },
     template: `
     <div id="acSelect" class="acSelect container-sm container-md">
-        <div class="acSelectCard" v-for="acContent in acContents">
+        <div class="acSelectCard" v-for="acContent in limitCard(num)">
                 <a href="./acSelf.html">
                     <img src="./img/acMain/acCard.jpg">
                 </a>
             
             <!-- 卡片文字 -->
-            <h6 class="acSelectCard_title"><a href="./acSelf.html">{{acContent.acName}}</a></h6>
+            <h6 class="acSelectCard_title"><a href="./acSelf.html">{{acContent.actName}}</a></h6>
             
             <!-- 卡片時間 -->
             <div class="acSelectCard_icon">
@@ -39,42 +44,58 @@ Vue.component('acSelectCard', {
             </div>
             <div class="acSelectCard_text">
             <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
-            <p class="acSelectCard_time">活動日期：<br>{{acContent.acStartDate}} ~ <br>{{acContent.acEndDate}}</p>
+            <p class="acSelectCard_time">活動日期：<br>{{acContent.actStart}} ~ <br>{{acContent.actEnd}}</p>
             </div>
             <div class="acSelectCard_text">
                 <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
-                <p class="acSelectCard_time">報名截止日期：<br>{{acContent.acRedEndDate}}</p>
+                <p class="acSelectCard_time">報名截止日期：<br>{{acContent.actPend}}</p>
             </div>
 
             <div class="acSelectCard_bottomBlock">
-            <p class="acSelectCard_person"> 剩餘名額：{{acContent.acMax - acContent.acMin}}</p>
+            <p class="acSelectCard_person"> 剩餘名額：{{acContent.actMax - acContent.actCount}}</p>
             <input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register">
             </div>
         </div>
         <div class="acSelect-wrapper_btnMore col-12">
-        <button class="acSelectMore" @click="acContents+=3">更多活動</button>
+        <button class="acSelectMore" @click="num+=3">更多活動</button>
         </div>
     </div>
 
     `,
+    methods: {
+        limitCard(data) {
+            return this.acContents.slice(0, data);
+        }
+    },
+    computed: {
+
+    }
 
 });
 
 //Vue
-new Vue({
+let vm = new Vue({
     el: "#acMain",
 
     data: {
+        num: 3,
         title: ["精選活動", "講座", "療癒", "戶外", "藝文"],
         contents: [],
         comments: [],
+        isActive: true,
+        index: 0,
     },
     methods: {
-
+        category_click(value) {
+            this.index = value;
+        }
     },
     mounted() {
-        axios.get('./json/acMain.json').then((data) => {
-            this.contents = data.data
+        console.log(this)
+        axios.get('../php/acMain.php').then((res) => {
+            this.contents = res.data
+            console.log(res);
+            console.log(res.data);
         })
 
         axios.get('./json/acMain_comments.json').then((data) => {
@@ -84,6 +105,14 @@ new Vue({
     computed: {
         addNum() {
             return this.contents;
+        },
+        result() {
+            if (this.index == 0) {
+                return this.contents;
+            } else {
+                this.$children[0].$data.num = 3;
+                return this.contents.filter(item => item.actTypeNo == this.index);
+            }
         }
     },
 })

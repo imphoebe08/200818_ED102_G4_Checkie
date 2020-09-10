@@ -65,11 +65,11 @@ new Vue({
     },
     mounted() {
         var vm = this;
-        axios.get('./json/acSelf.json').then((res) => {
+        axios.get('../php/acSelf.php').then((res) => {
             this.contents = res.data
-                // console.log(data)
+            console.log(res)
         })
-        axios.get('./json/acMain.json').then((res) => {
+        axios.get('../php/acSelf.php').then((res) => {
             this.cards = res.data
                 // console.log(res)
             Vue.nextTick().then(function() {
