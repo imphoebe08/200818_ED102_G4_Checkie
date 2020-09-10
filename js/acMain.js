@@ -22,9 +22,14 @@ Vue.component('acCommentList', {
 //acMain-selectCard-分類小卡
 Vue.component('acSelectCard', {
     props: { acContents: Array },
+    data() {
+        return {
+            num: 3,
+        }
+    },
     template: `
     <div id="acSelect" class="acSelect container-sm container-md">
-        <div class="acSelectCard" v-for="acContent in acContents">
+        <div class="acSelectCard" v-for="acContent in limitCard(num)">
                 <a href="./acSelf.html">
                     <img src="./img/acMain/acCard.jpg">
                 </a>
@@ -52,27 +57,41 @@ Vue.component('acSelectCard', {
             </div>
         </div>
         <div class="acSelect-wrapper_btnMore col-12">
-        <button class="acSelectMore" @click="acContents+=3">更多活動</button>
+        <button class="acSelectMore" @click="num+=3">更多活動</button>
         </div>
     </div>
 
     `,
+    methods: {
+        limitCard(data) {
+            return this.acContents.slice(0, data);
+        }
+    },
+    computed: {
+
+    }
 
 });
 
 //Vue
-new Vue({
+let vm = new Vue({
     el: "#acMain",
 
     data: {
+        num: 3,
         title: ["精選活動", "講座", "療癒", "戶外", "藝文"],
         contents: [],
         comments: [],
+        isActive: true,
+        index: 0,
     },
     methods: {
-
+        category_click(value) {
+            this.index = value;
+        }
     },
     mounted() {
+        console.log(this)
         axios.get('../php/acMain.php').then((res) => {
             this.contents = res.data
             console.log(res);
@@ -86,6 +105,14 @@ new Vue({
     computed: {
         addNum() {
             return this.contents;
+        },
+        result() {
+            if (this.index == 0) {
+                return this.contents;
+            } else {
+                this.$children[0].$data.num = 3;
+                return this.contents.filter(item => item.actTypeNo == this.index);
+            }
         }
     },
 })

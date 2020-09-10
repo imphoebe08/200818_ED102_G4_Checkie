@@ -130,14 +130,3 @@ let vmCs = new Vue({
         },
     },
 });
-// acSelect: 0
-
-// slideResult() {
-// 	// 如果都不選，就全部回傳
-// 	if (this.acSelect == 0) {
-// 		return this.contents;
-// 	} else {
-// 		return this.contents.filter(item => item.typeID == this.acSelect);
-// 		})
-// 	}
-// },
