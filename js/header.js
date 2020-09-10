@@ -9,6 +9,12 @@ $(function() {
         $(".top").toggleClass("top--open");
     });
 
+    $(window).on("resize", function() {
+        if ($(window).width() > 768) {
+            $(".navbar__menu").removeClass("navbar__menu--active");
+        }
+    });
+
     $("test_button").click(function() {
         $("#form").css("display", "block")
     })
