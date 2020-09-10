@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     <script src="./js/header.js"></script>
     <script src="./js/chatbot.js"></script>
@@ -53,7 +53,7 @@
     <div class="atBox" id="atBox">
         <div class="atBox_Class">
             <!-- <boxclass :dis="each" :init="index" v-for="(each,index) in box" @changeitem="changeS"></boxclass> -->
-            <boxclass :dis="each" v-for="(each,index) in box"></boxclass>>
+            <boxclass :dis="each" v-for="(each,index) in box" :init="index" @change-it="aaa"></boxclass>
         </div>
     </div>
 
@@ -66,7 +66,7 @@
     </div> -->
         <!-- ------------------分類內容------------------- -->
         <div class="atClassAfter">
-            <component :is="comIs(index)" v-for="(each,index) in filters" :dul="each"></component>
+            <component :is="comIs(index)" v-for="(each,index) in filters()" :dul="each" :key="index"></component>
         </div>
     </div>
     <script src="./js/atMain.js"></script>

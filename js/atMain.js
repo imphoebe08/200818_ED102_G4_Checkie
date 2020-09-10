@@ -173,14 +173,15 @@ Vue.component("ri", {
     })
     // ----------------
 Vue.component("boxclass", {
-        props: ["dis"],
+        props: ["dis", "init"],
         data() {
             return {
-                each: this.dis
+                each: this.dis,
+                index: this.init + 1,
             }
         },
         template: `
-                 <a href="">
+                 <a href="javascript:void(0)" @click="change">
                      <div class="atBox-Class_content">
                          <div class="atBox-Class-content_pic">
                              <img :src="each.img" alt="">
@@ -192,7 +193,12 @@ Vue.component("boxclass", {
                          </div>
                      </div>
                  </a>
-    `
+    `,
+        methods: {
+            change() {
+                this.$emit("change-it", this.index);
+            },
+        },
     })
     // -------------
 Vue.component('duli', {
@@ -209,15 +215,15 @@ Vue.component('duli', {
                     <div class="atClassAfter_content">
                         <!-- flex-end -->
                         <div class="atClassAfter-content_pic">
-                            <img :src="each.artPicContent" alt="">
+                            <img :src="dul.artPicContent" alt="">
                         </div>
                         <div class="atClassAfter-content_text">
                             <div class="atClassAfter-content-text_title">
-                                <h2>{{each.artTitle}}</h2>
+                                <h2>{{dul.artTitle}}</h2>
                             </div>
                             <div class="atClassAfter-content-text_detail">
                                 <p>
-                                    {{each.artContent}}
+                                    {{dul.artContent}}
                                 </p>
                             </div>
                             <a href="">
@@ -247,11 +253,11 @@ Vue.component('duri', {
                     <!-- flex-end -->
                     <div class="atClassAfter-content_text">
                         <div class="atClassAfter-content-text_title">
-                            <h2>{{each.artTitle}}</h2>
+                            <h2>{{dul.artTitle}}</h2>
                         </div>
                         <div class="atClassAfter-content-text_detail">
                             <p>
-                            {{each.artContent}}
+                            {{dul.artContent}}
 
                             </p>
                         </div>
@@ -262,7 +268,7 @@ Vue.component('duri', {
                         </a>
                     </div>
                     <div class="atClassAfter-content_pic">
-                        <img :src="each.artPicContent" alt="">
+                        <img :src="dul.artPicContent" alt="">
                     </div>
                 </div>
             </div>
@@ -324,17 +330,22 @@ let vm1 = new Vue({
         }, {
             img: "./img/atMain/ta.png",
             class: "伴侶感情"
-        }]
+        }],
     },
+    methods: {
+        aaa(data) {
+            vm3.$data.artType = data;
+
+        },
+    },
+    mounted() {},
 })
 
 let vm3 = new Vue({
     el: "#atClassTitle",
     data: {
         bArticle: [],
-        artType: "1",
-        test: "",
-
+        artType: "2",
     },
     methods: {
         bottomArticle() {
@@ -343,30 +354,27 @@ let vm3 = new Vue({
                 // console.log(xhr.responseText)
                 let article = JSON.parse(xhr.responseText);
                 vm3.$data.bArticle = article;
-                console.log(article);
             }
 
             xhr.open("get", "./php/atMain_one.php", true);
             xhr.send(null);
         },
 
-        test2() {
-            this.test = this.bArticle.filter(item => item.artTypeNo = this.artType)
 
-        },
         comIs(index) {
             return index % 2 == 0 ? 'duri' : 'duri'
-        }
+        },
+        filters() {
+            return this.bArticle.filter(item => item.artTypeNo == this.artType)
+        },
+
 
     },
     beforeMount() {
         this.bottomArticle();
     },
     computed: {
-        filters() {
-            return this.bArticle.filter(item => item.artTypeNo == this.artType)
-                // words.filter(word => word.length > 6);
-        },
+
     },
     mounted() {
 
