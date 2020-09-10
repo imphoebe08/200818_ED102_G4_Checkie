@@ -132,14 +132,14 @@
         .searchIconSvg {
             width: 18px;
             margin: 5px;
-            svg {
+            >svg {
                 fill: #888682;
-                path {
+                >path {
                     fill: #888682;
                 }
             }
         }
-        input {
+        >input {
             color: #322f2a;
             outline: none;
             font-size: 16px;
@@ -365,7 +365,7 @@
         border: $color-blue;
         overflow: hidden;
         cursor: pointer;
-        img {
+        >img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -521,7 +521,7 @@
     .fig {
         //border: solid 1px;
         width: 100%;
-        label {
+        >label {
             .mem-show-title {
                 width: 37%;
             }
@@ -755,7 +755,7 @@
         padding-right: 15px;
         padding-left: 0;
         cursor: pointer;
-        img {
+        >img {
             width: 100%;
         }
     }
@@ -869,7 +869,7 @@
             //border: solid 1px;
             color: #888682;
         }
-        .mem-memPsw-confirmData {
+        .mem-memPsd-confirmData {
             font-size: 14px;
             padding: 2px 6px;
             border-radius: 3px;
@@ -881,11 +881,11 @@
     }
 }
 
-.modifyMemPsw {
+.modifyMemPsd {
     z-index: 666;
 }
 
-.modifyMemPsw-block {
+.modifyMemPsd-block {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -894,18 +894,18 @@
     padding: 10px;
     color: #888682;
     background-color: white;
-    .modifyMemPswOld {
+    .modifyMemPsdOld {
         width: 100%;
         //border: solid 1px crimson;
-        label {
+        >label {
             width: 100%;
-            span {
+            >span {
                 margin: 10px 0;
                 width: 100%;
                 display: block;
                 text-align: center;
             }
-            input {
+            >input {
                 margin: 10px 0;
                 width: 100%;
                 display: block;
@@ -942,7 +942,7 @@
     animation: shakeIt .2s ease-in 0s 1 forwards;
 }
 
-.memPswToggle {
+.memPsdToggle {
     cursor: pointer;
 }
 
@@ -964,7 +964,7 @@
     }
     .mem-modify-singleRow {
         margin: 3px;
-        label {
+        >label {
             .mem-show-title {
                 margin: 3px 0;
                 display: block;
@@ -974,7 +974,7 @@
                 display: block;
                 text-align: center;
             }
-            .mem-memPsw-confirmData {
+            .mem-memPsd-confirmData {
                 padding: 10px;
                 width: 60%;
                 margin: 3px auto;
@@ -1011,7 +1011,7 @@
 @media only screen and (max-width: 400px) {
     .buttonFlex {
         .fuckingButton {
-            button {
+            >button {
                 padding: 5px 15px;
                 font-size: 18px;
                 margin: 0;
@@ -1021,8 +1021,47 @@
     }
 }
 
-.mem-coOrder-total {
+.mem-coOrder-total,
+.modifyOrder-align {
     text-align: center;
+    color: #888682;
+}
+
+.modifyOrder-align {
+    margin: 5px 0;
+}
+
+.mem-coOrder-total--hide {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .order-justDele {
+        align-self: flex-end;
+        padding: 0 10% 0 0;
+    }
+    .meOrderOpen {
+        height: 100%;
+        //border: solid darkblue 3px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .mem-coOrder-total--hide {
+        .order-justDele {
+            align-self: center;
+            padding: 0 10% 0 0;
+        }
+        .meOrderOpen {}
+    }
+}
+
+.meOrder_toggle {
+    height: 0;
+    width: 100%;
+    margin: 10px 0;
+    overflow: hidden;
 }
 
 .mem-coOrder,
@@ -1081,10 +1120,34 @@
                 border-radius: 3px;
                 max-height: 180px;
                 overflow: hidden;
-                img {
+                >img {
                     width: 100%;
                 }
             }
+        }
+    }
+}
+
+.mem-order-table {
+    width: 87%;
+    margin: 10px 0;
+    //border: #FFA492 solid 5px;
+    tr {
+        height: 35px;
+        vertical-align: middle;
+        line-height: 35px;
+        color: #7f7f82;
+        th {
+            width: 30%;
+            text-align: center;
+            padding-right: 15px;
+            // border-right: #ccc solid 1px;
+            // background-color: #f2edeb;
+            border-radius: 3px;
+        }
+        td {
+            color: #7f7f82;
+            padding-left: 10px;
         }
     }
 }
@@ -1102,7 +1165,7 @@
     display: flex;
     justify-content: center;
     //border: darkgoldenrod solid 1px;
-    .mem-order-table {
+    .mem-table-mental {
         width: 87%;
         margin-bottom: 20px;
         //border: #FFA492 solid 1px;
@@ -1125,7 +1188,6 @@
             td {
                 color: #7f7f82;
                 padding-left: 10px;
-                text-align: right;
             }
         }
     }
@@ -1142,7 +1204,7 @@
 
 @media only screen and (max-width: 991px) {
     .mem-table-contain {
-        .mem-order-table {
+        .mem-table-mental {
             width: 95%;
             tr {
                 th {
@@ -1163,14 +1225,27 @@
     }
     .mem-table-contain {
         .mem-table-mental {
+            margin: 10px 0;
+            width: 100%;
             tr {
                 border: none;
+                width: 100%;
                 th {
                     padding-right: 0;
+                    display: none;
                 }
                 td {
                     text-align: center !important;
                     padding-left: 0 !important;
+                    width: 100%;
+                    text-align: center;
+                    &:before {
+                        width: 100%;
+                        text-align: center;
+                        background-color: rgb(227, 227, 227);
+                        content: attr(data-title);
+                        display: block;
+                    }
                 }
             }
         }
@@ -1196,6 +1271,7 @@
                 display: none;
             }
             td {
+                padding-left: 0;
                 width: 100%;
                 text-align: center;
                 &:before {
@@ -1225,15 +1301,15 @@
     width: 100%;
     margin: 0 15px;
     //border: solid 5px darkblue;
-    tr {
+    >tr {
         width: 100%;
-        th {
+        >th {
             width: 90px;
             padding: 10px 0;
             //background-color: darkgrey;
             text-align: left;
         }
-        td {
+        >td {
             //width: 40%;
         }
     }
@@ -1244,15 +1320,15 @@
         width: 100%;
         margin: 0 15px;
         //border: solid 5px darkblue;
-        tr {
+        >tr {
             width: 100%;
-            th {
+            >th {
                 width: 90px;
                 padding: 10px 0;
                 //background-color: darkgrey;
                 text-align: left;
             }
-            td {
+            >td {
                 //width: 40%;
             }
         }
@@ -1333,7 +1409,7 @@
             &:hover input~.checkmark {
                 background-color: #ccc;
             }
-            input {
+            >input {
                 // border: blue solid 5px;
                 position: absolute;
                 opacity: 0;
@@ -1397,10 +1473,10 @@
             box-shadow: $boxshadow;
             overflow: hidden;
             transition: all .3s ease-in-out;
-            a {
+            >a {
                 display: inline-block;
                 width: 100%;
-                img {
+                >img {
                     width: 100%;
                 }
             }
@@ -1482,10 +1558,10 @@
             margin: 10px;
             background: #fff;
             box-shadow: $boxshadow;
-            a {
+            >a {
                 display: block;
                 cursor: pointer;
-                img {
+                >img {
                     width: 100%;
                     height: 150px;
                     object-fit: cover;
@@ -1510,7 +1586,7 @@
                 flex-flow: nowrap row;
                 margin: 20px 0;
                 justify-content: flex-end;
-                a {
+                >a {
                     flex: 1 0 80px;
                     max-width: 120px;
                     text-decoration: none;
@@ -1527,9 +1603,9 @@
                 flex-flow: nowrap row;
                 align-items: center;
                 padding: 0 10px 10px 0;
-                a {
+                >a {
                     margin: 5px;
-                    img {
+                    >img {
                         width: 20px;
                         height: 20px;
                     }
@@ -1604,4 +1680,245 @@
 .coSlide-leave-to {
     opacity: 0;
     transform: translateX(20px) scale(0.99);
+}
+
+.meChat {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: salmon solid 1px;
+    height: 69vh;
+    padding: 5px;
+    margin: 3px;
+    .meChatMain {
+        width: 65%;
+        height: 100%;
+        border: sandybrown solid 1px;
+        overflow: hidden;
+        .meChatMainRoom {
+            padding: 5px;
+            border: seagreen solid 1px;
+            overflow-y: auto;
+            height: 87%;
+            // padding-right: 17px;
+            // box-sizing: content-box;
+        }
+        .memChatSend {
+            border: slateblue solid 1px;
+            height: 13%;
+            padding: 10px 3px;
+            form {
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                width: 100%;
+                vertical-align: top;
+                text-align: left;
+                .chatInput {
+                    width: 80%;
+                }
+                .memChatSend_button {
+                    width: 18%;
+                    background-color: slategrey;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    .meChatSelect {
+        width: 35%;
+        border: seagreen solid 1px;
+        overflow: hidden;
+        height: 100%;
+        .meChatPeople-scroll {
+            padding: 5px;
+            border: solid 3px sienna;
+            overflow-y: auto;
+            height: 100%;
+        }
+    }
+}
+
+.meChatPeople-each {
+    //border: darkorange solid 2px;
+    // box-shadow: 2px 2px 4px #9f9a906f;
+    padding: 5px;
+    max-width: 300px;
+    margin: 8px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0.7;
+    transition: all .2s ease-in;
+    border-bottom: rgba(237, 237, 237, 0.53) solid 1px;
+    .meChatPeople {
+        .meChatOnline {
+            display: inline-block;
+            margin: 0 5px;
+            line-height: 30px;
+            //border: #689eb5 solid 1px;
+            vertical-align: top;
+            i {
+                color: #bdbdbd;
+            }
+            .meOnline {
+                color: #1cdd1c;
+            }
+        }
+        //border: violet solid 1px;
+        font-size: 14px;
+        .meChatPeople-pic {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: #96d3ed 2px solid;
+            box-shadow: 0px 0px 2px #9f9a906f;
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+        }
+        .meChatPeople-name {
+            color: #888682;
+            vertical-align: top;
+            height: 100%;
+            //border: chocolate solid 1px;
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            margin: 0 5px;
+        }
+        .meChatPeople-title {
+            display: inline-block;
+        }
+    }
+    .meChatDelete {
+        cursor: pointer;
+        i {
+            color: darkgray;
+            font-size: 10px;
+        }
+    }
+    &:hover {
+        box-shadow: 2px 2px 4px #9f9a906f;
+        border-bottom: white solid 1px;
+        transform: scale(1.02);
+        opacity: 1;
+    }
+}
+
+.meChatAn {
+    //border: firebrick solid 1px;
+    padding: 7px;
+    display: block;
+    margin: 5px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    .meChatAn-pic {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: #96d3ed 2px solid;
+        box-shadow: 0px 0px 2px #9f9a906f;
+        overflow: hidden;
+        margin-right: 3px;
+        img {
+            width: 100%;
+        }
+    }
+    .meChatAn-text {
+        padding: 0 8px 0 14px;
+        color: #888682;
+        vertical-align: top;
+        height: 100%;
+        // border: chocolate solid 1px;
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        background-color: #e2eaf7;
+        border-radius: 0 30px 30px 30px;
+        margin: 0 5px;
+    }
+    .meChatAn-other {
+        height: 30px;
+        //border: #FFA492 solid 1px;
+        font-size: 8px;
+        color: #bdbdbd;
+        display: flex;
+        align-items: flex-end;
+        .meChatAn-time {
+            display: inline-block;
+            // font-size: 8px;
+            // color: #bdbdbd;  
+            margin: 0 4px;
+        }
+        .meChatAn-select {
+            display: inline-block;
+            margin: 0 2px;
+            i {}
+        }
+    }
+}
+
+.meChatAnUser {
+    display: flex;
+    flex-direction: row-reverse;
+    .meChatAn-pic {
+        margin-left: 3px;
+    }
+    .meChatAnUser-text {
+        padding: 0 8px 0 14px;
+        color: #888682;
+        vertical-align: top;
+        height: 100%;
+        // border: chocolate solid 1px;
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        background-color: #edeae5;
+        border-radius: 30px 0 30px 30px;
+        margin: 0 5px;
+    }
+}
+
+@media only screen and (max-width: 991px) {}
+
+@media only screen and (max-width: 768px) {}
+
+@media only screen and (max-width: 576px) {
+    .meChat {
+        padding: 5px 0;
+        margin: 3px 0;
+        display: block;
+        height: 60vh;
+        .meChatMain {
+            width: 100%;
+            border: sandybrown solid 1px;
+            .meChatMainRoom {
+                overflow-y: auto;
+            }
+        }
+        .meChatSelect {
+            width: 100%;
+            border: seagreen solid 1px;
+            .meChatPeople-scroll {
+                height: 100%;
+                border: solid 3px sienna;
+            }
+        }
+    }
+    .meChatPeople-each {
+        padding: 5px 10px;
+        .meChatPeople {
+            font-size: 16px;
+            .meChatPeople-pic {}
+            .meChatPeople-name {}
+        }
+    }
 }
