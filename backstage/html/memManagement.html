@@ -62,37 +62,36 @@
                 return {
                     transport: JSON.parse(JSON.stringify(this.transportData)),
                     memberData: [{
-                            memNo: "1",
-                            memId: "YiReFan@dayrep.com",
-                            memName: "施若凡",
-                            memBD: "1987-05-13",
-                            memGender: "f",
-                            memTel: "(778)0955457019",
-                            memAdd: "4593 Lake City Way Burnaby, BC V5A 2Z6",
-                            memPic: "https://images.pexels.com/photos/3727149/pexels-photo-3727149.jpeg",
-                            memBool: "0"
-                        },{
-                            memNo: "2",
-                            memId: "LiangYingMei@jourrapide.com",
-                            memName: "梁映梅",
-                            memBD: "1982-11-02",
-                            memGender: "f",
-                            memTel: "(903)0979801073",
-                            memAdd: "2873 Grant Street Texarkana, TX 75501",
-                            memPic: "https://images.pexels.com/photos/4026110/pexels-photo-4026110.jpeg",
-                            memBool: "0"
-                        },{
-                            memNo: "3",
-                            memId: "FuShiJie@jourrapide.com",
-                            memName: "傅詩婕",
-                            memBD: "2001-02-03",
-                            memGender: "f",
-                            memTel: "(210)0962656632",
-                            memAdd: "2835 Fidler Drive San Antonio, TX 78221",
-                            memPic: "https://images.pexels.com/photos/3270230/pexels-photo-3270230.jpeg",
-                            memBool: "0"
-                        }
-                    ]
+                        memNo: "1",
+                        memId: "YiReFan@dayrep.com",
+                        memName: "施若凡",
+                        memBD: "1987-05-13",
+                        memGender: "f",
+                        memTel: "(778)0955457019",
+                        memAdd: "4593 Lake City Way Burnaby, BC V5A 2Z6",
+                        memPic: "https://images.pexels.com/photos/3727149/pexels-photo-3727149.jpeg",
+                        memBool: "0"
+                    }, {
+                        memNo: "2",
+                        memId: "LiangYingMei@jourrapide.com",
+                        memName: "梁映梅",
+                        memBD: "1982-11-02",
+                        memGender: "f",
+                        memTel: "(903)0979801073",
+                        memAdd: "2873 Grant Street Texarkana, TX 75501",
+                        memPic: "https://images.pexels.com/photos/4026110/pexels-photo-4026110.jpeg",
+                        memBool: "0"
+                    }, {
+                        memNo: "3",
+                        memId: "FuShiJie@jourrapide.com",
+                        memName: "傅詩婕",
+                        memBD: "2001-02-03",
+                        memGender: "f",
+                        memTel: "(210)0962656632",
+                        memAdd: "2835 Fidler Drive San Antonio, TX 78221",
+                        memPic: "https://images.pexels.com/photos/3270230/pexels-photo-3270230.jpeg",
+                        memBool: "0"
+                    }]
                 };
             },
             template: ` <tbody>
@@ -125,7 +124,21 @@
 			                        <td><button @click="deleteData($event,index)">刪除</button></td>
                                 </tr>
                         </tbody>`,
+            mounted() {
+                //一進頁面先使用axios=> get
+                this.getMemberData();
+            },
             methods: {
+                getMemberData() {
+                    // axios.get('抓取會員資料的php.php')
+                    //     .then((res) => {
+                    //         console.log('會員資料抓取成功');
+                    //         this.memberData = res.data;
+                    //     })
+                    //     .catch((error) => {
+                    //         console.error(error)
+                    //     })
+                },
                 editToggle(e, index) {
                     let input = document.querySelectorAll(`.buttonGroup${index}`);
                     if (input[0].getAttribute("readonly")) {

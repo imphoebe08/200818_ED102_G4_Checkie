@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/bgHead.html')
+</head>
+<style>
+    input {
+        width: 100%;
+    }
+
+    input[readonly] {
+        border: none;
+        outline: none;
+    }
+
+    input.insertNew{
+         display: inline-block;
+         width: 20%;
+         margin: 10px;
+    }
+</style>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <!-- top_header -->
+    @@include('layout/top_header.html')
+
+    <!-- 中間內容 -->
+    <div id="bgMem" class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="acManagement_title">
+                    <h1 class="acManagement_h1">管理員管理</h1>
+                </div>
+                <div class="card ">
+                    <div class="card-body" style=" overflow-x: auto;">
+                        <div class="insert">
+                            <input type="text" placeholder="編號" v-model="newData.admNo" class="insertNew">
+                            <input type="text" placeholder="名稱" v-model="newData.admName" class="insertNew">
+                            <input type="text" placeholder="帳號" v-model="newData.admId" class="insertNew">
+                            <input type="text" placeholder="密碼" v-model="newData.admPsn" class="insertNew">
+                            <button @click="insertData">新增</button>
+                        </div>
+                        <table class=" table table-responsive-sm table-sm ">
+                            <thead>
+                                <tr>
+                                    <th>編號</th>
+                                    <th>名稱</th>
+                                    <th>帳號</th>
+                                    <th>密碼</th>
+                                    <th>編輯</th>
+                                    <th>刪除</th>
+                                </tr>
+                            </thead>
+                            <tbody is="input-layout" :transport-data="transport"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @@include('layout/footer.html')
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script>
+        Vue.component("input-layout", {
+            props: ["transport-data"],
+            data() {
+                return {
+                    transport: JSON.parse(JSON.stringify(this.transportData)),
+                    memberData: [{
+                        admNo: "1",
+                        admName: "施若凡",
+                        admId: "YiReFan@dayrep.com",
+                        admPsn: "YiReFan",
+                    }, {
+                        admNo: "2",
+                        admName: "梁映梅",
+                        admId: "LiangYingMei@jourrapide.com",
+                        admPsn: "LiangYingMei",
+                    }, {
+                        admNo: "3",
+                        admName: "傅詩婕",
+                        admId: "FuShiJie@jourrapide.com",
+                        admPsn: "FuShiJie",
+                    }]
+                };
+            },
+            template: ` <tbody>
+                                <tr class="buttonGroup" v-for="(value,index) in memberData" :key="value.admNo">
+                                    <input type="hidden" placeholder="管理員編號" v-model="value.admNo"
+                                            :class="'buttonGroup' + index" readonly>
+                                    <td><span style="width: 40px;display: block;">{{value.admNo}}</span></td>
+                                    <td><input style="width: 150px;" type="text" placeholder="管理員名稱"
+                                            v-model="value.admName" :class="'buttonGroup' + index" readonly></td>
+                                    <td><input style="width: 150px;" type="text" placeholder="管理員帳號"
+                                            v-model="value.admId" :class="'buttonGroup' + index" readonly></td>
+                                    <td><input style="width: 150px;" type="password" placeholder="管理員密碼"
+                                            v-model="value.admPsn" :class="'buttonGroup' + index" readonly></td>
+                                    <td><button @click="editToggle($event,index)">編輯</button></td>
+			                        <td><button @click="deleteData($event,index)">刪除</button></td>
+                                </tr>
+                        </tbody>`,
+            mounted() {
+                //一進頁面先使用axios=> get
+                this.getMemberData();
+            },
+            methods: {
+                getMemberData() {
+                    // axios.get('抓取管理員資料的php.php')
+                    //     .then((res) => {
+                    //         console.log('管理員資料抓取成功');
+                    //         this.memberData = res.data;
+                    //     })
+                    //     .catch((error) => {
+                    //         console.error(error)
+                    //     })
+                },
+                editToggle(e, index) {
+                    let input = document.querySelectorAll(`.buttonGroup${index}`);
+                    if (input[0].getAttribute("readonly")) {
+                        this.inputToEdit(e, index);
+                    } else {
+                        let check = confirm(`確認修改管理員編號 ${this.memberData[index].admNo} 的資料嗎?`);
+                        if (check) {
+                            //使用axios=> update
+                            this.updateMemInfo(index);
+                            this.inputToForbid(e, index);
+                        } else {
+                            this.inputToEdit(e, index);
+                        }
+                    }
+                },
+                inputToForbid(e, index) {
+                    let input = document.querySelectorAll(`.buttonGroup${index}`);
+                    for (let j = 0; j < input.length; j++) {
+                        e.currentTarget.innerText = "編輯";
+                        input[j].setAttribute("readonly", true);
+                    }
+                },
+                inputToEdit(e, index) {
+                    let input = document.querySelectorAll(`.buttonGroup${index}`);
+                    for (let j = 0; j < input.length; j++) {
+                        input[j].removeAttribute("readonly");
+                        e.currentTarget.innerText = "送出";
+                    }
+                },
+                deleteData(e, index) {
+                    let check = confirm(`確認刪除會員編號 ${this.memberData[index].admNo} 的資料嗎?`);
+                    if (check)
+                        this.memberData.splice(index, 1);
+                    //使用axios=> delete
+                    // axios.get('修改管理員資料的php.php', {
+                    //         params: {
+                    //             admNo: this.memberData[index].admNo
+                    //         }
+                    //     })
+                    //     .then((res) => {
+                    //         console.log('管理員刪除成功')
+                    //     })
+                    //     .catch((error) => {
+                    //         console.error(error)
+                    //     })
+                },
+                updateMemInfo(index) {
+                    // axios.get('修改管理員資料的php.php', {
+                    //         params: {
+                    //             admNo: this.memberData[index].admNo,
+                    //             admName: this.memberData[index].admName,
+                    //             admId: this.memberData[index].admId,
+                    //             admPsn: this.memberData[index].admPsn
+                    //         }
+                    //     })
+                    //     .then((res) => {
+                    //         console.log('管理員更新成功')
+                    //     })
+                    //     .catch((error) => {
+                    //         console.error(error)
+                    //     })
+                },
+            },
+            watch: {
+                transportData: function () {
+                    this.transport = JSON.parse(JSON.stringify(this.transportData));
+                    this.memberData.push(this.transport);
+                    this.transport = {};
+                    //使用axios=> get
+                    this.getMemberData();
+                }
+            }
+        });
+
+        new Vue({
+            el: "#bgMem",
+            data: {
+                newData: {
+                    admNo: "",
+                    admName: "",
+                    admId: "",
+                    admPsn: ""
+                },
+                transport: {}
+            },
+            methods: {
+                insertData() {
+                    this.transport = JSON.parse(JSON.stringify(this.newData)); //將新增區域的值送到元件
+                    this.newData = {}; //清除新增區域的placeholder
+                    //使用axios=> insert
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
