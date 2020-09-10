@@ -3,12 +3,12 @@ Vue.component('acRelateCard', {
     template: `
     <div id="acSelect" class="acSelect container-sm container-md">
             <div class="acSelectCard" v-for="acContent in acContents">
-                    <a href="./acSelf.html">
+                    <a :href="'./acSelf.html?actNo=' + acContent.actNo">
                         <img src="./img/acMain/acCard.jpg">
                     </a>
                 
                 <!-- 卡片文字 -->
-                <h6 class="acSelectCard_title"><a href="./acSelf.html">{{acContent.acName}}</a></h6>
+                <h6 class="acSelectCard_title"><a :href="'./acSelf.html?actNo=' + acContent.actNo">{{acContent.actName}}</a></h6>
                 
                 <!-- 卡片時間 -->
                 <div class="acSelectCard_icon">
@@ -17,15 +17,15 @@ Vue.component('acRelateCard', {
                 </div>
                 <div class="acSelectCard_text">
                 <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
-                <p class="acSelectCard_time">活動日期：<br>{{acContent.acStartDate}} ~ <br>{{acContent.acEndDate}}</p>
+                <p class="acSelectCard_time">活動日期：<br>{{acContent.actStart}} ~ <br>{{acContent.acEndDate}}</p>
                 </div>
                 <div class="acSelectCard_text">
                     <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
-                    <p class="acSelectCard_time">報名截止日期：<br>{{acContent.acRedEndDate}}</p>
+                    <p class="acSelectCard_time">報名截止日期：<br>{{acContent.actPend}}</p>
                 </div>
 
                 <div class="acSelectCard_bottomBlock">
-                <p class="acSelectCard_person"> 剩餘名額：{{acContent.acMax - acContent.acMin}}</p>
+                <p class="acSelectCard_person"> 剩餘名額：{{acContent.actMax - acContent.actCount}}</p>
                 <input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register">
                 </div>
             </div>
@@ -33,7 +33,7 @@ Vue.component('acRelateCard', {
     `,
 });
 
-new Vue({
+let acVue = new Vue({
     el: "#acSelf",
 
     data: {
@@ -64,12 +64,13 @@ new Vue({
         }
     },
     mounted() {
+        let actNo = location.href.split('?')[1].split('=')[1];
         var vm = this;
-        axios.get('../php/acSelf.php').then((res) => {
+        axios.get(`../php/acSelf.php?actNo=${actNo}`).then((res) => {
             this.contents = res.data
-            console.log(res)
+            console.log(res.data)
         })
-        axios.get('../php/acSelf.php').then((res) => {
+        axios.get('../php/acMain.php').then((res) => {
             this.cards = res.data
                 // console.log(res)
             Vue.nextTick().then(function() {

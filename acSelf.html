@@ -22,18 +22,18 @@
         <div id="acSelf" class="acSelf fluid">
             <div class="acSelf-Banner">
 
-                <div class="acSelf-Banner_pic col-xl-7 col-sm-12"><img :src="contents[0].acPic[0]" alt=""></div>
+                <div class="acSelf-Banner_pic col-xl-7 col-sm-12"><img :src="contents[0].banner" alt=""></div>
                 <div class="acSelf-Banner_intro col-xl-5 col-sm-12">
-                    <h5>{{contents[0].acType}}</h5><br>
-                    <h5>{{contents[0].acName}}</h5>
+                    <h5>{{contents[0].actTypeNo}}</h5><br>
+                    <h5>{{contents[0].actName}}</h5>
                     <br>
                     <br>
                     <h6>活動時間：</h6>
-                    <p>{{contents[0].acStartDate}} ~ {{contents[0].acEndDate}}</p><br>
+                    <p>{{contents[0].actStart}} ~ {{contents[0].actEnd}}</p><br>
                     <h6>活動地點：</h6>
                     <p><a :href="'https://www.google.com/maps/place/' + contents[0].acLocation">{{contents[0].acLocation}}</a></p><br>
                     <h6>費用：</h6><br>
-                    <p>{{contents[0].acFee}}/人</p>
+                    <p>{{contents[0].actCost}}/人</p>
 
 
                 </div>
@@ -51,18 +51,18 @@
             <h4 class="acInfo-title">活動介紹</h4>
             <div class="acInfo">
                 <div class="acInfo_content col-12">
-                    <p v-html="contents[0].acInfo"></p><br>
+                    <p v-html="contents[0].actContent"></p><br>
                 </div>
                 <div class="acInfo_pic col-12">
-                    <img class="acInfo_pic--1 col-xl-5 col-12" :src="contents[0].acPic[1]" alt="">
-                    <img class="acInfo_pic--2 col-xl-5 col-12" :src="contents[0].acPic[2]" alt="">
+                    <img class="acInfo_pic--1 col-xl-5 col-12" src="" alt="">
+                    <img class="acInfo_pic--2 col-xl-5 col-12" src="" alt="">
                 </div>
             </div>
             <h4 class="acTeacher-title">講師介紹</h4>
             <div class="acTeacher">
                 <div class="acTeacher_pic col-xl-4 col-12">
                     <img :src="contents[0].acHolderPic" alt="">
-                    <h6 style="text-align: center;">{{contents[0].acHolderTilte}}｜{{contents[0].acHolder}}</h6>
+                    <h6 style="text-align: center;">{{contents[0].actHostTilte}}｜{{contents[0].actHost}}</h6>
                 </div>
                 <div class="acTeacher_intro col-xl-7 col-12">
                     <p v-html="contents[0].acHolderIntro"></p>

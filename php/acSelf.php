@@ -1,23 +1,31 @@
 <?php  
-// $psn = $_REQUEST["psn"];
+$actNo = $_REQUEST["actNo"];
+// $actNo =1;
 $errMsg = "";
 //連線資料庫
 try{
-  $dsn = "mysql:host=localhost;port=8889;dbname=0908Checkie;charset=utf8";
+    $dsn = "mysql:host=localhost;port=8889;dbname=0908Checkie;charset=utf8";
 	$user = "root";
 	$password = "root";
 	$options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 	$pdo = new PDO($dsn, $user, $password, $options);
 
 
-  $sql = "select * from activity join activitytype using(actNo)";
-  $products = $pdo->query($sql);
-  $prodRow = $products->fetchAll(PDO::FETCH_ASSOC);
-  echo json_encode($prodRow);
-  
+    $sql = "
+    select a.*, b.actPicContent 'banner', c.actPicContent 'pic1', d.actPicContent 'pic2'
+    from activity a join pic1 b on a.actNo = b.actNo
+                    join pic2 c on a.actNo = c.actNo
+                    join pic3 d on a.actNo = d.actNo
+    where a.actNo = :actNo";
+    $products = $pdo->prepare($sql);
+    $products->bindValue(':actNo', $actNo);
+    $products -> execute();
+    $prodRow = $products->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($prodRow);
+
 }catch(PDOException $e){
-  $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
-  $errMsg .= "錯誤行號 : ".$e -> getLine();
-  echo $errMsg;
+    $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
+    $errMsg .= "錯誤行號 : ".$e -> getLine();
+    echo $errMsg;
 }
 ?>
