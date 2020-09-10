@@ -126,12 +126,20 @@ function step() {
 }
 
 window.addEventListener('load', step);
-
+//步驟旋轉
 function rotateFoo() {
     var angle = ($('#showImgBg').data('angle') + 90) || 90;
     $('#showImgBg').css({ 'transform': 'rotate(' + angle + 'deg)' });
     $('#showImgBg').data('angle', angle);
 }
+//RWD查看更多按鈕
+function showCardTxt() {
+    $('#mediaCardBtn').click(function() {
+        $(this).css({ "display": "none" });
+    });
+}
+window.addEventListener('load', showCardTxt);
+
 
 
 //获取元素相对于屏幕绝对位置

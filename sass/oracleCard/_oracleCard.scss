@@ -1105,15 +1105,18 @@
                                     .oracleCardInner {
                                         .oracleCardBanner {
                                             .oracleCardBox {
+                                                bottom: 300px;
                                                 width: 550px;
                                                 .title {
-                                                    &::before {
-                                                        left: -20%;
-                                                        top: 60px;
+                                                    #forCloud::before {
+                                                        width: 400px;
+                                                        height: 400px;
+                                                        top: 150px;
                                                     }
-                                                    &::after {
-                                                        right: -21%;
-                                                        top: 175px;
+                                                    #forCloud1::after {
+                                                        top: 220px;
+                                                        width: 350px;
+                                                        height: 150px;
                                                     }
                                                 }
                                                 .txt {
@@ -1128,9 +1131,15 @@
                                             .oracleCardStepOneBox {
                                                 .cards {
                                                     .item {
+                                                        .itemImg {
+                                                            top: -100px;
+                                                        }
                                                         .itemTxt {
                                                             display: none;
+                                                            left: -50%;
+                                                            width: 540px;
                                                             fieldset {
+                                                                background: rgba(255, 255, 255, .8);
                                                                 >p {
                                                                     font-size: 12px;
                                                                 }
@@ -1152,16 +1161,17 @@
                                             .stepBg {
                                                 display: flex;
                                                 flex-direction: column-reverse;
-                                                justify-content: flex-start;
+                                                justify-content: flex-end;
+                                                margin-top: 250px;
                                                 align-items: center;
                                                 padding-bottom: 100px;
                                                 .showTxt {
-                                                    width: 300px;
+                                                    width: 500px;
                                                     height: 12%;
                                                     text-align: center;
                                                     .txt {
                                                         p {
-                                                            text-align: left;
+                                                            text-align: center;
                                                         }
                                                     }
                                                 }
@@ -1171,9 +1181,10 @@
                                                 .stepNum {
                                                     flex-direction: row;
                                                     width: 200px;
-                                                    margin-top: 10px;
+                                                    margin-top: 50px;
                                                     li {
                                                         margin-bottom: 0;
+                                                        margin: 0 20px;
                                                         &:not(:nth-child(1))::before {
                                                             width: 85px;
                                                             height: 2px;
@@ -1181,6 +1192,15 @@
                                                             top: 25px;
                                                             opacity: 0;
                                                         }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .oracleCardStepOne {
+                                            .oracleCardStepOneBox {
+                                                .title {
+                                                    h2 {
+                                                        padding: 150px 0 100px;
                                                     }
                                                 }
                                             }
