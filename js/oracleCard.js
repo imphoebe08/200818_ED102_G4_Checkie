@@ -19,32 +19,29 @@ function doFirst() {
             $('.item').on('click');
 
             $(".item").click(function() {
+                $(".item").parent(".cards").siblings(".title").children("h2").css({ "display": "none" })
                 $(this).children(".itemImg").children('.card__side--back').addClass("backRotate")
                 $(this).children(".itemImg").children('.card__side--front').addClass("frontRotate");
                 $(this).children(".itemImg").removeClass("animationShack");
                 $(this).siblings(".item").children(".itemImg").css({ "opacity": "0" });
                 $(this).children(".itemTxt").removeClass("txtOpacityOne");
                 $(this).parent(".cards").siblings("#mediaCardBtn").removeClass("mediaCardBtnNone");
+                $(".cardBtn").css({ "opacity": "1" });
                 $(".item").addClass("left");
-                // $(this).siblings(".item").children(".itemImg").css({ "display": "none" });
-                //             $(".item").parent(".cards").siblings(".title").css({ "padding": "20" });
-                //             $(".item").parent(".cards").siblings(".title").css({ "transition": "1s" });
-                //             $(this).css({ "transition": "1s" });
-                //             $(this).siblings().children(".itemImg").addClass('itemRemoveOpacity');
-                //             $(this).siblings().children(".itemImgBack").css({ "opacity": "0" });
-                //             $(this).css({ "transform": "translateX(-50%) rotateY(540deg) scale(1.5)" });
-                //             $(this).children().children("img").css({ "animation": "none" });
-                //             $(this).css({ "zIndex": "10" });
-                //             $(".item").css({ "left": "20%" });
-                //             $(".item").css({ "top": "-100%" });
-                //             $(this).children(".itemImgBack").children(".cardTxt").removeClass('cardHeight');
-                //             $(this).children(".itemImgBack").children(".cardTxt").children("fieldset").children("legend").text("接受");
-                //             $(this).children(".itemImgBack").children(".cardTxt").children("fieldset").children("p").text(`「懷著無條件的愛與包容心，用天使的眼光看待自己與他人，你就能夠激發與提升任何人，達到他們最高的潛力。」你收到這張牌，意味著天使正在協助你處理自己與他人的關係。下次你想要嚴厲地批評自己或他人時，請將這個批評轉化為健康與快樂的祈福。正面的作法能夠培養自尊心與心理和諧，並能夠從中療癒關係。請對自己與他人都保持正面的看法，這樣會使你的心裡更好過。不要試圖控制或改變他人，反而會更平靜地得到自己想要或甚至更好的結果。`);
-                //             $(this).children(".itemImgBack").children(".cardTxt").addClass('cardTxtLeft');
-                //             $(this).children(".itemImgBack").children(".cardTxt").children("fieldset").addClass('h2AddOpacity');
-                //             $(this).children(".itemImgBack").children(".cardTxt").children("fieldset").children("p").addClass('pAddOpacity');
-                //             $(this).parent(".cards").siblings(".cardBtn").addClass('pAddOpacity');
                 $('.item').off('click');
+            });
+            //RWD查看更多按鈕
+            $('#mediaCardBtn').click(function() {
+                if ($(window).width() < 769) {
+                    $(this).css({ "opacity": "0" });
+                    $(this).siblings(".cards").children(".item").children(".itemTxt").css({ "opacity": "1" });
+                }
+            });
+            $('.cards').click(function() {
+                if ($(window).width() < 769) {
+                    $("#mediaCardBtn").css({ "opacity": "1" });
+                    $("#mediaCardBtn").siblings(".cards").children(".item").children(".itemTxt").css({ "opacity": "0" });
+                }
             });
         }, 2500);
 
@@ -132,13 +129,8 @@ function rotateFoo() {
     $('#showImgBg').css({ 'transform': 'rotate(' + angle + 'deg)' });
     $('#showImgBg').data('angle', angle);
 }
-//RWD查看更多按鈕
-function showCardTxt() {
-    $('#mediaCardBtn').click(function() {
-        $(this).css({ "display": "none" });
-    });
-}
-window.addEventListener('load', showCardTxt);
+
+
 
 
 

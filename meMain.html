@@ -13,8 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.js"></script>
-    <script src="./js/header.js"></script>
-    <script src="./js/chatbot.js"></script>
+    <!-- <script src="./js/header.js"></script>
+    <script src="./js/chatbot.js"></script> -->
 
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://kit.fontawesome.com/3a9b8bb651.js" crossorigin="anonymous"></script>
@@ -62,26 +62,8 @@
                             <div class="mem-name-style" v-if="currentPage==''" :key="currentPage==''">
                                 {{member.memName}}
                             </div>
-                            <div class="mem-name-style" v-if="currentPage==titles.z" :key="currentPage==titles.z">
-                                {{titles.z}}
-                            </div>
-                            <div class="mem-name-style" v-if="currentPage==titles.a" :key="currentPage==titles.a">
-                                {{titles.a}}
-                            </div>
-                            <div class="mem-name-style" v-if="currentPage==titles.b" :key="currentPage==titles.b">
-                                {{titles.b}}
-                            </div>
-                            <div class="mem-name-style" v-if="currentPage==titles.c" :key="currentPage==titles.c">
-                                {{titles.c}}
-                            </div>
-                            <div class="mem-name-style" v-if="currentPage==titles.d" :key="currentPage==titles.d">
-                                {{titles.d}}
-                            </div>
-                            <div class="mem-name-style" v-if="currentPage==titles.e" :key="currentPage==titles.e">
-                                {{titles.e}}
-                            </div>
-                            <div class="mem-name-style" v-if="currentPage==titles.f" :key="currentPage==titles.f">
-                                {{titles.f}}
+                            <div class="mem-name-style" v-for="item in titles" v-if="currentPage==item" :key="item">
+                                {{item}}
                             </div>
                         </transition>
                     </div>
@@ -92,13 +74,13 @@
 
 
                         <me-head>
-                            <me-select_item :item="0" @click.native="selectIt(titles.z)" :selected="currentPage==titles.z">{{titles.z}}</me-select_item>
-                            <me-select_item :item="1" @click.native="selectIt(titles.a)" :selected="currentPage==titles.a">{{titles.a}}</me-select_item>
+                            <me-select_item :item="index" v-for="(item, index) in titles" @click.native="selectIt(item)" :selected="currentPage==item">{{item}}</me-select_item>
+                            <!-- <me-select_item :item="1" @click.native="selectIt(titles[1])" :selected="currentPage==titles.a">{{titles.a}}</me-select_item>
                             <me-select_item :item="2" @click.native="selectIt(titles.b)" :selected="currentPage==titles.b">{{titles.b}}</me-select_item>
                             <me-select_item :item="3" @click.native="selectIt(titles.c)" :selected="currentPage==titles.c">{{titles.c}}</me-select_item>
                             <me-select_item :item="4" @click.native="selectIt(titles.d)" :selected="currentPage==titles.d">{{titles.d}}</me-select_item>
                             <me-select_item :item="5" @click.native="selectIt(titles.e)" :selected="currentPage==titles.e">{{titles.e}}</me-select_item>
-                            <me-select_item :item="6" @click.native="selectIt(titles.f)" :selected="currentPage==titles.f">{{titles.f}}</me-select_item>
+                            <me-select_item :item="6" @click.native="selectIt(titles.f)" :selected="currentPage==titles.f">{{titles.f}}</me-select_item> -->
                             <!-- <div class="homeIcon">
                                         <back-btn @click="backToIndex(titles.z)">H</back-btn>
                                     </div> -->
@@ -134,7 +116,7 @@
 
                             <transition name="coSlide" mode="out-in">
 
-                                <select-page :step="1" v-if="currentPage == titles.z" :key="titles.z">
+                                <select-page :step="1" v-if="currentPage == titles[0]" :key="titles[0]">
                                     <div class="col-12 me-page-title" v-if="windowSize<768" @click="backToSelect">
                                         <div class="selectIcon">
                                             <i class="fas fa-caret-left backToSelect"></i>
@@ -147,8 +129,8 @@
                                     <div class="me-for-content">
                                         <div class="meInsideBlock ">
                                             <div class="mem-header-singleRow mem-header-flex">
-                                                <div class="more-title">{{titles.a}}</div>
-                                                <div class="more--color" @click="pageChange(titles.a)">MORE<i class="fas fa-angle-right"></i></div>
+                                                <div class="more-title">{{titles[1]}}</div>
+                                                <div class="more--color" @click="pageChange(titles[1])">MORE<i class="fas fa-angle-right"></i></div>
                                             </div>
                                             <div class="figMother">
                                                 <div class="fig">
@@ -196,14 +178,14 @@
                                         <div class="meInsideBlock-half-contain">
                                             <div class="meInsideBlock meInsideBlock-half">
                                                 <div class="mem-header-singleRow mem-header-flex">
-                                                    <div class="more-title">{{titles.b}}</div>
-                                                    <div class="more--color" @click="pageChange(titles.b)">MORE<i class="fas fa-angle-right"></i></div>
+                                                    <div class="more-title">{{titles[2]}}</div>
+                                                    <div class="more--color" @click="pageChange(titles[2])">MORE<i class="fas fa-angle-right"></i></div>
                                                 </div>
                                                 <div class="me-index_block" v-for="(each,index) in coData" v-if="index<2">
                                                     <div class="me-index_each">
                                                         <a href="">
                                                             <div>{{each.csODate}}</div>
-                                                            <div>{{each.coPos}}</div>
+                                                            <div>{{each.csPosName}}</div>
                                                         </a>
                                                     </div>
                                                     <mem-driver></mem-driver>
@@ -212,8 +194,8 @@
                                             </div>
                                             <div class="meInsideBlock meInsideBlock-half ">
                                                 <div class="mem-header-singleRow mem-header-flex">
-                                                    <div class="more-title">{{titles.c}}</div>
-                                                    <div class="more--color" @click="pageChange(titles.c)">MORE<i class="fas fa-angle-right"></i></div>
+                                                    <div class="more-title">{{titles[3]}}</div>
+                                                    <div class="more--color" @click="pageChange(titles[3])">MORE<i class="fas fa-angle-right"></i></div>
                                                 </div>
                                                 <div class="me-index_block" v-for="(each,index) in aoData" v-if="index<2">
                                                     <div class="me-index_each">
@@ -232,8 +214,8 @@
 
                                         <div class="meInsideBlock">
                                             <div class="mem-header-singleRow mem-header-flex">
-                                                <div class="more-title">{{titles.d}}</div>
-                                                <div class="more--color" @click="pageChange(titles.d)">MORE<i class="fas fa-angle-right"></i></div>
+                                                <div class="more-title">{{titles[4]}}</div>
+                                                <div class="more--color" @click="pageChange(titles[4])">MORE<i class="fas fa-angle-right"></i></div>
                                             </div>
 
                                             <div class="me-index_block ">
@@ -248,22 +230,22 @@
                                         </div>
                                         <div class="meInsideBlock">
                                             <div class="mem-header-singleRow mem-header-flex">
-                                                <div class="more-title">{{titles.e}}</div>
-                                                <div class="more--color" @click="pageChange(titles.e)">MORE<i class="fas fa-angle-right"></i></div>
+                                                <div class="more-title">{{titles[5]}}</div>
+                                                <div class="more--color" @click="pageChange(titles[5])">MORE<i class="fas fa-angle-right"></i></div>
                                             </div>
 
                                         </div>
                                         <div class="meInsideBlock">
                                             <div class="mem-header-singleRow mem-header-flex">
-                                                <div class="more-title">{{titles.f}}</div>
-                                                <div class="more--color" @click="pageChange(titles.f)">MORE<i class="fas fa-angle-right"></i></div>
+                                                <div class="more-title">{{titles[6]}}</div>
+                                                <div class="more--color" @click="pageChange(titles[6])">MORE<i class="fas fa-angle-right"></i></div>
                                             </div>
 
                                         </div>
                                     </div>
 
                                 </select-page>
-                                <select-page :step="2" v-if="currentPage == titles.a" :key="titles.a">
+                                <select-page :step="2" v-if="currentPage == titles[1]" :key="titles[1]">
                                     <div class="col-12 me-page-title" v-if="windowSize<768" @click="backToSelect">
                                         <div class="selectIcon">
                                             <i class="fas fa-caret-left backToSelect"></i>
@@ -278,7 +260,7 @@
                                                 <label for="moName" class="">
                                                     <span class="mem-show-title">{{memTitle.name}}</span>
                                                     <span v-if="!iWantModify" class="mem-show-confirmData">{{member.memName}}</span>
-                                                    <input v-if="iWantModify" name="moName" type="text" class="modifyForm" v-model="momentModify.memName" :placeholder="member.memName">
+                                                    <input v-if="iWantModify" name="moName" type="text" class="modifyForm" v-model="momentModify.memName" :placeholder="member.memName" maxlength="25">
                                             </label>
                                             </div>
                                             <div class="mem-modify-singleRow">
@@ -314,56 +296,56 @@
                                                 <label for="moTel" class="">
                                                     <span class="mem-show-title">{{memTitle.tel}}</span>
                                                     <span v-if="!iWantModify" class="mem-show-confirmData">{{member.memTel.countryCode}}{{member.memTel.mobile}}</span>
-                                                    <input v-if="iWantModify" type="text" name="moTel" class="modifyForm modifyCountryCode" v-model="momentModify.memTel.countryCode" :placeholder="member.memTel.countryCode">
+                                                    <input v-if="iWantModify" type="number" name="moTel" class="modifyForm modifyCountryCode" v-model="momentModify.memTel.countryCode" :placeholder="member.memTel.countryCode" maxlength="3">
                                                     <input v-if="iWantModify" type="tel" name="moTel" class="modifyForm modifyMobile" v-model="momentModify.memTel.mobile" :placeholder="member.memTel.mobile">
                                                 </label>
                                             </div>
                                             <div class="mem-modify-singleRow" v-if="iWantModify">
                                                 <label for="moPsw" class="">
                                                     <span class="mem-show-title">{{memTitle.password}}</span>
-                                                    <span class="mem-show-confirmData" id="memPsw">{{memPsw_length}}</span>
-                                                    <span class="mem-show-confirmData mem-memPsw-confirmData memPswToggle" @click="modifyMemPsw(true)">修改密碼</span>
+                                                    <span class="mem-show-confirmData" id="memPsd">{{memPsdLength}}</span>
+                                                    <span class="mem-show-confirmData mem-memPsd-confirmData memPsdToggle" @click="modifyMemPsd(true)">修改密碼</span>
                                                 </label>
                                             </div>
                                         </div>
 
 
-                                        <div class="modifyMemPsw ao-co-error-overlay" v-if="myMemPsw" @click="myMemPsw = false"></div>
-                                        <div v-if="myMemPsw" class="co-ao-error--border">
-                                            <div class=" modifyMemPsw-block" v-if="mePswFinalizeConfirm">
+                                        <div class="modifyMemPsd ao-co-error-overlay" v-if="myMemPsd" @click="myMemPsd = false"></div>
+                                        <div v-if="myMemPsd" class="co-ao-error--border">
+                                            <div class=" modifyMemPsd-block" v-if="mePswFinalizeConfirm">
                                                 <!-- 舊密碼區 -->
-                                                <div class="modifyMemPswOld" v-if="!showNewMemPsw">
-                                                    <label for="memPsw" class="memPswLabel">
-                                                        <span class="mem-show-title">請輸入舊密碼共{{memPswLength}}個字元</span>
+                                                <div class="modifyMemPsdOld" v-if="!showNewMemPsd">
+                                                    <label for="memPsd" class="memPsdLabel">
+                                                        <span class="mem-show-title">請輸入舊密碼共{{memPsdCountLength}}個字元</span>
                                                         <span  class="mem-show-confirmData"></span>
-                                                        <input name="memPsw" type="password" class="modifyForm" v-model="memPswModel" :placeholder="memPsw_length" :class="{bigShake : bigShake}" id="bigShake">
+                                                        <input name="memPsd" type="password" class="modifyForm" v-model="memPsdModel" :placeholder="memPsdLength" :class="{bigShake : bigShake}" id="bigShake"  maxlength="10" minlength="6">
                                                 </label>
                                                 </div>
                                                 <!-- 新密碼區 -->
-                                                <div class="modifyMemPswOld" v-if="showNewMemPsw">
-                                                    <label for="memPsw" class="memPswLabel">
+                                                <div class="modifyMemPsdOld" v-if="showNewMemPsd">
+                                                    <label for="memPsd" class="memPsdLabel">
                                                         <span class="mem-show-title">請輸入新密碼</span>
-                                                        <input name="moPetName" type="password" class="modifyForm" v-model="textMemPsw" :class="{bigShake: bigShake}" >
+                                                        <input name="memPsd" type="password" class="modifyForm" v-model="textMemPsd" :class="{bigShake: bigShake}" maxlength="10" minlength="6">
                                                         <span class="mem-show-title">請確認新密碼</span>
-                                                        <input name="moPetName" type="password" class="modifyForm" v-model="memPswModel" :class="{bigShake: bigShake}" >
+                                                        <input name="memPsd" type="password" class="modifyForm" v-model="memPsdModel" :class="{bigShake: bigShake}"  maxlength="10" minlength="6">
                                                         <span class="mem-show-title" v-if="errorText">密碼不相符</span>
                                                 </label>
                                                 </div>
 
                                                 <div class="modifyMemCheck">
-                                                    <button class="button2-1 error-modal-closer" @click="giveUpMemPsw(false)">放棄修改</button>
+                                                    <button class="button2-1 error-modal-closer" @click="giveUpMemPsd(false)">放棄修改</button>
                                                     <!-- 舊密碼確認區 -->
-                                                    <button class="button2-1 error-modal-closer" v-if="!showNewMemPsw" @click="confirmMemPsw(true)">確認密碼</button>
+                                                    <button class="button2-1 error-modal-closer" v-if="!showNewMemPsd" @click="confirmMemPsd(true)">確認密碼</button>
                                                     <!-- 新密碼確認區 -->
-                                                    <button class="button2-1 error-modal-closer" v-if="showNewMemPsw" @click="finalizeMemPsw(false)">送出密碼</button>
+                                                    <button class="button2-1 error-modal-closer" v-if="showNewMemPsd" @click="finalizeMemPsd(false)">送出密碼</button>
                                                 </div>
                                             </div>
-                                            <div v-if="!mePswFinalizeConfirm" class="modifyMemPsw-block">
-                                                <div class="modifyMemPswOld">
+                                            <div v-if="!mePswFinalizeConfirm" class="modifyMemPsd-block">
+                                                <div class="modifyMemPsdOld">
                                                     <div>更改密碼成功！<br>請完成確認修改會員資料</div>
                                                 </div>
                                                 <div class="modifyMemCheck">
-                                                    <button class="button2-1 error-modal-closer" @click="iKnowIChangeMemPsw(false)">我知道了</button>
+                                                    <button class="button2-1 error-modal-closer" @click="iKnowIChangeMemPsd(false)">我知道了</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -379,14 +361,14 @@
                                                         <label for="moAdd" class="">
                                                             <span class="mem-show-title">{{memTitle.add}}</span>
                                                             <span v-if="!iWantModify" class="mem-show-confirmData">{{member.memAdd}}</span>
-                                                            <input v-if="iWantModify" type="text" name="moAdd" class="modifyForm" v-model="momentModify.memAdd" :placeholder="member.memAdd">
+                                                            <input v-if="iWantModify" type="text" name="moAdd" class="modifyForm" v-model="momentModify.memAdd" :placeholder="member.memAdd" maxlength="40">
                                                         </label>
                                                     </div>
                                                     <div class=" mem-modify-singleRow">
-                                                        <label for="moOcc" class="">
+                                                        <label for="memOccupation" class="">
                                                             <span class="mem-show-title">{{memTitle.occ}}</span>
-                                                            <span v-if="!iWantModify" class="mem-show-confirmData">{{member.memOcc}}</span>
-                                                            <input v-if="iWantModify" type="text" name="moOcc" class="modifyForm" v-model="momentModify.memOcc" :placeholder="member.memOcc">
+                                                            <span v-if="!iWantModify" class="mem-show-confirmData">{{member.memOccupation}}</span>
+                                                            <input v-if="iWantModify" type="text" name="memOccupation" class="modifyForm" v-model="momentModify.memOccupation" :placeholder="member.memOccupation" maxlength="10">
                                                         </label>
                                                     </div>
                                                     <div class=" mem-modify-singleRow">
@@ -409,13 +391,14 @@
                                             <div class="fuckingButton" @click="giveUpModify(!iWantModify)">
                                                 放棄修改
                                             </div>
-                                            <div class="fuckingButton fuckingButton2" @click="confirmModify(!iWantModify)">
+                                            <div class="fuckingButton fuckingButton2" @click="confirmModify(!iWantModify) ; check()">
                                                 確認修改
                                             </div>
+
                                         </div>
                                     </div>
                                 </select-page>
-                                <select-page :step="3" v-if="currentPage == titles.b" :key="titles.b">
+                                <select-page :step="3" v-if="currentPage == titles[2]" :key="titles[2]">
 
                                     <div class="col-12 me-page-title" v-if="windowSize<768" @click="backToSelect">
                                         <div class="selectIcon">
@@ -438,7 +421,7 @@
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
                                                                 <div class="mem-order-dcName">
-                                                                    {{each.csName}}{{index}}
+                                                                    {{each.csName}}
                                                                 </div>
                                                                 <div class="mem-order-img">
                                                                     <img :src="each.csPic" alt="">
@@ -446,21 +429,21 @@
                                                             </div>
                                                             <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
                                                                 <div class="row justify-content-end mem-modify--delete">
-                                                                    <div v-if="!orderShow" class=" order-justDele" @click="deleteOrder(coData,index)"><i class="far fa-edit memI"></i>刪除</div>
+                                                                    <div v-if="!orderShow" class=" order-justDele" @click="overlayConfirm = true ; what(index, coData)"><i class="far fa-edit memI"></i>刪除</div>
                                                                 </div>
                                                                 <div class="row justify-content-center">
                                                                     <table class="mem-order-table">
                                                                         <tr>
-                                                                            <th>地點:</th>
-                                                                            <td data-title="地點">{{each.coPos}}</td>
+                                                                            <th>地點</th>
+                                                                            <td data-title="地點">{{each.csPosName}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <th>時間:</th>
+                                                                            <th>時間</th>
                                                                             <td data-title="時間">{{each.csODate}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <th>諮商時間:</th>
-                                                                            <td data-title="諮商時間">{{each.csOHour}}</td>
+                                                                            <th>諮商時間</th>
+                                                                            <td data-title="諮商時間">1</td>
                                                                         </tr>
                                                                     </table>
                                                                 </div>
@@ -472,10 +455,68 @@
                                                                         <span>.NT</span>
                                                                     </div>
                                                                 </div>
+                                                                <div class="row ">
+                                                                    <div class="mem-coOrder-total--hide">
+                                                                        <span class="order-justDele memI" @click="orderMore($event,coData,index)">查看更多<i class="fas fa-caret-down memI"></i></span>
+                                                                        <div class="meOrder_toggle">
+                                                                            <table class="mem-order-table">
+                                                                                <tr>
+                                                                                    <th>訂單編號</th>
+                                                                                    <td data-title="地點">{{each.csONo}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>諮商方式</th>
+                                                                                    <td data-title="時間">{{each.csModeName}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>下訂時間</th>
+                                                                                    <td data-title="諮商時間">{{each.csOTime}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>諮商期待</th>
+                                                                                    <td data-title="時間">{{each.csOAnticipate}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>諮商主題</th>
+                                                                                    <td data-title="諮商時間">{{each.csOTopic}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>諮商類型</th>
+                                                                                    <td data-title="諮商時間">{{each.typeName}}</td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
+
                                                     </div>
                                                 </div>
+
+                                                <!-- 確認刪除訂單 -->
+                                                <div class="modifyMemPsd ao-co-error-overlay" v-if="overlayConfirm" @click="overlayConfirm = false"></div>
+                                                <div v-if="overlayConfirm && tempData != ''" class="co-ao-error--border">
+                                                    <div class="modifyMemPsd-block">
+                                                        <div class="modifyMemPsdOld modifyOrder-align">您將刪除訂單編號{{tempData[tempIndex].csONo}}的訂單</div>
+                                                        <div class="modifyMemPsdOld modifyOrder-align">費用{{tempData[tempIndex].csOCost}}將退回您的帳戶</div>
+                                                        <div class="modifyMemCheck">
+                                                            <div class="button2-1 error-modal-closer" @click="deleteOrder(tempData,tempIndex)">確認</div>
+                                                            <div class="button2-1 error-modal-closer" @click="overlayConfirm = false">取消</div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!-- 確認刪除訂單 -->
+
+
+
+
+
+
+
+
                                             </div>
                                             <div class=" meOrderBlock-content" v-if="!ccOrder" key="!ccOrder">
                                                 <div class="row justify-content-center delete" v-for="(each,index) in coPastData">
@@ -526,7 +567,7 @@
 
                                 </select-page>
 
-                                <select-page :step="4 " v-if="currentPage==titles.c " :key="titles.c ">
+                                <select-page :step="4 " v-if="currentPage==titles[3] " :key="titles[3]">
                                     <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect ">
                                         <div class="selectIcon ">
                                             <i class="fas fa-caret-left backToSelect "></i>
@@ -639,7 +680,7 @@
 
                                 </select-page>
 
-                                <select-page :step="5 " v-if="currentPage==titles.d " :key="titles.d ">
+                                <select-page :step="5 " v-if="currentPage==titles[4] " :key="titles[4] ">
                                     <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect ">
                                         <div class="selectIcon ">
                                             <i class="fas fa-caret-left backToSelect "></i>
@@ -659,7 +700,7 @@
                                                 <div class="more-title">{{mentalTitles.b}}</div>
                                             </div>
                                             <div class="mem-table-contain">
-                                                <table class="mem-order-table mem-table-mental">
+                                                <table class="mem-table-mental">
                                                     <tr>
                                                         <th>0~20%</th>
                                                         <td data-title="0~20%">屬於較穩定的狀況。</td>
@@ -722,7 +763,7 @@
 
 
                                 </select-page>
-                                <select-page :step="6 " v-if="currentPage==titles.e " :key="titles.e ">
+                                <select-page :step="6 " v-if="currentPage==titles[5] " :key="titles[5]">
                                     <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect ">
                                         <div class="selectIcon ">
                                             <i class="fas fa-caret-left backToSelect "></i>
@@ -731,15 +772,170 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div></div>
+                                    <div class="col-12 meOrderTab">
+                                        <div @click="oag(true)" :class="{meOrderTabSelect: acOrder}">活動收藏</div>
+                                        <div @click="oag(false)" :class="{meOrderTabSelect: !acOrder}">文章收藏</div>
+                                    </div>
+
+
+                                    <div class="col-12 meOrderBlock">
+                                        <transition name="orderSlide" mode="out-in">
+                                            <div class="meOrderBlock-content" v-if="acOrder" key="acOrder">
+                                                <div class="row justify-content-center" v-for="(each,index) in aoData">
+                                                    <div class="mem-order-each col-10">
+                                                        <div class="row">
+                                                            <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
+                                                                <div class="mem-order-dcName">
+                                                                    {{each.csName}}
+                                                                </div>
+                                                                <div class="mem-order-img">
+                                                                    <img :src="each.csPic" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
+                                                                <div class="row justify-content-end mem-modify--delete">
+                                                                    <div v-if="!orderShow" class=" order-justDele" @click="deleteOrder(aoData,index)"><i class="far fa-edit memI"></i>刪除</div>
+                                                                </div>
+                                                                <div class="row justify-content-center">
+                                                                    <table class="mem-order-table">
+                                                                        <tr>
+                                                                            <th>地點:</th>
+                                                                            <td data-title="地點">{{each.coPos}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>時間:</th>
+                                                                            <td data-title="時間">{{each.csODate}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>諮商時間:</th>
+                                                                            <td data-title="諮商時間">{{each.csOHour}}</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="row ">
+                                                                    <mem-driver></mem-driver>
+                                                                    <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
+                                                                        <span>費⽤：</span>
+                                                                        <span>{{each.csOCost}}</span>
+                                                                        <span>.NT</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class=" meOrderBlock-content" v-if="!acOrder" key="!acOrder">
+                                                <div class="row justify-content-center" v-for="each in aoPastData">
+                                                    <div class="mem-order-each col-10">
+                                                        <div class="row">
+                                                            <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
+                                                                <div class="mem-order-dcName">
+                                                                    {{each.csName}}
+                                                                </div>
+                                                                <div class="mem-order-img">
+                                                                    <img :src="each.csPic" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
+                                                                <div class="row justify-content-center">
+                                                                    <table class="mem-order-table">
+                                                                        <tr>
+                                                                            <th>地點:</th>
+                                                                            <td data-title="地點">{{each.coPos}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>時間:</th>
+                                                                            <td data-title="時間">{{each.csODate}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>諮商時間:</th>
+                                                                            <td data-title="諮商時間">{{each.csOHour}}</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="row ">
+                                                                    <mem-driver></mem-driver>
+                                                                    <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
+                                                                        <span>費⽤：</span>
+                                                                        <span>{{each.csOCost}}</span>
+                                                                        <span>.NT</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </transition>
+                                    </div>
 
                                 </select-page>
-                                <select-page :step="7 " v-if="currentPage==titles.f " :key="titles.f ">
+                                <select-page :step="7 " v-if="currentPage==titles[6]" :key="titles[6]">
                                     <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect ">
                                         <div class="selectIcon ">
                                             <i class="fas fa-caret-left backToSelect "></i>
                                             <div>
                                                 回到選單
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="me-for-content">
+                                        <div class="meInsideBlock">
+                                            <div class="mem-header-singleRow mem-header-flex">
+                                                <div class="more-title">{{titles.e}}</div>
+                                                <div class="more--color" @click="pageChange(titles.e)">MORE<i class="fas fa-angle-right"></i></div>
+                                            </div>
+                                            <div class=" meChat">
+                                                <!-- <div class="col-12 meOrderTab">
+                                                    <div @click="oag(true)" :class="{meOrderTabSelect: acOrder}">已預訂</div>
+                                                    <div @click="oag(false)" :class="{meOrderTabSelect: !acOrder}">歷史訂單</div>
+                                                </div> -->
+
+                                                <transition>
+
+                                                </transition>
+                                                <!-- 聊天室 -->
+                                                <div class="meChatMain" v-if="windowSize>576">
+                                                    <!-- 對話內容匡 -->
+                                                    <div class="meChatMainRoom">
+                                                        <me-chat-an v-for="each in meChatAn" :init="each"></me-chat-an>
+                                                        <!-- <div class="meChatAn meChatAnUser">
+                                                            <div class="meChatAn-pic"><img src="./img/acSelf/活動老師.jpg" alt=""></div>
+                                                            <div class="meChatAn-text meChatAnUser-text">醫生幫幫我。</div>
+                                                            <div class="meChatAn-other meChatAnUser">
+                                                                <div class="meChatAn-time">07:20</div>
+                                                                <div class="meChatAn-select"><i class="fas fa-ellipsis-h"></i></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="meChatAn meChatAnUser">
+                                                            <div class="meChatAn-pic"><img src="./img/acSelf/活動老師.jpg" alt=""></div>
+                                                            <div class="meChatAn-text meChatAnUser-text">醫生幫幫我。</div>
+                                                            <div class="meChatAn-other meChatAnUser">
+                                                                <div class="meChatAn-time">07:20</div>
+                                                                <div class="meChatAn-select"><i class="fas fa-ellipsis-h"></i></div>
+                                                            </div>
+                                                        </div> -->
+
+                                                    </div>
+                                                    <!-- 輸入內容input -->
+                                                    <div class="memChatSend">
+                                                        <form action="" @submit.prevent="submitMes">
+                                                            <input name="moName" type="text" class="modifyForm chatInput" placeholder="" v-model="chatBox">
+                                                            <button class="memChatSend_button">123</button>
+                                                        </form>
+
+
+                                                    </div>
+                                                </div>
+
+                                                <!-- 選擇和誰聊天 -->
+                                                <div class="meChatSelect">
+                                                    <div class="meChatPeople-scroll">
+                                                        <chat-person-each @change="changeCs" v-for="each in chatPersonEach" :init="each"></chat-person-each>
+
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

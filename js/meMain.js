@@ -230,10 +230,58 @@ Vue.component('cssart-layout', {
             window.open("./atSelf.html", "_self");
         },
     }
-})
+});
 
+Vue.component('chat-person-each', {
+    props: ["init"],
+    data() {
+        return {
+            each: this.init,
+        }
+    },
+    template: `
+    <div class="meChatPeople-each" @click="sendCsNo">
+        <div class="meChatPeople">
+            <div class="meChatOnline"><i class="fas fa-bell" ></i></div>
+            <div class="meChatPeople-pic"><img :src="each.csPic" alt=""></div>
+            <div class="meChatPeople-name">{{each.csName}}</div>
+            <!-- <div class="meChatPeople-title">諮商師</div> -->
+        </div>
+        <div class="meChatDelete"><i class="fas fa-trash-alt"></i></div>
+    </div>
 
+    `,
+    methods: {
+        sendCsNo() {
+            this.$emit("change", this.each.csNo)
+        }
+    },
 
+});
+
+Vue.component('me-chat-an', {
+    props: ["init"],
+    data() {
+        return {
+            each: this.init,
+            text1: "meChatAn-text",
+            text2: "meChatAn-text meChatAnUser-text",
+            other1: "meChatAn-other",
+            other2: "meChatAn-other meChatAnUser",
+        }
+    },
+    template: `
+    <div :class="{meChatAn : true,meChatAnUser:each.mesFrom==0}">
+        <div class="meChatAn-pic"><img :src="[each.mesFrom==0? each.memPic : each.csPic]" alt=""></div>
+        <div :class="[each.mesFrom==0? text2 : text1]" >{{each.mesContent}}</div>
+        <div :class="[each.mesFrom==0? other2 : other1]">
+            <div class="meChatAn-time">{{each.mesTime}}</div>
+            <div class="meChatAn-select"><i class="fas fa-ellipsis-h"></i></div>
+        </div>
+    </div>
+    `,
+    methods: {},
+});
 
 
 
@@ -244,13 +292,20 @@ let vm = new Vue({
     el: '#app',
     data: () => {
         return {
+            tempData: '',
+            tempIndex: '',
+            overlayConfirm: false,
+            orderShow: false,
+            chatBox: "",
+            meChatAn: "",
+            chatPersonEach: "",
             errorText: false,
             mePswFinalizeConfirm: true,
-            memPswModel: "",
-            textMemPsw: '',
+            memPsdModel: "",
+            textMemPsd: '',
             bigShake: false,
-            showNewMemPsw: false,
-            myMemPsw: false,
+            showNewMemPsd: false,
+            myMemPsd: false,
             otherInfo: false,
             newPic: './img/chatRoom/userPic.png',
             ccOrder: true,
@@ -274,24 +329,20 @@ let vm = new Vue({
                 memAdd: 'hahahahahaha',
                 memOcc: 'makeup artist',
                 memTel: {
-                    countryCode: '886',
-                    mobile: '0921132409',
+                    // countryCode: '886',
+                    // mobile: '0921132409',
                 },
                 memEmail: {
-                    value: 'misvamda@gmail.com',
-                    valid: true,
+                    // value: 'misvamda@gmail.com',
+                    // valid: true,
                 },
                 memAdd: '台北市南港區南港路一段四號之一',
-                memPsw: 'cerise0324',
+                memPsd: 'cerise0324',
             },
 
-            // checkbox: '',
 
             orderShow: false,
-            ////////////
-            //showModal: false,
-            //go: true,
-            ////////////
+
             momentModify: {
                 memName: '閻掬容',
                 memPetName: 'CC',
@@ -300,25 +351,25 @@ let vm = new Vue({
                 memAdd: 'hahahahahaha',
                 memOcc: 'makeup artist',
                 memTel: {
-                    countryCode: '886',
-                    mobile: '0921132409',
+                    // countryCode: '886',
+                    // mobile: '0921132409',
                 },
                 memEmail: {
-                    value: 'misvamda@gmail.com',
-                    valid: true,
+                    // value: 'misvamda@gmail.com',
+                    // valid: true,
                 },
                 memAdd: '台北市南港區南港路一段四號之一',
-                memPsw: 'cerise0324',
+                memPsd: 'cerise0324',
             },
-            titles: {
-                z: '會員總覽',
-                a: '會員資料',
-                b: '諮商預約',
-                c: '活動報名',
-                d: '心理評估',
-                e: '我的收藏',
-                f: '線上諮商',
-            },
+            titles: [
+                '會員總覽',
+                '會員資料',
+                '諮商預約',
+                '活動報名',
+                '心理評估',
+                '我的收藏',
+                '線上諮商',
+            ],
             memTitle: {
                 petName: '暱稱',
                 name: '姓名',
@@ -400,67 +451,185 @@ let vm = new Vue({
         //         this.pageShow = true;
         //     };
         // },
-        deleteOrder(a, e) {
-            a.splice(e, 1);
+        deleteOrder(d, i) {
+            this.overlayConfirm = false;
+
+
+            var formData2 = new FormData();
+            formData2.append('csONo', d[i].csONo);
+            axios.post('memCsOrderDele.php', formData2).then(
+                    res => {
+                        console.log(res)
+                    }
+
+                )
+                //console.log(a[e].csONo);
+            d.splice(i, 1);
         },
         toggleOtherInfo(OwO) {
             this.otherInfo = OwO;
         },
-        modifyMemPsw(QAQ) {
-            this.myMemPsw = QAQ;
-            this.showNewMemPsw = !QAQ;
+        modifyMemPsd(QAQ) {
+            this.myMemPsd = QAQ;
+            this.showNewMemPsd = !QAQ;
         },
-        giveUpMemPsw(OuO) {
-            this.myMemPsw = OuO;
-            this.showNewMemPsw = OuO;
-            this.memPswModel = "";
-            this.textMemPsw = "";
+        giveUpMemPsd(OuO) {
+            this.myMemPsd = OuO;
+            this.showNewMemPsd = OuO;
+            this.memPsdModel = "";
+            this.textMemPsd = "";
         },
-        confirmMemPsw(BwB) {
-            if (this.memPswModel == this.momentModify.memPsw) {
-                this.showNewMemPsw = BwB;
-                this.memPswModel = "";
-                $('.memPswLabel>input').css('border', '#e0ddd8 solid 1px');
+        confirmMemPsd(BwB) {
+            if (this.memPsdModel == this.momentModify.memPsd) {
+                this.showNewMemPsd = BwB;
+                this.memPsdModel = "";
+                $('.memPsdLabel>input').css('border', '#e0ddd8 solid 1px');
 
             } else {
                 this.bigShake = BwB;
-                $('.memPswLabel>input').css('border', 'tomato solid 1px');
+                $('.memPsdLabel>input').css('border', 'tomato solid 1px');
                 setTimeout(function() {
                     vm.$data.bigShake = false;
                 }, 350);
             }
         },
-        finalizeMemPsw(sexyFox) {
-            if (this.textMemPsw == this.memPswModel) {
-                // this.$set(this.member, 'memPsw', this.textMemPsw)
-                this.momentModify.memPsw = this.memPswModel;
-                this.memPswModel = "";
-                this.textMemPsw = "";
+        finalizeMemPsd(sexyFox) {
+            if (this.textMemPsd == this.memPsdModel) {
+                // this.$set(this.member, 'memPsd', this.textMemPsd)
+                this.momentModify.memPsd = this.memPsdModel;
+                this.memPsdModel = "";
+                this.textMemPsd = "";
                 this.mePswFinalizeConfirm = sexyFox;
-                $('.memPswLabel>input').css('border', '#e0ddd8 solid 1px');
+                $('.memPsdLabel>input').css('border', '#e0ddd8 solid 1px');
                 this.errorText = false;
             } else {
                 this.bigShake = true;
-                $('.memPswLabel>input').css('border', 'tomato solid 1px');
+                $('.memPsdLabel>input').css('border', 'tomato solid 1px');
                 setTimeout(function() {
                     vm.$data.bigShake = false;
                 }, 350);
                 this.errorText = true;
             }
         },
-        iKnowIChangeMemPsw(littleFox) {
-            this.myMemPsw = littleFox;
+        iKnowIChangeMemPsd(littleFox) {
+            this.myMemPsd = littleFox;
+        },
+        check() {
+            //送出會員修改資料
+            var formData = new FormData();
+            formData.append('memName', this.member.memName);
+            formData.append('memPetName', this.member.memPetName);
+            formData.append('memGender', this.member.memGender);
+            formData.append('memBD', this.member.memBD);
+            formData.append('memAdd', this.member.memAdd);
+            formData.append('memOccupation', this.member.memOccupation);
+            formData.append('memTelA', this.member.memTel.countryCode);
+            formData.append('memTelB', this.member.memTel.mobile);
+            formData.append('memAdd', this.member.memAdd);
+            formData.append('memPsd', this.member.memPsd);
+            axios.post('memInfoModify.php', formData).then(
+                res => {
+                    console.log(res);
+                }
+
+            )
         },
 
-    },
-    mounted() {
-        this.show_len = this.member.memPsw.length
-        axios.get('./json/test.json')
-            .then(response => {
-                this.coData = response.data;
+        ajaxPost(dataUrl, data, num) {
+            let xhr = new XMLHttpRequest();
+            let numTest = num;
+            xhr.onload = function() {
+                if (xhr.status == 200) {
+                    let json = JSON.parse(xhr.responseText);
+                    if (numTest == 1) {
+                        vm.$data.chatPersonEach = json;
+                    } else if (numTest == 2) {
+                        vm.$data.meChatAn = json;
+                    }
+                } else {
+                    alert(xhr.status);
+                }
+            }
 
-                console.log(response.data);
+            let url = dataUrl;
+            xhr.open("post", url, true);
+
+            xhr.setRequestHeader("content-Type", "application/x-www-form-urlencoded");
+            xhr.send(data);
+        },
+        submitMes() {
+            let data_info = `chatBox=${this.chatBox}&csNo=${this.meChatAn[0].csNo}`;
+            this.ajaxPost("sendMes.php", data_info, 0);
+            this.chatBox = "";
+        },
+        changeCs(csNo) {
+            let data_info = `csNo=${csNo}`;
+            vm.ajaxPost("changeCs.php", data_info, 1);
+
+        },
+        orderMore(event, q, i) {
+            event.currentTarget.nextElementSibling.classList.toggle('meOrderOpen');
+        },
+        what(i, c) {
+            this.tempData = c;
+            this.tempIndex = i;
+            console.log(this.tempData[this.tempIndex].csONo);
+            // console.log(this.tempData);
+        },
+
+
+    },
+
+    mounted() {
+        setInterval(function() {
+            vm.ajaxPost("csMe.php", null, 1);
+            // vm.ajaxPost("firstChat.php", null, 2);
+        }, 1000);
+        this.ajaxPost("csMe.php", null, 1);
+        this.ajaxPost("firstChat.php", null, 2);
+        //會員資料辣ＱＱＱＱＱ
+        axios.get('memberInfo.php').then(
+            res => {
+                this.member = res.data;
+                this.momentModify = res.data;
+
+                let telArray = res.data.memTel.split(',');
+                this.member.memTel = {
+                    'countryCode': telArray[0],
+                    'mobile': telArray[1],
+                };
+
+                this.member.memEmail = {
+                    'value': res.data.memEmail,
+                };
+                this.momentModify.memTel = {
+                    'countryCode': telArray[0],
+                    'mobile': telArray[1],
+                };
+                this.momentModify.memEmail = {
+                    'value': res.data.memEmail.value,
+                };
+            }
+        ).catch(
+            err => {
+                console.log(err.status);
+                //this.msg = err.status;
+            }
+        );
+        //掛載諮商訂單
+        axios.get('memCsOrder.php')
+            .then(res => {
+                this.coData = res.data;
+                console.log(this.coData);
+
             });
+
+        // axios.get('./json/test.json')
+        //     .then(response => {
+        //         this.coData = response.data;
+
+        //         //console.log(response.data);
+        //     });
         axios.get('./json/test2.json')
             .then(response => {
                 this.coPastData = response.data;
@@ -475,12 +644,13 @@ let vm = new Vue({
                 this.aoPastData = response.data;
             });
         this.windowSize = window.innerWidth;
-        this.currentPage = this.titles.z;
+        this.currentPage = this.titles[0];
     },
-    updated() {},
+    updated() {
+
+    },
 
     created() {
-        //this.currentPage = this.titles.z;
         window.addEventListener('resize', this.onResize);
     },
 
@@ -489,14 +659,22 @@ let vm = new Vue({
     },
     computed: {
 
-        memPswLength: function() {
-            return this.momentModify.memPsw.length;
+        memPsdCountLength: function() {
+            return this.momentModify.memPsd.length;
         },
-        memPsw_length: function() {
-            var y = this.momentModify.memPsw.length;
+        memPsdLength: function() {
+            var y = this.momentModify.memPsd.length;
             var u = '*';
             return u.repeat(y);
         },
+    },
+    watch: {
+        windowSize: function() {
+            if (this.windowSize < 768 && this.currentPage == this.titles[0]) {
+                this.currentPage = '';
+            }
+        },
+
     },
 
 });

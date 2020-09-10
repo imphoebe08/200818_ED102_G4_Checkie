@@ -277,7 +277,7 @@
                                         .cardBtn {
                                             width: 100%;
                                             margin: auto;
-                                            bottom: 100px;
+                                            bottom: 85px;
                                             text-align: center;
                                             position: absolute;
                                             z-index: 2;
@@ -328,7 +328,7 @@
                                                 &:focus {
                                                     display: none;
                                                 }
-                                                @include btn-modules($bw, $color-pink, $fontsize);
+                                                @include btn-modules($bw, $color-pink, 12px);
                                                 @keyframes btnScale {
                                                     0% {
                                                         // font-size: 18px;
@@ -501,7 +501,7 @@
                                                     }
                                                     .opacity1 {
                                                         opacity: 1;
-                                                        transform: scale(1);
+                                                        transform: scale(0.9);
                                                         transition-delay: opacity 1s;
                                                     }
                                                 }
@@ -538,7 +538,7 @@
                                             .cardBtn {
                                                 width: 100%;
                                                 margin: auto;
-                                                margin-top: -20px;
+                                                margin-top: 0px;
                                                 bottom: 20px;
                                                 text-align: center;
                                                 position: relative;
@@ -589,7 +589,7 @@
                                                     &:focus {
                                                         display: none;
                                                     }
-                                                    @include btn-modules($bw, $color-pink, $fontsize);
+                                                    @include btn-modules($bw, $color-pink, 12px);
                                                     @keyframes btnScale {
                                                         0% {
                                                             // font-size: 18px;
@@ -825,7 +825,7 @@
                                                     &:focus {
                                                         display: none;
                                                     }
-                                                    @include btn-modules($bw, $color-pink, $fontsize);
+                                                    @include btn-modules($bw, $color-pink, 12px);
                                                 }
                                             }
                                             #mediaCardBtn {
@@ -833,67 +833,14 @@
                                                 position: absolute;
                                                 bottom: 100px;
                                                 left: 50%;
+                                                bottom: 150px;
+                                                text-decoration: underline;
                                                 transform: translate(-50%, -50%);
-                                                width: 100px;
+                                                width: 300px;
                                                 height: 35px;
                                                 text-align: center;
-                                                line-height: 35px;
-                                                color: #000;
-                                                font-size: 16px;
-                                                text-transform: uppercase;
-                                                text-decoration: none;
-                                                font-family: sans-serif;
-                                                box-sizing: border-box;
-                                                border-radius: $border-radius;
-                                                background-clip: padding-box, border-box;
-                                                background-origin: padding-box, border-box;
-                                                background-image: linear-gradient(135deg, #fff, #fff), linear-gradient(135deg, $color-blue, $color-pink);
-                                                border: 2px transparent solid;
-                                                background-size: 400%;
-                                                border-radius: 30px;
                                                 z-index: 3;
-                                                opacity: 1;
-                                                animation: mediaCardBtnAni1 8s linear infinite;
-                                                &::before {
-                                                    content: '';
-                                                    position: absolute;
-                                                    top: -5px;
-                                                    left: -5px;
-                                                    right: -5px;
-                                                    bottom: -5px;
-                                                    z-index: -1;
-                                                    border-radius: $border-radius;
-                                                    background-clip: padding-box, border-box;
-                                                    background-origin: padding-box, border-box;
-                                                    background-image: linear-gradient(135deg, #fff, #fff), linear-gradient(135deg, $color-blue, $color-pink);
-                                                    border: 2px transparent solid;
-                                                    background-size: 400px;
-                                                    border-radius: 40px;
-                                                    opacity: 0;
-                                                    transition: 0.5s;
-                                                    // filter: blur(10px);
-                                                    // opacity: 1;
-                                                    // animation: mediaCardBtnAni2 3s linear infinite;
-                                                }
-                                                @keyframes mediaCardBtnAni1 {
-                                                    0% {
-                                                        background-position: 0%;
-                                                    }
-                                                    100% {
-                                                        background-position: 400%;
-                                                    }
-                                                }
-                                                @keyframes mediaCardBtnAni2 {
-                                                    0% {
-                                                        filter: blur(5px);
-                                                    }
-                                                    50% {
-                                                        filter: blur(0px);
-                                                    }
-                                                    100% {
-                                                        filter: blur(5px);
-                                                    }
-                                                }
+                                                opacity: 0;
                                             }
                                             .mediaCardBtnNone {
                                                 display: none;
@@ -1124,22 +1071,28 @@
                                                 }
                                             }
                                             .cardBtn {
-                                                display: none;
+                                                // display: none;
                                             }
                                         }
                                         .oracleCardStepOne {
                                             .oracleCardStepOneBox {
+                                                .title {
+                                                    h2 {
+                                                        padding: 100px 0 100px;
+                                                    }
+                                                }
                                                 .cards {
                                                     .item {
                                                         .itemImg {
                                                             top: -100px;
                                                         }
                                                         .itemTxt {
-                                                            display: none;
+                                                            opacity: 0;
+                                                            transition: opacity 1s;
                                                             left: -50%;
                                                             width: 540px;
                                                             fieldset {
-                                                                background: rgba(255, 255, 255, .8);
+                                                                background: rgba(255, 255, 255, 0.8);
                                                                 >p {
                                                                     font-size: 12px;
                                                                 }
@@ -1175,8 +1128,13 @@
                                                         }
                                                     }
                                                 }
+                                                #mediaCardBtn {
+                                                    opacity: 1;
+                                                }
                                                 .cardBtn {
-                                                    display: none;
+                                                    // display: none;
+                                                    position: absolute;
+                                                    bottom: 85px;
                                                 }
                                                 .stepNum {
                                                     flex-direction: row;
@@ -1198,10 +1156,8 @@
                                         }
                                         .oracleCardStepOne {
                                             .oracleCardStepOneBox {
-                                                .title {
-                                                    h2 {
-                                                        padding: 150px 0 100px;
-                                                    }
+                                                .cardBtn {
+                                                    bottom: 85px;
                                                 }
                                             }
                                         }
@@ -1230,14 +1186,15 @@
                                         }
                                         .oracleCardStep {
                                             .stepBg {
+                                                margin-top: 150px;
                                                 .showImg {
-                                                    width: 300px;
+                                                    width: 250px;
                                                     margin-bottom: 30px;
                                                     .mainImg {
                                                         left: 25px;
                                                         top: 25px;
-                                                        max-width: 250px;
-                                                        max-height: 250px;
+                                                        max-width: 200px;
+                                                        max-height: 200px;
                                                     }
                                                 }
                                                 .showTxt {
@@ -1247,6 +1204,27 @@
                                                             width: 300px;
                                                             padding: 0;
                                                         }
+                                                    }
+                                                }
+                                                .stepNum {
+                                                    margin-top: -10px;
+                                                }
+                                                .cardBtn {
+                                                    bottom: 10px;
+                                                }
+                                            }
+                                        }
+                                        .oracleCardStepOne {
+                                            .oracleCardStepOneBox {
+                                                .title {
+                                                    h2 {
+                                                        padding: 0;
+                                                        padding-bottom: 30px;
+                                                    }
+                                                }
+                                                .cards {
+                                                    .item {
+                                                        width: 100px;
                                                     }
                                                 }
                                             }
