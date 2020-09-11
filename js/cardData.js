@@ -85,7 +85,7 @@ let vm = new Vue({
 
             //設定好所要連結的程式
             // 改路徑
-            let url = "./js/oracleCard.php?deckNo=" + this.deckNo;
+            let url = "./php/oracleCard.php?deckNo=" + this.deckNo;
             console.log(url)
             xhr.open("get", url, true); //--------------
             //送出資料

@@ -1084,9 +1084,10 @@
                                                 .cards {
                                                     .item {
                                                         .itemImg {
-                                                            top: -100px;
+                                                            top: 0px;
                                                         }
                                                         .itemTxt {
+                                                            top: 100px;
                                                             opacity: 0;
                                                             transition: opacity 1s;
                                                             left: -50%;
@@ -1225,6 +1226,14 @@
                                                 .cards {
                                                     .item {
                                                         width: 100px;
+                                                        .itemImg {
+                                                            top: -85px;
+                                                        }
+                                                        .itemTxt {
+                                                            top: 10px;
+                                                            width: 360px;
+                                                            left: -17%;
+                                                        }
                                                     }
                                                 }
                                             }
