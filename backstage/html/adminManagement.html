@@ -14,10 +14,10 @@
         outline: none;
     }
 
-    input.insertNew{
-         display: inline-block;
-         width: 20%;
-         margin: 10px;
+    input.insertNew {
+        display: inline-block;
+        width: 20%;
+        margin: 10px;
     }
 </style>
 
@@ -35,10 +35,10 @@
                 <div class="card ">
                     <div class="card-body" style=" overflow-x: auto;">
                         <div class="insert">
-                            <input type="text" placeholder="編號" v-model="newData.admNo" class="insertNew">
-                            <input type="text" placeholder="名稱" v-model="newData.admName" class="insertNew">
-                            <input type="text" placeholder="帳號" v-model="newData.admId" class="insertNew">
-                            <input type="text" placeholder="密碼" v-model="newData.admPsn" class="insertNew">
+                            <input type="text" placeholder="編號" v-model.trim.number="newData.admNo" class="insertNew">
+                            <input type="text" placeholder="名稱" v-model.trim="newData.admName" class="insertNew">
+                            <input type="text" placeholder="帳號" v-model.trim="newData.admId" class="insertNew">
+                            <input type="password" placeholder="密碼" v-model.trim="newData.admPsn" class="insertNew">
                             <button @click="insertData">新增</button>
                         </div>
                         <table class=" table table-responsive-sm table-sm ">
@@ -89,15 +89,15 @@
             },
             template: ` <tbody>
                                 <tr class="buttonGroup" v-for="(value,index) in memberData" :key="value.admNo">
-                                    <input type="hidden" placeholder="管理員編號" v-model="value.admNo"
+                                    <input type="hidden" placeholder="管理員編號" v-model.trim="value.admNo"
                                             :class="'buttonGroup' + index" readonly>
                                     <td><span style="width: 40px;display: block;">{{value.admNo}}</span></td>
                                     <td><input style="width: 150px;" type="text" placeholder="管理員名稱"
-                                            v-model="value.admName" :class="'buttonGroup' + index" readonly></td>
+                                            v-model.trim="value.admName" :class="'buttonGroup' + index" readonly></td>
                                     <td><input style="width: 150px;" type="text" placeholder="管理員帳號"
-                                            v-model="value.admId" :class="'buttonGroup' + index" readonly></td>
+                                            v-model.trim="value.admId" :class="'buttonGroup' + index" readonly></td>
                                     <td><input style="width: 150px;" type="password" placeholder="管理員密碼"
-                                            v-model="value.admPsn" :class="'buttonGroup' + index" readonly></td>
+                                            v-model.trim="value.admPsn" :class="'buttonGroup' + index" readonly></td>
                                     <td><button @click="editToggle($event,index)">編輯</button></td>
 			                        <td><button @click="deleteData($event,index)">刪除</button></td>
                                 </tr>
