@@ -1331,7 +1331,8 @@ input {
   visibility: visible;
 }
 
-.acSelect .acSelectCard {
+.acSelect .acSelectCard,
+.owl-carousel .acSelectCard {
   display: inline-block;
   border-radius: 30px;
   background-color: white;
@@ -1340,17 +1341,20 @@ input {
   position: relative;
 }
 
-.acSelect .acSelectCard a {
+.acSelect .acSelectCard a,
+.owl-carousel .acSelectCard a {
   display: inline-block;
   width: 100%;
   color: maroon;
 }
 
-.acSelect .acSelectCard a img {
+.acSelect .acSelectCard a img,
+.owl-carousel .acSelectCard a img {
   width: 100%;
 }
 
-.acSelect .acSelectCard_icon {
+.acSelect .acSelectCard_icon,
+.owl-carousel .acSelectCard_icon {
   text-align: right;
   margin-right: 20px;
   position: absolute;
@@ -1358,51 +1362,60 @@ input {
   cursor: pointer;
 }
 
-.acSelect .acSelectCard_icon img {
+.acSelect .acSelectCard_icon img,
+.owl-carousel .acSelectCard_icon img {
   margin: 0 5px;
   width: 20px;
 }
 
-.acSelect .acSelectCard_text {
+.acSelect .acSelectCard_text,
+.owl-carousel .acSelectCard_text {
   margin-top: 10px;
   display: flex;
 }
 
-.acSelect .acSelectCard_text img {
+.acSelect .acSelectCard_text img,
+.owl-carousel .acSelectCard_text img {
   width: 20px;
   height: 20px;
   cursor: pointer;
   margin-top: 8px;
 }
 
-.acSelect .acSelectCard_text .acSelectCard-time_icon {
+.acSelect .acSelectCard_text .acSelectCard-time_icon,
+.owl-carousel .acSelectCard_text .acSelectCard-time_icon {
   margin-left: 20px;
 }
 
-.acSelect .acSelectCard_text .acSelectCard_time {
+.acSelect .acSelectCard_text .acSelectCard_time,
+.owl-carousel .acSelectCard_text .acSelectCard_time {
   margin: 0 15% 0 3%;
 }
 
-.acSelect .acSelectCard_title {
+.acSelect .acSelectCard_title,
+.owl-carousel .acSelectCard_title {
   border-bottom: 1px solid lightgray;
   margin: 10px 20px;
   padding-bottom: 10px;
 }
 
-.acSelect .acSelectCard_bottomBlock {
+.acSelect .acSelectCard_bottomBlock,
+.owl-carousel .acSelectCard_bottomBlock {
   display: flex;
   justify-content: space-between;
   padding-left: 20px;
 }
 
-.acSelect .acSelectCard_bottomBlock .acSelectCard_person {
+.acSelect .acSelectCard_bottomBlock .acSelectCard_person,
+.owl-carousel .acSelectCard_bottomBlock .acSelectCard_person {
   display: inline-block;
   font-weight: 400;
   color: darkgray;
   padding: 2% 0;
 }
 
-.acSelect .acSelectCard_bottomBlock #acSelectCard_register {
+.acSelect .acSelectCard_bottomBlock #acSelectCard_register,
+.owl-carousel .acSelectCard_bottomBlock #acSelectCard_register {
   display: inline-block;
   display: inline-block;
   padding: 2px 10px;
@@ -1420,12 +1433,14 @@ input {
   margin-top: 10px;
 }
 
-.acSelect .acSelectCard_bottomBlock #acSelectCard_register:hover {
+.acSelect .acSelectCard_bottomBlock #acSelectCard_register:hover,
+.owl-carousel .acSelectCard_bottomBlock #acSelectCard_register:hover {
   background-color: #FFA492;
   color: #fff;
 }
 
-.acSelect .acSelectCard_bottomBlock #acSelectCard_register:focus {
+.acSelect .acSelectCard_bottomBlock #acSelectCard_register:focus,
+.owl-carousel .acSelectCard_bottomBlock #acSelectCard_register:focus {
   display: none;
 }
 
@@ -1592,10 +1607,6 @@ body {
   margin: 20px;
 }
 
-.acSearch .acSearch_ul li:last-child {
-  border: none;
-}
-
 .acSearch .acSearch_ul a {
   font-size: 20px;
   text-decoration: none;
@@ -1623,93 +1634,6 @@ body {
 
 .acComment {
   margin-bottom: 20px;
-}
-
-.acRelate .acRelateCard {
-  display: inline-block;
-  border-radius: 30px;
-  box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-  overflow: hidden;
-  background-color: white;
-}
-
-.acRelate .acRelateCard a {
-  display: inline-block;
-  width: 100%;
-  color: maroon;
-}
-
-.acRelate .acRelateCard a img {
-  width: 100%;
-}
-
-.acRelate .acRelateCard_text {
-  margin-top: 10px;
-  display: flex;
-}
-
-.acRelate .acRelateCard_text img {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-
-.acRelate .acRelateCard_text .acRelateCard-time_icon {
-  margin-left: 4%;
-}
-
-.acRelate .acRelateCard_text .acRelateCard_icon {
-  display: flex;
-  margin-left: auto;
-  margin-right: 4%;
-}
-
-.acRelate .acRelateCard_text .acRelateCard_time {
-  margin: 0 15% 0 3%;
-}
-
-.acRelate .acRelateCard_title {
-  border-bottom: 1px solid lightgray;
-  padding-bottom: 10px;
-  text-align: left;
-  margin-left: 4%;
-}
-
-.acRelate .acRelateCard_bottomBlock {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 4%;
-  padding-top: 5px;
-}
-
-.acRelate .acRelateCard_bottomBlock .acRelateCard_person {
-  display: inline-block;
-}
-
-.acRelate .acRelateCard_bottomBlock #acRelateCard_register {
-  display: inline-block;
-  display: inline-block;
-  padding: 2px 10px;
-  font-size: 12px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 30px;
-  border: 2px solid #FFA492;
-  color: #FFA492;
-  cursor: pointer;
-  background-color: transparent;
-  transition: .2s all ease-in;
-  padding: 5px;
-  margin-right: 10px;
-}
-
-.acRelate .acRelateCard_bottomBlock #acRelateCard_register:hover {
-  background-color: #FFA492;
-  color: #fff;
-}
-
-.acRelate .acRelateCard_bottomBlock #acRelateCard_register:focus {
-  display: none;
 }
 
 input:focus {
@@ -1807,6 +1731,10 @@ a {
 
 .acSelf-Banner_pic img {
   width: 100%;
+}
+
+.acSelf-Banner_intro {
+  padding-top: 50px;
 }
 
 .acSelf-btns .acSelf-btns-markshare {
@@ -1909,10 +1837,11 @@ a {
 
 .acTeacher_pic {
   margin-right: 4%;
+  text-align: center;
 }
 
 .acTeacher_pic img {
-  width: 100%;
+  width: 300px;
   border-radius: 50%;
 }
 
@@ -1965,7 +1894,6 @@ a {
   justify-content: space-around;
   padding-bottom: 50px;
   margin-top: 30px;
-  text-align: center;
 }
 
 .acRelate .acRelate-title {
@@ -3448,7 +3376,7 @@ p {
 }
 
 .atContent .atContent-right_detail .atContent-right-detail_text {
-  margin-right: 50%;
+  margin-right: 55%;
   margin-left: 3%;
   text-decoration: none;
 }
@@ -3495,8 +3423,8 @@ p {
 .atContent .atContent-left_detail .atContent-conter-detail_text,
 .atContent .atContent-conter_detail .atContent-left-detail_text,
 .atContent .atContent-conter_detail .atContent-conter-detail_text {
-  margin-right: 20%;
-  margin-left: 3%;
+  margin-right: 35%;
+  margin-left: 5%;
 }
 
 .atContent .atContent-left_detail .atContent-left-detail_text p,
@@ -3548,9 +3476,11 @@ p {
 
 .atContent .atContent_right .atContent_right_partner {
   color: #333;
+  height: 10vw;
   font-weight: 300;
   margin-top: 3%;
   line-height: 1.5;
+  overflow: hidden;
 }
 
 .atContent .atContent_right img {
@@ -3616,15 +3546,19 @@ p {
   overflow: hidden;
 }
 
-.atContent .atContent-left_pic:first-child,
-.atContent .atContent-conter_pic:first-child {
+.atContent_left a:first-child article .atContent-left_pic,
+.atContent_left a:first-child article .atContent-conter_pic,
+.atContent_conter a:first-child article .atContent-left_pic,
+.atContent_conter a:first-child article .atContent-conter_pic {
   height: 10.4vw;
   margin-top: 0;
   overflow: hidden;
 }
 
-.atContent .atContent-left_pic:first-child img,
-.atContent .atContent-conter_pic:first-child img {
+.atContent_left a:first-child article .atContent-left_pic img,
+.atContent_left a:first-child article .atContent-conter_pic img,
+.atContent_conter a:first-child article .atContent-left_pic img,
+.atContent_conter a:first-child article .atContent-conter_pic img {
   width: 100%;
 }
 
@@ -3781,6 +3715,11 @@ p {
   transition-delay: .5s;
 }
 
+.atClassAfter .atClassAfter_content_block.show_ani:nth-child(odd) .atClassAfter_content .atClassAfter-content_text .atClassAfter-content_text_detail {
+  height: 15vw;
+  overflow: hidden;
+}
+
 .atClassAfter .atClassAfter_content_block.show_ani:nth-child(odd) .atClassAfter-content-block_blank {
   transform: translateX(0);
 }
@@ -3792,6 +3731,11 @@ p {
 .atClassAfter .atClassAfter_content_block.show_ani:nth-child(even) .atClassAfter_content .atClassAfter-content_text {
   opacity: 1;
   transition-delay: .5s;
+}
+
+.atClassAfter .atClassAfter_content_block.show_ani:nth-child(even) .atClassAfter_content .atClassAfter-content_text .atClassAfter-content_text_detail {
+  height: 15vw;
+  overflow: hidden;
 }
 
 .atClassAfter .atClassAfter_content_block.show_ani:nth-child(even) .atClassAfter-content-block_blank {
@@ -5780,7 +5724,7 @@ main #chatRoom .chatRoom_text .chatRoom_send {
 .csS-art .csS-art__card {
   overflow: hidden;
   flex: 1 1 300px;
-  max-width: 400px;
+  max-width: calc(320px + 5vw);
   border-radius: 1rem;
   margin: 10px;
   background: #fff;
@@ -5924,6 +5868,7 @@ main #chatRoom .chatRoom_text .chatRoom_send {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 #csSelfAct .csSelfAct-card {
@@ -6025,6 +5970,15 @@ main #chatRoom .chatRoom_text .chatRoom_send {
 
 #csSelfAct .csSelfAct-card .joinBut:hover a {
   color: white;
+}
+
+@media (max-width: 500px) {
+  #csSelfAct .slick-list {
+    margin: 0 -10px;
+  }
+  #csSelfAct .slick-list .slick-slide {
+    margin: 10px;
+  }
 }
 
 @media (max-width: 400px) {
@@ -7136,7 +7090,7 @@ p {
   background-origin: padding-box, border-box;
   background-image: linear-gradient(135deg, #fff, #fff), linear-gradient(135deg, #91D0EB, #FFA492);
   border: 2px transparent solid;
-  color: grey;
+  color: #9e8e8e;
   cursor: pointer;
   width: 200px;
   margin: auto;
@@ -7882,7 +7836,7 @@ p {
 
 div.inCs_group {
   position: relative;
-  height: 100vh;
+  height: 700px;
   margin: 0 0 100px;
 }
 
@@ -7932,7 +7886,7 @@ div.inCs_group div.inCs.inCs--large {
 }
 
 div.inCs_group div.inCs.inCs--large ul.leftList {
-  height: 70vh;
+  height: 500px;
   width: 45%;
   max-width: 400px;
   min-width: 160px;
@@ -8021,6 +7975,10 @@ div.inCs_group div.inCs.inCs--large ul.leftList li h1 {
   }
 }
 
+div.inCs_group div.inCs.inCs--large ul.leftList li h1 a {
+  color: black;
+}
+
 div.inCs_group div.inCs.inCs--large ul.leftList li button {
   position: absolute;
   bottom: 5%;
@@ -8049,8 +8007,12 @@ div.inCs_group div.inCs.inCs--large ul.leftList li button:focus {
   display: none;
 }
 
+div.inCs_group div.inCs.inCs--large ul.leftList li button a {
+  color: #fff;
+}
+
 div.inCs_group div.inCs.inCs--large ul.rightList {
-  height: 70vh;
+  height: 500px;
   width: 45%;
   max-width: 400px;
   min-width: 160px;
@@ -8138,6 +8100,10 @@ div.inCs_group div.inCs.inCs--large ul.rightList li h1 {
   }
 }
 
+div.inCs_group div.inCs.inCs--large ul.rightList li h1 a {
+  color: black;
+}
+
 div.inCs_group div.inCs.inCs--large ul.rightList li button {
   position: absolute;
   bottom: 5%;
@@ -8164,6 +8130,10 @@ div.inCs_group div.inCs.inCs--large ul.rightList li button:hover {
 
 div.inCs_group div.inCs.inCs--large ul.rightList li button:focus {
   display: none;
+}
+
+div.inCs_group div.inCs.inCs--large ul.rightList li button a {
+  color: #fff;
 }
 
 div.inCs_group div.inCs.inCs--large ul.slide-button {
@@ -8262,6 +8232,10 @@ div.inCs.swiper-container .inCs-under576 li.inCs-slide__item .inConselor__chart 
   height: 200px;
   width: 200px;
   margin: 0 auto;
+}
+
+div.inCs.swiper-container .inCs-under576 li.inCs-slide__item .inConselor__chart #chart {
+  bottom: 30px;
 }
 
 div.inCs.swiper-container .inCs-under576 li.inCs-slide__item button {
@@ -8364,7 +8338,7 @@ div.inCs.swiper-container .inCs-under576 li.inCs-slide__item button:focus {
   position: absolute;
   background: #fff;
   margin-top: 10px;
-  padding: 10px 20px;
+  padding: 10px;
   border-radius: 20px;
   top: 95%;
   left: 10%;
@@ -8375,6 +8349,9 @@ div.inCs.swiper-container .inCs-under576 li.inCs-slide__item button:focus {
   flex-flow: nowrap row;
   justify-content: flex-start;
   box-shadow: 5px 5px 10px 5px #ccc;
+  overflow-y: auto;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .index-search-bar .select-block ul:not(:first-child) {
@@ -8383,7 +8360,7 @@ div.inCs.swiper-container .inCs-under576 li.inCs-slide__item button:focus {
 
 .index-search-bar .select-block ul li {
   height: 40px;
-  text-align: left;
+  text-align: center;
   line-height: 40px;
   margin: 10px 0;
   z-index: 100;
@@ -8400,7 +8377,7 @@ div.inCs.swiper-container .inCs-under576 li.inCs-slide__item button:focus {
 .index-search-bar .select-block ul li label {
   border: 1px solid #FFA492;
   display: inline-block;
-  min-width: 120px;
+  min-width: 100px;
   cursor: pointer;
   text-align: center;
   background: white;
@@ -8464,7 +8441,7 @@ div.inCs.swiper-container .inCs-under576 li.inCs-slide__item button:focus {
   }
   .index-search-bar .select-block ul {
     position: static;
-    transform: translate(0%, 80px);
+    transform: translate(-15px, 80px);
   }
   .index-search-bar button {
     position: static;
@@ -8699,6 +8676,25 @@ p {
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
+  animation: backCloud 10s linear infinite;
+}
+
+@keyframes backCloud {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateX(0px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 #oracleCard .oracleCardInner .oracleCardBanner {
@@ -8756,34 +8752,6 @@ p {
   position: relative;
 }
 
-#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title::before {
-  content: '';
-  display: block;
-  position: absolute;
-  left: -20%;
-  top: 30px;
-  width: 400px;
-  height: 500px;
-  background-image: url(../img/oracleCard/cloud_h.png);
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title::after {
-  content: '';
-  display: block;
-  position: absolute;
-  right: -20%;
-  top: 130px;
-  width: 400px;
-  height: 200px;
-  background-image: url(../img/oracleCard/cloud_i.png);
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
 #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title h1 {
   text-align: center;
   position: relative;
@@ -8801,6 +8769,8 @@ p {
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
+  animation: frontMoon 20s linear infinite;
+  animation-delay: 1s;
 }
 
 #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title h1::after {
@@ -8815,6 +8785,91 @@ p {
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title #forCloud {
+  display: block;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title #forCloud::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -20%;
+  top: 30px;
+  width: 400px;
+  height: 500px;
+  background-image: url(../img/oracleCard/cloud_h.png);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: backMoon 5s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes backMoon {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateX(0px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title #forCloud1 {
+  display: block;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title #forCloud1::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: -20%;
+  top: 130px;
+  width: 400px;
+  height: 200px;
+  background-image: url(../img/oracleCard/cloud_i.png);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: backMoon 5s linear infinite;
+}
+
+@keyframes backMoon {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateX(0px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .txt {
@@ -8835,12 +8890,31 @@ p {
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
+  animation: frontMoon 15s linear infinite;
+}
+
+@keyframes frontMoon {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(8px);
+  }
+  50% {
+    transform: translateX(0px);
+  }
+  75% {
+    transform: translateX(-8px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 #oracleCard .oracleCardInner .oracleCardBanner .cardBtn {
   width: 100%;
   margin: auto;
-  bottom: 100px;
+  bottom: 85px;
   text-align: center;
   position: absolute;
   z-index: 2;
@@ -8895,7 +8969,7 @@ p {
 #oracleCard .oracleCardInner .oracleCardBanner .cardBtn button {
   display: inline-block;
   padding: 5px 30px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -9100,7 +9174,7 @@ p {
 
 #oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg .mainImg .opacity1 {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(0.9);
   transition-delay: opacity 1s;
 }
 
@@ -9162,7 +9236,7 @@ p {
 #oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn {
   width: 100%;
   margin: auto;
-  margin-top: -20px;
+  margin-top: 0px;
   bottom: 20px;
   text-align: center;
   position: relative;
@@ -9217,7 +9291,7 @@ p {
 #oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn button {
   display: inline-block;
   padding: 5px 30px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -9271,51 +9345,83 @@ p {
 
 #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .title {
   width: 100%;
-  padding: 100px 0;
+  padding: 150px 0;
   margin: 0px auto;
 }
 
 #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .title h2 {
+  font-size: 28px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
   transition: .8s;
+}
+
+@media screen and (max-width: 768px) {
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .title h2 {
+    font-size: 22.4px;
+  }
 }
 
 #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards {
   margin: 0 auto;
   width: 100%;
   position: relative;
+  backface-visibility: hidden;
 }
 
 #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item {
-  position: relative;
-  transition: all 1s linear;
+  width: 200px;
   perspective: 300px;
   transform-style: preserve-3d;
   transition: 2s;
-}
-
-#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .sameSet {
-  position: absolute;
-  left: 0;
-  right: 0;
-  border-radius: 10px;
-  transition: transform 2s;
-  height: 100%;
+  backface-visibility: hidden;
 }
 
 #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemImg {
-  width: 100%;
   cursor: pointer;
+  perspective: 1500px;
+  text-transform: uppercase;
+  position: relative;
+  width: 100%;
   opacity: 1;
+  transition: all 1s;
 }
 
-#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemImg img {
-  animation: cardShack 2s infinite linear;
-  transform: rotateY(0deg) translateZ(1px) scale(1);
+#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemImg .card__side--back.backRotate {
+  transform: rotateY(-540deg);
+}
+
+#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemImg .card__side--front.frontRotate {
+  transform: rotateY(-360deg);
+}
+
+#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemImg .card__side {
+  border-radius: 5px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  transition: all .9s ease;
+  backface-visibility: hidden;
+}
+
+#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemImg .card__side img {
   width: 100%;
   vertical-align: bottom;
   border-radius: 10px;
   transition: 2s;
   box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+  height: 100%;
+}
+
+#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemImg .card__side--front {
+  transform: rotateY(180deg);
+}
+
+#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemImg .card__side--back {
+  transform: rotateY(0deg);
 }
 
 @keyframes cardShack {
@@ -9336,92 +9442,26 @@ p {
   }
 }
 
-@keyframes cardShack1 {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(2deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  75% {
-    transform: rotate(-2deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes cardShackHover {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(-5deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  75% {
-    transform: rotate(5deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemRemoveOpacity {
-  opacity: 0 !important;
-  transition: .3s;
-  transition-delay: .3s;
-}
-
-#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemRemoveOpacity img {
-  transform: scale(1);
-}
-
-#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemImgBack {
-  width: 100%;
-  cursor: pointer;
-  transform: rotateY(180deg);
-  transition: 2s;
-}
-
-#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemImgBack > img {
-  width: 100%;
-  animation: cardShack1 2s infinite linear;
-  vertical-align: bottom;
-  border-radius: 10px;
-  transition: 2s;
-  transform: scale(1);
-  box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-}
-
-#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .cardTxt {
+#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemTxt {
   position: absolute;
-  left: 0;
-  margin-left: 80px;
-  top: 50px;
-  max-width: 600px;
-  width: 500px;
-  display: inline-block;
-  transition: 2s;
-  overflow: hidden;
+  left: 200%;
+  top: 0;
+  width: 300%;
+  opacity: 1;
+  z-index: 1;
+  transition: opacity 1s 1.5s linear;
 }
 
-#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .cardTxt fieldset {
+#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemTxt fieldset {
   border: 3px solid #ffa492;
   padding: 10px;
   margin-bottom: 10px;
-  opacity: 0;
   transition: 2s ease-in-out;
   position: relative;
   cursor: auto;
 }
 
-#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .cardTxt fieldset legend {
+#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemTxt fieldset legend {
   font-size: 28px;
   line-height: 1.5;
   letter-spacing: 1.5px;
@@ -9431,19 +9471,17 @@ p {
 }
 
 @media screen and (max-width: 768px) {
-  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .cardTxt fieldset legend {
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemTxt fieldset legend {
     font-size: 22.4px;
   }
 }
 
-#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .cardTxt fieldset > p {
+#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemTxt fieldset > p {
   font-size: 16px;
   font-family: "Noto Sans TC", sans-serif;
   font-weight: 300;
   letter-spacing: 0.8px;
   line-height: 2;
-  font-size: 12px;
-  opacity: 0;
   letter-spacing: 0.8px;
   width: 100%;
   padding: 0 10px;
@@ -9452,7 +9490,7 @@ p {
   margin-bottom: 20px;
 }
 
-#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .cardTxt fieldset > img {
+#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemTxt fieldset > img {
   width: 20px;
   height: 20px;
   position: absolute;
@@ -9461,24 +9499,13 @@ p {
   cursor: pointer;
 }
 
-#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .cardTxt .h2AddOpacity {
-  opacity: 1;
-  transform: translateX(0);
-  transition-delay: 1.5s;
+#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemTxt.txtOpacityOne {
+  opacity: 0;
+  left: 3000px;
 }
 
-#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .cardTxt .pAddOpacity {
-  opacity: 1;
-  transform: translateX(0);
-  transition-delay: 2.5s;
-}
-
-#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .cardTxtLeft {
-  left: 100%;
-}
-
-#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .cardHeight {
-  height: 0;
+#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemImg.animationShack {
+  animation: cardShack 2s infinite linear;
 }
 
 #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item:nth-child(1) {
@@ -9501,6 +9528,10 @@ p {
 
 #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item.middle {
   left: 50%;
+}
+
+#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item.left {
+  left: 30%;
 }
 
 #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cardBtn {
@@ -9563,7 +9594,7 @@ p {
 #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cardBtn button {
   display: inline-block;
   padding: 5px 30px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 500;
   text-align: center;
   border-radius: 30px;
@@ -9585,6 +9616,27 @@ p {
 
 #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cardBtn button:focus {
   display: none;
+}
+
+#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox #mediaCardBtn {
+  cursor: pointer;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  bottom: 150px;
+  text-decoration: underline;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 35px;
+  text-align: center;
+  z-index: 3;
+  opacity: 0;
+}
+
+#oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .mediaCardBtnNone {
+  display: none;
+  opacity: 0;
+  transition: opacity 1s;
 }
 
 #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .pAddOpacity {
@@ -9611,6 +9663,7 @@ p {
 
 #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox #cutPhoto canvas {
   width: 100%;
+  height: 100%;
 }
 
 #oracleCard .oracleCardInner .oracleCardRecommend {
@@ -9639,6 +9692,16 @@ p {
 @media screen and (max-width: 768px) {
   #oracleCard .oracleCardInner .oracleCardRecommend > .fp-tableCell > fieldset > legend {
     font-size: 22.4px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .title {
+    padding: 100px 0;
+  }
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemTxt {
+    left: 150%;
+    width: 300%;
   }
 }
 
@@ -9683,8 +9746,8 @@ p {
     left: 110%;
     top: 0;
   }
-  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .sameSet {
-    bottom: -35px;
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item.left {
+    left: 20%;
   }
   #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title h1::after {
     right: -42%;
@@ -9704,51 +9767,91 @@ p {
   #oracleCard .oracleCardInner .oracleCardStep .stepBg .showTxt {
     width: 300px;
   }
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item {
+    width: 160px;
+  }
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemTxt fieldset > p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemTxt {
+    left: 130%;
+  }
 }
 
 @media screen and (max-width: 768px) {
   #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox {
+    bottom: 300px;
     width: 550px;
   }
-  #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title::before {
-    left: -20%;
-    top: 60px;
+  #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title #forCloud::before {
+    width: 400px;
+    height: 400px;
+    top: 150px;
   }
-  #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title::after {
-    right: -21%;
-    top: 175px;
+  #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title #forCloud1::after {
+    top: 220px;
+    width: 350px;
+    height: 150px;
   }
   #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .txt {
     padding: 0px 130px 50px;
   }
-  #oracleCard .oracleCardInner .oracleCardBanner .cardBtn {
-    display: none;
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .title h2 {
+    padding: 100px 0 100px;
+  }
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemImg {
+    top: -100px;
+  }
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemTxt {
+    opacity: 0;
+    transition: opacity 1s;
+    left: -50%;
+    width: 540px;
+  }
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemTxt fieldset {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item .itemTxt fieldset > p {
+    font-size: 12px;
+  }
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item.left {
+    left: 50%;
+    width: 270px;
   }
   #oracleCard .oracleCardInner .oracleCardStep .stepBg {
     display: flex;
     flex-direction: column-reverse;
-    justify-content: flex-start;
+    justify-content: flex-end;
+    margin-top: 250px;
     align-items: center;
     padding-bottom: 100px;
   }
   #oracleCard .oracleCardInner .oracleCardStep .stepBg .showTxt {
-    width: 400px;
+    width: 500px;
     height: 12%;
     text-align: center;
   }
   #oracleCard .oracleCardInner .oracleCardStep .stepBg .showTxt .txt p {
-    text-align: left;
+    text-align: center;
+  }
+  #oracleCard .oracleCardInner .oracleCardStep .stepBg #mediaCardBtn {
+    opacity: 1;
   }
   #oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn {
-    display: none;
+    position: absolute;
+    bottom: 85px;
   }
   #oracleCard .oracleCardInner .oracleCardStep .stepBg .stepNum {
     flex-direction: row;
     width: 200px;
-    margin-top: 10px;
+    margin-top: 50px;
   }
   #oracleCard .oracleCardInner .oracleCardStep .stepBg .stepNum li {
     margin-bottom: 0;
+    margin: 0 20px;
   }
   #oracleCard .oracleCardInner .oracleCardStep .stepBg .stepNum li:not(:nth-child(1))::before {
     width: 85px;
@@ -9756,6 +9859,9 @@ p {
     left: 0;
     top: 25px;
     opacity: 0;
+  }
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cardBtn {
+    bottom: 85px;
   }
 }
 
@@ -9772,20 +9878,36 @@ p {
     right: -10%;
     top: 230px;
   }
+  #oracleCard .oracleCardInner .oracleCardStep .stepBg {
+    margin-top: 150px;
+  }
   #oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg {
-    width: 300px;
+    width: 250px;
     margin-bottom: 30px;
   }
   #oracleCard .oracleCardInner .oracleCardStep .stepBg .showImg .mainImg {
     left: 25px;
     top: 25px;
-    max-width: 250px;
-    max-height: 250px;
+    max-width: 200px;
+    max-height: 200px;
   }
   #oracleCard .oracleCardInner .oracleCardStep .stepBg .showTxt .txt p {
     margin: auto;
     width: 300px;
     padding: 0;
+  }
+  #oracleCard .oracleCardInner .oracleCardStep .stepBg .stepNum {
+    margin-top: -10px;
+  }
+  #oracleCard .oracleCardInner .oracleCardStep .stepBg .cardBtn {
+    bottom: 10px;
+  }
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .title h2 {
+    padding: 0;
+    padding-bottom: 30px;
+  }
+  #oracleCard .oracleCardInner .oracleCardStepOne .oracleCardStepOneBox .cards .item {
+    width: 100px;
   }
 }
 
@@ -10547,15 +10669,15 @@ body {
   margin: 5px;
 }
 
-.mem-lg .memSearch .searchIconSvg svg {
+.mem-lg .memSearch .searchIconSvg > svg {
   fill: #888682;
 }
 
-.mem-lg .memSearch .searchIconSvg svg path {
+.mem-lg .memSearch .searchIconSvg > svg > path {
   fill: #888682;
 }
 
-.mem-lg .memSearch input {
+.mem-lg .memSearch > input {
   color: #322f2a;
   outline: none;
   font-size: 16px;
@@ -10775,7 +10897,7 @@ body {
   cursor: pointer;
 }
 
-.memPhoto--bgc .memPhoto img {
+.memPhoto--bgc .memPhoto > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -10914,7 +11036,7 @@ body {
   width: 100%;
 }
 
-.figMother .fig label .mem-show-title {
+.figMother .fig > label .mem-show-title {
   width: 37%;
 }
 
@@ -11116,7 +11238,7 @@ body {
   cursor: pointer;
 }
 
-.memIcon-block .memIcon img {
+.memIcon-block .memIcon > img {
   width: 100%;
 }
 
@@ -11214,7 +11336,7 @@ body {
   color: #888682;
 }
 
-.mem-modify-singleRow label .mem-memPsw-confirmData {
+.mem-modify-singleRow label .mem-memPsd-confirmData {
   font-size: 14px;
   padding: 2px 6px;
   border-radius: 3px;
@@ -11223,11 +11345,11 @@ body {
   margin-left: 10px;
 }
 
-.modifyMemPsw {
+.modifyMemPsd {
   z-index: 666;
 }
 
-.modifyMemPsw-block {
+.modifyMemPsd-block {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -11238,28 +11360,28 @@ body {
   background-color: white;
 }
 
-.modifyMemPsw-block .modifyMemPswOld {
+.modifyMemPsd-block .modifyMemPsdOld {
   width: 100%;
 }
 
-.modifyMemPsw-block .modifyMemPswOld label {
+.modifyMemPsd-block .modifyMemPsdOld > label {
   width: 100%;
 }
 
-.modifyMemPsw-block .modifyMemPswOld label span {
+.modifyMemPsd-block .modifyMemPsdOld > label > span {
   margin: 10px 0;
   width: 100%;
   display: block;
   text-align: center;
 }
 
-.modifyMemPsw-block .modifyMemPswOld label input {
+.modifyMemPsd-block .modifyMemPsdOld > label > input {
   margin: 10px 0;
   width: 100%;
   display: block;
 }
 
-.modifyMemPsw-block .modifyMemCheck {
+.modifyMemPsd-block .modifyMemCheck {
   margin-top: 10px;
   display: flex;
   flex-direction: row;
@@ -11288,7 +11410,7 @@ body {
   animation: shakeIt .2s ease-in 0s 1 forwards;
 }
 
-.memPswToggle {
+.memPsdToggle {
   cursor: pointer;
 }
 
@@ -11311,16 +11433,16 @@ body {
   .mem-modify-singleRow {
     margin: 3px;
   }
-  .mem-modify-singleRow label .mem-show-title {
+  .mem-modify-singleRow > label .mem-show-title {
     margin: 3px 0;
     display: block;
     width: 100%;
   }
-  .mem-modify-singleRow label .mem-show-confirmData {
+  .mem-modify-singleRow > label .mem-show-confirmData {
     display: block;
     text-align: center;
   }
-  .mem-modify-singleRow label .mem-memPsw-confirmData {
+  .mem-modify-singleRow > label .mem-memPsd-confirmData {
     padding: 10px;
     width: 60%;
     margin: 3px auto;
@@ -11369,15 +11491,52 @@ body {
 }
 
 @media only screen and (max-width: 400px) {
-  .buttonFlex .fuckingButton button {
+  .buttonFlex .fuckingButton > button {
     padding: 5px 15px;
     font-size: 18px;
     margin: 0;
   }
 }
 
-.mem-coOrder-total {
+.mem-coOrder-total,
+.modifyOrder-align {
   text-align: center;
+  color: #888682;
+}
+
+.modifyOrder-align {
+  margin: 5px 0;
+}
+
+.mem-coOrder-total--hide {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mem-coOrder-total--hide .order-justDele {
+  align-self: flex-end;
+  padding: 0 10% 0 0;
+}
+
+.mem-coOrder-total--hide .meOrderOpen {
+  height: 100%;
+}
+
+@media only screen and (max-width: 400px) {
+  .mem-coOrder-total--hide .order-justDele {
+    align-self: center;
+    padding: 0 10% 0 0;
+  }
+}
+
+.meOrder_toggle {
+  height: 0;
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
 }
 
 .mem-coOrder,
@@ -11439,8 +11598,32 @@ body {
   overflow: hidden;
 }
 
-.mem-order-each > div .mem-order-left .mem-order-img img {
+.mem-order-each > div .mem-order-left .mem-order-img > img {
   width: 100%;
+}
+
+.mem-order-table {
+  width: 87%;
+  margin: 10px 0;
+}
+
+.mem-order-table tr {
+  height: 35px;
+  vertical-align: middle;
+  line-height: 35px;
+  color: #7f7f82;
+}
+
+.mem-order-table tr th {
+  width: 30%;
+  text-align: center;
+  padding-right: 15px;
+  border-radius: 3px;
+}
+
+.mem-order-table tr td {
+  color: #7f7f82;
+  padding-left: 10px;
 }
 
 .mem-table-mental {
@@ -11456,12 +11639,12 @@ body {
   justify-content: center;
 }
 
-.mem-table-contain .mem-order-table {
+.mem-table-contain .mem-table-mental {
   width: 87%;
   margin-bottom: 20px;
 }
 
-.mem-table-contain .mem-order-table tr {
+.mem-table-contain .mem-table-mental tr {
   height: 35px;
   vertical-align: middle;
   line-height: 35px;
@@ -11469,7 +11652,7 @@ body {
   border-radius: 3px;
 }
 
-.mem-table-contain .mem-order-table tr th {
+.mem-table-contain .mem-table-mental tr th {
   width: 30%;
   background-color: #ccc;
   text-align: center;
@@ -11478,10 +11661,9 @@ body {
   border-radius: 3px;
 }
 
-.mem-table-contain .mem-order-table tr td {
+.mem-table-contain .mem-table-mental tr td {
   color: #7f7f82;
   padding-left: 10px;
-  text-align: right;
 }
 
 .mem-phy-go_button_contain .mem-phy-go_button {
@@ -11490,10 +11672,10 @@ body {
 }
 
 @media only screen and (max-width: 991px) {
-  .mem-table-contain .mem-order-table {
+  .mem-table-contain .mem-table-mental {
     width: 95%;
   }
-  .mem-table-contain .mem-order-table tr th {
+  .mem-table-contain .mem-table-mental tr th {
     width: 20%;
   }
 }
@@ -11503,15 +11685,30 @@ body {
     display: flex;
     justify-content: center;
   }
+  .mem-table-contain .mem-table-mental {
+    margin: 10px 0;
+    width: 100%;
+  }
   .mem-table-contain .mem-table-mental tr {
     border: none;
+    width: 100%;
   }
   .mem-table-contain .mem-table-mental tr th {
     padding-right: 0;
+    display: none;
   }
   .mem-table-contain .mem-table-mental tr td {
     text-align: center !important;
     padding-left: 0 !important;
+    width: 100%;
+    text-align: center;
+  }
+  .mem-table-contain .mem-table-mental tr td:before {
+    width: 100%;
+    text-align: center;
+    background-color: #e3e3e3;
+    content: attr(data-title);
+    display: block;
   }
   .mem-order-each > div .mem-order-left {
     border-right: none;
@@ -11530,6 +11727,7 @@ body {
     display: none;
   }
   .mem-order-table tr td {
+    padding-left: 0;
     width: 100%;
     text-align: center;
   }
@@ -11558,11 +11756,11 @@ body {
   margin: 0 15px;
 }
 
-.mem-modify-table tr {
+.mem-modify-table > tr {
   width: 100%;
 }
 
-.mem-modify-table tr th {
+.mem-modify-table > tr > th {
   width: 90px;
   padding: 10px 0;
   text-align: left;
@@ -11573,10 +11771,10 @@ body {
     width: 100%;
     margin: 0 15px;
   }
-  .mem-modify-table tr {
+  .mem-modify-table > tr {
     width: 100%;
   }
-  .mem-modify-table tr th {
+  .mem-modify-table > tr > th {
     width: 90px;
     padding: 10px 0;
     text-align: left;
@@ -11649,17 +11847,17 @@ body {
   background-color: #ccc;
 }
 
-.mem-modify-radio > label .radio input {
+.mem-modify-radio > label .radio > input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
 
-.mem-modify-radio > label .radio input:checked ~ .checkmark {
+.mem-modify-radio > label .radio > input:checked ~ .checkmark {
   background-color: #91D0EB;
 }
 
-.mem-modify-radio > label .radio input:checked ~ .checkmark::after {
+.mem-modify-radio > label .radio > input:checked ~ .checkmark::after {
   display: block;
 }
 
@@ -11716,12 +11914,12 @@ body {
   transition: all .3s ease-in-out;
 }
 
-.mem-inActCsSelfAct_block .mem-inActCsSelfAct--hide .inAct_item a {
+.mem-inActCsSelfAct_block .mem-inActCsSelfAct--hide .inAct_item > a {
   display: inline-block;
   width: 100%;
 }
 
-.mem-inActCsSelfAct_block .mem-inActCsSelfAct--hide .inAct_item a img {
+.mem-inActCsSelfAct_block .mem-inActCsSelfAct--hide .inAct_item > a > img {
   width: 100%;
 }
 
@@ -11849,12 +12047,12 @@ body {
   box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
 }
 
-.mem-inActCsSelfAct_block .mem-inActCsSelfAct--hide .csS-art__card a {
+.mem-inActCsSelfAct_block .mem-inActCsSelfAct--hide .csS-art__card > a {
   display: block;
   cursor: pointer;
 }
 
-.mem-inActCsSelfAct_block .mem-inActCsSelfAct--hide .csS-art__card a img {
+.mem-inActCsSelfAct_block .mem-inActCsSelfAct--hide .csS-art__card > a > img {
   width: 100%;
   height: 150px;
   object-fit: cover;
@@ -11884,7 +12082,7 @@ body {
   justify-content: flex-end;
 }
 
-.mem-inActCsSelfAct_block .mem-inActCsSelfAct--hide .csS-art__card .card-tag a {
+.mem-inActCsSelfAct_block .mem-inActCsSelfAct--hide .csS-art__card .card-tag > a {
   flex: 1 0 80px;
   max-width: 120px;
   text-decoration: none;
@@ -11903,11 +12101,11 @@ body {
   padding: 0 10px 10px 0;
 }
 
-.mem-inActCsSelfAct_block .mem-inActCsSelfAct--hide .csS-art__card .card-share a {
+.mem-inActCsSelfAct_block .mem-inActCsSelfAct--hide .csS-art__card .card-share > a {
   margin: 5px;
 }
 
-.mem-inActCsSelfAct_block .mem-inActCsSelfAct--hide .csS-art__card .card-share a img {
+.mem-inActCsSelfAct_block .mem-inActCsSelfAct--hide .csS-art__card .card-share > a > img {
   width: 20px;
   height: 20px;
 }
@@ -11966,6 +12164,254 @@ body {
 .coSlide-leave-to {
   opacity: 0;
   transform: translateX(20px) scale(0.99);
+}
+
+.meChat {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: salmon solid 1px;
+  height: 69vh;
+  padding: 5px;
+  margin: 3px;
+}
+
+.meChat .meChatMain {
+  width: 65%;
+  height: 100%;
+  border: sandybrown solid 1px;
+  overflow: hidden;
+}
+
+.meChat .meChatMain .meChatMainRoom {
+  padding: 5px;
+  border: seagreen solid 1px;
+  overflow-y: auto;
+  height: 87%;
+}
+
+.meChat .meChatMain .memChatSend {
+  border: slateblue solid 1px;
+  height: 13%;
+  padding: 10px 3px;
+}
+
+.meChat .meChatMain .memChatSend form {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  vertical-align: top;
+  text-align: left;
+}
+
+.meChat .meChatMain .memChatSend form .chatInput {
+  width: 80%;
+}
+
+.meChat .meChatMain .memChatSend form .memChatSend_button {
+  width: 18%;
+  background-color: slategrey;
+  height: 100%;
+}
+
+.meChat .meChatSelect {
+  width: 35%;
+  border: seagreen solid 1px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.meChat .meChatSelect .meChatPeople-scroll {
+  padding: 5px;
+  border: solid 3px sienna;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.meChatPeople-each {
+  padding: 5px;
+  max-width: 300px;
+  margin: 8px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0.7;
+  transition: all .2s ease-in;
+  border-bottom: rgba(237, 237, 237, 0.53) solid 1px;
+}
+
+.meChatPeople-each .meChatPeople {
+  font-size: 14px;
+}
+
+.meChatPeople-each .meChatPeople .meChatOnline {
+  display: inline-block;
+  margin: 0 5px;
+  line-height: 30px;
+  vertical-align: top;
+}
+
+.meChatPeople-each .meChatPeople .meChatOnline i {
+  color: #bdbdbd;
+}
+
+.meChatPeople-each .meChatPeople .meChatOnline .meOnline {
+  color: #1cdd1c;
+}
+
+.meChatPeople-each .meChatPeople .meChatPeople-pic {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: #96d3ed 2px solid;
+  box-shadow: 0px 0px 2px #9f9a906f;
+  overflow: hidden;
+}
+
+.meChatPeople-each .meChatPeople .meChatPeople-pic img {
+  width: 100%;
+}
+
+.meChatPeople-each .meChatPeople .meChatPeople-name {
+  color: #888682;
+  vertical-align: top;
+  height: 100%;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 5px;
+}
+
+.meChatPeople-each .meChatPeople .meChatPeople-title {
+  display: inline-block;
+}
+
+.meChatPeople-each .meChatDelete {
+  cursor: pointer;
+}
+
+.meChatPeople-each .meChatDelete i {
+  color: darkgray;
+  font-size: 10px;
+}
+
+.meChatPeople-each:hover {
+  box-shadow: 2px 2px 4px #9f9a906f;
+  border-bottom: white solid 1px;
+  transform: scale(1.02);
+  opacity: 1;
+}
+
+.meChatAn {
+  padding: 7px;
+  display: block;
+  margin: 5px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+}
+
+.meChatAn .meChatAn-pic {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: #96d3ed 2px solid;
+  box-shadow: 0px 0px 2px #9f9a906f;
+  overflow: hidden;
+  margin-right: 3px;
+}
+
+.meChatAn .meChatAn-pic img {
+  width: 100%;
+}
+
+.meChatAn .meChatAn-text {
+  padding: 0 8px 0 14px;
+  color: #888682;
+  vertical-align: top;
+  height: 100%;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  background-color: #e2eaf7;
+  border-radius: 0 30px 30px 30px;
+  margin: 0 5px;
+}
+
+.meChatAn .meChatAn-other {
+  height: 30px;
+  font-size: 8px;
+  color: #bdbdbd;
+  display: flex;
+  align-items: flex-end;
+}
+
+.meChatAn .meChatAn-other .meChatAn-time {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+.meChatAn .meChatAn-other .meChatAn-select {
+  display: inline-block;
+  margin: 0 2px;
+}
+
+.meChatAnUser {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.meChatAnUser .meChatAn-pic {
+  margin-left: 3px;
+}
+
+.meChatAnUser .meChatAnUser-text {
+  padding: 0 8px 0 14px;
+  color: #888682;
+  vertical-align: top;
+  height: 100%;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  background-color: #edeae5;
+  border-radius: 30px 0 30px 30px;
+  margin: 0 5px;
+}
+
+@media only screen and (max-width: 576px) {
+  .meChat {
+    padding: 5px 0;
+    margin: 3px 0;
+    display: block;
+    height: 60vh;
+  }
+  .meChat .meChatMain {
+    width: 100%;
+    border: sandybrown solid 1px;
+  }
+  .meChat .meChatMain .meChatMainRoom {
+    overflow-y: auto;
+  }
+  .meChat .meChatSelect {
+    width: 100%;
+    border: seagreen solid 1px;
+  }
+  .meChat .meChatSelect .meChatPeople-scroll {
+    height: 100%;
+    border: solid 3px sienna;
+  }
+  .meChatPeople-each {
+    padding: 5px 10px;
+  }
+  .meChatPeople-each .meChatPeople {
+    font-size: 16px;
+  }
 }
 
 .test_content {
