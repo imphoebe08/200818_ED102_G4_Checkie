@@ -10,7 +10,7 @@
     @@include('layout/top_header.html')
 
     <!-- 中間內容 -->
-    <div class="container-fluid">
+    <div class="container-fluid" id="tQapp">
         <div class="container">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -59,19 +59,19 @@
                                                     <tr data-toggle="collapse" class="accordion-toggle" data-target="#demo10">
                                                         <td>01</td>
                                                         <td>
-                                                            <select>
-                                                            <option value ="#">1-家庭關係</option>
-                                                            <option value ="#">2-人際關係</option>
-                                                            <option value="#">3-伴侶關係</option>
-                                                            <option value="#">4-壓力創傷</option>
-                                                            <option value="#">5-自我探索</option>
+                                                            <select v-model="selectedsorts">
+                                                            <option selected>1-家庭關係</option>
+                                                            <option>2-人際關係</option>
+                                                            <option>3-伴侶關係</option>
+                                                            <option>4-壓力創傷</option>
+                                                            <option>5-自我探索</option>
                                                         </select>
                                                         </td>
-                                                        <td><textarea style="width:500px;height:50px;" name="testcontent">近期的家庭關係是否正常</textarea></td>
+                                                        <td><textarea style="width:500px;height:50px;" name="testcontent" v-model="newQuset">近期的家庭關係是否正常</textarea></td>
                                                         <td>
-                                                            <select>
-                                                            <option value ="#">上架</option>
-                                                            <option value ="#">下架</option>
+                                                            <select v-model="selectedstatus">
+                                                            <option selected>上架</option>
+                                                            <option>下架</option>
                                                         </select>
                                                         </td>
                                                         <td>
@@ -167,6 +167,18 @@
     </div>
 
     @@include('layout/footer.html')
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
+    <script>
+        let vm = new Vue({
+            el: '#tQapp',
+            delimiters: ['${', '}'],
+            data: {
+                selectedsorts: selected,
+                selectedstatus: selected,
+            },
+            methods: {},
+        });
+    </script>
 </body>
 
 </html>
