@@ -96,27 +96,27 @@
             },
             template: ` <tbody>
                                 <tr class="buttonGroup" v-for="(value,index) in memberData" :key="value.memNo">
-                                    <input type="hidden" placeholder="會員編號" v-model="value.memNo"
+                                    <input type="hidden" placeholder="會員編號" v-model.trim.number="value.memNo"
                                             :class="'buttonGroup' + index" readonly>
                                     <td><span style="width: 40px;display: block;">{{value.memNo}}</span></td>
                                     <td><input style="width: 150px;" type="text" placeholder="會員帳號"
-                                            v-model="value.memId" :class="'buttonGroup' + index" readonly></td>
+                                            v-model.trim="value.memId" :class="'buttonGroup' + index" readonly></td>
                                     <td><input style="width: 60px;" type="text" placeholder="會員名稱"
-                                            v-model="value.memName" :class="'buttonGroup' + index" readonly></td>
+                                            v-model.trim="value.memName" :class="'buttonGroup' + index" readonly></td>
                                     <td><input style="width: 80px;" type="text" placeholder="會員生日"
-                                            v-model="value.memBD" :class="'buttonGroup' + index" readonly></td>
-                                    <td><select style="width: 50px;" v-model="value.memGender" @change="updateMemGenderBool(index)">
+                                            v-model.trim="value.memBD" :class="'buttonGroup' + index" readonly></td>
+                                    <td><select style="width: 50px;" v-model.trim="value.memGender" @change="updateMemGenderBool(index)">
                                             <option value="m">男</option>
                                             <option value="f">女</option>
                                         </select></td>
                                     <td><input style="width: 110px;" type="text" placeholder="會員電話"
-                                            v-model="value.memTel" :class="'buttonGroup' + index" readonly></td>
+                                            v-model.trim="value.memTel" :class="'buttonGroup' + index" readonly></td>
                                     <td><input type="text" placeholder="會員地址" v-model="value.memAdd"
                                             :class="'buttonGroup' + index" readonly></td>
                                     <td><img :src="value.memPic" alt="會員照片"
                                             style="object-fit: cover;width: 50px;height: 50px;">
                                     </td>
-                                    <td><select v-model="value.memBool" @change="updateMemGenderBool(index)">
+                                    <td><select v-model.trim="value.memBool" @change="updateMemGenderBool(index)">
                                             <option value="0">正常</option>
                                             <option value="1">停權</option>
                                         </select></td>
