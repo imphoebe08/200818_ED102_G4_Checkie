@@ -7,7 +7,6 @@
     <title>活動介紹</title>
     <!-- 套件（owl、bootstrap） -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css' />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap-grid.min.css">
 
@@ -22,18 +21,18 @@
         <div id="acSelf" class="acSelf fluid">
             <div class="acSelf-Banner">
 
-                <div class="acSelf-Banner_pic col-xl-7 col-sm-12"><img :src="contents[0].banner" alt=""></div>
+                <div class="acSelf-Banner_pic col-xl-7 col-sm-12"><img :src="contents[index].banner" alt=""></div>
                 <div class="acSelf-Banner_intro col-xl-5 col-sm-12">
-                    <h5>{{contents[0].actTypeNo}}</h5><br>
-                    <h5>{{contents[0].actName}}</h5>
+                    <h5>{{contents[index].actTypeNo}}</h5><br>
+                    <h5>{{contents[index].actName}}</h5>
                     <br>
                     <br>
                     <h6>活動時間：</h6>
-                    <p>{{contents[0].actStart}} ~ {{contents[0].actEnd}}</p><br>
+                    <p>{{contents[index].actStart}} ~ {{contents[index].actEnd}}</p><br>
                     <h6>活動地點：</h6>
-                    <p><a :href="'https://www.google.com/maps/place/' + contents[0].acLocation">{{contents[0].acLocation}}</a></p><br>
+                    <p><a :href="'https://www.google.com/maps/place/' + contents[index].actAddress">{{contents[index].actAddress}}</a></p><br>
                     <h6>費用：</h6><br>
-                    <p>{{contents[0].actCost}}/人</p>
+                    <p>{{contents[index].actCost}}/人</p>
 
 
                 </div>
@@ -51,26 +50,26 @@
             <h4 class="acInfo-title">活動介紹</h4>
             <div class="acInfo">
                 <div class="acInfo_content col-12">
-                    <p v-html="contents[0].actContent"></p><br>
+                    <p v-html="contents[index].actContent"></p><br>
                 </div>
                 <div class="acInfo_pic col-12">
-                    <img class="acInfo_pic--1 col-xl-5 col-12" src="" alt="">
-                    <img class="acInfo_pic--2 col-xl-5 col-12" src="" alt="">
+                    <img class="acInfo_pic--1 col-xl-5 col-12" :src="contents[index].pic1" alt="">
+                    <img class="acInfo_pic--2 col-xl-5 col-12" :src="contents[index].pic2" alt="">
                 </div>
             </div>
             <h4 class="acTeacher-title">講師介紹</h4>
             <div class="acTeacher">
                 <div class="acTeacher_pic col-xl-4 col-12">
-                    <img :src="contents[0].acHolderPic" alt="">
-                    <h6 style="text-align: center;">{{contents[0].actHostTilte}}｜{{contents[0].actHost}}</h6>
+                    <img :src="contents[index].acHostPic" alt="">
+                    <h6 style="text-align: center;">{{contents[index].actHostTilte}}｜{{contents[index].actHost}}</h6>
                 </div>
                 <div class="acTeacher_intro col-xl-7 col-12">
-                    <p v-html="contents[0].acHolderIntro"></p>
+                    <p v-html="contents[index].actHostInfo"></p>
                 </div>
             </div>
             <h4 class="acLocation-title">活動地點</h4>
             <div class="acLocation">
-                <iframe :src="'https://maps.google.com?output=embed&q=' + contents[0].acLocation " width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <iframe :src="'https://maps.google.com?output=embed&q=' + contents[index].actAddress " width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
             <div class="acAttension">
                 <p class="acAttension-title">活動注意事項</p>
