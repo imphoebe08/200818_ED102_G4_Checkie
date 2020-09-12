@@ -12,6 +12,8 @@
     input[readonly] {
         border: none;
         outline: none;
+        background-color: white;
+        color: black;
     }
 </style>
 
@@ -105,7 +107,7 @@
                                             v-model.trim="value.memName" :class="'buttonGroup' + index" readonly></td>
                                     <td><input style="width: 80px;" type="text" placeholder="會員生日"
                                             v-model.trim="value.memBD" :class="'buttonGroup' + index" readonly></td>
-                                    <td><select style="width: 50px;" v-model.trim="value.memGender" @change="updateMemGenderBool(index)">
+                                    <td><select style="width: 50px;" v-model.trim="value.memGender" :class="'buttonGroup'+ index" disabled>
                                             <option value="m">男</option>
                                             <option value="f">女</option>
                                         </select></td>
@@ -116,7 +118,7 @@
                                     <td><img :src="value.memPic" alt="會員照片"
                                             style="object-fit: cover;width: 50px;height: 50px;">
                                     </td>
-                                    <td><select v-model.trim="value.memBool" @change="updateMemGenderBool(index)">
+                                    <td><select v-model.trim="value.memBool" :class="'buttonGroup' + index" disabled>
                                             <option value="0">正常</option>
                                             <option value="1">停權</option>
                                         </select></td>
@@ -159,12 +161,14 @@
                     for (let j = 0; j < input.length; j++) {
                         e.currentTarget.innerText = "編輯";
                         input[j].setAttribute("readonly", true);
+                        input[j].setAttribute("disabled", true);
                     }
                 },
                 inputToEdit(e, index) {
                     let input = document.querySelectorAll(`.buttonGroup${index}`);
                     for (let j = 0; j < input.length; j++) {
                         input[j].removeAttribute("readonly");
+                        input[j].removeAttribute("disabled");
                         e.currentTarget.innerText = "送出";
                     }
                 },
@@ -174,31 +178,18 @@
                         this.memberData.splice(index, 1);
                     //使用axios=> delete
                 },
-                updateMemGenderBool(index) {
-                    // axios.get('修改會員停權的php.php', {
-                    //         params: {
-                    //             memNo: this.memberData[index].memNo,
-                    //             memGender: this.memberData[index].memGender,
-                    //             memBool: this.memberData[index].memBool
-                    //         }
-                    //     })
-                    //     .then((res) => {
-                    //         console.log('會員更新成功')
-                    //     })
-                    //     .catch((error) => {
-                    //         console.error(error)
-                    //     })
-                },
                 updateMemInfo(index) {
                     // axios.get('修改會員資料的php.php', {
                     //         params: {
                     //             memBool: this.memberData[index].memBool,
                     //             memId: this.memberData[index].memId,
                     //             memName: this.memberData[index].memName,
+                    //             memGender: this.memberData[index].memGender,
                     //             memBD: this.memberData[index].memBD,
                     //             memGender: this.memberData[index].memGender,
                     //             memTel: this.memberData[index].memTel,
                     //             memAdd: this.memberData[index].memAdd,
+                    //             memBool: this.memberData[index].memBool,
                     //         }
                     //     })
                     //     .then((res) => {

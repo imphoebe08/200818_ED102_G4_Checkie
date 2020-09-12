@@ -13,6 +13,12 @@
     textarea[readonly] {
         border: none;
         outline: none;
+        background-color: white;
+        color: black;
+    }
+
+    img.rotateMe {
+        transform: rotate(180deg);
     }
 </style>
 
@@ -111,10 +117,15 @@
                             <!-- <tbody is="input-layout" :transport-data="transport"></tbody> -->
                             <tbody>
                                 <template v-for="(value,index) in memberData">
-                                    <tr class="buttonGroup" :key="value.csNo" @click="infoToggle">
+                                    <tr class="buttonGroup" :key="value.csNo">
                                         <input type="hidden" placeholder="編號" v-model.trim.number="value.csNo"
                                             :class="'buttonGroup' + index" readonly>
-                                        <td><span style="width: 40px;display: block;">{{value.csNo}}</span></td>
+                                        <td><span
+                                                style="width: 40px;display: block; text-align: center;">{{value.csNo}}</span>
+                                            <img src="https://www.flaticon.com/svg/static/icons/svg/32/32195.svg" alt=""
+                                                style="object-fit: cover;width: 10px;height: 10px; display: block; margin: 10px auto; cursor: pointer; transition: transform .3s;"
+                                                @click="infoToggle">
+                                        </td>
                                         <td><input style="width: 100px;" type="text" placeholder="帳號"
                                                 v-model.trim="value.csId" :class="'buttonGroup' + index" readonly></td>
                                         <td><input style="width: 60px;" type="text" placeholder="名稱"
@@ -122,8 +133,8 @@
                                         </td>
                                         <td><input style="width: 80px;" type="text" placeholder="生日"
                                                 v-model.trim="value.csBD" :class="'buttonGroup' + index" readonly></td>
-                                        <td><select style="width: 50px;" v-model.trim="value.csGender"
-                                                @change="updateCsGenderBool(index)">
+                                        <td><select style="width: 50px;" :class="'buttonGroup' + index"
+                                                v-model.trim="value.csGender" disabled>
                                                 <option value="m">男</option>
                                                 <option value="f">女</option>
                                             </select></td>
@@ -134,7 +145,7 @@
                                         <td><img :src="value.csPic" alt="照片"
                                                 style="object-fit: cover;width: 50px;height: 50px;">
                                         </td>
-                                        <td><select v-model.trim="value.csBool" @change="updateCsGenderBool(index)">
+                                        <td><select :class="'buttonGroup' + index" v-model.trim="value.csBool" disabled>
                                                 <option value="0">正常</option>
                                                 <option value="1">停權</option>
                                             </select></td>
@@ -148,11 +159,21 @@
                                         <td colspan="4"><textarea cols="50" rows="5" placeholder="經歷"
                                                 v-model.trim="value.csHis" :class="'buttonGroup' + index"
                                                 readonly></textarea></td>
-                                        <td>家庭關係: <input type="number" v-model="value.csType[0].csTypeNum"></td>
-                                        <td>人際關係: <input type="number" v-model="value.csType[1].csTypeNum"></td>
-                                        <td>伴侶關係: <input type="number" v-model="value.csType[2].csTypeNum"></td>
-                                        <td>壓力創傷: <input type="number" v-model="value.csType[3].csTypeNum"></td>
-                                        <td>自我探索: <input type="number" v-model="value.csType[4].csTypeNum"></td>
+                                        <td>家庭關係: <input type="number" :class="'buttonGroup' + index"
+                                                v-model="value.csType[0].csTypeNum" readonly>
+                                        </td>
+                                        <td>人際關係: <input type="number" :class="'buttonGroup' + index"
+                                                v-model="value.csType[1].csTypeNum" readonly>
+                                        </td>
+                                        <td>伴侶關係: <input type="number" :class="'buttonGroup' + index"
+                                                v-model="value.csType[2].csTypeNum" readonly>
+                                        </td>
+                                        <td>壓力創傷: <input type="number" :class="'buttonGroup' + index"
+                                                v-model="value.csType[3].csTypeNum" readonly>
+                                        </td>
+                                        <td>自我探索: <input type="number" :class="'buttonGroup' + index"
+                                                v-model="value.csType[4].csTypeNum" readonly>
+                                        </td>
                                     </tr>
                                 </template>
                             </tbody>
@@ -360,12 +381,14 @@
                     for (let j = 0; j < input.length; j++) {
                         e.currentTarget.innerText = "編輯";
                         input[j].setAttribute("readonly", true);
+                        input[j].setAttribute("disabled", true);
                     }
                 },
                 inputToEdit(e, index) {
                     let input = document.querySelectorAll(`.buttonGroup${index}`);
                     for (let j = 0; j < input.length; j++) {
                         input[j].removeAttribute("readonly");
+                        input[j].removeAttribute("disabled");
                         e.currentTarget.innerText = "送出";
                     }
                 },
@@ -374,21 +397,6 @@
                     if (check)
                         this.memberData.splice(index, 1);
                     //使用axios=> delete
-                },
-                updateCsGenderBool(index) {
-                    // axios.get('修改會員停權的php.php', {
-                    //         params: {
-                    //             csNo: this.memberData[index].csNo,
-                    //             csGender: this.memberData[index].csGender,
-                    //             csBool: this.memberData[index].csBool
-                    //         }
-                    //     })
-                    //     .then((res) => {
-                    //         console.log('會員更新成功')
-                    //     })
-                    //     .catch((error) => {
-                    //         console.error(error)
-                    //     })
                 },
                 updateMemInfo(index) {
                     // axios.get('修改會員資料的php.php', {
@@ -410,9 +418,10 @@
                     //     })
                 },
                 infoToggle(e) {
-                    e.currentTarget.nextElementSibling.classList.toggle('d-none');
-                    e.currentTarget.nextElementSibling.classList.toggle('visible');
-                    e.currentTarget.nextElementSibling.classList.toggle('invisible');
+                    e.currentTarget.classList.toggle("rotateMe");
+                    e.currentTarget.parentNode.parentNode.nextElementSibling.classList.toggle('d-none');
+                    e.currentTarget.parentNode.parentNode.nextElementSibling.classList.toggle('visible');
+                    e.currentTarget.parentNode.parentNode.nextElementSibling.classList.toggle('invisible');
                 }
             }
         });
