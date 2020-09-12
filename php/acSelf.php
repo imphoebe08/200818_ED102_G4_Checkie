@@ -12,11 +12,12 @@ try{
 
 
     $sql = "
-    select a.*, b.actPicContent 'banner', c.actPicContent 'pic1', d.actPicContent 'pic2'
+    select a.*, b.actPicContent 'banner', c.actPicContent 'pic1', d.actPicContent 'pic2', e.actTypeNo
     from activity a join pic1 b on a.actNo = b.actNo
                     join pic2 c on a.actNo = c.actNo
                     join pic3 d on a.actNo = d.actNo
-    where a.actNo = :actNo";
+                    join actnogroup e on a.actNo = e.actNo
+    where a.actNo = b.actNo";
     $products = $pdo->prepare($sql);
     $products->bindValue(':actNo', $actNo);
     $products -> execute();

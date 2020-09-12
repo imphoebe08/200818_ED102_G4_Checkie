@@ -5,7 +5,7 @@ Vue.component('acCommentList', {
     <div class="acComment container-sm container-md" id="acComment">
         <div class="acCommentList"  v-for="comment in acComments">
             <div class="acCommentList_img">
-                <img src="./img/acMain/acComment.jpg" alt="">
+                <img :src="comment.commenterPic" alt="">
             </div>
             <div class="acCommentList-text">
                 <h6>{{comment.commenter}} ｜ {{comment.job}}</h6>
@@ -29,13 +29,13 @@ Vue.component('acSelectCard', {
     },
     template: `
     <div id="acSelect" class="acSelect container-sm container-md">
-        <div class="acSelectCard" v-for="acContent in limitCard(num)">
-                <a href="./acSelf.html">
+        <div class="acSelectCard" v-for="acContent in aaa(num)">
+                <a :href="'./acSelf.html?actNo=' + acContent.actNo">
                     <img src="./img/acMain/acCard.jpg">
                 </a>
             
             <!-- 卡片文字 -->
-            <h6 class="acSelectCard_title"><a href="./acSelf.html">{{acContent.actName}}</a></h6>
+            <h6 class="acSelectCard_title"><a :href="'./acSelf.html?actNo=' + acContent.actNo">{{acContent.actName}}</a></h6>
             
             <!-- 卡片時間 -->
             <div class="acSelectCard_icon">
@@ -63,7 +63,7 @@ Vue.component('acSelectCard', {
 
     `,
     methods: {
-        limitCard(data) {
+        aaa(data) {
             return this.acContents.slice(0, data);
         }
     },
@@ -91,16 +91,16 @@ let vm = new Vue({
         }
     },
     mounted() {
-        console.log(this)
+
         axios.get('../php/acMain.php').then((res) => {
             this.contents = res.data
-            console.log(res);
             console.log(res.data);
         })
 
         axios.get('./json/acMain_comments.json').then((data) => {
             this.comments = data.data
         })
+
     },
     computed: {
         addNum() {
@@ -111,7 +111,7 @@ let vm = new Vue({
                 return this.contents;
             } else {
                 this.$children[0].$data.num = 3;
-                return this.contents.filter(item => item.actTypeNo == this.index);
+                return this.contents.filter(item => item.actTypeNo == this.index || item.actTypeNo2 == this.index);
             }
         }
     },

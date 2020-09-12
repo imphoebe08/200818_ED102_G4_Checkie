@@ -40,6 +40,7 @@ let acVue = new Vue({
         date: "",
         contents: [],
         cards: [],
+        index: location.href.split('?')[1].split('=')[1] - 1,
     },
     methods: {
         installOwlCarousel: function() {

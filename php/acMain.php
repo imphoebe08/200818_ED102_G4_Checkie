@@ -10,7 +10,9 @@ try{
 	$pdo = new PDO($dsn, $user, $password, $options);
 
 
-  $sql = "select a.*, b.actTypeno from activity a join actnogroup b on a.actno = b.actno";
+  $sql = "select a.*, b.actTypeNo, b.actTypeNo2
+          from activity a 
+          join actTypeNoCombo b on a.actno = b.actno";
   $products = $pdo->query($sql);
   $prodRow = $products->fetchAll(PDO::FETCH_ASSOC);
   echo json_encode($prodRow);
