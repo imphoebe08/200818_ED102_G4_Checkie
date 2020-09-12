@@ -178,20 +178,22 @@ Vue.component('inact-item', {
             <div class="inAct_text">
                 <div class="inAct-top_text">
                     <div class="inAct-left_date">
-                        <div class="inAct-date_icon"></div>
+                        <div class="inAct-date_icon"><i class="far fa-clock"></i></div>
                         <!-- 帶資料 -->
                         <div class="inAct-date_text">2020-08-14(五)</div>
                     </div>
                     <div class="inAct-icon_block">
-                        <a href="javascript:void(0)" class="inAct-icon_1" draggable="false"></a>
-                        <a href="javascript:void(0)" class="inAct-icon_2" draggable="false" s></a>
+                        <a href="javascript:void(0)" class="inAct-icon_1" draggable="false"><i class="fas fa-share-alt"></i></a>
+                        <a href="javascript:void(0)" class="inAct-icon_2" draggable="false"><i class="fas fa-bookmark"></i></a>
                     </div>
                 </div>
                 <!-- 帶資料 -->
                 <div class="inAct_title"><a href="javascript:void(0)" draggable="false">從陌生人到貴人，打造職涯路上的黃金人脈法則</a> </div>
 
                 <div class="inAct_location">
-                    <div class="inAct-location_icon"></div>
+                    <div class="inAct-location_icon">
+                    
+                    </div>
                     <!-- 帶資料 -->
                     <div class="inAct-location_text">台灣文創教育中心</div>
                 </div>
@@ -203,33 +205,39 @@ Vue.component('inact-item', {
 
 
 Vue.component('cssart-layout', {
+    props: ["love"],
+    data() {
+        return {}
+    },
     template: `
-    <div class="csS-art__card">
-                    <a href="./atSelf.html">
-                        <img class="img-responsive"
-                            src="https://image1.thenewslens.com/2018/12/n2gvdi810gmxufwkn726jbt5fypicc.jpg?auto=compress&h=648&q=80&w=1080">
-                    </a>
-                    <div class="card-Info">
-                        <span class="card-Info__times small"><img src="img//icon//clock.png" alt="">2018/12/15</span>
-                        <span class="card-Info__category small">| 蔡XX醫師</span>
-                    </div>
-                    <p @click="openArtPage">因感情問題來看診的年輕女性，有這四個共同特點</p>
+        <div class="csS-art__card">
+            <a href="./atSelf.html">
+                <img class="img-responsive" :src="love.artPicContent">
+            </a>
+            <div class="card-Info">
+                <span class="card-Info__times small"><img src="img//icon//clock.png" alt="">{{love.artDate}}</span>
+                <span class="card-Info__category small">{{love.csName}}</span>
+            </div>
+            <div class="csS-art-title">
+                {{love.artTitle}}
+            </div>
+            <p @click="openArtPage">{{love.artContent}}</p>
 
-                    <div class="row card-tag">
-                        <a href="./atSelf.html" class="button2">More...</a>
-                    </div>
-                    <div class="card-share">
-                        <span>Share : </span>
-                        <a href="" class="small"><img src="img//icon//facebook.png" alt=""></a>
-                        <a href="" class="small"><img src="img//icon//share.png" alt=""></a>
-                        <a href="" class="small"><img src="img//icon//bookmark.png" alt=""></a>
-                    </div>
-                </div>`,
+            <div class="row card-tag">
+                <a href="./atSelf.html" class="button2">More...</a>
+            </div>
+            <div class="card-share">
+                <span>Share : </span>
+                <a href="" class="small"><i class="fab fa-facebook-square"></i></a>
+                <a href="" class="small"><i class="fas fa-share-alt"></i></a>
+                <a href="" class="small"><i class="fas fa-bookmark"></i></a>
+            </div>
+        </div>`,
     methods: {
         openArtPage() {
             window.open("./atSelf.html", "_self");
         },
-    }
+    },
 });
 
 Vue.component('chat-person-each', {
@@ -292,8 +300,13 @@ let vm = new Vue({
     el: '#app',
     data: () => {
         return {
+            memActRec: '',
+            memArtRec: '',
+            //aoAll: '',
             tempData: '',
             tempIndex: '',
+            tempONo: '',
+            oCost: '',
             overlayConfirm: false,
             orderShow: false,
             chatBox: "",
@@ -312,9 +325,9 @@ let vm = new Vue({
             acOrder: true,
             selectNav: true,
             coData: [],
-            coPastData: [{}],
-            aoData: [{}],
-            aoPastData: [{}],
+            coPastData: [],
+            aoData: [],
+            aoPastData: [],
             windowSize: '',
             pageShow: false,
             step: '',
@@ -452,19 +465,58 @@ let vm = new Vue({
         //     };
         // },
         deleteOrder(d, i) {
-            this.overlayConfirm = false;
+            //memActOrderDele
+            if (d == this.coData) {
+                console.log(d);
+                var formData2 = new FormData();
+                formData2.append('csONo', d[i].csONo);
+                axios.post('./php/memCsOrderDele.php', formData2).then(
+                        res => {
+                            console.log(res)
+                        }
 
+                    )
+                    //console.log(d[e].csONo);
+                d.splice(i, 1);
+            } else if (d == this.aoData) {
+                var formData3 = new FormData();
+                formData3.append('actONo', d[i].actONo);
+                axios.post('./php/memActOrderDele.php', formData3).then(
+                        res => {
+                            console.log(res)
+                        }
+                    )
+                    //console.log(d[e].actONo);
+                d.splice(i, 1);
+            }
 
-            var formData2 = new FormData();
-            formData2.append('csONo', d[i].csONo);
-            axios.post('memCsOrderDele.php', formData2).then(
-                    res => {
-                        console.log(res)
-                    }
+            dataClear();
+        },
+        //暫存資料清淨機<3
+        dataClear() {
+            this.tempData = "";
+            this.tempIndex = "";
+            this.tempONo = '';
+            this.oCost = '';
+        },
+        what(i, c, n) {
 
-                )
-                //console.log(a[e].csONo);
-            d.splice(i, 1);
+            if (n == 1) {
+                this.tempData = c;
+                this.tempIndex = i;
+                this.tempONo = c[i].csONo;
+                this.oCost = c[i].csOCost;
+                console.log(c, this.tempONo, this.oCost);
+            } else if (n == 2) {
+                this.tempData = c;
+                this.tempIndex = i;
+                this.tempONo = c[i].actONo;
+                this.oCost = c[i].actCost;
+                console.log(c[i], this.tempONo, this.oCost);
+            }
+
+            //console.log(this.tempData[this.tempIndex].csONo);
+            // console.log(this.tempData);
         },
         toggleOtherInfo(OwO) {
             this.otherInfo = OwO;
@@ -527,7 +579,7 @@ let vm = new Vue({
             formData.append('memTelB', this.member.memTel.mobile);
             formData.append('memAdd', this.member.memAdd);
             formData.append('memPsd', this.member.memPsd);
-            axios.post('memInfoModify.php', formData).then(
+            axios.post('./php/memInfoModify.php', formData).then(
                 res => {
                     console.log(res);
                 }
@@ -559,36 +611,34 @@ let vm = new Vue({
         },
         submitMes() {
             let data_info = `chatBox=${this.chatBox}&csNo=${this.meChatAn[0].csNo}`;
-            this.ajaxPost("sendMes.php", data_info, 0);
+            this.ajaxPost("./php/sendMes.php", data_info, 0);
             this.chatBox = "";
         },
         changeCs(csNo) {
             let data_info = `csNo=${csNo}`;
-            vm.ajaxPost("changeCs.php", data_info, 1);
+            vm.ajaxPost("./php/changeCs.php", data_info, 1);
 
         },
-        orderMore(event, q, i) {
+        //打開訂單更多
+        orderMore(event) {
             event.currentTarget.nextElementSibling.classList.toggle('meOrderOpen');
         },
-        what(i, c) {
-            this.tempData = c;
-            this.tempIndex = i;
-            console.log(this.tempData[this.tempIndex].csONo);
-            // console.log(this.tempData);
-        },
+
+
 
 
     },
 
     mounted() {
-        setInterval(function() {
-            vm.ajaxPost("csMe.php", null, 1);
-            // vm.ajaxPost("firstChat.php", null, 2);
-        }, 1000);
+
+        // setInterval(function() {
+        //     vm.ajaxPost("./php/csMe.php", null, 1);
+        //     // vm.ajaxPost("firstChat.php", null, 2);
+        // }, 1000);
         this.ajaxPost("csMe.php", null, 1);
-        this.ajaxPost("firstChat.php", null, 2);
+        this.ajaxPost("./php/firstChat.php", null, 2);
         //會員資料辣ＱＱＱＱＱ
-        axios.get('memberInfo.php').then(
+        axios.get('./php/memberInfo.php').then(
             res => {
                 this.member = res.data;
                 this.momentModify = res.data;
@@ -617,32 +667,46 @@ let vm = new Vue({
             }
         );
         //掛載諮商訂單
-        axios.get('memCsOrder.php')
+        axios.get('./php/memCsOrder.php')
             .then(res => {
-                this.coData = res.data;
-                console.log(this.coData);
+                //console.log(res.data[1].csODate);
+                for (let i = 0; i < res.data.length; i++) {
+                    if (new Date(res.data[i].csODate) > Date.now()) {
+
+                        this.coData.push(res.data[i]);
+                    } else {
+
+                        this.coPastData.push(res.data[i]);
+                    };
+                };
 
             });
 
-        // axios.get('./json/test.json')
-        //     .then(response => {
-        //         this.coData = response.data;
-
-        //         //console.log(response.data);
-        //     });
-        axios.get('./json/test2.json')
+        axios.get('./php/memActOrder.php')
             .then(response => {
-                this.coPastData = response.data;
+                console.log(response.data);
+                for (let i = 0; i < response.data.length; i++) {
+                    if (new Date(response.data[i].actStart) > Date.now()) {
+                        this.aoData.push(response.data[i]);
+                    } else {
+
+                        this.aoPastData.push(response.data[i]);
+                    };
+                };
+            });
+        axios.get('./php/memArtRec.php')
+            .then(response => {
+                this.memArtRec = response.data;
+                //console.log(this.memArtRec);
             });
 
-        axios.get('./json/test3.json')
+        axios.get('./php/memActRec.php')
             .then(response => {
-                this.aoData = response.data;
+                this.memActRec = response.data;
+                console.log(this.memActRec);
             });
-        axios.get('./json/test4.json')
-            .then(response => {
-                this.aoPastData = response.data;
-            });
+
+
         this.windowSize = window.innerWidth;
         this.currentPage = this.titles[0];
     },
@@ -658,6 +722,11 @@ let vm = new Vue({
         window.removeEventListener('resize', this.onResize);
     },
     computed: {
+        // ao() {
+        //     var k = new Date().toLocaleDateString(), //2020/09/10
+        //         a = (Date.parse(k)).valueOf(); //讓他變成可以比較的數字型態
+        //     return this.acOrder ? this.aoAll.filter(item => (Date.parse(item.actStart)).valueOf() > a) : this.aoAll.filter(item => (Date.parse(item.actStart)).valueOf() < a)
+        // },
 
         memPsdCountLength: function() {
             return this.momentModify.memPsd.length;
