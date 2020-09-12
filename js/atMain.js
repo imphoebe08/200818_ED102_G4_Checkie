@@ -219,7 +219,7 @@ Vue.component('duli', {
                         </div>
                         <div class="atClassAfter-content_text">
                             <div class="atClassAfter-content-text_title">
-                                <h2>{{dul.artTitle}}</h2>
+                                <h2>{{dul.artTitle.substring(0,16)}}</h2>
                             </div>
                             <div class="atClassAfter-content-text_detail">
                                 <p>
@@ -253,7 +253,7 @@ Vue.component('duri', {
                     <!-- flex-end -->
                     <div class="atClassAfter-content_text">
                         <div class="atClassAfter-content-text_title">
-                            <h2>{{dul.artTitle}}</h2>
+                            <h2>{{dul.artTitle.substring(0,16)}}</h2>
                         </div>
                         <div class="atClassAfter-content-text_detail">
                             <p>

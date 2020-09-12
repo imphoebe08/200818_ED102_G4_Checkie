@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/bgHead.html')
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'></script>
+
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <!-- top_header -->
+    @@include('layout/top_header.html')
+
+    <!-- 中間內容 -->
+
+    <div class="container-fluid" id="AAA">
+        @@include('layout/content.html')
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="acRegistration_h1">專欄管理</h1>
+                <div class="card">
+                    <div class="card-header">專欄查詢｜
+                        <span>區間查詢：</span>
+                        <select name="" id="table_condition_year">
+                            <option value="">2020</option>
+                            <option value="">2019</option>
+                        </select>
+                        <span>年</span>
+                        <year></year>
+                        <span>至</span>
+                        <select name="" id="table_condition_year">
+                            <option value="">2020</option>
+                            <option value="">2019</option>
+                        </select>
+                        <span>年</span>
+                        <year></year>
+                        <span>分類查詢：</span>
+                        <lime></lime>
+                    </div>
+                    <div class="card-body">
+                        <class></class>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        Vue.component("year", {
+            // props: ["dis"],
+            data() {
+                return {
+                    months: [{
+                        month: "1"
+                    }, {
+                        month: "2"
+                    }, {
+                        month: "3"
+                    }, {
+                        month: "4"
+                    }, {
+                        month: "5"
+                    }, {
+                        month: "6"
+                    }, {
+                        month: "7"
+                    }, {
+                        month: "8"
+                    }, {
+                        month: "9"
+                    }, {
+                        month: "10"
+                    }, {
+                        month: "11"
+                    }, {
+                        month: "12"
+                    }],
+                }
+            },
+            template: `
+            <select name="" id="table_condition_mon">
+                <option value="" v-for="aaa in months">{{aaa.month}}</option>
+            </select>
+            `
+        })
+        Vue.component("lime", {
+            // props: ["dis"],
+            data() {
+                return {
+                    asd: [{
+                        calssall: "人際關係"
+                    }, {
+                        calssall: "家庭關系"
+                    }, {
+                        calssall: "伴侶關係"
+                    }, {
+                        calssall: "壓力創傷"
+                    }, {
+                        calssall: "自我探索"
+                    }],
+                }
+            },
+            template: `
+            <select name="" id="table_condition_year">
+                        <option  v-for="each in asd">{{each.calssall}}</option>
+                        </select>               
+            `
+        })
+        Vue.component("class", {
+            template: `
+            <table class="table table-responsive-sm table-sm ">
+                            <thead v-for="each in title32">
+                                    <tr>
+                                    <th>{{each.t1}}</th>
+                                    <th>{{each.t2}}</th>
+                                    <th>{{each.t3}}</th>
+                                    <th>{{each.t4}}</th>
+                                    <th>{{each.t5}}</th>
+                                </tr>
+
+                            
+                            </thead>
+                <tbody v-for="each in detele">
+                                <tr >
+                                    <td>{{each.title}}</td>
+                                    <td>{{each.no}}</td>
+                                    <td>{{each.calss}}</td>
+                                    <td>{{each.day}}</td>
+                                    <td>{{each.type}}</td>
+                                    <td><a href="./acAdd.html "><button class="acManagement_edit ">編輯</button></a></td>
+                                </tr>
+                                </tbody>
+              </table>
+            `,
+            data() {
+                return {
+                    title32: [{
+                        t1: "活動標題",
+                        t2: "分類編號",
+                        t3: "分類",
+                        t4: "上架時間",
+                        t5: "專欄狀態",
+                    }],
+                    detele: [{
+                        title: "藝術體驗工坊 療癒紓壓流動畫",
+                        no: "1",
+                        calss: "家庭關係",
+                        day: "2020/08/12",
+                        type: "上架"
+                    }, {
+                        title: "藝術體驗工坊 療癒紓壓流動畫",
+                        no: "1",
+                        calss: "家庭關係",
+                        day: "2020/08/12",
+                        type: "上架"
+                    }, {
+                        title: "藝術體驗工坊 療癒紓壓流動畫",
+                        no: "1",
+                        calss: "家庭關係",
+                        day: "2020/08/12",
+                        type: "上架"
+                    }, {
+                        title: "藝術體驗工坊 療癒紓壓流動畫",
+                        no: "1",
+                        calss: "家庭關係",
+                        day: "2020/08/12",
+                        type: "上架"
+                    }, {
+                        title: "藝術體驗工坊 療癒紓壓流動畫",
+                        no: "1",
+                        calss: "家庭關係",
+                        day: "2020/08/12",
+                        type: "上架"
+                    }]
+                }
+
+            },
+            mounted() {
+                console.log(this.title32)
+            }
+        })
+        new Vue({
+            el: "#AAA",
+            data: {
+
+            },
+            mounted() {
+                console.log(this.months)
+            },
+        })
+    </script>
+    @@include('layout/footer.html')
+</body>
+
+</html>
