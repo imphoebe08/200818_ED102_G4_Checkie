@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<title>神諭卡管理</title>
 <style>
-    #oracleCardMan {}
+    table th {
+        text-align: center;
+    }
+    
+    table tbody .trTitle {
+        text-align: center;
+        line-height: 100px;
+    }
 </style>
 
 <head>
@@ -19,33 +27,28 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
+                    <h3>神諭卡管理</h3>
                 </div>
                 <div class="panel-body card" style="overflow:hidden;">
                     <table class="table table-condensed table-striped">
                         <thead class="card-header">
                             <tr>
-                                <th>神諭卡管理</th>
                                 <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                                <th>神諭卡牌組編號</th>
+                                <th>神諭卡卡背樣式</th>
+                                <th>上架狀態</th>
+                                <th>更新日期</th>
                                 <th></th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
+                            <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle trTitle">
                                 <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open">編輯</span></button></td>
-                                <td>
-                                    神諭卡牌組號碼：
-                                    <select name="" id="" style="width:100px">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </td>
-                                <td><label for="">神諭卡卡背：</label><input type="text"></td>
-                                <td><label for="">上/下架</label><input type="checkbox"></td>
+                                <td>牌組1</td>
+                                <td><label for=""><img style="width:40px;" src="../../img/oracleCard/card_cover/cover_angel.png" alt=""></td>
+                                <td>上架中</td>
+                                <td>2020/09/12</td>
                             </tr>
 
                             <tr>
@@ -55,38 +58,32 @@
 
                                             <tbody>
                                                 <tr>
-                                                    <td><label for="">神諭卡卡號:</label><input type="text"></td>
-                                                    <td><label for="">神諭卡名稱:</label><input type="text"></td>
-                                                    <td><label for="">神諭卡內容:</label><input type="text"></td>
-                                                    <td><label for="">神諭卡卡面:</label><input type="text"></td>
-                                                    <td><button>刪除</button></td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-default btn-sm">
-                                                            <i class="glyphicon glyphicon-cog"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
-                                    </div>
+                                                    <td><label for="">神諭卡片卡號:</label><input type="text"></td>
+                                <td><label for="">神諭卡名稱:</label><input type="text"></td>
+                                <td><label for="">神諭卡內容:</label><input type="text"></td>
+                                <td><label for="">神諭卡卡面:</label><input type="text"></td>
+                                <td><button>刪除</button></td>
+                                <td>
+                                    <a href="#" class="btn btn-default btn-sm">
+                                        <i class="glyphicon glyphicon-cog"></i>
+                                    </a>
                                 </td>
                             </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                </td>
+                </tr>
 
 
 
-                            <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
-                                <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open">編輯</span></button></td>
-                                <td>
-                                    神諭卡牌組號碼：
-                                    <select name="" id="" style="width:100px">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </td>
-                                <td><label for="">神諭卡卡背：</label><input type="text"></td>
-                                <td><label for="">上/下架</label><input type="checkbox"></td>
+                <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle trTitle">
+                    <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open">編輯</span></button></td>
+                    <td>牌組2</td>
+                    <td><label for=""><img style="width:40px;" src="../../img/oracleCard/card_cover/cover_heaven.png" alt=""></td>
+                                <td>上架中</td>
+                                <td>2020/09/12</td>
                             </tr>
                             <tr>
                                 <td colspan="6" class="hiddenRow">
@@ -95,65 +92,61 @@
 
                                             <tbody>
                                                 <tr>
-                                                    <td><label for="">神諭卡卡號:</label><input type="text"></td>
-                                                    <td><label for="">神諭卡名稱:</label><input type="text"></td>
-                                                    <td><label for="">神諭卡內容:</label><input type="text"></td>
-                                                    <td><label for="">神諭卡卡面:</label><input type="text"></td>
-                                                    <td><button>刪除</button></td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-default btn-sm">
-                                                            <i class="glyphicon glyphicon-cog"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr data-toggle="collapse" data-target="#demo3" class="accordion-toggle">
-                                <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open">編輯</span></button></td>
-                                <td>
-                                    神諭卡牌組號碼：
-                                    <select name="" id="" style="width:100px">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </td>
-                                <td><label for="">神諭卡卡背：</label><input type="text"></td>
-                                <td><label for="">上/下架</label><input type="checkbox"></td>
+                                                    <td><label for="">神諭卡片卡號:</label><input type="text"></td>
+                    <td><label for="">神諭卡名稱:</label><input type="text"></td>
+                    <td><label for="">神諭卡內容:</label><input type="text"></td>
+                    <td><label for="">神諭卡卡面:</label><input type="text"></td>
+                    <td><button>刪除</button></td>
+                    <td>
+                        <a href="#" class="btn btn-default btn-sm">
+                            <i class="glyphicon glyphicon-cog"></i>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+                </table>
+            </div>
+            </td>
+            </tr>
+
+
+            <tr data-toggle="collapse" data-target="#demo3" class="accordion-toggle trTitle">
+                <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open">編輯</span></button></td>
+                <td>牌組3</td>
+                <td><label for=""><img style="width:40px;" src="../../img/oracleCard/card_cover/cover_illustration.png" alt=""></td>
+                                <td>上架中</td>
+                                <td>2020/09/12</td>
                             </tr>
                             <tr>
                                 <td colspan="6" class="hiddenRow">
                                     <div id="demo3" class="accordian-body collapse">
                                         <table class="table table-striped">
-
+                                        
                                             <tbody>
                                                 <tr>
-                                                    <td><label for="">神諭卡卡號:</label><input type="text"></td>
-                                                    <td><label for="">神諭卡名稱:</label><input type="text"></td>
-                                                    <td><label for="">神諭卡內容:</label><input type="text"></td>
-                                                    <td><label for="">神諭卡卡面:</label><input type="text"></td>
-                                                    <td><button>刪除</button></td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-default btn-sm">
-                                                            <i class="glyphicon glyphicon-cog"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-
+                                                    <td><label for="">神諭卡片卡號:</label><input type="text"></td>
+                <td><label for="">神諭卡名稱:</label><input type="text"></td>
+                <td><label for="">神諭卡內容:</label><input type="text"></td>
+                <td><label for="">神諭卡卡面:</label><input type="text"></td>
+                <td><button>刪除</button></td>
+                <td>
+                    <a href="#" class="btn btn-default btn-sm">
+                        <i class="glyphicon glyphicon-cog"></i>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+            </table>
         </div>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
+
+    </div>
+
+    </div>
     </div>
 
 
