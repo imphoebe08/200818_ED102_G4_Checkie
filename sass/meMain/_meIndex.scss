@@ -1490,10 +1490,11 @@
                         align-items: center;
                         .inAct-date_icon {
                             margin-left: 10px;
-                            background-image: url("../img/icon/clock.png");
-                            @include bg;
-                            @include icon;
-                            opacity: 0.5;
+                            color: #7f7f82;
+                            //background-image: url("../img/icon/clock.png");
+                            //@include bg;
+                            //@include icon;
+                            //opacity: 0.5;
                         }
                         .inAct-date_text {
                             @include p;
@@ -1504,15 +1505,22 @@
                         display: flex;
                         align-items: center;
                         margin-right: 8px;
+                        >a {
+                            color: #7f7f82;
+                            transition: all .1s ease-in;
+                            &:hover {
+                                color: #6dbddf;
+                            }
+                        }
                         .inAct-icon_1 {
-                            background-image: url("../img/icon/share.png");
-                            @include bg;
-                            @include icon;
+                            //background-image: url("../img/icon/share.png");
+                            // @include bg;
+                            // @include icon;
                             margin-right: 5px; //
                         }
                         .inAct-icon_2 {
-                            background-image: url("../img/icon/bookmark.png");
-                            @include icon
+                            //background-image: url("../img/icon/bookmark.png");
+                            //@include icon
                         }
                     }
                 }
@@ -1576,15 +1584,20 @@
                     margin-right: 5px;
                 }
             }
-            p {
+            >.csS-art-title {
+                padding: 5px 10px;
+                cursor: pointer;
                 line-height: 1.5em;
-                padding: 5px 0;
-                padding: 10px;
+            }
+            p {
+                font-size: 12px;
+                padding: 2px 10px;
+                //padding: 10px;
                 cursor: pointer;
             }
             .card-tag {
                 flex-flow: nowrap row;
-                margin: 20px 0;
+                margin: 10px 0;
                 justify-content: flex-end;
                 >a {
                     flex: 1 0 80px;
@@ -1605,9 +1618,12 @@
                 padding: 0 10px 10px 0;
                 >a {
                     margin: 5px;
-                    >img {
-                        width: 20px;
-                        height: 20px;
+                    color: #888682;
+                    width: 20px;
+                    height: 20px;
+                    transition: all .1s ease-in;
+                    &:hover {
+                        color: #6dbddf;
                     }
                 }
             }
