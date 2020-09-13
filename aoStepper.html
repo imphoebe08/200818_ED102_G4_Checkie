@@ -18,9 +18,6 @@
     <!-- <link rel="stylesheet" type="text/css" href="./css/header.css" />
     <link rel="stylesheet" type="text/css" href="./css/chatbot.css" />
     <link rel="stylesheet" type="text/css" href="./css/footer.css" /> -->
-
-
-
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://kit.fontawesome.com/3a9b8bb651.js" crossorigin="anonymous"></script>
     <title>Document</title>
@@ -28,7 +25,7 @@
 
 <body id="nav3">
 
-    @@include('./template/header.html');
+    @@include('./template/header.html')
 
 
 
@@ -67,20 +64,20 @@
 
                                             <div class="col-12 ao-block_content">
                                                 <div class="pic_content">
-                                                    <img src="./img/acOrder/工作區域 2.png" alt="" class="img-fluid">
+                                                    <img :src="orderData.actPicContent" alt="" class="img-fluid">
                                                 </div>
                                                 <div class="intro_content">
                                                     <div class="intro_title">
-                                                        <h6>Lorem ipsum dolor sit amet consectetur.</h6>
+                                                        <h6>{{orderData.actName}}</h6>
                                                     </div>
                                                     <div class="intro_info">
                                                         <div class="intro_info-time">
-                                                            <span>2020/09/30</span>
-                                                            <span>19:00-20:00 (GTM+8)</span>
+                                                            <span>{{orderData.actStart}}</span>
+                                                            <span>{{orderData.actStartTime}}-{{orderData.actEndTime}}</span>
                                                         </div>
                                                         <div class="intro_info-location">
                                                             <p>
-                                                                320台灣桃園市中壢區福達路二段一巷56號
+                                                                {{orderData.actAddress}}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -88,21 +85,33 @@
                                                 </div>
                                             </div>
                                             <div class="col-12 ao-block_content">
-                                                <div class="row list_content">
-                                                    <div>
-                                                        <div>訂單資訊</div>
-                                                        <span>NT$</span>
-                                                        <span>100</span>
-                                                        <span>元</span>
+
+                                                <!-- ticket -->
+                                                <div class="row ao-ticket_block">
+                                                    <div class="ticket_block-bgc">
+                                                        <div class="ticket_block-colorDec"></div>
+                                                        <div class="ticket_block ticket_block-info">
+                                                            <span>{{orderData.actStart}}({{orderData.week}})</span>
+                                                            <br>
+                                                            <span>{{orderData.actStartTime}}-{{orderData.actEndTime}}</span>
+                                                            <div>
+                                                                <span>NT$</span>
+                                                                <span>{{price}}</span>
+
+                                                                <span>X{{ticket}}</span>
+                                                            </div>
+
+                                                            <span><button>更多資訊</button></span>
+                                                        </div>
+                                                        <div class="ticket_block ticket_block_button">
+                                                            <div class="circle"></div>
+                                                            <div class="ticket_button--style ticket_button-add" @click="add"><i class="fas fa-plus"></i></div>
+                                                            <div class="ticket_button--style ticket_button-min" @click="minus"><i class="fas fa-minus"></i></div>
+                                                        </div>
                                                     </div>
-                                                </div>
-
-
-                                                <div class="row ao-order_item list_content">
-                                                    <span>共計</span>
-                                                    <span>1500 <span>元</span></span>
 
                                                 </div>
+                                                <!-- ticket -->
                                             </div>
                                         </div>
 
@@ -121,7 +130,7 @@
                                                     <div>
                                                         <label for="memName">真實姓名<span>*</span></label>
                                                     </div>
-                                                    <input type="text" v-model="memName" :class="{ formControl:true,formatError: !memName && errors.length > 0}" name="memName" id="memName" placeholder="" required="yes" autocomplete="name">
+                                                    <input type="text" v-model="aoMember.memName" :class="{ formControl:true,formatError: !aoMember.memName && errors.length > 0}" name="memName" id="memName" placeholder="" required="yes" autocomplete="name">
                                                 </div>
 
 
@@ -129,7 +138,8 @@
                                                     <div>
                                                         <label for="memEmail">電子郵件<span>*</span></label>
                                                     </div>
-                                                    <input type="email" v-model="memEmail.value" :class="{ formControl:true,formatError: !memEmail.value && errors.length > 0}" name="memEmail" id="memEmail" required="yes" autocomplete="email" />
+                                                    <!-- <div>{{aoMember.memEmail}}</div> -->
+                                                    <input type="email" v-model="aoMember.memEmail" :class="{ formControl:true,formatError: !aoMember.memEmail && errors.length > 0}" name="memEmail" id="memEmail" required="yes" autocomplete="email" />
                                                 </div>
 
 
@@ -138,29 +148,12 @@
                                                         <label for="memTel">行動電話<span>*</span></label>
                                                     </div>
 
-                                                    <select name="memTel" :class="{ selectError: !memTel.countryCode && errors.length > 0}" v-model="memTel.countryCode" id="" autocomplete="tel-country-code">
+                                                    <input type="num" name="memTel" class="memTel_countryCode" :class="{ selectError: !aoMember.memTel.countryCode && errors.length > 0}" v-model="aoMember.memTel.countryCode" id="" autocomplete="tel-country-code" required="yes" maxlength="3" placeholder="886">
+                                                    <!-- <select name="memTel" :class="{ selectError: !memTel.countryCode && errors.length > 0}" v-model="memTel.countryCode" id="" autocomplete="tel-country-code">
                                                         <option data-countryCode="TW" value="886" Selected>Taiwan (+886)</option>
-                                                        <optgroup label="Other countries">
-                                                            <option data-countryCode="AM" value="374">Armenia (+374)</option>
-                                                            <option data-countryCode="AW" value="297">Aruba (+297)</option>
-                                                            <option data-countryCode="AU" value="61">Australia (+61)</option>
-                                                            <option data-countryCode="AT" value="43">Austria (+43)</option>
-                                                            <option data-countryCode="AZ" value="994">Azerbaijan (+994)</option>
-                                                            <option data-countryCode="BS" value="1242">Bahamas (+1242)</option>
-                                                            <option data-countryCode="CA" value="1">Canada (+1)</option>
-                                                            <option data-countryCode="DK" value="45">Denmark (+45)</option>
-                                                            <option data-countryCode="FR" value="33">France (+33)</option>
-                                                            <option data-countryCode="HK" value="852">Hong Kong (+852)</option>
-                                                            <option data-countryCode="JP" value="81">Japan (+81)</option>
-                                                            <option data-countryCode="KR" value="82">Korea South (+82)</option>
-                                                            <!-- <option data-countryCode="TW" value="886">Taiwan (+886)</option> -->
-                                                            <option data-countryCode="TH" value="66">Thailand (+66)</option>
-                                                            <option data-countryCode="GB" value="44">UK (+44)</option>
-                                                            <option data-countryCode="US" value="1">USA (+1)</option>
-                                                            
-                                                        </optgroup>
-                                                    </select>
-                                                    <input type="tel" v-model="memTel.mobile" class="formControl formControlWidth" name="memTel" id="memTel" :class="{ formatError: !memTel.mobile && errors.length > 0}" name="memTel" id="memTel" placeholder="9XXXXXXXX" required="yes" autocomplete="tel">
+                                                        
+                                                    </select> -->
+                                                    <input type="tel" v-model="aoMember.memTel.mobile" class="formControl formControlWidth" name="memTel" id="memTel" :class="{ formatError: !aoMember.memTel.mobile && errors.length > 0}" placeholder="9XXXXXXXX" required="yes" autocomplete="tel">
                                                     <!-- pattern="[0-9]{3}[ -][0-9]{3}[ -][0-9]{4}" -->
                                                 </div>
 
@@ -170,12 +163,12 @@
                                                         <label for="memGender">性別<span>*</span></label>
                                                     </div>
 
-                                                    <label class="radio" :class="{ radioError: !memGender && errors.length > 0}">
-                                                      <input type="radio" v-model="memGender" name="memGender" id="memGender" value="男"> 男
+                                                    <label class="radio" :class="{ radioError: !aoMember.memGender && errors.length > 0}">
+                                                      <input type="radio" v-model="aoMember.memGender" name="memGender" id="memGenderMale" value="男"> 男
                                                       <span class="checkmark"></span>
                                                 </label>
-                                                    <label class="radio" :class="{ radioError: !memGender && errors.length > 0}">
-                                                      <input type="radio" v-model="memGender" name="memGender" id="memGender" value="女"> 女
+                                                    <label class="radio" :class="{ radioError: !aoMember.memGender && errors.length > 0}">
+                                                      <input type="radio" v-model="aoMember.memGender" name="memGender" id="memGenderFemale" value="女"> 女
                                                       <span class="checkmark"></span>
                                                 </label>
                                                 </div>
@@ -186,7 +179,7 @@
                                                         <label for="memBD">年齡<span>*</span></label>
                                                     </div>
 
-                                                    <input type="number" class="form-control" v-model.number="memBD" :class="{ formControl:true, formatError: !memBD && errors.length > 0}" name="memBD" id="memBD" required="yes" autocomplete="bday">
+                                                    <input type="number" class="form-control" v-model.number="aoMember.memBD" :class="{ formControl:true, formatError: !aoMember.memBD && errors.length > 0}" name="memBD" id="memBD" required="yes" autocomplete="bday">
                                                 </div>
 
 
@@ -200,9 +193,6 @@
 
                                                 </div>
 
-                                                <!-- <div class="cos-selfForm_item">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                            </div> -->
                                             </form>
                                         </div>
                                     </div>
@@ -237,20 +227,20 @@
 
                                             <div class="col-12 ao-block_content">
                                                 <div class="pic_content">
-                                                    <img src="./img/acOrder/工作區域 2.png" alt="" class="img-fluid">
+                                                    <img :src="orderData.actPicContent" alt="" class="img-fluid">
                                                 </div>
                                                 <div class="intro_content">
                                                     <div class="intro_title">
-                                                        <h6>Lorem ipsum dolor sit amet consectetur.</h6>
+                                                        <h6>{{orderData.actName}}</h6>
                                                     </div>
                                                     <div class="intro_info">
                                                         <div class="intro_info-time">
-                                                            <span>2020/09/30</span>
-                                                            <span>19:00-20:00 (GTM+8)</span>
+                                                            <span>{{orderData.actStart}}</span>
+                                                            <span>{{orderData.actStartTime}}-{{orderData.actEndTime}}</span>
                                                         </div>
                                                         <div class="intro_info-location">
                                                             <p>
-                                                                320台灣桃園市中壢區福達路二段一巷56號
+                                                                {{orderData.actAddress}}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -259,19 +249,18 @@
                                             </div>
                                             <div class="col-12 ao-block_content">
                                                 <div class="row list_content">
-                                                    <div>
-                                                        <div>訂單資訊</div>
-                                                        <span>NT$</span>
-                                                        <span>100</span>
-                                                        <span>元</span>
-                                                    </div>
+                                                    <div>訂單資訊</div>
+
+                                                </div>
+                                                <div class="row list_content  list_content-actCost">
+                                                    <div>NT${{orderData.actCost}}元</div>
+                                                    <div>共{{ticket}}張</div>
                                                 </div>
 
 
                                                 <div class="row ao-order_item list_content">
                                                     <span>共計</span>
-                                                    <span>1500 <span>元</span></span>
-
+                                                    <span>{{price}} <span>元</span></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -283,31 +272,31 @@
                                             <table class="co-CheckOrder-table">
                                                 <tr>
                                                     <th>真實姓名</th>
-                                                    <td>{{memName}}</td>
+                                                    <td>{{aoMember.memName}}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>電子郵件</th>
-                                                    <td>{{memEmail.value}}</td>
+                                                    <td>{{aoMember.memEmail}}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>行動電話</th>
-                                                    <td><span>{{memTel.countryCode}}-{{memTel.mobile}}</span>
+                                                    <td><span>{{aoMember.memTel.countryCode}}-{{aoMember.memTel.mobile}}</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th>性別</th>
-                                                    <td>{{memGender}}</td>
+                                                    <td>{{aoMember.memGender}}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>年齡</th>
-                                                    <td>{{memBD}}</td>
+                                                    <td>{{aoMember.memBD}}</td>
                                                 </tr>
 
                                             </table>
 
 
                                             <div class="co-CheckOrder_title">訂單資訊</div>
-                                            <table class="co-CheckOrder-list">
+                                            <table class="co-billing_list">
                                                 <tr>
                                                     <th>項目</th>
                                                     <th>數量</th>
@@ -317,37 +306,30 @@
                                                 <tr>
                                                     <td data-title="項目">
                                                         <div>
-                                                            <span>2020/08/19</span>
-                                                            <span>上午10:30-12:00</span>
+                                                            <span>{{orderData.actStart}}</span>
+                                                            <br>
+                                                            <span class="aoHighLight">{{when}}</span>
+                                                            <span>{{orderData.actStartTime}}-{{orderData.actEndTime}}</span>
                                                         </div>
                                                         <div>
-                                                            <span>票卷可使用時間</span>
-                                                            <span>2020/02/19</span>
+                                                            <span>票卷購買時間</span>
+                                                            <span>{{now}}</span>
                                                         </div>
                                                     </td>
-                                                    <td data-title="數量">1</td>
+                                                    <td data-title="數量">{{ticket}}</td>
                                                     <td data-title="價格">
-                                                        <span>
-                                                        NT $
-                                                    </span>
-                                                        <span>
-                                                        1500
-                                                    </span>
+                                                        <span>NT ${{orderData.actCost}}</span>
                                                     </td>
                                                     <td data-title="小計">
-                                                        <span>
-                                                        NT $
-                                                    </span>
-                                                        <span>
-                                                        1500
-                                                    </span>
+                                                        <span>NT ${{price}}</span>
                                                     </td>
                                                 </tr>
                                             </table>
 
+
                                             <div class="co-CheckOrder_title">
                                                 <span>付款金額</span>
-                                                <span>NT$1500</span>
+                                                <span>NT${{price}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -375,20 +357,20 @@
 
                                             <div class="col-12 ao-block_content">
                                                 <div class="pic_content">
-                                                    <img src="./img/acOrder/工作區域 2.png" alt="" class="img-fluid">
+                                                    <img :src="orderData.actPicContent" alt="" class="img-fluid">
                                                 </div>
                                                 <div class="intro_content">
                                                     <div class="intro_title">
-                                                        <h6>Lorem ipsum dolor sit amet consectetur.</h6>
+                                                        <h6>{{orderData.actName}}</h6>
                                                     </div>
                                                     <div class="intro_info">
                                                         <div class="intro_info-time">
-                                                            <span>2020/09/30</span>
-                                                            <span>19:00-20:00 (GTM+8)</span>
+                                                            <span>{{orderData.actStart}}</span>
+                                                            <span>{{orderData.actStartTime}}-{{orderData.actEndTime}}</span>
                                                         </div>
                                                         <div class="intro_info-location">
                                                             <p>
-                                                                320台灣桃園市中壢區福達路二段一巷56號
+                                                                {{orderData.actAddress}}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -397,22 +379,22 @@
                                             </div>
                                             <div class="col-12 ao-block_content">
                                                 <div class="row list_content">
-                                                    <div>
-                                                        <div>訂單資訊</div>
-                                                        <span>NT$</span>
-                                                        <span>100</span>
-                                                        <span>元</span>
-                                                    </div>
+                                                    <div>訂單資訊</div>
+
+                                                </div>
+                                                <div class="row list_content  list_content-actCost">
+                                                    <div>NT${{orderData.actCost}}元</div>
+                                                    <div>共{{ticket}}張</div>
                                                 </div>
 
 
                                                 <div class="row ao-order_item list_content">
                                                     <span>共計</span>
-                                                    <span>1500 <span>元</span></span>
-
+                                                    <span>{{price}} <span>元</span></span>
                                                 </div>
                                             </div>
                                         </div>
+
 
                                     </div>
 
@@ -421,7 +403,7 @@
                                             <div class="co-billing_button">
                                                 <div>
                                                     <span>付款金額</span>
-                                                    <span>NT$1500</span>
+                                                    <span>NT${{price}}</span>
                                                 </div>
                                                 <toggle_button @childopen="parentOpen" name="1"></toggle_button>
                                             </div>
@@ -438,36 +420,29 @@
                                                         <tr>
                                                             <td data-title="項目">
                                                                 <div>
-                                                                    <span>2020/08/19</span>
-                                                                    <span>上午10:30-12:00</span>
+                                                                    <span>{{orderData.actStart}}</span>
+                                                                    <br>
+                                                                    <span class="aoHighLight">{{when}}</span>
+                                                                    <span>{{orderData.actStartTime}}-{{orderData.actEndTime}}</span>
                                                                 </div>
                                                                 <div>
-                                                                    預約時數1.5小時
+                                                                    <span>票卷購買時間</span>
+                                                                    <span>{{now}}</span>
                                                                 </div>
                                                             </td>
-                                                            <td data-title="數量">1</td>
+                                                            <td data-title="數量">{{ticket}}</td>
                                                             <td data-title="價格">
-                                                                <span>
-                                                        NT $
-                                                    </span>
-                                                                <span>
-                                                        1500
-                                                    </span>
+                                                                <span>NT ${{orderData.actCost}}</span>
                                                             </td>
                                                             <td data-title="小計">
-                                                                <span>
-                                                        NT $
-                                                    </span>
-                                                                <span>
-                                                        1500
-                                                    </span>
+                                                                <span>NT ${{price}}</span>
                                                             </td>
                                                         </tr>
                                                     </table>
 
                                                     <div class="co-billing_title">
                                                         <span>付款金額</span>
-                                                        <span>NT$1500</span>
+                                                        <span>NT${{price}}</span>
                                                     </div>
                                                 </div>
                                             </transition>
@@ -482,17 +457,17 @@
                                                     <i class="fas fa-globe"></i>
                                                     <span>線上付款</span>
                                                 </div>
-                                                <div class="co-billing_method">
+                                                <div class="co-billing_method" @click="payment($event)">
                                                     <i class="fab fa-cc-visa"></i>
-                                                    <span>信用卡 - VISA / Master Card / JBC</span>
+                                                    <span>{{paymentMethod[0].pmName}}</span>
                                                 </div>
-                                                <div class="co-billing_method">
+                                                <div class="co-billing_method" @click="payment($event)">
                                                     <i class="fab fa-line"></i>
-                                                    <span>LINE PAY</span>
+                                                    <span>{{paymentMethod[1].pmName}}</span>
                                                 </div>
-                                                <div class="co-billing_method">
+                                                <div class="co-billing_method" @click="payment($event)">
                                                     <i class="fab fa-paypal"></i>
-                                                    <span>街口支付</span>
+                                                    <span>{{paymentMethod[2].pmName}}</span>
                                                 </div>
                                             </div>
                                             <div class="co-billing-payment">
@@ -500,13 +475,13 @@
                                                     <i class="fas fa-globe"></i>
                                                     <span>線下付款</span>
                                                 </div>
-                                                <div class="co-billing_method">
+                                                <div class="co-billing_method" @click="payment($event)">
                                                     <i class="fas fa-ad"></i>
-                                                    <span>全家代碼－全家FamiPort</span>
+                                                    <span>{{paymentMethod[3].pmName}}</span>
                                                 </div>
-                                                <div class="co-billing_method">
+                                                <div class="co-billing_method" @click="payment($event)">
                                                     <i class="fas fa-university"></i>
-                                                    <span>ATM轉帳－國泰世華銀行</span>
+                                                    <span>{{paymentMethod[4].pmName}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -516,7 +491,7 @@
                                 <div class="row">
                                     <div class="col-md-8 offset-md-4 cos-selfForm_item co-button--style" id="step4">
                                         <c-btn @click="update(currentStep-1)">prev</c-btn>
-                                        <c-btn @click="update(currentStep+1);qrCode(memTel.mobile);">next</c-btn>
+                                        <c-btn @click="update(currentStep+1) ; qrCode();checkOut()">確認訂購</c-btn>
                                         <!-- ;qrCode(memTel.mobile); -->
                                     </div>
                                 </div>
@@ -583,7 +558,7 @@
 
     <!--------CC-CODE-------->
 
-    @@include('./template/footer.html');
+    @@include('./template/footer.html')
 
 
 
@@ -593,6 +568,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="./js/aoStepper.js"></script>
 
 
