@@ -73,6 +73,8 @@
 
             ul {
                 padding: 0 0 10px;
+                overflow-y: auto;
+                max-height: 200px;
 
                 li {
                     text-indent: -8px;
@@ -480,6 +482,8 @@
             padding: 5px 10px;
             background: white;
             border-radius: 20px 20px 20px 20px;
+            height: 120px;
+            overflow-y: auto;
 
             p {
                 line-height: 1.5rem;
