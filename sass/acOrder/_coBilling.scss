@@ -34,37 +34,37 @@
         }
         >div {
             width: 100%;
-            .co-billing_list {
-                width: 100%;
-                border-bottom: #ccc solid 1px;
-                tr {
-                    height: 30px;
-                    text-align: left;
-                    line-height: 30px;
-                    th {
-                        padding: 10px 15px;
-                        background-color: #ccc;
-                    }
-                    th:nth-child(1) {
-                        // border: steelblue solid 1px;
-                        width: 45%;
-                    }
-                    th:nth-child(2) {
-                        // border: tomato solid 1px;
-                        width: 15%;
-                    }
-                    th:nth-child(3) {
-                        // border: turquoise solid 1px;
-                        width: 20%;
-                    }
-                    th:nth-child(4) {
-                        width: 20%;
-                    }
-                    td {
-                        padding: 15px;
-                    }
-                }
-            }
+            // .co-billing_list {
+            //     width: 100%;
+            //     border-bottom: #ccc solid 1px;
+            //     tr {
+            //         height: 30px;
+            //         text-align: left;
+            //         line-height: 30px;
+            //         th {
+            //             padding: 10px 15px;
+            //             background-color: #ccc;
+            //         }
+            //         th:nth-child(1) {
+            //             // border: steelblue solid 1px;
+            //             width: 45%;
+            //         }
+            //         th:nth-child(2) {
+            //             // border: tomato solid 1px;
+            //             width: 15%;
+            //         }
+            //         th:nth-child(3) {
+            //             // border: turquoise solid 1px;
+            //             width: 20%;
+            //         }
+            //         th:nth-child(4) {
+            //             width: 20%;
+            //         }
+            //         td {
+            //             padding: 15px;
+            //         }
+            //     }
+            // }
             .co-billing_title {
                 width: 100%;
                 // border: violet solid 1px;
@@ -80,6 +80,7 @@
             padding: 5px 0;
         }
         .co-billing-payment {
+            cursor: pointer;
             margin: 20px 0;
             color: rgb(148, 148, 148);
             border: #ccc solid 1px;
@@ -92,6 +93,42 @@
                 padding: 15px 6%;
                 border-bottom: #ccc solid 1px;
             }
+            .paymentIWant {
+                background-color: rgb(148, 148, 148);
+                color: white;
+            }
+        }
+    }
+}
+
+.co-billing_list {
+    width: 100%;
+    border-bottom: #ccc solid 1px;
+    tr {
+        height: 30px;
+        text-align: left;
+        line-height: 30px;
+        th {
+            padding: 10px 15px;
+            background-color: #ccc;
+        }
+        th:nth-child(1) {
+            // border: steelblue solid 1px;
+            width: 45%;
+        }
+        th:nth-child(2) {
+            // border: tomato solid 1px;
+            width: 15%;
+        }
+        th:nth-child(3) {
+            // border: turquoise solid 1px;
+            width: 20%;
+        }
+        th:nth-child(4) {
+            width: 20%;
+        }
+        td {
+            padding: 15px;
         }
     }
 }

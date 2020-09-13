@@ -68,71 +68,70 @@
     }
 }
 
-.ao-block {
-    .ao-ticket_block {
-        .ticket_block-bgc {
-            width: 100%;
-            background-color: rgba(229, 236, 238, 0.701);
-            display: flex;
-            justify-content: space-between;
-            .ticket_block {
-                margin: 20px;
-                vertical-align: top;
-            }
-            .ticket_block-colorDec {
-                height: 100%;
-                width: 2%;
-                background-color: $color-blue;
-            }
-            .ticket_block-info {
-                border: #b22222 solid 1px;
-                width: 70%;
-                >span {
-                    @include p;
-                    >button {
-                        border: none;
-                        color: $color-blue;
-                    }
-                }
-                >div {
-                    >span {
-                        @include p;
-                    }
-                    span:nth-child(3) {
-                        color: $color-blue;
-                    }
-                }
-            }
-            .ticket_block_button {
-                border-radius: 30px;
-                overflow: hidden;
-                width: 60px;
-                // border: goldenrod solid 1px;
-                >button {
-                    font-size: 20px;
-                    color: white;
-                    height: 40px;
-                    cursor: pointer;
-                    border: none;
-                    background-color: $color-blue;
-                    width: 100%;
-                    background-color: none;
-                    display: block;
-                    &:active {
-                        box-shadow: inset 0px 0px 10px #6895a96b;
-                    }
-                }
-                .ticket_button-add {
-                    border-radius: 70px 70px 0 0;
-                }
-                .ticket_button-min {
-                    border-radius: 0px 0px 70px 70px;
-                }
-            }
-        }
-    }
-}
-
+// .ao-block {
+//     .ao-ticket_block {
+//         .ticket_block-bgc {
+//             width: 100%;
+//             background-color: rgba(229, 236, 238, 0.701);
+//             display: flex;
+//             justify-content: space-between;
+//             .ticket_block {
+//                 margin: 20px;
+//                 vertical-align: top;
+//             }
+//             .ticket_block-colorDec {
+//                 height: 100%;
+//                 width: 2%;
+//                 background-color: $color-blue;
+//             }
+//             .ticket_block-info {
+//                 border: #b22222 solid 1px;
+//                 width: 70%;
+//                 >span {
+//                     @include p;
+//                     >button {
+//                         border: none;
+//                         color: $color-blue;
+//                     }
+//                 }
+//                 >div {
+//                     >span {
+//                         @include p;
+//                     }
+//                     span:nth-child(3) {
+//                         color: $color-blue;
+//                     }
+//                 }
+//             }
+//             .ticket_block_button {
+//                 border-radius: 30px;
+//                 overflow: hidden;
+//                 width: 60px;
+//                 // border: goldenrod solid 1px;
+//                 >button {
+//                     font-size: 20px;
+//                     color: white;
+//                     height: 40px;
+//                     cursor: pointer;
+//                     border: none;
+//                     background-color: $color-blue;
+//                     width: 100%;
+//                     background-color: none;
+//                     display: block;
+//                     &:active {
+//                         box-shadow: inset 0px 0px 10px #6895a96b;
+//                     }
+//                 }
+//                 .ticket_button-add {
+//                     border-radius: 70px 70px 0 0;
+//                 }
+//                 .ticket_button-min {
+//                     border-radius: 0px 0px 70px 70px;
+//                 }
+//             }
+//         }
+//     }
+// }
 .aoCheck-footer {
     background-color: white;
     box-shadow: 0 -3px 15px rgba(75, 83, 94, 0.3);

@@ -10,21 +10,21 @@
 .ao-block_content {
     .list_content {
         padding: 10px;
+        //border: solid 1px darkblue;
     }
     // border: violet solid 1px;
-    >div {
-        >div {
-            >div {
-                padding: 12px 0;
-            }
-        }
-    }
-    .ao-order_item {
-        border-top: 1px solid #ccc;
-        margin-top: 15px;
-        padding: 10px 10px;
-        @include flex(space-between);
-    }
+}
+
+.ao-order_item {
+    border-top: 1px solid #ccc;
+    margin-top: 15px;
+    padding: 10px 10px;
+    @include flex(space-between);
+}
+
+.list_content-actCost {
+    padding: 12px 0;
+    @include flex(space-between);
 }
 
 .cos-selfForm_item--border {
@@ -78,5 +78,85 @@
         height: 2px;
         box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
         transform: rotate(45deg);
+    }
+}
+
+.aoHighLight {
+    background-color: $color-pink;
+    color: white;
+    padding: 1px 5px;
+    border-radius: 3px;
+}
+
+.ao-ticket_block {
+    .ticket_block-bgc {
+        width: 100%;
+        background-color: rgba(229, 236, 238, 0.701);
+        display: flex;
+        justify-content: space-between;
+        .ticket_block {
+            margin: 20px;
+            vertical-align: top;
+        }
+        .ticket_block-colorDec {
+            height: 100%;
+            width: 2%;
+            background-color: $color-blue;
+        }
+        .ticket_block-info {
+            //border: #b22222 solid 10px;
+            width: 70%;
+            >span {
+                @include p;
+                >button {
+                    border: none;
+                    color: $color-blue;
+                }
+            }
+            >div {
+                >span {
+                    @include p;
+                }
+                span:nth-child(3) {
+                    color: $color-blue;
+                }
+            }
+        }
+        .ticket_block_button {
+            border-radius: 30px;
+            overflow: hidden;
+            width: 60px;
+            // border: goldenrod solid 1px;
+            >div.ticket_button--style {
+                height: 40px;
+                cursor: pointer;
+                border: none;
+                background-color: $color-blue;
+                width: 100%;
+                background-color: none;
+                display: block;
+                //border: solid 1px violet;
+                position: relative;
+                &:hover {
+                    background-color: $color-blue;
+                }
+                &:active {
+                    box-shadow: inset 0px 0px 10px #6895a96b;
+                }
+                >i {
+                    position: absolute;
+                    top: 10px;
+                    left: 32%;
+                    font-size: 20px;
+                    color: white;
+                }
+            }
+            .ticket_button-add {
+                border-radius: 70px 70px 0 0;
+            }
+            .ticket_button-min {
+                border-radius: 0px 0px 70px 70px;
+            }
+        }
     }
 }
