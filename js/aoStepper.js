@@ -205,6 +205,8 @@ Vue.component('toggle_button', {
 let vm = new Vue({
     el: '#app',
     data: () => ({
+        orderNum: [],
+        acPayment: '',
         paymentMethod: [],
         total: '',
         aoMember: [],
@@ -267,9 +269,13 @@ let vm = new Vue({
         //     creatQrCode();
         // },
         qrCode() {
-            const qrCode_name = document.getElementById("qrCode");
-            console.log('haha');
-            //console.log(qrCode_name)
+            setTimeout(function() {
+                    var qrCode = new QRCode("qrCode");
+                    qrCode.makeCode('123');
+                }, 400)
+                // while (document.getElementById('qrCode').childNodes.length >= 1) {
+                //     document.getElementById('qrCode').removeChild(document.getElementById('qrCode').firstChild);
+                // };
 
         },
         saveQrCode() {
@@ -305,7 +311,7 @@ let vm = new Vue({
                 this.ticket = 1;
             }
         },
-        payment(e) {
+        payment(e, i) {
             var l = document.querySelectorAll('div.co-billing_method');
             //console.log(l.length);
             for (let i = 0; i < l.length; i++) {
@@ -313,38 +319,51 @@ let vm = new Vue({
             }
             //l.classList.$remove('paymentIWant');
             e.currentTarget.classList.toggle('paymentIWant');
+            this.acPayment = i;
+
         },
         checkOut() {
-            console.log('haha');
+            //console.log("aaa");
             //送出會員修改資料
             var formData = new FormData();
-            formData.append('memNo', this.aoMember.memNo);
-            formData.append('acName', this.aoMember.memName);
-            formData.append('acGender', this.aoMember.memGender);
-            formData.append('acBD', this.aoMember.memBD);
-            formData.append('acEmail', this.aoMember.memOccupation);
-            formData.append('acTelA', this.aoMember.memTel.countryCode);
-            formData.append('acTelB', this.aoMember.memTel.mobile);
-            formData.append('actNo', this.orderData.actNo);
-            formData.append('acTicket', this.ticket);
-            formData.append('acPrice', this.total);
-            formData.append('acPayment', this.total);
+            formData.append("memNo", this.aoMember.memNo);
+            formData.append("acName", this.aoMember.memName);
+            formData.append("acGender", this.aoMember.memGender);
+            formData.append("acBD", this.aoMember.memBD);
+            formData.append("acEmail", this.aoMember.memEmail);
+            formData.append("acTelA", this.aoMember.memTel.countryCode);
+            formData.append("acTelB", this.aoMember.memTel.mobile);
+            formData.append("actNo", this.orderData.actNo);
+            formData.append("acTicket", this.ticket);
+            formData.append("acPrice", this.total);
+            formData.append("acPayment", this.acPayment);
             axios.post('./php/aoStepper.php', formData).then(
                 res => {
-                    console.log(res);
-                }
-            )
+                    console.log('hi')
+                    console.log(res.data);
+                });
+
+
+            var formData2 = new FormData();
+            formData2.append("memNo", this.aoMember.memNo);
+            axios.post('./php/acOrderNumber.php', formData2).then(
+                res => {
+                    //console.log(res.data);
+                    this.orderNum = res.data;
+                    console.log(this.orderNum.actONo);
+                });
+            // axios.get('./php/acOrderNumber.php')
+            //     .then(response => {
+            //         this.orderNum = response.data;
+            //         console.log(this.orderNum.actONo);
+
+            //     });
+
         },
     },
     updated() {
-        if (this.currentStep == 4) {
-            var str = this.aoMember.memNo + this.orderData.actNo;
-            //console.log(str);
-            setTimeout(function() {
-                var qrCode = new QRCode("qrCode");
-                qrCode.makeCode(str);
-            }, 400)
-        }
+
+
     },
     computed: {
         price() {
@@ -372,17 +391,20 @@ let vm = new Vue({
         }
     },
     mounted() {
+        //活動
         axios.get('./php/aoOrder.php')
             .then(response => {
                 this.orderData = response.data;
-                console.log(response);
-                console.log(this.orderData);
+                // console.log(response);
+                // console.log(this.orderData);
             });
+        //付費方式
         axios.get('./php/paymentMethod.php')
             .then(res => {
                 this.paymentMethod = res.data;
                 // console.log(this.paymentMethod);
             });
+        //會員資料
         axios.get('./php/aoMember.php')
             .then(res => {
                 this.aoMember = res.data;
@@ -394,6 +416,8 @@ let vm = new Vue({
                     'mobile': telArray[1],
                 };
 
+                alert(this.aoMember.memTel.countryCode);
+                //算年紀
                 //console.log(this.aoMember.memBD);
                 var bir = res.data.memBD;
                 bir = Date.parse(bir.replace('/-/g', "/"));

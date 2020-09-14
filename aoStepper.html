@@ -13,7 +13,7 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.js"></script>
-    <script src="./js/header.js"></script>
+    <!-- <script src="./js/header.js"></script> -->
     <script src="./js/chatbot.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="./css/header.css" />
     <link rel="stylesheet" type="text/css" href="./css/chatbot.css" />
@@ -457,15 +457,15 @@
                                                     <i class="fas fa-globe"></i>
                                                     <span>線上付款</span>
                                                 </div>
-                                                <div class="co-billing_method" @click="payment($event)">
+                                                <div class="co-billing_method" @click="payment($event,1)">
                                                     <i class="fab fa-cc-visa"></i>
                                                     <span>{{paymentMethod[0].pmName}}</span>
                                                 </div>
-                                                <div class="co-billing_method" @click="payment($event)">
+                                                <div class="co-billing_method" @click="payment($event,2)">
                                                     <i class="fab fa-line"></i>
                                                     <span>{{paymentMethod[1].pmName}}</span>
                                                 </div>
-                                                <div class="co-billing_method" @click="payment($event)">
+                                                <div class="co-billing_method" @click="payment($event,3)">
                                                     <i class="fab fa-paypal"></i>
                                                     <span>{{paymentMethod[2].pmName}}</span>
                                                 </div>
@@ -475,11 +475,11 @@
                                                     <i class="fas fa-globe"></i>
                                                     <span>線下付款</span>
                                                 </div>
-                                                <div class="co-billing_method" @click="payment($event)">
+                                                <div class="co-billing_method" @click="payment($event,4)">
                                                     <i class="fas fa-ad"></i>
                                                     <span>{{paymentMethod[3].pmName}}</span>
                                                 </div>
-                                                <div class="co-billing_method" @click="payment($event)">
+                                                <div class="co-billing_method" @click="payment($event,5)">
                                                     <i class="fas fa-university"></i>
                                                     <span>{{paymentMethod[4].pmName}}</span>
                                                 </div>
@@ -491,7 +491,7 @@
                                 <div class="row">
                                     <div class="col-md-8 offset-md-4 cos-selfForm_item co-button--style" id="step4">
                                         <c-btn @click="update(currentStep-1)">prev</c-btn>
-                                        <c-btn @click="update(currentStep+1) ; qrCode();checkOut()">確認訂購</c-btn>
+                                        <c-btn @click="update(currentStep+1) ; qrCode();checkOut();">確認訂購</c-btn>
                                         <!-- ;qrCode(memTel.mobile); -->
                                     </div>
                                 </div>
@@ -507,7 +507,7 @@
                                     </div>
                                     <div class="col-12 co-review_block">
                                         <h5>預約編號：</h5>
-                                        <h5>2002</h5>
+                                        <h5>{{orderNum.actONo}}</h5>
                                     </div>
                                     <div class="cos-counselor-review col-sm-12">
                                         <div class="row justify-content-center align-items-center qr_block">
@@ -565,7 +565,8 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
