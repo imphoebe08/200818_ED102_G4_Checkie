@@ -599,7 +599,7 @@ let vm = new Vue({
                         vm.$data.meChatAn = json;
                     }
                 } else {
-                    alert(xhr.status);
+                    // alert(xhr.status);
                 }
             }
 

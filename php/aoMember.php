@@ -4,6 +4,7 @@ try{
     require_once("./connectBook.php");
 
     $sql ="select  memAdd,
+                memNo,
                 memBD,
                 memEmail,
                 memGender,

@@ -5,29 +5,27 @@ try{
 
     $sql = "
     select  actNo, 
-            actStart 'actStartAll',
-            date(actStart) 'actStart',
-            date(actEnd) 'actEnd', 
-            time(actStart) 'actStartTime', 
-            time(actEnd) 'actEndTime',
-            hour(timediff(time(actEnd),time(actStart))) 'hour',
-            minute(timediff(time(actEnd),time(actStart))) 'minute', 
-            actName, 
-            actHost, 
-            actHostTitle , 
-            actCost ,
-            actAddress,
-            actPicContent,
-            actMin,
-            actCount,
-            actMax,
-            weekday(actStart) 'week'
-    from  activity b left join actPic c using(actNo) 
-    where actNo = 9 and actPicNo = (select min(actPicNo)
-    from  activity b left join actPic c using(actNo) 
-                                    from actPic
-                                    where actNo = 9)
-    group by actNo";
+    actStart 'actStartAll',
+    date(actStart) 'actStart',
+    date(actEnd) 'actEnd', 
+    time(actStart) 'actStartTime', 
+    time(actEnd) 'actEndTime',
+    hour(timediff(time(actEnd),time(actStart))) 'hour',
+    minute(timediff(time(actEnd),time(actStart))) 'minute', 
+    actName, 
+    actHost, 
+    actHostTitle , 
+    actCost ,
+    actAddress,
+    actPicContent,
+    actMin,
+    actCount,
+    actMax,
+    weekday(actStart) 'week'
+from  activity b left join actPic c using(actNo) 
+where actNo = 9 and actPicNo = (select min(actPicNo)
+                            from actPic
+                            where actNo = 9);";
 
     $memberOrder = $pdo->prepare($sql);
     // 正確做法
