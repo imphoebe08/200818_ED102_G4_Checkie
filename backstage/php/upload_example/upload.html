@@ -26,9 +26,9 @@
 
     <div id="app">
         <input type="file" ref="file" name="file" id="file" @change="fileUpload">
-
+        <label for="file">
         <img :src="fileUrl || 'https://www.csmu.edu.tw/var/file/0/1000/plugin/mobile/pictures/linkdet_1567_64639_22966.jpg'"
-            alt="">
+            alt=""></label>
     </div>
 </body>
 
@@ -65,7 +65,7 @@
                     formData).then((res) => {
                     // 抓到圖片儲存位址可以再回來改src
                     this.fileUrl = res.data;
-                }).catch(function () {
+                }).catch(function() {
                     console.log('FAILURE!!');
                 });
             }
