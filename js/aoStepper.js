@@ -373,8 +373,9 @@ let vm = new Vue({
             return this.total;
         },
         when() {
+            console.log(this.orderData.actStartAll);
             var day = new Date(this.orderData.actStartAll);
-            //console.log(day);
+            console.log(day);
             var hourNow = day.getHours();
             //console.log(hourNow);
             if (hourNow < 12) {
@@ -416,7 +417,7 @@ let vm = new Vue({
                     'mobile': telArray[1],
                 };
 
-                alert(this.aoMember.memTel.countryCode);
+                //alert(this.aoMember.memTel.countryCode);
                 //算年紀
                 //console.log(this.aoMember.memBD);
                 var bir = res.data.memBD;
