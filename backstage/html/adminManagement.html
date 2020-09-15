@@ -35,7 +35,6 @@
                 <div class="card ">
                     <div class="card-body" style=" overflow-x: auto;">
                         <div class="insert">
-                            <input type="text" placeholder="編號" v-model.trim.number="newData.admNo" class="insertNew">
                             <input type="text" placeholder="名稱" v-model.trim="newData.admName" class="insertNew">
                             <input type="text" placeholder="帳號" v-model.trim="newData.admId" class="insertNew">
                             <input type="password" placeholder="密碼" v-model.trim="newData.admPsn" class="insertNew">
@@ -52,7 +51,7 @@
                                     <th>刪除</th>
                                 </tr>
                             </thead>
-                            <tbody is="input-layout" :transport-data="transport"></tbody>
+                            <tbody is="input-layout" :transport-data="transport" ref="childComponent"></tbody>
                         </table>
                     </div>
                 </div>
@@ -108,14 +107,14 @@
             },
             methods: {
                 getMemberData() {
-                    // axios.get('抓取管理員資料的php.php')
-                    //     .then((res) => {
-                    //         console.log('管理員資料抓取成功');
-                    //         this.memberData = res.data;
-                    //     })
-                    //     .catch((error) => {
-                    //         console.error(error)
-                    //     })
+                    axios.get('./php/getAdmin.php')
+                        .then((res) => {
+                            console.log('管理員資料抓取成功');
+                            this.memberData = res.data;
+                        })
+                        .catch((error) => {
+                            console.error(error)
+                        })
                 },
                 editToggle(e, index) {
                     let input = document.querySelectorAll(`.buttonGroup${index}`);
@@ -148,36 +147,37 @@
                 },
                 deleteData(e, index) {
                     let check = confirm(`確認刪除會員編號 ${this.memberData[index].admNo} 的資料嗎?`);
-                    if (check)
-                        this.memberData.splice(index, 1);
-                    //使用axios=> delete
-                    // axios.get('修改管理員資料的php.php', {
-                    //         params: {
-                    //             admNo: this.memberData[index].admNo
-                    //         }
-                    //     })
-                    //     .then((res) => {
-                    //         console.log('管理員刪除成功')
-                    //     })
-                    //     .catch((error) => {
-                    //         console.error(error)
-                    //     })
+                    if (check) {
+                        axios.get('./php/deleteAdmin.php', {
+                                params: {
+                                    admNo: this.memberData[index].admNo
+                                }
+                            })
+                            .then((res) => {
+                                console.log(res.data);
+                                this.getMemberData();
+                            })
+                            .catch((error) => {
+                                console.error(error)
+                            })
+                    }
+
                 },
                 updateMemInfo(index) {
-                    // axios.get('修改管理員資料的php.php', {
-                    //         params: {
-                    //             admNo: this.memberData[index].admNo,
-                    //             admName: this.memberData[index].admName,
-                    //             admId: this.memberData[index].admId,
-                    //             admPsn: this.memberData[index].admPsn
-                    //         }
-                    //     })
-                    //     .then((res) => {
-                    //         console.log('管理員更新成功')
-                    //     })
-                    //     .catch((error) => {
-                    //         console.error(error)
-                    //     })
+                    axios.get('./php/updateAdmin.php', {
+                            params: {
+                                'admNo': this.memberData[index].admNo,
+                                'admName': this.memberData[index].admName,
+                                'admId': this.memberData[index].admId,
+                                'admPsn': this.memberData[index].admPsn
+                            }
+                        })
+                        .then((res) => {
+                            console.log(res.data);
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        })
                 },
             },
             watch: {
@@ -195,7 +195,6 @@
             el: "#bgMem",
             data: {
                 newData: {
-                    admNo: "",
                     admName: "",
                     admId: "",
                     admPsn: ""
@@ -204,9 +203,22 @@
             },
             methods: {
                 insertData() {
-                    this.transport = JSON.parse(JSON.stringify(this.newData)); //將新增區域的值送到元件
-                    this.newData = {}; //清除新增區域的placeholder
                     //使用axios=> insert
+                    axios.get('./php/insertAdmin.php', {
+                            params: {
+                                'admName': this.newData.admName,
+                                'admId': this.newData.admId,
+                                'admPsn': this.newData.admPsn
+                            }
+                        })
+                        .then((res) => {
+                            console.log(res.data);
+                            this.newData = {}; //清除新增區域的placeholder
+                            this.$refs.childComponent.getMemberData();
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        })
                 }
             }
         });

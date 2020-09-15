@@ -20,6 +20,35 @@
     img.rotateMe {
         transform: rotate(180deg);
     }
+
+    ul.pageNumbers {
+        margin: 10px auto 30px;
+        list-style: none;
+        display: flex;
+        flex-flow: nowrap row;
+        justify-content: center;
+    }
+
+    ul.pageNumbers>li {
+        width: 20px;
+        height: 20px;
+        margin: 0 10px;
+    }
+
+    ul.pageNumbers>input {
+        display: none;
+    }
+
+    ul.pageNumbers>input:checked+li {
+        color: red;
+    }
+
+    ul.pageNumbers>li>label {
+        width: 30px;
+        font-size: 18px;
+        cursor: pointer;
+        text-align: center;
+    }
 </style>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -37,46 +66,53 @@
                     @click="isInsertTableShow = !isInsertTableShow; resetTable();">{{isInsertTableShow?"關閉新增":"新增表單"}}</button>
                 <table v-if="isInsertTableShow">
                     <tr class="buttonGroup">
-                        <td><label for="csNo">編號:</label>
-                            <input style="width: auto;" type="number" placeholder="編號" v-model.trim="newData.csNo"
-                                id="csNo"></td>
-                        <td><label for="csId">帳號:</label>
-                            <input style="width: auto;" type="text" placeholder="帳號" v-model.trim="newData.csId"
+                        <td><label for="csId">帳號:</label></td>
+                        <td><label for="csPsd">密碼:</label></td>
+                        <td><label for="csName">名稱:</label></td>
+                        <td><label for="csPosNo">服務地區：</label></td>
+                    </tr>
+                    <tr>
+                        <td><input style="width: auto;" type="text" placeholder="帳號" v-model.trim="newData.csId"
                                 id="csId"></td>
-                        <td><label for="csPsn">密碼:</label>
-                            <input style="width: auto;" type="password" placeholder="密碼" v-model.trim="newData.csPsn"
-                                id="csPsn">
-                        </td>
-                        <td><label for="csName">名稱:</label>
-                            <input style="width: auto;" type="text" placeholder="名稱" v-model.trim="newData.csName"
-                                id="csName">
-                        </td>
+                        <td><input style="width: auto;" type="password" placeholder="密碼" v-model.trim="newData.csPsd"
+                                id="csPsd"></td>
+                        <td><input style="width: auto;" type="text" placeholder="名稱" v-model.trim="newData.csName"
+                                id="csName"></td>
+                        <td><select v-model.trim="newData.csPosNo" id="csPosNo">
+                                <option value="1">北部</option>
+                                <option value="2">中部</option>
+                                <option value="3">南部</option>
+                            </select></td>
                     </tr>
                     <tr class="buttonGroup">
-                        <td><label for="csBD">生日:</label>
-                            <input style="width: auto;" type="text" placeholder="生日" v-model.trim="newData.csBD"
-                                id="csBD"></td>
-                        <td><label for="csGender">性別:</label>
-                            <select style="width: auto;" v-model.trim="newData.csGender"
+                        <td><label for="csBD">生日:</label></td>
+                        <td><label for="csGender">性別:</label></td>
+                        <td><label for="csTel">電話:</label></td>
+                        <td><label for="email">Email:</label></td>
+                        <td colspan="2">照片:</td>
+                        <td><label for="csBool">狀態</label></td>
+                    </tr>
+                    <tr>
+                        <td><input style="width: auto;" type="text" placeholder="1970-01-01" v-model.trim="newData.csBD"
+                                id="csBD">
+                        </td>
+                        <td><select style="width: auto;" v-model.trim="newData.csGender"
                                 @change="updateCsGenderBool(index)" id="csGender">
                                 <option value="m">男</option>
                                 <option value="f">女</option>
                             </select></td>
-                        <td><label for="csTel">電話:</label>
-                            <input style="width: auto;" type="text" placeholder="電話" v-model.trim="newData.csTel"
+                        <td><input style="width: auto;" type="text" placeholder="電話" v-model.trim="newData.csTel"
                                 id="csTel"></td>
-                        <td><label for="email">Email:</label>
-                            <input type="text" placeholder="Email" v-model="newData.csEmail" id="email">
+                        <td><input type="text" placeholder="Email" v-model="newData.csEmail" id="email">
                         </td>
                         <td colspan="2">
                             <input type="file" name="file" id="file0" @change="fileUpload($event, -1)"
                                 style="display:none;">
                             <label for="file0">上傳圖片<img :src="newData.csPic" alt="照片"
                                     style="object-fit: cover;width: 50px;height: 50px;"></label>
-
                         </td>
-                        <td><label for="csBool">狀態</label>
-                            <select v-model.trim="newData.csBool" id="csBool">
+
+                        <td><select v-model.trim="newData.csBool" id="csBool">
                                 <option value="0">正常</option>
                                 <option value="1">停權</option>
                             </select></td>
@@ -84,7 +120,7 @@
                     <tr class="buttonGroup">
                         <td colspan="2"><textarea cols="20" rows="5" placeholder="學歷"
                                 v-model.trim="newData.csEdu"></textarea></td>
-                        <td colspan="4"><textarea cols="50" rows="5" placeholder="經歷"
+                        <td colspan="3"><textarea cols="50" rows="5" placeholder="經歷"
                                 v-model.trim="newData.csHis"></textarea></td>
                     </tr>
                     <tr class="buttonGroup">
@@ -97,7 +133,7 @@
                     </tr>
                 </table>
                 </button>
-                <div class="card ">
+                <div class="card">
                     <div class="card-body" style=" overflow-x: auto;">
                         <table class=" table table-responsive-sm table-sm ">
                             <thead>
@@ -112,7 +148,7 @@
                                     <th>照片</th>
                                     <th>停權</th>
                                     <th>編輯</th>
-                                    <th>刪除</th>
+                                    <!-- <th>刪除</th> -->
                                 </tr>
                             </thead>
                             <!-- <tbody is="input-layout" :transport-data="transport"></tbody> -->
@@ -144,8 +180,9 @@
                                         <td><input type="text" placeholder="Email" v-model="value.csEmail"
                                                 :class="'buttonGroup' + index" readonly></td>
                                         <td><input type="file" ref="file" name="file" :id="'file'+ index"
-                                                @change="fileUpload($event,index)" style="display:none;">
-                                            <label :for="'file'+ index"><img :src="'../' + value.csPic" alt="照片"
+                                                :class="'buttonGroup' + index" @change="fileUpload($event,index)"
+                                                style="display:none;" disabled>
+                                            <label :for="'file'+ index"><img :src="value.csPic" alt="照片"
                                                     style="object-fit: cover;width: 50px;height: 50px;"></label>
                                         </td>
                                         <td><select :class="'buttonGroup' + index" v-model.trim="value.csBool" disabled>
@@ -153,9 +190,9 @@
                                                 <option value="1">停權</option>
                                             </select></td>
                                         <td><button @click="editToggle($event,index)">編輯</button></td>
-                                        <td><button @click="deleteData($event,index)">刪除</button></td>
+                                        <!-- <td><button @click="deleteData($event,index)">刪除</button></td> -->
                                     </tr>
-                                    <tr class="buttonGroup d-none invisible" :key="value.csNo + '2'">
+                                    <tr class="buttonGroup d-none invisible" :key="value.csNo + 'second'">
                                         <td colspan="2"><textarea cols="20" rows="5" placeholder="學歷"
                                                 v-model.trim="value.csEdu" :class="'buttonGroup' + index"
                                                 readonly></textarea></td>
@@ -184,6 +221,15 @@
                     </div>
                 </div>
             </div>
+            <ul class="pageNumbers">
+                <template v-for="(item,index) in totalPage">
+                    <input type="radio" :id="'page' + (index + 1)" v-model="pageNow" :value="index+1">
+                    <li :key="'page'+ item" @click="getMemberData(index+1)">
+                        <label :for="'page' + (index + 1)">{{ index+1 }}</label>
+                    </li>
+                </template>
+            </ul>
+
         </div>
     </div>
 
@@ -195,20 +241,22 @@
             el: "#bgMem",
             data: {
                 isInsertTableShow: false,
+                newData: {},
+                totalPage: 0,
+                pageNow: 1,
                 dataFormat: {
-                    "csNo": "",
                     "csName": "",
                     "csId": "",
-                    "csPsn": "",
-                    "csGender": "",
+                    "csPsd": "",
                     "csBD": "",
+                    "csGender": "m",
                     "csEmail": "",
                     "csTel": "",
                     "csPic": "https://www.csmu.edu.tw/var/file/0/1000/plugin/mobile/pictures/linkdet_1567_64639_22966.jpg",
-                    "csPosNo": "",
+                    "csPosNo": "1",
+                    "csBool": "0",
                     "csHis": "",
                     "csEdu": "",
-                    "csBool": "",
                     "csType": [{
                             "csTypeName": "家庭關係",
                             "csTypeNum": "",
@@ -231,45 +279,43 @@
                         }
                     ]
                 },
-                newData: {},
                 memberData: [],
                 file: ''
             },
             mounted() {
-                this.getMemberData();
+                this.getMemberData(1);
+                this.resetTable();
             },
             methods: {
-                insertData() {
-                    this.memberData.push(JSON.parse(JSON.stringify(this.newData))); //將新增區域的值送到諮商師陣列
-                    // axios.get('新增修改諮商師資料的php.php', {
-                    //         params: {
-                    //             insert: 1,
-                    //             csBool: this.newData.csBool,
-                    //             csId: this.newData.csId,
-                    //             csName: this.newData.csName,
-                    //             csBD: this.newData.csBD,
-                    //             csGender: this.newData.csGender,
-                    //             csTel: this.newData.csTel,
-                    //             csNo: this.newData.csNo,
-                    //             csGender: this.newData.csGender,
-                    //             csEmail: this.newData.csEmail,
-                    //             csPic: this.newData.csPic,
-                    //             csPosNo: this.newData.csPosNo,
-                    //             csHis: this.newData.csHis,
-                    //             csEdu: this.newData.csEdu,
-                    //             csType0: this.newData.csType[0].csTypeNum,
-                    //             csType1: this.newData.csType[1].csTypeNum,
-                    //             csType2: this.newData.csType[2].csTypeNum,
-                    //             csType3: this.newData.csType[3].csTypeNum,
-                    //             csType4: this.newData.csType[4].csTypeNum
-                    //         }
-                    //     })
-                    //     .then((res) => {
-                    //         console.log('會員更新成功')
-                    //     })
-                    //     .catch((error) => {
-                    //         console.error(error)
-                    //     })
+                insertData() { //將新增區域的值送到諮商師陣列
+                    axios.get('./php/insertCounselor.php', {
+                            params: {
+                                csName: this.newData.csName,
+                                csId: this.newData.csId,
+                                csPsd: this.newData.csPsd,
+                                csBD: this.newData.csBD,
+                                csGender: this.newData.csGender,
+                                csEmail: this.newData.csEmail,
+                                csTel: this.newData.csTel,
+                                csPic: this.newData.csPic,
+                                csPosNo: this.newData.csPosNo,
+                                csBool: this.newData.csBool,
+                                csHis: this.newData.csHis,
+                                csEdu: this.newData.csEdu,
+                                csType0: this.newData.csType[0].csTypeNum,
+                                csType1: this.newData.csType[1].csTypeNum,
+                                csType2: this.newData.csType[2].csTypeNum,
+                                csType3: this.newData.csType[3].csTypeNum,
+                                csType4: this.newData.csType[4].csTypeNum
+                            }
+                        })
+                        .then((res) => {
+                            console.log(res.data);
+                            this.getMemberData();
+                        })
+                        .catch((error) => {
+                            console.error(error)
+                        })
                     this.getMemberData();
 
                     for (let prop in this.newData) { //清除新增區域的value
@@ -282,11 +328,21 @@
 
 
                 },
-                getMemberData() {
-                    axios.get('./php/getCsManagement.php')
+                getMemberData(page) {
+                    this.pageNow = page;
+                    axios.get('./php/getCsManagement.php', {
+                            params: {
+                                'pageNow': this.pageNow
+                            }
+                        })
                         .then((res) => {
                             console.log('會員資料抓取成功');
-                            this.memberData = res.data;
+                            this.memberData = res.data.memberData;
+                            this.totalPage = res.data[0];
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
                         })
                         .catch((error) => {
                             console.error(error)
@@ -301,7 +357,6 @@
                         if (check) {
                             this.updateMemInfo(index); //使用axios=> update
                             this.inputToForbid(e, index);
-                            this.getMemberData();
                         } else {
                             this.inputToEdit(e, index);
                         }
@@ -323,42 +378,41 @@
                         e.currentTarget.innerText = "送出";
                     }
                 },
-                deleteData(e, index) {
-                    let check = confirm(`確認刪除會員編號 ${this.memberData[index].csNo} 的資料嗎?`);
-                    if (check)
-                        this.memberData.splice(index, 1);
-                    //使用axios=> delete
-                },
+                // // deleteData(e, index) {
+                // //     let check = confirm(`確認刪除會員編號 ${this.memberData[index].csNo} 的資料嗎?`);
+                // //     if (check)
+                // //         this.memberData.splice(index, 1);
+                // //     //使用axios=> delete
+                // },
                 updateMemInfo(index) {
-                    // axios.get('新增修改諮商師資料的php.php', {
-                    //         params: {
-                    //             insert: 0,
-                    //             csBool: this.memberData[index].csBool,
-                    //             csId: this.memberData[index].csId,
-                    //             csName: this.memberData[index].csName,
-                    //             csBD: this.memberData[index].csBD,
-                    //             csGender: this.memberData[index].csGender,
-                    //             csTel: this.memberData[index].csTel,
-                    //             csNo: this.memberData[index].csNo,
-                    //             csGender: this.memberData[index].csGender,
-                    //             csEmail: this.memberData[index].csEmail,
-                    //             csPic: this.memberData[index].csPic,
-                    //             csPosNo: this.memberData[index].csPosNo,
-                    //             csHis: this.memberData[index].csHis,
-                    //             csEdu: this.memberData[index].csEdu,
-                    //             csType0: this.memberData[index].csType[0].csTypeNum,
-                    //             csType1: this.memberData[index].csType[1].csTypeNum,
-                    //             csType2: this.memberData[index].csType[2].csTypeNum,
-                    //             csType3: this.memberData[index].csType[3].csTypeNum,
-                    //             csType4: this.memberData[index].csType[4].csTypeNum
-                    //         }
-                    //     })
-                    //     .then((res) => {
-                    //         console.log('會員更新成功')
-                    //     })
-                    //     .catch((error) => {
-                    //         console.error(error)
-                    //     })
+                    axios.get('./php/updateCounselor.php', {
+                            params: {
+                                csNo: this.memberData[index].csNo,
+                                csName: this.memberData[index].csName,
+                                csId: this.memberData[index].csId,
+                                csBD: this.memberData[index].csBD,
+                                csGender: this.memberData[index].csGender,
+                                csEmail: this.memberData[index].csEmail,
+                                csTel: this.memberData[index].csTel,
+                                csPic: this.memberData[index].csPic,
+                                csPosNo: this.memberData[index].csPosNo,
+                                csBool: this.memberData[index].csBool,
+                                csHis: this.memberData[index].csHis,
+                                csEdu: this.memberData[index].csEdu,
+                                csType0: this.memberData[index].csType[0].csTypeNum,
+                                csType1: this.memberData[index].csType[1].csTypeNum,
+                                csType2: this.memberData[index].csType[2].csTypeNum,
+                                csType3: this.memberData[index].csType[3].csTypeNum,
+                                csType4: this.memberData[index].csType[4].csTypeNum
+                            }
+                        })
+                        .then((res) => {
+                            console.log('會員更新成功')
+                            this.getMemberData();
+                        })
+                        .catch((error) => {
+                            console.error(error)
+                        })
                 },
                 infoToggle(e) {
                     e.currentTarget.classList.toggle("rotateMe");
@@ -390,12 +444,16 @@
                     let formData = new FormData();
                     formData.append('file', this.file);
 
-                    axios.post('./php/uploadCsPic.php',
-                        formData).then((res) => {
-                        console.log(res);
-                    }).catch(function () {
-                        console.log('FAILURE!!');
-                    });
+                    axios.post('./php/uploadCsPic.php', formData)
+                        .then((res) => {
+                            if (index >= 0) {
+                                this.$set(this.memberData[index], 'csPic', res.data);
+                            } else {
+                                this.$set(this.newData, 'csPic', res.data);
+                            }
+                        }).catch(function () {
+                            console.log('FAILURE!!');
+                        });
                 }
             }
         });
