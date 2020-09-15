@@ -23,9 +23,11 @@ try{
             where memNo = 1 and c.actPicNo =(select min(actPicNo)
                                         from actPic)
 
-            group by a.actONo
+
             order by actStart;";
 
+
+            //            group by a.actONo??????
     $memberOrder = $pdo->prepare($sql);
     // 正確做法
     // $memNo = $_SESSION["memNo"]
