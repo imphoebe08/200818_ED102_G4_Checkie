@@ -51,7 +51,7 @@ VALUES (:memNo, :actNo, current_date(), :acBD ,:acName , concat(:acTelA,',',:acT
     $memberOrder->bindParam(":actNo", $actNo);
     $memberOrder->bindParam(":acTicket", $acTicket);
     $memberOrder->bindParam(":acPrice", $acPrice);
-    $memberOrder->bindValue(":acPayment", $acPayment);
+    $memberOrder->bindParam(":acPayment", $acPayment);
 
     $memberOrder->execute();
     echo 'suss';
