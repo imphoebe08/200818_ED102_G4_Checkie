@@ -137,7 +137,7 @@
             <ul>
                 <li v-for="(item, index) in iModes" @click="closeToggle">
                     <input type="radio" :id="item.id" name="iMode" v-model="iMode" :value="item.value">
-                    <label :for="item.id" @click="changeWord0" v-text="item.value"></label>
+                    <label :for="item.id" @click="changeWord0(item.csModeNo,$event)" v-text="item.value"></label>
                 </li>
             </ul>
         </div>
@@ -148,7 +148,7 @@
                 <ul>
                     <li v-for="(item, index) in iPoss" @click="closeToggle">
                         <input type="radio" :id="item.id" name="iPos" v-model="iPos" :value="item.value">
-                        <label :for="item.id" @click="changeWord1" v-text="item.value"></label>
+                        <label :for="item.id" @click="changeWord1(item.csPosNo,$event)" v-text="item.value"></label>
                     </li>
                 </ul>
             </div>
@@ -160,7 +160,7 @@
                 <ul>
                     <li v-for="(item, index) in iTypes" @click="closeToggle">
                         <input type="radio" :id="item.id" name="iType" v-model="iType" :value="item.value">
-                        <label :for="item.id" @click="changeWord2" v-text="item.value"></label>
+                        <label :for="item.id" @click="changeWord2(item.type,$event)" v-text="item.value"></label>
                     </li>
                 </ul>
             </div>
@@ -172,7 +172,7 @@
                 <ul>
                     <li v-for="(item, index) in iCss" @click="closeToggle">
                         <input type="radio" :id="item.id" name="iCs" v-model="iCs" :value="item.value">
-                        <label :for="item.id" @click="changeWord3" v-text="item.value"></label>
+                        <label :for="item.id" @click="changeWord3(item.csNo,$event)" v-text="item.value"></label>
                     </li>
                 </ul>
             </div>

@@ -18,15 +18,13 @@ try {
                 b.csName 'artAuthor', 
                 a.artContent 'artContext', 
                 a.artDate 'artDate',
-                c.artPicContent 'artImg'
+                a.artPic1 'artImg'
             FROM
                 article a
                     JOIN
                 counselor b USING (csNo)
-                    JOIN
-                artpic c USING (artNo)
             WHERE
-                b.csNo = :csNo AND c.artPicNo = 1
+                b.csNo = :csNo
             LIMIT 3;";
 
     $csArt = $pdo->prepare($sql);
@@ -54,15 +52,13 @@ try {
                 TIME_FORMAT(a.actStart, '%H:%i') 'actTimeStart',
                 TIME_FORMAT(a.actEnd, '%H:%i') 'actTimeEnd',
                 a.actContent 'actContext',
-                c.actPicContent 'actImg'
+                a.actPic1 'actImg'
             FROM
                 activity a
                     JOIN
                 counselor b USING (csNo)
-                    JOIN
-                actpic c USING (actNo)
             WHERE
-                b.csNo = :csNo AND c.actPicNo = 1
+                b.csNo = :csNo
             LIMIT 3;";
 
     $csAct = $pdo->prepare($sql);

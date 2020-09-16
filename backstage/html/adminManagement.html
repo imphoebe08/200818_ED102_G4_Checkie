@@ -48,7 +48,7 @@
                                     <th>帳號</th>
                                     <th>密碼</th>
                                     <th>編輯</th>
-                                    <th>刪除</th>
+                                    <!-- <th>刪除</th> -->
                                 </tr>
                             </thead>
                             <tbody is="input-layout" :transport-data="transport" ref="childComponent"></tbody>
@@ -98,9 +98,10 @@
                                     <td><input style="width: 150px;" type="password" placeholder="管理員密碼"
                                             v-model.trim="value.admPsn" :class="'buttonGroup' + index" readonly></td>
                                     <td><button @click="editToggle($event,index)">編輯</button></td>
-			                        <td><button @click="deleteData($event,index)">刪除</button></td>
+			                       
                                 </tr>
                         </tbody>`,
+            // <td><button @click="deleteData($event,index)">刪除</button></td>
             mounted() {
                 //一進頁面先使用axios=> get
                 this.getMemberData();
