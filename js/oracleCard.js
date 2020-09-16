@@ -11,7 +11,6 @@ function doFirst() {
         setTimeout(function() {
             $(".item").parent(".cards").siblings(".title").children("h2").text("Step2. 默念三次問題按照直覺選擇一張卡牌");
             $(".item").parent(".cards").siblings(".title").children("h2").css({ "opacity": "1" });
-            // $(".item").children(".itemImg").children(".back").children(".cardBack").attr("src", `${imgSrc}`);
 
 
             $(".item").removeClass("middle");
@@ -134,13 +133,13 @@ function rotateFoo() {
 
 
 
-//获取元素相对于屏幕绝对位置
+//获取元素相對於屏幕绝對位置
 function getAbsPosition(element) {
     var abs = { x: 0, y: 0 }
-        //如果浏览器兼容此方法
+        //如果瀏览器兼容此方法
     if (document.documentElement.getBoundingClientRect) {
-        //注意，getBoundingClientRect()是jQuery对象的方法
-        //如果不用jQuery对象，可以使用else分支。
+        //注意，getBoundingClientRect()是jQuery對象的方法
+        //如果不用jQuery對象，可以使用else分支。
         abs.x = element.getBoundingClientRect().left;
         abs.y = element.getBoundingClientRect().top;
 
@@ -151,14 +150,14 @@ function getAbsPosition(element) {
             document.documentElement.scrollTop -
             document.documentElement.clientTop;
     }
-    //如果浏览器不兼容此方法
+    //如果瀏覽器不兼容此方法
     else {
         while (element != document.body) {
             abs.x += element.offsetLeft;
             abs.y += element.offsetTop;
             element = element.offsetParent;
         }
-        //计算想对位置
+        //計算相對位置
         abs.x += window.screenLeft +
             document.body.clientLeft - document.body.scrollLeft;
         abs.y += window.screenTop +
@@ -170,21 +169,17 @@ function getAbsPosition(element) {
 function getCenterPosition(element) {
     center = { x: 0, y: 0 }
     var leftTop = getAbsPosition(element[0])
-        // console.log(leftTop)
-        // console.log(element.css('width'),element.css('height'))
     center.x = leftTop.x + parseInt(element.css('width')) / 2
     center.y = leftTop.y + parseInt(element.css('height')) / 2
     return center
 }
 
 $(document).on('mousemove', '#oracleCard', function(e) {
-    //console.log(e.clientX,e.clientY)
     CenterPosition = getCenterPosition($('#forCloud'))
     moveY = (CenterPosition.x - e.clientX) / 100
     moveX = 0 - (CenterPosition.y - e.clientY) / 28
     move1Y = (CenterPosition.x + e.clientX) / 100
     move1X = 0 - (CenterPosition.y + e.clientY) / 28
-        //console.log(moveX,moveY)
     $('#forCloud').css('transform', 'translateX(' + moveX + 'px)' + '' + 'translateY(' + moveY + 'px)')
     $('#forCloud').css('webKitTransform', 'translateX(' + moveX + 'px)' + '' + 'translateY(' + moveY + 'px)')
     $('#forCloud1').css('transform', 'translateX(' + move1X + 'px)' + '' + 'translateY(' + move1Y + 'px)')
