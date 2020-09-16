@@ -15,7 +15,16 @@
 
 <body id="nav1">
     @@include('template/header.html') @@include('template/bg.html') @@include('./test.html')
-
+    <svg class="hidden">
+        <defs>
+            <symbol id="collectMe" viewBox="0 0 300 300" stroke="black" stroke-width="20" stroke-linecap="round"
+                stroke-linejoin="round" class="feather feather-share">
+                <path d="M167.871,0H44.84C34.82,0,26.022,8.243,26.022,18v182c0,3.266,0.909,5.988,2.374,8.091c1.752,2.514,4.573,3.955,7.598,3.954
+	c2.86,0,5.905-1.273,8.717-3.675l55.044-46.735c1.7-1.452,4.142-2.284,6.681-2.284c2.538,0,4.975,0.832,6.68,2.288l54.86,46.724
+	c2.822,2.409,5.657,3.683,8.512,3.683c4.828,0,9.534-3.724,9.534-12.045V18C186.022,8.243,177.891,0,167.871,0z" />
+            </symbol>
+        </defs>
+    </svg>
     <div id="app" class="csSelf">
         <div class="csS-info">
             <div class="csS-info__image">
@@ -54,10 +63,14 @@
 
             <div class="csS-buttons">
                 <div class="buttons">
-                    <a href="./coCalender.html"><button type="button" class="button3">現場諮商</button></a>
-                    <a href="./coCalender.html"><button type="button" class="button3">語音諮商</button></a>
-                    <a href="./coCalender.html"><button type="button" class="button3">視訊諮商</button></a>
-                    <a href="./chatRoom.html"><button type="button" class="button3">線上諮商</button></a>
+                    <a :href="'./coCalender.html?csNo='+ csData.csId + '&csModeNo=1'"><button type="button"
+                            class="button3">現場諮商</button></a>
+                    <a :href="'./coCalender.html?csNo='+ csData.csId + '&csModeNo=2'"><button type="button"
+                            class="button3">語音諮商</button></a>
+                    <a :href="'./coCalender.html?csNo='+ csData.csId + '&csModeNo=3'"><button type="button"
+                            class="button3">視訊諮商</button></a>
+                    <a :href="'./chatRoom.html?csNo='+ csData.csId"><button type="button"
+                            class="button3">線上諮商</button></a>
                 </div>
             </div>
         </div>
@@ -73,7 +86,9 @@
         <h2>其他推薦醫師</h2>
 
         <csselfreco-layout class="owl-carousel owl-theme owl-carousel2" :reco-data="csRecoData"></csselfreco-layout>
-
+        <!-- <svg>
+            <use href="#collectMe" fill="red"></use>
+        </svg> -->
     </div>
 
     @@include('template/footer.html')
