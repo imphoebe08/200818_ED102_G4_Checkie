@@ -62,6 +62,7 @@ $space:300px;
         box-shadow: $boxshadow;
         overflow: hidden;
         position: relative;
+        text-align: left;
         a {
             // padding-left: 4%;
             display: inline-block;
@@ -69,8 +70,12 @@ $space:300px;
             color: maroon;
             img {
                 width: 100%;
+                height: 180px;
             }
         }
+    }
+    .acSelectCard_title {
+        height: 70px;
     }
     .acSelectCard_icon {
         text-align: right;
@@ -81,6 +86,12 @@ $space:300px;
         img {
             margin: 0 5px;
             width: 20px;
+        }
+        .acSelectCard-share_icon {
+            display: inline-block;
+        }
+        .acSelectCard-bookmark_icon {
+            display: inline-block;
         }
     }
     .acSelectCard_text {
@@ -108,11 +119,14 @@ $space:300px;
         display: flex;
         justify-content: space-between;
         padding-left: 20px;
+        position: absolute;
+        bottom: 10px;
         .acSelectCard_person {
             display: inline-block;
             font-weight: 400;
             color: darkgray;
             padding: 2% 0;
+            margin-right: 140px;
         }
         #acSelectCard_register {
             display: inline-block;
