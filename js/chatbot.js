@@ -13,7 +13,7 @@ $(function() {
 
     var triggerAnimation = () => {
         var isActive = elementIcon.classList.contains(CLASS_ICON_ACTIVE);
-        console.log(isActive);
+        // console.log(isActive);
         isActive ? (
             elementIcon.classList.remove(CLASS_ICON_ACTIVE),
             elementModal.classList.remove(CLASS_MODAL_ACTIVE)
@@ -29,16 +29,27 @@ $(function() {
 new Vue({
     el: "#chatBot",
     data: {
-
+        chatBotData: ""
     },
     methods: {
         getMes() {
-            axois.post("./php/chatBotLoad.php").then(res => {
-                console.log(res);
-            })
+            axios.get('./php/chatBotLoad.php')
+                .then((res) => {
+                    this.chatBotData = res.data.sort();
+                    console.log(this.chatBotData);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
         },
         submit() {
 
+        },
+        selectClass(data) {
+            return (data == "0") ? "self" : "reply"
+        },
+        time(data) {
+            return data.substring(11, 16);
         }
     },
     computed: {

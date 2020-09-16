@@ -4,7 +4,7 @@
     }
 }
 
-.insert_newQuest {
+#tQinfo {
     margin: 10px;
     padding: 30px;
     border: solid 1px #DEDEDE;
@@ -21,11 +21,16 @@
     }
     .input-sort,
     .input-status {
-        input {
-            margin-right: 10px;
+        label:nth-child(n+2) {
+            margin: 0 15px 0 0;
         }
-        input[type=radio]:focus {
-            display: none;
+        label {
+            input {
+                margin-right: 10px;
+            }
+            input[type=radio]:focus {
+                display: none;
+            }
         }
     }
     select {

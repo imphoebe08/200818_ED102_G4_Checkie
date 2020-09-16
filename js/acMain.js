@@ -31,7 +31,7 @@ Vue.component('acSelectCard', {
     <div id="acSelect" class="acSelect container-sm container-md">
         <div class="acSelectCard" v-for="acContent in aaa(num)">
                 <a :href="'./acSelf.html?actNo=' + acContent.actNo">
-                    <img :src="acContent.actpic1">
+                    <img src="./img/acMain/acCard.jpg">
                 </a>
             
             <!-- 卡片文字 -->

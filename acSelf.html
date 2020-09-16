@@ -21,9 +21,9 @@
         <div id="acSelf" class="acSelf fluid">
             <div class="acSelf-Banner">
 
-                <div class="acSelf-Banner_pic col-xl-7 col-sm-12"><img :src="contents[index].actpic1" alt=""></div>
+                <div class="acSelf-Banner_pic col-xl-7 col-sm-12"><img :src="contents[index].banner" alt=""></div>
                 <div class="acSelf-Banner_intro col-xl-5 col-sm-12">
-                    <h5>#{{contents[index].typename1}} <span v-if="contents[index].typename2">#{{contents[index].typename2}}</span></h5><br>
+                    <h5>#{{contents[index].typename1}} #{{contents[index].typename2}}</h5><br>
                     <h5>{{contents[index].actName}}</h5>
                     <br>
                     <br>
@@ -53,20 +53,20 @@
                     <p v-html="contents[index].actContent"></p><br>
                 </div>
                 <div class="acInfo_pic col-12">
-                    <img class="acInfo_pic--1 col-xl-5 col-12" :src="contents[index].actpic2" alt="">
-                    <img class="acInfo_pic--2 col-xl-5 col-12" :src="contents[index].actpic3" alt="">
+                    <img class="acInfo_pic--1 col-xl-5 col-12" :src="contents[index].pic1" alt="">
+                    <img class="acInfo_pic--2 col-xl-5 col-12" :src="contents[index].pic2" alt="">
                 </div>
             </div>
             <h4 class="acTeacher-title">講師介紹</h4>
             <div class="acTeacher">
                 <div class="acTeacher_pic col-xl-4 col-12">
                     <img v-if="contents[index].csName" :src="contents[index].csPic" alt="">
-                    <img v-else :src="contents[index].actHostPic" alt="">
+                    <img v-else :src="contents[index].acHostPic" alt="">
                     <h6 v-if="contents[index].csName" style="text-align: center;">諮商師｜{{contents[index].csName}}</h6>
-                    <h6 v-else style="text-align: center;">{{contents[index].actHostTitle}}｜{{contents[index].actHost}}</h6>
+                    <h6 v-else style="text-align: center;">{{contents[index].actHostTilte}}｜{{contents[index].actHost}}</h6>
                 </div>
                 <div class="acTeacher_intro col-xl-7 col-12">
-                    <p v-if="contents[index].csName" v-html="contents[index].csHis"></p>
+                    <p v-if="contents[index].csName" v-html="contents[index].csEdu"></p>
                     <p v-else v-html="contents[index].actHostInfo"></p>
                 </div>
             </div>

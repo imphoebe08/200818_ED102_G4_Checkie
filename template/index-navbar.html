@@ -76,7 +76,7 @@
         <span class="icon-elements">
         </span>
     </button>
-<div class="modal-wrapper">
+<div class="modal-wrapper" id="chatBot">
 
     <header class="modal-header">
         <span class="title">Checkie線上客服</span>
@@ -84,12 +84,11 @@
     </header>
 
     <div class="modal-chatbox">
-        <span class="reply" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
-        <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
-        <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
-        <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+
+        <span v-for="each in chatBotData" :class="selectClass(each.serFrom)" :data-time="time(each.serTime)">{{each.serContent}}</span>
+
     </div>
-    <form action="">
+    <form action="" @submit.prevent="submit" @submit.prevent="sibmit">
         <div class="modal-inputbox">
             <input class="modal-input" type="text" placeholder="輸入您的問題...">
             <input class="modal-input_submit" type="button" value="送出">

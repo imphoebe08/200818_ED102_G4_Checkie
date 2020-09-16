@@ -21,23 +21,21 @@ try{
 
 
         //    loadding內容
-        $memContent = $_POST["memContent"];
-        $sql = "select * from service  where memIp=$ip order by serno;";
+        $sql = "select * from service  where memIp='::1' order by serno desc limit 0,20;";
+        // $sql = "select * from service  where memIp=$ip order by serno;";
+
         $message = $pdo->prepare($sql);
         $message->execute();
         if( $message->rowCount()==0){ 
-        echo "{}";
+          echo "123";
         }else{ 
-        $messageRow = $message->fetchAll(PDO::FETCH_ASSOC);
-        
-        // $result = array("csName"=>$messageRow["csName"],"csPic"=>$messageRow["csPic"]);
-        //           echo json_encode($result);
-        //   }
-        echo json_encode($messageRow,JSON_UNESCAPED_UNICODE);
+          $messageRow = $message->fetchAll(PDO::FETCH_ASSOC);
+
+          echo json_encode($messageRow,JSON_UNESCAPED_UNICODE);
         };
         //    抓取內容
         // $memContent = $_POST["memContent"];
-
+        
         // $sql2 = "insert into service(serFrom, serContent, serTime,memIp) values (0, :memContent,current_time(),$ip);";
         // $member2 = $pdo->prepare($sql2);
         // $member2->bindValue(":memContent", $memContent);

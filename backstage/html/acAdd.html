@@ -13,29 +13,30 @@
     <!-- 中間內容 -->
     <div id="app">
         <div class="container-fluid">
-            <form action="" id="acAdd_form" @submit.prevent="submitForm">
+            <form action="" id="acAdd_form">
                 <h1>活動新增與修改</h1><br>
                 <!-- <input v-model="actno" type="hidden"> -->
                 <span>活動標題：</span><input v-model="contents.actName" type="text" maxlength="16"><br><br>
                 <span>活動類別：</span>
-                <label for="acttype1">講座</label> <input type="checkbox" value="1" id="acttype1" v-model="contents.actTypeno">
-                <label for="acttype2">療癒</label> <input type="checkbox" value="2" id="acttype2" v-model="contents.actTypeno">
-                <label for="acttype3">戶外</label> <input type="checkbox" value="3" id="acttype3" v-model="contents.actTypeno">
-                <label for="acttype4">藝文</label> <input type="checkbox" value="4" id="acttype4" v-model="contents.actTypeno"><br>
-
+                <select v-model="contents.typename1" name="acType" id="acType">
+                        <option value="講座">講座</option>
+                        <option value="療癒">療癒</option>
+                        <option value="戶外">戶外</option>
+                        <option value="藝文">藝文</option>
+                </select><br><br>
                 <span>活動地點：</span><input v-model="contents.actAddress" type="text" maxlength="16"><br><br>
                 <span>活動報名開始日期：</span>
-                <input id="exampleDate" class="datepicker" name="date" type="text" value="" placeholder="" :data-value="contents.actPstart" />
-                <input id="exampleTime" class="timepicker" type="time" name="time" value="" :data-value="contents.actPstart" /><br><br>
+                <input v-model="contents.actPstart" id="exampleDate" class="datepicker" name="date" type="text" value="" placeholder="" :data-value="contents.actPstart" />
+                <input v-model="contents.actPstart" id="exampleTime" class="timepicker" type="time" name="time" value="" :data-value="contents.actPstart" /><br><br>
                 <span>活動報名結束日期：</span>
-                <input id="exampleDate" class="datepicker" name="date" type="text" value="" placeholder="" :data-value="contents.actPend" />
-                <input id="exampleTime" class="timepicker" type="time" name="time" value="" :data-value="contents.actPend" /><br><br>
+                <input v-model="contents.actPend" id="exampleDate" class="datepicker" name="date" type="text" value="" placeholder="" :data-value="contents.actPend" />
+                <input v-model="contents.actPend" id="exampleTime" class="timepicker" type="time" name="time" value="" :data-value="contents.actPend" /><br><br>
                 <span>活動開始日期：</span>
-                <input id="exampleDate" class="datepicker" name="date" type="text" value="" placeholder="" :data-value="contents.actStart" />
-                <input id="exampleTime" class="timepicker" type="time" name="time" value="" :data-value="contents.actStart" /><br><br>
+                <input v-model="contents.actStart" id="exampleDate" class="datepicker" name="date" type="text" value="" placeholder="" :data-value="contents.actStart" />
+                <input v-model="contents.actStart" id="exampleTime" class="timepicker" type="time" name="time" value="" :data-value="contents.actStart" /><br><br>
                 <span>活動結束日期：</span>
                 <input id="exampleDate" class="datepicker" name="date" type="text" value="" placeholder="" :data-value="contents.actEnd" />
-                <input id="exampleTime" class="timepicker" type="time" name="time" value="" :data-value="contents.actEnd" /><br><br>
+                <input v-model="contents.actEnd" id="exampleTime" class="timepicker" type="time" name="time" value="" :data-value="contents.actEnd" /><br><br>
                 <span>上限人數：</span><input v-model="contents.actMax" type="number"><br><br>
                 <span>下限人數：</span><input v-model="contents.actMin" type="number"><br><br>
                 <span>費用（NTD）：</span><input v-model="contents.actCost" type="number"><br><br>
@@ -44,17 +45,18 @@
                 <input v-model.number="contents.actBool" type="radio" name="aaa" id="aaa" value="1"><label for="aaa">下架</label>
                 <br><br>
                 <span>活動介紹：</span><pre><textarea v-model="contents.actContent" name="" id="" cols="200" rows="15" style="resize: none;"></textarea></pre>
-                <h6>*請直接點擊圖片修改</h6>
-                <label for="banner">Banner：<br><img :src="contents.actpic1" alt=""></label><input type="file" name="actpic1" id="banner" style="display:none"><br><br>
-                <label for="img1">圖片一（左）：<br><img :src="contents.actpic2" alt=""></label><input type="file" name="actpic2" id="img1" style="display:none"><br><br>
-                <label for="img2">圖片二（右）：<br><img :src="contents.actpic3" alt=""></label><input type="file" name="actpic3" id="img2" style="display:none"><br><br>
+                <img :src="image" alt="">
+                <label for="">圖片一：</label><input type="file" name="" id="img1"><br>
+                <img :src="image" alt="">
+                <label for="">圖片二：</label><input type="file" name="" id="img2"><br><br>
                 <span>舉辦人：</span><input v-model="contents.actHost" type="text"><br><br>
                 <span>舉辦人稱謂：</span><input v-model="contents.actHostTitle" type="text"><br><br>
-                <span>舉辦人介紹：</span><pre><textarea v-model="contents.actHostInfo" name=""  id="" cols="200" rows="10" style="resize: none;"></textarea></pre><br><br>
-                <label for="holder">舉辦人圖片：<br><img :src="contents.actHostPic" alt=""></label><input type="file" name="actHostPic" id="holder" style="display:none"><br><br>
-                <input @click="submitForm" type="button" id="acAdd_submit" value="提交">
-                <!-- <div id="acAdd_submit_wrapper ">
-                </div> -->
+                <span>舉辦人介紹：</span><pre><textarea v-model="contents.actHostinfo" name=""  id="" cols="200" rows="10" style="resize: none;"></textarea></pre><br><br>
+                <img :src="image" alt="">
+                <label for="">舉辦人圖片：</label><input @click="onFileChange" type="file" name="" id=""><br><br>
+                <div id="acAdd_submit_wrapper">
+                    <input @click="submitForm" type="submit" id="acAdd_submit">
+                </div>
             </form>
 
 
@@ -75,7 +77,7 @@
     <script>
         //寫入資料庫
         let vm = new Vue({
-            el: "#app ",
+            el: "#app",
             data: {
                 contents: [],
                 index: 0,
@@ -125,64 +127,45 @@
                     reader.readAsDataURL(file);
                 },
                 submitForm: function(e) {
-                    console.log("haha ")
-                    this.contents.actStart = document.querySelectorAll(" input[name='date_submit' ] ")[0].value + ' ' + document.querySelectorAll("input[name='time' ] ")[0].value;
-                    this.contents.actPend = document.querySelectorAll(" input[name='date_submit' ] ")[1].value + ' ' + document.querySelectorAll("input[name='time' ] ")[1].value;
-                    this.contents.actStart = document.querySelectorAll(" input[name='date_submit' ] ")[2].value + ' ' + document.querySelectorAll("input[name='time' ] ")[2].value;
-                    this.contents.actEnd = document.querySelectorAll(" input[name='date_submit' ] ")[3].value + ' ' + document.querySelectorAll("input[name='time' ] ")[3].value;
-                    let formData = new FormData();
-                    formData.append("actNo ", this.contents.actNo);
-                    formData.append("actName ", this.contents.actName);
-                    formData.append("actPstart ", this.contents.actPstart);
-                    formData.append("actPend ", this.contents.actPend);
-                    formData.append("actStart ", this.contents.actStart);
-                    formData.append("actEnd ", this.contents.actEnd);
-                    formData.append("actContent ", this.contents.actContent);
-                    formData.append("actMin ", this.contents.actMin);
-                    formData.append("actMax ", this.contents.actMax);
-                    formData.append("actHost ", this.contents.actHost);
-                    formData.append("actHostInfo ", this.contents.actHostInfo);
-                    formData.append("actHostTitle ", this.contents.actHostTitle);
-                    // formData.append("actHostPic ", this.contents.actHostPic);
-                    formData.append("actCost ", this.contents.actCost);
-                    formData.append("actBool ", this.contents.actBool);
-                    formData.append("actAddress ", this.contents.actAddress);
-                    formData.append("csNo ", this.contents.csNo);
-                    // formData.append("actTypeno ", this.contents.actTypeno);
+                    let actNo = this.contents.actNo;
+                    let {
+                        actName,
+                        actPstart,
+                        actPend,
+                        actStart,
+                        actEnd,
+                        actContent,
+                        actMin,
+                        actMax,
+                        actHost,
+                        actHostTitle,
+                        acHostPic,
+                        actCost,
+                        actBool,
+                        actAddress
+                    } = this.contents
+                    e.preventDefault();
+                    this.contents.actStart = document.querySelectorAll(" input[name='date_submit']")[0].value + ' ' + document.querySelectorAll("input[name='time']")[0].value;
+                    this.contents.actPend = document.querySelectorAll(" input[name='date_submit']")[1].value + ' ' + document.querySelectorAll("input[name='time']")[1].value;
+                    this.contents.actStart = document.querySelectorAll(" input[name='date_submit']")[2].value + ' ' + document.querySelectorAll("input[name='time']")[2].value;
+                    this.contents.actEnd = document.querySelectorAll(" input[name='date_submit']")[3].value + ' ' + document.querySelectorAll("input[name='time']")[3].value;
 
-
-                    if (this.contents.actNo = 0) {
-                        axios.post(`./php/acManagement_insert.php`, formData)
-                            .then((res) => {
-                                console.log(res);
-                                // location.replace('http://localhost:8888/dist/backstage/acManagement.html');
-                            }).catch((err) => {
-                                console.log(err)
-                            })
-                    } else {
-                        axios.post(`./php/acManagement_update.php`, formData)
-                            .then((res) => {
-                                console.log(res);
-                                // location.replace('http://localhost:8888/dist/backstage/acManagement.html');
-                            }).catch((err) => {
-                                console.log(err)
-                            })
-
-                    }
-
-
-                    // e.preventDefault();
-
-
+                    axios.post(`./php/acManagement.php`, this.contents)
+                        .then((res) => {
+                            this.contacts = res.data;
+                            console.log(this.res);
+                        }).catch((err) => {
+                            console.log(err)
+                        })
 
                 }
             },
             mounted() {
                 let actNo = location.href.split('?')[1].split('=')[1];
                 var vm = this;
-                axios.get(`./php/acAdd.php?actNo=${actNo}`).then((res) => {
-                    this.contents = res.data
-                    console.log(res.data)
+                axios.get(`./php/acManagement.php?actNo=${actNo}`).then((res) => {
+                    this.contents = res.data[0]
+                        // console.log(res.data)
 
                     Vue.nextTick().then(function() {
                         vm.installDateTimePicker();
