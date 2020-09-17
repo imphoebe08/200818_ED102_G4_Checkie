@@ -77,104 +77,149 @@
     <script>
         //寫入資料庫
         let vm = new Vue({
-            el: "#app",
-            data: {
-                contents: [],
-                index: 0,
-                PdateTime: '',
-                image: '',
-            },
-            computed: {
+                    el: "#app",
+                    data: {
+                        contents: {
+                            actAddress: "",
+                            actBool: "0",
+                            actContent: "",
+                            actCost: "",
+                            actEnd: "",
+                            actHost: "",
+                            actHostInfo: "",
+                            // actHostPic:"",
+                            actHostTitle: "",
+                            actMax: "",
+                            actMin: "",
+                            actName: "",
+                            actNo: 0,
+                            actPend: "",
+                            actPstart: "",
+                            actStart: "",
+                            actTypeno: [],
+                            // actpic1:"./img/acSelf/ac1/ac1_banner.jpg",
+                            // actpic2:"./img/acSelf/ac1/ac1_inner1.jpg",
+                            // actpic3:"./img/acSelf/ac1/ac1_inner2.jpg",
+                            csNo: "",
+                        },
+                    },
+                    computed: {
 
-            },
-            methods: {
-                installDateTimePicker: function() {
-                    // date picker
-                    var $input = $('.datepicker').pickadate();
+                    },
+                    methods: {
+                        installDateTimePicker: function() {
+                            // date picker
+                            var $input = $('.datepicker').pickadate();
 
-                    // Use the picker object directly.
-                    var picker = $input.pickadate('picker');
-                    $('.datepicker').pickadate({
-                        labelMonthSelect: 'Select a month',
-                        labelYearSelect: 'Select a year',
-                        selectMonth: 'picker__select--month',
-                        selectYear: 'picker__select--year',
-                        min: new Date(),
+                            // Use the picker object directly.
+                            var picker = $input.pickadate('picker');
+                            $('.datepicker').pickadate({
+                                labelMonthSelect: 'Select a month',
+                                labelYearSelect: 'Select a year',
+                                selectMonth: 'picker__select--month',
+                                selectYear: 'picker__select--year',
+                                min: new Date(),
 
-                    });
-                    $('.timepicker').pickatime({
-                        interval: 60,
-                        formatSubmit: 'HH:i',
-                        hiddenName: true,
+                            });
+                            $('.timepicker').pickatime({
+                                interval: 60,
+                                formatSubmit: 'HH:i',
+                                hiddenName: true,
 
-                    });
-                    // picker.get(thing, format)
-                },
-                onFileChange(e) {
-                    let file = e.target.file || e.dataTransfer.file;
-                    if (!files.length) return;
-                    this.createImage(files[0]);
+                            });
+                            // picker.get(thing, format)
+                        },
+                        onFileChange(e) {
+                            let file = e.target.file || e.dataTransfer.file;
+                            if (!files.length) return;
+                            this.createImage(files[0]);
 
-                },
-                createImage(file) {
-                    let image = new Image();
-                    let reader = new FileReader();
-                    let vm = this;
+                        },
+                        createImage(file) {
+                            let image = new Image();
+                            let reader = new FileReader();
+                            let vm = this;
 
-                    reader.onload = (e) => {
-                        vm.image = e.target.result;
-                    };
-                    reader.readAsDataURL(file);
-                },
-                submitForm: function(e) {
-                    let actNo = this.contents.actNo;
-                    let {
-                        actName,
-                        actPstart,
-                        actPend,
-                        actStart,
-                        actEnd,
-                        actContent,
-                        actMin,
-                        actMax,
-                        actHost,
-                        actHostTitle,
-                        acHostPic,
-                        actCost,
-                        actBool,
-                        actAddress
-                    } = this.contents
-                    e.preventDefault();
-                    this.contents.actStart = document.querySelectorAll(" input[name='date_submit']")[0].value + ' ' + document.querySelectorAll("input[name='time']")[0].value;
-                    this.contents.actPend = document.querySelectorAll(" input[name='date_submit']")[1].value + ' ' + document.querySelectorAll("input[name='time']")[1].value;
-                    this.contents.actStart = document.querySelectorAll(" input[name='date_submit']")[2].value + ' ' + document.querySelectorAll("input[name='time']")[2].value;
-                    this.contents.actEnd = document.querySelectorAll(" input[name='date_submit']")[3].value + ' ' + document.querySelectorAll("input[name='time']")[3].value;
+                            reader.onload = (e) => {
+                                vm.image = e.target.result;
+                            };
+                            reader.readAsDataURL(file);
+                        },
+                        submitForm: function(e) {
+                            console.log(this.contents.actNo)
+                            this.contents.actPstart = document.querySelectorAll(" input[name='date_submit' ] ")[0].value + ' ' + document.querySelectorAll("input[name='time' ] ")[0].value;
+                            this.contents.actPend = document.querySelectorAll(" input[name='date_submit' ] ")[1].value + ' ' + document.querySelectorAll("input[name='time' ] ")[1].value;
+                            this.contents.actStart = document.querySelectorAll(" input[name='date_submit' ] ")[2].value + ' ' + document.querySelectorAll("input[name='time' ] ")[2].value;
+                            this.contents.actEnd = document.querySelectorAll(" input[name='date_submit' ] ")[3].value + ' ' + document.querySelectorAll("input[name='time' ] ")[3].value;
+                            let formData = new FormData();
+                            formData.append("actNo", this.contents.actNo);
+                            formData.append("actName", this.contents.actName);
+                            formData.append("actPstart", this.contents.actPstart);
+                            formData.append("actPend", this.contents.actPend);
+                            formData.append("actStart", this.contents.actStart);
+                            formData.append("actEnd", this.contents.actEnd);
+                            formData.append("actContent", this.contents.actContent);
+                            formData.append("actMin", this.contents.actMin);
+                            formData.append("actMax", this.contents.actMax);
+                            formData.append("actHost", this.contents.actHost);
+                            formData.append("actHostInfo", this.contents.actHostInfo);
+                            formData.append("actHostTitle", this.contents.actHostTitle);
+                            // formData.append("actHostPic ", this.contents.actHostPic);
+                            formData.append("actCost", this.contents.actCost);
+                            formData.append("actBool", this.contents.actBool);
+                            formData.append("actAddress", this.contents.actAddress);
+                            formData.append("csNo", this.contents.csNo);
+                            // formData.append("actTypeno ", this.contents.actTypeno);
 
-                    axios.post(`./php/acManagement.php`, this.contents)
-                        .then((res) => {
-                            this.contacts = res.data;
-                            console.log(this.res);
-                        }).catch((err) => {
-                            console.log(err)
+
+                            if (this.contents.actNo == 0) {
+                                axios.post(`./php/acManagement_insert.php`, formData)
+                                    .then((res) => {
+                                        console.log(res);
+                                        // location.replace('http://localhost:8888/dist/backstage/acManagement.html');
+                                    }).catch((err) => {
+                                        console.log(err)
+                                    })
+                            } else {
+                                axios.post(`./php/acManagement_update.php`, formData)
+                                    // axios.get(`./php/acManagement_update_test.php?actNo=1&actName='－療癒繪本製作'`)
+                                    .then((res) => {
+                                        console.log(res);
+                                        // location.replace('http://localhost:8888/dist/backstage/acManagement.html');
+                                    }).catch((err) => {
+                                        console.log(err)
+                                    })
+
+                            }
+
+
+                            // e.preventDefault();
+
+
+
+                        }
+                    },
+                    mounted() {
+                        let actNo = location.href.split('?')[1].split('=')[1];
+                        var vm = this;
+                        axios.get(`./php/acManagement.php?actNo=${actNo}`).then((res) => {
+                                this.contents = res.data[0]
+                                    // console.log(res.data)
+                                if (actNo != 0) {
+                                    axios.get(`./php/acAdd.php?actNo=${actNo}`).then((res) => {
+                                        this.contents = res.data
+                                        console.log(res.data)
+
+
+                                    })
+
+                                }
+                                Vue.nextTick().then(function() {
+                                    vm.installDateTimePicker();
+                                });
+                            },
+
                         })
-
-                }
-            },
-            mounted() {
-                let actNo = location.href.split('?')[1].split('=')[1];
-                var vm = this;
-                axios.get(`./php/acManagement.php?actNo=${actNo}`).then((res) => {
-                    this.contents = res.data[0]
-                        // console.log(res.data)
-
-                    Vue.nextTick().then(function() {
-                        vm.installDateTimePicker();
-                    });
-                })
-
-            },
-
-        })
     </script>
 </body>
 

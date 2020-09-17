@@ -82,6 +82,16 @@ $space:300px;
             margin: 0 5px;
             width: 20px;
         }
+        .acSelectCard-share_icon {
+            display: inline-block;
+        }
+        .acSelectCard-bookmark_icon {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .bookMarkcolor {
+            color: red;
+        }
     }
     .acSelectCard_text {
         margin-top: 10px;

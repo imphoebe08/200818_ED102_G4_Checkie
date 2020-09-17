@@ -100,7 +100,9 @@
                                         <td>{{contents[index].actCount}}</td>
                                         <td>${{contents[index].actCost}}</td>
                                         <td>{{contents[index].actBool}}</td>
-                                        <td><a :href="'./acAdd.html?actno=' + (index+1)"><button class="acManagement_edit ">編輯</button></a></td>
+                                        <td>
+                                            <a :href="'./acAdd.html?actno=' + (index+1)"><button class="acManagement_edit">編輯</button></a>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
