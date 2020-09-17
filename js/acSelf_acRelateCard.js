@@ -12,8 +12,8 @@ Vue.component('acRelateCard', {
                 
                 <!-- 卡片時間 -->
                 <div class="acSelectCard_icon">
-                <img class="acSelectCard-share_icon"src="./img/icon/share.png" alt="">
-                <img class="acSelectCard-bookmark_icon"src="./img/icon/bookmark.png" alt="">
+                <i class="fas fa-share-alt acSelectCard-share_icon" style="font-size:20px"></i>
+                <i class="fas fa-bookmark acSelectCard-bookmark_icon" style="font-size:20px"></i>
                 </div>
                 <div class="acSelectCard_text">
                 <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
