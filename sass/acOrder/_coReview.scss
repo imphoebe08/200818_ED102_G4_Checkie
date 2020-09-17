@@ -1,5 +1,15 @@
 .co-review {
     text-align: center;
+    .co-review_block {
+        .co-review_number {
+            margin-top: 10px;
+            border: solid 1px $color-pink;
+            background-color: $color-pink;
+            color: white;
+            border-radius: 3px;
+            padding: 4px 8px;
+        }
+    }
     .button {
         border: saddlebrown solid 1px;
     }

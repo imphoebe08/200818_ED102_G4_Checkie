@@ -7,8 +7,17 @@ try{
     //以上session應急
     $memNo = $_SESSION["memNO"];
 
-    $sql = "select * from member
-            where memNo = :memNo;";
+    $sql = "
+    select a.memTestNo ,
+            a.testResultValue, 
+            b.typeNo,b.typeName,
+            c.memTestTime,
+            c.memNo
+    from testresult a join type b on b.typeNo = a.testResultTypeNo
+                        join memtest c using(memTestNo)
+    where memNo = :memNo and c.memTestTime = (select max(memTestTime)
+                                            from memtest
+                                            where memNo = :memNo);";
 
     $member = $pdo->prepare($sql);
 
@@ -19,7 +28,7 @@ try{
     if( $member->rowCount()==0){ 
     echo "no";
     }else{ 
-    $memberRow = $member->fetch(PDO::FETCH_ASSOC);
+    $memberRow = $member->fetchAll(PDO::FETCH_ASSOC);
 
               echo json_encode($memberRow);
       }

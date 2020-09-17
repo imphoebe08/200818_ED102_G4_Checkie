@@ -1,7 +1,7 @@
 <?php
 try{
     // session_start();
-    require_once("./connectBook.php");
+    require_once("./connectBook666.php");
 
     // $sql = "
     // insert into actorder (`memNo`, `actNo`, `actOTime`, `acBD`, `acName`, `acTel`, `acGender`, `acEmail`,`acTicket`,`acPrice`,`acPayment`) 
@@ -9,7 +9,7 @@ try{
     // ";
 
     $sql = "
-    INSERT INTO `ed102g4`.`actorder` ( `memNo`, `actNo`, `actOTime`, `acBD`, `acName`, `acTel`, `acGender`, `acEmail`,`acTicket`,`acPrice`,`acPayment`) 
+    INSERT INTO `actorder` ( `memNo`, `actNo`, `actOTime`, `acBD`, `acName`, `acTel`, `acGender`, `acEmail`,`acTicket`,`acPrice`,`acPayment`) 
 VALUES (:memNo, :actNo, current_date(), :acBD ,:acName , concat(:acTelA,',',:acTelB), :acGender, :acEmail,:acTicket,:acPrice,:acPayment);
     ";
     $memberOrder = $pdo->prepare($sql);

@@ -323,8 +323,8 @@ let vm = new Vue({
 
         },
         checkOut() {
-            //console.log("aaa");
-            //送出會員修改資料
+            console.log("aaa");
+            //送出會員訂單
             var formData = new FormData();
             formData.append("memNo", this.aoMember.memNo);
             formData.append("acName", this.aoMember.memName);
@@ -344,6 +344,7 @@ let vm = new Vue({
                 });
 
 
+            //回傳訂單編號
             var formData2 = new FormData();
             formData2.append("memNo", this.aoMember.memNo);
             axios.post('./php/acOrderNumber.php', formData2).then(
@@ -393,6 +394,8 @@ let vm = new Vue({
     },
     mounted() {
         //活動
+        var formDataMemNo = new FormData();
+        formDataMemNo.append("memNo", this.aoMember.memNo);
         axios.get('./php/aoOrder.php')
             .then(response => {
                 this.orderData = response.data;

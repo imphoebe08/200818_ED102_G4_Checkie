@@ -1,7 +1,7 @@
 <?php
 try{
     // session_start();
-    require_once("./connectBook.php");
+    require_once("./connectBook666.php");
 
     $sql ="select  memAdd,
                 memNo,
@@ -12,7 +12,7 @@ try{
                 memOccupation,
                 memTel
             from  member 
-            where memNo = 1;";
+            where memNo = 3;";
 
     $memberOrder = $pdo->prepare($sql);
     // 正確做法

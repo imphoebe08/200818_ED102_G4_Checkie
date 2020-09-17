@@ -1,12 +1,13 @@
 <?php
 try{
     // session_start();
-    require_once("./connectBook.php");
+    require_once("./connectBook666.php");
 
     $sql ="select csONo
             FROM csorder
-            where memNo = 1
-                    and date(csOTime) = date(csOTime) 
+            where memNo = :memNo and date(csOTime) = date(csOTime) 
+                            and csONo = (select max(csONo)
+                                            from csorder)
             order by csOTime desc
             limit 1;";
 

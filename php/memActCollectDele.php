@@ -2,13 +2,13 @@
     try{
         require_once("./connectBook666.php");
     
-        $sql = "delete  from actorder
-        where actONo = :actONo;";
+        $sql = "DELETE FROM `actcollect` WHERE (`memNo` = :memNo) and (`actNo` = :actNo);";
     
         $memberOrder = $pdo->prepare($sql);
 
     
-        $memberOrder->bindValue(":actONo", $_POST["actONo"]);
+        $memberOrder->bindValue(":memNo", $_POST["memNo"]);
+        $memberOrder->bindValue(":actNo", $_POST["actNo"]);
         $memberOrder->execute();
 
         echo '成功刪除';
