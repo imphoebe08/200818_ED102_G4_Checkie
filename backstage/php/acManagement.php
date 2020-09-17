@@ -22,6 +22,7 @@ try{
         $prodRow = $products->fetchAll(PDO::FETCH_ASSOC);
 
 
+        
 
 
         

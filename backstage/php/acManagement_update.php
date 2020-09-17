@@ -2,6 +2,7 @@
 $errMsg = "";
 //連線資料庫
 
+
 try{
   $dsn = "mysql:host=localhost;port=8889;dbname=0908Checkie;charset=utf8";
 	$user = "root";
