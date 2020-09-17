@@ -15,18 +15,17 @@ try {
     $pdo = new PDO($dsn, $user, $password, $options);
 
 
-    $sql = "UPDATE text 
-            SET `textNo` = :textNo,  
-            `textTypeNo` = :textTypeNo, 
-            `textContent` = :textContent, 
-            WHERE (`textNo` = :textNo);";
+    $sql = "INSERT INTO text (`textNo`, `textTypeNo`, `textContent`) 
+            VALUES (:textNo, :textTypeNo, :textContent);";
+
     $textInfo = $pdo->prepare($sql);
     $textInfo->bindValue(':textNo', $textNo);
     $textInfo->bindValue(':textTypeNo', $textTypeNo);
     $textInfo->bindValue(':textContent', $textContent);
     
     $textInfo->execute();
-    echo "問券修改成功";
+
+    echo "問券新增成功";
 } catch (PDOException $e) {
     $errMsg .= "錯誤原因 : " . $e->getMessage() . "<br>";
     $errMsg .= "錯誤行號 : " . $e->getLine();

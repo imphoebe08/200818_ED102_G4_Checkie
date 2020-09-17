@@ -1,45 +1,3 @@
-@import'var';
-@import'variable';
-@keyframes shake {
-    0% {
-        transform: translateX(0px);
-    }
-    33% {
-        transform: translateX(4px);
-    }
-    66% {
-        transform: translateX(-4px);
-    }
-    100% {
-        transform: translateX(0px);
-    }
-}
-
-.error_text {
-    @include p;
-    font-size: $fontsize - 2px;
-    text-align: center;
-}
-
-form input.error_border,
-.forgetpwd_from input.forget.error_border {
-    border: 1px solid red;
-}
-
-form input.error,
-form input.error2 {
-    animation-name: shake;
-    animation-fill-mode: forwards;
-    animation-duration: .2s;
-    animation-iteration-count: 1;
-}
-
-.hhh {
-    width: 500px;
-    height: 500px;
-    background: red;
-}
-
 .ansButtons-grades>input {
     display: none;
 }
@@ -191,7 +149,6 @@ header {
     font-size: $fontsize;
     height: 80px;
     padding: 0 20px;
-    z-index: 999;
 }
 
 .logo {
@@ -388,6 +345,7 @@ header {
 
 //signup
 .signup_overlay {
+    border: 1px solid green;
     background: #f6f5f72c;
     display: flex;
     justify-content: center;
@@ -400,7 +358,7 @@ header {
     top: 0;
     right: 0;
     bottom: 0;
-    z-index: -1;
+    z-index: 100;
     .container_close {
         position: absolute;
         top: 15px;
@@ -504,11 +462,7 @@ header {
     left: 0;
     width: 50%;
     z-index: 2;
-    .sign-in-form {
-        height: 70%;
-        padding-top: 100px;
-    }
-    button.forgetpwd {
+    #forgetpwd {
         border: none;
         background: #fff;
         color: $color-blue;
@@ -599,10 +553,11 @@ header {
     transition: transform 0.6s ease-in-out;
 }
 
-// .overlay-left {
-// 	transform: translateX(-20%);
-// }
-.container .right-panel-active .overlay-left {
+.overlay-left {
+    transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
     transform: translateX(0);
 }
 
@@ -611,13 +566,14 @@ header {
     transform: translateX(0);
 }
 
-.container .right-panel-active .overlay-right {
+.container.right-panel-active .overlay-right {
     transform: translateX(20%);
 }
 
 .forgetpwd_from {
-    padding: 80px 20px;
+    padding: 70px 20px;
     width: 60%;
+    height: 70%;
     background: #fff;
     z-index: 999;
     position: absolute;
@@ -626,80 +582,13 @@ header {
     transform: translate(-50%, -50%);
     border-radius: $border-radius;
     box-shadow: 5px 5px 10px 3px rgba(117, 117, 117, 0.2);
-    h2 {
-        margin-top: 0;
-    }
+    display: none;
     input.forget {
         background-color: #eee;
         border: none;
         padding: 12px 15px;
         margin: 8px 0;
         width: 80%;
-    }
-}
-
-.forgetpwd_from-none {
-    display: none;
-}
-
-.psdUpdate_from {
-    padding: 50px;
-    width: 30%;
-    background: #fff;
-    z-index: 999;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: $border-radius;
-    box-shadow: 5px 5px 10px 3px rgba(117, 117, 117, 0.2);
-    .container_close {
-        position: absolute;
-        top: 15px;
-        right: 35px;
-        color: #f1f1f1;
-        font-size: 40px;
-        font-weight: bold;
-        transition: 0.3s;
-        z-index: 11;
-        &:hover,
-        &:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    }
-    h2 {
-        margin-top: 0;
-    }
-    input.forget {
-        background-color: #eee;
-        border: none;
-        padding: 12px 15px;
-        margin: 8px 25px;
-        width: 80%;
-    }
-    p {
-        @include p;
-        font-size: $fontsize - 2px;
-        text-align: center;
-    }
-    button {
-        @include btn-more($bw, $color-pink, $fontsize + 4px);
-        display: flex;
-        margin: auto;
-    }
-}
-
-@media (max-width: 1000px) {
-    .psdUpdate_from {
-        width: 40%;
-    }
-}
-
-@media (max-width: 768px) {
-    .psdUpdate_from {
-        width: 60%;
     }
 }
 
@@ -719,9 +608,6 @@ header {
         animation: show 0.6s;
     }
     .forgetpwd_from {
-        width: 80%;
-    }
-    .psdUpdate_from {
         width: 80%;
     }
 }

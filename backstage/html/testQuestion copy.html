@@ -31,11 +31,13 @@
                                     <th>問題編號</th>
                                     <th>問題類別</th>
                                     <th>問題內容</th>
+                                    <th>上架狀態</th>
+                                    <th>更新日期</th>
                                     <th></th>
                                 </tr>
                             </thead>
 
-                            <tbody is="tq_datainsert"></tbody>
+                            <tbody is="tq_datainsert" :transport-data="transport"></tbody>
 
 
                         </table>
@@ -58,17 +60,30 @@
 
                     <div class="input-sort">
                         <h5>問題類別</h5>
-                        <label><input type="radio" name="sort" v-model="tqnewData.testTypeNo" value="1">1-家庭關係</label>
-                        <label><input type="radio" name="sort" v-model="tqnewData.testTypeNo" value="2">2-人際關係</label>
-                        <label><input type="radio" name="sort" v-model="tqnewData.testTypeNo" value="3">3-伴侶關係</label>
-                        <label><input type="radio" name="sort" v-model="tqnewData.testTypeNo" value="4">4-壓力創傷</label>
-                        <label><input type="radio" name="sort" v-model="tqnewData.testTypeNo" value="5">5-自我探索</label>
+                        <input type="radio" name="sort" v-model="tqnewData.testTypeNo" value="1">1-家庭關係
+                        <input type="radio" name="sort" v-model="tqnewData.testTypeNo" value="2">2-人際關係
+                        <input type="radio" name="sort" v-model="tqnewData.testTypeNo" value="3">3-伴侶關係
+                        <input type="radio" name="sort" v-model="tqnewData.testTypeNo" value="4">4-壓力創傷
+                        <input type="radio" name="sort" v-model="tqnewData.testTypeNo" value="5">5-自我探索
 
                     </div>
 
                     <div class="input-quest">
                         <h5>問題內容</h5>
                         <textarea style="width:500px;height:100px;" name="testcontent" placeholder="輸入問題內容" v-model.trim="tqnewData.testContent"></textarea>
+                    </div>
+
+                    <div class="input-status">
+                        <h5>上架狀態</h5>
+                        <input type="radio" name="status" v-model.trim="tqnewData.testBool" value="0">上架
+                        <input type="radio" name="status" v-model.trim="tqnewData.testBool" value="1">下架
+
+                    </div>
+
+                    <div class="input-date">
+                        <label><h5>更新日期</h5></label>
+                        <input type="text" id="exampleDate" class="datepicker" name="date" v-model.trim="tqnewData.renewDate" placeholder="更新日期" data-value="today" />
+
                     </div>
 
 
@@ -90,8 +105,26 @@
             props: ["transport-data"],
             data() {
                 return {
-
-                    tquestData: []
+                    transport: JSON.parse(JSON.stringify(this.transportData)),
+                    tquestData: [{
+                        textNo: "1",
+                        textTypeNo: "1",
+                        textContent: "您對目前家庭關係的滿意度為何？",
+                        textBool: "0",
+                        renewDate: "2020/09/08",
+                    }, {
+                        textNo: "2",
+                        textTypeNo: "2",
+                        textContent: "您對自己目前的人際關係滿意度為何？",
+                        textBool: "0",
+                        renewDate: "2020/09/08",
+                    }, {
+                        textNo: "3",
+                        textTypeNo: "2",
+                        textContent: "您對自己目前的人際關係滿意度為何？",
+                        textBool: "0",
+                        renewDate: "2020/09/08",
+                    }]
                 };
             },
             template: `<tbody>
@@ -107,9 +140,15 @@
                                             <option value="4">4-壓力創傷</option>
                                             <option value="5">5-自我探索</option>
                                         </select></td>
-                                    <td><input style="width: 300px;" type="text" placeholder="問題內容"
+                                    <td><input style="width: 250px;" type="text" placeholder="問題內容"
                                             v-model.trim="value.textContent" :class="'buttonGroup' + index" readonly></td>
-                                    
+                                    <td><select v-model.trim="value.textBool" :class="'buttonGroup' + index" disabled>
+                                            <option value="0">上架</option>
+                                            <option value="1">下架</option>
+                                        </select></td>
+                                    <input type="hidden" placeholder="更新日期" v-model.trim="value.renewDate"
+                                            :class="'buttonGroup' + index" readonly>
+                                    <td><span style="width: 100px;display: block;">{{value.renewDate}}</span></td>
                                     <td><button @click="editToggle($event,index)" class="btn btn-default btn-xs">編輯</button>
                                         <button @click="deleteData($event,index)" class="btn btn-default btn-xs">刪除</button>
                                     </td>
@@ -124,16 +163,16 @@
                 this.getTquestData();
             },
             methods: {
-                getTquestData() {
-                    axios.get('./php/getTextQuest.php')
-                        .then((res) => {
-                            this.tquestData = res.data;
-                            console.log('心理評估問券抓取成功');
-                        })
-                        .catch((error) => {
-                            console.error(error)
-                        })
-                },
+                //getTquestData() {
+                //    axios.get('./php/getTextQuest.php')
+                //       .then((res) => {
+                //            console.log('心理評估問券抓取成功');
+                //            this.tquestData = res.data;
+                //        })
+                //        .catch((error) => {
+                //            console.error(error)
+                //        })
+                //},
 
                 editToggle(e, index) {
                     let input = document.querySelectorAll(`.buttonGroup${index}`);
@@ -143,7 +182,7 @@
                         let check = confirm(`確認修改問題編號 ${this.tquestData[index].textNo} 的資料嗎?`);
                         if (check) {
                             //使用axios=> update
-                            this.updatetqInfo(index);
+                            this.updateMemInfo(index);
                             this.inputToForbid(e, index);
                         } else {
                             this.inputToEdit(e, index);
@@ -187,49 +226,64 @@
                     //     })   
                 },
 
-                updatetqInfo(index) {
+                updateMemInfo(index) {
                     axios.get('./php/updateTextQuest.php', {
-                            params: {
-                                textNo: this.tquestData[index].textNo,
-                                textTypeNo: this.tquestData[index].textTypeNo,
-                                textContent: this.tquestData[index].textContent,
+                        params: {
+                            textNo: this.tquestData[index].textNo,
+                            textTypeNo: this.tquestData[index].textTypeNo,
+                            textContent: this.tquestData[index].textContent,
+                            textBool: this.tquestData[index].textBool,
+                            renewDate: this.tquestData[index].renewDate,
 
+                        }
+                    })
 
-                            }
-                        })
-                        .then((res) => {
-                            console.log(res.data)
-                            this.getTquestData();
+                    //未修改
+                    .then((res) => {
+                            console.log('問券更新成功')
                         })
                         .catch((error) => {
-                            console.error(error);
+                            console.error(error)
                         })
 
                 },
             },
 
+            watch: {
+                transportData: function() {
+                    this.transport = JSON.parse(JSON.stringify(this.transportData));
+                    this.tquestData.push(this.transport);
+                    this.transport = {};
+                    //使用axios=> get
+                    this.getTquestData();
+                }
+            }
         });
         new Vue({
-                    el: "#tQapp",
-                    data: {
+            el: "#tQapp",
+            data: {
 
-                        tqnewData: {
-                            textNo: "",
-                            textTypeNo: "",
-                            textContent: "",
-                        },
-                        transport: {}
+                tqnewData: {
+                    textNo: "",
+                    textTypeNo: "",
+                    textContent: "",
+                    textBool: "",
+                    renewDate: "",
+                },
+                transport: {}
 
 
-                    },
+            },
 
 
-                    methods: {
-                        insertQuest() {
-                            axios.get('./php/insertCounselor.php'
-                            }
-                        },
-                    });
+            methods: {
+                insertQuest() {
+                    this.transport = JSON.parse(JSON.stringify(this.tqnewData)); //將新增區域的值送到元件
+                    this.tqnewData = {}; //清除新增區域的placeholder
+                    //使用axios=> insert
+                }
+            },
+        });
     </script>
 </body>
 

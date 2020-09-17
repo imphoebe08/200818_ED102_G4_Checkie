@@ -1,5 +1,5 @@
 <!------導覽列------>
-<header>
+<header id="header">
     <div class="top">
         <div class="navbar">
             <a href="./home.html" class="navbar__item logo"><img src="./img/navbar/cklogo.png" alt class="desktop_logo"><img src="./img/navbar/cklogo2.png" alt class="mobile_logo"></a>
@@ -10,15 +10,13 @@
                 <a class="navbar__item navbar__link" href="atMain.html">專欄文章</a>
                 <a class="navbar__item navbar__link" href="oracleCard.html">神諭卡</a>
                 <button class="navbar__item test_button" href="">心理評估測驗</button>
-
             </div>
-
             <ul class="navbar__sign">
-                <li><button class="navbar__sign__item" id="signup">加入會員</button></li>
-                <li> ｜</li>
-                <li><button class="navbar__sign__item" id="signin">登入</button></li>
-            </ul>
+                <li><button class="navbar__sign__item" id="signup" @click="nav_register">加入會員</button></li>
+                <li>｜</li>
+                <li><button class="navbar__sign__item" id="signin" @click="nav_login">登入</button></li>
 
+            </ul>
             <span class="hamburger hamburger--collapse navbar__item" id="js-navbar-toggle">
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
@@ -26,86 +24,48 @@
             </span>
         </div>
     </div>
-
-    <!------註冊登入會員----->
-
-    <div class="signup_overlay signup_overlay-none" id="signup_overlay">
-        <div class="container" id="container">
-            <span class="container_close" id="close">&times;</span>
-            <div class="form-container sign-up-container">
-                <form action="#">
-                    <h3>加入會員</h3>
-                    <span>請填寫以下資訊完成註冊</span>
-                    <input type="text" placeholder="Name" />
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <button>註冊</button>
-                </form>
+    <div>
+        <signin-component></signin-component>
+        <form action="#" @submit.prevent="psdUpdate" v-if="psd_block">
+            <!-- forgetpwd_from-none -->
+            <div class="psdUpdate_from" id="psdUpdate_from">
+                <span class="container_close" @click="psdUpdate_close">&times;</span>
+                <h2>變更密碼</h2>
+                <input class="forget" type="text" placeholder="新密碼" v-model="forgetPsd" id="forgetPsd">
+                <input class="forget" type="text" placeholder="確認新密碼" v-model="forgetCPsd" id="forgetCPsd">
+                <p id="forgetText">請輸入新密碼變更密碼</p>
+                <button>確認</button>
             </div>
-            <div class="form-container sign-in-container">
-                <form action="#">
-                    <h3>登入會員</h3>
-                    <span>請輸入您的帳號密碼</span>
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <button id="forgetpwd">忘記密碼？</button>
-                    <!-- <button>登入</button> -->
-                    <a href="./meMain.html">登入</a>
-
-                </form>
-            </div>
-            <div class="overlay-container">
-                <div class="overlay">
-                    <div class="overlay-panel overlay-left">
-                        <h3>歡迎回來！</h3>
-                        <p>登入會員享有更多服務</p>
-                        <button class="ghost" id="signIn">登入會員</button>
-                    </div>
-                    <div class="overlay-panel overlay-right">
-                        <h3>歡迎加入Checkie！</h3>
-                        <p>為生命帶來一些新的可能，<br>只需簡單完成申請</p>
-                        <button class="ghost" id="signUp">加入會員</button>
-                    </div>
-                </div>
-            </div>
-            <form action="#">
-                <div class="forgetpwd_from" id="forgetpwd_from">
-                    <span class="container_close" id="forgetpwd_close">&times;</span>
-                    <h2>忘記密碼？</h2>
-                    <input class="forget" type="email" placeholder="Email">
-                    <p>如無法登入或忘記密碼，請輸入Email重新設定密碼。</p>
-                    <button>確認</button>
-                </div>
-            </form>
-        </div>
+        </form>
     </div>
 
-    <!------ chatbot ------>
+</header>
 
-    <button class="chatbot_circle" type="button">
+<!------ chatbot ------>
+
+<button class="chatbot_circle" type="button">
         
         <span class="icon-elements">
         </span>
     </button>
-    <div class="modal-wrapper">
+<div class="modal-wrapper">
 
-        <div class="modal-header">
-            <span class="title">Checkie線上客服</span>
-            <p>您好！很高興為您服務</p>
-        </div>
-
-        <div class="modal-chatbox">
-            <span class="reply" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
-            <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
-            <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
-            <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
-            <span class="reply" data-time="14:22">不好意思，我不懂您的意思</span>
-        </div>
-        <form action="">
-            <div class="modal-inputbox">
-                <input class="modal-input" type="text" placeholder="輸入您的問題...">
-                <input class="modal-input_submit" type="button" value="送出">
-            </div>
-        </form>
+    <div class="modal-header">
+        <span class="title">Checkie線上客服</span>
+        <p>您好！很高興為您服務</p>
     </div>
-</header>
+
+    <div class="modal-chatbox">
+        <span class="reply" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+        <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+        <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+        <span class="self" data-time="14:22">您好！歡迎使用Checkie，請問有什麼可以協助您的？</span>
+        <span class="reply" data-time="14:22">不好意思，我不懂您的意思</span>
+    </div>
+    <form action="">
+        <div class="modal-inputbox">
+            <input class="modal-input" type="text" placeholder="輸入您的問題...">
+            <input class="modal-input_submit" type="button" value="送出">
+        </div>
+    </form>
+</div>

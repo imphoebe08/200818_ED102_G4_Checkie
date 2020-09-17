@@ -22,8 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
     <!-- navbar js -->
-    <script src="./js/index-header.js"></script>
-    <script src="./js/chatbot.js"></script>
+
     <!-- --------- -->
     <script src="./js/index.js"></script>
     <title>index</title>
@@ -31,11 +30,11 @@
         .st0 {
             fill: url(#SVGID_1_);
         }
-
+        
         .st1 {
             fill: url(#SVGID_2_);
         }
-
+        
         .st2 {
             fill: url(#SVGID_3_);
         }
@@ -44,8 +43,9 @@
 
 <body id="body">
 
-    @@include('template/index-navbar.html')
-
+    @@include('template/header.html')
+    <script src="./js/header.js"></script>
+    <script src="./js/chatbot.js"></script>
     <div class="inBanner" id="inBanner">
         <!-- 背景圖圈圈 -->
         <div class="inBanner_bgImg">
@@ -72,9 +72,7 @@
         <!-- logo 特校 -->
         <div class="inBanner-logo_block">
             <div class="inBanner-logo">
-                <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 259 210"
-                    style="enable-background:new 0 0 259 210;" xml:space="preserve" class="inBanner-hide_svg">
+                <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 259 210" style="enable-background:new 0 0 259 210;" xml:space="preserve" class="inBanner-hide_svg">
                     <g>
                         <!-- 漸層色 -->
                         <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="118.2956" y1="33.1352"
@@ -313,11 +311,11 @@
                     // 關閉drag
                     var images = document.querySelectorAll('inAct_item>a>img');
                     for (var i = 0; i < images.length; i++) {
-                        images[i].onmousemove = function (e) {
+                        images[i].onmousemove = function(e) {
                             e.preventDefault()
 
                         }
-                        images[i].ondragstart = function (e) {
+                        images[i].ondragstart = function(e) {
                             return false;
 
                         }
@@ -411,7 +409,7 @@
                             prevSlide = curSlide;
                             attachEvents(sliders[sliders.length - 2]);
                             slideMouseUp();
-                            setTimeout(function () {
+                            setTimeout(function() {
 
 
 
