@@ -41,7 +41,7 @@ Vue.component('cssart-layout', {
     },
     filters: {
         cutStringFilter: function (str) {
-            return str.substring(0, 20).concat('...')
+            return str.substring(0, 30).concat('...')
         }
     }
 })
@@ -211,9 +211,86 @@ let vmcss = new Vue({
                 this.csArtData = res2.data.csArtData;
                 this.csActData = res2.data.csActData;
                 this.csRecoData = res2.data.csRecoData;
+
+                Vue.nextTick().then(() => {
+                    this.installOwlCarousel1();
+                    this.installOwlCarousel2();
+                    this.installOwlCarousel3();
+                });
+
+
             }));
     },
-    methods: {},
+    methods: {
+        installOwlCarousel1: function () {
+            $('.owl-carousel1').owlCarousel({
+                loop: false,
+                mouseDrag: true,
+                touchDrag: true,
+                center: false,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                autoplayHoverPause: false,
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    576: {
+                        items: 2,
+                    },
+                    768: {
+                        items: 3,
+                    }
+                }
+            });
+        },
+        installOwlCarousel2: function () {
+            $('.owl-carousel2').owlCarousel({
+                loop: false,
+                mouseDrag: true,
+                touchDrag: true,
+                center: false,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                autoplayHoverPause: false,
+                dots: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    576: {
+                        items: 3,
+                    }
+                }
+            });
+        },
+        installOwlCarousel3: function () {
+            $('.slider').slick({
+                arrows: false,
+                dots: false,
+                vertical: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                verticalSwiping: true,
+                autoplay: false,
+                autoplaySpeed: 2000,
+                centerMode: true,
+                swipeToSlide: true,
+                responsive: [{
+                    breakpoint: 500,
+                    settings: {
+                        vertical: false,
+                        verticalSwiping: false,
+                        slidesToShow: 1,
+                        autoplay: true,
+                        swipeToSlide: true,
+                        slidesToScroll: 1,
+                        centerMode: true,
+                    },
+                }]
+            });
+        }
+    },
     watch: {
         csData: function () {
             for (let i = 0; i < 5; i++)
@@ -230,70 +307,31 @@ let vmcss = new Vue({
 // 輪播套件
 // ===================================================================
 // 文章卡片
-$('.owl-carousel1').owlCarousel({
-    loop: false,
-    mouseDrag: true,
-    touchDrag: true,
-    center: false,
-    autoplay: true,
-    autoplayTimeout: 2000,
-    autoplayHoverPause: false,
-    responsive: {
-        0: {
-            items: 1,
-        },
-        576: {
-            items: 2,
-        },
-        768: {
-            items: 3,
-        }
-    }
-});
+
 
 
 // 活動卡片
-$('.slider').slick({
-    arrows: false,
-    dots: false,
-    vertical: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    verticalSwiping: true,
-    autoplay: false,
-    autoplaySpeed: 2000,
-    centerMode: true,
-    swipeToSlide: true,
-    responsive: [{
-        breakpoint: 500,
-        settings: {
-            vertical: false,
-            verticalSwiping: false,
-            slidesToShow: 1,
-            autoplay: true,
-            swipeToSlide: true,
-            slidesToScroll: 1,
-            centerMode: true,
-        },
-    }]
-});
-
-// 推薦諮商師卡片
-$('.owl-carousel2').owlCarousel({
-    loop: false,
-    mouseDrag: true,
-    touchDrag: true,
-    center: false,
-    autoplay: true,
-    autoplayTimeout: 2000,
-    autoplayHoverPause: false,
-    dots: true,
-    responsive: {
-        0: {
-            items: 1,
-        },
-        576: {
-            items: 3,
-        }
-    }
-});
+// $('.slider').slick({
+//     arrows: false,
+//     dots: false,
+//     vertical: true,
+//     slidesToShow: 1,
+//     slidesToScroll: 1,
+//     verticalSwiping: true,
+//     autoplay: false,
+//     autoplaySpeed: 2000,
+//     centerMode: true,
+//     swipeToSlide: true,
+//     responsive: [{
+//         breakpoint: 500,
+//         settings: {
+//             vertical: false,
+//             verticalSwiping: false,
+//             slidesToShow: 1,
+//             autoplay: true,
+//             swipeToSlide: true,
+//             slidesToScroll: 1,
+//             centerMode: true,
+//         },
+//     }]
+// });

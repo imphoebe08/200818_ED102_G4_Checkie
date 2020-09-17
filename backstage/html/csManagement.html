@@ -147,6 +147,7 @@
                                     <th>Email</th>
                                     <th>照片</th>
                                     <th>停權</th>
+                                    <th>地區</th>
                                     <th>編輯</th>
                                     <!-- <th>刪除</th> -->
                                 </tr>
@@ -188,6 +189,12 @@
                                         <td><select :class="'buttonGroup' + index" v-model.trim="value.csBool" disabled>
                                                 <option value="0">正常</option>
                                                 <option value="1">停權</option>
+                                            </select></td>
+                                        <td><select :class="'buttonGroup' + index" v-model.trim="value.csPosNo"
+                                                disabled>
+                                                <option value="1">北部</option>
+                                                <option value="2">中部</option>
+                                                <option value="3">南部</option>
                                             </select></td>
                                         <td><button @click="editToggle($event,index)">編輯</button></td>
                                         <!-- <td><button @click="deleteData($event,index)">刪除</button></td> -->

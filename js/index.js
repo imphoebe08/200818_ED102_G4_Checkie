@@ -99,6 +99,34 @@ $(function() {
     // 調圈圈顏色
 
     // inAct
+    var controller = new ScrollMagic.Controller();
+
+
+    // 活動效果
+    var stickmove = new TimelineMax();
+
+    // var parallax01 = TweenMax.to('.inArti-page-2>div', 1, { x: 0, y: 0, z: 0 });
+    // var parallax02 = TweenMax.to('.inArti-page-3>div', 1, { x: 0, y: 0, z: 0 });
+    // stickmove.add([parallax01, parallax02]);
+    stickmove.to('.inArti-page-2>div', 4, { x: 0, y: 0, z: 0 }).to('.inArti-page-3>div', 4, { x: 0, y: 0, z: 0 })
+        // inArti-page-2
+
+
+    //固定住畫面
+    var inArti = new ScrollMagic.Scene({
+            triggerElement: "#inArti",
+            offset: -130,
+            triggerHook: 0,
+            duration: '100%'
+        }).setPin('.inArti').setTween(stickmove)
+        // .addIndicators({
+        //     name: 'key_04'
+        // })
+        .addTo(controller);
+
+    // 超級分隔線
+
+
 
     var t1 = TweenMax.to('.inBanner-circle', 2, { backgroundImage: "linear-gradient(135deg, #fddb92, #d1fdff)" });
     // 下面這個是大圈圈 因為有兩層 所以多寫一個css
@@ -215,57 +243,3 @@ $(function() {
 });
 
 // 向惡勢力低頭
-
-$(document).ready(function() {
-
-    var curPage = 1;
-    var numOfPages = $(".inArti-page").length;
-    var animTime = 1000;
-    var scrolling = false;
-    var pgPrefix = ".inArti-page-";
-
-    function pagination() {
-        scrolling = true;
-
-        $(pgPrefix + curPage).removeClass("inactive").addClass("active");
-        $(pgPrefix + (curPage - 1)).addClass("inactive");
-        $(pgPrefix + (curPage + 1)).removeClass("active");
-
-        setTimeout(function() {
-            scrolling = false;
-        }, animTime);
-        console.log(curPage)
-    };
-
-    function navigateUp() {
-        if (curPage === 1) return;
-        curPage--;
-        pagination();
-    };
-
-    function navigateDown() {
-        if (curPage === numOfPages) return;
-        curPage++;
-        pagination();
-    };
-
-    $("#inArti-pages").on("mousewheel DOMMouseScroll", function(e) {
-        if (scrolling) return;
-        if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
-            navigateUp();
-        } else {
-            navigateDown();
-        }
-    });
-
-    $("#inArti-pages").on("keydown", function(e) {
-        if (scrolling) return;
-        if (e.which === 38) {
-            navigateUp();
-        } else if (e.which === 40) {
-            navigateDown();
-        }
-    });
-
-
-});
