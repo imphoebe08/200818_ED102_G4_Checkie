@@ -4,29 +4,13 @@
 <head>
     @@include('layout/bgHead.html')
 </head>
-<style>
-    input {
-        width: 100%;
-    }
-
-    input[readonly] {
-        border: none;
-        outline: none;
-    }
-
-    input.insertNew {
-        display: inline-block;
-        width: 20%;
-        margin: 10px;
-    }
-</style>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     <!-- top_header -->
     @@include('layout/top_header.html')
 
     <!-- 中間內容 -->
-    <div id="bgMem" class="container-fluid">
+    <div id="bgMem" class="container-fluid adminManagement">
         <div class="row">
             <div class="col-md-12">
                 <div class="acManagement_title">
@@ -38,7 +22,7 @@
                             <input type="text" placeholder="名稱" v-model.trim="newData.admName" class="insertNew">
                             <input type="text" placeholder="帳號" v-model.trim="newData.admId" class="insertNew">
                             <input type="password" placeholder="密碼" v-model.trim="newData.admPsn" class="insertNew">
-                            <button @click="insertData">新增</button>
+                            <button @click="insertData" class="editButtons insertButton">新增</button>
                         </div>
                         <table class=" table table-responsive-sm table-sm ">
                             <thead>
@@ -97,7 +81,7 @@
                                             v-model.trim="value.admId" :class="'buttonGroup' + index" readonly></td>
                                     <td><input style="width: 150px;" type="password" placeholder="管理員密碼"
                                             v-model.trim="value.admPsn" :class="'buttonGroup' + index" readonly></td>
-                                    <td><button @click="editToggle($event,index)">編輯</button></td>
+                                    <td><button class="editButtons" @click="editToggle($event,index)">編輯</button></td>
 			                       
                                 </tr>
                         </tbody>`,

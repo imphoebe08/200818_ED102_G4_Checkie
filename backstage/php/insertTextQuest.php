@@ -8,12 +8,12 @@ $textContent = $_REQUEST["textContent"];
 $errMsg = "";
 //連線資料庫
 try {
-    $dsn = "mysql:host=localhost;port=8889;dbname=ed102g4;charset=utf8";
-    $user = "root";
-    $password = "root";
-    $options = array(PDO::ATTR_CASE => PDO::CASE_NATURAL, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-    $pdo = new PDO($dsn, $user, $password, $options);
-
+    // $dsn = "mysql:host=localhost;port=8889;dbname=ed102g4;charset=utf8";
+    // $user = "root";
+    // $password = "root";
+    // $options = array(PDO::ATTR_CASE => PDO::CASE_NATURAL, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+    // $pdo = new PDO($dsn, $user, $password, $options);
+    require_once("./connectBook.php");
 
     $sql = "INSERT INTO text (`textNo`, `textTypeNo`, `textContent`) 
             VALUES (:textNo, :textTypeNo, :textContent);";
@@ -22,7 +22,7 @@ try {
     $textInfo->bindValue(':textNo', $textNo);
     $textInfo->bindValue(':textTypeNo', $textTypeNo);
     $textInfo->bindValue(':textContent', $textContent);
-    
+
     $textInfo->execute();
 
     echo "問券新增成功";
