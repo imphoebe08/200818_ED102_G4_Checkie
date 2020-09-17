@@ -10,7 +10,7 @@ try{
   
 
   $sql = "
-    select * from card GROUP by deckno; 
+    select * from card;
   ";
   $cardRow = $pdo->query($sql);
 

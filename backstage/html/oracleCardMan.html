@@ -68,7 +68,7 @@
                             </tr>
                         </thead>
 
-                        <tbody is="input-layout" :transport-data="transport" v-for="(each,index) in CardsData" :init="index"></tbody>
+                        <tbody is="input-layout" :transport-data="transport" v-for="(each,index) in cardsDataList" :init="index" :item="each" :list="cardsDataListSm"></tbody>
                     </table>
                 </div>
             </div>
@@ -91,13 +91,18 @@
 
 <script>
     Vue.component("input-layout", {
-        props: ["transport-data", "init"],
+        props: ["transport-data", "init", "item", "list"],
         data() {
             return {
                 transport: JSON.parse(JSON.stringify(this.transportData)),
                 index: this.init + 1,
-                CardsData: []
+                cardsDataList: [],
+                getCardsDataListSm: [],
+
             };
+        },
+        mounted() {
+            // console.log(typeof(this.list))
         },
         computed: {
             demo() {
@@ -105,13 +110,17 @@
             },
             demo2() {
                 return "demo" + this.init;
-            }
+            },
+            card() {
+                return this.list.filter(item => item.deckNo == this.index);
+            },
+
         },
         template: ` <tbody>
                             <tr class="accordion-toggle trTitle" >
                                 <td>牌組{{index}}</td>
                                 <td>
-                                    <img style="width:50px;" src="../../img/oracleCard/card_cover/cover_angel.png" alt="">
+                                    <img style="width:50px;" :src="item.cardPic" alt="">
                                     <div class="changeCardBackStyle">
                                         <img src="../../img/oracleCard/exchangeBefore.png" alt="">
                                         <img src="../../img/oracleCard/exchangeAfter.png" alt="">
@@ -132,15 +141,15 @@
                                                 <th>神諭卡內容</th>
                                                 <th>神諭卡卡面</th>
                                                 <th>上/下架</th>
-                                                <th></th>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td><label for="">神諭卡片卡號:</label><input type="text" v-model="cardNo"></td>
-                                                    <td><label for="">神諭卡名稱:</label><input type="text"></td>
-                                                    <td><label for="">神諭卡內容:</label><input type="text"></td>
-                                                    <td><label for="">神諭卡卡面:</label><input type="text"></td>
-                                                    <td><label for="">上/下架</label><input type="checkbox"></td>
+                                                <tr v-for="each in card">
+                                                    <td><label for="">神諭卡片卡號:</label><input type="text" v-model="each.cardNo"></td>
+                                                    <td><label for="">神諭卡名稱:</label><input type="text" v-model="each.cardTitle"></td>
+                                                    <td><label for="">神諭卡內容:</label><input type="text" v-model="each.cardContent"></td>
+                                                    <td><label for="">神諭卡卡面:</label><input type="text" v-model="each.cardPic">
+                                                    <img style="width:50px;" :src="each.cardPic" alt=""></td>
+                                                    <td><label for="">上/下架</label><input type="checkbox" v-model="each.cardTypeNo"></td>
                                                     <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open">修改</span></button><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open">刪除</span></button></td>
                                                 </tr>
                                             </tbody>
@@ -150,129 +159,56 @@
                                 </td>
                             </tr>
                         </tbody>`,
-        mounted() {
-            //一進頁面先使用axios=> get
-            this.getCardsData();
-        },
+
         methods: {
-            getCardsData() {
-                axios.get('../php/oracleCardMan.php')
-                    .then((res) => {
-                        // this.cards = res.data;
-                        console.log(res.data);
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    });
-            },
-            editToggle(e, index) {
-                let input = document.querySelectorAll(`.buttonGroup${index}`);
-                if (input[0].getAttribute("readonly")) {
-                    this.inputToEdit(e, index);
-                } else {
-                    let check = confirm(`確認修改會員編號 ${this.memberData[index].memNo} 的資料嗎?`);
-                    if (check) {
-                        //使用axios=> update
-                        this.updateMemInfo(index);
-                        this.inputToForbid(e, index);
-                    } else {
-                        this.inputToEdit(e, index);
-                    }
-                }
-            },
-            inputToForbid(e, index) {
-                let input = document.querySelectorAll(`.buttonGroup${index}`);
-                for (let j = 0; j < input.length; j++) {
-                    e.currentTarget.innerText = "編輯";
-                    input[j].setAttribute("readonly", true);
-                    input[j].setAttribute("disabled", true);
-                }
-            },
-            inputToEdit(e, index) {
-                let input = document.querySelectorAll(`.buttonGroup${index}`);
-                for (let j = 0; j < input.length; j++) {
-                    input[j].removeAttribute("readonly");
-                    input[j].removeAttribute("disabled");
-                    e.currentTarget.innerText = "送出";
-                }
-            },
-            deleteData(e, index) {
-                let check = confirm(`確認刪除會員編號 ${this.memberData[index].memNo} 的資料嗎?`);
-                if (check)
-                    this.memberData.splice(index, 1);
-                //使用axios=> delete
-            },
-            updateMemInfo(index) {
-                // axios.get('修改會員資料的php.php', {
-                //         params: {
-                //             memBool: this.memberData[index].memBool,
-                //             memId: this.memberData[index].memId,
-                //             memName: this.memberData[index].memName,
-                //             memGender: this.memberData[index].memGender,
-                //             memBD: this.memberData[index].memBD,
-                //             memGender: this.memberData[index].memGender,
-                //             memTel: this.memberData[index].memTel,
-                //             memAdd: this.memberData[index].memAdd,
-                //             memBool: this.memberData[index].memBool,
-                //         }
-                //     })
-                //     .then((res) => {
-                //         console.log('會員更新成功')
-                //     })
-                //     .catch((error) => {
-                //         console.error(error)
-                //     })
-            }
+
+
         },
-        watch: {
-            transportData: function() {
-                this.transport = JSON.parse(JSON.stringify(this.transportData));
-                this.memberData.push(this.transport);
-                this.transport = {};
-            }
-        }
     });
 
     new Vue({
         el: "#oracleCardMan",
         data: {
-            memberList: [],
-            newData: {
-                _id: "",
-                name: "",
-                email: "",
-                phone: ""
-            },
             transport: {},
-            CardsData: [{
-                "cardNo": "101",
-                "cardTitle": "接受",
-                "cardContent": "「懷著無條件的愛與包容心，用天使的眼光看待自己與他人，你就能夠激發與提升任何人，達到他們最高的潛力。...",
-                "cardPic": "./img/oracleCard/cards/angel/angel_1.png",
-                "cardTypeNo": "1",
-                "deckNo": "1",
-            }, {
-                "cardNo": "201",
-                "cardTitle": "要有信心",
-                "cardContent": "「進展不盡然倚靠你對自己的信心，還必須倚靠你對自己的信念。如果你的信心動搖了，就請依靠天使，祂們會幫...",
-                "cardPic": "./img/oracleCard/cards/angel/angel_2.png",
-                "cardTypeNo": "1",
-                "deckNo": "2",
-            }, {
-                "cardNo": "301",
-                "cardTitle": "對自己誠實",
-                "cardContent": "「看著自己的內心，你就會知道事實的真相。你可以放心地承認事實，天使會在必要的改變中支持並指引你，天使...",
-                "cardPic": "./img/oracleCard/cards/angel/angel_3.png",
-                "cardTypeNo": "1",
-                "deckNo": "3",
-            }]
+            cardsDataList: [],
+            cardsDataListSm: [],
         },
         methods: {
+            getCardsData() {
+                axios.get(`./php/oracleCardMan.php`)
+                    .then((res) => {
+                        this.cardsDataList = res.data;
+                        // console.log(res.data);
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+
+
+            },
+            getCardsDataList() {
+                axios.get(`./php/oracleCardManList.php`)
+                    .then((res) => {
+                        // this.cardsDataListSm.push(res.data[0]);
+                        // for (var i = 0; i < res.data.length; i++) {
+                        //     this.cardsDataListSm.push("123");
+                        // }
+                        this.cardsDataListSm = res.data;
+                        // console.log(this.cardsDataListSm);
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+            },
             // insertData() {
             //     this.transport = JSON.parse(JSON.stringify(this.newData)); //將新增區域的值送到元件
             //     this.newData = {}; //清除新增區域的placeholder
             //     //使用axios=> insert
             // }
-        }
+        },
+        mounted() {
+            this.getCardsData();
+            this.getCardsDataList();
+        },
     });
 </script>
