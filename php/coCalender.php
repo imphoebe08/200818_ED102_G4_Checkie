@@ -1,11 +1,11 @@
 <?php
 try{
     // session_start();
-    require_once("./connectBook.php");
+    require_once("./connectBook666.php");
 
 
     $sql = "
-    INSERT INTO `ed102g4`.`csorder` (`csNo`, `memNo`, `csODate`, `csModeNo`, `csPosNo`, `csOCost`, `csOTime`, `csOAnticipate`, `csOTopic`,`csOTalk`,`csName`,`csGender`,`csBD`,`csAdd`,`csOcc`,`csTel`,`csEmail`,`csHour`,`csPayment`) 
+    INSERT INTO `csorder` (`csNo`, `memNo`, `csODate`, `csModeNo`, `csPosNo`, `csOCost`, `csOTime`, `csOAnticipate`, `csOTopic`,`csOTalk`,`csName`,`csGender`,`csBD`,`csAdd`,`csOcc`,`csTel`,`csEmail`,`csHour`,`csPayment`) 
     VALUES (:csNo, :memNo , :csODate , :csModeNo , :csPosNo, :csOCost ,current_date(), :csOAnticipate, :csOTopic, :csOTalk, :csName , :csGender, :csBD, :csAdd,:csOcc,concat(:csTelA,',',:csTelB),:csEmail,:csHour,:csPayment);
     ";
     $memberOrder = $pdo->prepare($sql);

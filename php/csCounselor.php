@@ -1,7 +1,7 @@
 <?php
 try{
     // session_start();
-    require_once("./connectBook.php");
+    require_once("./connectBook666.php");
 
     $sql = "
     select csNo, csName, csPic, csPosNo

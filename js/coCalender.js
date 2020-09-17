@@ -209,7 +209,7 @@ let vm = new Vue({
         paymentMethod: [],
         ////////////////////////
         listDataHide: false,
-        currentStep: 2,
+        currentStep: 1,
         errors: [],
         memTopic: '',
         memStatus: '',
@@ -396,7 +396,7 @@ let vm = new Vue({
         },
     },
     mounted() {
-        this.currentStep = 4;
+        this.currentStep = 1;
 
         //諮商師
         axios.get('./php/csCounselor.php')

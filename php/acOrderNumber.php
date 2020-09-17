@@ -1,12 +1,14 @@
 <?php
 try{
     // session_start();
-    require_once("./connectBook.php");
+    require_once("./connectBook666.php");
 
     $sql ="select actONo
             FROM ACTORDER
-            where memNo = :memNo
-                    and date(actOTime) = date(actOTime) 
+            where memNo = :memNo and actOTime = (select max(actOTime)
+                                            from ACTORDER)
+                            and actONo = (select max(actONo)
+                                            from ACTORDER)
             order by actOTime desc
             limit 1;";
 

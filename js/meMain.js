@@ -11,6 +11,8 @@ Vue.component('me-head', {
 
 
 
+
+
 Vue.component('me-select_item', {
     props: {
         selected: { type: Boolean, default: false },
@@ -169,38 +171,45 @@ Vue.component('co-order', {
 
 
 Vue.component('inact-item', {
+    props: ["love"],
+    data() {
+        return {}
+    },
     template: `
-        <div class="inAct_item">
-            <!-- 帶資料 -->
-            <a href="javascript:void(0)" draggable="false">
-                <img src="./img/index/inAct/image_1.jpg" draggable="false">
-            </a>
-            <div class="inAct_text">
-                <div class="inAct-top_text">
-                    <div class="inAct-left_date">
-                        <div class="inAct-date_icon"><i class="far fa-clock"></i></div>
-                        <!-- 帶資料 -->
-                        <div class="inAct-date_text">2020-08-14(五)</div>
-                    </div>
-                    <div class="inAct-icon_block">
-                        <a href="javascript:void(0)" class="inAct-icon_1" draggable="false"><i class="fas fa-share-alt"></i></a>
-                        <a href="javascript:void(0)" class="inAct-icon_2" draggable="false"><i class="fas fa-bookmark"></i></a>
-                    </div>
-                </div>
-                <!-- 帶資料 -->
-                <div class="inAct_title"><a href="javascript:void(0)" draggable="false">從陌生人到貴人，打造職涯路上的黃金人脈法則</a> </div>
+ <div class="inAct_item">
+    <!-- 帶資料 -->
+    <a href="javascript:void(0)" draggable="false">
+        <img :src="love.actPic1" draggable="false">
+    </a>
+    <div class="inAct_text">
 
-                <div class="inAct_location">
-                    <div class="inAct-location_icon">
-                    
-                    </div>
-                    <!-- 帶資料 -->
-                    <div class="inAct-location_text">台灣文創教育中心</div>
-                </div>
+        <div class="inAct-top_text">
+            <div class="inAct-left_date">
+                <div class="inAct-date_icon"><i class="far fa-clock"></i></div>
+                <!-- 帶資料 -->
+                <div class="inAct-date_text">活動日期{{love.actStart}}</div>
+            </div>
+            <div class="inAct-icon_block">
+                <a href="javascript:void(0)" class="inAct-icon_1" draggable="false"><i class="fas fa-share-alt"></i></a>
+                <a href="javascript:void(0)" class="inAct-icon_2" draggable="false"><i class="fas fa-bookmark"></i></a>
             </div>
         </div>
+        <!-- 帶資料 -->
+        <div class="inAct_title"><a href="javascript:void(0)" draggable="false">{{love.actName}}</a> </div>
+        <div class="inAct-top_text">
+            <div class="inAct-left_date">
+                <div class="inAct-date_icon"><i class="far fa-clock"></i></div>
+                <div class="inAct-date_text">報名日期{{love.actPstart}}</div>
+            </div>
+
+        </div>
+    </div>
+</div>
     `,
 });
+
+
+
 
 
 
@@ -212,7 +221,7 @@ Vue.component('cssart-layout', {
     template: `
         <div class="csS-art__card">
             <a href="./atSelf.html">
-                <img class="img-responsive" :src="love.artPicContent">
+                <img class="img-responsive" :src="love.artPic1">
             </a>
             <div class="card-Info">
                 <span class="card-Info__times small"><img src="img//icon//clock.png" alt="">{{love.artDate}}</span>
@@ -296,116 +305,167 @@ Vue.component('me-chat-an', {
 
 
 
+
 let vm = new Vue({
     el: '#app',
-    data: () => {
-        return {
-            memActRec: '',
-            memArtRec: '',
-            //aoAll: '',
-            tempData: '',
-            tempIndex: '',
-            tempONo: '',
-            oCost: '',
-            overlayConfirm: false,
-            orderShow: false,
-            chatBox: "",
-            meChatAn: "",
-            chatPersonEach: "",
-            errorText: false,
-            mePswFinalizeConfirm: true,
-            memPsdModel: "",
-            textMemPsd: '',
-            bigShake: false,
-            showNewMemPsd: false,
-            myMemPsd: false,
-            otherInfo: false,
-            newPic: './img/chatRoom/userPic.png',
-            ccOrder: true,
-            acOrder: true,
-            selectNav: true,
-            coData: [],
-            coPastData: [],
-            aoData: [],
-            aoPastData: [],
-            windowSize: '',
-            pageShow: false,
-            step: '',
-            currentPage: '',
-            iWantModify: false,
-            errors: [],
-            member: {
-                memName: '閻掬容',
-                memPetName: 'CC',
-                memGender: '女',
-                memBD: '1999/99/99',
-                memAdd: 'hahahahahaha',
-                memOcc: 'makeup artist',
-                memTel: {
-                    // countryCode: '886',
-                    // mobile: '0921132409',
-                },
-                memEmail: {
-                    // value: 'misvamda@gmail.com',
-                    // valid: true,
-                },
-                memAdd: '台北市南港區南港路一段四號之一',
-                memPsd: 'cerise0324',
+    components: {
+        apexchart: VueApexCharts
+    },
+    data: {
+        tempHeartTitle: '',
+        tempHeartData: '',
+        tempHeartIndex: '',
+        chartOpacity: false,
+        artCol: [],
+        actCol: [],
+        heart: true,
+        memActRec: '',
+        memArtRec: '',
+        //aoAll: '',
+        tempData: '',
+        tempIndex: '',
+        tempONo: '',
+        oCost: '',
+        overlayConfirm: false,
+        orderShow: false,
+        chatBox: "",
+        meChatAn: "",
+        chatPersonEach: "",
+        errorText: false,
+        mePswFinalizeConfirm: true,
+        memPsdModel: "",
+        textMemPsd: '',
+        bigShake: false,
+        showNewMemPsd: false,
+        myMemPsd: false,
+        otherInfo: false,
+        newPic: './img/chatRoom/userPic.png',
+        ccOrder: true,
+        acOrder: true,
+        selectNav: true,
+        coData: [],
+        coPastData: [],
+        aoData: [],
+        aoPastData: [],
+        windowSize: '',
+        pageShow: false,
+        step: '',
+        currentPage: '',
+        iWantModify: false,
+        errors: [],
+        member: {
+            memName: '閻掬容',
+            memNickname: 'CC',
+            memGender: '女',
+            memBD: '1999/99/99',
+            memAdd: 'hahahahahaha',
+            memOcc: 'makeup artist',
+            memTel: {
+                // countryCode: '886',
+                // mobile: '0921132409',
             },
+            memEmail: {
+                // value: 'misvamda@gmail.com',
+                // valid: true,
+            },
+            memAdd: '台北市南港區南港路一段四號之一',
+            memPsd: 'cerise0324',
+        },
 
 
-            orderShow: false,
+        orderShow: false,
 
-            momentModify: {
-                memName: '閻掬容',
-                memPetName: 'CC',
-                memGender: '女',
-                memBD: '1999/99/99',
-                memAdd: 'hahahahahaha',
-                memOcc: 'makeup artist',
-                memTel: {
-                    // countryCode: '886',
-                    // mobile: '0921132409',
-                },
-                memEmail: {
-                    // value: 'misvamda@gmail.com',
-                    // valid: true,
-                },
-                memAdd: '台北市南港區南港路一段四號之一',
-                memPsd: 'cerise0324',
+        momentModify: {
+            memName: '閻掬容',
+            memNickname: 'CC',
+            memGender: '女',
+            memBD: '1999/99/99',
+            memAdd: 'hahahahahaha',
+            memOcc: 'makeup artist',
+            memTel: {
+                // countryCode: '886',
+                // mobile: '0921132409',
             },
-            titles: [
-                '會員總覽',
-                '會員資料',
-                '諮商預約',
-                '活動報名',
-                '心理評估',
-                '我的收藏',
-                '線上諮商',
-            ],
-            memTitle: {
-                petName: '暱稱',
-                name: '姓名',
-                gender: '性別',
-                bDay: '生日',
-                occ: '職業',
-                email: '電子信箱',
-                tel: '電話',
-                add: '地址',
-                password: '密碼',
+            memEmail: {
+                // value: 'misvamda@gmail.com',
+                // valid: true,
             },
-            coOrder: {
-                a: '已預約',
-                b: '預約記錄',
-            },
-            mentalTitles: {
-                a: '測驗歷史紀錄',
-                b: '⾃我評估',
-                c: '推薦專欄',
-                d: '推薦活動',
+            memAdd: '台北市南港區南港路一段四號之一',
+            memPsd: 'cerise0324',
+        },
+        titles: [
+            '會員總覽',
+            '會員資料',
+            '諮商預約',
+            '活動報名',
+            '心理評估',
+            '我的收藏',
+            '線上諮商',
+        ],
+        memTitle: {
+            petName: '暱稱',
+            name: '姓名',
+            gender: '性別',
+            bDay: '生日',
+            occ: '職業',
+            email: '電子信箱',
+            tel: '電話',
+            add: '地址',
+            password: '密碼',
+        },
+        coOrder: {
+            a: '已預約',
+            b: '預約記錄',
+        },
+        mentalTitles: {
+            a: '測驗歷史紀錄',
+            b: '⾃我評估',
+            c: '推薦專欄',
+            d: '推薦活動',
+        },
+        csReData: [],
+        series: [
+            //apexchart預設資料
+            {
+                name: "分數",
+                data: [0, 0, 0, 0, 0]
             }
-
+        ],
+        chartOptions: {
+            //apexchart設定
+            chart: {
+                height: 250,
+                type: "radar"
+            },
+            xaxis: {
+                categories: ["家庭關係", "人際關係", "伴侶關係", "壓力創傷", "自我探索"],
+                labels: {
+                    style: {
+                        colors: ["#666", "#666", "#666", "#666", "#666"],
+                        fontSize: "12px",
+                        fontFamily: "微軟正黑體,Helvetica, Arial, sans-serif",
+                        fontWeight: 600,
+                        cssClass: "apexcharts-xaxis-label"
+                    }
+                },
+                range: 100
+            },
+            yaxis: {
+                min: 0,
+                max: 100,
+                tickAmount: 4
+            },
+            fill: {
+                colors: ["#e05891"]
+            },
+            colors: ["pink"],
+            chart: {
+                toolbar: {
+                    show: false
+                }
+            }
         }
+
     },
 
     methods: {
@@ -451,6 +511,9 @@ let vm = new Vue({
         oag(m) {
             this.acOrder = m;
         },
+        hag(p) {
+            this.heart = p;
+        },
         changePic() {
             let pic = event.target.files[0];
             let reader = new FileReader();
@@ -478,6 +541,8 @@ let vm = new Vue({
                     )
                     //console.log(d[e].csONo);
                 d.splice(i, 1);
+                this.dataClear();
+
             } else if (d == this.aoData) {
                 var formData3 = new FormData();
                 formData3.append('actONo', d[i].actONo);
@@ -488,31 +553,85 @@ let vm = new Vue({
                     )
                     //console.log(d[e].actONo);
                 d.splice(i, 1);
+                this.dataClear();
             }
+        },
+        heartDele(d, i) {
+            if (d == this.artCol) {
+                console.log(d);
+                var formData6 = new FormData();
+                formData6.append('artNo', d[i].artNo);
+                formData6.append('memNo', this.member.memNo);
+                axios.post('./php/memArtCollectDele.php', formData6).then(
+                        res => {
+                            console.log(res)
+                        }
 
-            dataClear();
+                    )
+                    //console.log(d[e].csONo);
+                d.splice(i, 1);
+                this.dataClear();
+
+            } else if (d == this.actCol) {
+                console.log(d);
+                var formData5 = new FormData();
+                formData5.append('actNo', d[i].actNo);
+                formData5.append('memNo', this.member.memNo);
+                axios.post('./php/memActCollectDele.php', formData5).then(
+                        res => {
+                            console.log(res)
+                        }
+                    )
+                    //console.log(d[e].actONo);
+                d.splice(i, 1);
+                this.dataClear();
+            }
         },
         //暫存資料清淨機<3
         dataClear() {
+            //活動或諮商預約
             this.tempData = "";
             this.tempIndex = "";
             this.tempONo = '';
             this.oCost = '';
+            //收藏
+            this.tempHeartData = "";
+            this.tempHeartIndex = '';
+            this.tempHeartTitle = '';
         },
         what(i, c, n) {
-
+            //console.log(i, c);
             if (n == 1) {
                 this.tempData = c;
                 this.tempIndex = i;
                 this.tempONo = c[i].csONo;
                 this.oCost = c[i].csOCost;
-                console.log(c, this.tempONo, this.oCost);
+                //console.log(c, this.tempONo, this.oCost);
             } else if (n == 2) {
                 this.tempData = c;
                 this.tempIndex = i;
                 this.tempONo = c[i].actONo;
                 this.oCost = c[i].actCost;
-                console.log(c[i], this.tempONo, this.oCost);
+                // console.log(c[i], this.tempONo, this.oCost);
+            }
+
+            //console.log(this.tempData[this.tempIndex].csONo);
+            // console.log(this.tempData);
+        },
+        which(i, d, n) {
+            //console.log(i, d);
+            if (n == 1) {
+                this.tempHeartData = d;
+                this.tempHeartIndex = i;
+                this.tempHeartTitle = d[i].actName;
+
+                //console.log(this.tempHeartIndex, this.tempHeartData, this.tempHeartTitle);
+            } else if (n == 2) {
+                this.tempHeartData = d;
+                this.tempHeartIndex = i;
+                this.tempHeartTitle = d[i].artTitle;
+
+                // console.log(c[i], this.tempONo, this.oCost);
             }
 
             //console.log(this.tempData[this.tempIndex].csONo);
@@ -570,7 +689,8 @@ let vm = new Vue({
             //送出會員修改資料
             var formData = new FormData();
             formData.append('memName', this.member.memName);
-            formData.append('memPetName', this.member.memPetName);
+            formData.append('memNo', this.member.memNo);
+            formData.append('memNickname', this.member.memNickname);
             formData.append('memGender', this.member.memGender);
             formData.append('memBD', this.member.memBD);
             formData.append('memAdd', this.member.memAdd);
@@ -623,13 +743,25 @@ let vm = new Vue({
         orderMore(event) {
             event.currentTarget.nextElementSibling.classList.toggle('meOrderOpen');
         },
-
-
-
+        chartOpen() {
+            this.chartOpacity = true;
+        },
 
     },
 
     mounted() {
+        // //掛載心理測驗分數
+        axios.get('./php/memTestR.php')
+            .then(response => {
+                this.csReData = response.data;
+                console.log(this.csReData);
+                for (let i = 0; i < 5; i++) {
+                    // console.log(this.csReData[i].testResultValue);
+                    //console.log(this.series[0].data[i]);
+                    this.series[0].data[i] = this.csReData[i].testResultValue;
+                    // console.log(this.series[0].data[i]);
+                }
+            });
 
         // setInterval(function() {
         //     vm.ajaxPost("./php/csMe.php", null, 1);
@@ -638,6 +770,8 @@ let vm = new Vue({
         this.ajaxPost("csMe.php", null, 1);
         this.ajaxPost("./php/firstChat.php", null, 2);
         //會員資料辣ＱＱＱＱＱ
+
+        //
         axios.get('./php/memberInfo.php').then(
             res => {
                 this.member = res.data;
@@ -659,6 +793,8 @@ let vm = new Vue({
                 this.momentModify.memEmail = {
                     'value': res.data.memEmail.value,
                 };
+                //console.log(this.member);
+
             }
         ).catch(
             err => {
@@ -666,6 +802,8 @@ let vm = new Vue({
                 //this.msg = err.status;
             }
         );
+        //
+
         //掛載諮商訂單
         axios.get('./php/memCsOrder.php')
             .then(res => {
@@ -682,9 +820,11 @@ let vm = new Vue({
 
             });
 
-        axios.get('./php/memActOrder.php')
+        //掛載活動訂單
+        axios.post('./php/memActOrder.php')
             .then(response => {
-                console.log(response.data);
+                console.log(response)
+                    //console.log(response.data);
                 for (let i = 0; i < response.data.length; i++) {
                     if (new Date(response.data[i].actStart) > Date.now()) {
                         this.aoData.push(response.data[i]);
@@ -694,16 +834,29 @@ let vm = new Vue({
                     };
                 };
             });
+        // //掛載文章推薦
         axios.get('./php/memArtRec.php')
             .then(response => {
                 this.memArtRec = response.data;
                 //console.log(this.memArtRec);
             });
-
+        // //掛載活動推薦
         axios.get('./php/memActRec.php')
             .then(response => {
                 this.memActRec = response.data;
-                console.log(this.memActRec);
+                //console.log(this.memActRec);
+            });
+        // //掛載活動收藏
+        axios.get('./php/memActCollect.php')
+            .then(response => {
+                this.actCol = response.data;
+                //console.log(this.actCol);
+            });
+        // //掛載文章收藏
+        axios.get('./php/memArtCollect.php')
+            .then(response => {
+                this.artCol = response.data;
+                //console.log(this.artCol);
             });
 
 
@@ -716,6 +869,10 @@ let vm = new Vue({
 
     created() {
         window.addEventListener('resize', this.onResize);
+
+    },
+    beforeCreate() {
+
     },
 
     destroyed() {
@@ -739,11 +896,24 @@ let vm = new Vue({
     },
     watch: {
         windowSize: function() {
-            if (this.windowSize < 768 && this.currentPage == this.titles[0]) {
-                this.currentPage = '';
+            if (this.windowSize < 768) {
+                this.currentPage = this.titles[0];
             }
         },
+        // csReData: function() {
+        //     for (let i = 0; i < 5; i++)
+        //         this.series.data[i] = this.csReData[i].testResultValue;
+        //     //console.log(this.csReData[i].testResultValue);
+        //     this.$refs.newChart.updateSeries(
+        //         [{
+        //             data: this.series.data
+        //         }],
+        //         false,
+        //         true
+        //     );
+        // },
 
     },
+
 
 });

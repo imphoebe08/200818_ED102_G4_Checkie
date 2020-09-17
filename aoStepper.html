@@ -64,7 +64,7 @@
 
                                             <div class="col-12 ao-block_content">
                                                 <div class="pic_content">
-                                                    <img :src="orderData.actPicContent" alt="" class="img-fluid">
+                                                    <img :src="orderData.actPic1" alt="" class="img-fluid">
                                                 </div>
                                                 <div class="intro_content">
                                                     <div class="intro_title">
@@ -101,7 +101,7 @@
                                                                 <span>X{{ticket}}</span>
                                                             </div>
 
-                                                            <span><button>更多資訊</button></span>
+                                                            <!-- <span><button>更多資訊</button></span> -->
                                                         </div>
                                                         <div class="ticket_block ticket_block_button">
                                                             <div class="circle"></div>
@@ -148,7 +148,7 @@
                                                         <label for="memTel">行動電話<span>*</span></label>
                                                     </div>
 
-                                                    <input type="num" name="memTel" class="memTel_countryCode" :class="{ selectError: !aoMember.memTel.countryCode && errors.length > 0}" v-model="aoMember.memTel.countryCode" id="" autocomplete="tel-country-code" required="yes" maxlength="3" placeholder="886">
+                                                    <input type="num" name="memTel" class="memTel_countryCode" :class="{ selectError: !aoMember.memTel.countryCode && errors.length > 0}" v-model="aoMember.memTel.countryCode" id="" autocomplete="tel-country-code" required="yes" maxlength="5" placeholder="886">
                                                     <!-- <select name="memTel" :class="{ selectError: !memTel.countryCode && errors.length > 0}" v-model="memTel.countryCode" id="" autocomplete="tel-country-code">
                                                         <option data-countryCode="TW" value="886" Selected>Taiwan (+886)</option>
                                                         
@@ -227,7 +227,7 @@
 
                                             <div class="col-12 ao-block_content">
                                                 <div class="pic_content">
-                                                    <img :src="orderData.actPicContent" alt="" class="img-fluid">
+                                                    <img :src="orderData.actPic1" alt="" class="img-fluid">
                                                 </div>
                                                 <div class="intro_content">
                                                     <div class="intro_title">
@@ -357,7 +357,7 @@
 
                                             <div class="col-12 ao-block_content">
                                                 <div class="pic_content">
-                                                    <img :src="orderData.actPicContent" alt="" class="img-fluid">
+                                                    <img :src="orderData.actPic1" alt="" class="img-fluid">
                                                 </div>
                                                 <div class="intro_content">
                                                     <div class="intro_title">
@@ -507,7 +507,7 @@
                                     </div>
                                     <div class="col-12 co-review_block">
                                         <h5>預約編號：</h5>
-                                        <h5>{{orderNum.actONo}}</h5>
+                                        <h5 class="co-review_number">{{orderNum.actONo}}</h5>
                                     </div>
                                     <div class="cos-counselor-review col-sm-12">
                                         <div class="row justify-content-center align-items-center qr_block">

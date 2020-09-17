@@ -1,8 +1,11 @@
 <?php
 try{
-    // session_start();
-    require_once("./connectBook.php");
-
+    session_start();
+    require_once("./connectBook666.php");
+    //session應急
+    $_SESSION["memNO"]=1;
+    //以上session應急
+    $memNo = $_SESSION["memNO"];
     $sql = "select a.actONo, 
                 date(b.actStart) 'actStart',
                 date(b.actEnd) 'actEnd', 
@@ -15,25 +18,22 @@ try{
                 b.actHostTitle , 
                 b.actCost ,
                 b.actAddress,
-                c.actPicContent,
+                b.actPic1,
                 b.actMin,
                 b.actCount,
                 date(a.actOTime) 'actOTime'
-            from actorder a join activity b using(actNo) left join actPic c using(actNo)
-            where memNo = 1 and c.actPicNo =(select min(actPicNo)
-                                        from actPic)
-
-
+            from actorder a join activity b using(actNo) 
+            where memNo = :memNo 
             order by actStart;";
 
 
-            //            group by a.actONo??????
+
     $memberOrder = $pdo->prepare($sql);
     // 正確做法
     // $memNo = $_SESSION["memNo"]
-    //$member->bindValue(":memNo", $memNo);
+    $memberOrder->bindValue(":memNo", $memNo);
 
-    $memberOrder->bindValue(":memNo", 1);
+    // $memberOrder->bindValue(":memNo", $_POST["memNo"]);
     $memberOrder->execute();
     
     if( $memberOrder->rowCount()==0){ 
