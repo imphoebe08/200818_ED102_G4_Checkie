@@ -40,10 +40,10 @@
         .seTitle-content_detail {
             font-size: 20px;
             margin-top: 1%;
-            margin-left: 7%;
+            // margin-left: 7%;
             width: 100%;
             font-weight: 300;
-            text-align: center;
+            text-align: start;
         }
     }
     .seTitle-content_icon {
@@ -51,7 +51,10 @@
         height: 100%;
         text-align: end;
         margin-top: 4%;
-        display: flex;
+        // display: flex;
+        >img {
+            width: 30px;
+        }
         .seTitle-content-icon_title {
             font-size: 28px;
             margin-right: 16%;
@@ -67,7 +70,8 @@
 
 .seTitle-content_bigpic {
     max-width: 1200px;
-    // height: 30vh;
+    height: 30vw;
+    overflow: hidden;
     margin: auto;
     >img {
         width: 100%;
@@ -154,22 +158,26 @@
         margin-bottom: 3%;
         text-align: center;
     }
-    .seRecommend-box_center {
-        margin: auto;
-        width: 25%;
-        padding: 0 45px;
-        display: inline-block;
-        .seRecommend-box-center_pic {
-            width: 100%;
-            >img {
-                width: 100%;
+    .owl-carousel {
+        .item {
+            .seRecommend-box_center {
+                margin: auto;
+                width: 25%;
+                padding: 0 45px;
+                display: inline-block;
+                .seRecommend-box-center_pic {
+                    width: 100%;
+                    >img {
+                        width: 100%;
+                    }
+                }
+                .seRecommend-box-center_name {
+                    text-align: center;
+                }
+                .seRecommend-box-center_detail {
+                    width: 100%;
+                }
             }
-        }
-        .seRecommend-box-center_name {
-            text-align: center;
-        }
-        .seRecommend-box-center_detail {
-            width: 100%;
         }
     }
 }

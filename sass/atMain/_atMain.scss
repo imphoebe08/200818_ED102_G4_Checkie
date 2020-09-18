@@ -41,7 +41,7 @@
     margin: 0 auto;
     text-decoration: none;
     .atContent-conterbox {
-        // position: sticky;
+        position: sticky;
         top: 0px;
     }
     a {
@@ -137,7 +137,7 @@
         padding: 0 20px;
         .atContent_rightbox {
             position: sticky;
-            top: 85px;
+            top: 0px;
         }
         .atContent_right_title {
             // font-size: 2vw;
@@ -263,7 +263,7 @@
         transition: all 0.4s;
         transform: scale(1, 0.5);
     }
-    .atBox-Class-content_pic:hover::before {
+    .atBox-Class-content_pic:hover:before {
         opacity: 1;
         transform: scale(1, 1);
     }
@@ -443,14 +443,17 @@
                 transform-origin: right center;
                 transition: all .6s linear;
                 img {
-                    width: 700px;
+                    width: 100%;
                 }
             }
-            .atClassAfter-content_button {
-                width: 100%;
-                text-align: center;
-                input {
-                    @include btn-more($bw, $color-pink, $fontsize)
+            a {
+                display: flex;
+                .atClassAfter-content_button {
+                    width: 100%;
+                    text-align: center;
+                    input {
+                        @include btn-more($bw, $color-pink, $fontsize)
+                    }
                 }
             }
         }
@@ -501,7 +504,7 @@
                 transition: all .6s linear;
                 clip-path: polygon(0 0, 0% 0, 0% 100%, 0 100%);
                 img {
-                    width: 700px;
+                    width: 100%;
                 }
             }
         }

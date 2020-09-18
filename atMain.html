@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./css/main.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-    <script src="./js/header.js"></script>
+    <!-- <script src="./js/header.js"></script> -->
     <script src="./js/chatbot.js"></script>
     <!-- <script src="./js/atvue.js"></script> -->
     <title>專欄</title>
@@ -38,7 +38,10 @@
         </div>
         <!-- ------------------------------------- -->
         <div class="atContent_conter">
-            <cam :can="each" v-for="each in articleCenter"></cam>
+            <div class="atContent-conterbox">
+                <cam :can="each" v-for="each in articleCenter"></cam>
+
+            </div>
         </div>
         <!-- ---------------------------------------- -->
         <div class="atContent_right">
@@ -66,7 +69,7 @@
     </div> -->
         <!-- ------------------分類內容------------------- -->
         <div class="atClassAfter">
-            <component :is="comIs(index)" v-for="(each,index) in filters()" :dul="each" :key="index"></component>
+            <component :is="comIs(index)" v-for="(each,index) in filters()" :dul="each"></component>
         </div>
     </div>
     <script src="./js/atMain.js"></script>
@@ -74,5 +77,6 @@
     @@include('template/footer.html')
 
 </body>
+`
 
 </html>

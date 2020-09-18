@@ -64,13 +64,14 @@ Vue.component("ever1", {
     data() {
         return {
             each: this.in
+
         }
     },
     template: `
-<a href="https://www.iiispace.com/2017/07/10/000203/">
+<a :href="gogo(each)">
     <article>
         <div class="atContent-left_pic">
-            <img :src="each.artPicContent" alt="">
+            <img :src="each.artPic2" alt="">
         </div>
         <div class="atContent-left_detail">
             <div class="atContent-left-detail_pic"><img :src="each.cspic" alt=""></div>
@@ -94,7 +95,14 @@ Vue.component("ever1", {
 
     </article>
 </a>
-`
+`,
+
+    methods: {
+        gogo(each) {
+            return `./atSelf.html?artNo=${each.artNo}`
+        },
+
+    }
 })
 
 Vue.component("cam", {
@@ -106,10 +114,10 @@ Vue.component("cam", {
         }
     },
     template: `
-     <a href="https://www.iiispace.com/2020/07/27/000797/">
+     <a :href="can1(each)">
              <article>
                  <div class="atContent-conter_pic">
-                     <img :src="each.artPicContent" alt="">
+                     <img :src="each.artPic2" alt="">
                  </div>
                  <div class="atContent-conter_detail">
                      <div class="atContent-conter-detail_pic"><img :src="each.cspic" alt=""></div>
@@ -133,7 +141,12 @@ Vue.component("cam", {
 
             </article>
          </a>
- `
+ `,
+    methods: {
+        can1(each) {
+            return `./atSelf.html?artNo=${each.artNo}`
+        }
+    }
 })
 
 Vue.component("ri", {
@@ -144,10 +157,10 @@ Vue.component("ri", {
         },
         props: ["rit"],
         template: `
-<a href="https://www.iiispace.com/2020/07/31/000806/">
+<a :href="rit1(each)">
     <article>
         <div class="atContent_right_pic">
-            <img :src="each.artPicContent" alt="">
+            <img :src="each.artPic2" alt="">
         </div>
         <div class="atContent-right_detail">
             <div class="atContent-right-detail_pic"><img :src="each.cspic" alt=""></div>
@@ -169,7 +182,12 @@ Vue.component("ri", {
         </div>
     </article>
 </a>
-`
+`,
+        methods: {
+            rit1(each) {
+                return `./atSelf.html?artNo=${each.artNo}`
+            }
+        }
     })
     // ----------------
 Vue.component("boxclass", {
@@ -205,9 +223,11 @@ Vue.component('duli', {
     props: ["dul"],
     data() {
         return {
+
             each: this.dul,
         }
     },
+
     template: `
         <div class="atClassAfter_content_block">
                     <div class="atClassAfter-content-block_blank"></div>
@@ -215,7 +235,7 @@ Vue.component('duli', {
                     <div class="atClassAfter_content">
                         <!-- flex-end -->
                         <div class="atClassAfter-content_pic">
-                            <img :src="dul.artPicContent" alt="">
+                            <img :src="dul.artPic2" alt="">
                         </div>
                         <div class="atClassAfter-content_text">
                             <div class="atClassAfter-content-text_title">
@@ -223,10 +243,10 @@ Vue.component('duli', {
                             </div>
                             <div class="atClassAfter-content-text_detail">
                                 <p>
-                                    {{dul.artContent}}
+                                    {{dul.artContent.substring(0,250)}}
                                 </p>
                             </div>
-                            <a href="">
+                            <a :href="out(dul)">
                                 <div class="atClassAfter-content_button">
                                     <input type="submit" class="test_submit" value=延伸閱讀>
                                 </div>
@@ -236,7 +256,13 @@ Vue.component('duli', {
 
                 </div>
             </div>
-    `
+    `,
+    methods: {
+        out(dul) {
+            return `./atSelf.html?artNO=${dul.artNo}`
+        }
+    }
+
 })
 Vue.component('duri', {
     props: ["dul"],
@@ -257,22 +283,27 @@ Vue.component('duri', {
                         </div>
                         <div class="atClassAfter-content-text_detail">
                             <p>
-                            {{dul.artContent}}
+                            {{dul.artContent.substring(0,250)}}
 
                             </p>
                         </div>
-                        <a href="">
+                        <a :href="gogo(dul)">
                             <div class="atClassAfter-content_button">
                                 <input type="submit" class="test_submit" value=延伸閱讀>
                             </div>
                         </a>
                     </div>
                     <div class="atClassAfter-content_pic">
-                        <img :src="dul.artPicContent" alt="">
+                        <img :src="dul.artPic2" alt="">
                     </div>
                 </div>
             </div>
-    `
+    `,
+    methods: {
+        gogo(dul) {
+            return `./atSelf.html?artNo=${dul.artNo}`;
+        }
+    }
 })
 let vm = new Vue({
     el: "#atcontent",
@@ -286,7 +317,7 @@ let vm = new Vue({
                 // console.log(xhr.responseText)
                 let article = JSON.parse(xhr.responseText);
                 vm.$data.aaa = article;
-
+                console.log(article)
             }
 
             xhr.open("get", "./php/atMain.php", true);
@@ -351,9 +382,9 @@ let vm3 = new Vue({
         bottomArticle() {
             let xhr = new XMLHttpRequest();
             xhr.onload = function() {
-                // console.log(xhr.responseText)
                 let article = JSON.parse(xhr.responseText);
                 vm3.$data.bArticle = article;
+                console.log(vm3.$data.bArticle)
             }
 
             xhr.open("get", "./php/atMain_one.php", true);
@@ -364,10 +395,10 @@ let vm3 = new Vue({
         comIs(index) {
             return index % 2 == 0 ? 'duri' : 'duri'
         },
-        filters() {
-            return this.bArticle.filter(item => item.artTypeNo == this.artType)
-        },
 
+        filters() {
+            return this.bArticle.filter(item => item.artTypeNO == this.artType)
+        },
 
     },
     beforeMount() {
@@ -376,7 +407,5 @@ let vm3 = new Vue({
     computed: {
 
     },
-    mounted() {
-
-    },
+    mounted() {},
 })

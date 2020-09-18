@@ -4,7 +4,7 @@
 <head>
     @@include('layout/bgHead.html')
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'></script>
-
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js'></script>
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -14,10 +14,15 @@
     <!-- 中間內容 -->
 
     <div class="container-fluid" id="AAA">
-        @@include('layout/content.html')
+        <!-- @@include('layout/content.html') -->
         <div class="row">
             <div class="col-md-12">
-                <h1 class="acRegistration_h1">專欄管理</h1>
+                <div class="acManagement_title">
+                    <h1 class="acManagement_h1">專欄管理</h1>
+                    <a class="acManagement_newAc" href=" ./atMain_modify.html "><button class="acManagement_addAc ">新增文章</button></a>
+                </div>
+
+
                 <div class="card">
                     <div class="card-header">專欄查詢｜
                         <span>區間查詢：</span>
@@ -38,8 +43,7 @@
                         <lime></lime>
                     </div>
                     <div class="card-body">
-                        <class></class>
-
+                        <class :init="cood"></class>
                     </div>
                 </div>
             </div>
@@ -88,15 +92,15 @@
             data() {
                 return {
                     asd: [{
-                        calssall: "人際關係"
+                        calssall: "1.家庭關係"
                     }, {
-                        calssall: "家庭關系"
+                        calssall: "2.人際關係"
                     }, {
-                        calssall: "伴侶關係"
+                        calssall: "3.伴侶關係"
                     }, {
-                        calssall: "壓力創傷"
+                        calssall: "4.壓力創傷"
                     }, {
-                        calssall: "自我探索"
+                        calssall: "5.自我探索"
                     }],
                 }
             },
@@ -107,85 +111,77 @@
             `
         })
         Vue.component("class", {
-            template: `
-            <table class="table table-responsive-sm table-sm ">
-                            <thead v-for="each in title32">
-                                    <tr>
-                                    <th>{{each.t1}}</th>
-                                    <th>{{each.t2}}</th>
-                                    <th>{{each.t3}}</th>
-                                    <th>{{each.t4}}</th>
-                                    <th>{{each.t5}}</th>
-                                </tr>
-
-                            
-                            </thead>
-                <tbody v-for="each in detele">
-                                <tr >
-                                    <td>{{each.title}}</td>
-                                    <td>{{each.no}}</td>
-                                    <td>{{each.calss}}</td>
-                                    <td>{{each.day}}</td>
-                                    <td>{{each.type}}</td>
-                                    <td><a href="./acAdd.html "><button class="acManagement_edit ">編輯</button></a></td>
-                                </tr>
-                                </tbody>
-              </table>
-            `,
+            props: ["init"],
             data() {
                 return {
                     title32: [{
-                        t1: "活動標題",
+                        t1: "文章標題",
                         t2: "分類編號",
                         t3: "分類",
                         t4: "上架時間",
                         t5: "專欄狀態",
                     }],
-                    detele: [{
-                        title: "藝術體驗工坊 療癒紓壓流動畫",
-                        no: "1",
-                        calss: "家庭關係",
-                        day: "2020/08/12",
-                        type: "上架"
-                    }, {
-                        title: "藝術體驗工坊 療癒紓壓流動畫",
-                        no: "1",
-                        calss: "家庭關係",
-                        day: "2020/08/12",
-                        type: "上架"
-                    }, {
-                        title: "藝術體驗工坊 療癒紓壓流動畫",
-                        no: "1",
-                        calss: "家庭關係",
-                        day: "2020/08/12",
-                        type: "上架"
-                    }, {
-                        title: "藝術體驗工坊 療癒紓壓流動畫",
-                        no: "1",
-                        calss: "家庭關係",
-                        day: "2020/08/12",
-                        type: "上架"
-                    }, {
-                        title: "藝術體驗工坊 療癒紓壓流動畫",
-                        no: "1",
-                        calss: "家庭關係",
-                        day: "2020/08/12",
-                        type: "上架"
-                    }]
-                }
 
+                }
+            },
+            template: `
+            <table class="table table-responsive-sm table-sm">
+                            <thead v-for="aaa in title32">
+                                    <tr>
+                                    <th>{{aaa.t1}}</th>
+                                    <th>{{aaa.t2}}</th>
+                                    <th>{{aaa.t3}}</th>
+                                    <th>{{aaa.t4}}</th>
+                                    <th>{{aaa.t5}}</th>
+                                </tr>
+
+                            
+                            </thead>
+                <tbody  v-for="each in init">
+                                <tr >
+                                    <td>{{each.artTitle}}</td>
+                                    <td>{{each.artTypeNO}}</td>
+                                    <td>{{each.calss}}</td>
+                                    <td>{{each.artdate.substring(0,10)}}</td>
+                                    <td>{{aaa(each.artBool)}}</td>
+                                    <td><a href="./atMain_modify.html "><button class="acManagement_edit ">編輯</button></a></td>
+                                </tr>
+                                </tbody>
+              </table>
+            `,
+            methods: {
+                aaa(data) {
+                    return (data == 0) ? "上架" :
+                        "下架";
+                }
             },
             mounted() {
-                console.log(this.title32)
+                console.log(this.init)
             }
         })
-        new Vue({
+        let vm = new Vue({
             el: "#AAA",
             data: {
+                cood: "",
+            },
+            methods: {
+                datas() {
+                    // axios.get("./php/atmain_index.php").then(res => {
+                    //         console.log(res)
+                    //     })
+                    let xhr = new XMLHttpRequest();
+                    xhr.onload = function() {
+                        let article = JSON.parse(xhr.responseText);
+                        vm.$data.cood = article;
+                        // console.log(xhr.responseText)
+                    }
+                    xhr.open("get", "./php/atmain_index.php", true);
+                    xhr.send(null);
+                },
 
             },
             mounted() {
-                console.log(this.months)
+                this.datas();
             },
         })
     </script>
