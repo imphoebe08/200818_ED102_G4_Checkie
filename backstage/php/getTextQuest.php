@@ -1,6 +1,4 @@
 <?php
-
-$errMsg = "";
 //連線資料庫
 try {
     $dsn = "mysql:host=localhost;port=8889;dbname=ed102g4;charset=utf8";

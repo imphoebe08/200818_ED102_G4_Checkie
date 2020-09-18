@@ -14,12 +14,11 @@ try {
     $options = array(PDO::ATTR_CASE => PDO::CASE_NATURAL, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
     $pdo = new PDO($dsn, $user, $password, $options);
 
-
-    $sql = "UPDATE text 
-            SET `textNo` = :textNo,  
-            `textTypeNo` = :textTypeNo, 
-            `textContent` = :textContent, 
-            WHERE (`textNo` = :textNo);";
+    $sql = "update text 
+            set textTypeNo = :textTypeNo, 
+                textContent = :textContent
+            where (textNo = :textNo)";
+            
     $textInfo = $pdo->prepare($sql);
     $textInfo->bindValue(':textNo', $textNo);
     $textInfo->bindValue(':textTypeNo', $textTypeNo);

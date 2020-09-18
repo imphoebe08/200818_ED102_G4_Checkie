@@ -1,7 +1,6 @@
 <?php
-$textTypeNo = $_REQUEST["textTypeNo"];
-$textContent = $_REQUEST["textContent"];
 
+$textNo = $_REQUEST["textNo"];
 
 $errMsg = "";
 //連線資料庫
@@ -13,16 +12,11 @@ try {
     $pdo = new PDO($dsn, $user, $password, $options);
 
 
-    $sql = "insert into text (textTypeNo, textContent) 
-            values (:textTypeNo , :textContent)";
-
+    $sql = "delete from text where (`textNo` = :textNo);";
     $textInfo = $pdo->prepare($sql);
-    $textInfo->bindValue(':textTypeNo', $textTypeNo);
-    $textInfo->bindValue(':textContent', $textContent);
-    
+    $textInfo->bindValue(':textNo', $textNo);
     $textInfo->execute();
-
-    echo "問券新增成功";
+    echo "問券刪除成功";
 } catch (PDOException $e) {
     $errMsg .= "錯誤原因 : " . $e->getMessage() . "<br>";
     $errMsg .= "錯誤行號 : " . $e->getLine();

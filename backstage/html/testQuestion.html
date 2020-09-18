@@ -31,11 +31,11 @@
                                     <th>問題編號</th>
                                     <th>問題類別</th>
                                     <th>問題內容</th>
-                                    <th></th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
 
-                            <tbody is="tq_datainsert"></tbody>
+                            <tbody is="tq_datainsert" :transport-data="transport" ref="childComponent"></tbody>
 
 
                         </table>
@@ -58,17 +58,17 @@
 
                     <div class="input-sort">
                         <h5>問題類別</h5>
-                        <label><input type="radio" name="sort" v-model="tqnewData.testTypeNo" value="1">1-家庭關係</label>
-                        <label><input type="radio" name="sort" v-model="tqnewData.testTypeNo" value="2">2-人際關係</label>
-                        <label><input type="radio" name="sort" v-model="tqnewData.testTypeNo" value="3">3-伴侶關係</label>
-                        <label><input type="radio" name="sort" v-model="tqnewData.testTypeNo" value="4">4-壓力創傷</label>
-                        <label><input type="radio" name="sort" v-model="tqnewData.testTypeNo" value="5">5-自我探索</label>
+                        <label><input type="radio" name="sort" v-model="tqnewData.textTypeNo" value="1">1-家庭關係</label>
+                        <label><input type="radio" name="sort" v-model="tqnewData.textTypeNo" value="2">2-人際關係</label>
+                        <label><input type="radio" name="sort" v-model="tqnewData.textTypeNo" value="3">3-伴侶關係</label>
+                        <label><input type="radio" name="sort" v-model="tqnewData.textTypeNo" value="4">4-壓力創傷</label>
+                        <label><input type="radio" name="sort" v-model="tqnewData.textTypeNo" value="5">5-自我探索</label>
 
                     </div>
 
                     <div class="input-quest">
                         <h5>問題內容</h5>
-                        <textarea style="width:500px;height:100px;" name="testcontent" placeholder="輸入問題內容" v-model.trim="tqnewData.testContent"></textarea>
+                        <textarea style="width:500px;height:100px;" name="textcontent" placeholder="輸入問題內容" v-model.trim="tqnewData.textContent"></textarea>
                     </div>
 
 
@@ -90,8 +90,8 @@
             props: ["transport-data"],
             data() {
                 return {
-
-                    tquestData: []
+                    textNo: "",
+                    tquestData: [],
                 };
             },
             template: `<tbody>
@@ -100,7 +100,7 @@
                                     <input type="hidden" placeholder="問題編號" v-model.trim="value.textNo"
                                             :class="'buttonGroup' + index" readonly>
                                     <td><span style="width: 50px;display: block;">{{value.textNo}}</span></td>
-                                    <td><select v-model.trim="value.textTypeNo" :class="'buttonGroup' + index" disabled>
+                                    <td><select v-model="value.textTypeNo" :class="'buttonGroup' + index" disabled>
                                             <option value="1">1-家庭關係</option>
                                             <option value="2">2-人際關係</option>
                                             <option value="3">3-伴侶關係</option>
@@ -110,7 +110,7 @@
                                     <td><input style="width: 300px;" type="text" placeholder="問題內容"
                                             v-model.trim="value.textContent" :class="'buttonGroup' + index" readonly></td>
                                     
-                                    <td><button @click="editToggle($event,index)" class="btn btn-default btn-xs">編輯</button>
+                                    <td><button @click="editToggle($event,index,value)" class="btn btn-default btn-xs">編輯</button>
                                         <button @click="deleteData($event,index)" class="btn btn-default btn-xs">刪除</button>
                                     </td>
                                     
@@ -119,28 +119,27 @@
                                
 
                         </tbody>`,
-            mounted() {
-                //一進頁面先使用axios=> get
-                this.getTquestData();
-            },
+
             methods: {
                 getTquestData() {
                     axios.get('./php/getTextQuest.php')
                         .then((res) => {
                             this.tquestData = res.data;
-                            console.log('心理評估問券抓取成功');
+                            console.log(res.data);
                         })
                         .catch((error) => {
                             console.error(error)
                         })
                 },
 
-                editToggle(e, index) {
+                editToggle(e, index, v) {
+
                     let input = document.querySelectorAll(`.buttonGroup${index}`);
                     if (input[0].getAttribute("readonly")) {
                         this.inputToEdit(e, index);
                     } else {
                         let check = confirm(`確認修改問題編號 ${this.tquestData[index].textNo} 的資料嗎?`);
+                        this.textNo = v.textNo;
                         if (check) {
                             //使用axios=> update
                             this.updatetqInfo(index);
@@ -171,35 +170,29 @@
 
                 deleteData(e, index) {
                     let check = confirm(`確認刪除問題編號 ${this.tquestData[index].textNo} 的資料嗎?`);
-                    if (check)
-                        this.tquestData.splice(index, 1);
-                    //使用axios=> delete
-                    // axios.get('修改問券資料的php.php', {
-                    //         params: {
-                    //             testNo: this.tquestData[index].testNo
-                    //         }
-                    //     })
-                    //     .then((res) => {
-                    //         console.log('問券刪除成功')
-                    //     })
-                    //     .catch((error) => {
-                    //         console.error(error)
-                    //     })   
+                    if (check) {
+                        axios.get('./php/deleteTextQuest.php', {
+                                params: {
+                                    textNo: this.tquestData[index].textNo
+                                }
+                            })
+                            .then((res) => {
+                                console.log(res);
+                                this.getTquestData();
+
+                            })
+                            .catch((error) => {
+                                console.error(error)
+                            })
+                    }
                 },
 
                 updatetqInfo(index) {
-                    axios.get('./php/updateTextQuest.php', {
-                            params: {
-                                textNo: this.tquestData[index].textNo,
-                                textTypeNo: this.tquestData[index].textTypeNo,
-                                textContent: this.tquestData[index].textContent,
+                    axios.get(`./php/updateTextQuest.php?textNo=${this.textNo}&textTypeNo=${this.tquestData[index].textTypeNo}&textContent=${this.tquestData[index].textContent}`, {
 
-
-                            }
                         })
                         .then((res) => {
-                            console.log(res.data)
-                            this.getTquestData();
+                            console.log(res);
                         })
                         .catch((error) => {
                             console.error(error);
@@ -207,29 +200,54 @@
 
                 },
             },
+            mounted() {
+
+                //進頁面
+                this.getTquestData();
+            },
 
         });
         new Vue({
-                    el: "#tQapp",
-                    data: {
+            el: "#tQapp",
+            data: {
 
-                        tqnewData: {
-                            textNo: "",
-                            textTypeNo: "",
-                            textContent: "",
-                        },
-                        transport: {}
-
-
-                    },
+                tqnewData: {
+                    textTypeNo: "",
+                    textContent: "",
+                },
+                transport: {}
 
 
-                    methods: {
-                        insertQuest() {
-                            axios.get('./php/insertCounselor.php'
-                            }
-                        },
-                    });
+            },
+
+
+            methods: {
+
+                insertQuest() {
+                    console.log(this.tqnewData.textTypeNo);
+                    console.log(this.tqnewData.textContent);
+
+                    axios.get(`./php/insertTextQuest.php?textTypeNo=${this.tqnewData.textTypeNo}&textContent=${this.tqnewData.textContent}`, {
+
+                        // params: {
+                        //     'textTypeNo': this.tqnewData.textTypeNo,
+                        //     'textContent': this.tqnewData.textContent,
+
+
+                        // }
+                    })
+
+                    .then((res) => {
+                            console.log(res.data);
+                            this.tqnewData = {};
+                            this.$refs.childComponent.getTquestData();
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        })
+                }
+            }
+        });
     </script>
 </body>
 

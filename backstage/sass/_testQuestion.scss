@@ -1,65 +1,101 @@
-.accordion-toggle {
-    .btn {
-        @include btn-more($bw, $color-pink, $fontsize);
-    }
-}
-
-#tQinfo {
-    margin: 10px;
-    padding: 30px;
-    border: solid 1px #DEDEDE;
-    background: #fff;
-    border-radius: 30px;
-    div {
-        overflow: auto;
-        zoom: 1;
-        margin: 15px 0;
-        label:first-child {
-            display: block;
-            margin: 0 0 5px 0;
-        }
-    }
-    .input-sort,
-    .input-status {
-        label:nth-child(n+2) {
-            margin: 0 15px 0 0;
-        }
-        label {
-            input {
-                margin-right: 10px;
+    .navbar-nav {
+        .nav-item {
+            display: flex;
+            line-height: 35px;
+            .welcome {
+                @include p;
+                font-weight: 400;
+                font-size: 18px;
             }
-            input[type=radio]:focus {
-                display: none;
+            .nav-link {
+                display: flex;
+                line-height: 35px;
+                .admName,
+                .csName {
+                    @include p;
+                    font-weight: 500;
+                    font-size: 18px;
+                }
+            }
+            .dropdown-menu-right {
+                overflow: hidden;
+                .dropdown-header {
+                    background: $color-pink;
+                }
+                strong {
+                    color: #fff;
+                    font-size: 14px;
+                }
+                .dropdown-item {
+                    font-weight: 500;
+                    text-align: center;
+                }
             }
         }
     }
-    select {
-        /* background: url(../images/down-arrow.svg) no-repeat right 10px; */
-        background-size: 30px;
-        -webkit-tap-highlight-color: #CF0;
-    }
-    #btn-submit {
-        @include btn-modules($bw, $color-pink, $fontsize);
-        float: right;
-    }
-}
-
-#results {
-    margin: 10px;
-    color: #FFF;
-    div {
-        font-size: 18px;
-        border-bottom: solid 1px #666;
-        padding: 10px;
-        span {
-            font-size: 12px;
-            color: #CCC;
+    
+    .accordion-toggle {
+        .btn {
+            @include btn-more($bw, $color-pink, $fontsize);
         }
     }
-    .name {
-        span {
-            color: #FFF;
+    
+    .insert_newQuest {
+        margin: 10px;
+        padding: 30px;
+        border: solid 1px #DEDEDE;
+        background: #fff;
+        border-radius: 30px;
+        div {
+            overflow: auto;
+            zoom: 1;
+            margin: 15px 0;
+            label:first-child {
+                display: block;
+                margin: 0 0 5px 0;
+            }
+        }
+        .input-sort,
+        .input-status {
+            label:nth-child(n+2) {
+                margin: 0 15px 0 0;
+            }
+            label {
+                input {
+                    margin-right: 10px;
+                }
+                input[type=radio]:focus {
+                    display: none;
+                }
+            }
+        }
+        select {
+            /* background: url(../images/down-arrow.svg) no-repeat right 10px; */
+            background-size: 30px;
+            -webkit-tap-highlight-color: #CF0;
+        }
+        #btn-submit {
+            @include btn-modules($bw, $color-pink, $fontsize);
+            float: right;
+        }
+    }
+    
+    #results {
+        margin: 10px;
+        color: #FFF;
+        div {
             font-size: 18px;
+            border-bottom: solid 1px #666;
+            padding: 10px;
+            span {
+                font-size: 12px;
+                color: #CCC;
+            }
+        }
+        .name {
+            span {
+                color: #FFF;
+                font-size: 18px;
+            }
         }
     }
-}
