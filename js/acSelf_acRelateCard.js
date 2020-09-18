@@ -4,7 +4,7 @@ Vue.component('acRelateCard', {
     <div id="acSelect" class="acSelect container-sm container-md">
             <div class="acSelectCard" v-for="acContent in acContents">
                     <a :href="'./acSelf.html?actNo=' + acContent.actNo">
-                        <img :src="acContent.banner">
+                        <img :src="acContent.actpic1">
                     </a>
                 
                 <!-- 卡片文字 -->
