@@ -1,6 +1,4 @@
 <?php
-
-$textNo = $_REQUEST["textNo"];
 $textTypeNo = $_REQUEST["textTypeNo"];
 $textContent = $_REQUEST["textContent"];
 
@@ -15,11 +13,10 @@ try {
     // $pdo = new PDO($dsn, $user, $password, $options);
     require_once("./connectBook.php");
 
-    $sql = "INSERT INTO text (`textNo`, `textTypeNo`, `textContent`) 
-            VALUES (:textNo, :textTypeNo, :textContent);";
+    $sql = "insert into text (textTypeNo, textContent) 
+            values (:textTypeNo , :textContent)";
 
     $textInfo = $pdo->prepare($sql);
-    $textInfo->bindValue(':textNo', $textNo);
     $textInfo->bindValue(':textTypeNo', $textTypeNo);
     $textInfo->bindValue(':textContent', $textContent);
 

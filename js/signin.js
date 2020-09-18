@@ -4,7 +4,7 @@
                             <div class="container" id="container">
                                 <span class="container_close" @click="close">&times;</span>
                                 
-                                <div class="form-container sign-up-container">
+                                <div class="form-container sign-up-container sign-up-container-for-media">
                                     <form action="register.php" method="post" class="form" @submit.prevent="register(false,1)" v-if="form_show">
                                         <h3>加入會員</h3>
                                         <span>請填寫以下資訊完成註冊</span>
@@ -14,6 +14,7 @@
                                         <input type="password" name="CnewMemPsd" id="CnewMemPsd" v-model.trim="CnewMemPsd" placeholder="確認密碼" />
                                         <div class="error_text" id="error_text"></div>
                                         <button name="register" >註冊</button>
+                                        <div class="moblie_switch" @click="signIn">登入會員</div>
                                     </form>
                                     <form method="POST" @submit.prevent="finish" v-if="!form_show">
                                         <h1>會員認證</h1>
@@ -29,6 +30,7 @@
                                         <input type="text" id="memId" name="memId" v-model.trim="memId" placeholder="Email" />
                                         <input type="password" id="memPsd" name="memPsd" v-model.trim="memPsd" placeholder="密碼" />
                                         <button id="login" >登入</button>
+                                        <div class="moblie_switch" @click="signUp">註冊會員</div>
                                     </form>
                                     <center><button class="forgetpwd" @click="forgetpwd">忘記密碼？</button></center>
                                 </div>
