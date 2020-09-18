@@ -95,7 +95,7 @@ try{
 
         $sql = "select a.actNo, a.actName, Date_Format(a.actPstart, '%Y-%m-%d %H:%I') 'actPstart', Date_Format(a.actPend, '%Y-%m-%d %H:%I') 'actPend', 
                 Date_Format(a.actStart , '%Y-%m-%d %H:%I') 'actStart', Date_Format(a.actEnd, '%Y-%m-%d %H:%I') 'actEnd', a.actContent, 
-                a.actMin, a.actMax, a.actCount, a.csNo, e.csName,a.actHost, a.actHostTitle, a.actHostInfo, a.acHostPic,e.csPic, a.actCost, 
+                a.actMin, a.actMax, a.actCount, a.csNo, e.csName,a.actHost, a.actHostTitle, a.actHostInfo, a.actHostPic,e.csPic, a.actCost, 
                 a.actBool, a.actAddress, b.actTypeNo, c.actClassName 'typename1', b.actTypeNo2, d.actClassName 'typename2'
                 from activity a 
                 join actTypeNoCombo b on a.actno = b.actno

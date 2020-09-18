@@ -26,11 +26,11 @@ try{
     $actCost = $_REQUEST["actCost"];
     $actBool = $_REQUEST["actBool"];
     $actAddress = $_REQUEST["actAddress"];
+    $actpic1 = $_Files["actpic1"];
+    $actpic2 = $_Files["actpic2"];
+    $actpic3 = $_Files["actpic3"];
     // $actHostPic = $_POST["actHostPic"];
     // $actTypeNo = $_POST["actTypeno"];
-    // $actpic1 = $_Files["actpic1"];
-    // $actpic2 = $_Files["actpic2"];
-    // $actpic3 = $_Files["actpic3"];
 
   if($csNo!="null"){
     // 完成
@@ -47,7 +47,10 @@ try{
             csNo = :csNo, 
             actCost = :actCost, 
             actBool = :actBool, 
-            actAddress = :actAddress 
+            actAddress = :actAddress, 
+            actpic1 = :actpic1,
+            actpic2 = :actpic2,
+            actpic3 = :actpic3
             where actNo = :actNo;";
             $products = $pdo->prepare($sql);
             $products->bindValue(':actNo', $actNo);
@@ -60,15 +63,14 @@ try{
             $products->bindValue(':actMin', $actMin);
             $products->bindValue(':actMax', $actMax);
             $products->bindValue(':actCost', $actCost);
-            // $products->bindValue(':actHostInfo', $actHostInfo);
             $products->bindValue(':actBool', $actBool);
             $products->bindValue(':actAddress', $actAddress);
             $products->bindValue(':csNo', $csNo);
+            $products->bindValue(':actpic1', $actpic1);
+            $products->bindValue(':actpic2', $actpic2);
+            $products->bindValue(':actpic3', $actpic3);
             // $products->bindValue(':actHostPic', $actHostPic);
             // $products->bindValue(':actTypeno', $actTypeno);
-            // $products->bindValue(':actpic1', $actpic1);
-            // $products->bindValue(':actpic2', $actpic2);
-            // $products->bindValue(':actpic3', $actpic3);
             $products -> execute();    
   }else{
     $sql ="update activity
@@ -85,7 +87,10 @@ try{
             actHostInfo = :actHostInfo, 
             actCost = :actCost, 
             actBool = :actBool, 
-            actAddress = :actAddress 
+            actAddress = :actAddress,
+            actpic1 = :actpic1,
+            actpic2 = :actpic2,
+            actpic3 = :actpic3
             where actNo = :actNo;";
 
             $products = $pdo->prepare($sql);
@@ -104,11 +109,11 @@ try{
             $products->bindValue(':actBool', $actBool);
             $products->bindValue(':actAddress', $actAddress);
             $products->bindValue(':actNo', $actNo);
+            $products->bindValue(':actpic1', $actpic1);
+            $products->bindValue(':actpic2', $actpic2);
+            $products->bindValue(':actpic3', $actpic3);
             // $products->bindValue(':actHostPic', $actHostPic);
             // $products->bindValue(':actTypeno', $actTypeno);
-            // $products->bindValue(':actpic1', $actpic1);
-            // $products->bindValue(':actpic2', $actpic2);
-            // $products->bindValue(':actpic3', $actpic3);
             $products -> execute();       
   }
             // update activitytype

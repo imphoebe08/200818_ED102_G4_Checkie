@@ -25,17 +25,17 @@
 
                 <span>活動地點：</span><input v-model="contents.actAddress" type="text" maxlength="16"><br><br>
                 <span>活動報名開始日期：</span>
-                <input id="exampleDate" class="datepicker" name="date" type="text" value="" placeholder="" :data-value="contents.actPstart" />
-                <input id="exampleTime" class="timepicker" type="time" name="time" value="" :data-value="contents.actPstart" /><br><br>
+                <input id="exampleDate" class="datepicker" name="date" type="text" :data-value="contents.actPstart" />
+                <input id="exampleTime" class="timepicker" type="time" name="time" :data-value="contents.actPstart" /><br><br>
                 <span>活動報名結束日期：</span>
-                <input id="exampleDate" class="datepicker" name="date" type="text" value="" placeholder="" :data-value="contents.actPend" />
-                <input id="exampleTime" class="timepicker" type="time" name="time" value="" :data-value="contents.actPend" /><br><br>
+                <input id="exampleDate" class="datepicker" name="date" type="text" :data-value="contents.actPend" />
+                <input id="exampleTime" class="timepicker" type="time" name="time" :data-value="contents.actPend" /><br><br>
                 <span>活動開始日期：</span>
-                <input id="exampleDate" class="datepicker" name="date" type="text" value="" placeholder="" :data-value="contents.actStart" />
-                <input id="exampleTime" class="timepicker" type="time" name="time" value="" :data-value="contents.actStart" /><br><br>
+                <input id="exampleDate" class="datepicker" name="date" type="text" :data-value="contents.actStart" />
+                <input id="exampleTime" class="timepicker" type="time" name="time" :data-value="contents.actStart" /><br><br>
                 <span>活動結束日期：</span>
-                <input id="exampleDate" class="datepicker" name="date" type="text" value="" placeholder="" :data-value="contents.actEnd" />
-                <input id="exampleTime" class="timepicker" type="time" name="time" value="" :data-value="contents.actEnd" /><br><br>
+                <input id="exampleDate" class="datepicker" name="date" type="text" :data-value="contents.actEnd" />
+                <input id="exampleTime" class="timepicker" type="time" name="time" :data-value="contents.actEnd" /><br><br>
                 <span>上限人數：</span><input v-model="contents.actMax" type="number"><br><br>
                 <span>下限人數：</span><input v-model="contents.actMin" type="number"><br><br>
                 <span>費用（NTD）：</span><input v-model="contents.actCost" type="number"><br><br>
@@ -45,9 +45,9 @@
                 <br><br>
                 <span>活動介紹：</span><pre><textarea v-model="contents.actContent" name="" id="" cols="200" rows="15" style="resize: none;"></textarea></pre>
                 <h6>*請直接點擊圖片修改</h6>
-                <label for="banner">Banner：<br><img :src="contents.actpic1" alt=""></label><input type="file" name="actpic1" id="banner" style="display:none"><br><br>
-                <label for="img1">圖片一（左）：<br><img :src="contents.actpic2" alt=""></label><input type="file" name="actpic2" id="img1" style="display:none"><br><br>
-                <label for="img2">圖片二（右）：<br><img :src="contents.actpic3" alt=""></label><input type="file" name="actpic3" id="img2" style="display:none"><br><br>
+                <label for="banner">Banner：<br><img :src="contents.actpic1" alt=""></label><input type="file" name="actpic1" id="banner" style="display:none" @change="changePic(1)"><br><br>
+                <label for="img1">圖片一（左）：<br><img :src="contents.actpic2" alt=""></label><input type="file" name="actpic2" id="img1" style="display:none" @change="changePic(2)"><br><br>
+                <label for="img2">圖片二（右）：<br><img :src="contents.actpic3" alt=""></label><input type="file" name="actpic3" id="img2" style="display:none" @change="changePic(3)"><br><br>
                 <span>舉辦人：</span><input v-model="contents.actHost" type="text"><br><br>
                 <span>舉辦人稱謂：</span><input v-model="contents.actHostTitle" type="text"><br><br>
                 <span>舉辦人介紹：</span><pre><textarea v-model="contents.actHostInfo" name=""  id="" cols="200" rows="10" style="resize: none;"></textarea></pre><br><br>
@@ -85,7 +85,6 @@
                     actEnd: "",
                     actHost: "",
                     actHostInfo: "",
-                    // actHostPic:"",
                     actHostTitle: "",
                     actMax: "",
                     actMin: "",
@@ -95,11 +94,14 @@
                     actPstart: "",
                     actStart: "",
                     actTypeno: [],
-                    // actpic1:"./img/acSelf/ac1/ac1_banner.jpg",
-                    // actpic2:"./img/acSelf/ac1/ac1_inner1.jpg",
-                    // actpic3:"./img/acSelf/ac1/ac1_inner2.jpg",
+                    // actHostPic: "",
+                    actpic1: "./img/acSelf/ac1/ac1_banner.jpg",
+                    actpic2: "./img/acSelf/ac1/ac1_inner1.jpg",
+                    actpic3: "./img/acSelf/ac1/ac1_inner2.jpg",
                     csNo: "",
                 },
+                file: '',
+                fileUrl: '',
             },
             computed: {
 
@@ -127,22 +129,7 @@
                     });
                     // picker.get(thing, format)
                 },
-                onFileChange(e) {
-                    let file = e.target.file || e.dataTransfer.file;
-                    if (!files.length) return;
-                    this.createImage(files[0]);
 
-                },
-                createImage(file) {
-                    let image = new Image();
-                    let reader = new FileReader();
-                    let vm = this;
-
-                    reader.onload = (e) => {
-                        vm.image = e.target.result;
-                    };
-                    reader.readAsDataURL(file);
-                },
                 submitForm: function(e) {
                     console.log(this.contents.actNo)
                     this.contents.actPstart = document.querySelectorAll(" input[name='date_submit' ] ")[0].value + ' ' + document.querySelectorAll("input[name='time' ] ")[0].value;
@@ -162,11 +149,14 @@
                     formData.append("actHost", this.contents.actHost);
                     formData.append("actHostInfo", this.contents.actHostInfo);
                     formData.append("actHostTitle", this.contents.actHostTitle);
-                    // formData.append("actHostPic ", this.contents.actHostPic);
                     formData.append("actCost", this.contents.actCost);
                     formData.append("actBool", this.contents.actBool);
                     formData.append("actAddress", this.contents.actAddress);
                     formData.append("csNo", this.contents.csNo);
+                    formData.append("actpic1", this.contents.actpic1);
+                    formData.append("actpic2", this.contents.actpic1);
+                    formData.append("actpic3", this.contents.actpic1);
+                    // formData.append("actHostPic ", this.contents.actHostPic);
                     // formData.append("actTypeno ", this.contents.actTypeno);
 
 
@@ -189,13 +179,39 @@
                             })
 
                     }
+                    axios.post(`./php/uploadActPic.php`, formData)
+                        .then((res) => {
+                            // 抓到圖片儲存位址可以再回來改src
+                            this.fileUrl = res.data;
+                        }).catch(function() {
+                            console.log('FAILURE!!');
+                        });
 
 
-                    // e.preventDefault();
+                },
+                changePic(data) {
+                    //先抓到上傳圖片的input資料
+                    const file = event.target.files.item(0);
+                    const reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    const num = data;
+                    if (data == 1) {
+                        reader.onload = () => {
+                            vm.$data.contents.actpic1 = reader.result;
+                        }
+                    } else if (data == 2) {
+                        reader.onload = () => {
+                            vm.$data.contents.actpic2 = reader.result;
+                        }
 
+                    } else {
+                        reader.onload = () => {
+                            vm.$data.contents.actpic3 = reader.result;
+                        }
+                    }
 
+                },
 
-                }
             },
             mounted() {
                 let actNo = location.href.split('?')[1].split('=')[1];
@@ -204,6 +220,7 @@
                     axios.get(`./php/acAdd.php?actNo=${actNo}`).then((res) => {
                         this.contents = res.data
                         console.log(res.data)
+                        console.log(this.contents.actEnd)
 
 
                     })
