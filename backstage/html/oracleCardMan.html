@@ -2,21 +2,21 @@
 <html lang="en">
 <title>神諭卡管理</title>
 <style>
-    table th {
+    #oracleCardMan table th {
         text-align: center;
     }
     
-    table tbody .trTitle {
+    #oracleCardMan table tbody .trTitle {
         text-align: center;
         line-height: 100px;
     }
     
-    .changeCardBackStyle {
+    #oracleCardMan .changeCardBackStyle {
         width: 100%;
         position: relative;
     }
     
-    .changeCardBackStyle>img {
+    #oracleCardMan .changeCardBackStyle>img {
         width: 20px;
         position: absolute;
         left: 50%;
@@ -28,12 +28,15 @@
         width: 100%;
     }
     
-    input[readonly],
-    textarea[readonly] {
+    input[readonly] {
         border: none;
         outline: none;
-        background-color: white;
-        color: black;
+    }
+    
+    input.insertNew {
+        display: inline-block;
+        width: 20%;
+        margin: 10px;
     }
 </style>
 
@@ -68,9 +71,46 @@
                             </tr>
                         </thead>
 
-                        <tbody is="input-layout" :transport-data="transport" v-for="(each,index) in cardsDataList" :init="index" :item="each" :list="cardsDataListSm"></tbody>
+                        <tbody is="input-layout" :transport-data="transport" v-for="(each,index) in cardsDataList" :init="index" :item="each" :list="cardsDataListSm" ref="childComponent"></tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="col-md-12">
+                <div class="panel-heading">
+                    <h3>新增神諭卡牌組</h3>
+                </div>
+
+                <div class="insert_newQuest">
+
+                    <div class="input-sort">
+                        <label style="display: inline-block;">神諭卡牌組編號</label>
+                        <select v-model="addCard.deckNo" name="" id="">
+                            <option value="1">牌組1</option>
+                            <option value="2">牌組2</option>
+                            <option value="3">牌組3</option>
+                        </select>
+                        <label for="">神諭卡名稱<input type="text" v-model="addCard.cardTitle"></label>
+                        <label for="">神諭卡內容<input type="text" v-model="addCard.cardContent"></label>
+                        <label for="">神諭卡卡面<input type="text" v-model="addCard.cardPic"></label>
+                        <label style="display: inline-block;">上/下架</label>
+                        <select v-model="addCard.cardTypeNo" name="" id="">
+                            <option value="1">上架</option>
+                            <option value="0">下架</option>
+                        </select>
+
+
+                    </div>
+
+
+                    <div class="input-btn">
+                        <button id="btn-submit" @click="insertData">Submit</button>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>
@@ -98,11 +138,10 @@
                 index: this.init + 1,
                 cardsDataList: [],
                 getCardsDataListSm: [],
-
+                cardsUpdate: [],
+                cardNo: "",
+                cardsBack: ["./img/oracleCard/card_cover//cover_angel.png", "./img/oracleCard/card_cover/cover_heaven.png", "./img/oracleCard/card_cover/cover_illustration.png"],
             };
-        },
-        mounted() {
-            // console.log(typeof(this.list))
         },
         computed: {
             demo() {
@@ -116,15 +155,16 @@
             },
 
         },
+        // <div class="changeCardBackStyle">
+        //     <img src="../../img/oracleCard/exchangeBefore.png" alt="">
+        //     <img src="../../img/oracleCard/exchangeAfter.png" alt="">
+        // </div>
         template: ` <tbody>
                             <tr class="accordion-toggle trTitle" >
                                 <td>牌組{{index}}</td>
                                 <td>
-                                    <img style="width:50px;" :src="item.cardPic" alt="">
-                                    <div class="changeCardBackStyle">
-                                        <img src="../../img/oracleCard/exchangeBefore.png" alt="">
-                                        <img src="../../img/oracleCard/exchangeAfter.png" alt="">
-                                    </div>
+                                    <img style="width:50px;" :src="cardsBack[index-1]" alt="">
+                                    
                                 </td>
                                 <td>上架中</td>
                                 <td>2020/09/12</td>
@@ -143,14 +183,14 @@
                                                 <th>上/下架</th>
                                             </thead>
                                             <tbody>
-                                                <tr v-for="each in card">
-                                                    <td><label for="">神諭卡片卡號:</label><input type="text" v-model="each.cardNo"></td>
-                                                    <td><label for="">神諭卡名稱:</label><input type="text" v-model="each.cardTitle"></td>
-                                                    <td><label for="">神諭卡內容:</label><input type="text" v-model="each.cardContent"></td>
-                                                    <td><label for="">神諭卡卡面:</label><input type="text" v-model="each.cardPic">
+                                                <tr v-for="(each,index,v) in card" class="buttonGroup">
+                                                    <td><label for="">神諭卡片卡號:</label><input type="text" v-model="each.cardNo" :class="'buttonGroup' + index" readonly></td>
+                                                    <td><label for="">神諭卡名稱:</label><input type="text" v-model="each.cardTitle" :class="'buttonGroup' + index" readonly></td>
+                                                    <td><label for="">神諭卡內容:</label><input type="text" v-model="each.cardContent" :class="'buttonGroup' + index" readonly></td>
+                                                    <td><label for="">神諭卡卡面:</label><input type="text" v-model="each.cardPic" :class="'buttonGroup' + index" readonly>
                                                     <img style="width:50px;" :src="each.cardPic" alt=""></td>
-                                                    <td><label for="">上/下架</label><input type="checkbox" v-model="each.cardTypeNo"></td>
-                                                    <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open">修改</span></button><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open">刪除</span></button></td>
+                                                    <td><label for="">上/下架</label><input type="checkbox" v-model="each.cardTypeNo" :class="'buttonGroup' + index" readonly></td>
+                                                    <td><button @click="editToggle($event,index,v)">修改</button> <button @click="deleteData($event,index)">刪除</button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -159,19 +199,100 @@
                                 </td>
                             </tr>
                         </tbody>`,
-
         methods: {
+            editToggle(e, index, v) {
+                let input = document.querySelectorAll(`.buttonGroup${index}`);
+                if (input[0].getAttribute("readonly")) {
+                    this.inputToEdit(e, index);
+                } else {
+                    let check = confirm(`確認修改神諭卡編號 ${this.card[index].cardNo} 的資料嗎?`);
+                    // this.cardNo = v.cardNo;
+                    // alert(123);
+                    if (check) {
+                        //使用axios=> update
+                        this.updateMemInfo(index);
+                        this.inputToForbid(e, index);
+                    } else {
+                        this.inputToEdit(e, index);
+                    }
+                }
+            },
+            inputToForbid(e, index) {
+                let input = document.querySelectorAll(`.buttonGroup${index}`);
+                for (let j = 0; j < input.length; j++) {
+                    e.currentTarget.innerText = "編輯";
+                    input[j].setAttribute("readonly", true);
+                }
+            },
+            inputToEdit(e, index) {
+                let input = document.querySelectorAll(`.buttonGroup${index}`);
+                for (let j = 0; j < input.length; j++) {
+                    input[j].removeAttribute("readonly");
+                    e.currentTarget.innerText = "送出";
+                }
+            },
+            deleteData(e, index) {
+                // event.target.parentNode.parentNode.style.display = "none";
+                // console.log(this.card);
+                // console.log(this.card);
+                let check = confirm(`確認刪除神諭卡編號 ${this.card[index].cardNo} 的資料嗎?`);
+                console.log(this.card[index].cardNo);
+                if (check) {
+                    axios.get('./php/oracleCardDelete.php', {
+                            params: {
+                                'cardNo': this.card[index].cardNo
+                            }
+                        })
+                        .then((res) => {
+                            console.log(res.data);
+                            vm.getCardsDataList();
+                        })
+                        .catch((error) => {
+                            console.error(error)
+                        })
+                    this.card.splice(0, index);
+                }
 
+            },
+            updateMemInfo(index) {
+                // console.log(index);
+                axios.get('./php/oracleCardUpdate.php', {
+                        params: {
+                            'cardNo': this.card[index].cardNo,
+                            'cardTitle': this.card[index].cardTitle,
+                            'cardContent': this.card[index].cardContent,
+                            'cardPic': this.card[index].cardPic,
+                            'cardTypeNo': this.card[index].cardTypeNo,
+                            'deckNo': this.card[index].deckNo
+                        }
+                    })
+                    .then((res) => {
+                        console.log(res.data);
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    })
+            },
 
         },
     });
 
-    new Vue({
+    let vm = new Vue({
         el: "#oracleCardMan",
         data: {
             transport: {},
             cardsDataList: [],
             cardsDataListSm: [],
+            cardsUpdate: [],
+            addCard: {
+                cardNo: '',
+                cardTitle: '',
+                cardContent: '',
+                cardPic: '',
+                cardTypeNo: '',
+                deckNo: '',
+            },
+            cardNo: '',
         },
         methods: {
             getCardsData() {
@@ -183,28 +304,36 @@
                     .catch(error => {
                         console.log(error)
                     });
-
-
             },
             getCardsDataList() {
                 axios.get(`./php/oracleCardManList.php`)
                     .then((res) => {
-                        // this.cardsDataListSm.push(res.data[0]);
-                        // for (var i = 0; i < res.data.length; i++) {
-                        //     this.cardsDataListSm.push("123");
-                        // }
                         this.cardsDataListSm = res.data;
-                        // console.log(this.cardsDataListSm);
                     })
                     .catch(error => {
                         console.log(error)
                     });
             },
-            // insertData() {
-            //     this.transport = JSON.parse(JSON.stringify(this.newData)); //將新增區域的值送到元件
-            //     this.newData = {}; //清除新增區域的placeholder
-            //     //使用axios=> insert
-            // }
+            insertData() {
+                //使用axios=> insert
+                axios.get('./php/oracleCardAddCard.php', {
+                        params: {
+                            'cardNo': this.addCard.cardNo,
+                            'cardTitle': this.addCard.cardTitle,
+                            'cardContent': this.addCard.cardContent,
+                            'cardPic': this.addCard.cardPic,
+                            'cardTypeNo': this.addCard.cardTypeNo,
+                            'deckNo': this.addCard.deckNo
+                        }
+                    })
+                    .then((res) => {
+                        console.log(res.data);
+                        this.addCard = {}; //清除新增區域的placeholder
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    })
+            }
         },
         mounted() {
             this.getCardsData();
