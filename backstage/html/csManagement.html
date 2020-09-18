@@ -318,12 +318,9 @@
                         this.inputToEdit(e, index);
                     } else {
                         let check = confirm(`確認修改會員編號 ${this.memberData[index].csNo} 的資料嗎?`);
-                        if (check) {
+                        if (check)
                             this.updateMemInfo(index); //使用axios=> update
-                            this.inputToForbid(e, index);
-                        } else {
-                            this.inputToEdit(e, index);
-                        }
+                        this.inputToForbid(e, index);
                     }
                 },
                 inputToForbid(e, index) {

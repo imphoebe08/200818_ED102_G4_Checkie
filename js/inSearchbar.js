@@ -114,7 +114,7 @@ new Vue({
             $(e.target).parent().parent().hide();
         },
         openOrderPage() {
-            window.open(`./coCheck.html?csPosNo=${this.csPosNo}&csNo=${this.csNo}&iModeNo=${this.iModeNo}`, "_self");
+            window.open(`./coCalender.html?csNo=${this.csNo}&iModeNo=${this.iModeNo}&csPosNo=${this.csPosNo}`, "_self");
         },
         getCsData() {
             axios.get("./php/inSearchBar.php", {
