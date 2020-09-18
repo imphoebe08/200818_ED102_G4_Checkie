@@ -81,14 +81,14 @@ Vue.component('c-stepper', {
         <slot></slot>
         </div>
     `,
-    mounted() {
-        console.log(this.step, this.$parent.$parent.currentStep);
-    },
-    methods: {
-        enter() {
-            console.log(1234)
-        }
-    }
+    // mounted() {
+    //     console.log(this.step, this.$parent.$parent.currentStep);
+    // },
+    // methods: {
+    //     enter() {
+    //         console.log(1234)
+    //     }
+    // }
 });
 
 
@@ -131,32 +131,86 @@ Vue.component('toggle_button', {
         }
     },
 
-})
+});
+
+Vue.component('cs-template', {
+    props: ['csData', 'csOTime', 'csHour', 'price'],
+    template: `
+<div class="cos-counselor col-md-3 col-sm-12">
+    <div class="row">
+        <div class=" col-md-12 col-4 co-counselor-pic">
+            <div class="co-counselor-content">
+                <img :src="csData.csPic" alt="John">
+            </div>
+        </div>
+        <div class="col-md-12 col-8 co-counselor-text">
+
+            <div class="row align-items-center ">
+                <div class="col-md-12 col-6 ">諮商心理師</div>
+                <div class="col-md-12 col-6 ">{{csData.csName}}</div>
+            </div>
+        </div>
+
+
+        <div class="col-12 co-counselor-order ">
+            <div class="row justify-content-between ">
+                <div class=" col-md-12 col-6 ">
+                    <div>預約時段</div>
+                    <span>{{csOTime.date}}</span>
+                    <span>{{csOTime.time}}</span>
+                </div>
+                <div class=" col-md-12 col-6 ">
+                    <div>預約時數</div>
+                    <span>{{csHour}}小時</span>
+                </div>
+            </div>
+
+
+
+
+            <div class="co-counselor-order_item ">
+                <span>共計</span>
+                <span>123元</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    `,
+    methods: {
+
+    },
+    mounted() {
+        console.log(this.csOTime)
+    }
+});
 
 
 
 
 
-new Vue({
+let vm = new Vue({
     el: '#app',
     vuetify: new Vuetify(),
     data: () => ({
+        orderNum: '',
+        csModeNo: 1,
+        csPayment: '',
+        csOCost: "",
+        costEach: 1500,
+        csOTime: {
+            date: "2020-09-28",
+            time: '09:00:00',
+        },
+        csHour: 1,
+        csData: [],
+        coMember: [],
+        paymentMethod: [],
+        ////////////////////////
         listDataHide: false,
         currentStep: 1,
         errors: [],
-        memName: '',
-        memGender: '',
-        memBD: '',
-        memAdd: '',
-        memOcc: '',
-        memTel: {
-            countryCode: '',
-            mobile: '',
-        },
-        memEmail: {
-            value: '',
-            valid: true,
-        },
         memTopic: '',
         memStatus: '',
         memAnticipate: '',
@@ -186,18 +240,19 @@ new Vue({
 
         checkForm() {
             this.errors = [];
-            if (this.memName && this.memGender && this.memBD && this.memAdd && this.memOcc && this.memTel.mobile && this.memEmail.value) {
+            if (this.coMember.memName && this.coMember.memGender && this.coMember.memBD && this.coMember.memAdd && this.coMember.memOccupation && this.coMember.memTel.mobile && this.coMember.memEmail && this.csHour) {
                 this.update(this.currentStep + 1);
             } else {
                 this.showModal = true;
             };
-            if (!this.memName) this.errors.splice(1, 0, "姓名");
-            if (!this.memGender) this.errors.splice(2, 0, "性別");
-            if (!this.memBD) this.errors.splice(3, 0, "年齡");
-            if (!this.memAdd) this.errors.splice(4, 0, "住址");
-            if (!this.memOcc) this.errors.splice(5, 0, "職業");
-            if (!this.memTel.mobile) this.errors.splice(6, 0, "電話");
-            if (!this.memEmail.value) this.errors.splice(7, 0, "信箱");
+            if (!this.coMember.memName) this.errors.splice(1, 0, "姓名");
+            if (!this.coMember.memGender) this.errors.splice(2, 0, "性別");
+            if (!this.coMember.memBD) this.errors.splice(3, 0, "年齡");
+            if (!this.coMember.memAdd) this.errors.splice(4, 0, "住址");
+            if (!this.coMember.memOccupation) this.errors.splice(5, 0, "職業");
+            if (!this.coMember.memTel.mobile) this.errors.splice(6, 0, "電話");
+            if (!this.coMember.memEmail) this.errors.splice(7, 0, "信箱");
+            if (!this.csHour) this.errors.splice(8, 0, "時數");
         },
         parentOpen(data) {
             this.listDataHide = data;
@@ -208,7 +263,63 @@ new Vue({
                 return val;
             }
             this.currentStep = val;
-            console.log(this.currentStep);
+            //console.log(this.currentStep);
+        },
+        payment(e, i) {
+            var l = document.querySelectorAll('div.co-billing_method');
+            //console.log(l.length);
+            for (let i = 0; i < l.length; i++) {
+                l[i].classList.remove('paymentIWant');
+            }
+            //l.classList.$remove('paymentIWant');
+            e.currentTarget.classList.toggle('paymentIWant');
+            this.csPayment = i;
+
+        },
+        checkOut() {
+            //console.log("aaa");
+            //送出會員修改資料
+            var formData = new FormData();
+            var date = this.csOTime.date + " " + this.csOTime.time;
+            console.log(date);
+            formData.append("memNo", this.coMember.memNo);
+            formData.append("csName", this.coMember.memName);
+            formData.append("csGender", this.coMember.memGender);
+            formData.append("csBD", this.coMember.memBD);
+            formData.append("csAdd", this.coMember.memAdd);
+            formData.append("csOcc", this.coMember.memOccupation);
+            formData.append("csEmail", this.coMember.memEmail);
+            formData.append("csTelA", this.coMember.memTel.countryCode);
+            formData.append("csTelB", this.coMember.memTel.mobile);
+
+            formData.append("csHour", this.csHour);
+            formData.append("csPayment", this.csPayment);
+
+            formData.append("csNo", this.csData.csNo);
+
+            formData.append("csODate", date);
+            formData.append("csModeNo", this.csModeNo);
+            formData.append("csPosNo", this.csData.csPosNo);
+            formData.append("csOCost", this.csOCost);
+
+            formData.append("csOAnticipate", this.memAnticipate);
+            formData.append("csOTopic", this.memTopic);
+            formData.append("csOTalk", this.memStatus);
+            axios.post('./php/coCalender.php', formData).then(
+                res => {
+                    console.log(res.data);
+                });
+
+
+            var formData2 = new FormData();
+            formData2.append("memNo", this.coMember.memNo);
+            axios.post('./php/csOrderNumber.php', formData2).then(
+                res => {
+                    //console.log(res.data);
+                    this.orderNum = res.data;
+                    console.log(this.orderNum.csONo);
+                });
+
         },
 
 
@@ -285,7 +396,84 @@ new Vue({
         },
     },
     mounted() {
+        this.currentStep = 1;
+
+        //諮商師
+        axios.get('./php/csCounselor.php')
+            .then(res => {
+                this.csData = res.data;
+                console.log(this.csData);
+            });
+        //付費方式
+        axios.get('./php/paymentMethod.php')
+            .then(res => {
+                this.paymentMethod = res.data;
+                // console.log(this.paymentMethod);
+            });
+        //會員資料
+        axios.get('./php/coMember.php')
+            .then(res => {
+                this.coMember = res.data;
+                console.log(this.coMember);
+
+                let telArray = res.data.memTel.split(',');
+                this.coMember.memTel = {
+                    'countryCode': telArray[0],
+                    'mobile': telArray[1],
+                };
+
+                //alert(this.coMember.memTel.countryCode);
+                //算年紀
+                //console.log(this.coMember.memBD);
+                var bir = res.data.memBD;
+                bir = Date.parse(bir.replace('/-/g', "/"));
+                //console.log(bir);
+                if (bir) {
+                    var year = 1000 * 60 * 60 * 24 * 365;
+                    var now = new Date();
+                    var birthday = new Date(bir);
+                    var age = parseInt((now - birthday) / year);
+                    this.coMember.memBD = age;
+                }
+            });
         this.$refs.calendar.checkChange();
+    },
+    computed: {
+        price() {
+            this.csOCost = this.costEach * this.csHour;
+            return this.csOCost;
+        },
+        when() {
+            var day = new Date(this.csOTime.date + " " + this.csOTime.time);
+            //console.log(day);
+            var hourNow = day.getHours();
+            //console.log(hourNow);
+            if (hourNow < 12) {
+                return "上午";
+            } else if (18 > hourNow > 12) {
+                return "下午";
+            } else if (hourNow > 18) {
+                return "晚間";
+            }
+        },
+        now() {
+            var k = new Date().toLocaleDateString();
+            return k;
+        },
+        endTime() {
+            var h = Number(this.csHour);
+            //console.log(h);
+            //console.log(this.csOTime.date + " " + this.csOTime.time);
+            var k = new Date(this.csOTime.date + " " + this.csOTime.time);
+            var f = k.setHours(k.getHours() + h);
+            //console.log(f);
+            var d = new Date(f)
+                //console.log(d);
+            var hour = d.getHours() + ':00:00';
+            //console.log(hour);
+            return hour;
+
+        }
     },
 
 });

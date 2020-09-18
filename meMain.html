@@ -10,11 +10,19 @@
     <!-- <link rel="stylesheet" href="./vender/bootstrap-grid.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap-grid.min.css" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.js"></script>
-    <!-- <script src="./js/header.js"></script>
-    <script src="./js/chatbot.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
+
 
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://kit.fontawesome.com/3a9b8bb651.js" crossorigin="anonymous"></script>
@@ -24,7 +32,7 @@
 <body>
 
 
-    @@include('./template/header.html') @@include('./test.html')
+    <!-- @@include('./template/header.html') @@include('./test.html') -->
 
 
 
@@ -35,9 +43,14 @@
                 <div class="mem-pic-style col-12 mem-md">
                     <div class="style-1">
                         <div class="style-3">
-                            <div class="mem-name-style">
-                                {{member.memName}}
-                            </div>
+                            <transition name="coSlide" mode="out-in">
+                                <div class="mem-name-style" v-if="currentPage==''" :key="currentPage==''">
+                                    {{member.memName}}
+                                </div>
+                                <div class="mem-name-style" v-for="item in titles" v-if="currentPage==item" :key="item">
+                                    {{item}}
+                                </div>
+                            </transition>
                         </div>
                         <div class="style-4"></div>
                         <div class="style-5"></div>
@@ -49,7 +62,7 @@
                     <div class="aaa">
                         <div class="memPhoto--bgc">
                             <div class="memPhoto">
-                                <img :src="newPic" alt="">
+                                <img :src="member.memPic" alt="">
                             </div>
                             <input type="file" name="memPic" id="hideThis" @change="changePic()">
                             <label class="meSvg" for="hideThis"> 
@@ -74,7 +87,7 @@
 
 
                         <me-head>
-                            <me-select_item :item="index" v-for="(item, index) in titles" @click.native="selectIt(item)" :selected="currentPage==item">{{item}}</me-select_item>
+                            <me-select_item :item="index" v-for="(item, index) in titles" @click.native="selectIt(item)" :selected="currentPage==item" v-if="index<7">{{item}}</me-select_item>
                             <!-- <me-select_item :item="1" @click.native="selectIt(titles[1])" :selected="currentPage==titles.a">{{titles.a}}</me-select_item>
                             <me-select_item :item="2" @click.native="selectIt(titles.b)" :selected="currentPage==titles.b">{{titles.b}}</me-select_item>
                             <me-select_item :item="3" @click.native="selectIt(titles.c)" :selected="currentPage==titles.c">{{titles.c}}</me-select_item>
@@ -93,19 +106,26 @@
                     <div class="me-content col-md-9 col-lg-9 col-12 " v-if="windowSize>768 || currentPage!==''">
                         <div class=" mem-pic-style mem-lg">
                             <div class="memSearch">
-                                <div class="searchIconSvg">
-                                    <svg id="圖層_1" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155.76 155.76"><path d="M154.81,145.63l-45.25-45.24a61.78,61.78,0,1,0-9.17,9.17l45.24,45.25a3.24,3.24,0,0,0,4.59,0l4.59-4.59A3.24,3.24,0,0,0,154.81,145.63Zm-93.15-35.3a48.68,48.68,0,1,1,48.67-48.67A48.72,48.72,0,0,1,61.66,110.33Z"/></svg>
+                                <div class="search_flex">
+                                    <div class="searchIconSvg">
+                                        <svg id="圖層_1" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155.76 155.76"><path d="M154.81,145.63l-45.25-45.24a61.78,61.78,0,1,0-9.17,9.17l45.24,45.25a3.24,3.24,0,0,0,4.59,0l4.59-4.59A3.24,3.24,0,0,0,154.81,145.63Zm-93.15-35.3a48.68,48.68,0,1,1,48.67-48.67A48.72,48.72,0,0,1,61.66,110.33Z"/></svg>
+                                    </div>
+                                    <input type="search" v-model="searchThing" :placeholder="placeHolder" @keyup.13="search">
                                 </div>
-                                <input type="search" placeholder="請輸入搜尋指令">
+
+                                <div class="me_search_submit" @click="search">搜尋</div>
                             </div>
                             <div class="aaa">
                                 <div class="mem-name-style">
                                     {{member.memName}}
                                 </div>
                                 <div class="memPhoto--bgc">
-                                    <div class="memPhoto">
-                                        <img :src="newPic" alt="">
+                                    <div class="memPhoto  memPhoto_lg">
+                                        <img :src="member.memPic" alt="">
                                     </div>
+                                    <input type="file" name="memPic" id="hideThis" @change="changePic()">
+                                    <label class="meSvg  meSvg_lg" for="hideThis"> 
+                                         <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><circle cx="256" cy="277.33" r="106.67"/><path d="M469.33,106.67H401.68A31.83,31.83,0,0,1,379,97.29l-39-39a53,53,0,0,0-37.72-15.62H209.68A53,53,0,0,0,172,58.29l-39,39a31.83,31.83,0,0,1-22.64,9.38H42.67A42.71,42.71,0,0,0,0,149.33V426.67a42.71,42.71,0,0,0,42.67,42.66H469.33A42.71,42.71,0,0,0,512,426.67V149.33A42.71,42.71,0,0,0,469.33,106.67ZM256,405.33a128,128,0,1,1,128-128A128.14,128.14,0,0,1,256,405.33Zm170.67-192A21.33,21.33,0,1,1,448,192,21.36,21.36,0,0,1,426.67,213.33Z"/></svg></label>
                                 </div>
 
                             </div>
@@ -184,6 +204,7 @@
                                                 <div class="me-index_block" v-for="(each,index) in coData" v-if="index<2">
                                                     <div class="me-index_each">
                                                         <a href="">
+                                                            <!-- <a :href="/csSelf.html?csNo=' + each.csNo"> -->
                                                             <div>{{each.csODate}}</div>
                                                             <div>{{each.csPosName}}</div>
                                                         </a>
@@ -199,16 +220,14 @@
                                                 </div>
                                                 <div class="me-index_block" v-for="(each,index) in aoData" v-if="index<2">
                                                     <div class="me-index_each">
-                                                        <a href="">
+                                                        <a :href="'./acSelf.html?actNo=' + each.actNo">
                                                             <div>{{each.actStart}}</div>
                                                             <div>{{each.actAddress}}</div>
                                                         </a>
                                                     </div>
                                                     <mem-driver></mem-driver>
                                                 </div>
-
                                             </div>
-
                                         </div>
 
 
@@ -219,19 +238,37 @@
                                             </div>
 
                                             <div class="me-index_block ">
+                                                <div class="me-index-block_hider" v-if="!chartOpacity"></div>
                                                 <div class="me-index-block-flexCenter">
-                                                    <chart></chart>
+                                                    <apexchart ref="newChart" type="radar" width="100%" height="300" :options="chartOptions" :series="series" class="apexchart_opacity_one" :class="{apexchart_opacity : chartOpacity}"></apexchart>
                                                 </div>
-                                                <div class="me-index-block-flexCenter">chart</div>
-                                                <div class="me-index-block-flexCenter">chart</div>
+                                                <div class="me-index-block_button" @click="chartOpen" v-if="!chartOpacity">查看測驗分數</div>
 
                                             </div>
 
                                         </div>
+
                                         <div class="meInsideBlock">
                                             <div class="mem-header-singleRow mem-header-flex">
                                                 <div class="more-title">{{titles[5]}}</div>
                                                 <div class="more--color" @click="pageChange(titles[5])">MORE<i class="fas fa-angle-right"></i></div>
+                                            </div>
+                                            <div class="me-index_block">
+                                                <div class="me-index_heart-title">活動收藏</div>
+                                                <div class="me-index_heart-each" v-for="(each,index) in actCol" v-if="index<2">
+                                                    <a href="">
+                                                        <div class="me-index_heart-one">{{each.actName}}</div>
+                                                        <div class="me-index_heart-two">{{each.actStart}}</div>
+                                                    </a>
+                                                </div>
+                                                <div class="me-index_heart-title">文章收藏</div>
+                                                <div class="me-index_heart-each" v-for="(each,index) in artCol" v-if="index<2">
+                                                    <a href="">
+                                                        <div class="me-index_heart-one">{{each.artTitle}}</div>
+                                                        <div class="me-index_heart-two">-{{each.artAuthor}}</div>
+                                                    </a>
+
+                                                </div>
                                             </div>
 
                                         </div>
@@ -420,12 +457,15 @@
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                                <div class="mem-order-dcName">
-                                                                    {{each.csName}}
-                                                                </div>
-                                                                <div class="mem-order-img">
-                                                                    <img :src="each.csPic" alt="">
-                                                                </div>
+                                                                <a href="">
+                                                                    <div class="mem-order-dcName">
+                                                                        {{each.csName}}
+                                                                    </div>
+                                                                    <div class="mem-order-img">
+                                                                        <img :src="each.csPic" alt="">
+                                                                    </div>
+                                                                </a>
+
                                                             </div>
                                                             <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
                                                                 <div class="row justify-content-end mem-modify--delete">
@@ -462,28 +502,25 @@
                                                                             <table class="mem-order-table">
                                                                                 <tr>
                                                                                     <th>訂單編號</th>
-                                                                                    <td data-title="地點">{{each.csONo}}</td>
+                                                                                    <td data-title="訂單編號">{{each.csONo}}</td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <th>諮商方式</th>
-                                                                                    <td data-title="時間">{{each.csModeName}}</td>
+                                                                                    <td data-title="諮商方式">{{each.csModeName}}</td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <th>下訂時間</th>
-                                                                                    <td data-title="諮商時間">{{each.csOTime}}</td>
+                                                                                    <td data-title="下訂時間">{{each.csOTime}}</td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <th>諮商期待</th>
-                                                                                    <td data-title="時間">{{each.csOAnticipate}}</td>
+                                                                                    <td data-title="諮商期待">{{each.csOAnticipate}}</td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <th>諮商主題</th>
-                                                                                    <td data-title="諮商時間">{{each.csOTopic}}</td>
+                                                                                    <td data-title="諮商主題">{{each.csOTopic}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <th>諮商類型</th>
-                                                                                    <td data-title="諮商時間">{{each.typeName}}</td>
-                                                                                </tr>
+
                                                                             </table>
                                                                         </div>
 
@@ -505,12 +542,14 @@
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                                <div class="mem-order-dcName">
-                                                                    {{each.csName}}
-                                                                </div>
-                                                                <div class="mem-order-img">
-                                                                    <img :src="each.csPic" alt="">
-                                                                </div>
+                                                                <a href="">
+                                                                    <div class="mem-order-dcName">
+                                                                        {{each.csName}}
+                                                                    </div>
+                                                                    <div class="mem-order-img">
+                                                                        <img :src="each.csPic" alt="">
+                                                                    </div>
+                                                                </a>
                                                             </div>
                                                             <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
 
@@ -545,28 +584,25 @@
                                                                             <table class="mem-order-table">
                                                                                 <tr>
                                                                                     <th>訂單編號</th>
-                                                                                    <td data-title="地點">{{each.csONo}}</td>
+                                                                                    <td data-title="訂單編號">{{each.csONo}}</td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <th>諮商方式</th>
-                                                                                    <td data-title="時間">{{each.csModeName}}</td>
+                                                                                    <td data-title="諮商方式">{{each.csModeName}}</td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <th>下訂時間</th>
-                                                                                    <td data-title="諮商時間">{{each.csOTime}}</td>
+                                                                                    <td data-title="下訂時間">{{each.csOTime}}</td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <th>諮商期待</th>
-                                                                                    <td data-title="時間">{{each.csOAnticipate}}</td>
+                                                                                    <td data-title="諮商期待">{{each.csOAnticipate}}</td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <th>諮商主題</th>
-                                                                                    <td data-title="諮商時間">{{each.csOTopic}}</td>
+                                                                                    <td data-title="諮商主題">{{each.csOTopic}}</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <th>諮商類型</th>
-                                                                                    <td data-title="諮商時間">{{each.typeName}}</td>
-                                                                                </tr>
+
                                                                             </table>
                                                                         </div>
 
@@ -584,7 +620,6 @@
 
 
                                 </select-page>
-
                                 <select-page :step="4 " v-if="currentPage==titles[3] " :key="titles[3]">
                                     <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect ">
                                         <div class="selectIcon ">
@@ -607,12 +642,14 @@
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                                <div class="mem-order-dcName">
-                                                                    {{each.actName}}
-                                                                </div>
-                                                                <div class="mem-order-img">
-                                                                    <img :src="each.actPicContent" alt="">
-                                                                </div>
+                                                                <a href="">
+                                                                    <div class="mem-order-dcName">
+                                                                        {{each.actName}}
+                                                                    </div>
+                                                                    <div class="mem-order-img">
+                                                                        <img :src="each.actPic1" alt="">
+                                                                    </div>
+                                                                </a>
                                                             </div>
                                                             <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
                                                                 <div class="row justify-content-end mem-modify--delete">
@@ -626,15 +663,15 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <th>活動日期</th>
-                                                                            <td data-title="時間">{{each.actStart}}</td>
+                                                                            <td data-title="活動日期">{{each.actStart}}</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th>開始時間</th>
-                                                                            <td data-title="諮商時間">{{each.actStartTime}}</td>
+                                                                            <td data-title="開始時間">{{each.actStartTime}}</td>
                                                                         </tr>
                                                                         <tr>
                                                                             <th>活動時數</th>
-                                                                            <td data-title="諮商時間">{{each.hour}}小時{{each.minute}}分鐘</td>
+                                                                            <td data-title="活動時數">{{each.hour}}小時{{each.minute}}分鐘</td>
                                                                         </tr>
                                                                     </table>
                                                                 </div>
@@ -652,23 +689,23 @@
                                                                                 <table class="mem-order-table">
                                                                                     <tr>
                                                                                         <th>訂單編號</th>
-                                                                                        <td data-title="地點">{{each.actONo}}</td>
+                                                                                        <td data-title="訂單編號">{{each.actONo}}</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <th>結束日期</th>
-                                                                                        <td data-title="時間">{{each.actEnd}}</td>
+                                                                                        <td data-title="結束日期">{{each.actEnd}}</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <th>結束時間</th>
-                                                                                        <td data-title="諮商時間">{{each.actEndTime}}</td>
+                                                                                        <td data-title="結束時間">{{each.actEndTime}}</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <th>活動講師</th>
-                                                                                        <td data-title="時間">{{each.actHost}}<br>{{each.actHostTitle}}</td>
+                                                                                        <td data-title="活動講師">{{each.actHost}}<br>{{each.actHostTitle}}</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <th>下訂時間</th>
-                                                                                        <td data-title="時間">{{each.actOTime}}</td>
+                                                                                        <td data-title="下訂時間">{{each.actOTime}}</td>
                                                                                     </tr>
 
                                                                                 </table>
@@ -692,12 +729,15 @@
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                                <div class="mem-order-dcName">
-                                                                    {{each.actName}}
-                                                                </div>
-                                                                <div class="mem-order-img">
-                                                                    <img :src="each.actPicContent" alt="">
-                                                                </div>
+                                                                <a href="">
+                                                                    <div class="mem-order-dcName">
+                                                                        {{each.actName}}
+                                                                    </div>
+                                                                    <div class="mem-order-img">
+                                                                        <img :src="each.actPic1" alt="">
+                                                                    </div>
+                                                                </a>
+
                                                             </div>
                                                             <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
                                                                 <div class="row justify-content-center">
@@ -772,7 +812,6 @@
 
 
                                 </select-page>
-
                                 <select-page :step="5 " v-if="currentPage==titles[4] " :key="titles[4] ">
                                     <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect ">
                                         <div class="selectIcon ">
@@ -786,6 +825,9 @@
                                         <div class="meInsideBlock ">
                                             <div class="mem-header-singleRow mem-header-flex">
                                                 <div class="more-title">{{mentalTitles.a}}</div>
+                                            </div>
+                                            <div id="chart">
+                                                <apexchart ref="newChart" type="radar" width="100%" height="300" :options="chartOptions" :series="series"></apexchart>
                                             </div>
                                         </div>
                                         <div class="meInsideBlock ">
@@ -841,36 +883,8 @@
                                             <div class="row mem-inActCsSelfAct_block">
                                                 <div class="mem-inActCsSelfAct--hide">
 
+                                                    <inact-item v-for="each in memActRec" :love="each"></inact-item>
 
-                                                    <div class="inAct_item" v-for="(item, index) in memActRec" :key="index">
-                                                        <!-- 帶資料 -->
-                                                        <a href="javascript:void(0)" draggable="false">
-                                                            <img :src="item.actPicContent" draggable="false">
-                                                        </a>
-                                                        <div class="inAct_text">
-                                                            <div class="inAct-top_text">
-                                                                <div class="inAct-left_date">
-                                                                    <div class="inAct-date_icon"><i class="far fa-clock"></i></div>
-                                                                    <!-- 帶資料 -->
-                                                                    <div class="inAct-date_text">{{item.actStart}}</div>
-                                                                </div>
-                                                                <div class="inAct-icon_block">
-                                                                    <a href="javascript:void(0)" class="inAct-icon_1" draggable="false"><i class="fas fa-share-alt"></i></a>
-                                                                    <a href="javascript:void(0)" class="inAct-icon_2" draggable="false"><i class="fas fa-bookmark"></i></a>
-                                                                </div>
-                                                            </div>
-                                                            <!-- 帶資料 -->
-                                                            <div class="inAct_title"><a href="javascript:void(0)" draggable="false">從陌生人到貴人，打造職涯路上的黃金人脈法則</a> </div>
-
-                                                            <div class="inAct_location">
-                                                                <div class="inAct-location_icon">
-
-                                                                </div>
-                                                                <!-- 帶資料 -->
-                                                                <div class="inAct-location_text">台灣文創教育中心</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -888,42 +902,44 @@
                                         </div>
                                     </div>
                                     <div class="col-12 meOrderTab">
-                                        <div @click="oag(true)" :class="{meOrderTabSelect: acOrder}">活動收藏</div>
-                                        <div @click="oag(false)" :class="{meOrderTabSelect: !acOrder}">文章收藏</div>
+                                        <div @click="hag(true)" :class="{meOrderTabSelect: heart}">活動收藏</div>
+                                        <div @click="hag(false)" :class="{meOrderTabSelect: !heart}">文章收藏</div>
                                     </div>
 
 
                                     <div class="col-12 meOrderBlock">
                                         <transition name="orderSlide" mode="out-in">
-                                            <div class="meOrderBlock-content" v-if="acOrder" key="acOrder">
-                                                <div class="row justify-content-center" v-for="(each,index) in aoData">
+                                            <div class="meOrderBlock-content" v-if="heart" key="heart">
+                                                <div class="row justify-content-center" v-for="(each,index) in actCol">
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                                <div class="mem-order-dcName">
-                                                                    {{each.csName}}
-                                                                </div>
-                                                                <div class="mem-order-img">
-                                                                    <img :src="each.csPic" alt="">
-                                                                </div>
+                                                                <a href="">
+                                                                    <div class="mem-order-dcName">
+                                                                        {{each.actName}}
+                                                                    </div>
+                                                                    <div class="mem-order-img">
+                                                                        <img :src="each.actPic1" alt="">
+                                                                    </div>
+                                                                </a>
                                                             </div>
                                                             <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
                                                                 <div class="row justify-content-end mem-modify--delete">
-                                                                    <div v-if="!orderShow" class=" order-justDele" @click="deleteOrder(aoData,index)"><i class="far fa-edit memI"></i>刪除</div>
+                                                                    <div class=" order-justDele" @click="which(index, actCol , 1)">取消收藏<i class="fas fa-bookmark"></i></div>
                                                                 </div>
                                                                 <div class="row justify-content-center">
                                                                     <table class="mem-order-table">
                                                                         <tr>
-                                                                            <th>地點:</th>
-                                                                            <td data-title="地點">{{each.coPos}}</td>
+                                                                            <th>地點</th>
+                                                                            <td data-title="地點">{{each.actAddress}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <th>時間:</th>
-                                                                            <td data-title="時間">{{each.csODate}}</td>
+                                                                            <th>開始時間</th>
+                                                                            <td data-title="開始時間">{{each.actStart}}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <th>諮商時間:</th>
-                                                                            <td data-title="諮商時間">{{each.csOHour}}</td>
+                                                                            <th>報名開始時間</th>
+                                                                            <td data-title="報名開始時間">{{each.actPstart}}</td>
                                                                         </tr>
                                                                     </table>
                                                                 </div>
@@ -931,7 +947,7 @@
                                                                     <mem-driver></mem-driver>
                                                                     <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
                                                                         <span>費⽤：</span>
-                                                                        <span>{{each.csOCost}}</span>
+                                                                        <span>{{each.actCost}}</span>
                                                                         <span>.NT</span>
                                                                     </div>
                                                                 </div>
@@ -940,43 +956,31 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class=" meOrderBlock-content" v-if="!acOrder" key="!acOrder">
-                                                <div class="row justify-content-center" v-for="each in aoPastData">
+                                            <div class=" meOrderBlock-content" v-if="!heart" key="!heart">
+                                                <div class="row justify-content-center" v-for="(each,index) in artCol">
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                                <div class="mem-order-dcName">
-                                                                    {{each.csName}}
-                                                                </div>
+
                                                                 <div class="mem-order-img">
-                                                                    <img :src="each.csPic" alt="">
+                                                                    <img :src="each.artPic1" alt="">
                                                                 </div>
+
                                                             </div>
                                                             <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
-                                                                <div class="row justify-content-center">
-                                                                    <table class="mem-order-table">
-                                                                        <tr>
-                                                                            <th>地點:</th>
-                                                                            <td data-title="地點">{{each.coPos}}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>時間:</th>
-                                                                            <td data-title="時間">{{each.csODate}}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>諮商時間:</th>
-                                                                            <td data-title="諮商時間">{{each.csOHour}}</td>
-                                                                        </tr>
-                                                                    </table>
+                                                                <div class="row justify-content-end mem-modify--delete">
+                                                                    <div class=" order-justDele" @click="which(index, artCol, 2)">取消收藏<i class="fas fa-bookmark"></i></div>
                                                                 </div>
-                                                                <div class="row ">
-                                                                    <mem-driver></mem-driver>
-                                                                    <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
-                                                                        <span>費⽤：</span>
-                                                                        <span>{{each.csOCost}}</span>
-                                                                        <span>.NT</span>
+                                                                <div class="row justify-content-center">
+                                                                    <div class="mem-heart_block">
+                                                                        <a href="">
+                                                                            <div class="mem-heart_each mem-heart-title">{{each.artTitle}}</div>
+                                                                        </a>
+                                                                        <div class="mem-heart_each mem-heart-artAuthor">-{{each.artAuthor}}</div>
+                                                                        <div class="mem-heart_each mem-heart-artContent">{{each.artContent}}</div>
                                                                     </div>
                                                                 </div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -998,8 +1002,7 @@
                                     <div class="me-for-content">
                                         <div class="meInsideBlock">
                                             <div class="mem-header-singleRow mem-header-flex">
-                                                <div class="more-title">{{titles.e}}</div>
-                                                <div class="more--color" @click="pageChange(titles.e)">MORE<i class="fas fa-angle-right"></i></div>
+                                                <div class="more-title">{{titles[6]}}</div>
                                             </div>
                                             <div class=" meChat">
                                                 <!-- <div class="col-12 meOrderTab">
@@ -1056,10 +1059,219 @@
                                     </div>
 
                                 </select-page>
+                                <select-page :step="8" v-if="currentPage==titles[7] || windowSize>768 " :key="titles[7]">
+                                    <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect ">
+                                        <div class="selectIcon ">
+                                            <i class="fas fa-caret-left backToSelect "></i>
+                                            <div>
+                                                回到選單
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="me-for-content">
+                                        <div class="meInsideBlock">
+
+                                            <div class="mem-header-singleRow mem-header-flex">
+                                                <div class="more-title">{{titles[7]}}</div>
+                                                <div class="more--color">共{{searchNum}}件符合關鍵字</div>
+                                            </div>
+
+                                            <div class="me_nothing_in_result" v-if="nothing">沒有符合條件的結果</div>
+
+                                            <div class="nothing_i_am_just_for_separate">
+
+                                                <div class="row justify-content-center delete" v-for="(each,index) in finalCoResult">
+                                                    <div class="mem-order-each col-10">
+                                                        <div class="row">
+                                                            <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
+                                                                <a href="">
+                                                                    <div class="mem-order-dcName">
+                                                                        {{each.csName}}
+                                                                    </div>
+                                                                    <div class="mem-order-img">
+                                                                        <img :src="each.csPic" alt="">
+                                                                    </div>
+                                                                </a>
+
+                                                            </div>
+                                                            <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
+                                                                <div class="row justify-content-end mem-modify--delete">
+                                                                    <div v-if="!orderShow" class=" order-justDele" @click="what(index, coData, 1)"><i class="far fa-edit memI"></i>刪除</div>
+                                                                </div>
+                                                                <div class="row justify-content-center">
+                                                                    <table class="mem-order-table">
+                                                                        <tr>
+                                                                            <th>地點</th>
+                                                                            <td data-title="地點">{{each.csPosName}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>時間</th>
+                                                                            <td data-title="時間">{{each.csODate}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>諮商時間</th>
+                                                                            <td data-title="諮商時間">1</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="row ">
+                                                                    <mem-driver></mem-driver>
+                                                                    <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
+                                                                        <span>費⽤</span>
+                                                                        <span>{{each.csOCost}}</span>
+                                                                        <span>.NT</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row ">
+                                                                    <div class="mem-coOrder-total--hide">
+                                                                        <span class="order-justDele memI" @click="orderMore($event)">查看更多<i class="fas fa-caret-down memI"></i></span>
+                                                                        <div class="meOrder_toggle">
+                                                                            <table class="mem-order-table">
+                                                                                <tr>
+                                                                                    <th>訂單編號</th>
+                                                                                    <td data-title="訂單編號">{{each.csONo}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>諮商方式</th>
+                                                                                    <td data-title="諮商方式">{{each.csModeName}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>下訂時間</th>
+                                                                                    <td data-title="下訂時間">{{each.csOTime}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>諮商期待</th>
+                                                                                    <td data-title="諮商期待">{{each.csOAnticipate}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>諮商主題</th>
+                                                                                    <td data-title="諮商主題">{{each.csOTopic}}</td>
+                                                                                </tr>
+
+                                                                            </table>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="row justify-content-center" v-for="(each,index) in finalAoResult">
+                                                    <div class="mem-order-each col-10">
+                                                        <div class="row">
+                                                            <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
+                                                                <a href="">
+                                                                    <div class="mem-order-dcName">
+                                                                        {{each.actName}}
+                                                                    </div>
+                                                                    <div class="mem-order-img">
+                                                                        <img :src="each.actPic1" alt="">
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
+                                                                <div class="row justify-content-end mem-modify--delete">
+                                                                    <div v-if="!orderShow" class=" order-justDele" @click="what(index, aoData, 2)"><i class="far fa-edit memI"></i>刪除</div>
+                                                                </div>
+                                                                <div class="row justify-content-center">
+                                                                    <table class="mem-order-table">
+                                                                        <tr>
+                                                                            <th>地點</th>
+                                                                            <td data-title="地點">{{each.actAddress}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>活動日期</th>
+                                                                            <td data-title="活動日期">{{each.actStart}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>開始時間</th>
+                                                                            <td data-title="開始時間">{{each.actStartTime}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>活動時數</th>
+                                                                            <td data-title="活動時數">{{each.hour}}小時{{each.minute}}分鐘</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="row ">
+                                                                    <mem-driver></mem-driver>
+                                                                    <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
+                                                                        <span>費⽤：</span>
+                                                                        <span>{{each.actCost}}</span>
+                                                                        <span>.NT</span>
+                                                                    </div>
+                                                                    <div class="row ">
+                                                                        <div class="mem-coOrder-total--hide">
+                                                                            <span class="order-justDele memI" @click="orderMore($event)">查看更多<i class="fas fa-caret-down memI"></i></span>
+                                                                            <div class="meOrder_toggle">
+                                                                                <table class="mem-order-table">
+                                                                                    <tr>
+                                                                                        <th>訂單編號</th>
+                                                                                        <td data-title="訂單編號">{{each.actONo}}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>結束日期</th>
+                                                                                        <td data-title="結束日期">{{each.actEnd}}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>結束時間</th>
+                                                                                        <td data-title="結束時間">{{each.actEndTime}}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>活動講師</th>
+                                                                                        <td data-title="活動講師">{{each.actHost}}<br>{{each.actHostTitle}}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>下訂時間</th>
+                                                                                        <td data-title="下訂時間">{{each.actOTime}}</td>
+                                                                                    </tr>
+
+                                                                                </table>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
+
+
+
+
+
+                                    </div>
+
+                                </select-page>
                             </transition>
                             <select-page-content>
                     </div>
                 </transition>
+
+
+                <!-- 確認刪除收藏 -->
+                <div class="modifyMemPsd ao-co-error-overlay" v-if="tempHeartData != ''" @click="dataClear"></div>
+                <div v-if=" tempHeartData != ''" class="co-ao-error--border">
+                    <div class="modifyMemPsd-block">
+                        <div class="modifyMemPsdOld modifyOrder-align">您將取消收藏{{tempHeartTitle}}</div>
+                        <div class="modifyMemCheck">
+                            <div class="button2-1 error-modal-closer" @click="heartDele(tempHeartData,tempHeartIndex)">確認</div>
+                            <div class="button2-1 error-modal-closer" @click="dataClear">取消</div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- 確認刪除收藏 -->
 
                 <!-- 確認刪除訂單 -->
                 <div class="modifyMemPsd ao-co-error-overlay" v-if="tempData != ''" @click="dataClear"></div>
@@ -1093,15 +1305,11 @@
 
 
 
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="./js/meMain.js"></script>
+
+
+
+
 
 
     <script>

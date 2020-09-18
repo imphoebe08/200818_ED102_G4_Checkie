@@ -1,17 +1,19 @@
 <?php
 try{
-    // session_start();
-    require_once("./connectBook.php");
+    session_start();
+    require_once("./connectBook666.php");
+    //session應急
+    $_SESSION["memNO"]=1;
+    //以上session應急
+    $memNo = $_SESSION["memNO"];
 
     $sql = "select * from member
             where memNo = :memNo;";
 
     $member = $pdo->prepare($sql);
-    // 正確做法
-    // $memNo = $_SESSION["memNo"]
-    //$member->bindValue(":memNo", $memNo);
 
-    $member->bindValue(":memNo", 1);
+
+    $member->bindValue(":memNo", $memNo);
     $member->execute();
     
     if( $member->rowCount()==0){ 

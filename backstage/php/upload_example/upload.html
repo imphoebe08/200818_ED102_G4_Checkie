@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+</style>
+
+<body>
+    <!-- 不用js的話 -->
+    <!-- <form action="upload.php" method="post" enctype="multipart/form-data">
+        檔案名稱:<input type="file" name="file" id="file" /><br />
+        <input type="submit" name="submit" value="上傳檔案" />
+    </form> -->
+
+
+
+    <div id="app">
+        <input type="file" ref="file" name="file" id="file" @change="fileUpload">
+        <label for="file">
+        <img :src="fileUrl || 'https://www.csmu.edu.tw/var/file/0/1000/plugin/mobile/pictures/linkdet_1567_64639_22966.jpg'"
+            alt=""></label>
+    </div>
+</body>
+
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js'></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            file: '',
+            fileUrl: ''
+        },
+        methods: {
+            fileUpload(e) {
+                //先抓到上傳圖片的input資料
+                this.file = e.target.files[0];
+
+
+                // 轉為base64，純粹預覽用
+                const reader = new FileReader();
+                reader.readAsDataURL(this.file);
+                reader.addEventListener("load", () => {
+                    this.fileUrl = reader.result;
+                });
+
+
+                // 存入formData，送出資料用
+                let formData = new FormData();
+                formData.append('file', this.file);
+
+                axios.post('./upload.php',
+                    formData).then((res) => {
+                    // 抓到圖片儲存位址可以再回來改src
+                    this.fileUrl = res.data;
+                }).catch(function() {
+                    console.log('FAILURE!!');
+                });
+            }
+        }
+    })
+</script>
+
+</html>

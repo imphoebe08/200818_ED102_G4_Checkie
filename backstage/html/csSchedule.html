@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/bgHead.html')
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <!-- top_header -->
+    @@include('layout/top_header.html')
+
+    <!-- 中間內容 -->
+    <div id="bgMem" class="container-fluid memManagement">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="acManagement_title">
+                    <h1 class="acManagement_h1">排班管理</h1>
+                </div>
+                <div class="card ">
+                    <div class="card-body" style=" overflow-x: auto;">
+                        <label for="cs-select">選擇諮商師:</label>
+                        <select v-model="csSelect" id="cs-select">
+                            <option v-for="(v,i) in csList" :value="v.csNo">{{v.csNo + '.' + v.csName}}</option>
+                        </select>
+                        <label for="year-select">選擇年份:</label>
+                        <select v-model="yearSelect" id="year-select">
+                            <option v-for="(v,i) in yearList" :value="v">{{v}}</option>
+                        </select>
+
+                        <label for="month-select">選擇月份:</label>
+                        <select v-model="monthSelect" id="month-select">
+                            <option v-for="(v,i) in monthList" :value="v">{{v}}</option>
+                        </select>
+                        <table class=" table table-responsive-sm table-sm ">
+                            <thead>
+                                <tr>
+                                    <th>日期</th>
+                                    <th>時段一</th>
+                                    <th>時段二</th>
+                                    <th>時段三</th>
+                                    <th>時段四</th>
+                                    <th>時段五</th>
+                                    <th>時段六</th>
+                                    <th>編輯</th>
+                                </tr>
+                            </thead>
+                            <tbody is="input-layout" ref="childComponent" :total-page.sync="totalPage"
+                                :page-now.sync="pageNow" :cs-select="csSelect" :year-select="yearSelect"
+                                :month-select="monthSelect">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <ul class="pageNumbers">
+                <template v-for="(item,index) in totalPage">
+                    <input type="radio" :id="'page' + (index + 1)" v-model="pageNow" :value="index+1">
+                    <li :key="'page'+ item" @click="getWorkDayListFromParent2(index+1)">
+                        <label :for="'page' + (index + 1)">{{ index+1 }}</label>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </div>
+
+    @@include('layout/footer.html')
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script>
+        Vue.component("input-layout", {
+            props: ["total-page", "page-now", "cs-select", "year-select", "month-select"],
+            data() {
+                return {
+                    workDayList: []
+                };
+            },
+            template: ` <tbody>
+                                <tr class="buttonGroup" v-for="(value,index) in workDayList" :key="'workDayList'+index">
+                                    <td><span :class="'buttonGroup' + index">{{value.schDate}}</span></td>
+                                    <td><select v-model="value.workTime1" :class="'buttonGroup' + index" disabled>
+                                            <option value="0">未提供服務</option>
+                                            <option value="1">可預約</option>
+                                            <option value="2">已預約</option>
+                                        </select></td>
+                                    <td><select v-model="value.workTime2" :class="'buttonGroup' + index" disabled>
+                                            <option value="0">未提供服務</option>
+                                            <option value="1">可預約</option>
+                                            <option value="2">已預約</option>
+                                        </select></td>
+                                    <td><select v-model="value.workTime3" :class="'buttonGroup' + index" disabled>
+                                            <option value="0">未提供服務</option>
+                                            <option value="1">可預約</option>
+                                            <option value="2">已預約</option>
+                                        </select></td>
+                                    <td><select v-model="value.workTime4" :class="'buttonGroup' + index" disabled>
+                                            <option value="0">未提供服務</option>
+                                            <option value="1">可預約</option>
+                                            <option value="2">已預約</option>
+                                        </select></td>
+                                    <td><select v-model="value.workTime5" :class="'buttonGroup' + index" disabled>
+                                            <option value="0">未提供服務</option>
+                                            <option value="1">可預約</option>
+                                            <option value="2">已預約</option>
+                                        </select></td>
+                                    <td><select v-model="value.workTime6" :class="'buttonGroup' + index" disabled>
+                                            <option value="0">未提供服務</option>
+                                            <option value="1">可預約</option>
+                                            <option value="2">已預約</option>
+                                        </select></td>
+                                    <td><button class="editButtons" @click="editToggle($event,index)">編輯</button></td>
+                                </tr>
+                        </tbody>`,
+            mounted() {
+
+            },
+            methods: {
+                getWorkDayList(page) {
+                    this.pageNow = page;
+                    axios.get('./php/getCsSchedule.php', {
+                            params: {
+                                'pageNow': page,
+                                'csNo': this.csSelect,
+                                'year': this.yearSelect,
+                                'month': this.monthSelect
+                            }
+                        })
+                        .then((res) => {
+                            this.workDayList = res.data.workDayData;
+                            this.totalPage = res.data[0];
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                            this.updatePages();
+                            console.log('會員資料抓取成功');
+                        })
+                        .catch((error) => {
+                            console.error(error)
+                        })
+                },
+                editToggle(e, index) {
+                    let input = document.querySelectorAll(`.buttonGroup${index}`);
+                    if (input[3].getAttribute("disabled")) {
+                        this.inputToEdit(e, index);
+                    } else {
+                        let check = confirm(`確認修改日期為 ${this.workDayList[index].schDate} 的資料嗎?`);
+                        if (check) {
+                            //使用axios=> update
+                            this.updateMemInfo(index);
+                            this.inputToForbid(e, index);
+                        } else {
+                            this.inputToEdit(e, index);
+                        }
+                    }
+                },
+                inputToForbid(e, index) {
+                    let input = document.querySelectorAll(`.buttonGroup${index}`);
+                    for (let j = 0; j < input.length; j++) {
+                        e.currentTarget.innerText = "編輯";
+                        input[j].setAttribute("readonly", true);
+                        input[j].setAttribute("disabled", true);
+                    }
+                },
+                inputToEdit(e, index) {
+                    let input = document.querySelectorAll(`.buttonGroup${index}`);
+                    for (let j = 0; j < input.length; j++) {
+                        input[j].removeAttribute("readonly");
+                        input[j].removeAttribute("disabled");
+                        e.currentTarget.innerText = "送出";
+                    }
+                },
+                updateMemInfo(index) {
+                    axios.get('./php/updateWorkDay.php', {
+                            params: {
+                                'csNo': this.csSelect,
+                                'workDayList': JSON.stringify(this.workDayList[index])
+                            }
+                        })
+                        .then((res) => {
+                            console.log(res.data);
+
+                        }).then(() => this.getWorkDayList(1))
+                        .catch((error) => {
+                            console.error(error);
+                        })
+                },
+                updatePages() {
+                    this.$emit('update:total-page', this.totalPage);
+                    this.$emit('update:page-now', this.pageNow);
+                },
+            },
+            watch: {
+                csSelect: function () {
+                    this.getWorkDayList(1);
+                },
+                yearSelect: function () {
+                    this.getWorkDayList(1);
+                },
+                monthSelect: function () {
+                    this.getWorkDayList(1);
+                }
+            }
+        });
+
+        new Vue({
+            el: "#bgMem",
+            data: {
+                totalPage: 0,
+                pageNow: 1,
+                csList: [],
+                yearList: [],
+                monthList: [],
+                csSelect: [],
+                yearSelect: [],
+                monthSelect: []
+            },
+            mounted() {
+                this.getCsTime();
+            },
+            methods: {
+                getWorkDayListFromParent() {
+                    this.$refs.childComponent.getWorkDayList(1);
+                },
+                getWorkDayListFromParent2(index) {
+                    this.$refs.childComponent.getWorkDayList(index);
+                },
+
+                getCsTime() {
+                    axios.get('./php/getCsInfoFromSchedule.php')
+                        .then((res) => {
+                            this.csList = res.data[0];
+                            this.yearList = res.data[1];
+                            this.monthList = res.data[2];
+                            this.csSelect = this.csList[0].csNo;
+                            this.yearSelect = this.yearList[0];
+                            this.monthSelect = this.monthList[0];
+                            console.log('選項抓取成功');
+
+                        }).then(() => {
+                            this.getWorkDayListFromParent();
+                        })
+                        .catch((error) => {
+                            console.error(error)
+                        })
+                },
+            },
+            watch: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>

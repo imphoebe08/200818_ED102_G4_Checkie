@@ -31,7 +31,7 @@ Vue.component('acSelectCard', {
     <div id="acSelect" class="acSelect container-sm container-md">
         <div class="acSelectCard" v-for="acContent in aaa(num)">
                 <a :href="'./acSelf.html?actNo=' + acContent.actNo">
-                    <img src="./img/acMain/acCard.jpg">
+                    <img :src="acContent.actpic1">
                 </a>
             
             <!-- 卡片文字 -->
@@ -39,8 +39,8 @@ Vue.component('acSelectCard', {
             
             <!-- 卡片時間 -->
             <div class="acSelectCard_icon">
-            <img class="acSelectCard-share_icon"src="./img/icon/share.png" alt="">
-            <img class="acSelectCard-bookmark_icon"src="./img/icon/bookmark.png" alt="">
+            <i class="fas fa-share-alt acSelectCard-share_icon" style="font-size:20px"></i>
+            <i class="fas fa-bookmark acSelectCard-bookmark_icon" style="font-size:20px"></i>
             </div>
             <div class="acSelectCard_text">
             <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
@@ -88,7 +88,7 @@ let vm = new Vue({
     methods: {
         category_click(value) {
             this.index = value;
-        }
+        },
     },
     mounted() {
 

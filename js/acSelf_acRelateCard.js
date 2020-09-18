@@ -4,7 +4,7 @@ Vue.component('acRelateCard', {
     <div id="acSelect" class="acSelect container-sm container-md">
             <div class="acSelectCard" v-for="acContent in acContents">
                     <a :href="'./acSelf.html?actNo=' + acContent.actNo">
-                        <img src="./img/acMain/acCard.jpg">
+                        <img :src="acContent.actpic1">
                     </a>
                 
                 <!-- 卡片文字 -->
@@ -12,8 +12,8 @@ Vue.component('acRelateCard', {
                 
                 <!-- 卡片時間 -->
                 <div class="acSelectCard_icon">
-                <img class="acSelectCard-share_icon"src="./img/icon/share.png" alt="">
-                <img class="acSelectCard-bookmark_icon"src="./img/icon/bookmark.png" alt="">
+                <i class="fas fa-share-alt acSelectCard-share_icon" style="font-size:20px"></i>
+                <i class="fas fa-bookmark acSelectCard-bookmark_icon" style="font-size:20px"></i>
                 </div>
                 <div class="acSelectCard_text">
                 <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
@@ -54,8 +54,8 @@ let acVue = new Vue({
                     0: {
                         items: 1,
                     },
-                    576: {
-                        items: 1,
+                    996: {
+                        items: 2,
                     },
                     1180: {
                         items: 3,
@@ -69,7 +69,7 @@ let acVue = new Vue({
         var vm = this;
         axios.get(`../php/acSelf.php?actNo=${actNo}`).then((res) => {
             this.contents = res.data
-            console.log(res.data)
+            console.log(this.contents)
         })
         axios.get('../php/acMain.php').then((res) => {
             this.cards = res.data

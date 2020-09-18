@@ -6,11 +6,11 @@ Vue.component("cscounselor-layout", {
 			<div class="swiper-slide"  v-for="(item,index) in mySlide" :key="item.csId">
 				<div class="csCounselor-card">
 					<div class="csCounselor-image">
-					<a href="./csSelf.html">
-						<img class="img-responsive" src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg">
+					<a :href="'./csSelf.html?csNo='+ item.csId">
+						<img class="img-responsive" :src="item.csPic || 'https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg'">
 					</a>
 					</div>
-					<a href="./csSelf.html">
+					<a :href="'./csSelf.html?csNo=' + item.csId">
 						<p class="csC-doctor__name">{{item.csName}}醫師</p>
 					</a>
 					<p class="csC-type_title">醫師專長</p>
@@ -44,7 +44,7 @@ Vue.component("cscounselor-layout", {
         this.swiperInit();
     },
     watch: {
-        slideInfo: function() {
+        slideInfo: function () {
             this.mySlide = this.slideInfo;
             this.swiperInit();
             this.mySwiper.update();
@@ -95,7 +95,7 @@ let vmCs = new Vue({
             this.screenWidth = window.innerWidth;
         };
 
-        axios.get('../json/csMain.json')
+        axios.get('../php/csMain.php')
             .then((res) => {
                 this.csData = res.data;
             })

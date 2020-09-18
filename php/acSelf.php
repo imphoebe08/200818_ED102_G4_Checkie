@@ -12,12 +12,14 @@ try{
 
 
     $sql = "
-    select a.*, b.actPicContent 'banner', c.actPicContent 'pic1', d.actPicContent 'pic2', e.actTypeNo
-    from activity a join pic1 b on a.actNo = b.actNo
-                    join pic2 c on a.actNo = c.actNo
-                    join pic3 d on a.actNo = d.actNo
-                    join actnogroup e on a.actNo = e.actNo
-    where a.actNo = b.actNo";
+            select a.actNo, a.actName, Date_Format(a.actPstart, '%Y-%m-%d %H:%I') 'actPstart', Date_Format(a.actPend, '%Y-%m-%d %H:%I') 'actPend', Date_Format(a.actStart , '%Y-%m-%d %H:%I') 'actStart', Date_Format(a.actEnd, '%Y-%m-%d %H:%I') 'actEnd', a.actContent, a.actMin, a.actMax, a.actCount, a.csNo, a.actHost, a.actHostTitle, a.actHostInfo, a.actHostPic, a.actCost, a.actBool, 
+			a.actAddress, a.actpic1, a.actpic2, a.actpic3, b.actTypeNo, c.actTypeName1 'typename1', b.actTypeNo2, d.actTypeName2 'typename2', e.csName, e.csHis, e.csPic
+            from activity a join actTypeNoCombo b on a.actno = b.actno
+                            left join acttypeview c on b.acttypeno = c.acttypeno
+                            left join acttypeview d on b.acttypeno2 = d.acttypeno2
+							left join counselor e on a.csNo = e.csNo 
+			group by actno
+            order by actno;";
     $products = $pdo->prepare($sql);
     $products->bindValue(':actNo', $actNo);
     $products -> execute();

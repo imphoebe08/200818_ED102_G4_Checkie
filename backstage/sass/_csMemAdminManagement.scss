@@ -1,0 +1,199 @@
+.csManagement {
+    button {
+        &.editButtons {
+            @include btn-modules($bw, $color-pink, $fontsize);
+            padding: 5px 15px;
+
+            &.insertButton {
+                margin: 10px 0;
+            }
+        }
+    }
+
+    #insertTable {
+        padding: 20px 40px 20px 20px;
+        background: lighten($color-pink, 10%);
+        overflow: auto;
+        margin-bottom: 20px;
+        border-radius: $border-radius;
+    }
+
+    input {
+        width: 100%;
+
+        &[type="file"] {
+            display: none;
+        }
+    }
+
+    input[readonly],
+    textarea[readonly] {
+        border: none;
+        outline: none;
+        background-color: white;
+        color: black;
+    }
+
+    img.rotateMe {
+        transform: rotate(180deg);
+    }
+
+    ul.pageNumbers {
+        margin: 10px auto 30px;
+        list-style: none;
+        display: flex;
+        flex-flow: nowrap row;
+        justify-content: center;
+
+        li {
+            width: 20px;
+            height: 20px;
+            margin: 0 10px;
+
+            >label {
+                width: 30px;
+                font-size: 18px;
+                cursor: pointer;
+                text-align: center;
+            }
+        }
+
+        input {
+            display: none;
+
+            &:checked+li {
+                color: red;
+            }
+        }
+    }
+
+    .card {
+        .card-body {
+            overflow-x: auto;
+
+            .table {
+
+
+                span {
+                    width: 40px;
+                    display: block;
+                    text-align: center;
+                }
+
+                tbody>.buttonGroup>td {
+                    img.arrowIcon {
+                        object-fit: cover;
+                        width: 10px;
+                        height: 10px;
+                        display: block;
+                        margin: 10px auto;
+                        cursor: pointer;
+                        transition: transform .3s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.adminManagement {
+
+    button {
+        &.editButtons {
+            @include btn-modules($bw, $color-pink, $fontsize);
+            padding: 5px 15px;
+
+            &.insertButton {
+                margin: 10px 0;
+            }
+        }
+    }
+
+    input {
+        width: 100%;
+
+        &[type="file"] {
+            display: none;
+        }
+    }
+
+    input[readonly],
+    textarea[readonly] {
+        border: none;
+        outline: none;
+        background-color: white;
+        color: black;
+    }
+
+    .card {
+        .card-body {
+            .insert {
+                input.insertNew {
+                    display: inline;
+                    width: inherit;
+                }
+            }
+
+        }
+
+    }
+
+}
+
+.memManagement {
+    button {
+        &.editButtons {
+            @include btn-modules($bw, $color-pink, $fontsize);
+            padding: 5px 15px;
+
+            &.insertButton {
+                margin: 10px 0;
+            }
+        }
+    }
+
+    input {
+        width: 100%;
+
+        &[type="file"] {
+            display: none;
+        }
+    }
+
+    input[readonly],
+    textarea[readonly] {
+        border: none;
+        outline: none;
+        background-color: white;
+        color: black;
+    }
+
+    ul.pageNumbers {
+        margin: 10px auto 30px;
+        list-style: none;
+        display: flex;
+        flex-flow: nowrap row;
+        justify-content: center;
+    }
+
+    ul.pageNumbers>li {
+        width: 20px;
+        height: 20px;
+        margin: 0 10px;
+    }
+
+    ul.pageNumbers>input {
+        display: none;
+    }
+
+    ul.pageNumbers>input:checked+li {
+        color: red;
+    }
+
+    ul.pageNumbers>li>label {
+        width: 30px;
+        font-size: 18px;
+        cursor: pointer;
+        text-align: center;
+    }
+}

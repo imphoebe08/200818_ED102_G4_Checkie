@@ -10,13 +10,13 @@ $scrollTime: 1s;
 //     opacity: 0;
 // }
 .inArti {
-    height: 200vh;
+    height: 100vh;
     .inArti-pages {
-        top: calc(10vh + 40px);
+        // top: calc(10vh + 40px);
         height: 80vh;
         overflow: hidden;
-        position: sticky;
-        margin-top: 50px;
+        position: relative;
+        // margin-top: 50px;
     }
 }
 

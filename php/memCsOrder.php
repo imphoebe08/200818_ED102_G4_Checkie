@@ -1,10 +1,15 @@
 <?php
 try{
-    // session_start();
-    require_once("./connectBook.php");
 
-    $sql = "select a.csONo, date(a.csODate) 'csODate', b.csName, c.csPosName, b.csPic , a.csOCost ,d.csModeName, date(a.csOTime) 'csOTime', a.csOAnticipate, a.csOTopic, e.typeName
-    from csorder a join counselor b using(csNo)  join csomode d using(csModeNo) join cspos c on a.csPosNo = c.csPosNo join type e on e.typeNo = a.csTypeNo
+    session_start();
+    require_once("./connectBook666.php");
+    //session應急
+    $_SESSION["memNO"]=1;
+    //以上session應急
+    $memNo = $_SESSION["memNO"];
+
+    $sql = "select a.csONo, date(a.csODate) 'csODate', b.csName, c.csPosName, b.csPic , a.csOCost ,d.csModeName, date(a.csOTime) 'csOTime', a.csOAnticipate, a.csOTopic,b.csNo
+    from csorder a join counselor b using(csNo)  join csomode d using(csModeNo) join cspos c on a.csPosNo = c.csPosNo 
     where memNo = :memNo
     order by csODate;";
 
@@ -13,7 +18,7 @@ try{
     // $memNo = $_SESSION["memNo"]
     //$member->bindValue(":memNo", $memNo);
 
-    $memberOrder->bindValue(":memNo", 1);
+    $memberOrder->bindValue(":memNo", $memNo);
     $memberOrder->execute();
     
     if( $memberOrder->rowCount()==0){ 

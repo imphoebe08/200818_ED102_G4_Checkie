@@ -1,35 +1,46 @@
 <?php
 try{
-    // session_start();
-    require_once("./connectBook.php");
+    session_start();
+    require_once("./connectBook666.php");
+    //session應急
+    $_SESSION["memNO"]=1;
+    //以上session應急
+    $memNo = $_SESSION["memNO"];
 
-    $sql = "
-    select a.artTitle, 
-            b.csName, 
-            rpad(substr(artContent,1,16),20,'.') 'artContent',
-            date(a.artDate) 'artDate', 
-            c.artPicContent , 
-            group_concat(distinct d.artTypeNo) 'artTypeNo',
-            f.testResultTypeNo,
-            f.testResultValue
-    from article a join counselor b using(csNo) 
-                    join artpic c using(artno) 
-                    join articletype d using(artno) 
+    $sql = " 
+    SELECT  h.artTitle, 
+        b.csName, 
+        rpad(substr(h.artContent,1,16),20,'.') 'artContent',
+        date(h.artDate) 'artDate',  
+        d.artTypeNo 'artTypeNo',
+        h.artPic1,
+        f.testResultTypeNo,
+        f.testResultValue,
+        a.memTestTime
+    FROM articletype d join article h using(artno) 
+                    join counselor b using(csNo) 
                     join type e on e.typeNo = d.artTypeNo 
                     join testresult f on f.testResultTypeNo = d.artTypeNo 
-                    join memtest g using(memTestNo)
-    WHERE memNo = 1  and  f.testResultValue = (select min(testResultValue)
-                                            from testresult 
-                                            where d.artTypeNo = f.testResultTypeNo)
-    group by artno 
-    order by artDate desc limit 5;";
+                    join memtest a using(memTestNo)
+    where memNo= :memNo and testResultTypeNo =(select a.testResultTypeNo 
+                                    from testresult a
+                                    join memtest b using(memTestNo) 
+                                    where memNo= :memNo and memTestTime = (select max(memTestTime) 
+                                                                    from memtest where memNo= :memNo) 
+                                                    and testResultValue = (select min(testResultValue)
+                                                    from testresult a join memtest b 
+                                                    where memNo= :memNo)) and memTestTime = (select max(memTestTime) 
+                                                                                        from memtest where memNo= :memNo)
+    order by artDate desc
+    limit 5;
+        ";
 
     $memberArtRec = $pdo->prepare($sql);
     // 正確做法
     // $memNo = $_SESSION["memNo"]
     //$member->bindValue(":memNo", $memNo);
 
-    $memberArtRec->bindValue(":memNo", 1);
+    $memberArtRec->bindValue(":memNo", $memNo);
     $memberArtRec->execute();
     
     if( $memberArtRec->rowCount()==0){ 

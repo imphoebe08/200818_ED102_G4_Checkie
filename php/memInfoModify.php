@@ -1,7 +1,10 @@
 <?php
 try{
+
+    require_once("./connectBook666.php");
+
     // session_start();
-    require_once("./connectBook.php");
+    //require_once("./connectBook666.php");
     // $newMemId = $_POST["newMemId"]
     $sql = 'update member
     set memName = :memName,
@@ -12,13 +15,13 @@ try{
     memAdd = :memAdd,
     memPic = "./img/atSelf/doctors/doctors2.jpeg",
     memOccupation = :memOccupation,
-    memPetName = :memPetName   
-    where memNo = 1;';
+    memNickname = :memNickname   
+    where memNo = :memNo;';
 
     $member = $pdo->prepare($sql);
     // 正確做法
     // $memNo = $_SESSION["memNo"]
-    //$member->bindValue(":memNo", $memNo);
+    $member->bindValue(":memNo", $_POST["memNo"]);
     $member->bindValue(":memName", $_POST["memName"]);
     $member->bindValue(":memPsd", $_POST["memPsd"]);
     $member->bindValue(":memBD", $_POST["memBD"]);
@@ -27,7 +30,7 @@ try{
     $member->bindValue(":memTelB", $_POST["memTelB"]);
     $member->bindValue(":memAdd", $_POST["memAdd"]);
     $member->bindValue(":memOccupation", $_POST["memOccupation"]);
-    $member->bindValue(":memPetName", $_POST["memPetName"]);
+    $member->bindValue(":memNickname", $_POST["memNickname"]);
     // $member->bindValue(":memNo", 1);
     $member->execute();
     

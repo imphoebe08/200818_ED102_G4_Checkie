@@ -10,9 +10,13 @@ try{
 	$pdo = new PDO($dsn, $user, $password, $options);
 
 
-  $sql = "select a.*, b.actTypeNo, b.actTypeNo2
+  $sql = "select a.actNo, a.actName, Date_Format(a.actPstart, '%Y-%m-%d %H:%I') 'actPstart', Date_Format(a.actPend, '%Y-%m-%d %H:%I') 'actPend', Date_Format(a.actStart , '%Y-%m-%d %H:%I') 'actStart', Date_Format(a.actEnd, '%Y-%m-%d %H:%I') 'actEnd', a.actContent, a.actMin, a.actMax, a.actCount, a.csNo, a.actHost, a.actHostTitle, a.actHostInfo, a.actHostPic, a.actCost, a.actBool, a.actAddress, a.actpic1, a.actpic2, a.actpic3,
+          b.actTypeNo, c.actClassName 'typename1', b.actTypeNo2, d.actClassName 'typename2'
           from activity a 
-          join actTypeNoCombo b on a.actno = b.actno";
+          join actTypeNoCombo b on a.actno = b.actno
+          left join actclass c on b.acttypeno = c.actclassno
+          left join actclass d on b.acttypeno2 = d.actclassno;SELECT * FROM 0908Checkie.activity;
+          ";
   $products = $pdo->query($sql);
   $prodRow = $products->fetchAll(PDO::FETCH_ASSOC);
   echo json_encode($prodRow);

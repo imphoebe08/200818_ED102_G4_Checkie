@@ -4,42 +4,26 @@
 <head>
     @@include('layout/bgHead.html')
 </head>
-<style>
-    input {
-        width: 100%;
-    }
-
-    input[readonly] {
-        border: none;
-        outline: none;
-    }
-
-    input.insertNew {
-        display: inline-block;
-        width: 20%;
-        margin: 10px;
-    }
-</style>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     <!-- top_header -->
     @@include('layout/top_header.html')
 
     <!-- 中間內容 -->
-    <div id="bgMem" class="container-fluid">
+    <div id="bgMem" class="container-fluid adminManagement">
         <div class="row">
             <div class="col-md-12">
                 <div class="acManagement_title">
                     <h1 class="acManagement_h1">管理員管理</h1>
                 </div>
                 <div class="card ">
+
                     <div class="card-body" style=" overflow-x: auto;">
                         <div class="insert">
-                            <input type="text" placeholder="編號" v-model.trim.number="newData.admNo" class="insertNew">
                             <input type="text" placeholder="名稱" v-model.trim="newData.admName" class="insertNew">
                             <input type="text" placeholder="帳號" v-model.trim="newData.admId" class="insertNew">
                             <input type="password" placeholder="密碼" v-model.trim="newData.admPsn" class="insertNew">
-                            <button @click="insertData">新增</button>
+                            <button @click="insertData" class="editButtons insertButton">新增</button>
                         </div>
                         <table class=" table table-responsive-sm table-sm ">
                             <thead>
@@ -49,10 +33,11 @@
                                     <th>帳號</th>
                                     <th>密碼</th>
                                     <th>編輯</th>
-                                    <th>刪除</th>
+                                    <!-- <th>刪除</th> -->
                                 </tr>
                             </thead>
-                            <tbody is="input-layout" :transport-data="transport"></tbody>
+                            <tbody is="input-layout" :transport-data="transport" ref="childComponent"></tbody>
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -84,7 +69,9 @@
                         admName: "傅詩婕",
                         admId: "FuShiJie@jourrapide.com",
                         admPsn: "FuShiJie",
-                    }]
+                    }],
+                    inputValue: '',
+                    admNoToCheck: 0,
                 };
             },
             template: ` <tbody>
@@ -98,87 +85,106 @@
                                             v-model.trim="value.admId" :class="'buttonGroup' + index" readonly></td>
                                     <td><input style="width: 150px;" type="password" placeholder="管理員密碼"
                                             v-model.trim="value.admPsn" :class="'buttonGroup' + index" readonly></td>
-                                    <td><button @click="editToggle($event,index)">編輯</button></td>
-			                        <td><button @click="deleteData($event,index)">刪除</button></td>
+                                    <td><button class="editButtons" :id="'editButtons'+index" @click="editToggle(index)">編輯</button></td>
                                 </tr>
                         </tbody>`,
+            // <td><button @click="deleteData($event,index)">刪除</button></td>
             mounted() {
                 //一進頁面先使用axios=> get
                 this.getMemberData();
             },
             methods: {
                 getMemberData() {
-                    // axios.get('抓取管理員資料的php.php')
-                    //     .then((res) => {
-                    //         console.log('管理員資料抓取成功');
-                    //         this.memberData = res.data;
-                    //     })
-                    //     .catch((error) => {
-                    //         console.error(error)
-                    //     })
+                    axios.get('./php/getAdmin.php')
+                        .then((res) => {
+                            console.log('管理員資料抓取成功');
+                            this.memberData = res.data;
+                        })
+                        .catch((error) => {
+                            console.error(error)
+                        })
                 },
-                editToggle(e, index) {
+                editToggle(index) {
                     let input = document.querySelectorAll(`.buttonGroup${index}`);
                     if (input[0].getAttribute("readonly")) {
-                        this.inputToEdit(e, index);
+                        this.inputToEdit(index);
                     } else {
-                        let check = confirm(`確認修改管理員編號 ${this.memberData[index].admNo} 的資料嗎?`);
-                        if (check) {
-                            //使用axios=> update
-                            this.updateMemInfo(index);
-                            this.inputToForbid(e, index);
-                        } else {
-                            this.inputToEdit(e, index);
-                        }
+                        this.admNoToCheck = this.memberData[index].admNo;
+                        this.checkAdminPsd(index);
                     }
                 },
-                inputToForbid(e, index) {
+                inputToForbid(index) {
                     let input = document.querySelectorAll(`.buttonGroup${index}`);
+                    document.querySelector(`#editButtons${index}`).innerText = "編輯";
                     for (let j = 0; j < input.length; j++) {
-                        e.currentTarget.innerText = "編輯";
                         input[j].setAttribute("readonly", true);
                     }
                 },
-                inputToEdit(e, index) {
+                inputToEdit(index) {
                     let input = document.querySelectorAll(`.buttonGroup${index}`);
                     for (let j = 0; j < input.length; j++) {
                         input[j].removeAttribute("readonly");
-                        e.currentTarget.innerText = "送出";
                     }
+                    document.querySelector(`#editButtons${index}`).innerText = "送出";
                 },
                 deleteData(e, index) {
                     let check = confirm(`確認刪除會員編號 ${this.memberData[index].admNo} 的資料嗎?`);
-                    if (check)
-                        this.memberData.splice(index, 1);
-                    //使用axios=> delete
-                    // axios.get('修改管理員資料的php.php', {
-                    //         params: {
-                    //             admNo: this.memberData[index].admNo
-                    //         }
-                    //     })
-                    //     .then((res) => {
-                    //         console.log('管理員刪除成功')
-                    //     })
-                    //     .catch((error) => {
-                    //         console.error(error)
-                    //     })
+                    if (check) {
+                        axios.get('./php/deleteAdmin.php', {
+                                params: {
+                                    admNo: this.memberData[index].admNo
+                                }
+                            })
+                            .then((res) => {
+                                console.log(res.data);
+                                this.getMemberData();
+                            })
+                            .catch((error) => {
+                                console.error(error)
+                            })
+                    }
+
                 },
                 updateMemInfo(index) {
-                    // axios.get('修改管理員資料的php.php', {
-                    //         params: {
-                    //             admNo: this.memberData[index].admNo,
-                    //             admName: this.memberData[index].admName,
-                    //             admId: this.memberData[index].admId,
-                    //             admPsn: this.memberData[index].admPsn
-                    //         }
-                    //     })
-                    //     .then((res) => {
-                    //         console.log('管理員更新成功')
-                    //     })
-                    //     .catch((error) => {
-                    //         console.error(error)
-                    //     })
+                    axios.get('./php/updateAdmin.php', {
+                            params: {
+                                'admNo': this.memberData[index].admNo,
+                                'admName': this.memberData[index].admName,
+                                'admId': this.memberData[index].admId,
+                                'admPsn': this.memberData[index].admPsn
+                            }
+                        })
+                        .then((res) => {
+                            console.log(res.data);
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        })
                 },
+                checkAdminPsd(index) {
+                    this.inputValue = prompt("輸入舊密碼", "password");
+                    axios.get('./php/checkAdminPsd.php', {
+                        params: {
+                            'adminPsd': this.inputValue,
+                            'admNo': this.admNoToCheck
+                        }
+                    }).then(res => {
+                        if (res.data == 1) {
+                            let check = confirm(`確認修改管理員編號 ${this.memberData[index].admNo} 的資料嗎?`);
+                            if (check) {
+                                this.updateMemInfo(index);
+                                this.inputToForbid(index);
+                            } else {
+                                this.inputToEdit(index);
+                            }
+                        } else {
+                            alert('密碼錯誤')
+                            this.inputToForbid(index);
+                            this.getMemberData();
+                        }
+                    }).catch(err => console.log(err))
+                },
+
             },
             watch: {
                 transportData: function () {
@@ -191,23 +197,40 @@
             }
         });
 
+
         new Vue({
             el: "#bgMem",
             data: {
                 newData: {
-                    admNo: "",
                     admName: "",
                     admId: "",
                     admPsn: ""
                 },
-                transport: {}
+                transport: {},
+                isPop: false,
+
+                isPass: true,
+                inputValue: "",
             },
             methods: {
                 insertData() {
-                    this.transport = JSON.parse(JSON.stringify(this.newData)); //將新增區域的值送到元件
-                    this.newData = {}; //清除新增區域的placeholder
                     //使用axios=> insert
-                }
+                    axios.get('./php/insertAdmin.php', {
+                            params: {
+                                'admName': this.newData.admName,
+                                'admId': this.newData.admId,
+                                'admPsn': this.newData.admPsn
+                            }
+                        })
+                        .then((res) => {
+                            console.log(res.data);
+                            this.newData = {}; //清除新增區域的placeholder
+                            this.$refs.childComponent.getMemberData();
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        })
+                },
             }
         });
     </script>

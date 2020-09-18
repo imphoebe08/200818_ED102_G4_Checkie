@@ -10,93 +10,95 @@
     @@include('layout/top_header.html')
 
     <!-- 中間內容 -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="acRegistration_h1">活動報名管理</h1>
-                <div class="card">
-                    <div class="card-header">活動查詢｜
-                        <span>區間查詢：</span>
-                        <select name="" id="table_condition_year">
-                            <option value="">2020</option>
-                            <option value="">2019</option>
-                        </select>
-                        <span>年</span>
-                        <select name="" id="table_condition_mon">
-                            <option value="">12月</option>
-                            <option value="">11月</option>
-                            <option value="">10月</option>
-                            <option value="">09月</option>
-                            <option value="">08月</option>
-                            <option value="">07月</option>
-                            <option value="">06月</option>
-                            <option value="">05月</option>
-                            <option value="">04月</option>
-                            <option value="">03月</option>
-                            <option value="">02月</option>
-                            <option value="">01月</option>
-                        </select>
-                        <span>至</span>
-                        <select name="" id="table_condition_year">
-                            <option value="">2020</option>
-                            <option value="">2019</option>
-                        </select>
-                        <span>年</span>
-                        <select name="" id="table_condition_mon">
-                            <option value="">12月</option>
-                            <option value="">11月</option>
-                            <option value="">10月</option>
-                            <option value="">09月</option>
-                            <option value="">08月</option>
-                            <option value="">07月</option>
-                            <option value="">06月</option>
-                            <option value="">05月</option>
-                            <option value="">04月</option>
-                            <option value="">03月</option>
-                            <option value="">02月</option>
-                            <option value="">01月</option>
-                        </select>
-                        <span>分類查詢：</span>
-                        <select name="" id="table_condition_year">
-                            <option value="">講座</option>
-                            <option value="">療癒</option>
-                            <option value="">戶外</option>
-                            <option value="">藝文</option>
-                        </select>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-responsive-sm table-sm">
-                            <thead>
-                                <tr>
-                                    <th>活動標題</th>
-                                    <th>類別</th>
-                                    <th>目前報名人數</th>
-                                    <th>下限人數</th>
-                                    <th>上限人數</th>
-                                    <th>報名開始時間</th>
-                                    <th>報名結束時間</th>
-                                    <th>活動開始時間</th>
-                                    <th>活動結束時間</th>
-                                    <th>報名狀態</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>藝術體驗工坊 療癒紓壓流動畫</td>
-                                    <td>藝文</td>
-                                    <td>15</td>
-                                    <td>10</td>
-                                    <td>30</td>
-                                    <td>2020/12/06 14:00</td>
-                                    <td>2020/12/06 14:00</td>
-                                    <td>2020/12/06 14:00</td>
-                                    <td>2020/12/06 14:00</td>
-                                    <td>報名中</td>
-                                    <td><a href="./acDetail.html"><button class="acRegistration_edit">查看明細</button></a></td>
-                                </tr>
+    <div id="app">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="acRegistration_h1">活動報名管理</h1>
+                    <div class="card">
+                        <div class="card-header">活動查詢｜
+                            <span>區間查詢：</span>
+                            <select name="" id="table_condition_year">
+                                <option value="">2020</option>
+                                <option value="">2019</option>
+                            </select>
+                            <span>年</span>
+                            <select name="" id="table_condition_mon">
+                                <option value="">12月</option>
+                                <option value="">11月</option>
+                                <option value="">10月</option>
+                                <option value="">09月</option>
+                                <option value="">08月</option>
+                                <option value="">07月</option>
+                                <option value="">06月</option>
+                                <option value="">05月</option>
+                                <option value="">04月</option>
+                                <option value="">03月</option>
+                                <option value="">02月</option>
+                                <option value="">01月</option>
+                            </select>
+                            <span>至</span>
+                            <select name="" id="table_condition_year">
+                                <option value="">2020</option>
+                                <option value="">2019</option>
+                            </select>
+                            <span>年</span>
+                            <select name="" id="table_condition_mon">
+                                <option value="">12月</option>
+                                <option value="">11月</option>
+                                <option value="">10月</option>
+                                <option value="">09月</option>
+                                <option value="">08月</option>
+                                <option value="">07月</option>
+                                <option value="">06月</option>
+                                <option value="">05月</option>
+                                <option value="">04月</option>
+                                <option value="">03月</option>
+                                <option value="">02月</option>
+                                <option value="">01月</option>
+                            </select>
+                            <span>分類查詢：</span>
+                            <select name="" id="table_condition_year">
+                                <option value="">講座</option>
+                                <option value="">療癒</option>
+                                <option value="">戶外</option>
+                                <option value="">藝文</option>
+                            </select>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-responsive-sm table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>編號</th>
+                                        <th>活動標題</th>
+                                        <th>類別</th>
+                                        <th>目前報名人數</th>
+                                        <th>下限人數</th>
+                                        <th>上限人數</th>
+                                        <th>報名開始時間</th>
+                                        <th>報名結束時間</th>
+                                        <th>活動開始時間</th>
+                                        <th>活動結束時間</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(content,index) in contents">
+                                        <td>{{content.actno}}</td>
+                                        <td>{{content.actName}}</td>
+                                        <td>{{content.typename1}}<span v-if="contents[index].typename2!=null">、</span><br>{{content.typename2}}</td>
+                                        <td>{{content.actCount}}</td>
+                                        <td>{{content.actMin}}</td>
+                                        <td>{{content.actMax}}</td>
+                                        <td>{{content.actPstart}}</td>
+                                        <td>{{content.actPend}}</td>
+                                        <td>{{content.actStart}}</td>
+                                        <td>{{content.actEnd}}</td>
+                                        <td><a href="./acDetail.html"><button class="acRegistration_edit">查看明細</button></a></td>
+                                    </tr>
 
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -104,6 +106,28 @@
     </div>
 
     @@include('layout/footer.html')
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                contents: [],
+                index: 0
+            },
+            computed: {
+
+            },
+            methods: {
+
+            },
+            mounted() {
+                axios.get('./php/acRegistration.php').then((res) => {
+                    this.contents = res.data
+                    console.log(res.data);
+                })
+            },
+
+        })
+    </script>
 </body>
 
 </html>
