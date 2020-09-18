@@ -8,7 +8,7 @@ try{
     //以上session應急
     $memNo = $_SESSION["memNO"];
 
-    $sql = "select a.csONo, date(a.csODate) 'csODate', b.csName, c.csPosName, b.csPic , a.csOCost ,d.csModeName, date(a.csOTime) 'csOTime', a.csOAnticipate, a.csOTopic
+    $sql = "select a.csONo, date(a.csODate) 'csODate', b.csName, c.csPosName, b.csPic , a.csOCost ,d.csModeName, date(a.csOTime) 'csOTime', a.csOAnticipate, a.csOTopic,b.csNo
     from csorder a join counselor b using(csNo)  join csomode d using(csModeNo) join cspos c on a.csPosNo = c.csPosNo 
     where memNo = :memNo
     order by csODate;";

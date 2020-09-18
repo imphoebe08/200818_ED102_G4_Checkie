@@ -21,6 +21,7 @@ try{
                 b.actPic1,
                 b.actMin,
                 b.actCount,
+                b.actNo,
                 date(a.actOTime) 'actOTime'
             from actorder a join activity b using(actNo) 
             where memNo = :memNo 

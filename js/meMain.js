@@ -209,6 +209,99 @@ Vue.component('inact-item', {
 });
 
 
+// Vue.component('co_order', {
+//     props: ["each"],
+//     data() {
+//         return {}
+//     },
+//     template: `
+//     <div class="row justify-content-center delete">
+//                                                     <div class="mem-order-each col-10">
+//                                                         <div class="row">
+//                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
+//                                                                 <a href="">
+//                                                                     <div class="mem-order-dcName">
+//                                                                         {{each.csName}}
+//                                                                     </div>
+//                                                                     <div class="mem-order-img">
+//                                                                         <img :src="each.csPic" alt="">
+//                                                                     </div>
+//                                                                 </a>
+
+//                                                             </div>
+//                                                             <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
+//                                                                 <div class="row justify-content-end mem-modify--delete">
+//                                                                     <div v-if="!orderShow" class=" order-justDele" @click="what(index, coData, 1)"><i class="far fa-edit memI"></i>刪除</div>
+//                                                                 </div>
+//                                                                 <div class="row justify-content-center">
+//                                                                     <table class="mem-order-table">
+//                                                                         <tr>
+//                                                                             <th>地點</th>
+//                                                                             <td data-title="地點">{{each.csPosName}}</td>
+//                                                                         </tr>
+//                                                                         <tr>
+//                                                                             <th>時間</th>
+//                                                                             <td data-title="時間">{{each.csODate}}</td>
+//                                                                         </tr>
+//                                                                         <tr>
+//                                                                             <th>諮商時間</th>
+//                                                                             <td data-title="諮商時間">1</td>
+//                                                                         </tr>
+//                                                                     </table>
+//                                                                 </div>
+//                                                                 <div class="row ">
+//                                                                     <mem-driver></mem-driver>
+//                                                                     <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
+//                                                                         <span>費⽤</span>
+//                                                                         <span>{{each.csOCost}}</span>
+//                                                                         <span>.NT</span>
+//                                                                     </div>
+//                                                                 </div>
+//                                                                 <div class="row ">
+//                                                                     <div class="mem-coOrder-total--hide">
+//                                                                         <span class="order-justDele memI" @click="orderMore($event)">查看更多<i class="fas fa-caret-down memI"></i></span>
+//                                                                         <div class="meOrder_toggle">
+//                                                                             <table class="mem-order-table">
+//                                                                                 <tr>
+//                                                                                     <th>訂單編號</th>
+//                                                                                     <td data-title="訂單編號">{{each.csONo}}</td>
+//                                                                                 </tr>
+//                                                                                 <tr>
+//                                                                                     <th>諮商方式</th>
+//                                                                                     <td data-title="諮商方式">{{each.csModeName}}</td>
+//                                                                                 </tr>
+//                                                                                 <tr>
+//                                                                                     <th>下訂時間</th>
+//                                                                                     <td data-title="下訂時間">{{each.csOTime}}</td>
+//                                                                                 </tr>
+//                                                                                 <tr>
+//                                                                                     <th>諮商期待</th>
+//                                                                                     <td data-title="諮商期待">{{each.csOAnticipate}}</td>
+//                                                                                 </tr>
+//                                                                                 <tr>
+//                                                                                     <th>諮商主題</th>
+//                                                                                     <td data-title="諮商主題">{{each.csOTopic}}</td>
+//                                                                                 </tr>
+
+//                                                                             </table>
+//                                                                         </div>
+
+//                                                                     </div>
+//                                                                 </div>
+//                                                             </div>
+//                                                         </div>
+
+//                                                     </div>
+//                                                 </div>
+
+//     `,
+//     methods: {
+//         orderMore(event) {
+//             event.currentTarget.nextElementSibling.classList.toggle('meOrderOpen');
+//         },
+//     },
+
+// });
 
 
 
@@ -312,6 +405,12 @@ let vm = new Vue({
         apexchart: VueApexCharts
     },
     data: {
+        nothing: false,
+        allData: [],
+        finalCoResult: [],
+        finalAoResult: [],
+        searchThing: '',
+        placeHolder: '請輸入搜尋指令',
         tempHeartTitle: '',
         tempHeartData: '',
         tempHeartIndex: '',
@@ -339,7 +438,7 @@ let vm = new Vue({
         showNewMemPsd: false,
         myMemPsd: false,
         otherInfo: false,
-        newPic: './img/chatRoom/userPic.png',
+        //newPic: './img/chatRoom/userPic.png',
         ccOrder: true,
         acOrder: true,
         selectNav: true,
@@ -401,6 +500,7 @@ let vm = new Vue({
             '心理評估',
             '我的收藏',
             '線上諮商',
+            '搜尋結果',
         ],
         memTitle: {
             petName: '暱稱',
@@ -467,8 +567,74 @@ let vm = new Vue({
         }
 
     },
+    // filters: {
+    //     search() {
+    //         alert("haha");
+    //     },
+    //     // capitalize: function(value) {
+    //     //     if (!value) return ''
+    //     //     value = value.toString()
+    //     //     return value.charAt(0).toUpperCase() + value.slice(1)
+    //     // }
+    // },
 
     methods: {
+        search() {
+            //console.log(this.coData);
+            this.currentPage = this.titles[7];
+            // console.log(this.coData.length);
+            // for (let i = 0; i < vm.$data.coData.length; i++) {
+            //     this.allData.push(vm.$data.coData[i]);
+            //     console.log(this.allData);
+            // };
+            // for (let i = 0; i < vm.$data.aoData.length; i++) {
+            //     this.allData.push(vm.$data.aoData[i]);
+            //     console.log(this.allData);
+            // };
+            // console.log(this.allData);
+            let mySearchWord = this.searchThing;
+            let myCoSearchResult = this.coData.filter(function(el) {
+                return (el.csName.indexOf(mySearchWord) != -1 || el.csPosName.indexOf(mySearchWord) != -1 || el.csODate.indexOf(mySearchWord) != -1);
+            });
+            this.finalCoResult = myCoSearchResult;
+
+            let myAoSearchResult = this.aoData.filter(function(el) {
+                return (el.actName.indexOf(mySearchWord) != -1 || el.actAddress.indexOf(mySearchWord) != -1 || el.actStart.indexOf(mySearchWord) != -1 || el.actHost.indexOf(mySearchWord) != -1);
+            });
+            this.finalAoResult = myAoSearchResult;
+
+            var num = this.finalAoResult.length + this.finalCoResult.length;
+            console.log(num);
+            if (num == 0) {
+                this.nothing = true;
+            } else {
+                this.nothing = false;
+            };
+
+
+            //console.log(this.finalAolResult);
+            // for (let i = 0; i < myAoSearchResult.length; i++) {
+            //     this.allData.push(myAoSearchResult[i]);
+            // };
+            // for (let i = 0; i < myCoSearchResult.length; i++) {
+            //     this.allData.push(myCoSearchResult[i]);
+            // };
+            //this.searchAmount();
+
+            // console.log(this.allData);
+            //this.finalResult = myAoSearchResult;
+            //console.log(this.finalResult);
+        },
+        // searchAmount() {
+        //     for (let i = 0; i < myAoSearchResult.length; i++) {
+        //         this.allData.push(myAoSearchResult[i]);
+        //         //console.log(this.allData);
+        //     };
+        //     for (let i = 0; i < myCoSearchResult.length; i++) {
+        //         this.allData.push(myCoSearchResult[i]);
+        //         //console.log(this.allData);
+        //     };
+        // },
         selectIt(v) {
             var v = v;
             setTimeout(function() {
@@ -515,12 +681,27 @@ let vm = new Vue({
             this.heart = p;
         },
         changePic() {
+            //console.log(123)
             let pic = event.target.files[0];
             let reader = new FileReader();
             reader.onload = function() {
-                vm.$data.newPic = reader.result;
+                vm.$data.member.memPic = reader.result;
+                // vm.$data.member.memPic = vm.$data.newPic;
+                var formData7 = new FormData();
+                formData7.append('memPic', pic);
+                formData7.append('memNo', vm.$data.member.memNo);
+                axios.post('./php/memPicUpLoad.php', formData7).then(
+                    res => {
+                        console.log(res);
+                    }
+                )
             }
             reader.readAsDataURL(pic);
+
+            // var formData7 = new FormData();
+
+
+
         },
         // changeSize() {
         //     if (this.windowSize > 768) {
@@ -541,6 +722,7 @@ let vm = new Vue({
                     )
                     //console.log(d[e].csONo);
                 d.splice(i, 1);
+                this.finalCoResult.splice(i, 1);
                 this.dataClear();
 
             } else if (d == this.aoData) {
@@ -553,6 +735,7 @@ let vm = new Vue({
                     )
                     //console.log(d[e].actONo);
                 d.splice(i, 1);
+                this.finalAoResult.splice(i, 1);
                 this.dataClear();
             }
         },
@@ -747,7 +930,9 @@ let vm = new Vue({
             this.chartOpacity = true;
         },
 
+
     },
+
 
     mounted() {
         // //掛載心理測驗分數
@@ -823,8 +1008,8 @@ let vm = new Vue({
         //掛載活動訂單
         axios.post('./php/memActOrder.php')
             .then(response => {
-                console.log(response)
-                    //console.log(response.data);
+                //console.log(response)
+                //console.log(response.data);
                 for (let i = 0; i < response.data.length; i++) {
                     if (new Date(response.data[i].actStart) > Date.now()) {
                         this.aoData.push(response.data[i]);
@@ -879,6 +1064,12 @@ let vm = new Vue({
         window.removeEventListener('resize', this.onResize);
     },
     computed: {
+        searchNum() {
+
+            //console.log(this.finalAoResult.length);
+            var num = this.finalAoResult.length + this.finalCoResult.length;
+            return num;
+        },
         // ao() {
         //     var k = new Date().toLocaleDateString(), //2020/09/10
         //         a = (Date.parse(k)).valueOf(); //讓他變成可以比較的數字型態
