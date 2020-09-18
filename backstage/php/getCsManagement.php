@@ -1,17 +1,18 @@
 <?php
 
 // 傳來所在頁碼
-$pageNow = $_REQUEST['pageNow'];
+
 
 $errMsg = "";
 //連線資料庫
 try {
-    $dsn = "mysql:host=localhost;port=3306;dbname=checkie0910;charset=utf8";
-    $user = "root";
-    $password = "root";
-    $options = array(PDO::ATTR_CASE => PDO::CASE_NATURAL, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-    $pdo = new PDO($dsn, $user, $password, $options);
-
+    $pageNow = $_REQUEST['pageNow'];
+    // $dsn = "mysql:host=localhost;port=3306;dbname=checkie0910;charset=utf8";
+    // $user = "root";
+    // $password = "root";
+    // $options = array(PDO::ATTR_CASE => PDO::CASE_NATURAL, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+    // $pdo = new PDO($dsn, $user, $password, $options);
+    require_once("./connectBook.php");
     // 計算總頁數
     $sql = "SELECT 
                 csNo,

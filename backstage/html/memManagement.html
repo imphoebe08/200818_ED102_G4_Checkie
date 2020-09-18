@@ -5,7 +5,7 @@
     @@include('layout/bgHead.html')
 </head>
 <style>
-    input {
+    /* input {
         width: 100%;
     }
 
@@ -15,6 +15,35 @@
         background-color: white;
         color: black;
     }
+
+    ul.pageNumbers {
+        margin: 10px auto 30px;
+        list-style: none;
+        display: flex;
+        flex-flow: nowrap row;
+        justify-content: center;
+    }
+
+    ul.pageNumbers>li {
+        width: 20px;
+        height: 20px;
+        margin: 0 10px;
+    }
+
+    ul.pageNumbers>input {
+        display: none;
+    }
+
+    ul.pageNumbers>input:checked+li {
+        color: red;
+    }
+
+    ul.pageNumbers>li>label {
+        width: 30px;
+        font-size: 18px;
+        cursor: pointer;
+        text-align: center;
+    } */
 </style>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -22,7 +51,7 @@
     @@include('layout/top_header.html')
 
     <!-- 中間內容 -->
-    <div id="bgMem" class="container-fluid">
+    <div id="bgMem" class="container-fluid memManagement">
         <div class="row">
             <div class="col-md-12">
                 <div class="acManagement_title">
@@ -47,11 +76,21 @@
                                     <th>編輯</th>
                                 </tr>
                             </thead>
-                            <tbody is="input-layout"></tbody>
+                            <tbody is="input-layout" ref="childComponent" :total-page.sync="totalPage"
+                                :page-now.sync="pageNow">
+                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+            <ul class="pageNumbers">
+                <template v-for="(item,index) in totalPage">
+                    <input type="radio" :id="'page' + (index + 1)" v-model="pageNow" :value="index+1">
+                    <li :key="'page'+ item" @click="getMemberDataFromParent(index+1)">
+                        <label :for="'page' + (index + 1)">{{ index+1 }}</label>
+                    </li>
+                </template>
+            </ul>
         </div>
     </div>
 
@@ -60,10 +99,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
     <script>
         Vue.component("input-layout", {
-            props: ["transport-data"],
+            props: ["transport-data", "total-page", "page-now"],
             data() {
                 return {
-                    memberData: []
+                    memberData: [],
                 };
             },
             template: ` <tbody>
@@ -100,18 +139,29 @@
                                             <option value="0">正常</option>
                                             <option value="1">停權</option>
                                         </select></td>
-                                    <td><button @click="editToggle($event,index)">編輯</button></td>
+                                    <td><button class="editButtons" @click="editToggle($event,index)">編輯</button></td>
                                 </tr>
                         </tbody>`,
             mounted() {
                 //一進頁面先使用axios=> get
-                this.getMemberData();
+                this.getMemberData(1);
             },
             methods: {
-                getMemberData() {
-                    axios.get('./php/getMember.php')
+                getMemberData(page) {
+                    this.pageNow = page;
+                    axios.get('./php/getMember.php', {
+                            params: {
+                                'pageNow': this.pageNow
+                            }
+                        })
                         .then((res) => {
-                            this.memberData = res.data;
+                            this.memberData = res.data.memberData;
+                            this.totalPage = res.data[0];
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                            this.updatePages();
                             console.log('會員資料抓取成功');
                         })
                         .catch((error) => {
@@ -167,8 +217,8 @@
                             }
                         })
                         .then((res) => {
-                            console.log(res.data);
-                            this.getMemberData();
+                            console.log('會員更新成功');
+                            this.getMemberData(1);
                         })
                         .catch((error) => {
                             console.error(error);
@@ -198,12 +248,25 @@
                         }).catch(function () {
                             console.log('FAILURE!!');
                         });
-                }
-            }
+                },
+                updatePages() {
+                    this.$emit('update:total-page', this.totalPage);
+                    this.$emit('update:page-now', this.pageNow);
+                },
+            },
         });
 
         new Vue({
-            el: "#bgMem"
+            el: "#bgMem",
+            data: {
+                totalPage: 0,
+                pageNow: 1
+            },
+            methods: {
+                getMemberDataFromParent(index) {
+                    this.$refs.childComponent.getMemberData(index);
+                }
+            }
         });
     </script>
 </body>
