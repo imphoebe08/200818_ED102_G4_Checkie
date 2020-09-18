@@ -32,7 +32,7 @@
 <body>
 
 
-    @@include('./template/header.html') @@include('./test.html')
+    <!-- @@include('./template/header.html') @@include('./test.html') -->
 
 
 
@@ -62,7 +62,7 @@
                     <div class="aaa">
                         <div class="memPhoto--bgc">
                             <div class="memPhoto">
-                                <img :src="newPic" alt="">
+                                <img :src="member.memPic" alt="">
                             </div>
                             <input type="file" name="memPic" id="hideThis" @change="changePic()">
                             <label class="meSvg" for="hideThis"> 
@@ -87,7 +87,7 @@
 
 
                         <me-head>
-                            <me-select_item :item="index" v-for="(item, index) in titles" @click.native="selectIt(item)" :selected="currentPage==item">{{item}}</me-select_item>
+                            <me-select_item :item="index" v-for="(item, index) in titles" @click.native="selectIt(item)" :selected="currentPage==item" v-if="index<7">{{item}}</me-select_item>
                             <!-- <me-select_item :item="1" @click.native="selectIt(titles[1])" :selected="currentPage==titles.a">{{titles.a}}</me-select_item>
                             <me-select_item :item="2" @click.native="selectIt(titles.b)" :selected="currentPage==titles.b">{{titles.b}}</me-select_item>
                             <me-select_item :item="3" @click.native="selectIt(titles.c)" :selected="currentPage==titles.c">{{titles.c}}</me-select_item>
@@ -106,10 +106,14 @@
                     <div class="me-content col-md-9 col-lg-9 col-12 " v-if="windowSize>768 || currentPage!==''">
                         <div class=" mem-pic-style mem-lg">
                             <div class="memSearch">
-                                <div class="searchIconSvg">
-                                    <svg id="圖層_1" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155.76 155.76"><path d="M154.81,145.63l-45.25-45.24a61.78,61.78,0,1,0-9.17,9.17l45.24,45.25a3.24,3.24,0,0,0,4.59,0l4.59-4.59A3.24,3.24,0,0,0,154.81,145.63Zm-93.15-35.3a48.68,48.68,0,1,1,48.67-48.67A48.72,48.72,0,0,1,61.66,110.33Z"/></svg>
+                                <div class="search_flex">
+                                    <div class="searchIconSvg">
+                                        <svg id="圖層_1" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155.76 155.76"><path d="M154.81,145.63l-45.25-45.24a61.78,61.78,0,1,0-9.17,9.17l45.24,45.25a3.24,3.24,0,0,0,4.59,0l4.59-4.59A3.24,3.24,0,0,0,154.81,145.63Zm-93.15-35.3a48.68,48.68,0,1,1,48.67-48.67A48.72,48.72,0,0,1,61.66,110.33Z"/></svg>
+                                    </div>
+                                    <input type="search" v-model="searchThing" :placeholder="placeHolder" @keyup.13="search">
                                 </div>
-                                <input type="search" placeholder="請輸入搜尋指令">
+
+                                <div class="me_search_submit" @click="search">搜尋</div>
                             </div>
                             <div class="aaa">
                                 <div class="mem-name-style">
@@ -117,7 +121,7 @@
                                 </div>
                                 <div class="memPhoto--bgc">
                                     <div class="memPhoto  memPhoto_lg">
-                                        <img :src="newPic" alt="">
+                                        <img :src="member.memPic" alt="">
                                     </div>
                                     <input type="file" name="memPic" id="hideThis" @change="changePic()">
                                     <label class="meSvg  meSvg_lg" for="hideThis"> 
@@ -200,6 +204,7 @@
                                                 <div class="me-index_block" v-for="(each,index) in coData" v-if="index<2">
                                                     <div class="me-index_each">
                                                         <a href="">
+                                                            <!-- <a :href="/csSelf.html?csNo=' + each.csNo"> -->
                                                             <div>{{each.csODate}}</div>
                                                             <div>{{each.csPosName}}</div>
                                                         </a>
@@ -215,7 +220,7 @@
                                                 </div>
                                                 <div class="me-index_block" v-for="(each,index) in aoData" v-if="index<2">
                                                     <div class="me-index_each">
-                                                        <a href="">
+                                                        <a :href="'./acSelf.html?actNo=' + each.actNo">
                                                             <div>{{each.actStart}}</div>
                                                             <div>{{each.actAddress}}</div>
                                                         </a>
@@ -615,7 +620,6 @@
 
 
                                 </select-page>
-
                                 <select-page :step="4 " v-if="currentPage==titles[3] " :key="titles[3]">
                                     <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect ">
                                         <div class="selectIcon ">
@@ -808,7 +812,6 @@
 
 
                                 </select-page>
-
                                 <select-page :step="5 " v-if="currentPage==titles[4] " :key="titles[4] ">
                                     <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect ">
                                         <div class="selectIcon ">
@@ -999,8 +1002,7 @@
                                     <div class="me-for-content">
                                         <div class="meInsideBlock">
                                             <div class="mem-header-singleRow mem-header-flex">
-                                                <div class="more-title">{{titles.e}}</div>
-                                                <div class="more--color" @click="pageChange(titles.e)">MORE<i class="fas fa-angle-right"></i></div>
+                                                <div class="more-title">{{titles[6]}}</div>
                                             </div>
                                             <div class=" meChat">
                                                 <!-- <div class="col-12 meOrderTab">
@@ -1054,6 +1056,200 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+
+                                </select-page>
+                                <select-page :step="8" v-if="currentPage==titles[7] || windowSize>768 " :key="titles[7]">
+                                    <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect ">
+                                        <div class="selectIcon ">
+                                            <i class="fas fa-caret-left backToSelect "></i>
+                                            <div>
+                                                回到選單
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="me-for-content">
+                                        <div class="meInsideBlock">
+
+                                            <div class="mem-header-singleRow mem-header-flex">
+                                                <div class="more-title">{{titles[7]}}</div>
+                                                <div class="more--color">共{{searchNum}}件符合關鍵字</div>
+                                            </div>
+
+                                            <div class="me_nothing_in_result" v-if="nothing">沒有符合條件的結果</div>
+
+                                            <div class="nothing_i_am_just_for_separate">
+
+                                                <div class="row justify-content-center delete" v-for="(each,index) in finalCoResult">
+                                                    <div class="mem-order-each col-10">
+                                                        <div class="row">
+                                                            <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
+                                                                <a href="">
+                                                                    <div class="mem-order-dcName">
+                                                                        {{each.csName}}
+                                                                    </div>
+                                                                    <div class="mem-order-img">
+                                                                        <img :src="each.csPic" alt="">
+                                                                    </div>
+                                                                </a>
+
+                                                            </div>
+                                                            <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
+                                                                <div class="row justify-content-end mem-modify--delete">
+                                                                    <div v-if="!orderShow" class=" order-justDele" @click="what(index, coData, 1)"><i class="far fa-edit memI"></i>刪除</div>
+                                                                </div>
+                                                                <div class="row justify-content-center">
+                                                                    <table class="mem-order-table">
+                                                                        <tr>
+                                                                            <th>地點</th>
+                                                                            <td data-title="地點">{{each.csPosName}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>時間</th>
+                                                                            <td data-title="時間">{{each.csODate}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>諮商時間</th>
+                                                                            <td data-title="諮商時間">1</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="row ">
+                                                                    <mem-driver></mem-driver>
+                                                                    <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
+                                                                        <span>費⽤</span>
+                                                                        <span>{{each.csOCost}}</span>
+                                                                        <span>.NT</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row ">
+                                                                    <div class="mem-coOrder-total--hide">
+                                                                        <span class="order-justDele memI" @click="orderMore($event)">查看更多<i class="fas fa-caret-down memI"></i></span>
+                                                                        <div class="meOrder_toggle">
+                                                                            <table class="mem-order-table">
+                                                                                <tr>
+                                                                                    <th>訂單編號</th>
+                                                                                    <td data-title="訂單編號">{{each.csONo}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>諮商方式</th>
+                                                                                    <td data-title="諮商方式">{{each.csModeName}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>下訂時間</th>
+                                                                                    <td data-title="下訂時間">{{each.csOTime}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>諮商期待</th>
+                                                                                    <td data-title="諮商期待">{{each.csOAnticipate}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>諮商主題</th>
+                                                                                    <td data-title="諮商主題">{{each.csOTopic}}</td>
+                                                                                </tr>
+
+                                                                            </table>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="row justify-content-center" v-for="(each,index) in finalAoResult">
+                                                    <div class="mem-order-each col-10">
+                                                        <div class="row">
+                                                            <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
+                                                                <a href="">
+                                                                    <div class="mem-order-dcName">
+                                                                        {{each.actName}}
+                                                                    </div>
+                                                                    <div class="mem-order-img">
+                                                                        <img :src="each.actPic1" alt="">
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
+                                                                <div class="row justify-content-end mem-modify--delete">
+                                                                    <div v-if="!orderShow" class=" order-justDele" @click="what(index, aoData, 2)"><i class="far fa-edit memI"></i>刪除</div>
+                                                                </div>
+                                                                <div class="row justify-content-center">
+                                                                    <table class="mem-order-table">
+                                                                        <tr>
+                                                                            <th>地點</th>
+                                                                            <td data-title="地點">{{each.actAddress}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>活動日期</th>
+                                                                            <td data-title="活動日期">{{each.actStart}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>開始時間</th>
+                                                                            <td data-title="開始時間">{{each.actStartTime}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>活動時數</th>
+                                                                            <td data-title="活動時數">{{each.hour}}小時{{each.minute}}分鐘</td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="row ">
+                                                                    <mem-driver></mem-driver>
+                                                                    <div class="col-12 col-sm-6 offset-sm-6 mem-coOrder-total">
+                                                                        <span>費⽤：</span>
+                                                                        <span>{{each.actCost}}</span>
+                                                                        <span>.NT</span>
+                                                                    </div>
+                                                                    <div class="row ">
+                                                                        <div class="mem-coOrder-total--hide">
+                                                                            <span class="order-justDele memI" @click="orderMore($event)">查看更多<i class="fas fa-caret-down memI"></i></span>
+                                                                            <div class="meOrder_toggle">
+                                                                                <table class="mem-order-table">
+                                                                                    <tr>
+                                                                                        <th>訂單編號</th>
+                                                                                        <td data-title="訂單編號">{{each.actONo}}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>結束日期</th>
+                                                                                        <td data-title="結束日期">{{each.actEnd}}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>結束時間</th>
+                                                                                        <td data-title="結束時間">{{each.actEndTime}}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>活動講師</th>
+                                                                                        <td data-title="活動講師">{{each.actHost}}<br>{{each.actHostTitle}}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>下訂時間</th>
+                                                                                        <td data-title="下訂時間">{{each.actOTime}}</td>
+                                                                                    </tr>
+
+                                                                                </table>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
+
+
+
+
+
                                     </div>
 
                                 </select-page>
