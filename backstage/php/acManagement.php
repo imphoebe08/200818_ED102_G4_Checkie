@@ -20,11 +20,6 @@ try{
         ";
         $products = $pdo->query($sql);
         $prodRow = $products->fetchAll(PDO::FETCH_ASSOC);
-
-
-        
-
-
         
         echo json_encode($prodRow);
   
