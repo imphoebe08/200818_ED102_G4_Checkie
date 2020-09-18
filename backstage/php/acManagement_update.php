@@ -34,7 +34,7 @@ try{
 
   if($csNo!="null"){
     // 完成
-    echo "actpic1";
+    echo "not null";
     $sql = "update activity
             set actName=:actName, 
             actPstart = :actPstart, 
