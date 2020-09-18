@@ -44,8 +44,9 @@ body {
     // border: 1px solid blue;
     width: 100vw;
     // z-index: -1;
-    max-height: 50vh;
+    max-height: 480px;
     overflow: hidden;
+    object-fit: over;
 }
 
 .owl-height {

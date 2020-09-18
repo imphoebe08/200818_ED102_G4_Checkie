@@ -26,15 +26,15 @@ try{
     $actCost = $_REQUEST["actCost"];
     $actBool = $_REQUEST["actBool"];
     $actAddress = $_REQUEST["actAddress"];
-    $actpic1 = $_Files["actpic1"];
-    $actpic2 = $_Files["actpic2"];
-    $actpic3 = $_Files["actpic3"];
+    $actpic1 = $_REQUEST["actpic1"];
+    $actpic2 = $_REQUEST["actpic2"];
+    $actpic3 = $_REQUEST["actpic3"];
     // $actHostPic = $_POST["actHostPic"];
     // $actTypeNo = $_POST["actTypeno"];
 
   if($csNo!="null"){
     // 完成
-    echo "not null";
+    echo "actpic1";
     $sql = "update activity
             set actName=:actName, 
             actPstart = :actPstart, 

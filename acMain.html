@@ -21,20 +21,20 @@
         <main id="acMain" class="acMain container-fluid">
             <div class="acBanner owl-carousel owl-theme">
                 <div><img src="./img/acMain/actBanner1.jpg" alt="..."></div>
-                <div><img src="./img/acMain/banner2.jpg" alt="..."></div>
-                <div><img src="./img/acMain/banner3.jpg" alt="..."></div>
+                <div><img src="./img/acMain/actBanner1.jpg" alt="..."></div>
+                <div><img src="./img/acMain/actBanner1.jpg" alt="... "></div>
             </div>
 
-            <div id="acSearch" class="acSearch container-sm container-md">
-                <ul class="acSearch_ul">
-                    <li v-for="(num,index) in title" @click="category_click(index)"><a href="javascript:void(0)">{{num}}</a></li>
+            <div id="acSearch " class="acSearch container-sm container-md ">
+                <ul class="acSearch_ul ">
+                    <li v-for="(num,index) in title " @click="category_click(index) "><a href="javascript:void(0) ">{{num}}</a></li>
                 </ul>
             </div>
-            <!-- <h1 class="asSelect_title container-sm container-md">{{now_title}}</h1> -->
+            <!-- <h1 class="asSelect_title container-sm container-md ">{{now_title}}</h1> -->
 
-            <ac-select-card :ac-contents="result"></ac-select-card>
-            <h1 class="acComment_title container-sm container-md">會員好評</h1>
-            <ac-comment-list :ac-comments="comments"></ac-comment-list>
+            <ac-select-card :ac-contents="result "></ac-select-card>
+            <h1 class="acComment_title container-sm container-md ">會員好評</h1>
+            <ac-comment-list :ac-comments="comments "></ac-comment-list>
 
 
         </main>
@@ -42,23 +42,23 @@
         @@include('template/footer.html')
 
         <!-- 資料庫帶入 -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js "></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.4.3/vue-router.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/vuex/3.5.1/vuex.js'></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js'></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/3a9b8bb651.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous "></script>
+        <script src="https://kit.fontawesome.com/3a9b8bb651.js " crossorigin="anonymous "></script>
         <!-- 輪播 -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js "></script>
         <!-- 活動好評小卡Vue -->
-        <script src="./js/acMain.js"></script>
-        <!-- <script src="./js/test.js"></script> -->
+        <script src="./js/acMain.js "></script>
+        <!-- <script src="./js/test.js "></script> -->
 
         <!-- Header & Footer -->
-        <script src="./js/header.js"></script>
-        <script src="./js/chatbot.js"></script>
+        <script src="./js/header.js "></script>
+        <script src="./js/chatbot.js "></script>
         <script>
             $('.owl-carousel').owlCarousel({
                 items: 1,
