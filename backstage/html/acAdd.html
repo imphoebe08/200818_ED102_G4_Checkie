@@ -132,10 +132,12 @@
 
                 submitForm: function(e) {
                     console.log(this.contents.actNo)
+                        //修改時間資料
                     this.contents.actPstart = document.querySelectorAll(" input[name='date_submit' ] ")[0].value + ' ' + document.querySelectorAll("input[name='time' ] ")[0].value;
                     this.contents.actPend = document.querySelectorAll(" input[name='date_submit' ] ")[1].value + ' ' + document.querySelectorAll("input[name='time' ] ")[1].value;
                     this.contents.actStart = document.querySelectorAll(" input[name='date_submit' ] ")[2].value + ' ' + document.querySelectorAll("input[name='time' ] ")[2].value;
                     this.contents.actEnd = document.querySelectorAll(" input[name='date_submit' ] ")[3].value + ' ' + document.querySelectorAll("input[name='time' ] ")[3].value;
+                    //將資料增加到FromData，回傳給php
                     let formData = new FormData();
                     formData.append("actNo", this.contents.actNo);
                     formData.append("actName", this.contents.actName);
@@ -182,12 +184,14 @@
 
 
                 },
+
                 changePic(event, data) {
                     //先抓到上傳圖片的input資料
                     const pic = event.target.files.item(0);
                     const reader = new FileReader();
                     reader.readAsDataURL(pic);
                     const num = data;
+                    //將圖片顯示到螢幕預覽
                     if (data == 1) {
                         reader.onload = () => {
                             vm.$data.contents.actpic1 = reader.result;
@@ -207,6 +211,7 @@
                         }
                     }
 
+                    //把圖片的路徑回傳給php寫入mySQL
                     let formDataPic = new FormData();
                     formDataPic.append('file', pic);
                     formDataPic.append('picNo', num);
