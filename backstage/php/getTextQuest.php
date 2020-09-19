@@ -6,6 +6,7 @@ try {
     $password = "root";
     $options = array(PDO::ATTR_CASE => PDO::CASE_NATURAL, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
     $pdo = new PDO($dsn, $user, $password, $options);
+    // require_once("./connectBook.php");
 
 
     $sql = "select * from text";

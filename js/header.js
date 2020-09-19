@@ -190,8 +190,6 @@ Vue.component('signin-component', {
                         login.$children[0].error("#memId,#memPsd", true)
                     } else {
                         signup.innerText = member.memName;
-                        //點選可以連結到會員中心 怎麼寫？
-                        //signup.location.href = "../meMain.html";
                         signin.innerText = "登出";
                         signup_overlay.classList.add("signup_overlay-none");
                         // 垃圾功能
@@ -435,7 +433,8 @@ let login = new Vue({
                 $("#signup_overlay").fadeIn(300);
                 $("#container").addClass("right-panel-active");
             } else {
-                location.href = "../home.html";
+                //location.href = "../home.html";
+                location.href = "../meMain.html";
             }
         },
         getLoginInfo() {
