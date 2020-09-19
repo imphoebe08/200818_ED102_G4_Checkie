@@ -16,7 +16,8 @@ try{
             h.actPic1,
             f.testResultTypeNo,
             f.testResultValue,
-            a.memTestTime
+            a.memTestTime,
+            h.actNo
     FROM activitytype d join activity h using(actno) 
                         join type e on e.typeNo = d.actTypeNo 
                         

@@ -4,12 +4,15 @@ try{
     require_once("./connectBook666.php");
 
     $sql ="select csONo
-            FROM csorder
-            where memNo = :memNo and date(csOTime) = date(csOTime) 
-                            and csONo = (select max(csONo)
-                                            from csorder)
-            order by csOTime desc
-            limit 1;";
+    FROM csorder
+    where memNo = :memNo and date(csOTime) = (select max(date(csOTime))
+                                        from  csorder
+                                        where memNo = :memNo)
+                    and csONo = (select max(csONo)
+                                    from csorder
+                                    where memNo = :memNo)
+    order by csOTime desc
+    limit 1;";
 
     $orderNum = $pdo->prepare($sql);
     // 正確做法

@@ -54,7 +54,7 @@ VALUES (:memNo, :actNo, current_date(), :acBD ,:acName , concat(:acTelA,',',:acT
     $memberOrder->bindParam(":acPayment", $acPayment);
 
     $memberOrder->execute();
-    echo 'suss';
+    echo $memNo;
 
 
     }catch(PDOException $e){
