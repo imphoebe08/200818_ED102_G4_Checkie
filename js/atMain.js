@@ -215,6 +215,10 @@ Vue.component("boxclass", {
         methods: {
             change() {
                 this.$emit("change-it", this.index);
+                $(".atBox-Class-content_pic").removeClass("aaa")
+                    // event.target.siblingsNode.classList.remove("aaa");
+                event.target.classList.add("aaa");
+                console.log(event.target.classList);
             },
         },
     })
@@ -327,6 +331,7 @@ let vm = new Vue({
     mounted() {
         this.topArticle();
 
+
     },
     computed: {
         articleLeft() {
@@ -369,7 +374,10 @@ let vm1 = new Vue({
 
         },
     },
-    mounted() {},
+    mounted() {
+        $(".atBox-Class-content_pic").eq(1).addClass("aaa")
+
+    },
 })
 
 let vm3 = new Vue({

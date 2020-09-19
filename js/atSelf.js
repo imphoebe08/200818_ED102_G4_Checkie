@@ -49,7 +49,7 @@ let vm2 = new Vue({
             $('.owl-carousel').owlCarousel({
                 // items: 3,
                 autoplay: true,
-                loop: true,
+                // loop: true,
                 margin: 100,
                 nav: true,
                 responsive: {
@@ -80,21 +80,27 @@ Vue.component("boxcenter", {
     template: `
     
         <div class="item">
-            <div class="seRecommend-box_center">
+        <a :href="gogo(pus)">
+        <div class="seRecommend-box_center">
                 <div class="seRecommend-box-center_pic">
                     <img :src="pus.artPic2" alt="">
                 </div>
                 <div class="seRecommend-box-center_name">
-                    <h2>{{pus.artTitle.substring(0,9)}}</h2
+                    <h2>{{pus.artTitle.substring(0,12)}}</h2
                 </div>
                 <div class="seRecommend-box-center_detail">
-                    {{pus.artContent.substring(0,100)}}
+                    {{pus.artContent.substring(0,101)}}
                 </div>
                 </div>
             </div>
+        </a>
+            
         </div>
     `,
     methods: {
+        gogo(pus) {
+            return `./atSelf.html?artNo=${pus.artNo}`
+        },
 
     },
     mounted() {
