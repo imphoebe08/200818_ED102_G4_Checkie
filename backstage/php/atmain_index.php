@@ -1,23 +1,41 @@
-<?php
+<?php  
+$errMsg = "";
+//連線資料庫
 try{
-require_once("./atmainbook.php");
-$sql = "select a.artBool,a.artTitle,a.artContent,b.csName,b.cspic,a.artdate,e.artTypeNO,a.artPic1,a.artPic2,a.artPic3,e.artTypeNo
-from article a join counselor b 
-using(csno) join  articletypeconcact e using(artno)
-order by a.artdate desc";
-$article = $pdo->query($sql);
-if( $article->rowCount()==0){
-echo "{}";
-}else{ 
-$articleRow = $article->fetchAll(PDO::FETCH_ASSOC);
-echo json_encode($articleRow,JSON_UNESCAPED_UNICODE);
+  // a  表格名稱修改
+  require_once("./atmainbook.php");
+  $actNo = $_GET["actNo"];
+        $sql = "select a.artNo, a.artTitle,a.csNo,a.artAuthor 'csName' ,a.artContent,a.artDate,a.artBool,a.artPic1,a.artPic2,a.artPic3,group_concat(b.artTypeNo) 'artTypeNo' from article a  
+        join articletype b using(artNo)
+        where a.artNo=:actNo group by artNo;";
+        $products = $pdo->prepare($sql);
+        $products->bindValue(':actNo', $actNo);
+        $products->execute();       
+        $prodRow = $products->fetchAll(PDO::FETCH_ASSOC);
 
-//送出登入者的資料
-//索引陣列
-// $result = array("artTitle"=>$articleRow["artTitle"], "artContent"=>$articleRow["artContent"],"csName"=>$articleRow["csName"],"cspic"=>$articleRow["cspic"],"artdate"=>$articleRow["artdate"]);
-//           echo json_encode($result);
-  }
+        $data_array = array(
+          "artNo" => $prodRow[0]["artNo"],
+          "artTitle" => $prodRow[0]["artTitle"],
+          "csNo" => $prodRow[0]["csNo"],
+          "csName" => $prodRow[0]["csName"],
+          "artContent" => $prodRow[0]["artContent"],
+          "artDate" => $prodRow[0]["artDate"],
+          "artBool" => $prodRow[0]["artBool"],
+          "artPic1" => $prodRow[0]["artPic1"],
+          "artPic2" => $prodRow[0]["artPic2"],
+          "artPic3" => $prodRow[0]["artPic3"],
+          "artTypeNo" => explode(",", $prodRow[0]["artTypeNo"])
+        );
+
+        
+
+
+
+        echo json_encode($data_array);
+  
 }catch(PDOException $e){
-  echo $e->getMessage();
+  $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
+  $errMsg .= "錯誤行號 : ".$e -> getLine();
+  echo $errMsg;
 }
 ?>

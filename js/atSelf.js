@@ -2,6 +2,8 @@ let vm = new Vue({
     el: '#app',
     data: {
         article: "",
+        shareUrl: "https://tw.yahoo.com/?", //傳送的文章或活動主連結
+        shareNo: "", //傳送的文章或活動編號，我預設為0
     },
     methods: {
 
@@ -18,6 +20,22 @@ let vm = new Vue({
             xhr.send(null);
 
         },
+        openShareDialog(artNo) {
+            let shareButton = document.querySelector(".share-button");
+            let shareDialog = document.querySelector(".share-dialog");
+            shareDialog.classList.add("is-open");
+            this.shareNo = `artNo=${artNo}`;
+        },
+        copyWord() {
+            let copyWord = document.querySelector(".pen-url");
+            copyWord.select();
+            let copyStatus = document.execCommand("copy");
+        },
+        closeShereDialog() {
+            let closeButton = document.querySelector(".close-button");
+            let shareDialog = document.querySelector(".share-dialog");
+            shareDialog.classList.remove("is-open");
+        }
     },
     mounted() {
         this.ajax();

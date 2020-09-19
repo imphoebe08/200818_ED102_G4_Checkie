@@ -263,7 +263,8 @@ Vue.component('duli', {
     `,
     methods: {
         out(dul) {
-            return `./atSelf.html?artNO=${dul.artNo}`
+            return `./atSelf.html?artNo=${dul.artNo}`
+
         }
     }
 
@@ -305,7 +306,7 @@ Vue.component('duri', {
     `,
     methods: {
         gogo(dul) {
-            return `./atSelf.html?artNo=${dul.artNo}`;
+            return `./atSelf.html?artNo=${dul.artNo}`
         }
     }
 })

@@ -19,7 +19,7 @@
             <div class="col-md-12">
                 <div class="acManagement_title">
                     <h1 class="acManagement_h1">專欄管理</h1>
-                    <a class="acManagement_newAc" href=" ./atMain_modify.html "><button class="acManagement_addAc ">新增文章</button></a>
+                    <a class="acManagement_newAc" href=" ./atMain_modify.html?artNo=0"><button class="acManagement_addAc ">新增文章</button></a>
                 </div>
 
 
@@ -144,20 +144,25 @@
                                     <td>{{each.calss}}</td>
                                     <td>{{each.artdate.substring(0,10)}}</td>
                                     <td>{{aaa(each.artBool)}}</td>
-                                    <td><a href="./atMain_modify.html "><button class="acManagement_edit ">編輯</button></a></td>
+                                    <td><a :href="gogo(each.artNo)"><button class="acManagement_edit ">編輯</button></a></td>
                                 </tr>
                                 </tbody>
               </table>
-            `,
+             `,
+
             methods: {
                 aaa(data) {
                     return (data == 0) ? "上架" :
                         "下架";
+                },
+                gogo(data) {
+                    return `./atMain_modify.html?artNo=${data}`;
                 }
             },
-            mounted() {
-                console.log(this.init)
-            }
+            computed: {
+
+            },
+            mounted() {}
         })
         let vm = new Vue({
             el: "#AAA",
@@ -173,6 +178,7 @@
                     xhr.onload = function() {
                         let article = JSON.parse(xhr.responseText);
                         vm.$data.cood = article;
+
                         // console.log(xhr.responseText)
                     }
                     xhr.open("get", "./php/atmain_index.php", true);
