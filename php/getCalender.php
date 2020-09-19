@@ -7,7 +7,9 @@ try {
 
     $sql = "SELECT date(schDate) 'date', workTime1 'time1', workTime2 'time2'
             FROM schedule
-            where csNo = :csNo; ";
+            where csNo = :csNo and date(schDate) > curdate()
+            order by 1 asc
+            limit 100;";
 
     $result = $pdo->prepare($sql);
     $result->bindValue(":csNo", $csNo);
@@ -15,8 +17,10 @@ try {
     $resultRow = $result->fetchAll(PDO::FETCH_ASSOC);
 
     $sql2 = "SELECT date(schDate) 'date', workTime3 'time1', workTime4 'time2'
-    FROM schedule
-    where csNo = :csNo; ";
+            FROM schedule
+            where csNo = :csNo and date(schDate) > curdate()
+            order by 1 asc
+            limit 100;";
 
     $result2 = $pdo->prepare($sql2);
     $result2->bindValue(":csNo", $csNo);
@@ -24,8 +28,10 @@ try {
     $resultRow2 = $result2->fetchAll(PDO::FETCH_ASSOC);
 
     $sql3 = "SELECT date(schDate) 'date', workTime5 'time1', workTime6 'time2'
-    FROM schedule
-    where csNo = :csNo; ";
+            FROM schedule
+            where csNo = :csNo and date(schDate) > curdate()
+            order by 1 asc
+            limit 100;";
 
     $result3 = $pdo->prepare($sql3);
     $result3->bindValue(":csNo", $csNo);
