@@ -190,7 +190,7 @@ Vue.component('inact-item', {
                 <div class="inAct-date_text">活動日期{{love.actStart}}</div>
             </div>
             <div class="inAct-icon_block">
-                <a href="javascript:void(0)" class="inAct-icon_1" draggable="false"><i class="fas fa-share-alt"></i></a>
+                <a href="javascript:void(0)" class="inAct-icon_1" draggable="false"><i class="fa fa-share" :class="['icon','share-button']" @click="openShareDialog(index)"></i></a>
                 <a href="javascript:void(0)" class="inAct-icon_2" draggable="false"><i class="fas fa-bookmark"></i></a>
             </div>
         </div>
