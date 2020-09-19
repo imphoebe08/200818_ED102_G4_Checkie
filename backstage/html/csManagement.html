@@ -61,9 +61,9 @@
                             <td><input type="text" placeholder="Email" v-model="newData.csEmail" id="email">
                             </td>
                             <td colspan="2">
-                                <input type="file" name="file" id="file0" @change="fileUpload($event, -1)"
+                                <input type="file" name="file" id="file-1" @change="fileUpload($event, -1)"
                                     style="display:none;">
-                                <label for="file0">上傳圖片<img :src="newData.csPic" alt="照片"
+                                <label for="file-1">上傳圖片<img :src="newData.csPic" alt="照片"
                                         style="object-fit: cover;width: 50px;height: 50px;"></label>
                             </td>
 
@@ -211,7 +211,7 @@
                     "csName": "",
                     "csId": "",
                     "csPsd": "",
-                    "csBD": "",
+                    "csBD": "1970-01-01",
                     "csGender": "m",
                     "csEmail": "",
                     "csTel": "",
@@ -222,28 +222,29 @@
                     "csEdu": "",
                     "csType": [{
                             "csTypeName": "家庭關係",
-                            "csTypeNum": "",
+                            "csTypeNum": 50,
                         },
                         {
                             "csTypeName": "人際關係",
-                            "csTypeNum": "",
+                            "csTypeNum": 50,
                         },
                         {
                             "csTypeName": "伴侶關係",
-                            "csTypeNum": "",
+                            "csTypeNum": 50,
                         },
                         {
                             "csTypeName": "壓力創傷",
-                            "csTypeNum": "",
+                            "csTypeNum": 50,
                         },
                         {
                             "csTypeName": "自我探索",
-                            "csTypeNum": "",
+                            "csTypeNum": 50,
                         }
                     ]
                 },
                 memberData: [],
-                file: ''
+                file: '',
+                picTmp: [],
             },
             mounted() {
                 this.getMemberData(1);
@@ -273,7 +274,6 @@
                             }
                         })
                         .then((res) => {
-                            console.log(res.data);
                             this.getMemberData(1);
                         })
                         .catch((error) => {
@@ -306,20 +306,23 @@
                                 top: 0,
                                 behavior: 'smooth'
                             });
-                            console.log('會員資料抓取成功');
+                            this.picTmp = new Array(res.data.memberData.length);
                         })
                         .catch((error) => {
                             console.error(error)
                         })
                 },
                 editToggle(e, index) {
+
                     let input = document.querySelectorAll(`.buttonGroup${index}`);
                     if (input[0].getAttribute("readonly")) {
+                        this.picTmp[index] = this.memberData[index].csPic;
                         this.inputToEdit(e, index);
                     } else {
                         let check = confirm(`確認修改會員編號 ${this.memberData[index].csNo} 的資料嗎?`);
                         if (check)
                             this.updateMemInfo(index); //使用axios=> update
+                        this.memberData[index].csPic = this.picTmp[index];
                         this.inputToForbid(e, index);
                     }
                 },
@@ -339,12 +342,6 @@
                         e.currentTarget.innerText = "送出";
                     }
                 },
-                // // deleteData(e, index) {
-                // //     let check = confirm(`確認刪除會員編號 ${this.memberData[index].csNo} 的資料嗎?`);
-                // //     if (check)
-                // //         this.memberData.splice(index, 1);
-                // //     //使用axios=> delete
-                // },
                 updateMemInfo(index) {
                     axios.get('./php/updateCounselor.php', {
                             params: {
