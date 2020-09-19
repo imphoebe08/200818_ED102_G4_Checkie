@@ -39,7 +39,7 @@ Vue.component('acSelectCard', {
             
             <!-- 卡片時間 -->
             <div class="acSelectCard_icon">
-            <i class="fas fa-share-alt acSelectCard-share_icon" style="font-size:20px"></i>
+            <i class="fas fa-share-alt acSelectCard-share_icon share-button" style="font-size:20px"  @click="openShareDialog(acContent.actNo)"></i>
             <i class="fas fa-bookmark acSelectCard-bookmark_icon" style="font-size:20px"></i>
             </div>
             <div class="acSelectCard_text">
@@ -65,7 +65,12 @@ Vue.component('acSelectCard', {
     methods: {
         aaa(data) {
             return this.acContents.slice(0, data);
+        },
+        openShareDialog(actNo) {
+            console.log('hi');
+            this.$emit('open-share-dialog', `actNo=${actNo}`);
         }
+
     },
     computed: {
 
@@ -84,11 +89,30 @@ let vm = new Vue({
         comments: [],
         isActive: true,
         index: 0,
+        shareUrl: "https://tw.yahoo.com/?", //傳送的文章或活動主連結
+        shareNo: '', //傳送的文章或活動編號，我預設為0
     },
     methods: {
         category_click(value) {
             this.index = value;
         },
+        openShareDialog(str) {
+            console.log(str);
+            let shareButton = document.querySelector(".share-button");
+            let shareDialog = document.querySelector(".share-dialog");
+            shareDialog.classList.add("is-open");
+            this.shareNo = str;
+        },
+        copyWord() {
+            let copyWord = document.querySelector(".pen-url");
+            copyWord.select();
+            let copyStatus = document.execCommand("copy");
+        },
+        closeShereDialog() {
+            let closeButton = document.querySelector(".close-button");
+            let shareDialog = document.querySelector(".share-dialog");
+            shareDialog.classList.remove("is-open");
+        }
     },
     mounted() {
 

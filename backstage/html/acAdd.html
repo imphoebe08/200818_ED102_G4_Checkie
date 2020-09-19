@@ -51,8 +51,8 @@
                 <span>舉辦人：</span><input v-model="contents.actHost" type="text"><br><br>
                 <span>舉辦人稱謂：</span><input v-model="contents.actHostTitle" type="text"><br><br>
                 <span>舉辦人介紹：</span><pre><textarea v-model="contents.actHostInfo" name=""  id="" cols="200" rows="10" style="resize: none;"></textarea></pre><br><br>
-                <label for="holder">舉辦人圖片：<br><img :src="contents.actHostPic" alt=""></label><input type="file" name="actHostPic" id="holder" style="display:none"><br><br>
-                <input @click="submitForm" type="button" id="acAdd_submit" value="提交">
+                <label for="holder">舉辦人圖片：<br><img :src="contents.actHostPic" alt=""></label><input type="file" name="actHostPic" id="holder" style="display:none" @change="changePic($event,4)"><br><br>
+                <input type="button" @click="submitForm" id="acAdd_submit" value="提交">
                 <!-- <div id="acAdd_submit_wrapper ">
                 </div> -->
             </form>
@@ -78,27 +78,27 @@
             el: "#app ",
             data: {
                 contents: {
-                    actAddress: "",
-                    actBool: "0",
-                    actContent: "",
-                    actCost: "",
-                    actEnd: "",
-                    actHost: "",
-                    actHostInfo: "",
-                    actHostTitle: "",
-                    actMax: "",
-                    actMin: "",
-                    actName: "",
+                    actAddress: " ",
+                    actBool: "0 ",
+                    actContent: " ",
+                    actCost: " ",
+                    actEnd: " ",
+                    actHost: " ",
+                    actHostInfo: " ",
+                    actHostTitle: " ",
+                    actMax: " ",
+                    actMin: " ",
+                    actName: " ",
                     actNo: 0,
-                    actPend: "",
-                    actPstart: "",
-                    actStart: "",
+                    actPend: " ",
+                    actPstart: " ",
+                    actStart: " ",
                     actTypeno: [],
-                    // actHostPic: "",
-                    actpic1: "./img/acSelf/ac1/ac1_banner.jpg",
-                    actpic2: "./img/acSelf/ac1/ac1_inner1.jpg",
-                    actpic3: "./img/acSelf/ac1/ac1_inner2.jpg",
-                    csNo: "",
+                    actHostPic: " ",
+                    actpic1: " ",
+                    actpic2: " ",
+                    actpic3: " ",
+                    csNo: " ",
                 },
                 file: '',
                 fileUrl: '',
@@ -156,24 +156,23 @@
                     formData.append("actpic1", this.contents.actpic1);
                     formData.append("actpic2", this.contents.actpic2);
                     formData.append("actpic3", this.contents.actpic3);
-                    // formData.append("actHostPic ", this.contents.actHostPic);
-                    // formData.append("actTypeno ", this.contents.actTypeno);
+                    formData.append("actHostPic", this.contents.actHostPic);
+                    formData.append("actTypeno", this.contents.actTypeno);
 
 
                     if (this.contents.actNo == 0) {
                         axios.post(`./php/acManagement_insert.php`, formData)
                             .then((res) => {
                                 console.log(res);
-                                // location.replace('http://localhost:8888/dist/backstage/acManagement.html');
+                                // location.replace('http://localhost:8888/backstage/acManagement.html');
                             }).catch((err) => {
                                 console.log(err)
                             })
                     } else {
                         axios.post(`./php/acManagement_update.php`, formData)
-                            // axios.get(`./php/acManagement_update_test.php?actNo=1&actName='－療癒繪本製作'`)
                             .then((res) => {
                                 console.log(res);
-                                // location.replace('http://localhost:8888/dist/backstage/acManagement.html');
+                                // location.replace('http://localhost:8888/backstage/acManagement.html');
                             }).catch((err) => {
                                 console.log(err)
                             })
@@ -198,9 +197,13 @@
                             vm.$data.contents.actpic2 = reader.result;
                         }
 
-                    } else {
+                    } else if (data == 3) {
                         reader.onload = () => {
                             vm.$data.contents.actpic3 = reader.result;
+                        }
+                    } else {
+                        reader.onload = () => {
+                            vm.$data.contents.actHostPic = reader.result;
                         }
                     }
 
@@ -210,7 +213,17 @@
                     axios.post(`./php/uploadActPic.php`, formDataPic)
                         .then((res) => {
                             // 抓到圖片儲存位址可以再回來改src
-                            this.contents.actpic1 = res.data;
+                            if (data == 1) {
+                                this.contents.actpic1 = res.data;
+                            } else if (data == 2) {
+                                this.contents.actpic2 = res.data;
+
+                            } else if (data == 3) {
+                                this.contents.actpic3 = res.data;
+
+                            } else {
+                                this.contents.actHostPic = res.data;
+                            }
                         }).catch(function() {
                             console.log('FAILURE!!');
                         });
@@ -224,8 +237,6 @@
                     axios.get(`./php/acAdd.php?actNo=${actNo}`).then((res) => {
                         this.contents = res.data
                         console.log(res.data)
-                        console.log(this.contents.actEnd)
-
 
                     })
 
