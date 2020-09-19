@@ -439,7 +439,7 @@ let login = new Vue({
         },
         getLoginInfo() {
             var infor = location.search;
-            if (infor != "") {
+            if (infor.length > 30) {
                 this.psd_block = true;
                 // infor.substring(1);
             } else {

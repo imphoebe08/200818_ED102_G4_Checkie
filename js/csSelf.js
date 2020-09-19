@@ -27,16 +27,19 @@ Vue.component('cssart-layout', {
             </div>
             <div class="card-share">
                 <span>Share : </span>
-                <a href="javascript:void(0)" class="small"><img src="img//icon//facebook.png" alt=""></a>
-                <a href="javascript:void(0)" class="small"><img src="img//icon//share.png" alt="" @click="openShareDialog(item.artId)"></a>
-                <a href="javascript:void(0)" class="small"><img src="img//icon//bookmark.png" alt=""></a>
+                <a href="javascript:void(0)" class="small"><i class="fa fa-share" :class="['icon','share-button']" @click="openShareDialog(item.artId)"></i></a>
+                <a href="javascript:void(0)" class="small"><i class="fa fa-bookmark" :class="[{ colorful: item.isCollect }, 'icon']" @click="doCollected(index)"></i></a>
             </div>
         </div>
     </div>`,
     methods: {
         openShareDialog(value) {
             this.$emit('share', `artNo=${value}`);
+        },
+        doCollected(index) {
+            this.$emit('do-collected', index);
         }
+
     },
     watch: {
         artData: function () {
@@ -57,7 +60,7 @@ Vue.component("csselfact-layout", {
     props: ['act-data'],
     data() {
         return {
-            csActData: this.actData
+            csActData: this.actData,
         }
     },
     template: `
@@ -76,9 +79,8 @@ Vue.component("csselfact-layout", {
                 <span>{{item.actTime}}</span>
                 <div class="share-buttons">
                         <span>Share : </span>
-                        <a href="javascript:void(0)" class="small"><img src="img//icon//facebook.png" alt=""></a>
-                        <a href="javascript:void(0)" class="small"><img src="img//icon//share.png" alt="" @click="openShareDialog(item.actId)"></a>
-                        <a href="javascript:void(0)" class="small"><img src="img//icon//bookmark.png" alt=""></a>
+                        <a href="javascript:void(0)" class="small"><i class="fa fa-share" :class="['icon','share-button']" @click="openShareDialog(item.actId)"></i></a>
+                        <a href="javascript:void(0)" class="small"><i class="fa fa-bookmark" :class="[{ colorful: item.isCollect }, 'icon']" @click="doCollected(index)"></i></a>
                 </div>
                 <p>{{item.actContext | ellipsisWords}}</p>
             </div>
@@ -90,6 +92,9 @@ Vue.component("csselfact-layout", {
     methods: {
         openShareDialog(value) {
             this.$emit('share', `actNo=${value}`);
+        },
+        doCollected(index) {
+            this.$emit('do-collected', index);
         }
     },
     watch: {
@@ -199,6 +204,13 @@ let vmcss = new Vue({
                 }
             }
         },
+        // 會員分享用
+        memberData: [{
+            member: true,
+            memNo: 1,
+            artCollect: [1, 2, 4, 7], //每個會員要有自己的收藏編號陣列
+            actCollect: [1, 2, 4, 7] //每個會員要有自己的收藏編號陣列
+        }],
 
     },
     mounted() {
@@ -210,9 +222,10 @@ let vmcss = new Vue({
         }
         axios.all([
                 axios.get(`./php/csSelf.php?csNo=${csNo}`),
-                axios.get(`./php/csSelfCards.php?csNo=${csNo}`)
+                axios.get(`./php/csSelfCards.php?csNo=${csNo}`),
+                axios.get(`./php/csSelfCollect.php`) // 收藏的清單和會員判定
             ])
-            .then(axios.spread((res1, res2) => {
+            .then(axios.spread((res1, res2, res3) => {
                 this.csData = res1.data;
                 for (let i = 0; i < 5; i++) {
                     this.series[0].data[i] = this.csData.csType[i].csTypeNum
@@ -228,8 +241,18 @@ let vmcss = new Vue({
                     this.installOwlCarousel3();
                 });
 
+                // 收藏的清單
+                this.memberData[0].member = res3.data.member; //會員判定
+                this.memberData[0].memNo = res3.data.memNo;
+                this.memberData[0].artCollect = res3.data.artCollect.map(i => parseInt(i));
+                this.memberData[0].actCollect = res3.data.actCollect.map(i => parseInt(i));
 
-            }));
+            })).them(() => {
+                this.firstChecked();
+            });
+    },
+    updated() {
+        this.firstChecked();
     },
     methods: {
         installOwlCarousel1: function () {
@@ -300,6 +323,7 @@ let vmcss = new Vue({
                 }]
             });
         },
+        // 分享用
         openShareDialog(str) {
             let shareButton = document.querySelector(".share-button");
             let shareDialog = document.querySelector(".share-dialog");
@@ -315,7 +339,107 @@ let vmcss = new Vue({
             let closeButton = document.querySelector(".close-button");
             let shareDialog = document.querySelector(".share-dialog");
             shareDialog.classList.remove("is-open");
-        }
+        },
+        // 收藏用
+        firstChecked() {
+            if (this.memberData[0].member)
+                //判斷登入
+                this.csArtData.forEach((v, i) => {
+                    let a = this.memberData[0].artCollect.indexOf(parseInt(v.artId));
+                    console.log(a);
+                    if (a > -1) this.csArtData[i].isCollect = true;
+                    else this.csArtData[i].isCollect = false;
+                });
+        },
+        doCollected(index) {
+            console.log(this.csArtData[index].artId);
+            if (this.memberData[0].member)
+                if (this.csArtData[index].isCollect) {
+                    // delete收藏資料;
+                    this.deleteCollect(this.csArtData[index].artId, 'art');
+                    this.memberData[0].artCollect.splice(
+                        this.memberData[0].artCollect.indexOf(parseInt(this.csArtData[index].artId)), 1
+                    );
+                    this.csArtData[index].isCollect = false;
+                } else {
+                    this.insertCollect(this.csArtData[index].artId, 'art');
+                    this.memberData[0].artCollect.push(parseInt(this.csArtData[index].artId));
+                    this.csArtData[index].isCollect = true;
+                }
+            else {
+                $("#signup_overlay").removeClass("signup_overlay-none");
+                $("#signup_overlay").fadeIn(300);
+                $("#container").removeClass("right-panel-active");
+            }; //跳出登入視窗
+        },
+        firstChecked2() {
+            console.log('firstChecked');
+            if (this.memberData[0].member)
+                //判斷登入
+                this.csActData.forEach((v, i) => {
+                    let a = this.memberData[0].actCollect.indexOf(parseInt(v.actId));
+                    console.log(a);
+                    if (a > -1) this.csActData[i].isCollect = true;
+                    else this.csActData[i].isCollect = false;
+                });
+        },
+        doCollected2(index) {
+            if (this.memberData[0].member)
+                if (this.csActData[index].isCollect) {
+                    // delete收藏資料;
+                    this.deleteCollect(this.csActData[index].actId, 'act');
+                    this.memberData[0].actCollect.splice(
+                        this.memberData[0].actCollect.indexOf(parseInt(this.csActData[index].actId)), 1
+                    );
+                    this.csActData[index].isCollect = false;
+                } else {
+                    // insert收藏資料;
+                    this.insertCollect(this.csActData[index].actId, 'act');
+                    this.memberData[0].actCollect.push(parseInt(this.csActData[index].actId));
+                    this.csActData[index].isCollect = true;
+                }
+            else {
+                $("#signup_overlay").removeClass("signup_overlay-none");
+                $("#signup_overlay").fadeIn(300);
+                $("#container").removeClass("right-panel-active");
+            }; //跳出登入視窗
+        },
+        deleteCollect(number, type) {
+            let actNo, artNo;
+            if (type == 'art') {
+                actNo = 0;
+                artNo = number;
+            } else {
+                artNo = 0;
+                actNo = number;
+            }
+            axios.get('./php/deleteCollect.php', {
+                params: {
+                    "artNo": artNo,
+                    "actNo": actNo,
+                }
+            }).then((res) => {
+                console.log(res.data);
+            });
+        },
+        insertCollect(number, type) {
+            let actNo, artNo;
+            if (type == 'art') {
+                actNo = 0;
+                artNo = number;
+            } else {
+                artNo = 0;
+                actNo = number;
+            }
+            axios.get('./php/insertCollect.php', {
+                params: {
+                    "artNo": artNo,
+                    "actNo": actNo,
+                }
+            }).then((res) => {
+                console.log(res.data);
+            });
+        },
     },
     watch: {
         csData: function () {
