@@ -18,9 +18,12 @@
         <!-- acMain -->
         <main id="acMain" class="acMain container-fluid">
             <div class="acBanner owl-carousel owl-theme">
-                <div><img src="./img/acMain/actBanner1.jpg" alt="..."></div>
-                <div><img src="./img/acMain/actBanner2.jpg" alt="..."></div>
-                <div><img src="./img/acMain/actBanner1.jpg" alt="... "></div>
+                <div class="1080banner"><img src="./img/acMain/actBanner1_1280x480.jpg" alt="..."></div>
+                <div class="1080banner"><img src="./img/acMain/Banner2_1280x480.png" alt="..."></div>
+                <div class="1080banner"><img src="./img/acMain/actBanner3_1280x480.jpg" alt="... "></div>
+                <!-- <div class="980banner"><img src="./img/acMain/actBanner1_1280x680.jpg" alt="..."></div>
+                <div class="980banner "><img src="./img/acMain/actBanner2_1280x680.jpg " alt="... "></div>
+                <div class="980banner "><img src="./img/acMain/actBanner3_1280x630.jpg " alt="... "></div> -->
             </div>
 
             <div id="acSearch " class="acSearch container-sm container-md ">
@@ -30,7 +33,7 @@
             </div>
             <!-- <h1 class="asSelect_title container-sm container-md ">{{now_title}}</h1> -->
 
-            <ac-select-card :ac-contents="result" @open-share-dialog="openShareDialog"></ac-select-card>
+            <ac-select-card :ac-contents="result " @open-share-dialog="openShareDialog "></ac-select-card>
             <h1 class="acComment_title container-sm container-md ">會員好評</h1>
             <ac-comment-list :ac-comments="comments "></ac-comment-list>
             @@include('template/shareDialog.html')
