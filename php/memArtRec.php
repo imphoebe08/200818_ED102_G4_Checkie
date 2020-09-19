@@ -16,7 +16,8 @@ try{
         h.artPic1,
         f.testResultTypeNo,
         f.testResultValue,
-        a.memTestTime
+        a.memTestTime,
+        h.artNo
     FROM articletype d join article h using(artno) 
                     join counselor b using(csNo) 
                     join type e on e.typeNo = d.artTypeNo 

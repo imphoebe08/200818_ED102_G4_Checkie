@@ -6,9 +6,11 @@ try{
     $sql ="select actONo
             FROM ACTORDER
             where memNo = :memNo and actOTime = (select max(actOTime)
-                                            from ACTORDER)
+                                            from ACTORDER
+                                            where memNo = :memNo)
                             and actONo = (select max(actONo)
-                                            from ACTORDER)
+                                            from ACTORDER
+                                            where memNo = :memNo)
             order by actOTime desc
             limit 1;";
 

@@ -5,7 +5,7 @@ Vue.component('cssart-layout', {
     props: ['art-Data'],
     data() {
         return {
-            csArtData: this.artData
+            csArtData: this.artData,
         }
     },
     template: `
@@ -27,13 +27,17 @@ Vue.component('cssart-layout', {
             </div>
             <div class="card-share">
                 <span>Share : </span>
-                <a href="" class="small"><img src="img//icon//facebook.png" alt=""></a>
-                <a href="" class="small"><img src="img//icon//share.png" alt=""></a>
-                <a href="" class="small"><img src="img//icon//bookmark.png" alt=""></a>
+                <a href="javascript:void(0)" class="small"><img src="img//icon//facebook.png" alt=""></a>
+                <a href="javascript:void(0)" class="small"><img src="img//icon//share.png" alt="" @click="openShareDialog(item.artId)"></a>
+                <a href="javascript:void(0)" class="small"><img src="img//icon//bookmark.png" alt=""></a>
             </div>
         </div>
     </div>`,
-    methods: {},
+    methods: {
+        openShareDialog(value) {
+            this.$emit('share', `artNo=${value}`);
+        }
+    },
     watch: {
         artData: function () {
             this.csArtData = this.artData;
@@ -72,9 +76,9 @@ Vue.component("csselfact-layout", {
                 <span>{{item.actTime}}</span>
                 <div class="share-buttons">
                         <span>Share : </span>
-                        <a href="" class="small"><img src="img//icon//facebook.png" alt=""></a>
-                        <a href="" class="small"><img src="img//icon//share.png" alt=""></a>
-                        <a href="" class="small"><img src="img//icon//bookmark.png" alt=""></a>
+                        <a href="javascript:void(0)" class="small"><img src="img//icon//facebook.png" alt=""></a>
+                        <a href="javascript:void(0)" class="small"><img src="img//icon//share.png" alt="" @click="openShareDialog(item.actId)"></a>
+                        <a href="javascript:void(0)" class="small"><img src="img//icon//bookmark.png" alt=""></a>
                 </div>
                 <p>{{item.actContext | ellipsisWords}}</p>
             </div>
@@ -83,7 +87,11 @@ Vue.component("csselfact-layout", {
         </div>
     </div>
 `,
-    methods: {},
+    methods: {
+        openShareDialog(value) {
+            this.$emit('share', `actNo=${value}`);
+        }
+    },
     watch: {
         actData: function () {
             this.csActData = this.actData;
@@ -148,6 +156,8 @@ let vmcss = new Vue({
         apexchart: VueApexCharts,
     },
     data: {
+        shareUrl: "https://tw.yahoo.com/?", //傳送的文章或活動主連結
+        shareNo: '', //傳送的文章或活動編號，我預設為1
         csData: {},
         csArtData: {},
         csActData: {},
@@ -289,6 +299,22 @@ let vmcss = new Vue({
                     },
                 }]
             });
+        },
+        openShareDialog(str) {
+            let shareButton = document.querySelector(".share-button");
+            let shareDialog = document.querySelector(".share-dialog");
+            shareDialog.classList.add("is-open");
+            this.shareNo = str;
+        },
+        copyWord() {
+            let copyWord = document.querySelector(".pen-url");
+            copyWord.select();
+            let copyStatus = document.execCommand("copy");
+        },
+        closeShereDialog() {
+            let closeButton = document.querySelector(".close-button");
+            let shareDialog = document.querySelector(".share-dialog");
+            shareDialog.classList.remove("is-open");
         }
     },
     watch: {

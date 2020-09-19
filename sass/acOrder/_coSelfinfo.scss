@@ -132,10 +132,12 @@
         padding: 10px;
         border-bottom: #ccc solid 1px;
         >span {
-            @include p;
-            >a {
-                text-decoration: none;
-                color: $color-blue;
+            >span {
+                @include p;
+                >a {
+                    text-decoration: none;
+                    color: $color-blue;
+                }
             }
         }
     }

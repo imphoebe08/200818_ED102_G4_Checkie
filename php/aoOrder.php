@@ -2,6 +2,7 @@
 try{
     // session_start();
     require_once("./connectBook666.php");
+    $acOrderActNo = $_REQUEST["acOrderActNo"];
 
     $sql = "
     select  actNo, 
@@ -23,7 +24,7 @@ try{
         weekday(actStart) 'week',
         actPic1
     from  activity 
-    where actNo = 9;";
+    where actNo = :actONo;";
 
     $memberOrder = $pdo->prepare($sql);
     // 正確做法
@@ -31,7 +32,7 @@ try{
     //$member->bindValue(":memNo", $memNo);
 
     //$memberOrder->bindValue(":memNo", 1);
-    // $memberOrder->bindValue(":actONo", 9);
+    $memberOrder->bindValue(":actONo", $acOrderActNo);
     $memberOrder->execute();
     
     if( $memberOrder->rowCount()==0){ 

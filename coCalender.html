@@ -11,8 +11,8 @@
     <!-- <link rel="stylesheet" href="./vender/bootstrap-grid.css"> -->
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="./js/header.js"></script>
-    <script src="./js/chatbot.js"></script>
+    <!-- <script src="./js/header.js"></script>
+    <script src="./js/chatbot.js"></script> -->
 
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://kit.fontawesome.com/3a9b8bb651.js" crossorigin="anonymous"></script>
@@ -21,18 +21,12 @@
 
 <body id="nav1">
 
-    @@include('./template/header.html');
+    <!-- @@include('./template/header.html'); -->
 
     <!--------CC-CODE-------->
 
 
     <div class="coCalender co-ao--allStyle">
-
-
-
-
-
-
 
         <div class="container-lg">
 
@@ -204,6 +198,10 @@
                                                     <span>共計</span>
                                                     <span>{{price}}元</span>
                                                 </div>
+                                                <div class="co-counselor-order_item ">
+                                                    <span>諮商方式</span>
+                                                    <span>{{coOrderModeType.csModeName}}</span>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -214,7 +212,10 @@
                                     <div class="col-md-9 col-sm-12 co-selfInfo ">
                                         <div class="co-selfInfo_title">
                                             <div>填寫預約者資訊</div>
-                                            <span>以下填寫資料是保密的，僅供我們心理諮商所留存使用，請安心填寫。如需修改請至 <a href="">修改個人資料</a> </span>
+                                            <span>
+                                                <span v-if="coMember.memNo!=0">以下填寫資料是保密的，僅供我們活動留存使用，請安心填寫。如需修改請 <a href="./meMain.html" >修改個人資料</a></span>
+                                            <span v-else> 以下填寫資料是保密的，僅供我們活動所留存使用，請安心填寫。如需留存請先<a  @click="logIn">登錄會員</a></span>
+                                            </span>
                                         </div>
                                         <div class="co-selfInfo_block">
                                             <form action="" method="POST" enctype="multipart/form-data">
@@ -249,7 +250,7 @@
                                                         <label for="memBD">年齡<span>*</span></label>
                                                     </div>
 
-                                                    <input type="number" v-model.number="coMember.memBD" :class="{ formControl:true, formatError: !coMember.memBD && errors.length > 0}" name="memBD" id="memBD" required="yes" autocomplete="bday">
+                                                    <input type="number" v-model.number="coMember.memBD" :class="{ formControl:true, formatError: !coMember.memBD && errors.length > 0}" name="memBD" id="memBD" required="yes" autocomplete="bday" min="1" max="2">
                                                 </div>
 
 
@@ -400,6 +401,10 @@
                                                     <span>共計</span>
                                                     <span>{{price}}元</span>
                                                 </div>
+                                                <div class="co-counselor-order_item ">
+                                                    <span>諮商方式</span>
+                                                    <span>{{coOrderModeType.csModeName}}</span>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -493,6 +498,7 @@
                                                 <span>NT${{price}}</span>
                                             </div>
 
+
                                         </div>
                                     </div>
                                 </div>
@@ -547,6 +553,10 @@
                                                     <span>共計</span>
                                                     <span>{{price}}元</span>
                                                 </div>
+                                                <div class="co-counselor-order_item ">
+                                                    <span>諮商方式</span>
+                                                    <span>{{coOrderModeType.csModeName}}</span>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -600,10 +610,7 @@
                                                         </tr>
                                                     </table>
 
-                                                    <div class="co-billing_title">
-                                                        <span>付款金額</span>
-                                                        <span>NT${{price}}</span>
-                                                    </div>
+
                                                 </div>
                                             </transition>
 
@@ -699,12 +706,18 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-12 co-memberCenter_block">
+                                            <div v-if="coMember.memNo!=0" class="col-12 co-memberCenter_block">
                                                 您可至會員專區查看您的預約
                                             </div>
-                                            <button class="col-7 col-md-3 co-memberCenter_button button2" @click="memberCenter">
+                                            <div v-else class="col-12 co-memberCenter_block">
+                                                歡迎加入會員查看您的預約
+                                            </div>
+                                            <a v-if="coMember.memNo!=0" href="./meMain.html" class="col-7 col-md-3 co-memberCenter_button button2">
                                                 前往會員專區
-                                            </button>
+                                            </a>
+                                            <a v-else class="col-7 col-md-3 co-memberCenter_button button2" @click="logIn">
+                                                點此註冊會員
+                                            </a>
                                         </div>
 
                                     </div>
@@ -728,7 +741,7 @@
 
     <!--------CC-CODE-------->
 
-    @@include('./template/header.html');
+    <!-- @@include('./template/header.html'); -->
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>

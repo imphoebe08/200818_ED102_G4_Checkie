@@ -22,7 +22,8 @@ try {
 
     $sql = "SELECT 
                 distinct month(schDate) 'month'
-            from schedule;
+            from schedule
+            order by 1 asc;
             ";
 
     $monthNum = $pdo->query($sql);

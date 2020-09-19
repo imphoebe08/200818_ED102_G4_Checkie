@@ -203,8 +203,8 @@
                                                 </div>
                                                 <div class="me-index_block" v-for="(each,index) in coData" v-if="index<2">
                                                     <div class="me-index_each">
-                                                        <a href="">
-                                                            <!-- <a :href="/csSelf.html?csNo=' + each.csNo"> -->
+                                                        <!-- <a href=""> -->
+                                                        <a :href="'./csSelf.html?csNo=' + each.csNo">
                                                             <div>{{each.csODate}}</div>
                                                             <div>{{each.csPosName}}</div>
                                                         </a>
@@ -256,14 +256,14 @@
                                             <div class="me-index_block">
                                                 <div class="me-index_heart-title">活動收藏</div>
                                                 <div class="me-index_heart-each" v-for="(each,index) in actCol" v-if="index<2">
-                                                    <a href="">
+                                                    <a :href="'./acSelf.html?actNo=' + each.actNo">
                                                         <div class="me-index_heart-one">{{each.actName}}</div>
                                                         <div class="me-index_heart-two">{{each.actStart}}</div>
                                                     </a>
                                                 </div>
                                                 <div class="me-index_heart-title">文章收藏</div>
                                                 <div class="me-index_heart-each" v-for="(each,index) in artCol" v-if="index<2">
-                                                    <a href="">
+                                                    <a :href="'./atSelf.html?artNo=' + each.artNo">
                                                         <div class="me-index_heart-one">{{each.artTitle}}</div>
                                                         <div class="me-index_heart-two">-{{each.artAuthor}}</div>
                                                     </a>
@@ -457,7 +457,7 @@
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                                <a href="">
+                                                                <a :href="'./csSelf.html?csNo=' + each.csNo">
                                                                     <div class="mem-order-dcName">
                                                                         {{each.csName}}
                                                                     </div>
@@ -542,7 +542,7 @@
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                                <a href="">
+                                                                <a :href="'./csSelf.html?csNo=' + each.csNo">
                                                                     <div class="mem-order-dcName">
                                                                         {{each.csName}}
                                                                     </div>
@@ -642,7 +642,7 @@
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                                <a href="">
+                                                                <a :href="'./acSelf.html?actNo=' + each.actNo">
                                                                     <div class="mem-order-dcName">
                                                                         {{each.actName}}
                                                                     </div>
@@ -729,7 +729,7 @@
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                                <a href="">
+                                                                <a :href="'./acSelf.html?actNo=' + each.actNo">
                                                                     <div class="mem-order-dcName">
                                                                         {{each.actName}}
                                                                     </div>
@@ -914,7 +914,7 @@
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                                <a href="">
+                                                                <a :href="'./acSelf.html?actNo=' + each.actNo">
                                                                     <div class="mem-order-dcName">
                                                                         {{each.actName}}
                                                                     </div>
@@ -961,11 +961,11 @@
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-
-                                                                <div class="mem-order-img">
-                                                                    <img :src="each.artPic1" alt="">
-                                                                </div>
-
+                                                                <a :href="'./atSelf.html?artNo=' + each.artNo">
+                                                                    <div class="mem-order-img">
+                                                                        <img :src="each.artPic1" alt="">
+                                                                    </div>
+                                                                </a>
                                                             </div>
                                                             <div class="mem-order-right col-sm-8 col-12 mem-modify-padding">
                                                                 <div class="row justify-content-end mem-modify--delete">
@@ -973,7 +973,7 @@
                                                                 </div>
                                                                 <div class="row justify-content-center">
                                                                     <div class="mem-heart_block">
-                                                                        <a href="">
+                                                                        <a :href="'./atSelf.html?artNo=' + each.artNo">
                                                                             <div class="mem-heart_each mem-heart-title">{{each.artTitle}}</div>
                                                                         </a>
                                                                         <div class="mem-heart_each mem-heart-artAuthor">-{{each.artAuthor}}</div>
@@ -1084,7 +1084,7 @@
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                                <a href="">
+                                                                <a :href="'./csSelf.html?csNo=' + each.csNo">
                                                                     <div class="mem-order-dcName">
                                                                         {{each.csName}}
                                                                     </div>
@@ -1163,7 +1163,7 @@
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
-                                                                <a href="">
+                                                                <a :href="'./acSelf.html?actNo=' + each.actNo">
                                                                     <div class="mem-order-dcName">
                                                                         {{each.actName}}
                                                                     </div>

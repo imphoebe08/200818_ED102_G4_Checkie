@@ -25,7 +25,7 @@
 
 <body id="nav3">
 
-    @@include('./template/header.html')
+    <!-- @@include('./template/header.html') -->
 
 
 
@@ -91,7 +91,7 @@
                                                     <div class="ticket_block-bgc">
                                                         <div class="ticket_block-colorDec"></div>
                                                         <div class="ticket_block ticket_block-info">
-                                                            <span>{{orderData.actStart}}({{orderData.week}})</span>
+                                                            <span>{{orderData.actStart}}週({{orderData.week}})</span>
                                                             <br>
                                                             <span>{{orderData.actStartTime}}-{{orderData.actEndTime}}</span>
                                                             <div>
@@ -120,7 +120,10 @@
                                     <div class="col-md-8 ao-block ao-selfInfo">
                                         <div class="row co-selfInfo_title">
                                             <h6>填寫預約者資訊</h6>
-                                            <span>以下填寫資料是保密的，僅供我們心理諮商所留存使用，請安心填寫。如需修改請至 <a href="">修改個人資料</a> </span>
+                                            <span>
+                                                <span v-if="aoMember.memNo!=0">以下填寫資料是保密的，僅供我們心理諮商所留存使用，請安心填寫。如需修改請 <a href="./meMain.html" >修改個人資料</a></span>
+                                            <span v-else> 以下填寫資料是保密的，僅供我們心理諮商所留存使用，請安心填寫。如需留存請先<a  @click="logIn">登錄會員</a></span>
+                                            </span>
                                         </div>
                                         <div class="row co-selfInfo_block">
                                             <form action="" method="POST" enctype="multipart/form-data">
@@ -201,7 +204,7 @@
                                 <div class="ao-co-error-overlay" v-if="showModal" @click="showModal = false"></div>
                                 <div v-if="showModal" class="co-ao-error--border">
                                     <div class="co-ao-error-block">
-                                        <p>請填寫 <span v-for="error in errors">{{error}}</span></p>
+                                        <p><span>請填寫</span> <span v-for="error in errors">{{error}}</span></p>
                                         <button class="button2-1 error-modal-closer" @click="showModal = false">關閉</button>
                                     </div>
                                 </div>
@@ -536,9 +539,12 @@
                                             <div class="col-12 co-memberCenter_block">
                                                 您可至會員專區查看您的訂單
                                             </div>
-                                            <button class="col-7 col-md-3 co-memberCenter_button button2" @click="memberCenter">
+                                            <a v-if="aoMember.memNo!=0" href="./meMain.html" class="col-7 col-md-3 co-memberCenter_button button2">
                                             前往會員專區
-                                            </button>
+                                            </a>
+                                            <a v-else class="col-7 col-md-3 co-memberCenter_button button2" @click="logIn">
+                                                歡迎註冊會員
+                                            </a>
                                         </div>
 
                                     </div>

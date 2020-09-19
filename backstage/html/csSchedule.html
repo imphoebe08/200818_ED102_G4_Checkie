@@ -144,13 +144,10 @@
                         this.inputToEdit(e, index);
                     } else {
                         let check = confirm(`確認修改日期為 ${this.workDayList[index].schDate} 的資料嗎?`);
-                        if (check) {
+                        if (check)
                             //使用axios=> update
                             this.updateMemInfo(index);
-                            this.inputToForbid(e, index);
-                        } else {
-                            this.inputToEdit(e, index);
-                        }
+                        this.inputToForbid(e, index);
                     }
                 },
                 inputToForbid(e, index) {

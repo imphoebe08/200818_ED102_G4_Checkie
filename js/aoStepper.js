@@ -205,32 +205,34 @@ Vue.component('toggle_button', {
 let vm = new Vue({
     el: '#app',
     data: () => ({
+        //keyword: '',
         orderNum: [],
         acPayment: '',
         paymentMethod: [],
         total: '',
-        aoMember: [],
+        aoMember: {
+            memAdd: '',
+            memBD: '',
+            memEmail: '',
+            memGender: '男',
+            memName: '',
+            memNo: 0,
+            memOccupation: '',
+            memTel: {
+                countryCode: '',
+                mobile: '',
+            },
+        },
         orderData: [],
         listDataHide: false,
         currentStep: 1,
         errors: [],
-        // memName: '',
-        // memGender: '',
-        // memBD: '',
-        // memTel: {
-        //     countryCode: '',
-        //     mobile: '',
-        // },
-        // memEmail: {
-        //     value: '',
-        //     valid: true,
-        // },
+
         checkbox: '',
 
         ////////////
         showModal: false,
         ticket: 1,
-        //go: true,
         ////////////
     }),
 
@@ -238,8 +240,8 @@ let vm = new Vue({
 
         checkForm() {
             this.errors = [];
-            // if (this.memName && this.memGender && this.memBD && this.memTel.mobile && this.memEmail.value && this.checkbox == "yes" && this.memTel.countryCode) {
-            if (this.checkbox == "yes") {
+            if (this.aoMember.memName && this.aoMember.memGender && this.aoMember.memBD && this.aoMember.memTel.mobile && this.aoMember.memEmail && this.checkbox == "yes" && this.aoMember.memTel.countryCode) {
+                // if (this.checkbox == "yes") {
                 this.update(this.currentStep + 1);
             } else {
                 this.showModal = true;
@@ -247,10 +249,10 @@ let vm = new Vue({
             if (!this.aoMember.memName) this.errors.splice(1, 0, "姓名");
             if (!this.aoMember.memGender) this.errors.splice(2, 0, "性別");
             if (!this.aoMember.memBD) this.errors.splice(3, 0, "年齡");
-            if (!this.aoMember.memTel.mobile) this.errors.splice(6, 0, "電話");
-            if (!this.aoMember.memTel.countryCode) this.errors.splice(6, 0, "地區號碼");
-            if (!this.aoMember.memEmail) this.errors.splice(7, 0, "信箱");
-            if (!this.checkbox) this.errors.splice(8, 0, "與勾選確認");
+            if (!this.aoMember.memTel.mobile) this.errors.splice(4, 0, "電話");
+            if (!this.aoMember.memTel.countryCode) this.errors.splice(5, 0, "地區號碼");
+            if (!this.aoMember.memEmail) this.errors.splice(6, 0, "信箱");
+            if (!this.checkbox) this.errors.splice(7, 0, "完整資訊包含勾選確認");
         },
         parentOpen(data) {
             this.listDataHide = data;
@@ -269,15 +271,15 @@ let vm = new Vue({
         //     creatQrCode();
         // },
         qrCode() {
+            //this.keyword = this.aoMember.memNo + this.orderData.actNo;
+            //console.log(this.keyword);
             setTimeout(function() {
-                    var qrCode = new QRCode("qrCode");
-                    qrCode.makeCode('123');
-                }, 400)
-                // while (document.getElementById('qrCode').childNodes.length >= 1) {
-                //     document.getElementById('qrCode').removeChild(document.getElementById('qrCode').firstChild);
-                // };
-
+                var qrCode = new QRCode("qrCode");
+                // 待確認
+                qrCode.makeCode('location.href/acSelf.html?actNo=' + vm.$data.orderData.actNo);
+            }, 400);
         },
+
         saveQrCode() {
             const img = document.getElementById("qrCode").firstChild.nextElementSibling;
             const link = document.querySelector('#saveQrCode');
@@ -291,9 +293,6 @@ let vm = new Vue({
                 link.setAttribute("href", src);
                 // console.log("nowhref=" + href);
             }
-        },
-        memberCenter() {
-            window.open('./meMain.html', "_self");
         },
         add() {
             if (this.ticket < 4) {
@@ -311,6 +310,7 @@ let vm = new Vue({
                 this.ticket = 1;
             }
         },
+
         payment(e, i) {
             var l = document.querySelectorAll('div.co-billing_method');
             //console.log(l.length);
@@ -339,27 +339,27 @@ let vm = new Vue({
             formData.append("acPayment", this.acPayment);
             axios.post('./php/aoStepper.php', formData).then(
                 res => {
-                    console.log('hi')
+                    //console.log('hi')
                     console.log(res.data);
-                });
+                }).then(() => {
+                //回傳訂單編號
+                var formData2 = new FormData();
+                formData2.append("memNo", this.aoMember.memNo);
+                axios.post('./php/acOrderNumber.php', formData2).then(
+                    res => {
+                        //console.log(res.data);
+                        this.orderNum = res.data;
+                        //console.log(this.orderNum.actONo);
+                    });
 
+            });
 
-            //回傳訂單編號
-            var formData2 = new FormData();
-            formData2.append("memNo", this.aoMember.memNo);
-            axios.post('./php/acOrderNumber.php', formData2).then(
-                res => {
-                    //console.log(res.data);
-                    this.orderNum = res.data;
-                    console.log(this.orderNum.actONo);
-                });
-            // axios.get('./php/acOrderNumber.php')
-            //     .then(response => {
-            //         this.orderNum = response.data;
-            //         console.log(this.orderNum.actONo);
+        },
 
-            //     });
-
+        logIn() {
+            $("#signup_overlay").removeClass("signup_overlay-none");
+            $("#signup_overlay").fadeIn(300);
+            $("#container").removeClass("right-panel-active");
         },
     },
     updated() {
@@ -378,10 +378,10 @@ let vm = new Vue({
             var day = new Date(this.orderData.actStartAll);
             console.log(day);
             var hourNow = day.getHours();
-            //console.log(hourNow);
+            console.log(hourNow);
             if (hourNow < 12) {
                 return "上午";
-            } else if (18 > hourNow > 12) {
+            } else if (hourNow > 12 && hourNow < 18) {
                 return "下午";
             } else if (hourNow > 18) {
                 return "晚間";
@@ -393,10 +393,14 @@ let vm = new Vue({
         }
     },
     mounted() {
+
+        let acOrderActNo = location.search.split('=')[1];
+        // console.log(acOrderActNo);
+        // .split('?')[1].split('&')[0].split('=')[1]
+
         //活動
-        var formDataMemNo = new FormData();
-        formDataMemNo.append("memNo", this.aoMember.memNo);
-        axios.get('./php/aoOrder.php')
+
+        axios.get('./php/aoOrder.php', { params: { 'acOrderActNo': acOrderActNo } })
             .then(response => {
                 this.orderData = response.data;
                 // console.log(response);
@@ -411,31 +415,35 @@ let vm = new Vue({
         //會員資料
         axios.get('./php/aoMember.php')
             .then(res => {
-                this.aoMember = res.data;
-                //console.log(this.aoMember);
+                console.log(res.data);
+                if (res.data != "0") {
+                    this.aoMember = res.data;
+                    //console.log(this.aoMember);
 
-                let telArray = res.data.memTel.split(',');
-                this.aoMember.memTel = {
-                    'countryCode': telArray[0],
-                    'mobile': telArray[1],
-                };
+                    let telArray = res.data.memTel.split(',');
+                    this.aoMember.memTel = {
+                        'countryCode': telArray[0],
+                        'mobile': telArray[1],
+                    };
 
-                //alert(this.aoMember.memTel.countryCode);
-                //算年紀
-                //console.log(this.aoMember.memBD);
-                var bir = res.data.memBD;
-                bir = Date.parse(bir.replace('/-/g', "/"));
-                //console.log(bir);
-                if (bir) {
-                    var year = 1000 * 60 * 60 * 24 * 365;
-                    var now = new Date();
-                    var birthday = new Date(bir);
-                    var age = parseInt((now - birthday) / year);
-                    this.aoMember.memBD = age;
+                    //alert(this.aoMember.memTel.countryCode);
+                    //算年紀
+                    //console.log(this.aoMember.memBD);
+                    var bir = res.data.memBD;
+                    bir = Date.parse(bir.replace('/-/g', "/"));
+                    //console.log(bir);
+                    if (bir) {
+                        var year = 1000 * 60 * 60 * 24 * 365;
+                        var now = new Date();
+                        var birthday = new Date(bir);
+                        var age = parseInt((now - birthday) / year);
+                        this.aoMember.memBD = age;
+                    }
                 }
             });
     },
 });
+
 
 
 // function creatQrCode() {
