@@ -41,7 +41,8 @@ try {
             "artAuthor" => $csArtRow[$key]["artAuthor"],
             "artContext" => $csArtRow[$key]["artContext"],
             "artImg" => $csArtRow[$key]["artImg"],
-            "artDate" => $csArtRow[$key]["artDate"]
+            "artDate" => $csArtRow[$key]["artDate"],
+            "isCollect" => false,
         ));
     };
 
@@ -74,7 +75,8 @@ try {
             "actDate" => $csRecRow[$key]["actDate"],
             // "actTime" => "$csRecRow[$key]['actTimeStart'] ~ $csRecRow[$key]['actTimeEnd']",
             "actContext" => $csRecRow[$key]["actContext"],
-            "actImg" => $csRecRow[$key]["actImg"]
+            "actImg" => $csRecRow[$key]["actImg"],
+            "isCollect" => false,
         ));
     };
 
