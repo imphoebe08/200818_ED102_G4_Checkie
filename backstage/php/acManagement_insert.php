@@ -24,28 +24,22 @@ try{
     $actCost = $_REQUEST["actCost"];
     $actBool = $_REQUEST["actBool"];
     $actAddress = $_REQUEST["actAddress"];
+    $actHostPic = $_REQUEST["actHostPic"];
+    $actpic1 = $_REQUEST["actpic1"];
+    $actpic2 = $_REQUEST["actpic2"];
+    $actpic3 = $_REQUEST["actpic3"];
     // $actTypeNo = $_REQUEST["actTypeno"];
-    // $actHostPic = $_FILES["actHostPic"];
-    // $actpic1 = $_FILES["actpic1"];
-    // $actpic2 = $_FILES["actpic2"];
-    // $actpic3 = $_FILES["actpic3"];
     
-    // $pic = array($actHostPic,$actpic1,$actpic2,$actpic3);
-    // foreach ($pic as $key => $value) {
-    //     if ($value["error"] > 0) {
-    //         echo "Error:" . $value["error"];
-    //     } else {
-        
-    //         $file_path = "../../img/acSelf/";
-    //         if (!file_exists($file_path)) {
-    //             mkdir($file_path);
-    //         }
-    //         $from = $value["tmp_name"];
-    //         $to = $file_path . $actName . "actpic" . $key;
-    //         move_uploaded_file($from, $to);
-    //     }
-    // }
-   
+
+    
+    $actTypeNotoArr = explode(",",$actTypeNo);
+    $updateSql = '';
+    for($i=0; $i<count($actTypeNotoArr);$i++){
+    echo $actTypeNotoArr[$i];
+
+    $updateSql .= "INSERT INTO actclassify(actNo, actTypeno) 
+                    VALUES (last_insert_id() , $actTypeNotoArr[$i]);";
+    }
     if(isset($_GET["csNo"])){
 
         $sql="insert into activity
@@ -53,6 +47,7 @@ try{
             value
             (:actName, :actPstart, :actPend, :actStart, :actEnd, :actContent, :actMin, :actMax,:csNo, :actCost, :actBool, :actAddress); ";
 
+            $sql .= $updateSql;
             $products = $pdo->prepare($sql);
             $products->bindValue(':csNo', $csNo);
     }else{
@@ -62,6 +57,7 @@ try{
             value
             (:actName, :actPstart, :actPend, :actStart, :actEnd, :actContent, :actMin, :actMax, :actHost, :actHostTitle, :actHostInfo, :actCost, :actBool, :actAddress)
         ; ";
+            $sql .= $updateSql;
             $products = $pdo->prepare($sql);
             $products->bindValue(':actHost', $actHost);
             $products->bindValue(':actHostTitle', $actHostTitle);
@@ -77,30 +73,15 @@ try{
             $products->bindValue(':actContent', $actContent);
             $products->bindValue(':actMin', $actMin);
             $products->bindValue(':actMax', $actMax);
-            // $products->bindValue(':actHostPic', $actHostPic);
             $products->bindValue(':actCost', $actCost);
             $products->bindValue(':actBool', $actBool);
             $products->bindValue(':actAddress', $actAddress);
+            $products->bindValue(':actHostPic', $actHostPic);
+            $products->bindValue(':actpic1', $actpic1);
+            $products->bindValue(':actpic2', $actpic2);
+            $products->bindValue(':actpic3', $actpic3);
             // $products->bindValue(':actTypeno', $actTypeno);
-            // $products->bindValue(':actpic1', $actpic1);
-            // $products->bindValue(':actpic2', $actpic2);
-            // $products->bindValue(':actpic3', $actpic3);
-            $products -> execute();       
-
-
-
-            // insert into activitytype
-            // (actTypeNo)
-            // value
-            // (:actTypeNo)
-    
-            // insert into actPicContent
-            // (actpic1, actpic2, actpic3)
-            // value
-            // (:actpic1, :actpic2, :actpic3)
-
-
-            
+            $products -> execute();                   
             
   
 }catch(PDOException $e){
