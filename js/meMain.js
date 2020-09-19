@@ -178,7 +178,7 @@ Vue.component('inact-item', {
     template: `
  <div class="inAct_item">
     <!-- 帶資料 -->
-    <a href="javascript:void(0)" draggable="false">
+    <a :href="'./acSelf.html?actNo=' + love.actNo">
         <img :src="love.actPic1" draggable="false">
     </a>
     <div class="inAct_text">
@@ -313,7 +313,7 @@ Vue.component('cssart-layout', {
     },
     template: `
         <div class="csS-art__card">
-            <a href="./atSelf.html">
+            <a :href="'./atSelf.html?artNo=' + love.artNo">
                 <img class="img-responsive" :src="love.artPic1">
             </a>
             <div class="card-Info">

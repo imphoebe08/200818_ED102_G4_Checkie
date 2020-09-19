@@ -3,13 +3,12 @@ try{
     // session_start();
     require_once("./connectBook666.php");
 
-    $coOrderCsNo = $_REQUEST["coOrderCsNo"];
+    $coOrderModeType = $_REQUEST["coOrderModeType"];
 
 
     $sql = "
-    select csNo, csName, csPic, csPosNo
-    from counselor
-    where csNo = :csNo;";
+    SELECT * FROM csomode
+    where csModeNo= :csModeNo;";
 
     $memberOrder = $pdo->prepare($sql);
     // 正確做法
@@ -17,11 +16,11 @@ try{
     //$member->bindValue(":memNo", $memNo);
 
     //$memberOrder->bindValue(":memNo", 1);
-    $memberOrder->bindValue(":csNo", $coOrderCsNo);
+    $memberOrder->bindValue(":csModeNo", $coOrderModeType);
     $memberOrder->execute();
     
     if( $memberOrder->rowCount()==0){ 
-    echo "沒有訂單辣???";
+    echo "沒有方式???";
     }else{ 
     $memberOrderAll = $memberOrder->fetch(PDO::FETCH_ASSOC);
         echo json_encode($memberOrderAll);

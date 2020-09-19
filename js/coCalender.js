@@ -194,6 +194,7 @@ let vm = new Vue({
     el: '#app',
     vuetify: new Vuetify(),
     data: () => ({
+        coOrderModeType: '',
         orderNum: '',
         csModeNo: 1,
         csPayment: '',
@@ -205,7 +206,19 @@ let vm = new Vue({
         },
         csHour: 1,
         csData: [],
-        coMember: [],
+        coMember: {
+            memAdd: '',
+            memBD: '',
+            memEmail: '',
+            memGender: '',
+            memName: '',
+            memNo: 0,
+            memOccupation: '',
+            memTel: {
+                countryCode: '',
+                mobile: '',
+            },
+        },
         paymentMethod: [],
         ////////////////////////
         listDataHide: false,
@@ -240,7 +253,7 @@ let vm = new Vue({
 
         checkForm() {
             this.errors = [];
-            if (this.coMember.memName && this.coMember.memGender && this.coMember.memBD && this.coMember.memAdd && this.coMember.memOccupation && this.coMember.memTel.mobile && this.coMember.memEmail && this.csHour) {
+            if (this.coMember.memName && this.coMember.memGender && this.coMember.memBD && this.coMember.memAdd && this.coMember.memOccupation && this.coMember.memTel.mobile && this.coMember.memEmail && this.csHour && this.coMember.memTel.countryCode) {
                 this.update(this.currentStep + 1);
             } else {
                 this.showModal = true;
@@ -251,6 +264,7 @@ let vm = new Vue({
             if (!this.coMember.memAdd) this.errors.splice(4, 0, "住址");
             if (!this.coMember.memOccupation) this.errors.splice(5, 0, "職業");
             if (!this.coMember.memTel.mobile) this.errors.splice(6, 0, "電話");
+            if (!this.coMember.memTel.countryCode) this.errors.splice(6, 0, "區域代碼");
             if (!this.coMember.memEmail) this.errors.splice(7, 0, "信箱");
             if (!this.csHour) this.errors.splice(8, 0, "時數");
         },
@@ -278,7 +292,7 @@ let vm = new Vue({
         },
         checkOut() {
             //console.log("aaa");
-            //送出會員修改資料
+            //送出會員資料
             var formData = new FormData();
             var date = this.csOTime.date + " " + this.csOTime.time;
             console.log(date);
@@ -308,17 +322,16 @@ let vm = new Vue({
             axios.post('./php/coCalender.php', formData).then(
                 res => {
                     console.log(res.data);
-                });
+                }).then(() => {
+                var formData2 = new FormData();
+                formData2.append("memNo", this.coMember.memNo);
+                axios.post('./php/csOrderNumber.php', formData2).then(
+                    res => {
+                        //console.log(res.data);
+                        this.orderNum = res.data;
 
-
-            var formData2 = new FormData();
-            formData2.append("memNo", this.coMember.memNo);
-            axios.post('./php/csOrderNumber.php', formData2).then(
-                res => {
-                    //console.log(res.data);
-                    this.orderNum = res.data;
-                    console.log(this.orderNum.csONo);
-                });
+                    });
+            });
 
         },
 
@@ -394,12 +407,27 @@ let vm = new Vue({
         rnd(a, b) {
             return Math.floor((b - a + 1) * Math.random()) + a
         },
+        logIn() {
+            $("#signup_overlay").removeClass("signup_overlay-none");
+            $("#signup_overlay").fadeIn(300);
+            $("#container").removeClass("right-panel-active");
+        },
     },
     mounted() {
         this.currentStep = 1;
 
+        let coOrderCsNo = location.href.split('?')[1].split('&')[0].split('=')[1];
+        let coOrderModeType = location.href.split('?')[1].split('&')[1].split('=')[1];
+        // console.log(coOrderCsNo);
+        // console.log(coOrderModeType);
+        //諮商方是
+        axios.get('./php/coOrderModeType.php', { params: { 'coOrderModeType': coOrderModeType } })
+            .then(res => {
+                this.coOrderModeType = res.data;
+                console.log(this.coOrderModeType);
+            });
         //諮商師
-        axios.get('./php/csCounselor.php')
+        axios.get('./php/csCounselor.php', { params: { 'coOrderCsNo': coOrderCsNo } })
             .then(res => {
                 this.csData = res.data;
                 console.log(this.csData);
@@ -413,27 +441,29 @@ let vm = new Vue({
         //會員資料
         axios.get('./php/coMember.php')
             .then(res => {
-                this.coMember = res.data;
-                console.log(this.coMember);
+                if (res.data != "0") {
+                    this.coMember = res.data;
+                    console.log(this.coMember);
 
-                let telArray = res.data.memTel.split(',');
-                this.coMember.memTel = {
-                    'countryCode': telArray[0],
-                    'mobile': telArray[1],
-                };
+                    let telArray = res.data.memTel.split(',');
+                    this.coMember.memTel = {
+                        'countryCode': telArray[0],
+                        'mobile': telArray[1],
+                    };
 
-                //alert(this.coMember.memTel.countryCode);
-                //算年紀
-                //console.log(this.coMember.memBD);
-                var bir = res.data.memBD;
-                bir = Date.parse(bir.replace('/-/g', "/"));
-                //console.log(bir);
-                if (bir) {
-                    var year = 1000 * 60 * 60 * 24 * 365;
-                    var now = new Date();
-                    var birthday = new Date(bir);
-                    var age = parseInt((now - birthday) / year);
-                    this.coMember.memBD = age;
+                    //alert(this.coMember.memTel.countryCode);
+                    //算年紀
+                    //console.log(this.coMember.memBD);
+                    var bir = res.data.memBD;
+                    bir = Date.parse(bir.replace('/-/g', "/"));
+                    //console.log(bir);
+                    if (bir) {
+                        var year = 1000 * 60 * 60 * 24 * 365;
+                        var now = new Date();
+                        var birthday = new Date(bir);
+                        var age = parseInt((now - birthday) / year);
+                        this.coMember.memBD = age;
+                    }
                 }
             });
         this.$refs.calendar.checkChange();
@@ -450,7 +480,7 @@ let vm = new Vue({
             //console.log(hourNow);
             if (hourNow < 12) {
                 return "上午";
-            } else if (18 > hourNow > 12) {
+            } else if (hourNow > 12 && hourNow < 18) {
                 return "下午";
             } else if (hourNow > 18) {
                 return "晚間";
