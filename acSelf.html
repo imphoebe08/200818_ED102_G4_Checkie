@@ -39,8 +39,9 @@
             </div>
             <div class="acSelf-btns">
                 <div class="acSelf-btns-markshare">
-                    <input type="image" name="acSelf-btns_share" id="acSelf-btns_share" src="./img/icon/share.png">
-                    <input type="image" name="acSelf-btns_save" id="acSelf-btns_save" src="./img/icon/bookmark.png">
+                    <i class="fas fa-share-alt acSelectCard-share_icon share-button2" name="acSelf-btns_share" id="acSelf-btns_save" style="font-size:20px" @click="openShareDialog2(contents[index].actNo)"></i>
+                    <i class="fas fa-bookmark acSelectCard-bookmark_icon" name="acSelf-btns_save" id="acSelf-btns_share" style="font-size:20px"></i>
+
 
                 </div>
                 <label for="acSelf-btns_apply"></label>
@@ -102,12 +103,12 @@
             </div>
             <div id="acRelate" class="acRelate">
                 <p class="acRelate-title col-12">您可能會喜歡這些活動</p>
-                <ac-relate-card class="owl-carousel owl-theme" :ac-contents="cards"></ac-relate-card>
+                <ac-relate-card class="owl-carousel owl-theme" :ac-contents="cards" @open-share-dialog="openShareDialog"></ac-relate-card>
 
             </div>
 
+            @@include('template/shareDialog.html')
         </div>
-
     </main>
 
     @@include('template/footer.html')
