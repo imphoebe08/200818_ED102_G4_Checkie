@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/bgHead.html')
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/3a9b8bb651.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <!-- top_header -->
+    @@include('layout/top_header.html')
+
+    <!-- 中間內容 -->
+    <div id="app">
+        <div class="container-fluid">
+            <h1>訊息回覆</h1>
+
+
+
+            <div class=" meChat">
+
+                <transition name="coSlide" mode="out-in">
+                    <!-- 聊天室 -->
+                    <div class="meChatMain" v-if="select" :key="1">
+                        <!-- 對話內容匡 -->
+                        <div class="meChatMainRoom">
+                            <div class="col-12 me-page-title ">
+                                <div class="selectIcon " @click="select=!select">
+                                    <i class="fas fa-caret-left backToSelect "></i>
+                                    <div>
+                                        回到選單
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <me-chat-an v-for="each in meChatAn" :init="each"></me-chat-an> -->
+                            <div class="meChatAn meChatAnUser">
+                                <div class="meChatAn-pic"><img src="./img/acSelf/活動老師.jpg" alt=""></div>
+                                <div class="meChatAn-text meChatAnUser-text">醫生幫幫我。</div>
+                                <div class="meChatAn-other meChatAnUser">
+                                    <div class="meChatAn-time">07:20</div>
+                                    <div class="meChatAn-select"><i class="fas fa-ellipsis-h"></i></div>
+                                </div>
+                            </div>
+                            <div class="meChatAn meChatAnUser">
+                                <div class="meChatAn-pic"><img src="./img/acSelf/活動老師.jpg" alt=""></div>
+                                <div class="meChatAn-text meChatAnUser-text">醫生幫幫我。</div>
+                                <div class="meChatAn-other meChatAnUser">
+                                    <div class="meChatAn-time">07:20</div>
+                                    <div class="meChatAn-select"><i class="fas fa-ellipsis-h"></i></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- 輸入內容input -->
+                        <div class="memChatSend">
+                            <form action="" @submit.prevent="submitMes">
+                                <!-- v-model="chatBox" -->
+                                <input name="moName" type="text" class="modifyForm chatInput" placeholder="">
+                                <button class="memChatSend_button"><i class="fas fa-paper-plane"></i></button>
+                            </form>
+
+
+                        </div>
+                    </div>
+                    <!-- </transition> -->
+
+                    <!-- 選擇和誰聊天 -->
+                    <!-- <transition name="coSlide" mode="out-in"> -->
+                    <div class="meChatSelect" v-if="!select" :key="1">
+                        <div class="meChatPeople-scroll">
+                            <!-- <chat-person-each @change="changeCs" v-for="each in chatPersonEach" :init="each"></chat-person-each> -->
+                            <!-- @click="sendCsNo" -->
+                            <div class="meChatPeople-each" @click="backToSelect() ;sendCsNo()">
+                                <div class="meChatPeople">
+                                    <div class="meChatOnline"><i class="fas fa-bell"></i></div>
+                                    <div class="meChatPeople-pic"><img src="../img/avatars/1.jpg" alt=""></div>
+                                    <div class="meChatPeople-name">Name</div>
+                                </div>
+                                <div class="meChatDelete"><i class="fas fa-trash-alt"></i></div>
+                            </div>
+                            <!-- @click="sendCsNo" -->
+
+                        </div>
+                    </div>
+                </transition>
+            </div>
+
+
+
+            <!-- <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <span>狀態查詢：</span>
+                            <select name="" id="table_condition_year">
+                                <option value="">全部</option>
+                                <option value="">已付款</option>
+                                <option value="">未付款</option>
+                                <option value="">取消</option>
+                                <option value="">已退款</option>
+                            </select>
+
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-responsive-sm table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>編號</th>
+                                        <th>姓名</th>
+                                        <th>電話</th>
+                                        <th>電子郵件</th>
+                                        <th>性別</th>
+                                        <th>年齡</th>
+                                        <th>報名日期</th>
+                                        <th>繳款日期</th>
+                                        <th>狀態</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>01</td>
+                                        <td>蔡佩君</td>
+                                        <td>0981265830</td>
+                                        <td>imphoebe08@gmail.com</td>
+                                        <td>女</td>
+                                        <td>28</td>
+                                        <td>2020/10/10 14:28</td>
+                                        <td>2020/10/10 14:32</td>
+                                        <td>已付款</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="acDtail_back_wrapper">
+                        <a href="./acRegistration.html"><button id="acDtail_back">回上一頁</button></a>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    @@include('layout/footer.html')
+
+    <!-- DateTimePicker -->
+    <!-- Core -->
+    <script src="./js/picker.js "></script>
+    <!-- Date Picker -->
+    <script src="./js/picker.date.js "></script>
+    <!-- Time Picker -->
+    <script src="./js/picker.time.js "></script>
+    <!-- Language -->
+    <script src="./js/zh_TW.js "></script>
+    <script>
+        //寫入資料庫
+        Vue.component('chat-person-each', {
+            props: ["init"],
+            data() {
+                return {
+                    each: this.init,
+                }
+            },
+            template: `
+                        <div class="meChatPeople-each" @click="sendCsNo">
+                            <div class="meChatPeople">
+                                <div class="meChatOnline"><i class="fas fa-bell" ></i></div>
+                                <div class="meChatPeople-pic"><img :src="each.csPic" alt=""></div>
+                                <div class="meChatPeople-name">{{each.csName}}</div>
+                                <!-- <div class="meChatPeople-title">諮商師</div> -->
+                            </div>
+                            <div class="meChatDelete"><i class="fas fa-trash-alt"></i></div>
+                        </div>
+
+                `,
+            methods: {
+                sendCsNo() {
+                    this.$emit("change", this.each.csNo)
+                }
+            },
+
+        });
+
+
+        Vue.component('me-chat-an', {
+            props: ["init"],
+            data() {
+                return {
+                    each: this.init,
+                    text1: "meChatAn-text",
+                    text2: "meChatAn-text meChatAnUser-text",
+                    other1: "meChatAn-other",
+                    other2: "meChatAn-other meChatAnUser",
+                }
+            },
+            template: `
+                <div :class="{meChatAn : true,meChatAnUser:each.mesFrom==0}">
+                    <div class="meChatAn-pic"><img :src="[each.mesFrom==0? each.memPic : each.csPic]" alt=""></div>
+                    <div :class="[each.mesFrom==0? text2 : text1]" >{{each.mesContent}}</div>
+                    <div :class="[each.mesFrom==0? other2 : other1]">
+                        <div class="meChatAn-time">{{each.mesTime}}</div>
+                        <div class="meChatAn-select"><i class="fas fa-ellipsis-h"></i></div>
+                    </div>
+                </div>
+                `,
+            methods: {},
+        });
+
+        let vm = new Vue({
+            el: "#app ",
+            data: {
+                select: false,
+            },
+            computed: {
+
+            },
+            methods: {
+                backToSelect() {
+                    this.select = true;
+                },
+                sendCsNo() {
+                    console.log("a");
+                },
+
+            },
+            mounted() {
+
+                // let actNo = location.href.split('?')[1].split('=')[1];
+                // var vm = this;
+                // if (actNo != 0) {
+                //     axios.get(`./php/acAdd.php?actNo=${actNo}`).then((res) => {
+                //         this.contents = res.data
+                //         console.log(res.data)
+
+                //     })
+
+                // }
+                // Vue.nextTick().then(function() {
+                //     vm.installDateTimePicker();
+                // });
+            },
+
+
+        })
+    </script>
+</body>
+
+</html>

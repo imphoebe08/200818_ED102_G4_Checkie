@@ -1,0 +1,335 @@
+.coSlide-enter-active,
+.coSlide-leave-active {
+    transition: .3s;
+}
+
+.coSlide-enter,
+.coSlide-leave-to {
+    opacity: 0;
+    transform: translateX(20px) scale(0.99);
+}
+
+.bottomSlide-enter-active,
+.bottomSlide-leave-active {
+    transition: .1s;
+}
+
+.bottomSlide-enter,
+.bottomSlide-leave-to {
+    opacity: 0;
+    transform: translateX(50%);
+}
+
+.topSlide-enter-active,
+.topSlide-leave-active {
+    transition: .2s;
+}
+
+.topSlide-enter,
+.topSlide-leave-to {
+    opacity: 0;
+    transform: translateX(-50%);
+}
+
+.orderSlide-enter-active,
+.orderSlide-leave-active {
+    transition: .3s;
+}
+
+.orderSlide-enter,
+.orderSlide-leave-to {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.meChat {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    // border: salmon solid 1px;
+    //border: rgb(232, 226, 221) solid 3px;
+    border-radius: 3px;
+    height: 69vh;
+    padding: 5px;
+    margin: 3px 3px 20px 3px;
+    .meChatMain {
+        background-color: white;
+        width: 90%;
+        height: 100%;
+        // border: rgb(232, 226, 221) solid 1px;
+        overflow: hidden;
+        // margin-bottom: 20px;
+        .meChatMainRoom {
+            padding: 5px;
+            box-shadow: inset 0px 0px 4px #9f9a906f;
+            border-radius: 3px;
+            //border: seagreen solid 1px;
+            overflow-y: auto;
+            height: 87%;
+            // padding-right: 17px;
+            // box-sizing: content-box;
+        }
+        .memChatSend {
+            box-shadow: 0px 0px 4px #9f9a906f;
+            //border: slateblue solid 1px;
+            background-color: #dbf3fe6b;
+            height: 13%;
+            padding: 10px 3px;
+            form {
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                width: 100%;
+                vertical-align: top;
+                text-align: left;
+                .chatInput {
+                    box-shadow: inset 0px 0px 2px #9f9a906f;
+                    background-color: white;
+                    width: 80%;
+                }
+                .memChatSend_button {
+                    background-color: transparent;
+                    border-style: none;
+                    width: 18%;
+                    //background-color: slategrey;
+                    height: 100%;
+                    text-align: center;
+                    line-height: 100%;
+                    >i {
+                        width: 24px;
+                        color: $color-pink;
+                    }
+                }
+            }
+        }
+    }
+    .meChatSelect {
+        background-color: white;
+        box-shadow: -4px 0px 2px #9f9a904f;
+        width: 90%;
+        //border: seagreen solid 1px;
+        overflow: hidden;
+        height: 100%;
+        .meChatPeople-scroll {
+            padding: 5px;
+            //border: solid 3px sienna;
+            overflow-y: auto;
+            height: 100%;
+        }
+    }
+}
+
+.modifyForm {
+    color: #888682;
+    border: #e0ddd8 solid 1px;
+    border-radius: 3px;
+    padding: 0 3px;
+    width: 68%;
+    height: 90%;
+    display: inline-block;
+}
+
+.meChatPeople-each {
+    //border: darkorange solid 2px;
+    // box-shadow: 2px 2px 4px #9f9a906f;
+    padding: 5px;
+    max-width: 500px;
+    margin: 8px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0.7;
+    transition: all .2s ease-in;
+    border-bottom: rgba(237, 237, 237, 0.53) solid 1px;
+    .meChatPeople {
+        .meChatOnline {
+            display: inline-block;
+            margin: 0 5px;
+            line-height: 30px;
+            //border: #689eb5 solid 1px;
+            vertical-align: top;
+            i {
+                color: #bdbdbd;
+            }
+            .meOnline {
+                color: #1cdd1c;
+            }
+        }
+        //border: violet solid 1px;
+        font-size: 14px;
+        .meChatPeople-pic {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: #96d3ed 2px solid;
+            box-shadow: 0px 0px 2px #9f9a906f;
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+        }
+        .meChatPeople-name {
+            color: #888682;
+            vertical-align: top;
+            height: 100%;
+            //border: chocolate solid 1px;
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            margin: 0 5px;
+        }
+        .meChatPeople-title {
+            display: inline-block;
+        }
+    }
+    .meChatDelete {
+        cursor: pointer;
+        i {
+            color: darkgray;
+            font-size: 10px;
+        }
+    }
+    &:hover {
+        box-shadow: 2px 2px 4px #9f9a906f;
+        border-bottom: white solid 1px;
+        transform: scale(1.02);
+        opacity: 1;
+    }
+}
+
+.meChatAn {
+    //border: firebrick solid 1px;
+    padding: 7px;
+    display: block;
+    margin: 5px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    .meChatAn-pic {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: #96d3ed 2px solid;
+        box-shadow: 0px 0px 2px #9f9a906f;
+        overflow: hidden;
+        margin-right: 3px;
+        img {
+            width: 100%;
+        }
+    }
+    .meChatAn-text {
+        padding: 0 8px 0 14px;
+        color: #888682;
+        vertical-align: top;
+        height: 100%;
+        // border: chocolate solid 1px;
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        background-color: #e2eaf7;
+        border-radius: 0 30px 30px 30px;
+        margin: 0 5px;
+    }
+    .meChatAn-other {
+        height: 30px;
+        //border: #FFA492 solid 1px;
+        font-size: 8px;
+        color: #bdbdbd;
+        display: flex;
+        align-items: flex-end;
+        .meChatAn-time {
+            display: inline-block;
+            // font-size: 8px;
+            // color: #bdbdbd;  
+            margin: 0 4px;
+        }
+        .meChatAn-select {
+            display: inline-block;
+            margin: 0 2px;
+            i {}
+        }
+    }
+}
+
+.meChatAnUser {
+    display: flex;
+    flex-direction: row-reverse;
+    .meChatAn-pic {
+        margin-left: 3px;
+    }
+    .meChatAnUser-text {
+        padding: 0 8px 0 14px;
+        color: #888682;
+        vertical-align: top;
+        height: 100%;
+        // border: chocolate solid 1px;
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        background-color: #edeae5;
+        border-radius: 30px 0 30px 30px;
+        margin: 0 5px;
+    }
+}
+
+.me-page-title {
+    margin-bottom: 5px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f2eee7;
+    // border: #FFA492 solid 1px;
+    .selectIcon {
+        cursor: pointer;
+        display: flex;
+        justify-content: start;
+        color: #bdbdbd;
+        transition: all .2s;
+        .backToSelect {
+            margin: 0 15px;
+            font-size: 20px;
+        }
+        &:hover {
+            color: $color-blue;
+        }
+    }
+}
+
+@media only screen and (max-width: 991px) {}
+
+@media only screen and (max-width: 768px) {}
+
+// @media only screen and (max-width: 576px) {
+//     .meChat {
+//         padding: 5px 0;
+//         margin: 3px 0;
+//         display: block;
+//         height: 60vh;
+//         .meChatMain {
+//             width: 100%;
+//             border: sandybrown solid 1px;
+//             .meChatMainRoom {
+//                 overflow-y: auto;
+//             }
+//         }
+//         .meChatSelect {
+//             width: 100%;
+//             border: seagreen solid 1px;
+//             .meChatPeople-scroll {
+//                 height: 100%;
+//                 border: solid 3px sienna;
+//             }
+//         }
+//     }
+//     .meChatPeople-each {
+//         padding: 5px 10px;
+//         .meChatPeople {
+//             font-size: 16px;
+//             .meChatPeople-pic {}
+//             .meChatPeople-name {}
+//         }
+//     }
+// }

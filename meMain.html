@@ -871,7 +871,7 @@
                                             </div>
                                             <div class="row mem-inActCsSelfAct_block mem-csSelfAct_block--style">
                                                 <div class="mem-inActCsSelfAct--hide mem-inActCsSelfAct--hide--style">
-                                                    <cssart-layout v-for="each in memArtRec" :love="each"></cssart-layout>
+                                                    <cssart-layout v-for="each in memArtRec" :love="each" @open-share-dialog="openShareDialog"></cssart-layout>
                                                 </div>
                                             </div>
                                         </div>
@@ -883,7 +883,7 @@
                                             <div class="row mem-inActCsSelfAct_block">
                                                 <div class="mem-inActCsSelfAct--hide">
 
-                                                    <inact-item v-for="each in memActRec" :love="each"></inact-item>
+                                                    <inact-item v-for="each in memActRec" :love="each" @open-share-dialog="openShareDialog"></inact-item>
 
                                                 </div>
                                             </div>
@@ -1005,10 +1005,7 @@
                                                 <div class="more-title">{{titles[6]}}</div>
                                             </div>
                                             <div class=" meChat">
-                                                <!-- <div class="col-12 meOrderTab">
-                                                    <div @click="oag(true)" :class="{meOrderTabSelect: acOrder}">已預訂</div>
-                                                    <div @click="oag(false)" :class="{meOrderTabSelect: !acOrder}">歷史訂單</div>
-                                                </div> -->
+
 
                                                 <transition>
 
@@ -1040,7 +1037,7 @@
                                                     <div class="memChatSend">
                                                         <form action="" @submit.prevent="submitMes">
                                                             <input name="moName" type="text" class="modifyForm chatInput" placeholder="" v-model="chatBox">
-                                                            <button class="memChatSend_button">123</button>
+                                                            <button class="memChatSend_button"><i class="fas fa-paper-plane"></i></button>
                                                         </form>
 
 
@@ -1244,12 +1241,6 @@
 
                                         </div>
 
-
-
-
-
-
-
                                     </div>
 
                                 </select-page>
@@ -1288,6 +1279,8 @@
                 </div>
                 <!-- 確認刪除訂單 -->
 
+
+                @@include('./template/shareDialog.html')
             </main>
         </div>
     </div>
@@ -1300,6 +1293,7 @@
     <!--------CC-CODE-------->
 
     <!-- @@include('./template/header.html') -->
+
 
 
 
