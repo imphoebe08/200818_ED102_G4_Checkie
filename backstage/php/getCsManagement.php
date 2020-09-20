@@ -3,7 +3,7 @@
 $errMsg = "";
 //連線資料庫
 try {
-    $csNo = isset($_REQUEST['csNo']) ? $_REQUEST['csNo'] : 'csNo';
+    $csNo = isset($_SESSION['csNo']) ? $_SESSION['csNo'] : 'csNo';
     $pageNow = isset($_REQUEST['pageNow']) ? $_REQUEST['pageNow'] : 1;
     require_once("./connectBook.php");
     // 計算總頁數
