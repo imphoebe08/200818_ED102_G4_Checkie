@@ -249,10 +249,12 @@ let vmcss = new Vue({
 
             })).then(() => {
                 this.firstChecked();
+                this.firstChecked2();
             });
     },
     updated() {
         this.firstChecked();
+        this.firstChecked2();
     },
     methods: {
         installOwlCarousel1: function () {
@@ -343,12 +345,18 @@ let vmcss = new Vue({
         // 收藏用
         firstChecked() {
             if (this.memberData[0].member)
-                //判斷登入
                 this.csArtData.forEach((v, i) => {
                     let a = this.memberData[0].artCollect.indexOf(parseInt(v.artId));
-                    console.log(a);
                     if (a > -1) this.csArtData[i].isCollect = true;
                     else this.csArtData[i].isCollect = false;
+                });
+        },
+        firstChecked2() {
+            if (this.memberData[0].member)
+                this.csActData.forEach((v, i) => {
+                    let a = this.memberData[0].actCollect.indexOf(parseInt(v.actId));
+                    if (a > -1) this.csActData[i].isCollect = true;
+                    else this.csActData[i].isCollect = false;
                 });
         },
         doCollected(index) {
@@ -371,17 +379,6 @@ let vmcss = new Vue({
                 $("#signup_overlay").fadeIn(300);
                 $("#container").removeClass("right-panel-active");
             }; //跳出登入視窗
-        },
-        firstChecked2() {
-            console.log('firstChecked');
-            if (this.memberData[0].member)
-                //判斷登入
-                this.csActData.forEach((v, i) => {
-                    let a = this.memberData[0].actCollect.indexOf(parseInt(v.actId));
-                    console.log(a);
-                    if (a > -1) this.csActData[i].isCollect = true;
-                    else this.csActData[i].isCollect = false;
-                });
         },
         doCollected2(index) {
             if (this.memberData[0].member)
