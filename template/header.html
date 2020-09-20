@@ -26,7 +26,7 @@
     </div>
     <div>
         <signin-component></signin-component>
-        <form action="#" @submit.prevent="psdUpdate" v-if="psd_block">
+        <form action="#" @submit.prevent="psdUpdate" style="display: none;" id="forgetForm">
             <!-- forgetpwd_from-none -->
             <div class="psdUpdate_from" id="psdUpdate_from">
                 <span class="container_close" @click="psdUpdate_close">&times;</span>
