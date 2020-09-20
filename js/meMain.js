@@ -190,7 +190,7 @@ Vue.component('inact-item', {
                 <div class="inAct-date_text">活動日期{{love.actStart}}</div>
             </div>
             <div class="inAct-icon_block">
-                <a href="javascript:void(0)" class="inAct-icon_1" draggable="false"><i class="fa fa-share" :class="['icon','share-button']" @click="openShareDialog(index)"></i></a>
+                <a href="javascript:void(0)" class="inAct-icon_1" draggable="false"><i class="fa fa-share" :class="['icon','share-button']" @click="openShareDialog(love.actNo)"></i></a>
                 <a href="javascript:void(0)" class="inAct-icon_2" draggable="false"><i class="fas fa-bookmark"></i></a>
             </div>
         </div>
@@ -206,6 +206,14 @@ Vue.component('inact-item', {
     </div>
 </div>
     `,
+    methods: {
+
+        openShareDialog(actNo) {
+            console.log('hi');
+            this.$emit('open-share-dialog', `actNo=${actNo}`);
+        }
+
+    },
 });
 
 
@@ -330,15 +338,17 @@ Vue.component('cssart-layout', {
             </div>
             <div class="card-share">
                 <span>Share : </span>
-                <a href="" class="small"><i class="fab fa-facebook-square"></i></a>
-                <a href="" class="small"><i class="fas fa-share-alt"></i></a>
-                <a href="" class="small"><i class="fas fa-bookmark"></i></a>
+                <a href="javascript:void(0)" class="inAct-icon_1" draggable="false" class="small"><i class="fa fa-share" :class="['icon','share-button']" @click="openShareDialog(love.artNo)"></i></a>
+                <a href="javascript:void(0)" class="inAct-icon_1" draggable="false" class="small"><i class="fas fa-bookmark"></i></a>
             </div>
         </div>`,
     methods: {
-        openArtPage() {
-            window.open("./atSelf.html", "_self");
-        },
+
+        openShareDialog(actNo) {
+            console.log('hi');
+            this.$emit('open-share-dialog', `actNo=${actNo}`);
+        }
+
     },
 });
 
@@ -405,6 +415,9 @@ let vm = new Vue({
         apexchart: VueApexCharts
     },
     data: {
+        // 分享加這個
+        shareUrl: "https://tw.yahoo.com/?", //傳送的文章或活動主連結
+        shareNo: '', //傳送的文章或活動編號，我預設為0
         nothing: false,
         allData: [],
         finalCoResult: [],
@@ -929,7 +942,22 @@ let vm = new Vue({
         chartOpen() {
             this.chartOpacity = true;
         },
-
+        openShareDialog(str) {
+            let shareButton = document.querySelector(".share-button");
+            let shareDialog = document.querySelector(".share-dialog");
+            shareDialog.classList.add("is-open");
+            this.shareNo = str;
+        },
+        copyWord() {
+            let copyWord = document.querySelector(".pen-url");
+            copyWord.select();
+            let copyStatus = document.execCommand("copy");
+        },
+        closeShereDialog() {
+            let closeButton = document.querySelector(".close-button");
+            let shareDialog = document.querySelector(".share-dialog");
+            shareDialog.classList.remove("is-open");
+        },
 
     },
 
