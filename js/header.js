@@ -1,3 +1,109 @@
+let login = new Vue({
+    el: '#header',
+    mounted() {
+        this.getLoginInfo();
+
+    },
+
+    data: {
+        psd_block: false,
+        forgetPsd: "",
+        forgetCPsd: "",
+    },
+
+    methods: {
+        psdUpdate() {
+            // if (this.forgetPsd == this.forgetCPsd) {
+            //     login.$children[0].error("#forgetPsd,#forgetCPsd", false);
+            //     console.log("suss")
+
+            // } else {
+            //     console.log("fail")
+            //     login.$children[0].error("#forgetPsd,#forgetCPsd", true);
+
+            // }
+            var forgetText = document.getElementById("forgetText");
+            if (this.forgetPsd == this.forgetCPsd && this.forgetPsd.length >= 6 && this.forgetPsd.length <= 10 && this.forgetPsd.match(/([0-9])/g) && this.forgetPsd.match(/([a-z]|[A-Z])/g)) {
+                login.$children[0].error("#forgetCPsd,#forgetPsd", false);
+                this.psd_block = false;
+                var infor = location.search.substr(1);
+
+                axios.get(`./psdUpdate.php?memId=${infor}&forgetPsd=${this.forgetPsd}`).then(res => {
+                    console.log(res);
+                })
+                alert("密碼更改成功");
+            } else if (this.forgetPsd == "") {
+                login.$children[0].error("#forgetCPsd,#forgetPsd", true);
+
+            } else if (this.forgetPsd.length < 6 || this.forgetPsd.length > 10) {
+                login.$children[0].error("#forgetCPsd,#forgetPsd", true);
+                forgetText.innerHTML = "密碼長度需在6~10之間 <br>";
+            } else if (this.forgetPsd != this.forgetCPsd) {
+                login.$children[0].error("#forgetCPsd,#forgetPsd", true);
+                forgetText.innerHTML = "確認密碼與密碼不相符 <br>";
+            } else {
+                login.$children[0].error("#forgetCPsd,#forgetPsd", true);
+                forgetText.innerHTML = "密碼需包含英文加數字 <br>";
+            };
+        },
+        psdUpdate_close() {
+            this.psd_block = false;
+        },
+        nav_login() {
+            if (event.target.innerHTML == "登入") {
+                $("#signup_overlay").removeClass("signup_overlay-none");
+                $("#signup_overlay").fadeIn(300);
+                $("#container").removeClass("right-panel-active");
+            } else {
+                //-----------------------------回Server端做登出
+                let xhr = new XMLHttpRequest();
+                xhr.onload = function() {
+                    if (xhr.status == 200) {
+                        document.getElementById("signup").innerHTML = '加入會員';
+                        document.getElementById("signin").innerHTML = '登入';
+
+                    } else {
+                        alert(xhr.status);
+                    }
+
+                }
+                xhr.open("get", "../php/logout.php", true);
+                xhr.send(null);
+            }
+        },
+        nav_register() {
+            if (event.target.innerHTML == "加入會員") {
+                $("#signup_overlay").removeClass("signup_overlay-none");
+                $("#signup_overlay").fadeIn(300);
+                $("#container").addClass("right-panel-active");
+            } else {
+                //location.href = "../home.html";
+                location.href = "../meMain.html";
+            }
+        },
+        getLoginInfo() {
+            var infor = location.search;
+            if (infor.length > 30) {
+                this.psd_block = true;
+                // infor.substring(1);
+            } else {
+
+                let xhr = new XMLHttpRequest();
+                xhr.onload = function() {
+                    member = JSON.parse(xhr.responseText);
+                    console.log(member);
+                    if (member.memId) {
+                        signup.innerText = member.memName;
+                        signin.innerText = "登出";
+                    }
+                }
+                xhr.open("get", "../php/getLoginInfo.php", true);
+                xhr.send(null);
+            }
+        },
+    },
+});
+
 /*------test------*/
 $(function() {
     $(".test_button").click(function() {
@@ -354,111 +460,7 @@ Vue.component('signin-component', {
 });
 
 
-let login = new Vue({
-    el: '#header',
-    mounted() {
-        this.getLoginInfo();
 
-    },
-
-    data: {
-        psd_block: false,
-        forgetPsd: "",
-        forgetCPsd: "",
-    },
-
-    methods: {
-        psdUpdate() {
-            // if (this.forgetPsd == this.forgetCPsd) {
-            //     login.$children[0].error("#forgetPsd,#forgetCPsd", false);
-            //     console.log("suss")
-
-            // } else {
-            //     console.log("fail")
-            //     login.$children[0].error("#forgetPsd,#forgetCPsd", true);
-
-            // }
-            var forgetText = document.getElementById("forgetText");
-            if (this.forgetPsd == this.forgetCPsd && this.forgetPsd.length >= 6 && this.forgetPsd.length <= 10 && this.forgetPsd.match(/([0-9])/g) && this.forgetPsd.match(/([a-z]|[A-Z])/g)) {
-                login.$children[0].error("#forgetCPsd,#forgetPsd", false);
-                this.psd_block = false;
-                var infor = location.search.substr(1);
-
-                axios.get(`./psdUpdate.php?memId=${infor}&forgetPsd=${this.forgetPsd}`).then(res => {
-                    console.log(res);
-                })
-                alert("密碼更改成功");
-            } else if (this.forgetPsd == "") {
-                login.$children[0].error("#forgetCPsd,#forgetPsd", true);
-
-            } else if (this.forgetPsd.length < 6 || this.forgetPsd.length > 10) {
-                login.$children[0].error("#forgetCPsd,#forgetPsd", true);
-                forgetText.innerHTML = "密碼長度需在6~10之間 <br>";
-            } else if (this.forgetPsd != this.forgetCPsd) {
-                login.$children[0].error("#forgetCPsd,#forgetPsd", true);
-                forgetText.innerHTML = "確認密碼與密碼不相符 <br>";
-            } else {
-                login.$children[0].error("#forgetCPsd,#forgetPsd", true);
-                forgetText.innerHTML = "密碼需包含英文加數字 <br>";
-            };
-        },
-        psdUpdate_close() {
-            this.psd_block = false;
-        },
-        nav_login() {
-            if (event.target.innerHTML == "登入") {
-                $("#signup_overlay").removeClass("signup_overlay-none");
-                $("#signup_overlay").fadeIn(300);
-                $("#container").removeClass("right-panel-active");
-            } else {
-                //-----------------------------回Server端做登出
-                let xhr = new XMLHttpRequest();
-                xhr.onload = function() {
-                    if (xhr.status == 200) {
-                        document.getElementById("signup").innerHTML = '加入會員';
-                        document.getElementById("signin").innerHTML = '登入';
-
-                    } else {
-                        alert(xhr.status);
-                    }
-
-                }
-                xhr.open("get", "../php/logout.php", true);
-                xhr.send(null);
-            }
-        },
-        nav_register() {
-            if (event.target.innerHTML == "加入會員") {
-                $("#signup_overlay").removeClass("signup_overlay-none");
-                $("#signup_overlay").fadeIn(300);
-                $("#container").addClass("right-panel-active");
-            } else {
-                //location.href = "../home.html";
-                location.href = "../meMain.html";
-            }
-        },
-        getLoginInfo() {
-            var infor = location.search;
-            if (infor.length > 30) {
-                this.psd_block = true;
-                // infor.substring(1);
-            } else {
-
-                let xhr = new XMLHttpRequest();
-                xhr.onload = function() {
-                    member = JSON.parse(xhr.responseText);
-                    console.log(member);
-                    if (member.memId) {
-                        signup.innerText = member.memName;
-                        signin.innerText = "登出";
-                    }
-                }
-                xhr.open("get", "../php/getLoginInfo.php", true);
-                xhr.send(null);
-            }
-        },
-    },
-});
 
 //------------test------------//
 
