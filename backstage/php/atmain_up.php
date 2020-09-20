@@ -19,18 +19,19 @@ try{
     $artTypeNo = $_REQUEST["artTypeNo"];
     
     $sql = "
-    DELETE FROM articletype WHERE artNo=:artNo1;      
+    DELETE FROM articletype WHERE artNo= :artNo1;      
     SET SQL_SAFE_UPDATES=0;
-  update article
-  set artBool=:artBool, 
-  artDate = :artDate, 
-  artContent = :artContent, 
-  artTitle = :artTitle, 
-  artPic1 = :artPic1, 
-  artPic2 = :artPic2, 
-  artPic3 = :artPic3, 
-  artAuthor = :artAuthor, 
-  where artNo=:artNo2;";
+
+    update article
+    set artBool = :artBool, 
+    artDate = :artDate, 
+    artContent = :artContent, 
+    artTitle = :artTitle, 
+    artPic1 = :artPic1, 
+    artPic2 = :artPic2, 
+    artPic3 = :artPic3, 
+    artAuthor = :artAuthor, 
+    where artNo= :artNo2;";
   
   $products = $pdo->prepare($sql);
   $products->bindValue(':artNo1', $artNo);
@@ -49,7 +50,7 @@ try{
   // print_r($actTypeNotoArr);
   $updateSql = '';
   for($i=0; $i<count($artTypeNotoArr);$i++){
-    echo $artTypeNotoArr[$i];
+    
 
   $updateSql = "INSERT INTO articletype(artNo, artTypeNo) 
                   VALUES (:artNo , :artTypeNo);";
@@ -57,6 +58,7 @@ try{
   $products->bindValue(':artNo', $artNo);
   $products->bindValue(':artTypeNo', $artTypeNotoArr[$i]);
   $products -> execute(); 
+  echo '更新成功';
   };
  
 

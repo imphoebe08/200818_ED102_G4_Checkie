@@ -140,9 +140,9 @@
                 <tbody  v-for="each in init">
                                 <tr >
                                     <td>{{each.artTitle}}</td>
-                                    <td>{{each.artTypeNO}}</td>
+                                    <td>{{each.artTypeNo}}</td>
                                     <td>{{each.calss}}</td>
-                                    <td>{{each.artdate.substring(0,10)}}</td>
+                                    <td>{{each.artDate.substring(0,10)}}</td>
                                     <td>{{aaa(each.artBool)}}</td>
                                     <td><a :href="gogo(each.artNo)"><button class="acManagement_edit ">編輯</button></a></td>
                                 </tr>
@@ -179,9 +179,9 @@
                         let article = JSON.parse(xhr.responseText);
                         vm.$data.cood = article;
 
-                        // console.log(xhr.responseText)
+                        console.log(article)
                     }
-                    xhr.open("get", "./php/atmain_index.php", true);
+                    xhr.open("get", "./php/atmain_ther.php", true);
                     xhr.send(null);
                 },
 

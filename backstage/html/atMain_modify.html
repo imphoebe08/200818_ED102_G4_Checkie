@@ -191,11 +191,11 @@
 
             },
             mounted() {
-                let actNo = location.href.split('?')[1].split('=')[1];
-                console.log(actNo)
+                let artNo = location.href.split('?')[1].split('=')[1];
+                console.log(artNo)
                 var vm = this;
-                if (actNo != 0) {
-                    axios.get(`./php/atmain_index.php?actNo=${actNo}`).then((res) => {
+                if (artNo != 0) {
+                    axios.get(`./php/atmain_index.php?artNo=${artNo}`).then((res) => {
                         this.contents = res.data
                         console.log(res.data)
 

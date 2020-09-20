@@ -4,12 +4,12 @@ $errMsg = "";
 try{
   // a  表格名稱修改
   require_once("./atmainbook.php");
-  $actNo = $_GET["actNo"];
+  $artNo = $_GET["artNo"];
         $sql = "select a.artNo, a.artTitle,a.csNo,a.artAuthor 'csName' ,a.artContent,a.artDate,a.artBool,a.artPic1,a.artPic2,a.artPic3,group_concat(b.artTypeNo) 'artTypeNo' from article a  
         join articletype b using(artNo)
-        where a.artNo=:actNo group by artNo;";
+        where a.artNo=:artNo group by artNo;";
         $products = $pdo->prepare($sql);
-        $products->bindValue(':actNo', $actNo);
+        $products->bindValue(':artNo', $artNo);
         $products->execute();       
         $prodRow = $products->fetchAll(PDO::FETCH_ASSOC);
 
