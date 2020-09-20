@@ -19,6 +19,36 @@ try{
           ";
   $products = $pdo->query($sql);
   $prodRow = $products->fetchAll(PDO::FETCH_ASSOC);
+  $data_array= array();
+  foreach ($prodRow as $key => $value) {
+    $prodRow[$key]["isCollect"] = false;
+
+    // array_push($data_array , array(
+    //   "isCollect" => false,
+    //   "actNo" => $prodRow[$key]["actNo"],
+    //   "actName" => $prodRow[$key]["actName"],
+    //   "actPstart" => $prodRow[$key]["actPstart"],
+    //   "actPend" => $prodRow[$key]["actPend"],
+    //   "actStart" => $prodRow[$key]["actStart"],
+    //   "actEnd" => $prodRow[$key]["actEnd"],
+    //   "actContent" => $prodRow[$key]["actContent"],
+    //   "actMin" => $prodRow[$key]["actMin"],
+    //   "actMax" => $prodRow[$key]["actMax"],
+    //   "actCount" => $prodRow[$key]["actCount"],
+    //   "csNo" => $prodRow[$key]["csNo"],
+    //   "actHost" => $prodRow[$key]["actHost"],
+    //   "actHostTitle" => $prodRow[$key]["actHostTitle"],
+    //   "actHostInfo" => $prodRow[$key]["actHostInfo"],
+    //   "actHostPic" => $prodRow[$key]["actHostPic"],
+    //   "actAddress" => $prodRow[$key]["actAddress"],
+    //   "actCost" => $prodRow[$key]["actCost"],
+    //   "actBool" => $prodRow[$key]["actBool"],
+    //   "actpic1" => $prodRow[$key]["actpic1"],
+    //   "actpic2" => $prodRow[$key]["actpic2"],
+    //   "actpic3" => $prodRow[$key]["actpic3"],
+    //   "actTypeno" => explode(",", $prodRow[$key]["actTypeno"])
+    // ));
+  }
   echo json_encode($prodRow);
   
 }catch(PDOException $e){
