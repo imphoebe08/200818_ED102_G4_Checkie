@@ -247,7 +247,7 @@ let vmcss = new Vue({
                 this.memberData[0].artCollect = res3.data.artCollect.map(i => parseInt(i));
                 this.memberData[0].actCollect = res3.data.actCollect.map(i => parseInt(i));
 
-            })).them(() => {
+            })).then(() => {
                 this.firstChecked();
             });
     },
