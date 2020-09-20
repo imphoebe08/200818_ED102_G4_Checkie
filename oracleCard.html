@@ -160,53 +160,7 @@
             <section class="oracleCardRecommend page page4 section">
                 <fieldset>
                     <legend>適合您的活動</legend>
-                    <div id="acSelect" class="acSelect container-sm container-md">
-                        <div class="acSelectCard">
-                            <a href="./acSelf.html">
-                                <img src="./img/acMain/acCard.jpg">
-                            </a>
-                            <div class="acSelectCard_text">
-                                <img src="./img/icon/clock.png" alt="" class="acSelectCard-time_icon">
-                                <p class="acSelectCard_time">2020-08-15（六<br> 14:00 - 16:00</p>
-                                <div class="acSelectCard_icon">
-                                    <img src="./img/icon/share.png" alt="" class="acSelectCard-share_icon">
-                                    <img src="./img/icon/bookmark.png" alt="" class="acSelectCard-bookmark_icon">
-                                </div>
-                            </div>
-                            <h6 class="acSelectCard_title"><a href="./acSelf.html">信念探索團：親密關係</a></h6>
-                            <div class="acSelectCard_bottomBlock">
-                                <p class="acSelectCard_person"> 剩餘名額：10人</p>
-                                <input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register"></div>
-                        </div>
-                        <div class="acSelectCard">
-                            <a href="./acSelf.html">
-                                <img src="./img/acMain/acCard.jpg">
-                            </a>
-                            <div class="acSelectCard_text"><img src="./img/icon/clock.png" alt="" class="acSelectCard-time_icon">
-                                <p class="acSelectCard_time">2020-08-15（六）<br> 14:00 - 16:00</p>
-                                <div class="acSelectCard_icon"><img src="./img/icon/share.png" alt="" class="acSelectCard-share_icon">
-                                    <img src="./img/icon/bookmark.png" alt="" class="acSelectCard-bookmark_icon"></div>
-                            </div>
-                            <h6 class="acSelectCard_title"><a href="./acSelf.html">信念探索團：親密關係</a></h6>
-                            <div class="acSelectCard_bottomBlock">
-                                <p class="acSelectCard_person"> 剩餘名額：10人</p>
-                                <input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register"></div>
-                        </div>
-                        <div class="acSelectCard">
-                            <a href="./acSelf.html">
-                                <img src="./img/acMain/acCard.jpg">
-                            </a>
-                            <div class="acSelectCard_text"><img src="./img/icon/clock.png" alt="" class="acSelectCard-time_icon">
-                                <p class="acSelectCard_time">2020-08-15（六）<br> 14:00 - 16:00</p>
-                                <div class="acSelectCard_icon"><img src="./img/icon/share.png" alt="" class="acSelectCard-share_icon">
-                                    <img src="./img/icon/bookmark.png" alt="" class="acSelectCard-bookmark_icon"></div>
-                            </div>
-                            <h6 class="acSelectCard_title"><a href="./acSelf.html">信念探索團：親密關係</a></h6>
-                            <div class="acSelectCard_bottomBlock">
-                                <p class="acSelectCard_person"> 剩餘名額：10人</p>
-                                <input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register"></div>
-                        </div>
-                    </div>
+                    <ac-select-card :ac-contents="result "></ac-select-card>
                 </fieldset>
             </section>
 
@@ -220,6 +174,7 @@
     <script src="./js/vender/fullpage.js"></script>
     <script src="./js/chatbot.js"></script>
     <script src="./js/header.js"></script>
+    <script src="./js/acMain.js "></script>
     <!-- <script src="./js/html2canvas.js"></script> -->
 
 
