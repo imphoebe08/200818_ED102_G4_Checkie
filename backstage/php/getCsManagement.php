@@ -1,17 +1,10 @@
 <?php
 
-// 傳來所在頁碼
-
-
 $errMsg = "";
 //連線資料庫
 try {
-    $pageNow = $_REQUEST['pageNow'];
-    // $dsn = "mysql:host=localhost;port=3306;dbname=checkie0910;charset=utf8";
-    // $user = "root";
-    // $password = "root";
-    // $options = array(PDO::ATTR_CASE => PDO::CASE_NATURAL, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-    // $pdo = new PDO($dsn, $user, $password, $options);
+    $csNo = isset($_REQUEST['csNo']) ? $_REQUEST['csNo'] : 'csNo';
+    $pageNow = isset($_REQUEST['pageNow']) ? $_REQUEST['pageNow'] : 1;
     require_once("./connectBook.php");
     // 計算總頁數
     $sql = "SELECT 
@@ -28,7 +21,8 @@ try {
                 csPic,
                 csBool
             FROM
-                counselor";
+                counselor
+            WHERE csNo = $csNo";
     $total = $pdo->query($sql);
     $totalCount = $total->rowCount();  //總筆數
     $totalPage = ceil($totalCount / 10); //總頁數(每頁10筆)
@@ -46,6 +40,7 @@ try {
                 cstype a
                     JOIN
                 type b ON a.csTypeNo = b.typeNo
+            WHERE a.csNo = $csNo
             ORDER BY a.csNo , a.csTypeNo
             limit $limit_low_type, $limit_high_type";
 
@@ -56,6 +51,8 @@ try {
     $sql = "SELECT 
                 csNo,
                 csId,
+                csId,
+                csPsd,
                 csName,
                 csBD,
                 csHis,
@@ -68,6 +65,7 @@ try {
                 csBool
             FROM
                 counselor
+            WHERE csNo = $csNo
             limit $limit_low, $limit_high";
     $csInfo = $pdo->query($sql);
     $csRow = $csInfo->fetchAll(PDO::FETCH_ASSOC);
@@ -81,6 +79,7 @@ try {
             "csNo" => $csRow[$key]["csNo"],
             "csName" => $csRow[$key]["csName"],
             "csId" => $csRow[$key]["csId"],
+            "csPsd" => $csRow[$key]["csPsd"],
             "csGender" => $csRow[$key]["csGender"],
             "csBD" => $csRow[$key]["csBD"],
             "csEmail" => $csRow[$key]["csEmail"],
