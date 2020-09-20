@@ -13,6 +13,11 @@
     <!-- Main.css -->
     <link rel="stylesheet" href="./css/main.css">
 </head>
+<style>
+    .colorful {
+        color: red;
+    }
+</style>
 
 <body id="nav3">
     @@include('template/header.html') @@include('template/bg.html') @@include('./test.html')
@@ -103,7 +108,7 @@
             </div>
             <div id="acRelate" class="acRelate">
                 <p class="acRelate-title col-12">您可能會喜歡這些活動</p>
-                <ac-relate-card class="owl-carousel owl-theme" :ac-contents="cards" @open-share-dialog="openShareDialog"></ac-relate-card>
+                <ac-relate-card class="owl-carousel owl-theme" :ac-contents="cards" @open-share-dialog="openShareDialog" @do-collected="doCollected2"></ac-relate-card>
 
             </div>
 
