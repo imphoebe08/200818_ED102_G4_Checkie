@@ -117,7 +117,7 @@
                     title32: [{
                         t1: "文章標題",
                         t2: "分類編號",
-                        t3: "分類",
+                        t3: "作者",
                         t4: "上架時間",
                         t5: "專欄狀態",
                     }],
@@ -141,7 +141,7 @@
                                 <tr >
                                     <td>{{each.artTitle}}</td>
                                     <td>{{each.artTypeNo}}</td>
-                                    <td>{{each.calss}}</td>
+                                    <td>{{each.csName}}</td>
                                     <td>{{each.artDate.substring(0,10)}}</td>
                                     <td>{{aaa(each.artBool)}}</td>
                                     <td><a :href="gogo(each.artNo)"><button class="acManagement_edit ">編輯</button></a></td>

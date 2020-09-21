@@ -1,22 +1,15 @@
 <?php
-
 try{
 require_once("./atMain_book.php");
-$artNo=$_GET["artNo"];
-$sql = "select a.artNo,a.artBool,a.artTitle,a.artContent,b.csName,b.cspic,a.artdate,e.artTypeNO,a.artPic1,a.artPic2,a.artPic3
+$sql = "select a.artNo,a.artBool,a.artTitle,a.artContent,b.csName,b.cspic,a.artdate,e.artTypeNO,a.artPic1,a.artPic2,a.artPic3,e.artTypeNo
 from article a join counselor b 
-using(csno) join  articletype e using(artno)
-where a.artNo=:artNo
-LIMIT 1";
-$article = $pdo->prepare($sql);
-$article->bindValue(":artNo", $artNo);
-
-$article->execute();//執行
+using(csno) join  articletypeconcact e using(artno)
+order by a.artdate desc limit 0,9";
+$article = $pdo->query($sql);
 if( $article->rowCount()==0){
 echo "{}";
 }else{ 
-$articleRow = $article->fetch(PDO::FETCH_ASSOC);
-$articleRow["isCollect"] = false;
+$articleRow = $article->fetchAll(PDO::FETCH_ASSOC);
 echo json_encode($articleRow,JSON_UNESCAPED_UNICODE);
 
 //送出登入者的資料
@@ -26,5 +19,5 @@ echo json_encode($articleRow,JSON_UNESCAPED_UNICODE);
   }
 }catch(PDOException $e){
   echo $e->getMessage();
-};
+}
 ?>

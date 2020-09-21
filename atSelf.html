@@ -15,6 +15,12 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js'></script>
     <script src="https://kit.fontawesome.com/3a9b8bb651.js" crossorigin="anonymous"></script>
 </head>
+<style>
+    .colorful {
+        color: red;
+    }
+</style>
+
 
 <body id="nav4">
     @@include('template/header.html') @@include('./test.html')
@@ -39,7 +45,7 @@
 
             </div>
             <div class="seTitle-content_icon">
-                <i class="fas fa-bookmark fa-2x"></i>
+                <i class="fas fa-bookmark fa-2x" :class="[{ colorful: article.isCollect }, 'icon']" @click="doCollected(article.artNo)"></i>
                 <i class="fas fa-share-alt fa-2x share-button " @click="openShareDialog(article.artNo)"></i>
                 <!-- <img src="./img/icon/bookmark.png" alt=""> -->
                 <!-- <img src="./img/icon/share.png" alt=""> -->
@@ -159,7 +165,7 @@
 
 
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
     <script src="./js/atSelf.js"></script>
 
 
