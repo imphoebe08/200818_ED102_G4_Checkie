@@ -1,6 +1,6 @@
 <?php
 try{
-require_once("./atmainbook.php");
+require_once("./connectBook.php");
 $artNo = $_REQUEST["artNo"];
 $artTitle = $_REQUEST["artTitle"];
 $csNo = $_REQUEST["csNo"];

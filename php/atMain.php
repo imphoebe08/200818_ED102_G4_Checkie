@@ -1,6 +1,6 @@
 <?php
 try{
-require_once("./atMain_book.php");
+require_once("./connectBook.php");
 $sql = "select a.artNo,a.artBool,a.artTitle,a.artContent,b.csName,b.cspic,a.artdate,e.artTypeNO,a.artPic1,a.artPic2,a.artPic3,e.artTypeNo
 from article a join counselor b 
 using(csno) join  articletypeconcact e using(artno)
