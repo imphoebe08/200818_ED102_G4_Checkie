@@ -17,52 +17,35 @@
                     <h1 class="acRegistration_h1">活動報名管理</h1>
                     <div class="card">
                         <div class="card-header">活動查詢｜
-                            <span>區間查詢：</span>
-                            <select name="" id="table_condition_year">
-                                <option value="">2020</option>
-                                <option value="">2019</option>
+                            <span>月份查詢：</span>
+                            <select name="" id="table_condition_year" v-model="yearSelect" @change="changeSelect">
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="0">年份</option>
                             </select>
                             <span>年</span>
-                            <select name="" id="table_condition_mon">
-                                <option value="">12月</option>
-                                <option value="">11月</option>
-                                <option value="">10月</option>
-                                <option value="">09月</option>
-                                <option value="">08月</option>
-                                <option value="">07月</option>
-                                <option value="">06月</option>
-                                <option value="">05月</option>
-                                <option value="">04月</option>
-                                <option value="">03月</option>
-                                <option value="">02月</option>
-                                <option value="">01月</option>
-                            </select>
-                            <span>至</span>
-                            <select name="" id="table_condition_year">
-                                <option value="">2020</option>
-                                <option value="">2019</option>
-                            </select>
-                            <span>年</span>
-                            <select name="" id="table_condition_mon">
-                                <option value="">12月</option>
-                                <option value="">11月</option>
-                                <option value="">10月</option>
-                                <option value="">09月</option>
-                                <option value="">08月</option>
-                                <option value="">07月</option>
-                                <option value="">06月</option>
-                                <option value="">05月</option>
-                                <option value="">04月</option>
-                                <option value="">03月</option>
-                                <option value="">02月</option>
-                                <option value="">01月</option>
+                            <select name="" id="table_condition_mon" v-model="monSelect" @change="changeSelect">
+                                <option value="12">12月</option>
+                                <option value="11">11月</option>
+                                <option value="10">10月</option>
+                                <option value="9">09月</option>
+                                <option value="8">08月</option>
+                                <option value="7">07月</option>
+                                <option value="6">06月</option>
+                                <option value="5">05月</option>
+                                <option value="4">04月</option>
+                                <option value="3">03月</option>
+                                <option value="2">02月</option>
+                                <option value="1">01月</option>
+                                <option value="0">月份</option>
                             </select>
                             <span>分類查詢：</span>
-                            <select name="" id="table_condition_year">
-                                <option value="">講座</option>
-                                <option value="">療癒</option>
-                                <option value="">戶外</option>
-                                <option value="">藝文</option>
+                            <select name="" id="table_condition_year" v-model="typeSelect" @change="changeSelect">
+                                <option value="0">全部</option>
+                                <option value="1">講座</option>
+                                <option value="2">療癒</option>
+                                <option value="3">戶外</option>
+                                <option value="4">藝文</option>
                             </select>
                         </div>
                         <div class="card-body">
@@ -111,19 +94,24 @@
             el: "#app",
             data: {
                 contents: [],
-                index: 0
+                index: 0,
+                typeSelect: 0,
+                yearSelect: 0,
+                monSelect: 0,
             },
             computed: {
 
             },
             methods: {
-
+                changeSelect() {
+                    axios.get(`./php/acRegistration.php?typeSelect=${this.typeSelect}&yearSelect=${this.yearSelect}&monSelect=${this.monSelect}`).then((res) => {
+                        this.contents = res.data
+                        console.log(res.data);
+                    })
+                }
             },
             mounted() {
-                axios.get('./php/acRegistration.php').then((res) => {
-                    this.contents = res.data
-                    console.log(res.data);
-                })
+                this.changeSelect();
             },
 
         })

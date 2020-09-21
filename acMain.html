@@ -33,7 +33,7 @@
 
             <div id="acSearch " class="acSearch container-sm container-md ">
                 <ul class="acSearch_ul ">
-                    <li v-for="(num,index) in title " @click="category_click(index) "><a href="javascript:void(0) ">{{num}}</a></li>
+                    <li v-for="(num,index) in title " @click="category_click(index)"><a href="javascript:void(0)" :id="'category'+index">{{num}}</a></li>
                 </ul>
             </div>
             <!-- <h1 class="asSelect_title container-sm container-md ">{{now_title}}</h1> -->

@@ -196,6 +196,7 @@ let vm = new Vue({
             this.contents = res.data
             console.log(res.data);
             this.firstChecked2();
+            $("#category0").focus();
         })
 
         axios.get('./json/acMain_comments.json').then((data) => {
