@@ -97,14 +97,14 @@
                                                         '2019-01-09': [23, 45, 10], 長這樣 你就設定三個值 
                                                     此處只有一個所以就設定一個即可 -->
                                                         <template v-slot:day="{ date }">
-                                                            <template v-for="(event,index) in eventsMap[date]">
+                                                            <template v-for="event in eventsMap[date]">
                                                                 <v-menu :key="event.title" v-model="event.open" full-width offset-x>
                                                                     <template v-slot:activator="{ on }">
                                                                         <div v-if="!event.time"  class="" :class="['my-event', {colorError:(parseInt(event.time1)*parseInt(event.time2) != 0)},{colorCorrect:(parseInt(event.time1)*parseInt(event.time2) == 0)}]" v-on="on" v-html="event.title"></div>
                                                                     </template>
                                                         <v-card color="grey lighten-5" max-width="320px" max-height="350px">
                                                             <v-toolbar color="blue lighten-3">
-                                                                <v-toolbar-title class="white--text " v-html="day(event.date[index]) +'    時段'+ event.title"></v-toolbar-title>
+                                                                <v-toolbar-title class="white--text " v-html="event.date +'    時段'+ event.title"></v-toolbar-title>
                                                             </v-toolbar>
                                                             <v-card-title primary-title>
                                                                 <!-- no-gutters -->
