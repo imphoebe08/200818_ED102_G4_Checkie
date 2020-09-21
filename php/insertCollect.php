@@ -2,7 +2,7 @@
 try {
     require_once("./connectBook.php");
 
-
+    session_start();
     $memNo = isset($_SESSION["memNo"]) ? $_SESSION["memNo"] : 0;
     $artNo = isset($_GET["artNo"]) ? $_GET["artNo"] : 0;
     $actNo = isset($_GET["actNo"]) ? $_GET["actNo"] : 0;

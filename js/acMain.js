@@ -131,6 +131,11 @@ let vm = new Vue({
                     if (a > -1) this.result[i].isCollect = true;
                     else this.result[i].isCollect = false;
                 });
+            else {
+                this.result.forEach((v, i) => {
+                    this.result[i].isCollect = false;
+                });
+            }
         },
         doCollected2(index) {
             if (this.memberData[0].member)
@@ -201,6 +206,14 @@ let vm = new Vue({
 
         axios.get('./json/acMain_comments.json').then((data) => {
             this.comments = data.data
+        })
+
+        axios.get(`./php/csSelfCollect.php`).then((res3) => {
+            this.memberData[0].member = res3.data.member; //會員判定
+            this.memberData[0].memNo = res3.data.memNo;
+            this.memberData[0].artCollect = res3.data.artCollect.map(i => parseInt(i));
+            this.memberData[0].actCollect = res3.data.actCollect.map(i => parseInt(i));
+            this.firstChecked2();
         })
 
     },

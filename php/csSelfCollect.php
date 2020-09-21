@@ -1,6 +1,7 @@
 <?php
 try {
     $errMsg = '';
+    session_start();
     require_once("./connectBook.php");
     $memNo = isset($_SESSION["memNo"]) ? $_SESSION["memNo"] : 1;
     $member = isset($_SESSION["memNo"]);
