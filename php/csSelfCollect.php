@@ -1,5 +1,6 @@
 <?php
 try {
+    session_start();
     require_once("./connectBook.php");
     $memNo = isset($_SESSION["memNo"]) ? $_SESSION["memNo"] : 1;
     $member = isset($_SESSION["memNo"]);
@@ -30,7 +31,7 @@ try {
 
     $data_array = array();
     $data_array = array(
-        "member" => false,
+        "member" => $member,
         "memNo" => $memNo,
         "artCollect" => explode(',', $typeRow1["artNo"]),
         "actCollect" => explode(',', $typeRow2["actNo"]),

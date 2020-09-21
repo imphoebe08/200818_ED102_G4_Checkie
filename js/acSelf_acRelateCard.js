@@ -54,7 +54,7 @@ let acVue = new Vue({
         shareNo: '',
         // 會員分享用
         memberData: [{
-            member: true,
+            member: false,
             memNo: 1,
             artCollect: [1, 2, 4, 7], //每個會員要有自己的收藏編號陣列
             actCollect: [1, 2, 4, 7] //每個會員要有自己的收藏編號陣列
@@ -114,6 +114,11 @@ let acVue = new Vue({
                     if (a > -1) this.cards[i].isCollect = true;
                     else this.cards[i].isCollect = false;
                 });
+            else {
+                this.result.forEach((v, i) => {
+                    this.result[i].isCollect = false;
+                });
+            }
         },
         doCollected2(index) {
             if (this.memberData[0].member)
@@ -135,6 +140,7 @@ let acVue = new Vue({
                 $("#signup_overlay").fadeIn(300);
                 $("#container").removeClass("right-panel-active");
             }; //跳出登入視窗
+
         },
         deleteCollect(number, type) {
             let actNo, artNo;
@@ -172,6 +178,15 @@ let acVue = new Vue({
                 console.log(res.data);
             });
         },
+        checkMember() {
+            axios.get(`./php/csSelfCollect.php`).then((res3) => {
+                this.memberData[0].member = res3.data.member; //會員判定
+                this.memberData[0].memNo = parseInt(res3.data.memNo);
+                this.memberData[0].artCollect = res3.data.artCollect.map(i => parseInt(i));
+                this.memberData[0].actCollect = res3.data.actCollect.map(i => parseInt(i));
+                this.firstChecked2();
+            })
+        }
     },
     mounted() {
         let actNo = location.href.split('?')[1].split('=')[1];
@@ -186,10 +201,12 @@ let acVue = new Vue({
             Vue.nextTick().then(function() {
                 vm.installOwlCarousel();
             });
+            this.checkMember();
             this.firstChecked2();
         })
     },
     updated() {
+        this.checkMember();
         this.firstChecked2();
     }
 })

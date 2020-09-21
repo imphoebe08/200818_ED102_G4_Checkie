@@ -1,9 +1,9 @@
 <?php
-
+session_start();
 $errMsg = "";
 //連線資料庫
 try {
-    $csNo = isset($_REQUEST['csNo']) ? $_REQUEST['csNo'] : 'a.csNo';
+    $csNo = isset($_SESSION['csNo']) ? $_SESSION['csNo'] : 'a.csNo';
     $pageNow = isset($_REQUEST['pageNow']) ? $_REQUEST['pageNow'] : 1;
     require_once("./connectBook.php");
 
