@@ -1,146 +1,154 @@
-// @import '../vender/reset';
-// @import '../vender/var';
-// @import '../vender/variable';
-@import './acSelectCard';
-@import './acCommentList';
-// @import './acSearch--open';
-button:focus {
-    outline: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-h1 {
-    @include h1;
-}
-
-h6 {
-    @include h6;
-    margin: 10px 3%;
-}
-
-body {
-    // border: $border;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.acMain {
-    // border: $border;
-    padding: 0;
-    .acSelect-wrapper_btnMore {
-        text-align: center;
-        margin: 20px 0;
-        .acSelectMore {
-            @include btn-modules($bw, $color-pink, $fontsize);
-        }
+    // @import '../vender/reset';
+    // @import '../vender/var';
+    // @import '../vender/variable';
+    @import './acSelectCard';
+    @import './acCommentList';
+    // @import './acSearch--open';
+    button:focus {
+        outline: none;
     }
-}
-
-.acBanner {
-    // border: 1px solid blue;
-    width: 100vw;
-    // z-index: -1;
-    max-height: 630px;
-    overflow: hidden;
-}
-
-// @media screen and (min-width: 980px) {
-//     .owl-carousel.owl-drag .owl-item .980banner img {
-//         display: none;
-//     }
-// }
-// @media screen and (max-width: 979px) {
-//     div.1080banner {
-//         display: none;
-//     }
-// }
-.owl-height {
-    min-width: 30%;
-}
-
-.owl-theme .owl-dots {
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-    transform: translateX(50%);
-    ;
-}
-
-.owl-carousel .owl-nav {
-    color: white;
-    font-size: 50px;
-    button.owl-prev {
-        // background-color: grey;
-        position: absolute;
-        top: 50%;
-        left: 3%;
-        transform: translateY(-50%);
+    
+    a {
+        text-decoration: none;
     }
-    button.owl-next {
-        // background-color: grey;
-        position: absolute;
-        top: 50%;
-        right: 3%;
-        transform: translateY(-50%);
+    
+    h1 {
+        @include h1;
     }
-}
-
-.acSearch {
-    // border: 1px solid red;
-    margin-top: 3%;
-    margin-bottom: 3%;
-    box-shadow: $boxshadow;
-    .acSearch_ul {
-        margin: auto 0;
-        display: flex;
-        justify-content: space-around;
-        margin-left: 8%;
-        li {
-            border-right: 1px solid darkgray;
-            display: inline-block;
-            padding-right: 8%;
+    
+    h6 {
+        @include h6;
+        margin: 10px 3%;
+    }
+    
+    body {
+        // border: $border;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .acMain {
+        // border: $border;
+        padding: 0;
+        .acSelect-wrapper_btnMore {
             text-align: center;
-            justify-content: space-between;
-            margin: 20px;
-        }
-        a {
-            font-size: 20px;
-            text-decoration: none;
-            color: rgb(77, 75, 75);
-            &:focus {
-                color: maroon;
-                outline: none;
+            margin: 20px 0;
+            .acSelectMore {
+                @include btn-modules($bw, $color-pink, $fontsize);
             }
-            // &.maroon {
-            //     color: maroon;
-            // }
-            // &.grey {
-            //     color: rgb(77, 75, 75);
-            // }
         }
     }
-}
-
-.acSelect {
-    // border: 1px solid green;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    .acSelectCard {
-        border-radius: $border-radius;
-        width: 350px;
-        height: 500px;
-        margin: 10px;
-        padding-bottom: 15px;
-        flex-wrap: wrap;
+    
+    .acBanner {
+        // border: 1px solid blue;
+        width: 100vw;
+        // z-index: -1;
+        max-height: 630px;
+        overflow: hidden;
     }
-}
-
-.acComment {
-    // border: $border;
-    margin-bottom: 20px;
-}
+    
+    // @media screen and (min-width: 980px) {
+    //     .owl-carousel.owl-drag .owl-item .980banner img {
+    //         display: none;
+    //     }
+    // }
+    // @media screen and (max-width: 979px) {
+    //     div.1080banner {
+    //         display: none;
+    //     }
+    // }
+    .owl-height {
+        min-width: 30%;
+    }
+    
+    .owl-theme .owl-dots {
+        position: absolute;
+        bottom: 0;
+        right: 50%;
+        transform: translateX(50%);
+        ;
+    }
+    
+    .owl-carousel .owl-nav {
+        color: white;
+        font-size: 50px;
+        button.owl-prev {
+            // background-color: grey;
+            position: absolute;
+            top: 50%;
+            left: 3%;
+            transform: translateY(-50%);
+        }
+        button.owl-next {
+            // background-color: grey;
+            position: absolute;
+            top: 50%;
+            right: 3%;
+            transform: translateY(-50%);
+        }
+    }
+    
+    .acSearch {
+        // border: 1px solid red;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        box-shadow: $boxshadow;
+        .acSearch_ul {
+            margin: auto 0;
+            display: flex;
+            justify-content: space-around;
+            margin-left: 8%;
+            li {
+                border-right: 1px solid darkgray;
+                display: inline-block;
+                padding-right: 8%;
+                text-align: center;
+                justify-content: space-between;
+                margin: 20px;
+            }
+            a {
+                font-size: 20px;
+                text-decoration: none;
+                color: rgb(77, 75, 75);
+                &:focus {
+                    color: maroon;
+                    outline: none;
+                }
+                // &.maroon {
+                //     color: maroon;
+                // }
+                // &.grey {
+                //     color: rgb(77, 75, 75);
+                // }
+            }
+        }
+    }
+    
+    .acSelect {
+        // border: 1px solid green;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .acSelectCard {
+            border-radius: $border-radius;
+            width: 350px;
+            height: 500px;
+            margin: 10px;
+            padding-bottom: 15px;
+            flex-wrap: wrap;
+        }
+    }
+    
+    @media screen and (max-width:575px) {
+        .acSelect {
+            .acSelectCard {
+                width: 300px;
+                height: 500px;
+            }
+        }
+        .acComment {
+            // border: $border;
+            margin-bottom: 20px;
+        }
+    }

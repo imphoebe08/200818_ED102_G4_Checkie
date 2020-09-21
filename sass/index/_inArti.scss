@@ -11,6 +11,13 @@ $scrollTime: 1s;
 // }
 .inArti {
     height: 100vh;
+    h1 {
+        @include title;
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
     .inArti-pages {
         // top: calc(10vh + 40px);
         height: 80vh;
@@ -25,10 +32,6 @@ $scrollTime: 1s;
     left: 0;
     top: 0;
     width: 100%;
-    h1 {
-        @include title;
-        margin-bottom: 20px;
-    }
     &__half {
         position: absolute;
         top: 0;
