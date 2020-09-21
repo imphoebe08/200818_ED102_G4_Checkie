@@ -3,7 +3,7 @@ try{
     // session_start();
     require_once("./connectBook.php");
 
-    $sql = "SELECT pmNo, pmName FROM ed102g4.paymentMethod;";
+    $sql = "SELECT pmNo, pmName FROM paymentMethod;";
 
     $paymentMethod = $pdo->prepare($sql);
     // 正確做法

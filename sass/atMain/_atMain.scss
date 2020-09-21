@@ -285,6 +285,7 @@
         margin: 0 auto;
         display: flex;
         z-index: 1;
+        overflow-y: hidden;
         align-self: center;
         .atBox-Class_content {
             width: 60vh;

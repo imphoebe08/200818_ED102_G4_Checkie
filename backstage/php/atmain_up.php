@@ -47,6 +47,8 @@ try{
   $products -> execute();  
 
   $artTypeNotoArr = explode(",",$artTypeNo);
+  echo $artTypeNo;
+  print_r($artTypeNotoArr);
   // print_r($actTypeNotoArr);
   $updateSql = '';
   for($i=0; $i<count($artTypeNotoArr);$i++){
