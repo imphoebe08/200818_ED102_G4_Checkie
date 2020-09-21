@@ -19,9 +19,9 @@ try{
            }
            $ip = GetIP();
 
-
+           
         //    loadding內容
-        $sql = "select * from service  where memIp='::1' order by serno desc limit 0,20;";
+        $sql = "select * from service  where memIp='1' order by serno desc limit 0,20;";
         // $sql = "select * from service  where memIp=$ip order by serno;";
 
         $message = $pdo->prepare($sql);
@@ -30,7 +30,6 @@ try{
           echo "123";
         }else{ 
           $messageRow = $message->fetchAll(PDO::FETCH_ASSOC);
-
           echo json_encode($messageRow,JSON_UNESCAPED_UNICODE);
         };
         //    抓取內容

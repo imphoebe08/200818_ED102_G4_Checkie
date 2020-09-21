@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('layout/bgHead.html')
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <!-- top_header -->
+    @@include('layout/top_header.html')
+
+    <!-- 中間內容 -->
+    <div id="bgMem" class="container-fluid memManagement">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="acManagement_title">
+                    <h1 class="acManagement_h1">查看訂單</h1>
+                </div>
+                <div class="card ">
+                    <div class="card-body" style=" overflow-x: auto;">
+                        <table class=" table table-responsive-sm table-sm ">
+                            <thead>
+                                <tr>
+                                    <th>諮商預約編號</th>
+                                    <th>諮商預約日期</th>
+                                    <th>諮商日期</th>
+                                    <th>諮商師編號</th>
+                                    <th>諮商師編號名稱</th>
+                                    <th>會員編號</th>
+                                    <th>會員名稱</th>
+                                    <th>諮商方式</th>
+                                    <th>諮商地點</th>
+                                    <th>諮商時數</th>
+                                    <th>付款方式</th>
+                                    <th>諮商費用</th>
+                                </tr>
+                            </thead>
+                            <tbody is="input-layout" ref="childComponent" :total-page.sync="totalPage"
+                                :page-now.sync="pageNow">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <ul class="pageNumbers">
+                <template v-for="(item,index) in totalPage">
+                    <input type="radio" :id="'page' + (index + 1)" v-model="pageNow" :value="index+1">
+                    <li :key="'page'+ item" @click="getMemberDataFromParent(index+1)">
+                        <label :for="'page' + (index + 1)">{{ index+1 }}</label>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </div>
+
+    @@include('layout/footer.html')
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script>
+        Vue.component("input-layout", {
+            props: ["transport-data", "total-page", "page-now"],
+            data() {
+                return {
+                    memberData: [],
+                };
+            },
+            template: ` <tbody>
+                                <tr class="buttonGroup" v-for="(value,index) in memberData" :key="value.csONo">
+                                    <td><span>{{value.csONo}}</span></td>
+                                    <td><span>{{value.csOTime.split(' ')[0]}}</span></td>
+                                    <td><span>{{value.csODate.split(' ')[0]}}</span></td>
+                                    <td><span>{{value.csNo}}</span></td>
+                                    <td><span>{{value.csName}}</span></td>
+                                    <td><span>{{value.memNo}}</span></td>
+                                    <td><span>{{value.memName}}</span></td>
+                                    <td><span>{{value.csModeName}}</span></td>
+                                    <td><span>{{value.csPosName}}</span></td>
+                                    <td><span>{{value.csHour}}</span></td>
+                                    <td><span>{{value.pmName}}</span></td>
+                                    <td><span>{{value.csOCost}}</span></td>
+                                </tr>
+                        </tbody>`,
+            mounted() {
+                //一進頁面先使用axios=> get
+                this.getMemberData(1);
+            },
+            methods: {
+                getMemberData(page) {
+                    this.pageNow = page;
+                    axios.get('./php/getCsOrder.php', {
+                            params: {
+                                'pageNow': this.pageNow
+                            }
+                        })
+                        .then((res) => {
+                            this.memberData = res.data.orderData;
+                            this.totalPage = res.data[0];
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                            this.updatePages();
+                            console.log('訂單資料抓取成功');
+                        })
+                        .catch((error) => {
+                            console.error(error)
+                        })
+                },
+                // editToggle(e, index) {
+                //     let input = document.querySelectorAll(`.buttonGroup${index}`);
+                //     if (input[0].getAttribute("readonly")) {
+                //         this.inputToEdit(e, index);
+                //     } else {
+                //         let check = confirm(`確認修改會員編號 ${this.memberData[index].memNo} 的資料嗎?`);
+                //         if (check)
+                //             //使用axios=> update
+                //             this.updateMemInfo(index);
+                //         this.inputToForbid(e, index);
+
+                //     }
+                // },
+                // inputToForbid(e, index) {
+                //     let input = document.querySelectorAll(`.buttonGroup${index}`);
+                //     for (let j = 0; j < input.length; j++) {
+                //         e.currentTarget.innerText = "編輯";
+                //         input[j].setAttribute("readonly", true);
+                //         input[j].setAttribute("disabled", true);
+                //     }
+                // },
+                // inputToEdit(e, index) {
+                //     let input = document.querySelectorAll(`.buttonGroup${index}`);
+                //     for (let j = 0; j < input.length; j++) {
+                //         input[j].removeAttribute("readonly");
+                //         input[j].removeAttribute("disabled");
+                //         e.currentTarget.innerText = "送出";
+                //     }
+                // },
+                // updateMemInfo(index) {
+                //     axios.get('./php/updateMember.php', {
+                //             params: {
+                //                 memBool: this.memberData[index].memBool,
+                //                 memId: this.memberData[index].memId,
+                //                 memName: this.memberData[index].memName,
+                //                 memGender: this.memberData[index].memGender,
+                //                 memBD: this.memberData[index].memBD,
+                //                 memGender: this.memberData[index].memGender,
+                //                 memTel: this.memberData[index].memTel,
+                //                 memAdd: this.memberData[index].memAdd,
+                //                 memNickname: this.memberData[index].memNickname,
+                //                 memNo: this.memberData[index].memNo,
+                //                 memPic: this.memberData[index].memPic,
+                //                 memOccupation: this.memberData[index].memOccupation
+                //             }
+                //         })
+                //         .then((res) => {
+                //             console.log('會員更新成功');
+                //             this.getMemberData(1);
+                //         })
+                //         .catch((error) => {
+                //             console.error(error);
+                //         })
+                // },
+                // fileUpload(e, index) {
+                //     console.log('file upload');
+                //     //先抓到上傳圖片的input資料
+                //     this.file = e.target.files[0];
+
+
+                //     // 轉為base64，純粹預覽用
+                //     const reader = new FileReader();
+                //     reader.readAsDataURL(this.file);
+                //     reader.addEventListener("load", () => {
+                //         this.memberData[index].csPic = reader.result;
+                //     });
+
+
+                //     // 存入formData，送出資料用
+                //     let formData = new FormData();
+                //     formData.append('file', this.file);
+
+                //     axios.post('./php/uploadCsPic.php', formData)
+                //         .then((res) => {
+                //             this.$set(this.memberData[index], 'memPic', res.data);
+                //         }).catch(function () {
+                //             console.log('FAILURE!!');
+                //         });
+                // },
+                updatePages() {
+                    this.$emit('update:total-page', this.totalPage);
+                    this.$emit('update:page-now', this.pageNow);
+                },
+            },
+        });
+
+        new Vue({
+            el: "#bgMem",
+            data: {
+                totalPage: 0,
+                pageNow: 1
+            },
+            methods: {
+                getMemberDataFromParent(index) {
+                    this.$refs.childComponent.getMemberData(index);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

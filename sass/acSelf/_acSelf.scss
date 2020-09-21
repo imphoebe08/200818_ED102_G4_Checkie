@@ -146,10 +146,15 @@ a {
 .acTeacher_pic {
     margin-right: 4%;
     text-align: center;
-    ;
     img {
         width: 300px;
         border-radius: 50%;
+    }
+    @media screen and (max-width:575px) {
+        img {
+            width: 200px;
+            margin-bottom: 10px;
+        }
     }
 }
 
