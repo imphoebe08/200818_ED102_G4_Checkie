@@ -234,7 +234,7 @@ let vm = new Vue({
         ////////////
         today: new Date(),
         events: [{
-                title: "8:00-12:00",
+                title: "08:00-12:00",
                 date: "2020-09-20",
                 time1: "1",
                 time2: "1",
@@ -255,7 +255,7 @@ let vm = new Vue({
                 open: false
             },
             {
-                title: "8:00-12:00",
+                title: "08:00-12:00",
                 date: "2020-09-21",
                 time1: "0",
                 time2: "0",
@@ -276,7 +276,7 @@ let vm = new Vue({
                 open: false
             },
             {
-                title: "8:00-12:00",
+                title: "08:00-12:00",
                 date: "2020-09-22",
                 time1: "0",
                 time2: "1",
@@ -297,7 +297,7 @@ let vm = new Vue({
                 open: false
             },
             {
-                title: "8:00-12:00",
+                title: "08:00-12:00",
                 date: "2020-09-23",
                 time1: "0",
                 time2: "2",
@@ -318,7 +318,7 @@ let vm = new Vue({
                 open: false
             },
             {
-                title: "8:00-12:00",
+                title: "08:00-12:00",
                 date: "2020-09-24",
                 time1: "0",
                 time2: "2",
@@ -339,7 +339,7 @@ let vm = new Vue({
                 open: false
             },
             {
-                title: "8:00-12:00",
+                title: "08:00-12:00",
                 date: "2020-09-25",
                 time1: "2",
                 time2: "0",
@@ -360,7 +360,7 @@ let vm = new Vue({
                 open: false
             },
             {
-                title: "8:00-12:00",
+                title: "08:00-12:00",
                 date: "2020-09-26",
                 time1: "0",
                 time2: "0",
@@ -381,7 +381,7 @@ let vm = new Vue({
                 open: false
             },
             {
-                title: "8:00-12:00",
+                title: "08:00-12:00",
                 date: "2020-09-27",
                 time1: "0",
                 time2: "0",
@@ -402,7 +402,7 @@ let vm = new Vue({
                 open: false
             },
             {
-                title: "8:00-12:00",
+                title: "08:00-12:00",
                 date: "2020-09-28",
                 time1: "2",
                 time2: "1",
@@ -423,7 +423,7 @@ let vm = new Vue({
                 open: false
             },
             {
-                title: "8:00-12:00",
+                title: "08:00-12:00",
                 date: "2020-09-29",
                 time1: "0",
                 time2: "2",
@@ -444,7 +444,7 @@ let vm = new Vue({
                 open: false
             },
             {
-                title: "8:00-12:00",
+                title: "08:00-12:00",
                 date: "2020-09-30",
                 time1: "1",
                 time2: "1",
@@ -465,7 +465,7 @@ let vm = new Vue({
                 open: false
             },
             {
-                title: "8:00-12:00",
+                title: "08:00-12:00",
                 date: "2020-10-01",
                 time1: "2",
                 time2: "1",
@@ -486,7 +486,7 @@ let vm = new Vue({
                 open: false
             },
             {
-                title: "8:00-12:00",
+                title: "08:00-12:00",
                 date: "2020-10-02",
                 time1: "0",
                 time2: "0",
@@ -507,7 +507,7 @@ let vm = new Vue({
                 open: false
             },
             {
-                title: "8:00-12:00",
+                title: "08:00-12:00",
                 date: "2020-10-03",
                 time1: "0",
                 time2: "0",
@@ -592,6 +592,10 @@ let vm = new Vue({
             });
     },
     methods: {
+        // day(i) {
+
+        //     console.log(i);
+        // },
         memberCenter() {
             window.open('./meMain.html', "_self");
         },
@@ -708,8 +712,8 @@ let vm = new Vue({
         aaa(data, num) {
             this.tempTime = data;
             if (num == 1) {
-                if (data == "8:00-12:00") {
-                    return "8:00-10:00";
+                if (data == "08:00-12:00") {
+                    return "08:00-10:00";
                 } else if (data == "13:00-17:00") {
                     return "13:00-15:00";
                 } else {
@@ -717,7 +721,7 @@ let vm = new Vue({
                 }
 
             } else {
-                if (data == "8:00-12:00") {
+                if (data == "08:00-12:00") {
                     return "10:00-12:00";
                 } else if (data == "13:00-17:00") {
                     return "15:00-17:00";
@@ -729,7 +733,7 @@ let vm = new Vue({
         alertMyTitle(event, time, num) {
             if (time == 0) {
                 if (num == 1) {
-                    if (event.title == "8:00-12:00") {
+                    if (event.title == "08:00-12:00") {
                         alert(`已選擇${event.date} 08:00-10:00`);
                         this.csOTime.date = event.date;
                         this.csOTime.time = "08:00";
@@ -752,7 +756,7 @@ let vm = new Vue({
                         this.csOTime.time = "15:00";
 
 
-                    } else if (event.title == "8:00-12:00") {
+                    } else if (event.title == "08:00-12:00") {
                         alert(`已選擇${event.date}10:00-12:00`);
                         this.csOTime.date = event.date;
                         this.csOTime.time = "10:00";
@@ -774,10 +778,7 @@ let vm = new Vue({
     },
 
     computed: {
-        day() {
-            return getDate(this.event.date);
 
-        },
         eventsMap() {
             // 產生同時間點的物件 key 是時間 value 是 array
             const map = {};
