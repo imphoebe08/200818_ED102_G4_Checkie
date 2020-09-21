@@ -20,11 +20,16 @@ try{
            $ip = GetIP();
 
         //    setinterval 即時新增訊息
-        $sql = "INSERT INTO `ed102g4`.`service` (`serFrom`, `serContent`, `serTime`, `memIP`, `admNo`) VALUES (0, :serContent, current_time(), 1, '0');";
+        $sql = "SET FOREIGN_KEY_CHECKS=0;
+        INSERT INTO `ed102g4`.`service` (`serFrom`, `serContent`, `serTime`, `memIP`, `admNo`) VALUES (0, :serContent, current_time(), 1, '0');
+        INSERT INTO `ed102g4`.`service` (`serFrom`, `serContent`, `serTime`, `memIP`, `admNo`) VALUES (1, :robContent, current_time(), 1, '0');
+        SET FOREIGN_KEY_CHECKS=1;";
         // $sql = "INSERT INTO `ed102g4`.`service` (`serFrom`, `serContent`, `serTime`, `memIP`, `admNo`) VALUES (0, :serContent, current_time(), $ip, '0');";
         $serContent = $_REQUEST["serContent"];
+        $robContent = $_REQUEST["robContent"];
         $message = $pdo->prepare($sql);
         $message->bindValue(":serContent", $serContent);
+        $message->bindValue(":robContent", $robContent);
 
         $message->execute();
              
