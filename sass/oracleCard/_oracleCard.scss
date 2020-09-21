@@ -620,6 +620,7 @@
                                             height: 100vh;
                                             margin: auto;
                                             text-align: center;
+                                            position: relative;
                                             .title {
                                                 width: 100%;
                                                 padding: 150px 0;
@@ -861,11 +862,15 @@
                                                 left: 0;
                                             }
                                             #cutPhoto {
-                                                margin-left: auto;
-                                                width: 300px;
-                                                height: 300px;
-                                                border: 1px solid #333;
+                                                position: absolute;
+                                                left: 0;
+                                                top: 0;
+                                                width: 100%;
+                                                height: 100%;
+                                                max-width: 300px;
+                                                max-height: 300px;
                                                 canvas {
+                                                    // background-color: rgba(190, 190, 190, 0.37);
                                                     width: 100%;
                                                     height: 100%;
                                                 }
@@ -890,6 +895,9 @@
                                                     padding: 0 10px;
                                                 }
                                             }
+                                        }
+                                        .share-dialog {
+                                            position: absolute;
                                         }
                                     }
                                 }

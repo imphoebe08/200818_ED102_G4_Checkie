@@ -1,7 +1,11 @@
 <?php
 
 try{
+<<<<<<< HEAD
 require_once("./connectBook.php");
+=======
+require_once("./connectbook.php");
+>>>>>>> 74f831b97e732361424d23b7ea4557879b7c70ed
 $artNo=$_GET["artNo"];
 $sql = "select a.artNo,a.artBool,a.artTitle,a.artContent,b.csName,b.cspic,a.artdate,e.artTypeNO,a.artPic1,a.artPic2,a.artPic3
 from article a join counselor b 
