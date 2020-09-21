@@ -1,6 +1,6 @@
 <?php
     try{
-        require_once("./connectBook666.php");
+        require_once("./connectBook.php");
     
         $sql = "DELETE FROM `artcollect` WHERE (`memNo` = :memNo) and (`artNo` = :artNo);";
     

@@ -108,12 +108,15 @@ let vm = new Vue({
     },
     methods: {
         //截圖
-        getScreenshot() {
-            // alert(123);
-            html2canvas(document.getElementById('cutScreen')).then(function(canvas) {
-                $('#cutPhoto').append(canvas);
-            })
-        },
+        // getScreenshot() {
+        //     // alert(123);
+        //     setTimeout(() => {
+        //         html2canvas(document.getElementById('cutScreen')).then(function(canvas) {
+        //             $('#cutPhoto').append(canvas);
+        //         })
+        //     }, 3000)
+
+        // },
         // 陣列亂數好用喔
         randArr(num, data) {
             for (var i = 0; i < num; i++) {

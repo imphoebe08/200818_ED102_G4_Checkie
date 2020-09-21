@@ -1,9 +1,9 @@
 <?php
 try{
     session_start();
-    require_once("./connectBook666.php");
+    require_once("./connectBook.php");
     //session應急
-    $_SESSION["memNO"]=1;
+    // $_SESSION["memNO"]=1;
     //以上session應急
     $memNo = $_SESSION["memNO"];
 

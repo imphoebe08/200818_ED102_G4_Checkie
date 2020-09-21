@@ -6,9 +6,9 @@ Vue.component("first-layout", {
         }
     },
     template: `<li>
-            <a href="./csSelf.html"><img :src="csData.csPic"></a>
-            <h1><a :href="'./csSelf.html?csNo=' + csData.csNo">{{csData.csName}}</a></h1>
-               <button><a :href="'./csSelf.html?csNo=' + csData.csNo">立即預約</a></button>
+            <a href="./csSelf.html"><img src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg"></a>
+            <h1><a href="./csSelf.html">蔡佳穎</a></h1>
+               <button><a href="./csSelf.html">立即預約</a></button>
        </li>`,
     watch: {
         csDatas: function () {
@@ -21,7 +21,7 @@ Vue.component("second-layout", {
     props: ["cs-datas"],
     template: `<li class="class">
             <h5>認識諮商師</h5>
-            <p>{{csData.csHis | cutStringFilter}}</p>
+            <p>能夠在治療室裡真實地陪伴每個靈魂之外，也是希望能在行有餘力時，盡可能地透過演講或團體的方式，讓沒機會走進治療室的人可以有一個或者有一次被好好看見與照顧的經驗。</p>
             <h5>治療專業</h5>
             <div class="inConselor__chart">
                 <div id="chart">
@@ -86,11 +86,6 @@ Vue.component("second-layout", {
                 data: this.series[0].data
             }], false, true)
         }
-    },
-    filters: {
-        cutStringFilter: function (str) {
-            return str.substring(0, 100).concat('...')
-        }
     }
 });
 
@@ -100,19 +95,19 @@ Vue.component("third-layout", {
         apexchart: VueApexCharts,
     },
     template: ` <li class="inCs-slide__item swiper-slide">
-                    <img :src="csData.csPic" @click="openSelfPage(csData.csNo)">
-                    <h3 @click="openSelfPage(csData.csNo)">{{csData.csName}}</h3>
+                    <img src="https://www.hospital.fju.edu.tw/Media/DoctorPhoto/00186%20.jpg" @click="openSelfPage">
+                    <h3  @click="openSelfPage">蔡佳穎</h3>
                     <div class="inConselor__chart">
                         <div id="chart">
                         <apexchart ref="newChart" type="radar" width="100%" height="300" :options="chartOptions"
                             :series="series"></apexchart>
                     </div>
                     </div>
-                    <button @click="openSelfPage(csData.csNo)">立即預約</button>
+                    <button @click="openSelfPage">立即預約</button>
                 </li>`,
     methods: {
-        openSelfPage(csNo) {
-            window.open(`./csSelf.html?csNo=${csNo}`, "_self");
+        openSelfPage() {
+            window.open("./csSelf.html", "_self");
         },
     },
     data() {
@@ -125,7 +120,7 @@ Vue.component("third-layout", {
             }],
             chartOptions: {
                 chart: {
-                    height: '50%',
+                    height: 250,
                     type: 'radar',
                 },
                 xaxis: {
@@ -185,7 +180,7 @@ new Vue({
         window.onresize = () => {
             this.screenWidth = window.innerWidth;
         };
-        axios.get('./php/inCs.php')
+        axios.get('../json/cs.json')
             .then((res) => {
                 this.csData = res.data;
             })

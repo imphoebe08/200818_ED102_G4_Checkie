@@ -1,7 +1,7 @@
 <?php
 try{
     // session_start();
-    require_once("./connectBook666.php");
+    require_once("./connectBook.php");
     $acOrderActNo = $_REQUEST["acOrderActNo"];
 
     $sql = "
@@ -29,7 +29,7 @@ try{
     $memberOrder = $pdo->prepare($sql);
     // 正確做法
     // $memNo = $_SESSION["memNo"]
-    //$member->bindValue(":memNo", $memNo);
+    // $memberOrder->bindValue(":memNo", $memNo);
 
     //$memberOrder->bindValue(":memNo", 1);
     $memberOrder->bindValue(":actONo", $acOrderActNo);

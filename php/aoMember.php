@@ -1,8 +1,8 @@
 <?php
 try{
     session_start();
-    session_unset();
-    require_once("./connectBook666.php");
+    require_once("./connectBook.php");
+
     if (isset($_SESSION["memNo"])) {
         $memNo = $_SESSION["memNo"];
     }else{

@@ -1,7 +1,7 @@
 <?php
 try{
     // session_start();
-    require_once("./connectBook666.php");
+    require_once("./connectBook.php");
 
     // $sql = "
     // insert into actorder (`memNo`, `actNo`, `actOTime`, `acBD`, `acName`, `acTel`, `acGender`, `acEmail`,`acTicket`,`acPrice`,`acPayment`) 

@@ -117,7 +117,7 @@ $(function() {
             triggerElement: "#inArti",
             offset: -130,
             triggerHook: 0,
-            duration: '100%'
+            duration: '200%'
         }).setPin('.inArti').setTween(stickmove)
         // .addIndicators({
         //     name: 'key_04'

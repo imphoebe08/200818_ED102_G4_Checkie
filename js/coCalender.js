@@ -194,6 +194,7 @@ let vm = new Vue({
     el: '#app',
     vuetify: new Vuetify(),
     data: () => ({
+        alert: true,
         coOrderModeType: '',
         orderNum: '',
         csModeNo: 1,
@@ -231,22 +232,370 @@ let vm = new Vue({
         showModal: false,
         //go: true,
         ////////////
-        focus: '',
-        type: 'month',
-        typeToLabel: {
-            month: 'Month',
-            week: 'Week',
-            day: 'Day',
-            '4day': '4 Days',
-        },
-        selectedEvent: {},
-        selectedElement: null,
-        selectedOpen: false,
-        events: [],
-        colors: ['blue', 'indigo', 'deep-purple', 'cyan', 'green', 'orange', 'grey darken-1'],
-        names: ['Meeting', 'Holiday', 'PTO', 'Travel', 'Event', 'Birthday', 'Conference', 'Party'],
+        today: new Date(),
+        events: [{
+                title: "08:00-12:00",
+                date: "2020-09-20",
+                time1: "1",
+                time2: "1",
+                open: false
+            },
+            {
+                title: "13:00-17:00",
+                date: "2020-09-20",
+                time1: "2",
+                time2: "2",
+                open: false
+            },
+            {
+                title: "18:00-22:00",
+                date: "2020-09-20",
+                time1: "0",
+                time2: "2",
+                open: false
+            },
+            {
+                title: "08:00-12:00",
+                date: "2020-09-21",
+                time1: "0",
+                time2: "0",
+                open: false
+            },
+            {
+                title: "13:00-17:00",
+                date: "2020-09-21",
+                time1: "1",
+                time2: "0",
+                open: false
+            },
+            {
+                title: "18:00-22:00",
+                date: "2020-09-21",
+                time1: "1",
+                time2: "1",
+                open: false
+            },
+            {
+                title: "08:00-12:00",
+                date: "2020-09-22",
+                time1: "0",
+                time2: "1",
+                open: false
+            },
+            {
+                title: "13:00-17:00",
+                date: "2020-09-22",
+                time1: "0",
+                time2: "0",
+                open: false
+            },
+            {
+                title: "18:00-22:00",
+                date: "2020-09-22",
+                time1: "2",
+                time2: "2",
+                open: false
+            },
+            {
+                title: "08:00-12:00",
+                date: "2020-09-23",
+                time1: "0",
+                time2: "2",
+                open: false
+            },
+            {
+                title: "13:00-17:00",
+                date: "2020-09-23",
+                time1: "2",
+                time2: "1",
+                open: false
+            },
+            {
+                title: "18:00-22:00",
+                date: "2020-09-23",
+                time1: "2",
+                time2: "2",
+                open: false
+            },
+            {
+                title: "08:00-12:00",
+                date: "2020-09-24",
+                time1: "0",
+                time2: "2",
+                open: false
+            },
+            {
+                title: "13:00-17:00",
+                date: "2020-09-24",
+                time1: "0",
+                time2: "2",
+                open: false
+            },
+            {
+                title: "18:00-22:00",
+                date: "2020-09-24",
+                time1: "2",
+                time2: "1",
+                open: false
+            },
+            {
+                title: "08:00-12:00",
+                date: "2020-09-25",
+                time1: "2",
+                time2: "0",
+                open: false
+            },
+            {
+                title: "13:00-17:00",
+                date: "2020-09-25",
+                time1: "0",
+                time2: "2",
+                open: false
+            },
+            {
+                title: "18:00-22:00",
+                date: "2020-09-25",
+                time1: "0",
+                time2: "2",
+                open: false
+            },
+            {
+                title: "08:00-12:00",
+                date: "2020-09-26",
+                time1: "0",
+                time2: "0",
+                open: false
+            },
+            {
+                title: "13:00-17:00",
+                date: "2020-09-26",
+                time1: "2",
+                time2: "2",
+                open: false
+            },
+            {
+                title: "18:00-22:00",
+                date: "2020-09-26",
+                time1: "1",
+                time2: "2",
+                open: false
+            },
+            {
+                title: "08:00-12:00",
+                date: "2020-09-27",
+                time1: "0",
+                time2: "0",
+                open: false
+            },
+            {
+                title: "13:00-17:00",
+                date: "2020-09-27",
+                time1: "0",
+                time2: "2",
+                open: false
+            },
+            {
+                title: "18:00-22:00",
+                date: "2020-09-27",
+                time1: "1",
+                time2: "0",
+                open: false
+            },
+            {
+                title: "08:00-12:00",
+                date: "2020-09-28",
+                time1: "2",
+                time2: "1",
+                open: false
+            },
+            {
+                title: "13:00-17:00",
+                date: "2020-09-28",
+                time1: "0",
+                time2: "2",
+                open: false
+            },
+            {
+                title: "18:00-22:00",
+                date: "2020-09-28",
+                time1: "0",
+                time2: "1",
+                open: false
+            },
+            {
+                title: "08:00-12:00",
+                date: "2020-09-29",
+                time1: "0",
+                time2: "2",
+                open: false
+            },
+            {
+                title: "13:00-17:00",
+                date: "2020-09-29",
+                time1: "2",
+                time2: "1",
+                open: false
+            },
+            {
+                title: "18:00-22:00",
+                date: "2020-09-29",
+                time1: "2",
+                time2: "1",
+                open: false
+            },
+            {
+                title: "08:00-12:00",
+                date: "2020-09-30",
+                time1: "1",
+                time2: "1",
+                open: false
+            },
+            {
+                title: "13:00-17:00",
+                date: "2020-09-30",
+                time1: "1",
+                time2: "1",
+                open: false
+            },
+            {
+                title: "18:00-22:00",
+                date: "2020-09-30",
+                time1: "1",
+                time2: "1",
+                open: false
+            },
+            {
+                title: "08:00-12:00",
+                date: "2020-10-01",
+                time1: "2",
+                time2: "1",
+                open: false
+            },
+            {
+                title: "13:00-17:00",
+                date: "2020-10-01",
+                time1: "0",
+                time2: "1",
+                open: false
+            },
+            {
+                title: "18:00-22:00",
+                date: "2020-10-01",
+                time1: "0",
+                time2: "1",
+                open: false
+            },
+            {
+                title: "08:00-12:00",
+                date: "2020-10-02",
+                time1: "0",
+                time2: "0",
+                open: false
+            },
+            {
+                title: "13:00-17:00",
+                date: "2020-10-02",
+                time1: "2",
+                time2: "1",
+                open: false
+            },
+            {
+                title: "18:00-22:00",
+                date: "2020-10-02",
+                time1: "1",
+                time2: "0",
+                open: false
+            },
+            {
+                title: "08:00-12:00",
+                date: "2020-10-03",
+                time1: "0",
+                time2: "0",
+                open: false
+            },
+            {
+                title: "13:00-17:00",
+                date: "2020-10-03",
+                time1: "1",
+                time2: "0",
+                open: false
+            },
+            {
+                title: "18:00-22:00",
+                date: "2020-10-03",
+                time1: "0",
+                time2: "1",
+                open: false
+            }
+        ],
+        tempTime: "",
+
     }),
+    mounted() {
+        this.currentStep = 1;
+
+        let coOrderCsNo = location.href.split('?')[1].split('&')[0].split('=')[1];
+        let coOrderModeType = location.href.split('?')[1].split('&')[1].split('=')[1];
+        // console.log(coOrderCsNo);
+        // console.log(coOrderModeType);
+        //諮商方是
+        axios.get('./php/coOrderModeType.php', { params: { 'coOrderModeType': coOrderModeType } })
+            .then(res => {
+                this.coOrderModeType = res.data;
+                console.log(this.coOrderModeType);
+            });
+        //諮商師
+        axios.get('./php/csCounselor.php', { params: { 'coOrderCsNo': coOrderCsNo } })
+            .then(res => {
+                this.csData = res.data;
+                console.log(this.csData);
+            });
+        //付費方式
+        axios.get('./php/paymentMethod.php')
+            .then(res => {
+                this.paymentMethod = res.data;
+                // console.log(this.paymentMethod);
+            });
+        //會員資料
+        axios.get('./php/coMember.php')
+            .then(res => {
+                if (res.data != "0") {
+                    this.coMember = res.data;
+                    console.log(this.coMember);
+
+                    let telArray = res.data.memTel.split(',');
+                    this.coMember.memTel = {
+                        'countryCode': telArray[0],
+                        'mobile': telArray[1],
+                    };
+
+                    //alert(this.coMember.memTel.countryCode);
+                    //算年紀
+                    //console.log(this.coMember.memBD);
+                    var bir = res.data.memBD;
+                    bir = Date.parse(bir.replace('/-/g', "/"));
+                    //console.log(bir);
+                    if (bir) {
+                        var year = 1000 * 60 * 60 * 24 * 365;
+                        var now = new Date();
+                        var birthday = new Date(bir);
+                        var age = parseInt((now - birthday) / year);
+                        this.coMember.memBD = age;
+                    }
+                }
+            });
+        //月曆
+        axios.get('./php/getCalender.php', { params: { 'csNo': coOrderCsNo } })
+            .then(res => {
+                this.event = res.data;
+                // console.log(this.paymentMethod);
+            });
+    },
     methods: {
+        // day(i) {
+
+        //     console.log(i);
+        // },
         memberCenter() {
             window.open('./meMain.html', "_self");
         },
@@ -338,137 +687,109 @@ let vm = new Vue({
 
 
 
-        viewDay({
-            date
-        }) {
-            this.focus = date
-            this.type = 'day'
-        },
-        getEventColor(event) {
-            return event.color
-        },
-        setToday() {
-            this.focus = ''
-        },
         prev() {
-            this.$refs.calendar.prev()
+            this.today = this.today.setMonth(this.today.getMonth() - 1)
+            this.today = new Date(this.today);
+
         },
         next() {
-            this.$refs.calendar.next()
+            this.today = this.today.setMonth(this.today.getMonth() + 1)
+            this.today = new Date(this.today);
         },
-        showEvent({
-            nativeEvent,
-            event
-        }) {
-            const open = () => {
-                this.selectedEvent = event
-                this.selectedElement = nativeEvent.target
-                setTimeout(() => this.selectedOpen = true, 10)
-            }
 
-            if (this.selectedOpen) {
-                this.selectedOpen = false
-                setTimeout(open, 10)
-            } else {
-                open()
-            }
-
-            nativeEvent.stopPropagation()
-        },
-        updateRange({
-            start,
-            end
-        }) {
-            const events = []
-
-            const min = new Date(`${start.date}T00:00:00`)
-            const max = new Date(`${end.date}T23:59:59`)
-            const days = (max.getTime() - min.getTime()) / 86400000
-            const eventCount = this.rnd(days, days + 20)
-
-            for (let i = 0; i < eventCount; i++) {
-                const allDay = this.rnd(0, 3) === 0
-                const firstTimestamp = this.rnd(min.getTime(), max.getTime())
-                const first = new Date(firstTimestamp - (firstTimestamp % 900000))
-                const secondTimestamp = this.rnd(2, allDay ? 288 : 8) * 900000
-                const second = new Date(first.getTime() + secondTimestamp)
-
-                events.push({
-                    name: this.names[this.rnd(0, this.names.length - 1)],
-                    start: first,
-                    end: second,
-                    color: this.colors[this.rnd(0, this.colors.length - 1)],
-                    timed: !allDay,
-                })
-            }
-
-            this.events = events
-        },
-        rnd(a, b) {
-            return Math.floor((b - a + 1) * Math.random()) + a
-        },
         logIn() {
             $("#signup_overlay").removeClass("signup_overlay-none");
             $("#signup_overlay").fadeIn(300);
             $("#container").removeClass("right-panel-active");
         },
-    },
-    mounted() {
-        this.currentStep = 1;
+        colorChange(time) {
+            if (time == 0) {
+                return "teal lighten-2";
+            } else {
+                return "red lighten-3";
+            }
+        },
+        aaa(data, num) {
+            this.tempTime = data;
+            if (num == 1) {
+                if (data == "08:00-12:00") {
+                    return "08:00-10:00";
+                } else if (data == "13:00-17:00") {
+                    return "13:00-15:00";
+                } else {
+                    return "18:00-20:00";
+                }
 
-        let coOrderCsNo = location.href.split('?')[1].split('&')[0].split('=')[1];
-        let coOrderModeType = location.href.split('?')[1].split('&')[1].split('=')[1];
-        // console.log(coOrderCsNo);
-        // console.log(coOrderModeType);
-        //諮商方是
-        axios.get('./php/coOrderModeType.php', { params: { 'coOrderModeType': coOrderModeType } })
-            .then(res => {
-                this.coOrderModeType = res.data;
-                console.log(this.coOrderModeType);
-            });
-        //諮商師
-        axios.get('./php/csCounselor.php', { params: { 'coOrderCsNo': coOrderCsNo } })
-            .then(res => {
-                this.csData = res.data;
-                console.log(this.csData);
-            });
-        //付費方式
-        axios.get('./php/paymentMethod.php')
-            .then(res => {
-                this.paymentMethod = res.data;
-                // console.log(this.paymentMethod);
-            });
-        //會員資料
-        axios.get('./php/coMember.php')
-            .then(res => {
-                if (res.data != "0") {
-                    this.coMember = res.data;
-                    console.log(this.coMember);
+            } else {
+                if (data == "08:00-12:00") {
+                    return "10:00-12:00";
+                } else if (data == "13:00-17:00") {
+                    return "15:00-17:00";
+                } else {
+                    return "20:00-22:00";
+                }
+            }
+        },
+        alertMyTitle(event, time, num) {
+            if (time == 0) {
+                if (num == 1) {
+                    if (event.title == "08:00-12:00") {
+                        alert(`已選擇${event.date} 08:00-10:00`);
+                        this.csOTime.date = event.date;
+                        this.csOTime.time = "08:00";
 
-                    let telArray = res.data.memTel.split(',');
-                    this.coMember.memTel = {
-                        'countryCode': telArray[0],
-                        'mobile': telArray[1],
-                    };
+                    } else if (event.title == "13:00-17:00") {
+                        alert(`已選擇${event.date}13:00-15:00`);
+                        this.csOTime.date = event.date;
+                        this.csOTime.time = "13:00";
 
-                    //alert(this.coMember.memTel.countryCode);
-                    //算年紀
-                    //console.log(this.coMember.memBD);
-                    var bir = res.data.memBD;
-                    bir = Date.parse(bir.replace('/-/g', "/"));
-                    //console.log(bir);
-                    if (bir) {
-                        var year = 1000 * 60 * 60 * 24 * 365;
-                        var now = new Date();
-                        var birthday = new Date(bir);
-                        var age = parseInt((now - birthday) / year);
-                        this.coMember.memBD = age;
+                    } else {
+                        alert(`已選擇${event.date}18:00-22:00`);
+                        this.csOTime.date = event.date;
+                        this.csOTime.time = "18:00";
+                    }
+
+                } else {
+                    if (event.title == "13:00-17:00") {
+                        alert(`已選擇${event.date} 15:00-17:00`);
+                        this.csOTime.date = event.date;
+                        this.csOTime.time = "15:00";
+
+
+                    } else if (event.title == "08:00-12:00") {
+                        alert(`已選擇${event.date}10:00-12:00`);
+                        this.csOTime.date = event.date;
+                        this.csOTime.time = "10:00";
+
+                    } else {
+                        alert(`已選擇${event.date}20:00-22:00`);
+                        this.csOTime.date = event.date;
+                        this.csOTime.time = "20:00";
                     }
                 }
-            });
-        this.$refs.calendar.checkChange();
+                this.currentStep = 2;
+                // 送出訂單網址之類的
+            } else {
+                alert(
+                    "無法預約"
+                );
+            }
+        },
     },
+
     computed: {
+
+        eventsMap() {
+            // 產生同時間點的物件 key 是時間 value 是 array
+            const map = {};
+            this.events.forEach((e) => (map[e.date] = map[e.date] || []).push(e));
+            return map;
+
+        },
+        monthSelect() {
+            return `${this.today.getFullYear()}年
+					${this.today.getMonth() + 1}月`;
+        },
         price() {
             this.csOCost = this.costEach * this.csHour;
             return this.csOCost;
@@ -499,11 +820,14 @@ let vm = new Vue({
             //console.log(f);
             var d = new Date(f)
                 //console.log(d);
-            var hour = d.getHours() + ':00:00';
+            var hour = d.getHours() + ':00';
             //console.log(hour);
             return hour;
 
         }
+    },
+    created() {
+        // console.log(this.eventsMap)
     },
 
 });

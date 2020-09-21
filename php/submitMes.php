@@ -19,26 +19,14 @@ try{
            }
            $ip = GetIP();
 
-           
-        //    loadding內容
-        $sql = "select * from service  where memIp='1' order by serno desc limit 0,20;";
-        // $sql = "select * from service  where memIp=$ip order by serno;";
-
+        //    setinterval 即時新增訊息
+        $sql = "INSERT INTO `ed102g4`.`service` (`serFrom`, `serContent`, `serTime`, `memIP`, `admNo`) VALUES (0, :serContent, current_time(), 1, '0');";
+        // $sql = "INSERT INTO `ed102g4`.`service` (`serFrom`, `serContent`, `serTime`, `memIP`, `admNo`) VALUES (0, :serContent, current_time(), $ip, '0');";
+        $serContent = $_REQUEST["serContent"];
         $message = $pdo->prepare($sql);
+        $message->bindValue(":serContent", $serContent);
+
         $message->execute();
-        if( $message->rowCount()==0){ 
-          echo "123";
-        }else{ 
-          $messageRow = $message->fetchAll(PDO::FETCH_ASSOC);
-          echo json_encode($messageRow,JSON_UNESCAPED_UNICODE);
-        };
-        //    抓取內容
-        // $memContent = $_POST["memContent"];
-        
-        // $sql2 = "insert into service(serFrom, serContent, serTime,memIp) values (0, :memContent,current_time(),$ip);";
-        // $member2 = $pdo->prepare($sql2);
-        // $member2->bindValue(":memContent", $memContent);
-        // $member2->execute();
              
         
         

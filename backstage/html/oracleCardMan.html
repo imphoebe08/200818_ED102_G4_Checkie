@@ -49,10 +49,28 @@
         margin: 0 100px;
     }
     
-    .insert_newQuest div {
+    #oracleCardMan .insert_newQuest div {
         overflow: auto;
         zoom: 1;
-        margin: 15px 20px !important;
+        margin: 15px 50px !important;
+    }
+    
+    #oracleCardMan #addImg {
+        position: relative;
+        width: 250px;
+        height: 400px;
+        background-color: rgb(168, 164, 164);
+    }
+    
+    #oracleCardMan #addImg img {
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+    }
+    
+    #oracleCardMan #addPic {
+        display: block;
     }
 </style>
 
@@ -80,9 +98,9 @@
                             <tr>
                                 <th>神諭卡牌組編號</th>
                                 <th>神諭卡卡背樣式</th>
-                                <th>上架狀態</th>
                                 <th>更新日期</th>
                                 <th>編輯</th>
+                                <th></th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -116,18 +134,12 @@
                         <div>
                             <label for="">神諭卡內容<input type="" v-model="addCard.cardContent"></label>
                         </div>
-                        <div>
-                            <label style="display: block;">上/下架</label>
-                            <select v-model="addCard.cardTypeNo" name="" id="">
-                                <option value="1">上架</option>
-                                <option value="0">下架</option>
-                            </select>
-                        </div>
                         <!-- <label for="">神諭卡卡面<input type="text" v-model="addCard.cardPic"></label> -->
-                        <div>
-                            <input type="file" ref="file" name="file" :id="file" @change="fileUpload($event,-1)" style="opacity: 0;">
+                        <div class="addPic">
+                            <input type="file" ref="file" name="file" :id="file" @change="fileUpload($event,-1)" style="display:none;">
                             <label :for="file">神諭卡卡面
-                            <img :src="addCard.cardPic" alt="" style="width:130px; object-fit:cover; height:220px;" id="addCardBg"></label>
+                                <img :src="addCard.cardPic" alt="" style="width:200px; height:340px; display:block; border: 1px solid #333; cursor: pointer;" id="addCardBg">
+                            </label>
                         </div>
 
 
@@ -210,7 +222,6 @@
                                                 <th>神諭卡名稱</th>
                                                 <th>神諭卡內容</th>
                                                 <th>神諭卡卡面</th>
-                                                <th>上/下架</th>
                                                 <th></th>
                                             </thead>
                                             <tbody>
@@ -221,7 +232,6 @@
                                                     <td><label for="">神諭卡卡面:</label><input type="text" v-model="each.cardPic" :class="'buttonGroup' + index" readonly>
                                                     <p>卡面預覽：</p>
                                                     <img style="width:50px;" :src="each.cardPic" alt=""></td>
-                                                    <td><label for="">上/下架</label><input type="checkbox" v-model="each.cardTypeNo" :class="'buttonGroup' + index" readonly style="min-width:50px;"></td>
                                                     <td><button class="btn btn-default btn-xs" @click="editToggle($event,index,v)">修改</button> <button class="btn btn-default btn-xs" @click="deleteData($event,index)">刪除</button></td>
                                                 </tr>
                                             </tbody>
@@ -260,7 +270,7 @@
                 let input = document.querySelectorAll(`.buttonGroup${index}`);
                 for (let j = 0; j < input.length; j++) {
                     input[j].removeAttribute("readonly");
-                    e.currentTarget.innerText = "送出";
+                    e.currentTarget.innerText = "確認修改";
                 }
             },
             deleteData(e, index) {
@@ -346,12 +356,12 @@
                 cardNo: '',
                 cardTitle: '',
                 cardContent: '',
-                cardPic: '',
-                cardTypeNo: '',
+                cardPic: './img/oracleCard/photo.png',
+                cardTypeNo: 1,
                 deckNo: '',
             },
             cardNo: '',
-            file: '',
+            file: 'file',
         },
         methods: {
             getCardsData() {
