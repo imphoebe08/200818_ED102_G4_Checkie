@@ -38,6 +38,22 @@
         width: 20%;
         margin: 10px;
     }
+    
+    #oracleCardMan .insert_newQuest .input-sort {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+    
+    #oracleCardMan .insert_newQuest .input-sort .div {
+        margin: 0 100px;
+    }
+    
+    .insert_newQuest div {
+        overflow: auto;
+        zoom: 1;
+        margin: 15px 20px !important;
+    }
 </style>
 
 <head>
@@ -80,26 +96,39 @@
         <div class="container">
             <div class="col-md-12">
                 <div class="panel-heading">
-                    <h3>新增神諭卡牌組</h3>
+                    <h3>新增神諭卡卡牌</h3>
                 </div>
 
                 <div class="insert_newQuest">
 
                     <div class="input-sort">
-                        <label style="display: inline-block;">神諭卡牌組編號</label>
-                        <select v-model="addCard.deckNo" name="" id="">
-                            <option value="1">牌組1</option>
-                            <option value="2">牌組2</option>
-                            <option value="3">牌組3</option>
-                        </select>
-                        <label for="">神諭卡名稱<input type="text" v-model="addCard.cardTitle"></label>
-                        <label for="">神諭卡內容<input type="text" v-model="addCard.cardContent"></label>
-                        <label for="">神諭卡卡面<input type="text" v-model="addCard.cardPic"></label>
-                        <label style="display: inline-block;">上/下架</label>
-                        <select v-model="addCard.cardTypeNo" name="" id="">
-                            <option value="1">上架</option>
-                            <option value="0">下架</option>
-                        </select>
+                        <div>
+                            <label style="display: block;">神諭卡牌組編號</label>
+                            <select v-model="addCard.deckNo" name="" id="">
+                                <option value="1">牌組1</option>
+                                <option value="2">牌組2</option>
+                                <option value="3">牌組3</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="">神諭卡名稱<input type="text" v-model="addCard.cardTitle"></label>
+                        </div>
+                        <div>
+                            <label for="">神諭卡內容<input type="" v-model="addCard.cardContent"></label>
+                        </div>
+                        <div>
+                            <label style="display: block;">上/下架</label>
+                            <select v-model="addCard.cardTypeNo" name="" id="">
+                                <option value="1">上架</option>
+                                <option value="0">下架</option>
+                            </select>
+                        </div>
+                        <!-- <label for="">神諭卡卡面<input type="text" v-model="addCard.cardPic"></label> -->
+                        <div>
+                            <input type="file" ref="file" name="file" :id="file" @change="fileUpload($event,-1)" style="opacity: 0;">
+                            <label :for="file">神諭卡卡面
+                            <img :src="addCard.cardPic" alt="" style="width:130px; object-fit:cover; height:220px;" id="addCardBg"></label>
+                        </div>
 
 
                     </div>
@@ -166,9 +195,10 @@
                                     <img style="width:50px;" :src="cardsBack[index-1]" alt="">
                                     
                                 </td>
-                                <td>上架中</td>
+                                <td>上架</td>
                                 <td>2020/09/12</td>
                                 <td><button data-toggle="collapse" :data-target="demo" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open">編輯</span></button></td>
+                                <td></td>
                             </tr>
 
                             <tr>
@@ -181,6 +211,7 @@
                                                 <th>神諭卡內容</th>
                                                 <th>神諭卡卡面</th>
                                                 <th>上/下架</th>
+                                                <th></th>
                                             </thead>
                                             <tbody>
                                                 <tr v-for="(each,index,v) in card" class="buttonGroup">
@@ -188,9 +219,10 @@
                                                     <td><label for="">神諭卡名稱:</label><input type="text" v-model="each.cardTitle" :class="'buttonGroup' + index" readonly></td>
                                                     <td><label for="">神諭卡內容:</label><input type="text" v-model="each.cardContent" :class="'buttonGroup' + index" readonly></td>
                                                     <td><label for="">神諭卡卡面:</label><input type="text" v-model="each.cardPic" :class="'buttonGroup' + index" readonly>
+                                                    <p>卡面預覽：</p>
                                                     <img style="width:50px;" :src="each.cardPic" alt=""></td>
-                                                    <td><label for="">上/下架</label><input type="checkbox" v-model="each.cardTypeNo" :class="'buttonGroup' + index" readonly></td>
-                                                    <td><button @click="editToggle($event,index,v)">修改</button> <button @click="deleteData($event,index)">刪除</button></td>
+                                                    <td><label for="">上/下架</label><input type="checkbox" v-model="each.cardTypeNo" :class="'buttonGroup' + index" readonly style="min-width:50px;"></td>
+                                                    <td><button class="btn btn-default btn-xs" @click="editToggle($event,index,v)">修改</button> <button class="btn btn-default btn-xs" @click="deleteData($event,index)">刪除</button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -273,6 +305,32 @@
                         console.error(error);
                     })
             },
+            //圖片
+            // fileUpload(e) {
+            //     //先抓到上傳圖片的input資料
+            //     this.file = e.target.files[0];
+
+
+            //     // 轉為base64，純粹預覽用
+            //     const reader = new FileReader();
+            //     reader.readAsDataURL(this.file);
+            //     reader.addEventListener("load", () => {
+            //         this.fileUrl = reader.result;
+            //     });
+
+
+            //     // 存入formData，送出資料用
+            //     let formData = new FormData();
+            //     formData.append('file', this.file);
+
+            //     axios.post('./oracleUpLoadCardPic.php',
+            //         formData).then((res) => {
+            //         // 抓到圖片儲存位址可以再回來改src
+            //         this.fileUrl = res.data;
+            //     }).catch(function() {
+            //         console.log('FAILURE!!');
+            //     });
+            // }
 
         },
     });
@@ -293,6 +351,7 @@
                 deckNo: '',
             },
             cardNo: '',
+            file: '',
         },
         methods: {
             getCardsData() {
@@ -329,10 +388,44 @@
                     .then((res) => {
                         console.log(res.data);
                         this.addCard = {}; //清除新增區域的placeholder
+                        this.getCardsDataList();
+
                     })
                     .catch((error) => {
                         console.error(error);
                     })
+            },
+            fileUpload(e, index) {
+                //先抓到上傳圖片的input資料
+                this.file = e.target.files[0];
+
+
+                // 轉為base64，純粹預覽用
+                const reader = new FileReader();
+                reader.readAsDataURL(this.file);
+                reader.addEventListener("load", () => {
+                    if (index >= 0) {
+                        this.getCardsDataList[index].cardPic = reader.result;
+                    } else {
+                        this.addCard.cardPic = reader.result;
+                    }
+                });
+
+
+                // 存入formData，送出資料用
+                let formData = new FormData();
+                formData.append('file', this.file);
+
+                axios.post('./php/oracleUpLoadCardPic.php', formData)
+                    .then((res) => {
+                        if (index >= 0) {
+                            this.$set(this.getCardsDataList[index], 'cardPic', res.data);
+                        } else {
+                            this.$set(this.addCard, 'cardPic', res.data);
+                        }
+                    }).catch(function() {
+                        console.log('FAILURE!!');
+                    });
             }
         },
         mounted() {
