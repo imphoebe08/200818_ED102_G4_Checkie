@@ -1,6 +1,6 @@
 <?php
     try{
-        require_once("./connectBook666.php");
+        require_once("./connectBook.php");
     
         $sql = "delete  from csorder
         where csONo = :csONo;";

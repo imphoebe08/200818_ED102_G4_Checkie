@@ -352,38 +352,48 @@ Vue.component('cssart-layout', {
     },
 });
 
+
+
+
+// jiand start()
 Vue.component('chat-person-each', {
     props: ["init"],
     data() {
-        return {
-            each: this.init,
-        }
+        return {}
     },
     template: `
     <div class="meChatPeople-each" @click="sendCsNo">
         <div class="meChatPeople">
-            <div class="meChatOnline"><i class="fas fa-bell" ></i></div>
-            <div class="meChatPeople-pic"><img :src="each.csPic" alt=""></div>
-            <div class="meChatPeople-name">{{each.csName}}</div>
+            <div class="meChatOnline"><i :class="bell" ></i></div>
+            <div class="meChatPeople-pic"><img :src="init.csPic" alt=""></div>
+            <div class="meChatPeople-name">{{init.csName}}</div>
             <!-- <div class="meChatPeople-title">諮商師</div> -->
         </div>
         <div class="meChatDelete"><i class="fas fa-trash-alt"></i></div>
     </div>
 
     `,
-    methods: {
-        sendCsNo() {
-            this.$emit("change", this.each.csNo)
+    computed: {
+        bell() {
+            // 改 sass
+            return (this.init.memRead == "0") ? "fas fa-bell" : "0";
         }
+    },
+    methods: {
+        // jiang start()
+        sendCsNo() {
+            this.$emit("change", this.init.csNo);
+        }
+        // jiang end()
     },
 
 });
-
+// jiang end()
+// jiang start()
 Vue.component('me-chat-an', {
     props: ["init"],
     data() {
         return {
-            each: this.init,
             text1: "meChatAn-text",
             text2: "meChatAn-text meChatAnUser-text",
             other1: "meChatAn-other",
@@ -391,18 +401,18 @@ Vue.component('me-chat-an', {
         }
     },
     template: `
-    <div :class="{meChatAn : true,meChatAnUser:each.mesFrom==0}">
-        <div class="meChatAn-pic"><img :src="[each.mesFrom==0? each.memPic : each.csPic]" alt=""></div>
-        <div :class="[each.mesFrom==0? text2 : text1]" >{{each.mesContent}}</div>
-        <div :class="[each.mesFrom==0? other2 : other1]">
-            <div class="meChatAn-time">{{each.mesTime}}</div>
+    <div :class="{meChatAn : true,meChatAnUser:init.mesFrom==0}">
+        <div class="meChatAn-pic"><img :src="[init.mesFrom==0? init.memPic : init.csPic]" alt=""></div>
+        <div :class="[init.mesFrom==0? text2 : text1]" >{{init.mesContent}}</div>
+        <div :class="[init.mesFrom==0? other2 : other1]">
+            <div class="meChatAn-time">{{init.mesTime}}</div>
             <div class="meChatAn-select"><i class="fas fa-ellipsis-h"></i></div>
         </div>
     </div>
     `,
     methods: {},
 });
-
+// jiang end()
 
 
 
@@ -415,6 +425,13 @@ let vm = new Vue({
         apexchart: VueApexCharts
     },
     data: {
+        // jiang start()
+        meChatAn: [],
+
+
+        mesNo: "",
+        chatCsNo: "",
+        // jiang end()
         // 分享加這個
         shareUrl: "https://tw.yahoo.com/?", //傳送的文章或活動主連結
         shareNo: '', //傳送的文章或活動編號，我預設為0
@@ -580,18 +597,52 @@ let vm = new Vue({
         }
 
     },
-    // filters: {
-    //     search() {
-    //         alert("haha");
-    //     },
-    //     // capitalize: function(value) {
-    //     //     if (!value) return ''
-    //     //     value = value.toString()
-    //     //     return value.charAt(0).toUpperCase() + value.slice(1)
-    //     // }
-    // },
+
 
     methods: {
+        //jiang start()
+        firstChat() {
+            // 跟我聊天的人
+            axios.post("./php/firstChat.php").then(res => {
+                let data = res.data;
+                this.mesNo = res.data[0].mesNo;
+                this.chatCsNo = res.data[0].csNo;
+                for (let i = data.length - 1; i >= 0; i--) {
+                    this.meChatAn.push(data[i]);
+                }
+
+            });
+        },
+        csMe() {
+            // 聊天對象欄
+            axios.post("./php/csMe.php").then(res => {
+                console.log(res.data)
+                this.chatPersonEach = res.data;
+            })
+        },
+
+
+
+        submitMes() {
+            let data_info = `chatBox=${this.chatBox}&csNo=${this.meChatAn[0].csNo}`;
+            axios.post("./php/sendMes.php", data_info);
+            this.chatBox = "";
+        },
+        changeCs(csNo) {
+            let data_info = `csNo=${csNo}`;
+            axios.post("./php/changeCs.php", data_info).then(res => {
+                this.meChatAn = [];
+                let data = res.data;
+                this.mesNo = res.data[0].mesNo;
+                this.chatCsNo = res.data[0].csNo;
+                for (let i = data.length - 1; i >= 0; i--) {
+                    this.meChatAn.push(data[i]);
+                }
+            })
+
+        },
+
+        // jiang end()
         search() {
             //console.log(this.coData);
             this.currentPage = this.titles[7];
@@ -638,22 +689,22 @@ let vm = new Vue({
             //this.finalResult = myAoSearchResult;
             //console.log(this.finalResult);
         },
-        // searchAmount() {
-        //     for (let i = 0; i < myAoSearchResult.length; i++) {
-        //         this.allData.push(myAoSearchResult[i]);
-        //         //console.log(this.allData);
-        //     };
-        //     for (let i = 0; i < myCoSearchResult.length; i++) {
-        //         this.allData.push(myCoSearchResult[i]);
-        //         //console.log(this.allData);
-        //     };
-        // },
         selectIt(v) {
             var v = v;
             setTimeout(function() {
                 vm.$data.currentPage = v;
+                // jiang start()
+                setTimeout(function() {
+                    if (vm.$data.currentPage == "線上諮商") {
+                        var meChatMainRoom = document.getElementById("meChatMainRoom");
+                        meChatMainRoom.scrollTop = meChatMainRoom.scrollHeight;
 
+                    }
+                }, 200)
+
+                //jiang end()
             }, 400);
+
             this.selectNav = false
         },
         pageChange(a) {
@@ -903,38 +954,7 @@ let vm = new Vue({
             )
         },
 
-        ajaxPost(dataUrl, data, num) {
-            let xhr = new XMLHttpRequest();
-            let numTest = num;
-            xhr.onload = function() {
-                if (xhr.status == 200) {
-                    let json = JSON.parse(xhr.responseText);
-                    if (numTest == 1) {
-                        vm.$data.chatPersonEach = json;
-                    } else if (numTest == 2) {
-                        vm.$data.meChatAn = json;
-                    }
-                } else {
-                    // alert(xhr.status);
-                }
-            }
 
-            let url = dataUrl;
-            xhr.open("post", url, true);
-
-            xhr.setRequestHeader("content-Type", "application/x-www-form-urlencoded");
-            xhr.send(data);
-        },
-        submitMes() {
-            let data_info = `chatBox=${this.chatBox}&csNo=${this.meChatAn[0].csNo}`;
-            this.ajaxPost("./php/sendMes.php", data_info, 0);
-            this.chatBox = "";
-        },
-        changeCs(csNo) {
-            let data_info = `csNo=${csNo}`;
-            vm.ajaxPost("./php/changeCs.php", data_info, 1);
-
-        },
         //打開訂單更多
         orderMore(event) {
             event.currentTarget.nextElementSibling.classList.toggle('meOrderOpen');
@@ -963,6 +983,40 @@ let vm = new Vue({
 
 
     mounted() {
+
+
+        // jiang start()
+        this.firstChat();
+        this.csMe();
+        setInterval(() => {
+            // 聊天欄
+            axios.post("./php/csMe.php").then(res => {
+                // console.log(res.data)
+                this.chatPersonEach = res.data;
+            });
+            // 聊天室窗
+            let data = `mesNo=${this.mesNo}&csNo=${this.chatCsNo}`;
+            axios.post("./php/keepMes.php", data).then(res => {
+                // console.log(res.data);
+                if (res.data != "0") {
+                    let data = res.data;
+                    this.mesNo = res.data[0].mesNo;
+                    this.chatCsNo = res.data[0].csNo;
+                    for (let i = data.length - 1; i >= 0; i--) {
+                        this.meChatAn.push(data[i]);
+                        setTimeout(() => {
+                            var meChatMainRoom = document.getElementById("meChatMainRoom");
+                            meChatMainRoom.scrollTop = meChatMainRoom.scrollHeight;
+                        }, 0.1)
+                    }
+                }
+            });
+        }, 500)
+
+
+
+        // jiang end()
+
         // //掛載心理測驗分數
         axios.get('./php/memTestR.php')
             .then(response => {
@@ -980,8 +1034,7 @@ let vm = new Vue({
         //     vm.ajaxPost("./php/csMe.php", null, 1);
         //     // vm.ajaxPost("firstChat.php", null, 2);
         // }, 1000);
-        this.ajaxPost("csMe.php", null, 1);
-        this.ajaxPost("./php/firstChat.php", null, 2);
+
         //會員資料辣ＱＱＱＱＱ
 
         //
@@ -1020,32 +1073,45 @@ let vm = new Vue({
         //掛載諮商訂單
         axios.get('./php/memCsOrder.php')
             .then(res => {
-                //console.log(res.data[1].csODate);
-                for (let i = 0; i < res.data.length; i++) {
-                    if (new Date(res.data[i].csODate) > Date.now()) {
+                if (res.data == '沒有訂單內容') {
+                    this.coData = [];
+                    this.coPastData = [];
+                } else {
+                    //console.log(res.data[1].csODate);
+                    for (let i = 0; i < res.data.length; i++) {
+                        if (new Date(res.data[i].csODate) > Date.now()) {
 
-                        this.coData.push(res.data[i]);
-                    } else {
+                            this.coData.push(res.data[i]);
+                        } else {
 
-                        this.coPastData.push(res.data[i]);
+                            this.coPastData.push(res.data[i]);
+                        };
                     };
-                };
+                }
+
 
             });
 
         //掛載活動訂單
         axios.post('./php/memActOrder.php')
             .then(response => {
-                //console.log(response)
-                //console.log(response.data);
-                for (let i = 0; i < response.data.length; i++) {
-                    if (new Date(response.data[i].actStart) > Date.now()) {
-                        this.aoData.push(response.data[i]);
-                    } else {
+                if (res.data == '沒有訂單內容') {
+                    this.aoData = [];
+                    this.aoPastData = [];
 
-                        this.aoPastData.push(response.data[i]);
+                } else {
+                    //console.log(response)
+                    //console.log(response.data);
+                    for (let i = 0; i < response.data.length; i++) {
+                        if (new Date(response.data[i].actStart) > Date.now()) {
+                            this.aoData.push(response.data[i]);
+                        } else {
+
+                            this.aoPastData.push(response.data[i]);
+                        };
                     };
-                };
+                }
+
             });
         // //掛載文章推薦
         axios.get('./php/memArtRec.php')
@@ -1062,13 +1128,23 @@ let vm = new Vue({
         // //掛載活動收藏
         axios.get('./php/memActCollect.php')
             .then(response => {
-                this.actCol = response.data;
-                //console.log(this.actCol);
+                if (response.data == '沒有推薦內容') {
+                    this.actCol = [];
+                } else {
+                    this.actCol = response.data;
+                    //console.log(this.actCol);
+                }
+
             });
         // //掛載文章收藏
         axios.get('./php/memArtCollect.php')
             .then(response => {
-                this.artCol = response.data;
+                if (response.data == '沒有推薦內容') {
+                    this.artCol = [];
+                } else {
+                    this.artCol = response.data;
+                    //console.log(this.actCol);
+                }
                 //console.log(this.artCol);
             });
 
@@ -1116,9 +1192,12 @@ let vm = new Vue({
     watch: {
         windowSize: function() {
             if (this.windowSize < 768) {
-                this.currentPage = this.titles[0];
+                if (this.currentPage == this.titles[0]) {
+                    this.currentPage = '';
+                }
             }
         },
+        // this.currentPage = this.titles[0];
         // csReData: function() {
         //     for (let i = 0; i < 5; i++)
         //         this.series.data[i] = this.csReData[i].testResultValue;

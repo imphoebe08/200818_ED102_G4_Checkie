@@ -87,7 +87,8 @@
 
 
                         <me-head>
-                            <me-select_item :item="index" v-for="(item, index) in titles" @click.native="selectIt(item)" :selected="currentPage==item" v-if="index<7">{{item}}</me-select_item>
+                            <me-select_item :item="index" v-for="(item, index) in titles" @click.native="selectIt(item)" :selected="currentPage==item">{{item}}</me-select_item>
+                            <!-- v-if="index<7" -->
                             <!-- <me-select_item :item="1" @click.native="selectIt(titles[1])" :selected="currentPage==titles.a">{{titles.a}}</me-select_item>
                             <me-select_item :item="2" @click.native="selectIt(titles.b)" :selected="currentPage==titles.b">{{titles.b}}</me-select_item>
                             <me-select_item :item="3" @click.native="selectIt(titles.c)" :selected="currentPage==titles.c">{{titles.c}}</me-select_item>
@@ -201,7 +202,7 @@
                                                     <div class="more-title">{{titles[2]}}</div>
                                                     <div class="more--color" @click="pageChange(titles[2])">MORE<i class="fas fa-angle-right"></i></div>
                                                 </div>
-                                                <div class="me-index_block" v-for="(each,index) in coData" v-if="index<2">
+                                                <div class="me-index_block" v-for="(each,index) in coData.slice(0, 2)" v-if="coData.length!=0">
                                                     <div class="me-index_each">
                                                         <!-- <a href=""> -->
                                                         <a :href="'./csSelf.html?csNo=' + each.csNo">
@@ -209,8 +210,10 @@
                                                             <div>{{each.csPosName}}</div>
                                                         </a>
                                                     </div>
+
                                                     <mem-driver></mem-driver>
                                                 </div>
+                                                <div class="me-index_no_return" v-if="coData.length==0">沒有諮商預約</div>
 
                                             </div>
                                             <div class="meInsideBlock meInsideBlock-half ">
@@ -218,7 +221,7 @@
                                                     <div class="more-title">{{titles[3]}}</div>
                                                     <div class="more--color" @click="pageChange(titles[3])">MORE<i class="fas fa-angle-right"></i></div>
                                                 </div>
-                                                <div class="me-index_block" v-for="(each,index) in aoData" v-if="index<2">
+                                                <div class="me-index_block" v-for="(each,index) in aoData.slice(0, 2)" v-if="aoData.length!=0">
                                                     <div class="me-index_each">
                                                         <a :href="'./acSelf.html?actNo=' + each.actNo">
                                                             <div>{{each.actStart}}</div>
@@ -227,6 +230,7 @@
                                                     </div>
                                                     <mem-driver></mem-driver>
                                                 </div>
+                                                <div class="me-index_no_return" v-if="aoData.length==0">沒有活動預約</div>
                                             </div>
                                         </div>
 
@@ -255,20 +259,23 @@
                                             </div>
                                             <div class="me-index_block">
                                                 <div class="me-index_heart-title">活動收藏</div>
-                                                <div class="me-index_heart-each" v-for="(each,index) in actCol" v-if="index<2">
+                                                <div class="me-index_heart-each" v-for="(each,index) in actCol.slice(0, 2)" v-if="actCol.length!=0">
                                                     <a :href="'./acSelf.html?actNo=' + each.actNo">
                                                         <div class="me-index_heart-one">{{each.actName}}</div>
                                                         <div class="me-index_heart-two">{{each.actStart}}</div>
                                                     </a>
                                                 </div>
+                                                <div class="me-index_no_return" v-if="actCol.length==0">沒有活動收藏</div>
+
                                                 <div class="me-index_heart-title">文章收藏</div>
-                                                <div class="me-index_heart-each" v-for="(each,index) in artCol" v-if="index<2">
+                                                <div class="me-index_heart-each" v-for="(each,index) in artCol.slice(0, 2)" v-if="artCol.length!=0">
                                                     <a :href="'./atSelf.html?artNo=' + each.artNo">
                                                         <div class="me-index_heart-one">{{each.artTitle}}</div>
                                                         <div class="me-index_heart-two">-{{each.artAuthor}}</div>
                                                     </a>
-
                                                 </div>
+
+                                                <div class="me-index_no_return" v-if="artCol.length==0">沒有文章收藏</div>
                                             </div>
 
                                         </div>
@@ -453,7 +460,7 @@
 
                                         <transition name="orderSlide" mode="out-in">
                                             <div class="  meOrderBlock-content" v-if="ccOrder" key="ccOrder">
-                                                <div class="row justify-content-center delete" v-for="(each,index) in coData">
+                                                <div class="row justify-content-center delete" v-for="(each,index) in coData" v-if="coData.length!=0">
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
@@ -483,7 +490,7 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <th>諮商時間</th>
-                                                                            <td data-title="諮商時間">1</td>
+                                                                            <td data-title="諮商時間">{{each.csHour}}</td>
                                                                         </tr>
                                                                     </table>
                                                                 </div>
@@ -533,12 +540,15 @@
                                                 </div>
 
 
+                                                <div class="me_nothing_in_result" v-if="coData.length==0">目前沒有預約諮商<a class="mem_come_and_go" href="./csMain.html">點此前往預約</a></div>
+
+
 
 
 
                                             </div>
                                             <div class=" meOrderBlock-content" v-if="!ccOrder" key="!ccOrder">
-                                                <div class="row justify-content-center delete" v-for="(each,index) in coPastData">
+                                                <div class="row justify-content-center delete" v-for="(each,index) in coPastData" v-if="coPastData.length!=0">
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
@@ -565,7 +575,7 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <th>諮商時間</th>
-                                                                            <td data-title="諮商時間">1</td>
+                                                                            <td data-title="諮商時間">{{each.csHour}}</td>
                                                                         </tr>
                                                                     </table>
                                                                 </div>
@@ -613,6 +623,7 @@
 
                                                     </div>
                                                 </div>
+                                                <div class="me_nothing_in_result" v-if="coPastData.length==0">沒有諮商歷史訂單<a class="mem_come_and_go" href="./csMain.html">點此前往預約</a></div>
                                             </div>
                                         </transition>
 
@@ -638,7 +649,7 @@
                                     <div class="col-12 meOrderBlock">
                                         <transition name="orderSlide" mode="out-in">
                                             <div class="  meOrderBlock-content" v-if="acOrder" key="acOrder">
-                                                <div class="row justify-content-center" v-for="(each,index) in aoData">
+                                                <div class="row justify-content-center" v-for="(each,index) in aoData" v-if="aoData.length!=0">
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
@@ -718,6 +729,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="me_nothing_in_result" v-if="aoData.length==0">目前沒有活動定單<a class="mem_come_and_go" href="./acMain.html">點此報名活動</a></div>
                                             </div>
 
 
@@ -725,7 +737,7 @@
 
 
                                             <div class=" meOrderBlock-content" v-if="!acOrder" key="!acOrder">
-                                                <div class="row justify-content-center" v-for="each in aoPastData">
+                                                <div class="row justify-content-center" v-for="each in aoPastData" v-if="aoPastData.length!=0">
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
@@ -803,6 +815,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="me_nothing_in_result" v-if="aoPastData.length==0">目前沒有歷史活動定單<a class="mem_come_and_go" href="./acMain.html">點此報名活動</a></div>
                                             </div>
                                         </transition>
                                     </div>
@@ -910,7 +923,7 @@
                                     <div class="col-12 meOrderBlock">
                                         <transition name="orderSlide" mode="out-in">
                                             <div class="meOrderBlock-content" v-if="heart" key="heart">
-                                                <div class="row justify-content-center" v-for="(each,index) in actCol">
+                                                <div class="row justify-content-center" v-for="(each,index) in actCol" v-if="actCol.length!=0">
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
@@ -955,9 +968,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="me_nothing_in_result" v-if="actCol.length==0">目前沒有活動收藏<a class="mem_come_and_go" href="./acMain.html">點此報名活動</a></div>
                                             </div>
                                             <div class=" meOrderBlock-content" v-if="!heart" key="!heart">
-                                                <div class="row justify-content-center" v-for="(each,index) in artCol">
+                                                <div class="row justify-content-center" v-for="(each,index) in artCol" v-if="artCol.length!=0">
                                                     <div class="mem-order-each col-10">
                                                         <div class="row">
                                                             <div class="mem-order-left col-sm-4 col-12 mem-modify-padding">
@@ -985,6 +999,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="me_nothing_in_result" v-if="artCol.length==0">目前沒有文章收藏<a class="mem_come_and_go" href="./atMain.html">點此瀏覽文章</a></div>
                                             </div>
                                         </transition>
                                     </div>
@@ -1056,7 +1071,7 @@
                                     </div>
 
                                 </select-page>
-                                <select-page :step="8" v-if="currentPage==titles[7] || windowSize>768 " :key="titles[7]">
+                                <select-page :step="8" v-if="currentPage==titles[7]" :key="titles[7]">
                                     <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect ">
                                         <div class="selectIcon ">
                                             <i class="fas fa-caret-left backToSelect "></i>
@@ -1073,7 +1088,7 @@
                                                 <div class="more--color">共{{searchNum}}件符合關鍵字</div>
                                             </div>
 
-                                            <div class="me_nothing_in_result" v-if="nothing">沒有符合條件的結果</div>
+                                            <div class="me_nothing_in_result" v-if="nothing || searchNum == 0">沒有符合條件的結果</div>
 
                                             <div class="nothing_i_am_just_for_separate">
 
@@ -1107,7 +1122,7 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <th>諮商時間</th>
-                                                                            <td data-title="諮商時間">1</td>
+                                                                            <td data-title="諮商時間">{{each.csHour}}</td>
                                                                         </tr>
                                                                     </table>
                                                                 </div>

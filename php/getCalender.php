@@ -3,13 +3,14 @@ $errMsg = "";
 //連線資料庫
 try {
     require_once("./connectBook.php");
+
     $csNo = isset($_REQUEST["csNo"]) ? $_REQUEST["csNo"] : 1;
 
     $sql = "SELECT date(schDate) 'date', workTime1 'time1', workTime2 'time2'
             FROM schedule
             where csNo = :csNo and date(schDate) > curdate()
             order by 1 asc
-            limit 100;";
+            limit 100;";//帶多少天，3筆是一天，100是一個月左右
 
     $result = $pdo->prepare($sql);
     $result->bindValue(":csNo", $csNo);
@@ -20,7 +21,7 @@ try {
             FROM schedule
             where csNo = :csNo and date(schDate) > curdate()
             order by 1 asc
-            limit 100;";
+            limit 100;";//帶多少天，3筆是一天，100是一個月左右
 
     $result2 = $pdo->prepare($sql2);
     $result2->bindValue(":csNo", $csNo);
