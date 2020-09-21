@@ -584,6 +584,12 @@ let vm = new Vue({
                     }
                 }
             });
+        //月曆
+        axios.get('./php/getCalender.php', { params: { 'csNo': coOrderCsNo } })
+            .then(res => {
+                this.event = res.data;
+                // console.log(this.paymentMethod);
+            });
     },
     methods: {
         memberCenter() {
