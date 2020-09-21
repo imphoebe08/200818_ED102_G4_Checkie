@@ -15,6 +15,7 @@ echo "{}";
 $counselorRow = $counselor->fetch(PDO::FETCH_ASSOC);
 
 //將登入者的資料寫入session
+$_SESSION["csNo"] = $counselorRow["csNo"];
 $_SESSION["csId"] = $counselorRow["csId"];
 $_SESSION["csPsd"] = $counselorRow["csPsd"];
 $_SESSION["csName"] = $counselorRow["csName"];
