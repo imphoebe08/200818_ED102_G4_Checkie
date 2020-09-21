@@ -139,12 +139,13 @@
                     } else {
                         axios.post(`./php/atmain_up.php`, formData)
                             .then((res) => {
-                                console.log(res);
-                                // location.replace('http://localhost:8888/backstage/acManagement.html');
+                                console.log("============", res);
+                                alert("修改成功")
+                                    // location.replace('http://localhost:8888/backstage/acManagement.html');
                             }).catch((err) => {
                                 console.log(err)
                             })
-                        alert("修改成功")
+
                     }
 
 
