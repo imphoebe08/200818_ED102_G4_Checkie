@@ -39,10 +39,20 @@
         margin: 10px;
     }
     
-    #addCardBg {
-        /* background-image: url(../img/oracleCard/card_cover/cover_angel.png);
-        background-position: center center;
-        background-size: contain; */
+    #oracleCardMan .insert_newQuest .input-sort {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+    
+    #oracleCardMan .insert_newQuest .input-sort .div {
+        margin: 0 100px;
+    }
+    
+    .insert_newQuest div {
+        overflow: auto;
+        zoom: 1;
+        margin: 15px 20px !important;
     }
 </style>
 
@@ -92,23 +102,33 @@
                 <div class="insert_newQuest">
 
                     <div class="input-sort">
-                        <label style="display: inline-block;">神諭卡牌組編號</label>
-                        <select v-model="addCard.deckNo" name="" id="">
-                            <option value="1">牌組1</option>
-                            <option value="2">牌組2</option>
-                            <option value="3">牌組3</option>
-                        </select>
-                        <label for="">神諭卡名稱<input type="text" v-model="addCard.cardTitle"></label>
-                        <label for="">神諭卡內容<input type="" v-model="addCard.cardContent"></label>
+                        <div>
+                            <label style="display: block;">神諭卡牌組編號</label>
+                            <select v-model="addCard.deckNo" name="" id="">
+                                <option value="1">牌組1</option>
+                                <option value="2">牌組2</option>
+                                <option value="3">牌組3</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="">神諭卡名稱<input type="text" v-model="addCard.cardTitle"></label>
+                        </div>
+                        <div>
+                            <label for="">神諭卡內容<input type="" v-model="addCard.cardContent"></label>
+                        </div>
+                        <div>
+                            <label style="display: block;">上/下架</label>
+                            <select v-model="addCard.cardTypeNo" name="" id="">
+                                <option value="1">上架</option>
+                                <option value="0">下架</option>
+                            </select>
+                        </div>
                         <!-- <label for="">神諭卡卡面<input type="text" v-model="addCard.cardPic"></label> -->
-                        <input type="file" ref="file" name="file" :id="file" @change="fileUpload($event,-1)">
-                        <label :for="file">
-                        <img :src="addCard.cardPic" alt="" style="width:50px; object-fit:cover; height:80px;" id="addCardBg"></label>
-                        <label style="display: inline-block;">上/下架</label>
-                        <select v-model="addCard.cardTypeNo" name="" id="">
-                            <option value="1">上架</option>
-                            <option value="0">下架</option>
-                        </select>
+                        <div>
+                            <input type="file" ref="file" name="file" :id="file" @change="fileUpload($event,-1)" style="opacity: 0;">
+                            <label :for="file">神諭卡卡面
+                            <img :src="addCard.cardPic" alt="" style="width:130px; object-fit:cover; height:220px;" id="addCardBg"></label>
+                        </div>
 
 
                     </div>

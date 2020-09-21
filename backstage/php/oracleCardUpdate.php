@@ -9,11 +9,12 @@ $deckNo = $_REQUEST["deckNo"];
 $errMsg = "";
 // global $json;
 try{
-    $dsn = "mysql:host=localhost;port=8889;dbname=ed102g4;charset=utf8";
-    $user = "root";
-    $password = "root";
-    $options = array(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-    $pdo = new PDO($dsn, $user, $password, $options);
+    // $dsn = "mysql:host=localhost;port=8889;dbname=ed102g4;charset=utf8";
+    // $user = "root";
+    // $password = "root";
+    // $options = array(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    // $pdo = new PDO($dsn, $user, $password, $options);
+    require_once("./connectBook.php");
   
 
   $sql = "

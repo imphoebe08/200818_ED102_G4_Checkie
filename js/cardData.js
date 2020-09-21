@@ -1,4 +1,4 @@
-Vue.component('acSelectCard', {
+Vue.component('reSelectCard', {
     props: { acContents: Array },
     data() {
         return {
@@ -17,7 +17,7 @@ Vue.component('acSelectCard', {
             
             <!-- 卡片時間 -->
             <div class="acSelectCard_icon">
-            <i class="fas fa-share-alt acSelectCard-share_icon" style="font-size:20px"></i>
+            <i class="fas fa-share-alt acSelectCard-share_icon share-button" style="font-size:20px"  @click="openShareDialog(acContent.actNo)"></i>
             <i class="fas fa-bookmark acSelectCard-bookmark_icon" style="font-size:20px"></i>
             </div>
             <div class="acSelectCard_text">
@@ -31,7 +31,7 @@ Vue.component('acSelectCard', {
 
             <div class="acSelectCard_bottomBlock">
             <p class="acSelectCard_person"> 剩餘名額：{{acContent.actMax - acContent.actCount}}</p>
-            <input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register">
+            <a :href="'./aoCheck.html?actNo=' + acContent.actNo"><input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register"></a>
             </div>
         </div>
     </div>
@@ -40,7 +40,13 @@ Vue.component('acSelectCard', {
     methods: {
         aaa(data) {
             return this.acContents.slice(0, data);
-        }
+        },
+        openShareDialog(actNo) {
+            console.log('hi');
+            this.$emit('open-share-dialog', `actNo=${actNo}`);
+        },
+
+
     },
     computed: {
 
@@ -74,10 +80,12 @@ let vm = new Vue({
         comments: [],
         isActive: true,
         index: 0,
+        shareNo: 0,
+        shareUrl: '123',
+
     },
     beforeMount() {
         this.randArr(this.cardsBack.length, this.cardsBack);
-
     },
     mounted() {
         axios.get('./json/card.json')
@@ -99,6 +107,13 @@ let vm = new Vue({
         })
     },
     methods: {
+        //截圖
+        getScreenshot() {
+            // alert(123);
+            html2canvas(document.getElementById('cutScreen')).then(function(canvas) {
+                $('#cutPhoto').append(canvas);
+            })
+        },
         // 陣列亂數好用喔
         randArr(num, data) {
             for (var i = 0; i < num; i++) {
@@ -161,6 +176,23 @@ let vm = new Vue({
         category_click(value) {
             this.index = value;
         },
+        openShareDialog(str) {
+            console.log(str);
+            let shareButton = document.querySelector(".share-button");
+            let shareDialog = document.querySelector(".share-dialog");
+            shareDialog.classList.add("is-open");
+            this.shareNo = str;
+        },
+        copyWord() {
+            let copyWord = document.querySelector(".pen-url");
+            copyWord.select();
+            let copyStatus = document.execCommand("copy");
+        },
+        closeShereDialog() {
+            let closeButton = document.querySelector(".close-button");
+            let shareDialog = document.querySelector(".share-dialog");
+            shareDialog.classList.remove("is-open");
+        }
     },
     computed: {
         addNum() {

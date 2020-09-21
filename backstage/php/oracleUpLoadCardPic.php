@@ -1,5 +1,4 @@
 <?php
-
 if ($_FILES["file"]["error"] > 0) {
     echo "Error:" . $_FILES["file"]["error"];
 } else {

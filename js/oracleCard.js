@@ -74,15 +74,7 @@ window.addEventListener('load', doFirst);
 //     });
 // }
 
-// function getScreenshot() {
-//     html2canvas(document.getElementById('cutScreen'), {
-//         onrendered: function(canvas) {
-//             // var img = canvas.toDataURL("image/png");
-//             // window.open(img);
-//             $('#cutPhoto').append(canvas);
-//         }
-//     });
-// }
+
 
 function step() {
     $('.step').click(function() {

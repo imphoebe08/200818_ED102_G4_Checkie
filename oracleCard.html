@@ -12,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 
+
     <title>oracleCard</title>
 </head>
 
@@ -88,8 +89,8 @@
                 </div>
             </section>
 
-            <section class="oracleCardStepOne page page3 section">
-                <div class="oracleCardStepOneBox" id="cutScreen">
+            <section class="oracleCardStepOne page page3 section" id="cutScreen">
+                <div class="oracleCardStepOneBox">
                     <div class="title">
                         <h2>Step1. 選擇喜歡的牌組</h2>
                     </div>
@@ -151,8 +152,8 @@
                     <div class="cardBtn">
                         <button id="cardBtn3">為您推薦</button>
                     </div>
-                    <!-- <a href="javascript:getScreenshot()" id="getPhoto">get photo</a>
-                    <div id="cutPhoto"></div> -->
+                    <button href="" @click="getScreenshot" id="getPhoto">get photo</button>
+                    <div id="cutPhoto"></div>
                 </div>
             </section>
 
@@ -160,21 +161,23 @@
             <section class="oracleCardRecommend page page4 section">
                 <fieldset>
                     <legend>適合您的活動</legend>
-                    <ac-select-card :ac-contents="result "></ac-select-card>
+                    <re-select-card :ac-contents="result " @open-share-dialog="openShareDialog"></re-select-card>
                 </fieldset>
+                @@include('template/shareDialog.html')
             </section>
 
 
         </div>
     </div>
 
-
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
     <script src="./js/cardData.js"></script>
     <script src="./js/oracleCard.js"></script>
     <script src="./js/vender/fullpage.js"></script>
     <script src="./js/chatbot.js"></script>
     <script src="./js/header.js"></script>
-    <script src="./js/acMain.js "></script>
+    <script src="./js/html2canvas.js"></script>
+    <!-- <script src="./js/acMain.js "></script> -->
     <!-- <script src="./js/html2canvas.js"></script> -->
 
 
