@@ -1,7 +1,7 @@
  // 活動
+
  new Vue({
      el: "#inAct",
-     props: ["acContent"],
      data: {
          date: "",
          cards: "",
@@ -11,44 +11,44 @@
      },
      components: {
          "inact-item": {
+             props: ["acContents"],
              template: `
              <div id="acSelect" class="acSelect container-sm container-md">
-             <div class="acSelectCard" v-for="acContent in acContents">
-                     <a :href="'./acSelf.html?actNo=' + acContent.actNo">
-                         <img :src="acContent.banner">
-                     </a>
-                 
-                 <!-- 卡片文字 -->
-                 <h6 class="acSelectCard_title"><a :href="'./acSelf.html?actNo=' + acContent.actNo">{{acContent.actName}}</a></h6>
-                 
-                 <!-- 卡片時間 -->
-                 <div class="acSelectCard_icon">
-                 <img class="acSelectCard-share_icon"src="./img/icon/share.png" alt="">
-                 <img class="acSelectCard-bookmark_icon"src="./img/icon/bookmark.png" alt="">
-                 </div>
-                 <div class="acSelectCard_text">
-                 <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
-                 <p class="acSelectCard_time">活動日期：<br>{{acContent.actStart}} ~ <br>{{acContent.acEndDate}}</p>
-                 </div>
-                 <div class="acSelectCard_text">
-                     <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
-                     <p class="acSelectCard_time">報名截止日期：<br>{{acContent.actPend}}</p>
-                 </div>
- 
-                 <div class="acSelectCard_bottomBlock">
-                 <p class="acSelectCard_person"> 剩餘名額：{{acContent.actMax - acContent.actCount}}</p>
-                 <input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register">
-                 </div>
-             </div>
-         </div>
+        <div class="acSelectCard" v-for="(acContent,index) in acContents">
+                <a :href="'./acSelf.html?actNo=' + acContent.actNo">
+                    <img :src="acContent.actpic1">
+                </a>
+            
+            <!-- 卡片文字 -->
+            <h6 class="acSelectCard_title"><a :href="'./acSelf.html?actNo=' + acContent.actNo">{{acContent.actName}}</a></h6>
+            
+            <!-- 卡片時間 -->
+            <div class="acSelectCard_icon">
+            </div>
+            <div class="acSelectCard_text">
+            <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
+            <p class="acSelectCard_time">活動日期：<br>{{acContent.actStart}} ~ <br>{{acContent.actEnd}}</p>
+            </div>
+            <div class="acSelectCard_text">
+                <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
+                <p class="acSelectCard_time">報名截止日期：<br>{{acContent.actPend}}</p>
+            </div>
+
+            <div class="acSelectCard_bottomBlock">
+            <p class="acSelectCard_person"> 剩餘名額：{{acContent.actMax - acContent.actCount}}</p>
+            <a :href="'./aoCheck.html?actNo=' + acContent.actNo"><input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register"></a>
+            </div>
+        </div>
+        
+    </div>
                  `,
          },
      },
      //  rwd效果
      mounted() {
-         axios.get('../php/acMain.php').then((res) => {
+         axios.get('./php/acMain.php').then((res) => {
                  this.cards = res.data
-                     // console.log(res)
+                 console.log(this.cards)
              })
              // 不要動
          onWndLoad();
