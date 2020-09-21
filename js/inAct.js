@@ -1,9 +1,10 @@
  // 活動
  new Vue({
      el: "#inAct",
-
+     props: ["acContent"],
      data: {
          date: "",
+         cards: "",
      },
      methods: {
 
@@ -11,39 +12,45 @@
      components: {
          "inact-item": {
              template: `
-            <div class="inAct_item">
-                            <!-- 帶資料 -->
-                <a href="javascript:void(0)" draggable="false">
-                    <img src="./img/index/inAct/image_1.jpg" draggable="false">
-                </a>
-                <div class="inAct_text">
-                    <div class="inAct-top_text">
-                        <div class="inAct-left_date">
-                            <div class="inAct-date_icon"></div>
-                            <!-- 帶資料 -->
-                            <div class="inAct-date_text">2020-08-14(五)</div>  
-                        </div>
-                        <div class="inAct-icon_block">
-                            <a href="javascript:void(0)" class="inAct-icon_1" draggable="false"></a>
-                            <a href="javascript:void(0)" class="inAct-icon_2" draggable="false"s></a>
-                        </div>
-                    </div>
-                            <!-- 帶資料 -->
-                    <div class="inAct_title"><a href="javascript:void(0)" draggable="false">從陌生人到貴人，打造職涯路上的黃金人脈法則</a> </div>
-
-                    <div class="inAct_location">
-                        <div class="inAct-location_icon"></div>
-                            <!-- 帶資料 -->
-                        <div class="inAct-location_text">台灣文創教育中心</div>
-                    </div>
-                </div>
-            </div>
+             <div id="acSelect" class="acSelect container-sm container-md">
+             <div class="acSelectCard" v-for="acContent in acContents">
+                     <a :href="'./acSelf.html?actNo=' + acContent.actNo">
+                         <img :src="acContent.banner">
+                     </a>
+                 
+                 <!-- 卡片文字 -->
+                 <h6 class="acSelectCard_title"><a :href="'./acSelf.html?actNo=' + acContent.actNo">{{acContent.actName}}</a></h6>
+                 
+                 <!-- 卡片時間 -->
+                 <div class="acSelectCard_icon">
+                 <img class="acSelectCard-share_icon"src="./img/icon/share.png" alt="">
+                 <img class="acSelectCard-bookmark_icon"src="./img/icon/bookmark.png" alt="">
+                 </div>
+                 <div class="acSelectCard_text">
+                 <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
+                 <p class="acSelectCard_time">活動日期：<br>{{acContent.actStart}} ~ <br>{{acContent.acEndDate}}</p>
+                 </div>
+                 <div class="acSelectCard_text">
+                     <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
+                     <p class="acSelectCard_time">報名截止日期：<br>{{acContent.actPend}}</p>
+                 </div>
+ 
+                 <div class="acSelectCard_bottomBlock">
+                 <p class="acSelectCard_person"> 剩餘名額：{{acContent.actMax - acContent.actCount}}</p>
+                 <input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register">
+                 </div>
+             </div>
+         </div>
                  `,
          },
      },
      //  rwd效果
      mounted() {
-         // 不要動
+         axios.get('../php/acMain.php').then((res) => {
+                 this.cards = res.data
+                     // console.log(res)
+             })
+             // 不要動
          onWndLoad();
 
          function onWndLoad() {

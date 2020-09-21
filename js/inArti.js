@@ -26,6 +26,24 @@ new Vue({
         }],
 
     },
+    methods: {
+        getInArti() {
+            axios.post('./php/inArti.php').then(
+                res => {
+                    this.Arti = res.data
+                    console.log(this.Arti);
 
+                })
+
+
+        },
+    },
+
+    mounted() {
+        this.getInArti();
+    },
+    computed: {
+
+    },
 
 })
