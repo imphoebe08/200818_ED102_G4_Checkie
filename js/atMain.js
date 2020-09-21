@@ -353,19 +353,19 @@ let vm1 = new Vue({
     el: "#atBox",
     data: {
         box: [{
-            img: "./img/atMain/ta.png",
+            img: "./img/atMain/fa.jpg",
             class: "家庭關係"
         }, {
-            img: "./img/atMain/ta.png",
+            img: "./img/atMain/pe.jpg",
             class: "人際關係"
         }, {
-            img: "./img/atMain/ta.png",
+            img: "./img/atMain/pr.png",
             class: "壓力失落創傷"
         }, {
-            img: "./img/atMain/ta.png",
+            img: "./img/atMain/is.jpg",
             class: "自我探索"
         }, {
-            img: "./img/atMain/ta.png",
+            img: "./img/atMain/com.jpg",
             class: "伴侶感情"
         }],
     },
