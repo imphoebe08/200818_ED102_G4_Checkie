@@ -202,7 +202,7 @@ Vue.component('signin-component', {
                         // 垃圾功能
                         login.$children[0].$data.memId = "";
                         login.$children[0].$data.memPsd = "";
-
+                        window.location.href = './meMain.html';
                     }
                 } else {
                     alert(xhr.status);
@@ -415,7 +415,7 @@ let login = new Vue({
 
         },
         nav_login() {
-            if (event.target.innerHTML == "登入") {
+            if (event.target.innerHTML == "登入" || event.target.innerHTML == "線上諮商") {
                 $("#signup_overlay").removeClass("signup_overlay-none");
                 $("#signup_overlay").fadeIn(300);
                 $("#container").removeClass("right-panel-active");
