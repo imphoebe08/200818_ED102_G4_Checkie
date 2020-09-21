@@ -130,6 +130,7 @@
         margin: 10px;
         background: #fff;
         box-shadow: $boxshadow;
+        height: 500px;
 
 
         a {
@@ -161,9 +162,11 @@
             padding: 5px 0;
             padding: 10px;
             cursor: pointer;
+            height: 50px;
 
             &.small {
                 text-align: left;
+                height: 100px;
             }
         }
 
