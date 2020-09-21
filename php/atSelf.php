@@ -1,7 +1,7 @@
 <?php
 
 try{
-require_once("./atMain_book.php");
+require_once("./connectbook.php");
 $artNo=$_GET["artNo"];
 $sql = "select a.artNo,a.artBool,a.artTitle,a.artContent,b.csName,b.cspic,a.artdate,e.artTypeNO,a.artPic1,a.artPic2,a.artPic3
 from article a join counselor b 
