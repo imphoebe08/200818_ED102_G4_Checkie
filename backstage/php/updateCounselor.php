@@ -6,6 +6,7 @@ try {
     $csNo = $_REQUEST["csNo"];
     $csName = isset($_REQUEST["csName"]) ? $_REQUEST["csName"] : "noName";
     $csId = isset($_REQUEST["csId"]) ? $_REQUEST["csId"] : "noId";
+    $csPsd = isset($_REQUEST["csPsd"]) ? $_REQUEST["csPsd"] : "noPsd";
     $csBD = isset($_REQUEST["csBD"]) ? $_REQUEST["csBD"] : "1970-01-01";
     $csGender = isset($_REQUEST["csGender"]) ? $_REQUEST["csGender"] : "m";
     $csEmail = isset($_REQUEST["csEmail"]) ? $_REQUEST["csEmail"] : "noEmail";
@@ -31,6 +32,7 @@ try {
     $sql = "UPDATE `counselor` 
             SET `csName` = :csName, 
                 `csId` = :csId, 
+                `csPsd` = :csPsd,
                 `csBD` = :csBD, 
                 `csGender` = :csGender, 
                 `csEmail` = :csEmail, 
@@ -52,6 +54,7 @@ try {
     $csInfo->bindValue(':csNo', $csNo);
     $csInfo->bindValue(':csName', $csName);
     $csInfo->bindValue(':csId', $csId);
+    $csInfo->bindValue(':csPsd', $csPsd);
     $csInfo->bindValue(':csBD', $csBD);
     $csInfo->bindValue(':csGender', $csGender);
     $csInfo->bindValue(':csEmail', $csEmail);

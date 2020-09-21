@@ -1,6 +1,6 @@
 <?php
 try{
-        require_once("./connectBooks.php");//連結資料庫
+        require_once("./connectBook.php");//連結資料庫
         $memId = $_GET["memId"];
         $forgetPsd =$_GET["forgetPsd"];
         // fuck_off會員信箱

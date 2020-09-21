@@ -36,6 +36,13 @@ $(function() {
 
 
 });
+
+
+
+
+
+
+
 //------------signin&register------------//
 
 Vue.component('signin-component', {
@@ -354,6 +361,7 @@ Vue.component('signin-component', {
 });
 
 
+
 let login = new Vue({
     el: '#header',
     mounted() {
@@ -403,7 +411,8 @@ let login = new Vue({
             };
         },
         psdUpdate_close() {
-            this.psd_block = false;
+            $("#forgetForm").css("display", "none");
+
         },
         nav_login() {
             if (event.target.innerHTML == "登入") {
@@ -439,8 +448,8 @@ let login = new Vue({
         },
         getLoginInfo() {
             var infor = location.search;
-            if (infor.length > 30) {
-                this.psd_block = true;
+            if (infor.length > 20) {
+                $("#forgetForm").css("display", "block");
                 // infor.substring(1);
             } else {
 
@@ -458,8 +467,8 @@ let login = new Vue({
             }
         },
     },
-});
 
+});
 //------------test------------//
 
 $(function() {

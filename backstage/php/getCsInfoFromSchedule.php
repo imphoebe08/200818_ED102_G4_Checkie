@@ -4,10 +4,12 @@ $errMsg = "";
 //連線資料庫
 try {
     require_once("./connectBook.php");
+    $csNo = isset($_SESSION['csNo']) ? $_SESSION['csNo'] : 'csNo';
 
     $sql = "SELECT 
                 distinct a.csNo 'csNo', b.csName 'csName'
-            from schedule a JOIN counselor b USING (csNo);";
+            from schedule a JOIN counselor b USING (csNo)
+            WHERE csNo = $csNo;";
     $csNum = $pdo->query($sql);
     $csRow = $csNum->fetchAll(PDO::FETCH_ASSOC);
 
