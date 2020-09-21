@@ -1,7 +1,7 @@
 <?php
 try{
     session_start();
-    require_once("./connectBook666.php");
+    require_once("./connectBook.php");
     //session應急
     $_SESSION["memNO"]=1;
     //以上session應急
@@ -38,7 +38,7 @@ try{
     $memberOrder->execute();
     
     if( $memberOrder->rowCount()==0){ 
-    echo "沒有訂單內容???";
+    echo "沒有訂單內容";
     }else{ 
     $memberOrderAll = $memberOrder->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($memberOrderAll);

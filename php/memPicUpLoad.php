@@ -1,6 +1,6 @@
 <?php
     try{
-        require_once("./connectBook666.php");
+        require_once("./connectBook.php");
         if ($_FILES["memPic"]["error"] > 0) {
             echo "Error:" . $_FILES["memPic"]["error"];
         } else {

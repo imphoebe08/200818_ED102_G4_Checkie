@@ -14,6 +14,7 @@
     <!-- <script src="./js/header.js"></script>
     <script src="./js/chatbot.js"></script> -->
 
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vuetify@1.5.24/dist/vuetify.min.css"> -->
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://kit.fontawesome.com/3a9b8bb651.js" crossorigin="anonymous"></script>
     <title>Document</title>
@@ -46,6 +47,9 @@
                     </step-head>
 
                 </div>
+                <!-- <v-alert v-model="alert" type='success' dismissible close-text="Close Alert" color="green" border="left" elevation="2" colored-border>
+                    You've got <strong>5</strong> new updates on your timeline!.
+                </v-alert> -->
 
 
                 <div class="co-stepper-content col-12">
@@ -62,86 +66,88 @@
                                     </div>
                                 </div>
                                 <div class="coCalender-calender">
-                                    <v-app id="inspire2">
-                                        <v-row class="fill-height">
-                                            <v-col>
 
+                                    <v-sheet height="10"></v-sheet>
+                                    <v-app id="inspire">
+                                        <v-layout>
+                                            <v-flex>
                                                 <v-sheet height="64">
-                                                    <v-toolbar flat color="white">
-                                                        <!-- <v-btn outlined class="mr-4" color="grey darken-2" @click="setToday">
-                                                    Today
-                                                </v-btn> -->
-                                                        <v-btn fab text small color="grey darken-2" @click="prev">
-                                                            <v-icon small>mdi-chevron-left</v-icon>
+                                                    <v-toolbar color="red lighten-4">
+                                                        <v-btn fab text large color="red lighten-3" @click="prev" v-if="today.getMonth()>new Date().getMonth()">
+                                                            <v-icon large>mdi-chevron-left</v-icon>
                                                         </v-btn>
 
-                                                        <v-toolbar-title v-if="$refs.calendar">
-                                                            {{ $refs.calendar.title }}
-                                                        </v-toolbar-title>
-                                                        <v-btn fab text small color="grey darken-2" @click="next">
-                                                            <v-icon small>mdi-chevron-right</v-icon>
+                                                        <!-- v-if="$refs.calendar" -->
+                                                        <v-toolbar-title v-html="monthSelect" class="white--text font-weight-bold "></v-toolbar-title>
+
+                                                        <v-btn fab text large color="red lighten-3" @click="next" v-if="today.getMonth()<11">
+                                                            <v-icon large>mdi-chevron-right</v-icon>
                                                         </v-btn>
                                                         <v-spacer></v-spacer>
-                                                        <!-- <v-menu bottom right>
-                                                    <template v-slot:activator="{ on, attrs }">
-                                              <v-btn
-                                                outlined
-                                                color="grey darken-2"
-                                                v-bind="attrs"
-                                                v-on="on"
-                                              >
-                                                <span>{{ typeToLabel[type] }}</span>
-                                                <v-icon right>mdi-menu-down</v-icon>
-                                              </v-btn>
-                                            </template>
-                                                    <v-list>
-                                                        <v-list-item @click="type = 'day'">
-                                                            <v-list-item-title>Day</v-list-item-title>
-                                                        </v-list-item>
-                                                        <v-list-item @click="type = 'week'">
-                                                            <v-list-item-title>Week</v-list-item-title>
-                                                        </v-list-item>
-                                                        <v-list-item @click="type = 'month'">
-                                                            <v-list-item-title>Month</v-list-item-title>
-                                                        </v-list-item>
-                                                        <v-list-item @click="type = '4day'">
-                                                            <v-list-item-title>4 days</v-list-item-title>
-                                                        </v-list-item>
-                                                    </v-list>
-                                                </v-menu> -->
+
                                                     </v-toolbar>
                                                 </v-sheet>
-                                                <v-sheet height="500">
-                                                    <v-calendar ref="calendar" v-model="focus" color="primary" :events="events" :event-color="getEventColor" :type="type" @click:more="showEvent" @click:date="showEvent" @click:event="showEvent" @change="updateRange"></v-calendar>
-                                                    <v-menu v-model="selectedOpen" :close-on-content-click="false" :activator="selectedElement" offset-x>
-                                                        <v-card color="grey lighten-4" min-width="350px" flat>
-                                                            <v-toolbar :color="selectedEvent.color" dark>
-                                                                <!-- <v-btn icon>
-                                                            <v-icon>mdi-pencil</v-icon>
-                                                        </v-btn> -->
-                                                                <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
-                                                                <v-spacer></v-spacer>
-                                                                <v-btn icon>
-                                                                    <v-icon>mdi-heart</v-icon>
-                                                                </v-btn>
-                                                                <v-btn icon>
-                                                                    <v-icon>mdi-dots-vertical</v-icon>
-                                                                </v-btn>
+                                                <v-sheet height="10"></v-sheet>
+                                                <v-sheet height="650">
+                                                    <!-- 產生月曆 now 是何時就產生何時的月曆 -->
+                                                    <v-calendar :now="today" :value="today">
+                                                        <!-- 定義你的data 如果你的data
+                                                        '2019-01-09': [23, 45, 10], 長這樣 你就設定三個值 
+                                                    此處只有一個所以就設定一個即可 -->
+                                                        <template v-slot:day="{ date }">
+                                                            <template v-for="event in eventsMap[date]">
+                                                                <v-menu :key="event.title" v-model="event.open" full-width offset-x>
+                                                                    <template v-slot:activator="{ on }">
+                                                                        <div v-if="!event.time"  class="" :class="['my-event', {colorError:(parseInt(event.time1)*parseInt(event.time2) != 0)},{colorCorrect:(parseInt(event.time1)*parseInt(event.time2) == 0)}]" v-on="on" v-html="event.title"></div>
+                                                                    </template>
+                                                        <v-card color="grey lighten-5" max-width="320px" max-height="350px">
+                                                            <v-toolbar color="blue lighten-3">
+                                                                <v-toolbar-title class="white--text " v-html="event.date +'    時段'+ event.title"></v-toolbar-title>
                                                             </v-toolbar>
-                                                            <v-card-text>
-                                                                <span v-html="selectedEvent.details"></span>
-                                                            </v-card-text>
+                                                            <v-card-title primary-title>
+                                                                <!-- no-gutters -->
+                                                                <v-card color="white" min-width="290px" max-height="200px">
+                                                                    <v-row class="mx-auto">
+                                                                        <v-col>
+                                                                            <v-span class="brown--text  text--lighten-4">{{aaa(event.title,1)}}</v-span>
+                                                                        </v-col>
+                                                                        <v-col>
+                                                                            <v-span class="brown--text text--lighten-4">{{aaa(event.title,2)}}</v-span>
+                                                                        </v-col>
+
+                                                                    </v-row>
+                                                                    <!-- <v-container height="100px"> -->
+
+                                                                    <v-row class="mx-auto">
+                                                                        <v-col>
+                                                                            <v-btn class="ml-5 white--text" @click.native="alertMyTitle(event,event.time1,1 )" :color="colorChange(event.time1)">{{(event.time1 ==0)?'可預約':((event.time1 ==1)?'預約已滿':'未開放')}}</v-btn>
+                                                                        </v-col>
+                                                                        <v-col>
+                                                                            <v-btn class="ml-5 white--text" @click.native="alertMyTitle(event,event.time2,2 )" :color="colorChange(event.time2)">{{(event.time2 ==0)?'可預約':((event.time2 ==1)?'預約已滿':'未開放')}}</v-btn>
+                                                                        </v-col>
+                                                                    </v-row>
+                                                                </v-card>
+
+                                                                <!-- </v-container> -->
+                                                            </v-card-title>
                                                             <v-card-actions>
-                                                                <v-btn text color="secondary" @click="selectedOpen = false">
+                                                                <v-btn flat color="orange lighten-2 white--text" v-on="on" class="ml-2">
                                                                     Cancel
                                                                 </v-btn>
                                                             </v-card-actions>
                                                         </v-card>
-                                                    </v-menu>
+                                                        </v-menu>
+                                                        </template>
+                                                        </template>
+                                                    </v-calendar>
                                                 </v-sheet>
-                                            </v-col>
-                                        </v-row>
+                                            </v-flex>
+                                        </v-layout>
                                     </v-app>
+
+
+
+
                                 </div>
 
                                 <div class="row">

@@ -1,7 +1,7 @@
 <?php
 
 try{
-require_once("./connectbook.php");
+require_once("./connectBook.php");
 $artNo=$_GET["artNo"];
 $sql = "select a.artNo,a.artBool,a.artTitle,a.artContent,b.csName,b.cspic,a.artdate,e.artTypeNO,a.artPic1,a.artPic2,a.artPic3
 from article a join counselor b 
@@ -16,6 +16,7 @@ if( $article->rowCount()==0){
 echo "{}";
 }else{ 
 $articleRow = $article->fetch(PDO::FETCH_ASSOC);
+$articleRow["isCollect"] = false;
 echo json_encode($articleRow,JSON_UNESCAPED_UNICODE);
 
 //送出登入者的資料

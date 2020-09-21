@@ -1,6 +1,6 @@
 <?php
 try{
-require_once("connectbook.php");
+require_once("connectBook.php");
 $sql = "select a.artBool,a.artTitle,a.artContent,a.artdate,a.artPic1,a.artPic2,a.artPic3,a.artNo
 from article a
 order by a.artdate desc limit 0,3";

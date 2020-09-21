@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $errMsg = "";
 //連線資料庫
 try {

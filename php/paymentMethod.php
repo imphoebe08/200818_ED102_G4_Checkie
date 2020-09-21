@@ -1,7 +1,7 @@
 <?php
 try{
     // session_start();
-    require_once("./connectBook666.php");
+    require_once("./connectBook.php");
 
     $sql = "SELECT pmNo, pmName FROM ed102g4.paymentMethod;";
 

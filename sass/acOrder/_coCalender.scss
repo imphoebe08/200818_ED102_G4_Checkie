@@ -134,3 +134,28 @@
         @include btn-paypage (120px, $color-blue, $fontsize);
     }
 }
+
+.my-event {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 2px;
+    background-color: #1867c0;
+    color: #ffffff;
+    //border: 1px solid #1867c0;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 12px;
+    padding: 3px;
+    cursor: pointer;
+    margin-bottom: 1px;
+    text-align: center;
+}
+
+.colorError {
+    background-color: $color-pink;
+}
+
+.colorCorrect {
+    background-color: $color-blue;
+}

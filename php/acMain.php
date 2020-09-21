@@ -11,7 +11,7 @@ try{
           from activity a 
           join actTypeNoCombo b on a.actno = b.actno
           left join actclass c on b.acttypeno = c.actclassno
-          left join actclass d on b.acttypeno2 = d.actclassno;SELECT * FROM 0908Checkie.activity;
+          left join actclass d on b.acttypeno2 = d.actclassno limit 1,6;
           ";
   $products = $pdo->query($sql);
   $prodRow = $products->fetchAll(PDO::FETCH_ASSOC);
