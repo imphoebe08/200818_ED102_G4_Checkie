@@ -15,7 +15,7 @@ Vue.component('cssart-layout', {
                 <img class="img-responsive" :src="item.artImg">
             </a>
             <div class="card-Info">
-                <span class="card-Info__times small"><img src="img//icon//clock.png" alt="">2018/12/15</span>
+                <span class="card-Info__times small"><img src="img//icon//clock.png" alt="">{{item.artDate.split(' ')[0]}}</span>
                 <span class="card-Info__category small">| {{item.artAuthor}}醫師</span>
             </div>
             <p><a href="./atSelf.html">{{item.artName}}</a></p>
