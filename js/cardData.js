@@ -97,7 +97,7 @@ let vm = new Vue({
                 console.log(error)
             });
 
-        axios.get('../php/acMain.php').then((res) => {
+        axios.get('./php/acMain.php').then((res) => {
             this.contents = res.data
             console.log(res.data);
         })
