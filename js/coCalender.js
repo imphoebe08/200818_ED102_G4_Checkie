@@ -799,9 +799,9 @@ let vm = new Vue({
             //console.log(day);
             var hourNow = day.getHours();
             //console.log(hourNow);
-            if (hourNow < 12) {
+            if (hourNow <= 12) {
                 return "上午";
-            } else if (hourNow > 12 && hourNow < 18) {
+            } else if (hourNow > 12 && hourNow <= 18) {
                 return "下午";
             } else if (hourNow > 18) {
                 return "晚間";
