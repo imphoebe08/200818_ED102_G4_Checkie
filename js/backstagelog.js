@@ -110,7 +110,7 @@ Vue.component('backlog-component', {
                     if (admin.admId === undefined) {
                         admin.$children[0].error("#admId,#admPsn", true)
                     } else {
-                        location.href = "../backstage/bgHome.html";
+                        location.href = "./backstage/bgHome.html";
                         signup_overlay.classList.add("signup_overlay-none");
                         admin.$children[0].$data.admId = "";
                         admin.$children[0].$data.admPsn = "";
@@ -121,7 +121,7 @@ Vue.component('backlog-component', {
                 }
             }
 
-            xhr.open("post", "../php/backlogin.php", true);
+            xhr.open("post", "./php/backlogin.php", true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             let data_info = `admId=${this.admId}&admPsn=${this.admPsn}`;
             xhr.send(data_info);
@@ -141,7 +141,7 @@ Vue.component('backlog-component', {
                         counselor.$children[0].error("#csId,#csPsd", true)
                     } else {
                         //跳轉到諮商師頁面(待改)
-                        location.href = "../backstage/csHome.html";
+                        location.href = "./backstage/csHome.html";
                         signup_overlay.classList.add("signup_overlay-none");
                         counselor.$children[0].$data.csId = "";
                         counselor.$children[0].$data.csPsd = "";
@@ -152,7 +152,7 @@ Vue.component('backlog-component', {
                 }
             }
 
-            xhr.open("post", "../php/cslogin.php", true);
+            xhr.open("post", "./php/cslogin.php", true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             let data_info = `csId=${this.csId}&csPsd=${this.csPsd}`;
             xhr.send(data_info);
@@ -183,10 +183,10 @@ new Vue({
                 admin = JSON.parse(xhr.responseText);
                 console.log(admin);
                 if (admin.admId) {
-                    location.href = "../backstage/bgHome.html";
+                    location.href = "./backstage/bgHome.html";
                 }
             }
-            xhr.open("get", "../php/backgetLoginInfo.php", true);
+            xhr.open("get", "./php/backgetLoginInfo.php", true);
             xhr.send(null);
 
         },
@@ -198,10 +198,10 @@ new Vue({
                 counselor = JSON.parse(xhr.responseText);
                 console.log(counselor);
                 if (counselor.csId) {
-                    location.href = "../backstage/csHome.html";
+                    location.href = "./backstage/csHome.html";
                 }
             }
-            xhr.open("get", "../php/csgetLoginInfo.php", true);
+            xhr.open("get", "./php/csgetLoginInfo.php", true);
             xhr.send(null);
 
         },

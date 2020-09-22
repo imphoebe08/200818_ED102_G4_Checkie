@@ -44,7 +44,7 @@ Vue.component("cscounselor-layout", {
         this.swiperInit();
     },
     watch: {
-        slideInfo: function () {
+        slideInfo: function() {
             this.mySlide = this.slideInfo;
             this.swiperInit();
             this.mySwiper.update();
@@ -95,7 +95,7 @@ let vmCs = new Vue({
             this.screenWidth = window.innerWidth;
         };
 
-        axios.get('../php/csMain.php')
+        axios.get('./php/csMain.php')
             .then((res) => {
                 this.csData = res.data;
             })
