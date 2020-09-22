@@ -20,9 +20,15 @@
         .csS-info__image {
             flex: 0 0 300px;
             margin: 10px;
+            border: 1px solid #ffa492;
+            border-radius: 30px;
+            overflow: hidden;
+            height: 416.74px;
 
             img {
                 width: 100%;
+                height: 80%;
+                object-position: top;
                 object-fit: cover;
             }
 
