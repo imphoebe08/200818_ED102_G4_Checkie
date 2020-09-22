@@ -161,7 +161,7 @@ let vmcss = new Vue({
         apexchart: VueApexCharts,
     },
     data: {
-        shareUrl: "https://tw.yahoo.com/?", //傳送的文章或活動主連結
+        shareUrl: "http://140.115.236.71/demo-projects/ED102/ED102G4/atSelf.html?", //傳送的文章或活動主連結
         shareNo: '', //傳送的文章或活動編號，我預設為1
         csData: {},
         csArtData: {},

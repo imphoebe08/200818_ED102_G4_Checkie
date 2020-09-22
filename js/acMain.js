@@ -197,7 +197,7 @@ let vm = new Vue({
     },
     mounted() {
 
-        axios.get('./php/acMain.php').then((res) => {
+        axios.get('./php/acMain_nolimit.php').then((res) => {
             this.contents = res.data
             console.log(res.data);
             this.firstChecked2();
