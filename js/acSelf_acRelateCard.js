@@ -191,11 +191,11 @@ let acVue = new Vue({
     mounted() {
         let actNo = location.href.split('?')[1].split('=')[1];
         var vm = this;
-        axios.get(`../php/acSelf.php?actNo=${actNo}`).then((res) => {
+        axios.get(`./php/acSelf.php?actNo=${actNo}`).then((res) => {
             this.contents = res.data
             console.log(this.contents)
         })
-        axios.get('../php/acMain.php').then((res) => {
+        axios.get('./php/acMain.php').then((res) => {
             this.cards = res.data
                 // console.log(res)
             Vue.nextTick().then(function() {
