@@ -9,9 +9,9 @@ try{
     $sql2 = "UPDATE `message` SET `memRead` = 0  where memNo = :memNo and csNo = :csNo and mesNo > :mesNo";
     $message2 = $pdo->prepare($sql2);
     // 正確做法
-    // $memNo = $_SESSION["memNo"]
-    // $message->bindValue(":memNo", $memNo);
-    $message2->bindValue(":memNo", 1);
+    $memNo = $_SESSION["memNo"];
+    $message2->bindValue(":memNo", $memNo);
+    // $message2->bindValue(":memNo", 1);
     $message2->bindValue(":csNo", $csNo);
     $message2->bindValue(":mesNo", $mesNo);
     $message2->execute();
@@ -25,9 +25,8 @@ try{
     order by a.mesNo desc";
     $message = $pdo->prepare($sql);
     // 正確做法
-    // $memNo = $_SESSION["memNo"]
-    //$message->bindValue(":memNo", $memNo);
-    $message->bindValue(":memNo", 1);
+    $message->bindValue(":memNo", $memNo);
+    // $message->bindValue(":memNo", 1);
     $message->bindValue(":csNo", $csNo);
     $message->bindValue(":mesNo", $mesNo);
     $message->execute();

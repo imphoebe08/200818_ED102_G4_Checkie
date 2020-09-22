@@ -376,7 +376,7 @@ Vue.component('chat-person-each', {
     computed: {
         bell() {
             // 改 sass
-            return (this.init.memRead == "0") ? "fas fa-bell" : "0";
+            return (this.init.memRead == "0") ? "fas fa-bell alert" : "fas fa-bell alert";
         }
     },
     methods: {
@@ -405,7 +405,7 @@ Vue.component('me-chat-an', {
         <div class="meChatAn-pic"><img :src="[init.mesFrom==0? init.memPic : init.csPic]" alt=""></div>
         <div :class="[init.mesFrom==0? text2 : text1]" >{{init.mesContent}}</div>
         <div :class="[init.mesFrom==0? other2 : other1]">
-            <div class="meChatAn-time">{{init.mesTime}}</div>
+            <div class="meChatAn-time">{{init.mesTime.substring(0,5)}}</div>
             <div class="meChatAn-select"><i class="fas fa-ellipsis-h"></i></div>
         </div>
     </div>
@@ -426,7 +426,6 @@ let vm = new Vue({
     },
     data: {
         // jiang start()
-        meChatAn: [],
 
 
         mesNo: "",
@@ -458,7 +457,7 @@ let vm = new Vue({
         overlayConfirm: false,
         orderShow: false,
         chatBox: "",
-        meChatAn: "",
+        meChatAn: [],
         chatPersonEach: "",
         errorText: false,
         mePswFinalizeConfirm: true,
@@ -605,6 +604,7 @@ let vm = new Vue({
             // 跟我聊天的人
             axios.post("./php/firstChat.php").then(res => {
                 let data = res.data;
+                console.log(data)
                 this.mesNo = res.data[0].mesNo;
                 this.chatCsNo = res.data[0].csNo;
                 for (let i = data.length - 1; i >= 0; i--) {
@@ -1095,7 +1095,7 @@ let vm = new Vue({
         //掛載活動訂單
         axios.post('./php/memActOrder.php')
             .then(response => {
-                if (res.data == '沒有訂單內容') {
+                if (response.data == '沒有訂單內容') {
                     this.aoData = [];
                     this.aoPastData = [];
 

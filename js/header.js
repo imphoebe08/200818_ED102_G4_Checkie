@@ -130,7 +130,7 @@ Vue.component('signin-component', {
     methods: {
         forget() {
             let data = `newMemId=${this.forgetEmail}`,
-                url = "../php/checkMemId.php",
+                url = "./php/checkMemId.php",
                 errorText = document.getElementById("errorText");
             axios.post(url, data).then(res => {
                 this.checkId = res.data;
@@ -144,7 +144,7 @@ Vue.component('signin-component', {
                     let href = location.href,
 
                         data = `forgetEmail=${this.forgetEmail}&href=${href}`,
-                        url = "../php/forgetEmail.php";
+                        url = "./php/forgetEmail.php";
                     this.ajaxPost(url, data);
                     alert("認證信件已寄出");
                     errorText.innerHTML = "認證信件已寄出";
@@ -209,7 +209,7 @@ Vue.component('signin-component', {
                 }
             }
 
-            xhr.open("post", "../php/login.php", true);
+            xhr.open("post", "./php/login.php", true);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             let data_info = `memId=${this.memId}&memPsd=${this.memPsd}`;
             xhr.send(data_info);
@@ -224,7 +224,7 @@ Vue.component('signin-component', {
             let error_text = document.getElementById("error_text"),
                 i = 0,
                 data = `newMemId=${this.newMemId}`,
-                url = "../php/checkMemId.php";
+                url = "./php/checkMemId.php";
             axios.post(url, data).then(res => {
                 this.checkId = res.data;
             }).then(() => {
@@ -274,7 +274,7 @@ Vue.component('signin-component', {
                 };
                 if (i == 3) {
                     let data = `newMemId=${this.newMemId}&vCode=${this.vCode}`,
-                        url = "../php/email.php";
+                        url = "./php/email.php";
                     this.ajaxPost(url, data);
                     this.form_show = aaa;
                 };
@@ -306,7 +306,7 @@ Vue.component('signin-component', {
         finish() {
             if (this.vCode_input == this.vCode) {
                 let data = `newMemId=${this.newMemId}&newMemPsd=${this.newMemPsd}&newMemName=${this.newMemName}`,
-                    url = "../php/register.php";
+                    url = "./php/register.php";
                 this.ajaxPost(url, data);
                 this.close();
                 document.getElementById("signup").innerHTML = this.newMemName;
@@ -432,7 +432,7 @@ let login = new Vue({
                     }
 
                 }
-                xhr.open("get", "../php/logout.php", true);
+                xhr.open("get", "./php/logout.php", true);
                 xhr.send(null);
             }
         },
@@ -443,7 +443,7 @@ let login = new Vue({
                 $("#container").addClass("right-panel-active");
             } else {
                 //location.href = "../home.html";
-                location.href = "../meMain.html";
+                location.href = "./meMain.html";
             }
         },
         getLoginInfo() {
@@ -462,7 +462,7 @@ let login = new Vue({
                         signin.innerText = "登出";
                     }
                 }
-                xhr.open("get", "../php/getLoginInfo.php", true);
+                xhr.open("get", "./php/getLoginInfo.php", true);
                 xhr.send(null);
             }
         },

@@ -14,10 +14,10 @@ try{
     ) v2);";
     $message2 = $pdo->prepare($sql2);
     // 正確做法
-    // $memNo = $_SESSION["memNo"]
-    //$message->bindValue(":memNo", $memNo);
+    $memNo = $_SESSION["memNo"];
+    $message2->bindValue(":memNo", $memNo);
 
-    $message2->bindValue(":memNo", 1);
+    // $message2->bindValue(":memNo", 1);
     $message2->execute();
     // 抓聊天者
     // 一次只load 20筆 對話紀錄
@@ -38,11 +38,11 @@ try{
     $message = $pdo->prepare($sql);
     // 正確做法
     // $memNo = $_SESSION["memNo"]
-    //$message->bindValue(":memNo", $memNo);
+    $message->bindValue(":memNo", $memNo);
 
-    $message->bindValue(":memNo", 1);
+    // $message->bindValue(":memNo", 1);
     $message->execute();
-    $rowNum = $message->rowCount();
+    // $rowNum = $message->rowCount();
     if( $message->rowCount()==0){ 
     echo "{}";
     }else{ 
