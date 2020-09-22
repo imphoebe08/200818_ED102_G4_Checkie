@@ -11,19 +11,19 @@ Vue.component('cssart-layout', {
     template: `
     <div class="row csS-art">
         <div v-for="(item, index) in csArtData" :key="item.artId" class="csS-art__card">
-            <a href="./atSelf.html">
+            <a :href="'./atSelf.html?artNo='+ item.artId">
                 <img class="img-responsive" :src="item.artImg">
             </a>
             <div class="card-Info">
                 <span class="card-Info__times small"><img src="img//icon//clock.png" alt="">{{item.artDate.split(' ')[0]}}</span>
                 <span class="card-Info__category small">| {{item.artAuthor}}醫師</span>
             </div>
-            <p><a :href="'./atSelf.html?actNo='+ item.artId">{{item.artName}}</a></p>
+            <p><a :href="'./atSelf.html?artNo='+ item.artId">{{item.artName}}</a></p>
             <p class="small">
-                <a :href="'./atSelf.html?actNo='+ item.artId">{{item.artContext | cutStringFilter}}</a>
+                <a :href="'./atSelf.html?artNo='+ item.artId">{{item.artContext | cutStringFilter}}</a>
             </p>
             <div class="row card-tag">
-                <a :href="'./atSelf.html?actNo='+ item.artId" class="button2">More...</a>
+                <a :href="'./atSelf.html?artNo='+ item.artId" class="button2">More...</a>
             </div>
             <div class="card-share">
                 <span>Share : </span>
@@ -67,12 +67,12 @@ Vue.component("csselfact-layout", {
     <div id="csSelfAct">
         <div v-for="(item,index) in csActData" :key="item.actId" class="csSelfAct-card row">
             <div class="card-image col-3">
-            <a :href="'./acSelf.html?artNo='+ item.actId">
+            <a :href="'./acSelf.html?actNo='+ item.actId">
                 <img :src="item.actImg" alt="">
             </a>
             </div>
             <div class="card-info col-9">
-                <a :href="'./acSelf.html?artNo='+ item.actId">
+                <a :href="'./acSelf.html?actNo='+ item.actId">
                     <h5>{{item.actName}}</h5>
                 </a>
                 <span>{{item.actDate}}</span>
@@ -85,7 +85,7 @@ Vue.component("csselfact-layout", {
                 <p>{{item.actContext | ellipsisWords}}</p>
             </div>
 
-            <button class="joinBut button2"><a :href="'./acSelf.html?artNo='+ item.actId">立即報名</a></button>
+            <button class="joinBut button2"><a :href="'./acSelf.html?actNo='+ item.actId">立即報名</a></button>
         </div>
     </div>
 `,
