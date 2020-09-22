@@ -6,7 +6,7 @@ Vue.component("first-layout", {
         }
     },
     template: `<li>
-            <a href="./csSelf.html"><img :src="csData.csPic"></a>
+            <a :href="'./csSelf.html?csNo=' + csData.csNo"><img :src="csData.csPic"></a>
             <h1><a :href="'./csSelf.html?csNo=' + csData.csNo">{{csData.csName}}</a></h1>
                <button><a :href="'./csSelf.html?csNo=' + csData.csNo">立即預約</a></button>
        </li>`,
