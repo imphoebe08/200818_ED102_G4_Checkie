@@ -173,7 +173,7 @@ Vue.component("ri", {
         </div>
         <div class="atContent_right_border1"></div>
         <div class="atContent_right_title">
-            {{each.artTitle}}
+            {{each.artTitle.substring(0,19)}}
         </div>
         <div class="atContent_right_partner">
             <p>

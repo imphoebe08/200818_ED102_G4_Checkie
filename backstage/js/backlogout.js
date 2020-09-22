@@ -27,7 +27,7 @@
                      }
 
                  }
-                 xhr.open("get", "../php/backlogout.php", true);
+                 xhr.open("get", "./php/backlogout.php", true);
                  xhr.send(null);
              }
          },
@@ -43,7 +43,7 @@
                          admName.innerText = admin.admName;
                      }
                  }
-             xhr.open("get", "../php/backgetLoginInfo.php", true);
+             xhr.open("get", "./php/backgetLoginInfo.php", true);
              xhr.send(null);
 
          },
