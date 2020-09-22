@@ -319,7 +319,7 @@ Vue.component('signin-component', {
                 this.vCode_input = "";
                 this.form_show = true;
                 // 跳轉
-                location.href = "../home.html";
+                location.href = "./home.html";
             } else {
                 // 錯誤時表格跳動
                 this.error("#vCode_input", true);
