@@ -301,9 +301,6 @@
                 }
             },
             deleteData(e, index) {
-                // event.target.parentNode.parentNode.style.display = "none";
-                // console.log(this.card);
-                // console.log(this.card);
                 let check = confirm(`確認刪除神諭卡編號 ${this.card[index].cardNo} 的資料嗎?`);
                 console.log(this.card[index].cardNo);
                 if (check) {
@@ -342,32 +339,6 @@
                         console.error(error);
                     })
             },
-            //圖片
-            // fileUpload(e) {
-            //     //先抓到上傳圖片的input資料
-            //     this.file = e.target.files[0];
-
-
-            //     // 轉為base64，純粹預覽用
-            //     const reader = new FileReader();
-            //     reader.readAsDataURL(this.file);
-            //     reader.addEventListener("load", () => {
-            //         this.fileUrl = reader.result;
-            //     });
-
-
-            //     // 存入formData，送出資料用
-            //     let formData = new FormData();
-            //     formData.append('file', this.file);
-
-            //     axios.post('./oracleUpLoadCardPic.php',
-            //         formData).then((res) => {
-            //         // 抓到圖片儲存位址可以再回來改src
-            //         this.fileUrl = res.data;
-            //     }).catch(function() {
-            //         console.log('FAILURE!!');
-            //     });
-            // }
 
         },
     });
