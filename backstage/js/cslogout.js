@@ -27,7 +27,7 @@
                      }
 
                  }
-                 xhr.open("get", "../php/cslogout.php", true);
+                 xhr.open("get", "./php/cslogout.php", true);
                  xhr.send(null);
              }
          },
@@ -45,7 +45,7 @@
                          //csPic.src = counselor.csPic;
                      }
                  }
-             xhr.open("get", "../php/csgetLoginInfo.php", true);
+             xhr.open("get", "./php/csgetLoginInfo.php", true);
              xhr.send(null);
 
          },
