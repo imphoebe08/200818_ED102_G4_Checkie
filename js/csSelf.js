@@ -42,12 +42,12 @@ Vue.component('cssart-layout', {
 
     },
     watch: {
-        artData: function() {
+        artData: function () {
             this.csArtData = this.artData;
         }
     },
     filters: {
-        cutStringFilter: function(str) {
+        cutStringFilter: function (str) {
             return str.substring(0, 30).concat('...')
         }
     }
@@ -87,6 +87,7 @@ Vue.component("csselfact-layout", {
 
             <button class="joinBut button2"><a :href="'./acSelf.html?actNo='+ item.actId">立即報名</a></button>
         </div>
+        <p v-if="csActData.length == 0" text-align-center>沒有相關活動~</p>
     </div>
 `,
     methods: {
@@ -98,12 +99,12 @@ Vue.component("csselfact-layout", {
         }
     },
     watch: {
-        actData: function() {
+        actData: function () {
             this.csActData = this.actData;
         }
     },
     filters: {
-        ellipsisWords: function(str) {
+        ellipsisWords: function (str) {
             // 加上 $ 字號
             let str2 = str.slice(0, 30);
             str2 += '...';
@@ -141,7 +142,7 @@ Vue.component("csselfreco-layout", {
 `,
     methods: {},
     watch: {
-        recoData: function() {
+        recoData: function () {
             this.csRecoData = this.recoData;
         }
     },
@@ -257,7 +258,7 @@ let vmcss = new Vue({
         this.firstChecked2();
     },
     methods: {
-        installOwlCarousel1: function() {
+        installOwlCarousel1: function () {
             $('.owl-carousel1').owlCarousel({
                 loop: false,
                 mouseDrag: true,
@@ -279,7 +280,7 @@ let vmcss = new Vue({
                 }
             });
         },
-        installOwlCarousel2: function() {
+        installOwlCarousel2: function () {
             $('.owl-carousel2').owlCarousel({
                 loop: false,
                 mouseDrag: true,
@@ -299,7 +300,7 @@ let vmcss = new Vue({
                 }
             });
         },
-        installOwlCarousel3: function() {
+        installOwlCarousel3: function () {
             $('.slider').slick({
                 arrows: false,
                 dots: false,
@@ -439,7 +440,7 @@ let vmcss = new Vue({
         },
     },
     watch: {
-        csData: function() {
+        csData: function () {
             for (let i = 0; i < 5; i++)
                 this.series[0].data[i] = this.csData.csType[i].csTypeNum;
             this.$refs.newChart.updateSeries([{
