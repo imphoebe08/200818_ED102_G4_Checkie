@@ -331,7 +331,7 @@ Vue.component('cssart-layout', {
             <div class="csS-art-title">
                 {{love.artTitle}}
             </div>
-            <p @click="openArtPage">{{love.artContent}}</p>
+            <p>{{love.artContent}}</p>
 
             <div class="row card-tag">
                 <a href="./atSelf.html" class="button2">More...</a>
@@ -1027,7 +1027,6 @@ let vm = new Vue({
         axios.get('./php/memTestR.php')
             .then(response => {
                 this.csReData = response.data;
-                console.log(this.csReData);
                 for (let i = 0; i < 5; i++) {
                     // console.log(this.csReData[i].testResultValue);
                     //console.log(this.series[0].data[i]);
@@ -1082,6 +1081,7 @@ let vm = new Vue({
                 if (res.data == '沒有訂單內容') {
                     this.coData = [];
                     this.coPastData = [];
+                    console.log(this.coPastData);
                 } else {
                     //console.log(res.data[1].csODate);
                     for (let i = 0; i < res.data.length; i++) {
@@ -1089,13 +1089,10 @@ let vm = new Vue({
 
                             this.coData.push(res.data[i]);
                         } else {
-
                             this.coPastData.push(res.data[i]);
                         };
                     };
                 }
-
-
             });
 
         //掛載活動訂單
