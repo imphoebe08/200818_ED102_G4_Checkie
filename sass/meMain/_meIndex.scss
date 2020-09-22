@@ -2040,29 +2040,54 @@
     }
 }
 
+.me_chat_back {
+    padding: 5px 5px 10px 5px;
+    font-size: 14px;
+    .selectIcon {
+        .backToSelect {
+            font-size: 14px;
+            margin: 0 6px 0 0;
+        }
+    }
+}
+
 @media only screen and (max-width: 991px) {}
 
 @media only screen and (max-width: 768px) {}
 
 @media only screen and (max-width: 576px) {
+    .me_chat_resize {
+        height: 420px;
+        //border: rgb(230, 223, 222) solid 1px;
+    }
     .meChat {
         padding: 5px 0;
         margin: 3px 0;
         display: block;
-        height: 60vh;
+        height: 100%;
         .meChatMain {
             width: 100%;
             //border: sandybrown solid 1px;
             .meChatMainRoom {
                 overflow-y: auto;
+                height: 78%;
+            }
+            .memChatSend {
+                form {
+                    text-align: left;
+                    .chatInput {
+                        text-align: left;
+                    }
+                }
             }
         }
         .meChatSelect {
+            box-shadow: none;
             width: 100%;
             //border: seagreen solid 1px;
             .meChatPeople-scroll {
                 height: 100%;
-                border: solid 3px sienna;
+                //border: solid 3px sienna;
             }
         }
     }

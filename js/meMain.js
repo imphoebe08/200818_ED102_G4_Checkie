@@ -425,9 +425,8 @@ let vm = new Vue({
         apexchart: VueApexCharts
     },
     data: {
+        showChatRoom: false,
         // jiang start()
-
-
         mesNo: "",
         chatCsNo: "",
         // jiang end()
@@ -639,6 +638,8 @@ let vm = new Vue({
                     this.meChatAn.push(data[i]);
                 }
             })
+            var meChatMainRoom = document.getElementById("meChatMainRoom");
+            meChatMainRoom.scrollTop = meChatMainRoom.scrollHeight;
 
         },
 
@@ -977,6 +978,11 @@ let vm = new Vue({
             let closeButton = document.querySelector(".close-button");
             let shareDialog = document.querySelector(".share-dialog");
             shareDialog.classList.remove("is-open");
+        },
+        backToWho() {
+            if (this.windowSize < 576) {
+                this.showChatRoom = !this.showChatRoom;
+            }
         },
 
     },

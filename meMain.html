@@ -1036,7 +1036,7 @@
 
                                 </select-page>
                                 <select-page :step="7 " v-if="currentPage==titles[6]" :key="titles[6]">
-                                    <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect ">
+                                    <div class="col-12 me-page-title " v-if="windowSize<768 " @click="backToSelect">
                                         <div class="selectIcon ">
                                             <i class="fas fa-caret-left backToSelect "></i>
                                             <div>
@@ -1045,18 +1045,19 @@
                                         </div>
                                     </div>
                                     <div class="me-for-content">
-                                        <div class="meInsideBlock">
-                                            <div class="mem-header-singleRow mem-header-flex">
-                                                <div class="more-title">{{titles[6]}}</div>
-                                            </div>
+                                        <div class="meInsideBlock me_chat_resize">
+
                                             <div class=" meChat">
-
-
-                                                <transition>
-
-                                                </transition>
                                                 <!-- 聊天室 -->
-                                                <div class="meChatMain" v-if="windowSize>576">
+                                                <div class="meChatMain" v-if="windowSize>576 || showChatRoom">
+                                                    <div class="col-12 me-page-title me_chat_back" v-if="windowSize<576">
+                                                        <div class="selectIcon " @click="showChatRoom=!showChatRoom">
+                                                            <i class="fas fa-caret-left backToSelect "></i>
+                                                            <div>
+                                                                回到選擇聊天諮商師
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <!-- 對話內容匡 -->
                                                     <div class="meChatMainRoom" id="meChatMainRoom">
                                                         <me-chat-an v-for="each in meChatAn" :init="each"></me-chat-an>
@@ -1090,10 +1091,10 @@
                                                 </div>
 
                                                 <!-- 選擇和誰聊天 -->
-                                                <div class="meChatSelect">
+                                                <div class="meChatSelect" v-if="windowSize>576 || !showChatRoom">
                                                     <div class="meChatPeople-scroll">
-                                                        <chat-person-each @change="changeCs" v-for="each in chatPersonEach" :init="each"></chat-person-each>
 
+                                                        <chat-person-each @change="changeCs" v-for="each in chatPersonEach" :init="each" @click.native="backToWho"></chat-person-each>
                                                     </div>
                                                 </div>
                                             </div>
