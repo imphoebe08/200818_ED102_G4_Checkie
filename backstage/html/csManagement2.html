@@ -7,7 +7,7 @@
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     <!-- top_header -->
-    @@include('layout/top_header.html')
+    @@include('layout/top_header_cs.html')
 
     <!-- 中間內容 -->
     <div id="bgMem" class="container-fluid csManagement">
@@ -147,26 +147,21 @@
                     "csHis": "",
                     "csEdu": "",
                     "csType": [{
-                            "csTypeName": "家庭關係",
-                            "csTypeNum": 50,
-                        },
-                        {
-                            "csTypeName": "人際關係",
-                            "csTypeNum": 50,
-                        },
-                        {
-                            "csTypeName": "伴侶關係",
-                            "csTypeNum": 50,
-                        },
-                        {
-                            "csTypeName": "壓力創傷",
-                            "csTypeNum": 50,
-                        },
-                        {
-                            "csTypeName": "自我探索",
-                            "csTypeNum": 50,
-                        }
-                    ]
+                        "csTypeName": "家庭關係",
+                        "csTypeNum": 50,
+                    }, {
+                        "csTypeName": "人際關係",
+                        "csTypeNum": 50,
+                    }, {
+                        "csTypeName": "伴侶關係",
+                        "csTypeNum": 50,
+                    }, {
+                        "csTypeName": "壓力創傷",
+                        "csTypeNum": 50,
+                    }, {
+                        "csTypeName": "自我探索",
+                        "csTypeNum": 50,
+                    }]
                 },
                 memberData: [],
                 file: '',
@@ -336,7 +331,7 @@
                             } else {
                                 this.$set(this.newData, 'csPic', res.data);
                             }
-                        }).catch(function () {
+                        }).catch(function() {
                             console.log('FAILURE!!');
                         });
                 }
