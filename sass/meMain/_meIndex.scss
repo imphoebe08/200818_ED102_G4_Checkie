@@ -1,3 +1,30 @@
+// 聊天室鈴鐺
+@keyframes shake {
+    0% {
+        transform: rotateZ(0deg) translateX(0);
+    }
+    25% {
+        transform: rotateZ(10deg) translateX(2px);
+    }
+    50% {
+        transform: rotateZ(0deg) translateX(0);
+    }
+    75% {
+        transform: rotateZ(-10deg) translateX(-2px);
+    }
+    100% {
+        transform: rotateZ(0deg) translateX(0);
+    }
+}
+
+.meChatPeople-each .meChatPeople .meChatOnline i.alert {
+    color: tomato;
+    animation-name: shake;
+    animation-duration: .3s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+}
+
 //外層卡片樣式
 .me-board--style {
     min-height: 95vh;
@@ -1835,6 +1862,7 @@
                     box-shadow: inset 0px 0px 2px #9f9a906f;
                     background-color: white;
                     width: 80%;
+                    outline: none;
                 }
                 .memChatSend_button {
                     width: 18%;
@@ -2024,14 +2052,14 @@
         height: 60vh;
         .meChatMain {
             width: 100%;
-            border: sandybrown solid 1px;
+            //border: sandybrown solid 1px;
             .meChatMainRoom {
                 overflow-y: auto;
             }
         }
         .meChatSelect {
             width: 100%;
-            border: seagreen solid 1px;
+            //border: seagreen solid 1px;
             .meChatPeople-scroll {
                 height: 100%;
                 border: solid 3px sienna;

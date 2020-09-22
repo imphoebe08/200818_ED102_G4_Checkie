@@ -27,6 +27,35 @@
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://kit.fontawesome.com/3a9b8bb651.js" crossorigin="anonymous"></script>
     <title>Document</title>
+    <style>
+        /* // 聊天室鈴鐺 */
+        
+        @keyframes shake {
+            0% {
+                transform: rotateZ(0deg) translateX(0);
+            }
+            25% {
+                transform: rotateZ(10deg) translateX(2px);
+            }
+            50% {
+                transform: rotateZ(0deg) translateX(0);
+            }
+            75% {
+                transform: rotateZ(-10deg) translateX(-2px);
+            }
+            100% {
+                transform: rotateZ(0deg) translateX(0);
+            }
+        }
+        
+        .meChatPeople-each .meChatPeople .meChatOnline i.alert {
+            color: tomato;
+            /* // animation-name: shake;
+            // animation-duration: .3s;
+            // animation-timing-function: ease-in;
+            // animation-iteration-count: infinite; */
+        }
+    </style>
 </head>
 
 <body>
@@ -1029,7 +1058,7 @@
                                                 <!-- 聊天室 -->
                                                 <div class="meChatMain" v-if="windowSize>576">
                                                     <!-- 對話內容匡 -->
-                                                    <div class="meChatMainRoom">
+                                                    <div class="meChatMainRoom" id="meChatMainRoom">
                                                         <me-chat-an v-for="each in meChatAn" :init="each"></me-chat-an>
                                                         <!-- <div class="meChatAn meChatAnUser">
                                                             <div class="meChatAn-pic"><img src="./img/acSelf/活動老師.jpg" alt=""></div>
@@ -1052,7 +1081,7 @@
                                                     <!-- 輸入內容input -->
                                                     <div class="memChatSend">
                                                         <form action="" @submit.prevent="submitMes">
-                                                            <input name="moName" type="text" class="modifyForm chatInput" placeholder="" v-model="chatBox">
+                                                            <input name="moName" type="text" class="modifyForm chatInput" v-model="chatBox" autocomplete="off">
                                                             <button class="memChatSend_button"><i class="fas fa-paper-plane"></i></button>
                                                         </form>
 

@@ -45,7 +45,7 @@ try {
     $data_array = array();
     foreach ($resultRow as $key => $value) {
         array_push($data_array, array(
-            "title" => "8:00-12:00",
+            "title" => "08:00-12:00",
             "date" => $resultRow[$key]["date"],
             "time1" => $resultRow[$key]["time1"],
             "time2" => $resultRow[$key]["time2"],
