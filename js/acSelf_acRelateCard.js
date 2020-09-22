@@ -26,7 +26,7 @@ Vue.component('acRelateCard', {
 
                 <div class="acSelectCard_bottomBlock">
                 <p class="acSelectCard_person"> 剩餘名額：{{acContent.actMax - acContent.actCount}}</p>
-                <a :href="'./aoCheck.html?actNo=' + acContents[index].actNo"><input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register"></a>
+                <a :href="'./aoStepper.html?actNo=' + acContents[index].actNo"><input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register"></a>
                 </div>
             </div>
         </div>
