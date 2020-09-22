@@ -209,4 +209,5 @@ let acVue = new Vue({
         this.checkMember();
         this.firstChecked2();
     }
+
 })
