@@ -2,11 +2,7 @@
 $errMsg = "";
 //連線資料庫
 try{
-  $dsn = "mysql:host=localhost;port=8889;dbname=0908Checkie;charset=utf8";
-	$user = "root";
-	$password = "root";
-	$options = array(PDO::ATTR_CASE=>PDO::CASE_NATURAL, PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO($dsn, $user, $password, $options);
+  require_once("./connectBook.php");
   $acttypeno = ($_REQUEST["typeSelect"] == 0)? 'b.acttypeno': $_REQUEST["typeSelect"] ;
   $actPstartY = ($_REQUEST["yearSelect"] == 0)? 'year(a.actPstart)': $_REQUEST["yearSelect"] ;
   $actPstartM = ($_REQUEST["monSelect"] == 0)? 'month(a.actPstart)': $_REQUEST["monSelect"] ;
