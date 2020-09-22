@@ -42,12 +42,12 @@ Vue.component('cssart-layout', {
 
     },
     watch: {
-        artData: function () {
+        artData: function() {
             this.csArtData = this.artData;
         }
     },
     filters: {
-        cutStringFilter: function (str) {
+        cutStringFilter: function(str) {
             return str.substring(0, 30).concat('...')
         }
     }
@@ -98,12 +98,12 @@ Vue.component("csselfact-layout", {
         }
     },
     watch: {
-        actData: function () {
+        actData: function() {
             this.csActData = this.actData;
         }
     },
     filters: {
-        ellipsisWords: function (str) {
+        ellipsisWords: function(str) {
             // 加上 $ 字號
             let str2 = str.slice(0, 30);
             str2 += '...';
@@ -131,7 +131,7 @@ Vue.component("csselfreco-layout", {
                 </a>
             </div>
             <div class="card__title">
-                <h5><a href="./csSelf.html">{{ item.recoName }} 心理師</a></h5>
+                <h5><a :href="'./csSelf.html?csNo='+item.recoId">{{ item.recoName }} 心理師</a></h5>
             </div>
             <div class="card__info">
                 <p v-html="clipToParagraph(item.recoContext)"></p>
@@ -141,7 +141,7 @@ Vue.component("csselfreco-layout", {
 `,
     methods: {},
     watch: {
-        recoData: function () {
+        recoData: function() {
             this.csRecoData = this.recoData;
         }
     },
@@ -257,7 +257,7 @@ let vmcss = new Vue({
         this.firstChecked2();
     },
     methods: {
-        installOwlCarousel1: function () {
+        installOwlCarousel1: function() {
             $('.owl-carousel1').owlCarousel({
                 loop: false,
                 mouseDrag: true,
@@ -279,7 +279,7 @@ let vmcss = new Vue({
                 }
             });
         },
-        installOwlCarousel2: function () {
+        installOwlCarousel2: function() {
             $('.owl-carousel2').owlCarousel({
                 loop: false,
                 mouseDrag: true,
@@ -299,7 +299,7 @@ let vmcss = new Vue({
                 }
             });
         },
-        installOwlCarousel3: function () {
+        installOwlCarousel3: function() {
             $('.slider').slick({
                 arrows: false,
                 dots: false,
@@ -439,7 +439,7 @@ let vmcss = new Vue({
         },
     },
     watch: {
-        csData: function () {
+        csData: function() {
             for (let i = 0; i < 5; i++)
                 this.series[0].data[i] = this.csData.csType[i].csTypeNum;
             this.$refs.newChart.updateSeries([{
