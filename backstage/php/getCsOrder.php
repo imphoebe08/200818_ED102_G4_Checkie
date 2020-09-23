@@ -5,10 +5,11 @@ $errMsg = "";
 try {
     $csNo = isset($_SESSION['csNo']) ? $_SESSION['csNo'] : 'a.csNo';
     $pageNow = isset($_REQUEST['pageNow']) ? $_REQUEST['pageNow'] : 1;
+    $dateSelect = ($_REQUEST['dateSelect'] == 0) ? '> curdate()' : '< curdate()';
     require_once("./connectBook.php");
 
     $sql = "SELECT * FROM csorder a
-            WHERE a.csNo = $csNo;";
+            WHERE a.csNo = $csNo AND a.csODate $dateSelect;";
 
     $total = $pdo->query($sql);
     $totalCount = $total->rowCount();
@@ -36,7 +37,7 @@ try {
                 cspos e ON b.csPosNo = e.csPosNo
                     JOIN
                 csomode f ON a.csModeNo = f.csModeNo
-            WHERE a.csNo = $csNo
+            WHERE a.csNo = $csNo AND a.csODate $dateSelect
             ORDER BY 1
             LIMIT $limit_low, $limit_high;";
 

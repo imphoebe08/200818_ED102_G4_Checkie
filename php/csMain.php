@@ -5,11 +5,13 @@ try {
     require_once("./connectBook.php");
 
     $sql = "SELECT 
-                a.csNo 'csNo', group_concat(b.typeName) 'typeName'
+                a.csNo 'csNo', group_concat(b.typeName) 'typeName', c.csBool 'csBool'
             FROM
                 cstype a
                     JOIN
                 type b ON a.csTypeNo = b.typeNo
+                    JOIN
+                counselor c ON a.csNo = c.csNo
             WHERE
                 (SELECT 
                         COUNT(*)
@@ -18,6 +20,7 @@ try {
                     WHERE
                         a.csNo = csNo
                             AND a.csTestValue < csTestValue) < 2
+            AND c.csBool = 0
             group by 1
             ORDER BY 1;";
     $type = $pdo->query($sql);
@@ -31,7 +34,9 @@ try {
                 (CASE csPosNo WHEN '1' THEN '北部' WHEN '2' THEN '中部' WHEN '3' THEN '南部'END ) as csPosNo,
                 csPic
             FROM
-                counselor;";
+                counselor
+            WHERE csBool = 0
+            ORDER BY 1;";
     $csInfo = $pdo->query($sql);
     $csRow = $csInfo->fetchAll(PDO::FETCH_ASSOC);
 

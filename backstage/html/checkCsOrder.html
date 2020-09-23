@@ -4,6 +4,31 @@
 <head>
     @@include('layout/bgHead.html')
 </head>
+<style>
+    .labelSelect {
+        display: inline-block;
+        border: 1px solid #ccc;
+        font-size: 20px;
+        font-weight: 500;
+        text-align: center;
+        border-radius: 30px;
+        border: 2px solid #ffa492;
+        color: #ffa492;
+        cursor: pointer;
+        background-color: #ffffff;
+        transition: .2s all ease-in;
+        padding: 5px 15px;
+    }
+
+    .date-select {
+        display: none;
+    }
+
+    .date-select:checked+label {
+        color: #ffffff;
+        background-color: #ffa492;
+    }
+</style>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     <!-- top_header -->
@@ -18,6 +43,13 @@
                 </div>
                 <div class="card ">
                     <div class="card-body" style=" overflow-x: auto;">
+                        <input type="radio" v-model="dateSelect" :value="parseInt(0)" id="date-select1"
+                            class="date-select" @change="getMemberDataFromParent(1)">
+                        <label for="date-select1" class="date-select1-label labelSelect">未來訂單</label>
+                        <input type="radio" v-model="dateSelect" :value="parseInt(1)" id="date-select2"
+                            class="date-select" @change="getMemberDataFromParent(1)">
+                        <label for="date-select2" class="date-select2-label labelSelect">過去訂單</label>
+
                         <table class=" table table-responsive-sm table-sm ">
                             <thead>
                                 <tr>
@@ -62,6 +94,7 @@
             data() {
                 return {
                     memberData: [],
+                    dateSelect: 0,
                 };
             },
             template: ` <tbody>
@@ -82,16 +115,18 @@
                         </tbody>`,
             mounted() {
                 //一進頁面先使用axios=> get
-                this.getMemberData(1);
+                this.getMemberData(1, 0);
             },
             methods: {
-                getMemberData(page) {
+                getMemberData(page, dateSelect) {
                     this.pageNow = page;
+                    this.dateSelect = dateSelect;
                     axios.get('./php/getCsOrder.php', {
-                            params: {
-                                'pageNow': this.pageNow
-                            }
-                        })
+                        params: {
+                            'pageNow': this.pageNow,
+                            'dateSelect': this.dateSelect
+                        }
+                    })
                         .then((res) => {
                             this.memberData = res.data.orderData;
                             this.totalPage = res.data[0];
@@ -106,101 +141,23 @@
                             console.error(error)
                         })
                 },
-                // editToggle(e, index) {
-                //     let input = document.querySelectorAll(`.buttonGroup${index}`);
-                //     if (input[0].getAttribute("readonly")) {
-                //         this.inputToEdit(e, index);
-                //     } else {
-                //         let check = confirm(`確認修改會員編號 ${this.memberData[index].memNo} 的資料嗎?`);
-                //         if (check)
-                //             //使用axios=> update
-                //             this.updateMemInfo(index);
-                //         this.inputToForbid(e, index);
-
-                //     }
-                // },
-                // inputToForbid(e, index) {
-                //     let input = document.querySelectorAll(`.buttonGroup${index}`);
-                //     for (let j = 0; j < input.length; j++) {
-                //         e.currentTarget.innerText = "編輯";
-                //         input[j].setAttribute("readonly", true);
-                //         input[j].setAttribute("disabled", true);
-                //     }
-                // },
-                // inputToEdit(e, index) {
-                //     let input = document.querySelectorAll(`.buttonGroup${index}`);
-                //     for (let j = 0; j < input.length; j++) {
-                //         input[j].removeAttribute("readonly");
-                //         input[j].removeAttribute("disabled");
-                //         e.currentTarget.innerText = "送出";
-                //     }
-                // },
-                // updateMemInfo(index) {
-                //     axios.get('./php/updateMember.php', {
-                //             params: {
-                //                 memBool: this.memberData[index].memBool,
-                //                 memId: this.memberData[index].memId,
-                //                 memName: this.memberData[index].memName,
-                //                 memGender: this.memberData[index].memGender,
-                //                 memBD: this.memberData[index].memBD,
-                //                 memGender: this.memberData[index].memGender,
-                //                 memTel: this.memberData[index].memTel,
-                //                 memAdd: this.memberData[index].memAdd,
-                //                 memNickname: this.memberData[index].memNickname,
-                //                 memNo: this.memberData[index].memNo,
-                //                 memPic: this.memberData[index].memPic,
-                //                 memOccupation: this.memberData[index].memOccupation
-                //             }
-                //         })
-                //         .then((res) => {
-                //             console.log('會員更新成功');
-                //             this.getMemberData(1);
-                //         })
-                //         .catch((error) => {
-                //             console.error(error);
-                //         })
-                // },
-                // fileUpload(e, index) {
-                //     console.log('file upload');
-                //     //先抓到上傳圖片的input資料
-                //     this.file = e.target.files[0];
-
-
-                //     // 轉為base64，純粹預覽用
-                //     const reader = new FileReader();
-                //     reader.readAsDataURL(this.file);
-                //     reader.addEventListener("load", () => {
-                //         this.memberData[index].csPic = reader.result;
-                //     });
-
-
-                //     // 存入formData，送出資料用
-                //     let formData = new FormData();
-                //     formData.append('file', this.file);
-
-                //     axios.post('./php/uploadCsPic.php', formData)
-                //         .then((res) => {
-                //             this.$set(this.memberData[index], 'memPic', res.data);
-                //         }).catch(function () {
-                //             console.log('FAILURE!!');
-                //         });
-                // },
                 updatePages() {
                     this.$emit('update:total-page', this.totalPage);
                     this.$emit('update:page-now', this.pageNow);
                 },
-            },
+            }
         });
 
         new Vue({
             el: "#bgMem",
             data: {
                 totalPage: 0,
-                pageNow: 1
+                pageNow: 1,
+                dateSelect: 0,
             },
             methods: {
                 getMemberDataFromParent(index) {
-                    this.$refs.childComponent.getMemberData(index);
+                    this.$refs.childComponent.getMemberData(index, this.dateSelect);
                 }
             }
         });

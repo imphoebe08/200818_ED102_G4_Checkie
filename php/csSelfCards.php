@@ -19,7 +19,7 @@ try {
                     JOIN
                 counselor b USING (csNo)
             WHERE
-                b.csNo = :csNo
+                b.csNo = :csNo AND a.artBool = 0
             LIMIT 3;";
 
     $csArt = $pdo->prepare($sql);
@@ -54,7 +54,7 @@ try {
                     JOIN
                 counselor b USING (csNo)
             WHERE
-                b.csNo = :csNo
+                b.csNo = :csNo AND a.actBool = 0
             LIMIT 3;";
 
     $csAct = $pdo->prepare($sql);
@@ -82,6 +82,8 @@ try {
                 csPic 'recoImg'
             FROM
                 counselor
+            WHERE
+                csBool = 0
             ORDER BY RAND()
             LIMIT 3;";
 
