@@ -704,9 +704,9 @@ let vm = new Vue({
         },
         colorChange(time) {
             if (time == 0) {
-                return "teal lighten-2";
+                return "#67c2e9";
             } else {
-                return "red lighten-3";
+                return "#ff9e8a";
             }
         },
         aaa(data, num) {

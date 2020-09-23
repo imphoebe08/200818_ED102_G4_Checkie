@@ -23,8 +23,7 @@
 
 
     @@include('template/header.html') @@include('./test.html')
-    <script src="./js/chatbot.js"></script>
-    <script src="./js/header.js"></script>
+
 
     <!--------CC-CODE-------->
 
@@ -103,7 +102,7 @@
                                                                         <div v-if="!event.time"  class="" :class="['my-event', {colorError:(parseInt(event.time1)*parseInt(event.time2) != 0)},{colorCorrect:(parseInt(event.time1)*parseInt(event.time2) == 0)}]" v-on="on" v-html="event.title"></div>
                                                                     </template>
                                                         <v-card color="grey lighten-5" max-width="320px" max-height="350px">
-                                                            <v-toolbar color="orange lighten-2 white--text">
+                                                            <v-toolbar color="light-green lighten-1 white--text">
                                                                 <v-toolbar-title class="white--text " v-html="event.date +'    時段'+ event.title"></v-toolbar-title>
                                                             </v-toolbar>
                                                             <v-card-title primary-title>
@@ -111,10 +110,10 @@
                                                                 <v-card color="white" min-width="290px" max-height="200px">
                                                                     <v-row class="mx-auto">
                                                                         <v-col>
-                                                                            <v-span class="brown--text  text--lighten-4">{{aaa(event.title,1)}}</v-span>
+                                                                            <v-span class="brown--text  text--lighten-2">{{aaa(event.title,1)}}</v-span>
                                                                         </v-col>
                                                                         <v-col>
-                                                                            <v-span class="brown--text text--lighten-4">{{aaa(event.title,2)}}</v-span>
+                                                                            <v-span class="brown--text text--lighten-2">{{aaa(event.title,2)}}</v-span>
                                                                         </v-col>
 
                                                                     </v-row>
@@ -122,10 +121,10 @@
 
                                                                     <v-row class="mx-auto">
                                                                         <v-col>
-                                                                            <v-btn class="ml-5 white--text" @click.native="alertMyTitle(event,event.time1,1 )" :color="colorChange(event.time1)">{{(event.time1 ==0)?'可預約':((event.time1 ==1)?'預約已滿':'未開放')}}</v-btn>
+                                                                            <v-btn class="ml-4 white--text" @click.native="alertMyTitle(event,event.time1,1 )" :color="colorChange(event.time1)">{{(event.time1 ==0)?'可預約':((event.time1 ==1)?'預約已滿':'未開放')}}</v-btn>
                                                                         </v-col>
                                                                         <v-col>
-                                                                            <v-btn class="ml-5 white--text" @click.native="alertMyTitle(event,event.time2,2 )" :color="colorChange(event.time2)">{{(event.time2 ==0)?'可預約':((event.time2 ==1)?'預約已滿':'未開放')}}</v-btn>
+                                                                            <v-btn class="ml-4 white--text" @click.native="alertMyTitle(event,event.time2,2 )" :color="colorChange(event.time2)">{{(event.time2 ==0)?'可預約':((event.time2 ==1)?'預約已滿':'未開放')}}</v-btn>
                                                                         </v-col>
                                                                     </v-row>
                                                                 </v-card>
@@ -133,7 +132,7 @@
                                                                 <!-- </v-container> -->
                                                             </v-card-title>
                                                             <v-card-actions>
-                                                                <v-btn flat color="orange lighten-2 white--text" v-on="on" class="ml-2">
+                                                                <v-btn flat color="light-green lighten-1 white--text mb-2" v-on="on" class="ml-2">
                                                                     Cancel
                                                                 </v-btn>
                                                             </v-card-actions>
@@ -752,10 +751,14 @@
     <!-- @@include('./template/header.html'); -->
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js" ></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vuetify/2.3.10/vuetify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="./js/coCalender.js"></script>
+    <script src="./js/chatbot.js"></script>
+    <script src="./js/header.js"></script>
 
 
 </body>

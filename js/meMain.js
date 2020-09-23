@@ -556,7 +556,7 @@ let vm = new Vue({
             //apexchart預設資料
             {
                 name: "分數",
-                data: [0, 0, 0, 0, 0]
+                data: [50, 50, 50, 50, 50]
             }
         ],
         chartOptions: {
@@ -1026,19 +1026,22 @@ let vm = new Vue({
         // //掛載心理測驗分數
         axios.get('./php/memTestR.php')
             .then(response => {
-                this.csReData = response.data;
-                for (let i = 0; i < 5; i++) {
-                    // console.log(this.csReData[i].testResultValue);
-                    //console.log(this.series[0].data[i]);
-                    this.series[0].data[i] = this.csReData[i].testResultValue;
-                    // console.log(this.series[0].data[i]);
+                if (response.data !='no') {
+                        this.csReData = response.data;
+                    for (let i = 0; i < 5; i++) {
+                        // console.log(this.csReData[i].testResultValue);
+                        //console.log(this.series[0].data[i]);
+                        this.series[0].data[i] = this.csReData[i].testResultValue;
+                        // console.log(this.series[0].data[i]);
+                    }
+                }else{
+                    //console.log('haha');
                 }
+                
             });
 
-        // setInterval(function() {
-        //     vm.ajaxPost("./php/csMe.php", null, 1);
-        //     // vm.ajaxPost("firstChat.php", null, 2);
-        // }, 1000);
+
+
 
         //會員資料辣ＱＱＱＱＱ
 
@@ -1081,7 +1084,7 @@ let vm = new Vue({
                 if (res.data == '沒有訂單內容') {
                     this.coData = [];
                     this.coPastData = [];
-                    console.log(this.coPastData);
+                    //console.log(this.coPastData);
                 } else {
                     //console.log(res.data[1].csODate);
                     for (let i = 0; i < res.data.length; i++) {
@@ -1119,13 +1122,23 @@ let vm = new Vue({
         // //掛載文章推薦
         axios.get('./php/memArtRec.php')
             .then(response => {
-                this.memArtRec = response.data;
+                if (response.data=="沒有推薦內容") {
+                    this.memArtRec = [];
+                }else{
+                    this.memArtRec = response.data;
+                }
+                
                 //console.log(this.memArtRec);
             });
         // //掛載活動推薦
         axios.get('./php/memActRec.php')
             .then(response => {
-                this.memActRec = response.data;
+                if (response.data=="沒有推薦內容") {
+                    this.memActRec=[];
+                }else{
+                    this.memActRec = response.data;
+                }
+
                 //console.log(this.memActRec);
             });
         // //掛載活動收藏

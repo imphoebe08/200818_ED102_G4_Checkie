@@ -15,9 +15,11 @@
 
 .qr_block_save-font {
     font-size: 18px;
-    div {
-        img {
-            height: 20px;
+    >div {
+        >a{
+            >i{
+                color: $color-blue;
+        }
         }
     }
 }

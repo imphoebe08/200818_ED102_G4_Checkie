@@ -140,7 +140,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     border-radius: 2px;
-    background-color: #1867c0;
+    // background-color: #1867c0;
     color: #ffffff;
     //border: 1px solid #1867c0;
     width: 90%;
@@ -153,9 +153,17 @@
 }
 
 .colorError {
-    background-color: $color-pink;
+    background-color: #ff9e8a;
 }
 
 .colorCorrect {
-    background-color: $color-blue;
+    background-color: #67c2e9;
+}
+
+.v-menu__content.theme--light{
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%,-50%) !important; 
+    transition: none !important;
 }

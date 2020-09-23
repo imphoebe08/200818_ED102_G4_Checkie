@@ -276,7 +276,7 @@ let vm = new Vue({
             setTimeout(function() {
                 var qrCode = new QRCode("qrCode");
                 // 待確認
-                qrCode.makeCode('location.href/acSelf.html?actNo=' + vm.$data.orderData.actNo);
+                qrCode.makeCode('http://140.115.236.71/demo-projects/ED102/ED102G4/acSelf.html?actNo=' + vm.$data.orderData.actNo);
             }, 400);
         },
 

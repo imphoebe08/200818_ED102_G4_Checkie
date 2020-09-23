@@ -149,7 +149,7 @@
     .memSearch {
         background: white;
         margin: 10px;
-        width: 40vw;
+        width: 30vw;
         border: #e0ddd8 solid 1px;
         display: flex;
         justify-content: space-between;
@@ -2172,6 +2172,11 @@
 }
 
 .mem_come_and_go {
-    text-decoration: none;
-    color: $color-blue;
+    text-decoration: underline;
+    color: $color-pink;
+}
+
+.me_no_rec{
+    height: 100%;
+    line-height: 300px;
 }

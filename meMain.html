@@ -14,11 +14,12 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vuetify/2.3.10/vuetify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 
@@ -914,7 +915,8 @@
                                             </div>
                                             <div class="row mem-inActCsSelfAct_block mem-csSelfAct_block--style">
                                                 <div class="mem-inActCsSelfAct--hide mem-inActCsSelfAct--hide--style">
-                                                    <cssart-layout v-for="each in memArtRec" :love="each" @open-share-dialog="openShareDialog"></cssart-layout>
+                                                    <cssart-layout v-for="each in memArtRec" :love="each" @open-share-dialog="openShareDialog" v-if="memArtRec.length!=0"></cssart-layout>
+                                                    <div class="me_nothing_in_result me_no_rec" v-if="memArtRec.length==0">目前推薦文章，請先進行心理測驗</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -926,8 +928,8 @@
                                             <div class="row mem-inActCsSelfAct_block">
                                                 <div class="mem-inActCsSelfAct--hide">
 
-                                                    <inact-item v-for="each in memActRec" :love="each" @open-share-dialog="openShareDialog"></inact-item>
-
+                                                    <inact-item v-for="each in memActRec" :love="each" @open-share-dialog="openShareDialog" v-if="memActRec.length!=0"></inact-item>
+                                                    <div class="me_nothing_in_result me_no_rec" v-if="memActRec.length==0">目前推薦活動，請先進行心理測驗</div>
                                                 </div>
                                             </div>
                                         </div>
