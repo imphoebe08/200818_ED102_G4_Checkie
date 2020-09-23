@@ -34,7 +34,7 @@ Vue.component('cssart-layout', {
     </div>`,
     methods: {
         openShareDialog(value) {
-            this.$emit('share', `artNo=${value}`);
+            this.$emit('share', `atSelf.html?artNo=${value}`);
         },
         doCollected(index) {
             this.$emit('do-collected', index);
@@ -87,12 +87,12 @@ Vue.component("csselfact-layout", {
 
             <button class="joinBut button2"><a :href="'./acSelf.html?actNo='+ item.actId">立即報名</a></button>
         </div>
-        <p v-if="csActData.length == 0" text-align-center>沒有相關活動~</p>
+        <p class="nonData" v-if="csActData.length == 0" text-align-center>沒有相關活動~</p>
     </div>
 `,
     methods: {
         openShareDialog(value) {
-            this.$emit('share', `actNo=${value}`);
+            this.$emit('share', `acSelf.html?actNo=${value}`);
         },
         doCollected(index) {
             this.$emit('do-collected', index);
@@ -105,7 +105,6 @@ Vue.component("csselfact-layout", {
     },
     filters: {
         ellipsisWords: function (str) {
-            // 加上 $ 字號
             let str2 = str.slice(0, 30);
             str2 += '...';
             return str2;
@@ -162,7 +161,7 @@ let vmcss = new Vue({
         apexchart: VueApexCharts,
     },
     data: {
-        shareUrl: "http://140.115.236.71/demo-projects/ED102/ED102G4/atSelf.html?", //傳送的文章或活動主連結
+        shareUrl: "http://140.115.236.71/demo-projects/ED102/ED102G4/", //傳送的文章或活動主連結
         shareNo: '', //傳送的文章或活動編號
         csData: {},
         csArtData: {},
