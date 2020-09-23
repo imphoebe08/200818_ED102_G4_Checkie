@@ -61,8 +61,9 @@
             <div class="csS-info__type">
                 <h3>醫師專長</h3>
                 <div class='csS-type__tag'>
-                    <span>{{ csData.csType && csData.csType.length > 0 ? csData.csType[0].csTypeName :'' }}</span>
-                    <span>{{ csData.csType && csData.csType.length > 0 ? csData.csType[1].csTypeName :'' }}</span>
+                    <!-- <span>{{ csData.csType && csData.csType.length > 0 ? csData.csType[0].csTypeName :'' }}</span>
+                    <span>{{ csData.csType && csData.csType.length > 0 ? csData.csType[1].csTypeName :'' }}</span> -->
+                    <span v-for="(type, index) in 2">{{csData.csTypeTop[index]}}</span>
                 </div>
                 <div class="inCs-chart">
                     <!-- <radar-chart :radar-data="csData"></radar-chart> -->

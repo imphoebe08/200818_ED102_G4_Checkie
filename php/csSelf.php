@@ -8,6 +8,28 @@ try {
     require_once("./connectBook.php");
 
     $sql = "SELECT 
+                a.csNo 'csNo', group_concat(b.typeName) 'typeName'
+            FROM
+                cstype a
+                    JOIN
+                type b ON a.csTypeNo = b.typeNo
+            WHERE
+                (SELECT 
+                        COUNT(*)
+                    FROM
+                        cstype
+                    WHERE
+                        a.csNo = csNo
+                            AND a.csTestValue < csTestValue) < 2
+            AND a.csNo = :csNo
+            group by 1
+            ORDER BY 1;";
+    $typeTop = $pdo->prepare($sql);
+    $typeTop->bindValue(':csNo', $csNo);
+    $typeTop->execute();
+    $typeTopRow = $typeTop->fetchAll(PDO::FETCH_ASSOC);
+
+    $sql = "SELECT 
                b.typeName 'csTypeName', a.csTestValue 'csTypeNum'
             FROM
                 cstype a
@@ -44,6 +66,7 @@ try {
             "csHis" => explode(",", $csRow[$key]["csHis"]),
             "csEdu" => explode(",", $csRow[$key]["csEdu"]),
             "csPic" => $csRow[$key]["csPic"],
+            "csTypeTop" => explode(",", $typeTopRow[$key]["typeName"]),
             "csType" => $typeRow
         );
     };

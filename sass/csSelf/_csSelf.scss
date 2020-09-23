@@ -134,6 +134,11 @@
     flex-flow: nowrap row;
     justify-content: space-between;
 
+    p {
+        text-align: center;
+        padding: 50px 0px;
+    }
+
     .csS-art__card {
         overflow: hidden;
         flex: 1 1 300px;
@@ -143,6 +148,7 @@
         background: #fff;
         box-shadow: $boxshadow;
         height: 500px;
+        padding: 50px 0px;
 
 
         a {
@@ -332,6 +338,11 @@
     margin: 0 auto;
     overflow: hidden;
 
+    p {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
     .csSelfAct-card {
         background: #fff;
         margin: 10px 0;
@@ -340,6 +351,8 @@
         overflow: hidden;
         position: relative;
         display: flex;
+
+
 
         .card-image {
             padding: 15.15% 0 0;
@@ -425,6 +438,12 @@
             .slick-slide {
                 margin: 10px;
             }
+
+            p {
+                display: block;
+                text-align: center;
+                padding: 50px 0px;
+            }
         }
 
     }
@@ -462,6 +481,10 @@
     justify-content: center;
     max-width: 1200px;
     margin: 0 auto 100px;
+
+    .owl-stage {
+        padding: 50px 0px;
+    }
 
     .csSelfReco-card {
         margin: 0 10px;

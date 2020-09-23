@@ -127,7 +127,7 @@ Vue.component("csselfreco-layout", {
     <div id="csSelfReco">
 	    <div v-for="(item, index) in csRecoData" :key="item.recoId" class="csSelfReco-card">
             <div class="card__image">
-                <a href="./csSelf.html">
+                <a :href="'./csSelf.html?csNo=' + item.recoId">
                     <img :src="item.recoImg" alt="">
                 </a>
             </div>
@@ -163,13 +163,13 @@ let vmcss = new Vue({
     },
     data: {
         shareUrl: "http://140.115.236.71/demo-projects/ED102/ED102G4/atSelf.html?", //傳送的文章或活動主連結
-        shareNo: '', //傳送的文章或活動編號，我預設為1
+        shareNo: '', //傳送的文章或活動編號
         csData: {},
         csArtData: {},
         csActData: {},
         csRecoData: {},
         series: [{
-            name: 'Series 1',
+            name: '自評分數',
             data: [50, 50, 50, 50, 50],
         }],
         chartOptions: {
@@ -251,6 +251,9 @@ let vmcss = new Vue({
             })).then(() => {
                 this.firstChecked();
                 this.firstChecked2();
+                this.$refs.newChart.updateSeries([{
+                    data: this.series[0].data
+                }], false, true)
             });
     },
     updated() {
@@ -443,11 +446,11 @@ let vmcss = new Vue({
         csData: function () {
             for (let i = 0; i < 5; i++)
                 this.series[0].data[i] = this.csData.csType[i].csTypeNum;
-            this.$refs.newChart.updateSeries([{
-                data: this.series[0].data
-            }], false, true)
+            // this.$refs.newChart.updateSeries([{
+            //     data: this.series[0].data
+            // }], false, true)
         }
-    }
+    },
 })
 
 
