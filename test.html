@@ -19,10 +19,8 @@
         <steps></steps>
         <lines></lines>
         <steps></steps>
-        <lines></lines>
-        <steps></steps>
     </section>
-    <form action="">
+    <form action="" v-show="testStart">
         <!-- 點下skip 要關閉表單 ok -->
         <div id="qsBox">
             <input type="button" value="SKIP" class="text_skip" @click="skip">
@@ -72,22 +70,54 @@
             <ans-content :answers="a8.content" v-show="display"></ans-content>
 
             <!-- 第九題 -->
-            <ask-content questions="您對自己目前的人生歷程滿意嗎？" v-show="display"></ask-content>
+            <ask-content questions="您對於目前的感情狀態滿意嗎？" v-show="display"></ask-content>
             <ans-buttons-grades v-show="display" @submit_value="changeA" name="q9"></ans-buttons-grades>
             <ans-content :answers="a9.content" v-show="display"></ans-content>
 
             <!-- 第十題 -->
-            <ask-content questions="您對自己未來的生人規劃清楚嗎？" v-show="display"></ask-content>
+            <ask-content questions="您對自己未來的人生規劃清楚嗎？" v-show="display"></ask-content>
             <ans-buttons-grades v-show="display" @submit_value="changeA" name="q10"></ans-buttons-grades>
             <ans-content :answers="a10.content" v-show="display"></ans-content>
-
+            <input type="button" class="test_submit" value="完成測驗" v-show="finish" @click="finish_form">
             <!-- 第十一題 -->
-            <ask-content questions="您對於目前的感情狀態滿意嗎？" v-show="display"></ask-content>
-            <ans-buttons-grades v-show="display" @submit_value="changeA" name="q11"></ans-buttons-grades>
-            <ans-content :answers="a11.content" v-show="display"></ans-content>
-            <input type="submit" class="test_submit" value="完成測驗" v-show="finish" @click="finish_form">
         </div>
-
-
     </form>
+    <div class="test_content" v-show="testOver">
+        <button type="button" @click="closeTestResult">關閉</button>
+        <div class="test-content_box">
+            <div class="test-content-box_title">您的心理評估分數：</div>
+            <div class="test-content-box_pic">
+                <!-- <canvas class="myChart" width="200" height="200" id="myChart"></canvas> -->
+                <div id="talkbubble"><span class="count">66</span>%</div>
+            </div>
+            <div v-if="!member" class="test-content-box_word">欲看分數示詳情請登入會員</div>
+            <div v-else class="test-content-box_word">來去看看
+                <a href="./atMain.html">文章</a>或是<a href="./acMain.html">活動</a>吧!
+            </div>
+            <a href="#" v-if="!member">
+                <div class="test-content-box_but">
+                    <input type="button" id="signin" class="testResult_submit" value="登入會員" @click="closeTestSignIn">
+                </div>
+            </a>
+
+        </div>
+        <div class="test-content_result">
+
+            <div class="test-content-result_word">
+                <div class="test-content-result-word_title">自我評估：</div>
+                <ul>
+                    <li>0~20%:屬於較穩定的狀況</li>
+                    <li>20~40%:大部分清況下穩定，偶爾會出現小小失落感。</li>
+                    <li>40%~60:經常出現失落感，建議找尋抒發管道。</li>
+                    <li>60%~80%:時常出現失落感，建議找尋專業抒發管道。</li>
+                    <li>80%~100%:大部分時間都處於失落狀態下，建議預約諮商。</li>
+                </ul>
+            </div>
+            <a href="csMain.html">
+                <div class="test-content-result_but">
+                    <input type="submit" class="testResult_reservation" value=預約諮商>
+                </div>
+            </a>
+        </div>
+    </div>
 </div>

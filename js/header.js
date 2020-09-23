@@ -1,26 +1,26 @@
 /*------test------*/
-$(function() {
-    $(".test_button").click(function() {
+$(function () {
+    $(".test_button").click(function () {
         $("#form").css("display", "block")
     })
 
     /*------導覽列------*/
-    $(".hamburger").click(function() {
+    $(".hamburger").click(function () {
         $(".hamburger").toggleClass("is-active");
         $(".navbar__menu").toggleClass("navbar__menu--active");
         $(".top").toggleClass("top--open");
     });
 
-    $(window).on("resize", function() {
+    $(window).on("resize", function () {
         if ($(window).width() > 768) {
             $(".navbar__menu").removeClass("navbar__menu--active");
         }
     });
 
-    $("test_button").click(function() {
+    $("test_button").click(function () {
         $("#form").css("display", "block")
     })
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         var scroll = $(window).scrollTop();
 
 
@@ -109,7 +109,7 @@ Vue.component('signin-component', {
                         
                     </div>
     </div>`,
-    data: function() {
+    data: function () {
         return {
             newMemId: "",
             newMemPsd: "",
@@ -126,6 +126,17 @@ Vue.component('signin-component', {
             forgetEmail: "",
 
         }
+    },
+    mounted() {
+        axios.get('./php/checkLogin.php')
+            .then(res => {
+                signin = document.getElementById("signin");
+                if (!!res.data) {
+                    signin.innerText = "登出";
+                } else {
+                    signin.innerText = "登入";
+                }
+            })
     },
     methods: {
         forget() {
@@ -175,7 +186,7 @@ Vue.component('signin-component', {
             if (num) {
                 $(who).addClass("error_border");
                 $(who).addClass("error");
-                setTimeout(function() {
+                setTimeout(function () {
                     $(who).removeClass("error");
                 }, 300)
             } else {
@@ -189,7 +200,7 @@ Vue.component('signin-component', {
                 signin = document.getElementById("signin"),
                 signup_overlay = document.getElementById("signup_overlay");
 
-            xhr.onload = function() {
+            xhr.onload = function () {
                 if (xhr.status == 200) {
                     let member = JSON.parse(xhr.responseText);
                     console.log(member)
@@ -214,6 +225,15 @@ Vue.component('signin-component', {
             let data_info = `memId=${this.memId}&memPsd=${this.memPsd}`;
             xhr.send(data_info);
 
+            axios.get('./php/checkLogin.php')
+                .then(res => {
+                    signin = document.getElementById("signin");
+                    if (!!res.data) {
+                        signin.innerText = "登出";
+                    } else {
+                        signin.innerText = "登入";
+                    }
+                })
         },
 
         /*----老師靠你了----*/
@@ -291,7 +311,7 @@ Vue.component('signin-component', {
         },
         ajaxPost(url, dataInfo) {
             let xhr = new XMLHttpRequest();
-            xhr.onload = function() {
+            xhr.onload = function () {
                 if (xhr.status == 200) {
                     console.log(xhr.responseText);
 
@@ -422,7 +442,7 @@ let login = new Vue({
             } else {
                 //-----------------------------回Server端做登出
                 let xhr = new XMLHttpRequest();
-                xhr.onload = function() {
+                xhr.onload = function () {
                     if (xhr.status == 200) {
                         document.getElementById("signup").innerHTML = '加入會員';
                         document.getElementById("signin").innerHTML = '登入';
@@ -454,7 +474,7 @@ let login = new Vue({
             } else {
 
                 let xhr = new XMLHttpRequest();
-                xhr.onload = function() {
+                xhr.onload = function () {
                     member = JSON.parse(xhr.responseText);
                     console.log(member);
                     if (member.memId) {
@@ -471,12 +491,12 @@ let login = new Vue({
 });
 //------------test------------//
 
-$(function() {
+$(function () {
     // 出場
     $("#qsBox>div.askContent:nth-child(1)").css("display", "flex");
-    setTimeout(function() {
+    setTimeout(function () {
         $("#qsBox>div.askContent:nth-child(2)").css("display", "flex");
-        setTimeout(function() {
+        setTimeout(function () {
             $("#qsBox>div.ansButton--start").css("display", "block");
 
         }, 500)
@@ -567,7 +587,7 @@ Vue.component('ans-buttons-grades', {
             if (event.target.name == "q11") {
                 event.target.parentNode.nextElementSibling.style.display = 'flex';
                 document.getElementById("qsBox").scrollTop = document.getElementById("qsBox").scrollHeight;
-                setTimeout(function() {
+                setTimeout(function () {
                     event.target.parentNode.nextElementSibling.nextElementSibling.style.display = 'block';
                     document.getElementById("qsBox").scrollTop = document.getElementById("qsBox").scrollHeight;
                 }, 500)
@@ -576,7 +596,7 @@ Vue.component('ans-buttons-grades', {
                 // console.log(event.target.parentNode.nextElementSibling );
                 event.target.parentNode.nextElementSibling.style.display = 'flex';
                 document.getElementById("qsBox").scrollTop = document.getElementById("qsBox").scrollHeight;
-                setTimeout(function() {
+                setTimeout(function () {
                     event.target.parentNode.nextElementSibling.nextElementSibling.style.display = 'flex';
                     var form_H = $("#form>form").height();
                     var box_H = $("#qsBox").height();
@@ -590,7 +610,7 @@ Vue.component('ans-buttons-grades', {
 
 
 
-                    setTimeout(function() {
+                    setTimeout(function () {
                         event.target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.style.display = 'block';
                         document.getElementById("qsBox").scrollTop = document.getElementById("qsBox").scrollHeight;
 
@@ -605,26 +625,183 @@ Vue.component('ans-buttons-grades', {
 });
 
 
+// let vm0 = new Vue({
+//     el: "#form",
+//     data: {
+//         now_Q: 0,
+//         display: false,
+//         count: 0,
+//         finish: false,
+//         a1: {
+//             content: ""
+//         },
+//         a2: {
+//             content: ""
+//         },
+//         a3: {
+//             content: ""
+//         },
+//         a4: {
+//             content: ""
+//         },
+//         a5: {
+//             content: ""
+//         },
+//         a6: {
+//             content: ""
+//         },
+//         a7: {
+//             content: ""
+//         },
+//         a8: {
+//             content: ""
+//         },
+//         a9: {
+//             content: ""
+//         },
+//         a10: {
+//             content: ""
+//         },
+//         a11: {
+//             content: ""
+//         },
+
+
+//     },
+//     methods: {
+//         change_line() {
+//             $(".step-icon").eq(this.now_Q).css("background", "#FFA492");
+//             if (this.now_Q == 0) {
+
+//             } else {
+//                 $(".indicator-line").eq(this.now_Q - 1).css("background", "#FFA492");
+//             }
+//         },
+//         form_start() {
+//             this.change_line();
+//             this.now_Q++;
+//             var scrollHeight = $('#body').prop("scrollHeight");
+//             event.target.style.display = 'none';
+//             event.target.parentNode.nextElementSibling.style.display = 'flex';
+//             var e = event.target;
+//             setTimeout(function () {
+//                 e.parentNode.nextElementSibling.nextElementSibling.style.display = 'flex';
+//                 setTimeout(function () {
+//                     e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.style.display = 'flex';
+//                     setTimeout(function () {
+//                         e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.style.display = 'block';
+
+//                     }, 500)
+//                 }, 500)
+//             }, 500)
+
+//         },
+//         changeA(data, name) {
+//             this.change_line();
+//             this.now_Q++
+//             switch (name) {
+//                 case "q1":
+//                     this.a1.content = data;
+
+//                     break;
+//                 case "q2":
+//                     this.a2.content = data;
+
+//                     break;
+//                 case "q3":
+//                     this.a3.content = data;
+
+//                     break;
+//                 case "q4":
+//                     this.a4.content = data;
+//                     break;
+//                 case "q5":
+//                     this.a5.content = data;
+//                     break;
+//                 case "q6":
+//                     this.a6.content = data;
+//                     break;
+//                 case "q7":
+//                     this.a7.content = data;
+//                     break;
+//                 case "q8":
+//                     this.a8.content = data;
+//                     break;
+//                 case "q9":
+//                     this.a9.content = data;
+//                     break;
+//                 case "q10":
+//                     this.a10.content = data;
+//                     break;
+//                 case "q11":
+//                     this.a11.content = data;
+//                     break;
+
+
+//             }
+
+
+
+
+//         },
+
+//         skip() {
+//             $("#form").css("display", "none");
+//         },
+//         finish_form() {
+//             $("#form").css("display", "none");
+//         }
+//     },
+//     computed: {
+
+//     },
+//     created() {
+//         var qsBox = document.getElementById("qsBox");
+//         qsBox.scrollTop = qsBox.scrollHeight;
+
+//     },
+// })
+
 let vm0 = new Vue({
     el: "#form",
     data: {
+        testStart: true,
+        testOver: false,
         now_Q: 0,
         display: false,
         count: 0,
         finish: false,
-        a1: { content: "" },
-        a2: { content: "" },
-        a3: { content: "" },
-        a4: { content: "" },
-        a5: { content: "" },
-        a6: { content: "" },
-        a7: { content: "" },
-        a8: { content: "" },
-        a9: { content: "" },
-        a10: { content: "" },
-        a11: { content: "" },
-
-
+        member: false,
+        a1: {
+            content: ""
+        },
+        a2: {
+            content: ""
+        },
+        a3: {
+            content: ""
+        },
+        a4: {
+            content: ""
+        },
+        a5: {
+            content: ""
+        },
+        a6: {
+            content: ""
+        },
+        a7: {
+            content: ""
+        },
+        a8: {
+            content: ""
+        },
+        a9: {
+            content: ""
+        },
+        a10: {
+            content: ""
+        },
     },
     methods: {
         change_line() {
@@ -642,11 +819,11 @@ let vm0 = new Vue({
             event.target.style.display = 'none';
             event.target.parentNode.nextElementSibling.style.display = 'flex';
             var e = event.target;
-            setTimeout(function() {
+            setTimeout(function () {
                 e.parentNode.nextElementSibling.nextElementSibling.style.display = 'flex';
-                setTimeout(function() {
+                setTimeout(function () {
                     e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.style.display = 'flex';
-                    setTimeout(function() {
+                    setTimeout(function () {
                         e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.style.display = 'block';
 
                     }, 500)
@@ -657,65 +834,104 @@ let vm0 = new Vue({
         changeA(data, name) {
             this.change_line();
             this.now_Q++
-                switch (name) {
-                    case "q1":
-                        this.a1.content = data;
+            switch (name) {
+                case "q1":
+                    this.a1.content = data;
+                    break;
+                case "q2":
+                    this.a2.content = data;
 
-                        break;
-                    case "q2":
-                        this.a2.content = data;
-
-                        break;
-                    case "q3":
-                        this.a3.content = data;
-
-                        break;
-                    case "q4":
-                        this.a4.content = data;
-                        break;
-                    case "q5":
-                        this.a5.content = data;
-                        break;
-                    case "q6":
-                        this.a6.content = data;
-                        break;
-                    case "q7":
-                        this.a7.content = data;
-                        break;
-                    case "q8":
-                        this.a8.content = data;
-                        break;
-                    case "q9":
-                        this.a9.content = data;
-                        break;
-                    case "q10":
-                        this.a10.content = data;
-                        break;
-                    case "q11":
-                        this.a11.content = data;
-                        break;
-
-
-                }
-
-
-
-
+                    break;
+                case "q3":
+                    this.a3.content = data;
+                    break;
+                case "q4":
+                    this.a4.content = data;
+                    break;
+                case "q5":
+                    this.a5.content = data;
+                    break;
+                case "q6":
+                    this.a6.content = data;
+                    break;
+                case "q7":
+                    this.a7.content = data;
+                    break;
+                case "q8":
+                    this.a8.content = data;
+                    break;
+                case "q9":
+                    this.a9.content = data;
+                    break;
+                case "q10":
+                    this.a10.content = data;
+                    break;
+            }
         },
 
         skip() {
             $("#form").css("display", "none");
+            this.testStart = true;
+            this.testOver = false;
         },
         finish_form() {
+            // $("#form").css("display", "none");
+            this.testStart = false;
+            this.testOver = true;
+            let num = parseInt(this.a1.content) + parseInt(this.a2.content) + parseInt(this.a3.content) +
+                parseInt(this.a4.content) + parseInt(this.a5.content) + parseInt(this.a6.content) + parseInt(this.a7.content) + parseInt(this.a8.content) + parseInt(this.a9.content) + parseInt(this.a10.content);
+            $('.count').text(100 - num * 2);
+            $('.count').each(function () {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 4000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
+            axios.get('./php/insertTestResult.php', {
+                params: {
+                    'num1': parseInt(this.a1.content) + parseInt(this.a2.content),
+                    'num2': parseInt(this.a3.content) + parseInt(this.a4.content),
+                    'num3': parseInt(this.a5.content) + parseInt(this.a6.content),
+                    'num4': parseInt(this.a7.content) + parseInt(this.a8.content),
+                    'num5': parseInt(this.a9.content) + parseInt(this.a10.content)
+                }
+            }).then((res) => {
+                console.log(res.data);
+            })
+
+        },
+        closeTestResult() {
             $("#form").css("display", "none");
+            this.testStart = true;
+            this.testOver = false;
+        },
+        closeTestSignIn() {
+            $("#form").css("display", "none");
+            this.testStart = true;
+            this.testOver = false;
+            $("#signup_overlay").removeClass("signup_overlay-none");
+            $("#signup_overlay").fadeIn(300);
+            $("#container").removeClass("right-panel-active");
         }
     },
-    computed: {
-
-    },
+    computed: {},
     created() {
         var qsBox = document.getElementById("qsBox");
         qsBox.scrollTop = qsBox.scrollHeight;
-
+        axios.get('./php/checkLogin.php')
+            .then(res => this.member = !!res.data)
     },
+    updated() {
+        axios.get('./php/checkLogin.php')
+            .then(res => this.member = !!res.data)
+    },
+    mounted() {
+        axios.get('./php/checkLogin.php')
+            .then(res => this.member = !!res.data)
+    }
 })
