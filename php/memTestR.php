@@ -5,7 +5,7 @@ try{
     //session應急
     // $_SESSION["memNO"]=1;
     //以上session應急
-    $memNo = $_SESSION["memNO"];
+    $memNo = $_SESSION["memNo"];
 
     $sql = "
     select a.memTestNo ,

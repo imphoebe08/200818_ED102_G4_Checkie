@@ -103,7 +103,7 @@
                                                                         <div v-if="!event.time"  class="" :class="['my-event', {colorError:(parseInt(event.time1)*parseInt(event.time2) != 0)},{colorCorrect:(parseInt(event.time1)*parseInt(event.time2) == 0)}]" v-on="on" v-html="event.title"></div>
                                                                     </template>
                                                         <v-card color="grey lighten-5" max-width="320px" max-height="350px">
-                                                            <v-toolbar color="blue lighten-3">
+                                                            <v-toolbar color="orange lighten-2 white--text">
                                                                 <v-toolbar-title class="white--text " v-html="event.date +'    時段'+ event.title"></v-toolbar-title>
                                                             </v-toolbar>
                                                             <v-card-title primary-title>
