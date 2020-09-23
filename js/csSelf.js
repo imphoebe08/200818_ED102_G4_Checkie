@@ -440,6 +440,24 @@ let vmcss = new Vue({
                 console.log(res.data);
             });
         },
+        doMessage(csNo) {
+            axios.get('./php/checkLogin.php')
+                .then((res) => {
+                    if (res.data) {
+                        axios.get('./php/insertMessageFromCsSelf.php', {
+                            params: {
+                                'csNo': csNo
+                            }
+                        }).then(() => {
+                            window.location.assign('./chatRoom.html');
+                        })
+                    } else {
+                        $("#signup_overlay").removeClass("signup_overlay-none");
+                        $("#signup_overlay").fadeIn(300);
+                        $("#container").removeClass("right-panel-active");
+                    }
+                })
+        }
     },
     watch: {
         csData: function () {
