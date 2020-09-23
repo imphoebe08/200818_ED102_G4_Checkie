@@ -603,7 +603,7 @@ let vm = new Vue({
             // 跟我聊天的人
             axios.post("./php/firstChat.php").then(res => {
                 let data = res.data;
-                console.log(data)
+                //console.log(data)
                 this.mesNo = res.data[0].mesNo;
                 this.chatCsNo = res.data[0].csNo;
                 for (let i = data.length - 1; i >= 0; i--) {
@@ -615,7 +615,7 @@ let vm = new Vue({
         csMe() {
             // 聊天對象欄
             axios.post("./php/csMe.php").then(res => {
-                console.log(res.data)
+                //console.log(res.data)
                 this.chatPersonEach = res.data;
             })
         },
