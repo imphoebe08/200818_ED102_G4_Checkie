@@ -400,7 +400,7 @@ header {
     top: 0;
     right: 0;
     bottom: 0;
-    z-index: 600;
+    z-index: 800;
     .container_close {
         position: absolute;
         top: 15px;
@@ -505,8 +505,8 @@ header {
     width: 50%;
     z-index: 2;
     .sign-in-form {
-        height: 65%;
-        padding-top: 100px;
+        height: 70%;
+        padding-top: 50px;
     }
     button.forgetpwd {
         border: none;

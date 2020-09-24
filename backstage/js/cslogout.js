@@ -6,7 +6,7 @@
      },
 
      data: {
-
+         csPic: "",
      },
 
      methods: {
@@ -36,7 +36,7 @@
 
              let xhr = new XMLHttpRequest();
              csName = document.getElementById("csName"),
-                 //  csPic = document.getElementById("csPic"),
+                 //csPic = document.getElementById("csPic"),
                  xhr.onload = function() {
                      counselor = JSON.parse(xhr.responseText);
                      console.log(counselor);

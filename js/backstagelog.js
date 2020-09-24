@@ -61,6 +61,7 @@ Vue.component('backlog-component', {
             admName: "",
             csId: "",
             csPsd: "",
+            csName: "",
         }
     },
     methods: {

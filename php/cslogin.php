@@ -22,6 +22,7 @@ $_SESSION["csName"] = $counselorRow["csName"];
 $_SESSION["csBD"] = $counselorRow["csBD"];
 $_SESSION["csEmail"] = $counselorRow["csEmail"];
 $_SESSION["csTel"] = $counselorRow["csTel"];
+$_SESSION["csPic"] = $counselorRow["csPic"];
 $_SESSION["csPosNo"] = $counselorRow["csPosNo"];
 
 
@@ -29,7 +30,7 @@ $_SESSION["csPosNo"] = $counselorRow["csPosNo"];
 
 //送出登入者的資料
 //索引陣列
-$result = array("csId"=>$counselorRow["csId"], "csPsd"=>$counselorRow["csPsd"],"csName"=>$counselorRow["csName"]);
+$result = array("csId"=>$counselorRow["csId"], "csPsd"=>$counselorRow["csPsd"],"csName"=>$counselorRow["csName"],"csPic"=>$counselorRow["csPic"]);
           echo json_encode($result);
   }
 }catch(PDOException $e){
