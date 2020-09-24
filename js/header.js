@@ -57,8 +57,14 @@ Vue.component('signin-component', {
                                 <span>請填寫以下資訊完成註冊</span>
                                 <input type="text" name="newMemName" id="newMemName" v-model.trim="newMemName" placeholder="姓名"  maxlength="10"  />
                                 <input type="email" name="newMemId" id="newMemId" v-model.trim="newMemId" placeholder="Email"/>
-                                <input type="password" name="newMemPsd" id="newMemPsd" v-model.trim="newMemPsd" placeholder="密碼" />
-                                <input type="password" name="CnewMemPsd" id="CnewMemPsd" v-model.trim="CnewMemPsd" placeholder="確認密碼" />
+                                <input type="password" name="newMemPsd" id="newMemPsd" v-model.trim="newMemPsd" placeholder="密碼" v-if="!showPass"/>
+                                <input type="text" name="newMemPsd" id="newMemPsd" v-model.trim="newMemPsd" placeholder="密碼" v-if="showPass"/>
+                                <input type="password" name="CnewMemPsd" id="CnewMemPsd" v-model.trim="CnewMemPsd" placeholder="確認密碼" v-if="!showPass"/>
+                                <input type="text" name="CnewMemPsd" id="CnewMemPsd" v-model.trim="CnewMemPsd" placeholder="確認密碼" v-if="showPass"/>
+                                <div @click="showPass = !showPass" class="showpsd">
+                                        <span v-if="!showPass">Show Password</span>
+                                        <span v-if="showPass">Hide Password</span>
+                                        </div>
                                 <div class="error_text" id="error_text"></div>
                                 <button name="register" >註冊</button>
                                 <div class="moblie_switch" @click="signIn">登入會員</div>
@@ -75,7 +81,12 @@ Vue.component('signin-component', {
                                 <h3>登入會員</h3>
                                 <span>請輸入您的帳號密碼</span>
                                 <input type="text" id="memId" name="memId" v-model.trim="memId" placeholder="Email" />
-                                <input type="password" id="memPsd" name="memPsd" v-model.trim="memPsd" placeholder="密碼" />
+                                <input type="password" id="memPsd" name="memPsd" v-model.trim="memPsd" placeholder="密碼" v-if="!showPass" />
+                                <input type="text" id="memPsd" name="memPsd" v-model.trim="memPsd" placeholder="密碼" v-if="showPass" />
+                                <div @click="showPass = !showPass" class="showpsd">
+                                        <span v-if="!showPass">Show Password</span>
+                                        <span v-if="showPass">Hide Password</span>
+                                        </div>
                                 <button id="login" >登入</button>
                                 <div class="moblie_switch" @click="signUp">註冊會員</div>
                             </form>
@@ -124,6 +135,7 @@ Vue.component('signin-component', {
             form_show: true,
             checkId: "",
             forgetEmail: "",
+            showPass: false,
 
         }
     },

@@ -15,6 +15,15 @@
     }
 }
 
+.showpsd {
+    margin: 5px auto 10px;
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+        color: $color-blue;
+    }
+}
+
 .error_text {
     @include p;
     font-size: $fontsize - 2px;
