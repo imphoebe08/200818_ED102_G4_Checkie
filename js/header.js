@@ -24,7 +24,7 @@ $(function() {
         var scroll = $(window).scrollTop();
 
 
-        if (scroll >= 80) {
+        if (scroll >= 50) {
             $(".top").addClass("top--scrolling");
         } else {
             $(".top").removeClass("top--scrolling");
