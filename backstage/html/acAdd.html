@@ -23,7 +23,7 @@
                 <label for="acttype3">戶外</label> <input type="checkbox" value="3" id="acttype3" v-model="contents.actTypeno">
                 <label for="acttype4">藝文</label> <input type="checkbox" value="4" id="acttype4" v-model="contents.actTypeno"><br>
 
-                <span>活動地點：</span><input v-model="contents.actAddress" type="text" maxlength="16"><br><br>
+                <span>活動地點：</span><input v-model="contents.actAddress" type="text"><br><br>
                 <span>活動報名開始日期：</span>
                 <input id="exampleDate" class="datepicker" name="date" type="text" :data-value="contents.actPstart" />
                 <input id="exampleTime" class="timepicker" type="time" name="time" :data-value="contents.actPstart" /><br><br>
