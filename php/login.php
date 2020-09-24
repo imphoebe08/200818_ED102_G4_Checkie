@@ -17,6 +17,7 @@ $memRow = $member->fetch(PDO::FETCH_ASSOC);
 //將登入者的資料寫入session
 $_SESSION["memNo"] = $memRow["memNo"];
 $_SESSION["memName"] = $memRow["memName"];
+$_SESSION["memNickname"] = $memRow["memNickname"];
 $_SESSION["memId"] = $memRow["memId"];
 $_SESSION["memPsd"] = $memRow["memPsd"];
 $_SESSION["memBD"] = $memRow["memBD"];
