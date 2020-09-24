@@ -226,7 +226,8 @@ let vm = new Vue({
         },
         result() {
             if (this.index == 0) {
-                return this.contents;
+                // return this.contents;
+                return this.contents.filter(item => new Date(item.actEnd) > new Date());
             } else {
                 this.$children[0].$data.num = 3;
                 return this.contents.filter(item => item.actTypeNo == this.index || item.actTypeNo2 == this.index);
