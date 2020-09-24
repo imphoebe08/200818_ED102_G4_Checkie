@@ -20,8 +20,13 @@ Vue.component('backlog-component', {
                                         <h3>管理者登入</h3>
                                         <span>請輸入您的帳號密碼</span>
                                         <input type="text" id="admId" name="admId" v-model.trim="admId" placeholder="帳號" />
-                                        <input type="password" name="admPsn" id="admPsn" v-model.trim="admPsn" placeholder="密碼" />
+                                        <input type="password" name="admPsn" id="admPsn" v-model.trim="admPsn" placeholder="密碼" v-if="!showPass" />
+                                        <input type="text" name="admPsn" id="admPsn" v-model.trim="admPsn" placeholder="密碼" v-if="showPass" />
                                         <div class="error_text" id="error_text"></div>
+                                        <div @click="showPass = !showPass" class="showpsd">
+                                        <span v-if="!showPass">Show Password</span>
+                                        <span v-if="showPass">Hide Password</span>
+                                        </div>
                                         <button id="adminlogin">登入</button>
                                         <div class="moblie_switch" @click="signIn">切換至諮商師登入</div>
                                     </form>
@@ -31,7 +36,12 @@ Vue.component('backlog-component', {
                                         <h3>諮商師登入</h3>
                                         <span>請輸入您的帳號密碼</span>
                                         <input type="text" id="csId" name="csId" v-model.trim="csId" placeholder="帳號" />
-                                        <input type="password" id="csPsd" name="csPsd" v-model.trim="csPsd" placeholder="密碼" />
+                                        <input type="password" id="csPsd" name="csPsd" v-model.trim="csPsd" placeholder="密碼" v-if="!showPass"/>
+                                        <input type="text" id="csPsd" name="csPsd" v-model.trim="csPsd" placeholder="密碼" v-if="showPass"/>
+                                        <div @click="showPass = !showPass" class="showpsd">
+                                        <span v-if="!showPass">Show Password</span>
+                                        <span v-if="showPass">Hide Password</span>
+                                        </div>
                                         <button id="cslogin" >登入</button>
                                         <div class="moblie_switch" @click="signUp">切換至管理者登入</div>
                                         
@@ -61,6 +71,8 @@ Vue.component('backlog-component', {
             admName: "",
             csId: "",
             csPsd: "",
+            csName: "",
+            showPass: false,
         }
     },
     methods: {

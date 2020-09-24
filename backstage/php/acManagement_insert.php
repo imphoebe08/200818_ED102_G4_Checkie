@@ -24,7 +24,7 @@ try{
     $actpic1 = $_REQUEST["actpic1"];
     $actpic2 = $_REQUEST["actpic2"];
     $actpic3 = $_REQUEST["actpic3"];
-    // $actTypeNo = $_REQUEST["actTypeno"];
+    $actTypeNo = $_REQUEST["actTypeno"];
     
 
     
@@ -76,7 +76,7 @@ try{
             $products->bindValue(':actpic1', $actpic1);
             $products->bindValue(':actpic2', $actpic2);
             $products->bindValue(':actpic3', $actpic3);
-            // $products->bindValue(':actTypeno', $actTypeno);
+            $products->bindValue(':actTypeno', $actTypeno);
             $products -> execute();                   
             
   

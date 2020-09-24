@@ -1,26 +1,26 @@
 /*------test------*/
-$(function () {
-    $(".test_button").click(function () {
+$(function() {
+    $(".test_button").click(function() {
         $("#form").css("display", "block")
     })
 
     /*------導覽列------*/
-    $(".hamburger").click(function () {
+    $(".hamburger").click(function() {
         $(".hamburger").toggleClass("is-active");
         $(".navbar__menu").toggleClass("navbar__menu--active");
         $(".top").toggleClass("top--open");
     });
 
-    $(window).on("resize", function () {
+    $(window).on("resize", function() {
         if ($(window).width() > 768) {
             $(".navbar__menu").removeClass("navbar__menu--active");
         }
     });
 
-    $("test_button").click(function () {
+    $("test_button").click(function() {
         $("#form").css("display", "block")
     })
-    $(window).scroll(function () {
+    $(window).scroll(function() {
         var scroll = $(window).scrollTop();
 
 
@@ -57,8 +57,14 @@ Vue.component('signin-component', {
                                 <span>請填寫以下資訊完成註冊</span>
                                 <input type="text" name="newMemName" id="newMemName" v-model.trim="newMemName" placeholder="姓名"  maxlength="10"  />
                                 <input type="email" name="newMemId" id="newMemId" v-model.trim="newMemId" placeholder="Email"/>
-                                <input type="password" name="newMemPsd" id="newMemPsd" v-model.trim="newMemPsd" placeholder="密碼" />
-                                <input type="password" name="CnewMemPsd" id="CnewMemPsd" v-model.trim="CnewMemPsd" placeholder="確認密碼" />
+                                <input type="password" name="newMemPsd" id="newMemPsd" v-model.trim="newMemPsd" placeholder="密碼" v-if="!showPass"/>
+                                <input type="text" name="newMemPsd" id="newMemPsd" v-model.trim="newMemPsd" placeholder="密碼" v-if="showPass"/>
+                                <input type="password" name="CnewMemPsd" id="CnewMemPsd" v-model.trim="CnewMemPsd" placeholder="確認密碼" v-if="!showPass"/>
+                                <input type="text" name="CnewMemPsd" id="CnewMemPsd" v-model.trim="CnewMemPsd" placeholder="確認密碼" v-if="showPass"/>
+                                <div @click="showPass = !showPass" class="showpsd">
+                                        <span v-if="!showPass">Show Password</span>
+                                        <span v-if="showPass">Hide Password</span>
+                                        </div>
                                 <div class="error_text" id="error_text"></div>
                                 <button name="register" >註冊</button>
                                 <div class="moblie_switch" @click="signIn">登入會員</div>
@@ -75,7 +81,12 @@ Vue.component('signin-component', {
                                 <h3>登入會員</h3>
                                 <span>請輸入您的帳號密碼</span>
                                 <input type="text" id="memId" name="memId" v-model.trim="memId" placeholder="Email" />
-                                <input type="password" id="memPsd" name="memPsd" v-model.trim="memPsd" placeholder="密碼" />
+                                <input type="password" id="memPsd" name="memPsd" v-model.trim="memPsd" placeholder="密碼" v-if="!showPass" />
+                                <input type="text" id="memPsd" name="memPsd" v-model.trim="memPsd" placeholder="密碼" v-if="showPass" />
+                                <div @click="showPass = !showPass" class="showpsd">
+                                        <span v-if="!showPass">Show Password</span>
+                                        <span v-if="showPass">Hide Password</span>
+                                        </div>
                                 <button id="login" >登入</button>
                                 <div class="moblie_switch" @click="signUp">註冊會員</div>
                             </form>
@@ -109,7 +120,7 @@ Vue.component('signin-component', {
                         
                     </div>
     </div>`,
-    data: function () {
+    data: function() {
         return {
             newMemId: "",
             newMemPsd: "",
@@ -124,6 +135,7 @@ Vue.component('signin-component', {
             form_show: true,
             checkId: "",
             forgetEmail: "",
+            showPass: false,
 
         }
     },
@@ -186,7 +198,7 @@ Vue.component('signin-component', {
             if (num) {
                 $(who).addClass("error_border");
                 $(who).addClass("error");
-                setTimeout(function () {
+                setTimeout(function() {
                     $(who).removeClass("error");
                 }, 300)
             } else {
@@ -200,7 +212,7 @@ Vue.component('signin-component', {
                 signin = document.getElementById("signin"),
                 signup_overlay = document.getElementById("signup_overlay");
 
-            xhr.onload = function () {
+            xhr.onload = function() {
                 if (xhr.status == 200) {
                     let member = JSON.parse(xhr.responseText);
                     console.log(member)
@@ -251,15 +263,15 @@ Vue.component('signin-component', {
                 // 清空錯誤訊息
                 error_text.innerHTML = "";
                 // 密碼與確認密碼需相同
-                if (this.newMemPsd == this.CnewMemPsd && this.newMemPsd.length >= 6 && this.newMemPsd.length <= 10 && this.newMemPsd.match(/([0-9])/g) && this.newMemPsd.match(/([a-z]|[A-Z])/g)) {
+                if (this.newMemPsd == this.CnewMemPsd && this.newMemPsd.length >= 6 && this.newMemPsd.length <= 18 && this.newMemPsd.match(/([0-9])/g) && this.newMemPsd.match(/([a-z]|[A-Z])/g)) {
                     login.$children[0].error("#CnewMemPsd,#newMemPsd", false);
                     i++;
                 } else if (this.newMemPsd == "") {
                     login.$children[0].error("#CnewMemPsd,#newMemPsd", true);
 
-                } else if (this.newMemPsd.length < 6 || this.newMemPsd.length > 10) {
+                } else if (this.newMemPsd.length < 6 || this.newMemPsd.length > 18) {
                     login.$children[0].error("#CnewMemPsd,#newMemPsd", true);
-                    error_text.innerHTML += "密碼長度需在6~10之間 <br>";
+                    error_text.innerHTML += "密碼長度需在6~18之間 <br>";
                 } else if (this.newMemPsd != this.CnewMemPsd) {
                     login.$children[0].error("#CnewMemPsd,#newMemPsd", true);
                     error_text.innerHTML += "確認密碼與密碼不相符 <br>";
@@ -311,7 +323,7 @@ Vue.component('signin-component', {
         },
         ajaxPost(url, dataInfo) {
             let xhr = new XMLHttpRequest();
-            xhr.onload = function () {
+            xhr.onload = function() {
                 if (xhr.status == 200) {
                     console.log(xhr.responseText);
 
@@ -442,7 +454,7 @@ let login = new Vue({
             } else {
                 //-----------------------------回Server端做登出
                 let xhr = new XMLHttpRequest();
-                xhr.onload = function () {
+                xhr.onload = function() {
                     if (xhr.status == 200) {
                         document.getElementById("signup").innerHTML = '加入會員';
                         document.getElementById("signin").innerHTML = '登入';
@@ -474,7 +486,7 @@ let login = new Vue({
             } else {
 
                 let xhr = new XMLHttpRequest();
-                xhr.onload = function () {
+                xhr.onload = function() {
                     member = JSON.parse(xhr.responseText);
                     console.log(member);
                     if (member.memId) {
@@ -491,12 +503,12 @@ let login = new Vue({
 });
 //------------test------------//
 
-$(function () {
+$(function() {
     // 出場
     $("#qsBox>div.askContent:nth-child(1)").css("display", "flex");
-    setTimeout(function () {
+    setTimeout(function() {
         $("#qsBox>div.askContent:nth-child(2)").css("display", "flex");
-        setTimeout(function () {
+        setTimeout(function() {
             $("#qsBox>div.ansButton--start").css("display", "block");
 
         }, 500)
@@ -587,7 +599,7 @@ Vue.component('ans-buttons-grades', {
             if (event.target.name == "q11") {
                 event.target.parentNode.nextElementSibling.style.display = 'flex';
                 document.getElementById("qsBox").scrollTop = document.getElementById("qsBox").scrollHeight;
-                setTimeout(function () {
+                setTimeout(function() {
                     event.target.parentNode.nextElementSibling.nextElementSibling.style.display = 'block';
                     document.getElementById("qsBox").scrollTop = document.getElementById("qsBox").scrollHeight;
                 }, 500)
@@ -596,7 +608,7 @@ Vue.component('ans-buttons-grades', {
                 // console.log(event.target.parentNode.nextElementSibling );
                 event.target.parentNode.nextElementSibling.style.display = 'flex';
                 document.getElementById("qsBox").scrollTop = document.getElementById("qsBox").scrollHeight;
-                setTimeout(function () {
+                setTimeout(function() {
                     event.target.parentNode.nextElementSibling.nextElementSibling.style.display = 'flex';
                     var form_H = $("#form>form").height();
                     var box_H = $("#qsBox").height();
@@ -610,7 +622,7 @@ Vue.component('ans-buttons-grades', {
 
 
 
-                    setTimeout(function () {
+                    setTimeout(function() {
                         event.target.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.style.display = 'block';
                         document.getElementById("qsBox").scrollTop = document.getElementById("qsBox").scrollHeight;
 
@@ -819,11 +831,11 @@ let vm0 = new Vue({
             event.target.style.display = 'none';
             event.target.parentNode.nextElementSibling.style.display = 'flex';
             var e = event.target;
-            setTimeout(function () {
+            setTimeout(function() {
                 e.parentNode.nextElementSibling.nextElementSibling.style.display = 'flex';
-                setTimeout(function () {
+                setTimeout(function() {
                     e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.style.display = 'flex';
-                    setTimeout(function () {
+                    setTimeout(function() {
                         e.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.style.display = 'block';
 
                     }, 500)
@@ -834,39 +846,39 @@ let vm0 = new Vue({
         changeA(data, name) {
             this.change_line();
             this.now_Q++
-            switch (name) {
-                case "q1":
-                    this.a1.content = data;
-                    break;
-                case "q2":
-                    this.a2.content = data;
+                switch (name) {
+                    case "q1":
+                        this.a1.content = data;
+                        break;
+                    case "q2":
+                        this.a2.content = data;
 
-                    break;
-                case "q3":
-                    this.a3.content = data;
-                    break;
-                case "q4":
-                    this.a4.content = data;
-                    break;
-                case "q5":
-                    this.a5.content = data;
-                    break;
-                case "q6":
-                    this.a6.content = data;
-                    break;
-                case "q7":
-                    this.a7.content = data;
-                    break;
-                case "q8":
-                    this.a8.content = data;
-                    break;
-                case "q9":
-                    this.a9.content = data;
-                    break;
-                case "q10":
-                    this.a10.content = data;
-                    break;
-            }
+                        break;
+                    case "q3":
+                        this.a3.content = data;
+                        break;
+                    case "q4":
+                        this.a4.content = data;
+                        break;
+                    case "q5":
+                        this.a5.content = data;
+                        break;
+                    case "q6":
+                        this.a6.content = data;
+                        break;
+                    case "q7":
+                        this.a7.content = data;
+                        break;
+                    case "q8":
+                        this.a8.content = data;
+                        break;
+                    case "q9":
+                        this.a9.content = data;
+                        break;
+                    case "q10":
+                        this.a10.content = data;
+                        break;
+                }
         },
 
         skip() {
@@ -881,13 +893,13 @@ let vm0 = new Vue({
             let num = parseInt(this.a1.content) + parseInt(this.a2.content) + parseInt(this.a3.content) +
                 parseInt(this.a4.content) + parseInt(this.a5.content) + parseInt(this.a6.content) + parseInt(this.a7.content) + parseInt(this.a8.content) + parseInt(this.a9.content) + parseInt(this.a10.content);
             $('.count').text(100 - num * 2);
-            $('.count').each(function () {
+            $('.count').each(function() {
                 $(this).prop('Counter', 0).animate({
                     Counter: $(this).text()
                 }, {
                     duration: 4000,
                     easing: 'swing',
-                    step: function (now) {
+                    step: function(now) {
                         $(this).text(Math.ceil(now));
                     }
                 });

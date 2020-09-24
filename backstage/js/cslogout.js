@@ -6,7 +6,7 @@
      },
 
      data: {
-
+         csPic: "./img/navbar/user.png",
      },
 
      methods: {
@@ -36,13 +36,13 @@
 
              let xhr = new XMLHttpRequest();
              csName = document.getElementById("csName"),
-                 //  csPic = document.getElementById("csPic"),
+                 csPic = document.getElementById("csPic"),
                  xhr.onload = function() {
                      counselor = JSON.parse(xhr.responseText);
                      console.log(counselor);
                      if (counselor.csId) {
                          csName.innerText = counselor.csName;
-                         //csPic.src = counselor.csPic;
+                         csPic.src = counselor.csPic;
                      }
                  }
              xhr.open("get", "./php/csgetLoginInfo.php", true);
