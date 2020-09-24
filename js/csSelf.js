@@ -449,7 +449,7 @@ let vmcss = new Vue({
                                 'csNo': csNo
                             }
                         }).then(() => {
-                            window.location.assign('./chatRoom.html');
+                            window.location.assign('./meMain.html');
                         })
                     } else {
                         $("#signup_overlay").removeClass("signup_overlay-none");
