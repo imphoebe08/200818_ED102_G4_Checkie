@@ -1,10 +1,10 @@
-<div class="row">
+<div class="row" id="chartRow">
     <div class="col-md-4">
         <div class="card">
-            <div class="card-header">會員人數 (單位：人)</div>
+            <div class="card-header">會員年齡分布 (縱軸為人數; 橫軸為年齡)</div>
             <div class="card-body">
-                <div class="text-value-lg">9,823</div>
-                內容 content
+                <div class="text-value-lg">{{total1}}人</div>
+                目前總人數
                 <div class="c-chart-wrapper mt-3 mx-3" style="width:100%">
                     <canvas id="card-chart1"></canvas>
                 </div>
@@ -13,10 +13,10 @@
     </div>
     <div class="col-md-4">
         <div class="card">
-            <div class="card-header">諮商收益（單位：萬）</div>
+            <div class="card-header">諮商收益（縱軸為月份）</div>
             <div class="card-body">
-                <div class="text-value-lg">423,823</div>
-                內容content
+                <div class="text-value-lg">{{total2}}元</div>
+                目前總收益
                 <div class="c-chart-wrapper mt-3 mx-3" style="width:100%">
                     <canvas id="card-chart2"></canvas>
                 </div>
@@ -25,17 +25,17 @@
     </div>
     <div class="col-md-4">
         <div class="card">
-            <div class="card-header">活動收益（單位：萬）</div>
+            <div class="card-header">活動收益（縱軸為月份）</div>
             <div class="card-body">
-                <div class="text-value-lg">283,682</div>
-                內容 content
+                <div class="text-value-lg">{{total3}}元</div>
+                目前總收益
                 <div class="c-chart-wrapper mt-3 mx-3" style="width:100%">
                     <canvas id="card-chart3"></canvas>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-12">
+    <!-- <div class="col-md-12">
         <div class="card">
             <div class="card-header">諮商收益｜
                 <span>區間查詢：</span>
@@ -153,5 +153,5 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
