@@ -466,6 +466,10 @@ let login = new Vue({
                 }
                 xhr.open("get", "./php/logout.php", true);
                 xhr.send(null);
+                if (location.pathname == "/meMain.html") {
+                    location.href = "./home.html";
+
+                }
             }
         },
         nav_register() {
@@ -491,7 +495,7 @@ let login = new Vue({
                     console.log(member);
                     if (member.memId) {
                         signup.innerText = member.memName;
-                        signin.innerText = "登出";
+                        document.getElementById("signin").innerText = "登出";
                     }
                 }
                 xhr.open("get", "./php/getLoginInfo.php", true);
