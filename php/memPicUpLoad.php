@@ -6,7 +6,9 @@
         } else {
             $from = $_FILES["memPic"]["tmp_name"];
             $to = "../img/user/" . $_FILES["memPic"]["name"];
+            $to2 = '../backstage/img/member/'.$_FILES["memPic"]["name"];
             copy($from, $to);
+            copy($from, $to2);
         
             echo "$to";
         }
