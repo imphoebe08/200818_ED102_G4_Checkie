@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -6,14 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="./css/fullpage.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 
-
-    <title>oracleCard</title>
+    <title>神諭卡</title>
 </head>
 
 <body>
@@ -101,7 +103,7 @@
                                     <img class="cardFront" :src="cards[0].cardPic" crossOrigin="anonymous" alt="">
                                 </div>
                                 <div class="back card__side card__side--back card__side--back">
-                                    <img class="cardBack" :src="cardsBack[0]" @click="cardChangeData(cardsBack[0])" crossOrigin="anonymous" alt="angel">
+                                    <img class="cardBack" :src="cardsBack[0]" @click.once="cardChangeData(cardsBack[0])" crossOrigin="anonymous" alt="angel">
                                 </div>
                             </div>
                             <div class="itemTxt txtOpacityOne">
@@ -117,7 +119,7 @@
                                     <img class="cardFront" :src="cards[1].cardPic" crossOrigin="anonymous" alt="">
                                 </div>
                                 <div class="back card__side card__side--back card__side--back">
-                                    <img class="cardBack" :src="cardsBack[1]" @click="cardChangeData(cardsBack[1])" crossOrigin="anonymous" alt="angel">
+                                    <img class="cardBack" :src="cardsBack[1]" @click.once="cardChangeData(cardsBack[1])" crossOrigin="anonymous" alt="angel">
                                 </div>
                             </div>
                             <div class="itemTxt txtOpacityOne">
@@ -133,7 +135,7 @@
                                     <img class="cardFront" :src="cards[2].cardPic" crossOrigin="anonymous" alt="">
                                 </div>
                                 <div class="back card__side card__side--back card__side--back">
-                                    <img class="cardBack" @click="cardChangeData(cardsBack[2])" :src="cardsBack[2]" crossOrigin="anonymous" alt="angel">
+                                    <img class="cardBack" @click.once="cardChangeData(cardsBack[2])" :src="cardsBack[2]" crossOrigin="anonymous" alt="angel">
                                 </div>
                             </div>
                             <div class="itemTxt txtOpacityOne">
@@ -156,9 +158,9 @@
 
 
             <section class="oracleCardRecommend page page4 section">
-                <fieldset>
+                <fieldset class="container-sm container-md">
                     <legend>適合您的活動</legend>
-                    <re-select-card :ac-contents="result " @open-share-dialog="openShareDialog"></re-select-card>
+                    <re-select-card class="owl-carousel owl-theme" :ac-contents="result " @open-share-dialog="openShareDialog"></re-select-card>
                 </fieldset>
                 @@include('template/shareDialog.html')
             </section>
@@ -166,16 +168,13 @@
 
         </div>
     </div>
-
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js "></script>
     <script src="./js/cardData.js"></script>
     <script src="./js/oracleCard.js"></script>
     <script src="./js/vender/fullpage.js"></script>
     <script src="./js/chatbot.js"></script>
     <script src="./js/header.js"></script>
-    <script src="./js/html2canvas.js"></script>
-    <!-- <script src="./js/acMain.js "></script> -->
-    <!-- <script src="./js/html2canvas.js"></script> -->
 
 
 </body>
