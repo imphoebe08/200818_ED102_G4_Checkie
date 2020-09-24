@@ -125,9 +125,9 @@
                             <tr>
                                 <th>神諭卡牌組編號</th>
                                 <th>神諭卡卡背樣式</th>
-                                <th>更新日期</th>
-                                <th>編輯</th>
                                 <th></th>
+                                <th></th>
+                                <th>編輯</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -150,7 +150,7 @@
                         <div>
                             <label style="display: block;">神諭卡牌組編號</label>
                             <select v-model="addCard.deckNo" name="" id="">
-                                <option value="1">牌組1</option>
+                                <option value="1" selected>牌組1</option>
                                 <option value="2">牌組2</option>
                                 <option value="3">牌組3</option>
                             </select>
@@ -234,8 +234,8 @@
                                     <img style="width:50px;" :src="cardsBack[index-1]" alt="">
                                     
                                 </td>
-                                <td>上架</td>
-                                <td>2020/09/12</td>
+                                <td></td>
+                                <td></td>
                                 <td><button data-toggle="collapse" :data-target="demo" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open">編輯</span></button></td>
                                 <td></td>
                             </tr>
@@ -406,8 +406,6 @@
             fileUpload(e, index) {
                 //先抓到上傳圖片的input資料
                 this.file = e.target.files[0];
-
-
                 // 轉為base64，純粹預覽用
                 const reader = new FileReader();
                 reader.readAsDataURL(this.file);
@@ -418,7 +416,6 @@
                         this.addCard.cardPic = reader.result;
                     }
                 });
-
 
                 // 存入formData，送出資料用
                 let formData = new FormData();

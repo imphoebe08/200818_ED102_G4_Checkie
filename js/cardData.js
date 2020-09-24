@@ -38,13 +38,20 @@ Vue.component('reSelectCard', {
 
     `,
     methods: {
-        aaa(data) {
-            return this.acContents.slice(0, data);
-        },
         openShareDialog(actNo) {
             console.log('hi');
             this.$emit('open-share-dialog', `actNo=${actNo}`);
         },
+        aaa(num,data) {
+            let rd = this.rand(0, this.acContents.length);
+            return this.acContents.slice(rd, data);
+        },
+        rand(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值 
+        },
+        randArr(num, data) {},
 
 
     },
@@ -100,6 +107,11 @@ let vm = new Vue({
         axios.get('./php/acMain.php').then((res) => {
             this.contents = res.data
             console.log(res.data);
+            Vue.nextTick().then(function() {
+                vm.installOwlCarousel();
+            });
+            
+
         })
 
         axios.get('./json/acMain_comments.json').then((data) => {
@@ -195,7 +207,27 @@ let vm = new Vue({
             let closeButton = document.querySelector(".close-button");
             let shareDialog = document.querySelector(".share-dialog");
             shareDialog.classList.remove("is-open");
-        }
+        },
+        installOwlCarousel: function() {
+            $('.owl-carousel').owlCarousel({
+                loop: false,
+                touchDrag: true,
+                autoplay: false,
+                // autoplayTimeout: 2000,
+                autoplayHoverPause: false,
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    996: {
+                        items: 2,
+                    },
+                    1180: {
+                        items: 3,
+                    }
+                }
+            });
+        },
     },
     computed: {
         addNum() {
