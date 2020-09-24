@@ -191,7 +191,7 @@ Vue.component('inact-item', {
             </div>
             <div class="inAct-icon_block">
                 <a href="javascript:void(0)" class="inAct-icon_1" draggable="false"><i class="fa fa-share" :class="['icon','share-button']" @click="openShareDialog(love.actNo)"></i></a>
-                <a href="javascript:void(0)" class="inAct-icon_2" draggable="false"><i class="fas fa-bookmark"></i></a>
+
             </div>
         </div>
         <!-- 帶資料 -->
@@ -216,6 +216,7 @@ Vue.component('inact-item', {
     },
 });
 
+//                <a href="javascript:void(0)" class="inAct-icon_2" draggable="false"><i class="fas fa-bookmark"></i></a>
 
 // Vue.component('co_order', {
 //     props: ["each"],
@@ -337,9 +338,8 @@ Vue.component('cssart-layout', {
                 <a href="./atSelf.html" class="button2">More...</a>
             </div>
             <div class="card-share">
-                <span>Share : </span>
                 <a href="javascript:void(0)" class="inAct-icon_1" draggable="false" class="small"><i class="fa fa-share" :class="['icon','share-button']" @click="openShareDialog(love.artNo)"></i></a>
-                <a href="javascript:void(0)" class="inAct-icon_1" draggable="false" class="small"><i class="fas fa-bookmark"></i></a>
+
             </div>
         </div>`,
     methods: {
@@ -352,6 +352,7 @@ Vue.component('cssart-layout', {
     },
 });
 
+//<a href="javascript:void(0)" class="inAct-icon_1" draggable="false" class="small"><i class="fas fa-bookmark"></i></a>
 
 
 
@@ -369,7 +370,7 @@ Vue.component('chat-person-each', {
             <div class="meChatPeople-name">{{init.csName}}</div>
             <!-- <div class="meChatPeople-title">諮商師</div> -->
         </div>
-        <div class="meChatDelete"><i class="fas fa-trash-alt"></i></div>
+
     </div>
 
     `,
@@ -390,6 +391,8 @@ Vue.component('chat-person-each', {
 });
 // jiang end()
 // jiang start()
+
+//<div class="meChatDelete"><i class="fas fa-trash-alt"></i></div>
 Vue.component('me-chat-an', {
     props: ["init"],
     data() {
@@ -406,12 +409,13 @@ Vue.component('me-chat-an', {
         <div :class="[init.mesFrom==0? text2 : text1]" >{{init.mesContent}}</div>
         <div :class="[init.mesFrom==0? other2 : other1]">
             <div class="meChatAn-time">{{init.mesTime.substring(0,5)}}</div>
-            <div class="meChatAn-select"><i class="fas fa-ellipsis-h"></i></div>
+
         </div>
     </div>
     `,
     methods: {},
 });
+//<div class="meChatAn-select"><i class="fas fa-ellipsis-h"></i></div>
 // jiang end()
 
 
@@ -481,44 +485,44 @@ let vm = new Vue({
         iWantModify: false,
         errors: [],
         member: {
-            memName: '閻掬容',
-            memNickname: 'CC',
-            memGender: '女',
-            memBD: '1999/99/99',
-            memAdd: 'hahahahahaha',
-            memOcc: 'makeup artist',
-            memTel: {
-                // countryCode: '886',
-                // mobile: '0921132409',
-            },
-            memEmail: {
-                // value: 'misvamda@gmail.com',
-                // valid: true,
-            },
-            memAdd: '台北市南港區南港路一段四號之一',
-            memPsd: 'cerise0324',
+            // memName: '閻掬容',
+            // memNickname: 'CC',
+            // memGender: '女',
+            // memBD: '1999/99/99',
+            // memAdd: 'hahahahahaha',
+            // memOcc: 'makeup artist',
+            // memTel: {
+            //     // countryCode: '886',
+            //     // mobile: '0921132409',
+            // },
+            // memEmail: {
+            //     // value: 'misvamda@gmail.com',
+            //     // valid: true,
+            // },
+            // memAdd: '台北市南港區南港路一段四號之一',
+            // memPsd: 'cerise0324',
         },
 
 
         orderShow: false,
 
         momentModify: {
-            memName: '閻掬容',
-            memNickname: 'CC',
-            memGender: '女',
-            memBD: '1999/99/99',
-            memAdd: 'hahahahahaha',
-            memOcc: 'makeup artist',
-            memTel: {
-                // countryCode: '886',
-                // mobile: '0921132409',
-            },
-            memEmail: {
-                // value: 'misvamda@gmail.com',
-                // valid: true,
-            },
-            memAdd: '台北市南港區南港路一段四號之一',
-            memPsd: 'cerise0324',
+            // memName: '閻掬容',
+            // memNickname: 'CC',
+            // memGender: '女',
+            // memBD: '1999/99/99',
+            // memAdd: 'hahahahahaha',
+            // memOcc: 'makeup artist',
+            // memTel: {
+            //     // countryCode: '886',
+            //     // mobile: '0921132409',
+            // },
+            // memEmail: {
+            //     // value: 'misvamda@gmail.com',
+            //     // valid: true,
+            // },
+            // memAdd: '台北市南港區南港路一段四號之一',
+            // memPsd: 'cerise0324',
         },
         titles: [
             '會員總覽',
@@ -1026,18 +1030,19 @@ let vm = new Vue({
         // //掛載心理測驗分數
         axios.get('./php/memTestR.php')
             .then(response => {
-                if (response.data !='no') {
-                        this.csReData = response.data;
+                if (response.data != 'no') {
+                    //console.log(response.data);
+                    this.csReData = response.data;
                     for (let i = 0; i < 5; i++) {
                         // console.log(this.csReData[i].testResultValue);
                         //console.log(this.series[0].data[i]);
                         this.series[0].data[i] = this.csReData[i].testResultValue;
                         // console.log(this.series[0].data[i]);
                     }
-                }else{
-                    //console.log('haha');
+                } else {
+                    console.log('haha');
                 }
-                
+
             });
 
 
@@ -1048,26 +1053,32 @@ let vm = new Vue({
         //
         axios.get('./php/memberInfo.php').then(
             res => {
-                this.member = res.data;
-                this.momentModify = res.data;
+                if (res.data != "no") {
+                    this.member = res.data;
+                    this.momentModify = res.data;
 
-                let telArray = res.data.memTel.split(',');
-                this.member.memTel = {
-                    'countryCode': telArray[0],
-                    'mobile': telArray[1],
-                };
+                    let telArray = res.data.memTel.split(',');
+                    this.member.memTel = {
+                        'countryCode': telArray[0],
+                        'mobile': telArray[1],
+                    };
 
-                this.member.memEmail = {
-                    'value': res.data.memEmail,
-                };
-                this.momentModify.memTel = {
-                    'countryCode': telArray[0],
-                    'mobile': telArray[1],
-                };
-                this.momentModify.memEmail = {
-                    'value': res.data.memEmail.value,
-                };
-                //console.log(this.member);
+                    this.member.memEmail = {
+                        'value': res.data.memEmail,
+                    };
+                    this.momentModify.memTel = {
+                        'countryCode': telArray[0],
+                        'mobile': telArray[1],
+                    };
+                    this.momentModify.memEmail = {
+                        'value': res.data.memEmail.value,
+                    };
+                    console.log(this.member);
+                } else {
+                    console.log(res.data);
+                    location.replace('./home.html');
+                }
+
 
             }
         ).catch(
@@ -1122,20 +1133,20 @@ let vm = new Vue({
         // //掛載文章推薦
         axios.get('./php/memArtRec.php')
             .then(response => {
-                if (response.data=="沒有推薦內容") {
+                if (response.data == "沒有推薦內容") {
                     this.memArtRec = [];
-                }else{
+                } else {
                     this.memArtRec = response.data;
                 }
-                
+
                 //console.log(this.memArtRec);
             });
         // //掛載活動推薦
         axios.get('./php/memActRec.php')
             .then(response => {
-                if (response.data=="沒有推薦內容") {
-                    this.memActRec=[];
-                }else{
+                if (response.data == "沒有推薦內容") {
+                    this.memActRec = [];
+                } else {
                     this.memActRec = response.data;
                 }
 
