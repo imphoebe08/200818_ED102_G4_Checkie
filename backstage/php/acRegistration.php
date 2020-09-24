@@ -8,13 +8,13 @@ try{
   $actPstartM = ($_REQUEST["monSelect"] == 0)? 'month(a.actPstart)': $_REQUEST["monSelect"] ;
 
 
-  $sql = "select a.actno, a.actName, Date_Format(a.actPstart, '%Y-%m-%d %H:%I') 'actPstart', Date_Format(a.actPend, '%Y-%m-%d %H:%I') 'actPend', Date_Format(a.actStart, '%Y-%m-%d %H:%I') 'actStart', Date_Format(a.actEnd, '%Y-%m-%d %H:%I') 'actEnd', a.actMin, a.actMax, a.actCount, b.actTypeNo, c.actClassName 'typename1', b.actTypeNo2, d.actClassName 'typename2'
+  $sql = "select a.actNo 'actno', a.actName, Date_Format(a.actPstart, '%Y-%m-%d %H:%I') 'actPstart', Date_Format(a.actPend, '%Y-%m-%d %H:%I') 'actPend', Date_Format(a.actStart, '%Y-%m-%d %H:%I') 'actStart', Date_Format(a.actEnd, '%Y-%m-%d %H:%I') 'actEnd', a.actMin, a.actMax, a.actCount, b.actTypeNo, c.actClassName 'typename1', b.actTypeNo2, d.actClassName 'typename2'
           from activity a 
-          join actTypeNoCombo b on a.actno = b.actno
+          join actTypeNoCombo b on a.actNo = b.actNo
           left join actclass c on b.acttypeno = c.actclassno
           left join actclass d on b.acttypeno2 = d.actclassno
           where b.acttypeno = $acttypeno and year(a.actPstart) = $actPstartY and month(a.actPstart) = $actPstartM;
-          order by actno";
+          order by 1";
   $products = $pdo->query($sql);
   $prodRow = $products->fetchAll(PDO::FETCH_ASSOC);
   echo json_encode($prodRow);
