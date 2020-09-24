@@ -1,7 +1,6 @@
 @import './reset';
 @import './var';
 @import './variable';
-
 input {
     outline: none;
 }
@@ -32,7 +31,6 @@ input {
     // padding: 50px 0;
     flex-wrap: wrap;
     box-shadow: $boxshadow;
-
     #qsBox {
         border-radius: 30px;
         width: 90vw;
@@ -53,19 +51,18 @@ input {
 
 .askContent {
     display: flex;
-
     .askPic {
         width: 60px;
         height: 60px;
         margin: 20px;
         border-radius: 50%;
-        background-color: grey;
+        background-color: rgb(247, 223, 227);
+        object-fit: contain;
     }
 }
 
 .ansButton--start {
     text-align: center;
-
     .qsStart {
         @include btn-modules($bw, $color-pink, $fontsize)
     }
@@ -83,20 +80,18 @@ input {
     width: fit-content;
     display: flex;
     margin-left: auto;
-
     .ansPic {
         width: 60px;
         height: 60px;
         margin: 20px;
         border-radius: 50%;
-        background-color: grey;
-        object-fit: cover;
+        background-color: lightblue;
+        object-fit: contain;
     }
 }
 
 .ansButtons-grades {
     text-align: center;
-
     .qsQrades {
         width: 50px;
         height: 50px;
@@ -111,7 +106,6 @@ input {
         cursor: pointer;
         background-color: transparent;
         transition: .2s all ease-in;
-
         &:hover {
             background-color: $color-pink;
             color: #fff;

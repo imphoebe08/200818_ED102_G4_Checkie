@@ -541,7 +541,7 @@ Vue.component('ask-content', {
     props: ['questions'],
     template: `
     <div class="askContent" style="display: none;">
-    <img src="" class="askPic" alt=""><p class="qsAsk">{{questions}}</p>
+    <img src="./img/test/checkie.png" class="askPic" alt=""><p class="qsAsk">{{questions}}</p>
     </div>`,
     methods: {
 
@@ -557,7 +557,7 @@ Vue.component('ans-content', {
     props: ['answers'],
     template: `
     <div class="ansContent" style="display: none;" >
-    <p class="qsAns">{{answers}}</p><img src="" class="ansPic" alt="">
+    <p class="qsAns">{{answers}}</p><img src="./img/test/client.png" class="ansPic" alt="">
     </div>`,
 
     methods: {
