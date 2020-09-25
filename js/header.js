@@ -472,6 +472,18 @@ let login = new Vue({
                 }
             }
         },
+        nav_login2() {
+            axios.get('./php/checkLogin.php')
+                .then((res) => {
+                    if (res.data) { 
+                        window.location.assign('./meMain.html');
+                    } else {
+                        $("#signup_overlay").removeClass("signup_overlay-none");
+                        $("#signup_overlay").fadeIn(300);
+                        $("#container").removeClass("right-panel-active");
+                    }
+                })
+        },
         nav_register() {
             if (event.target.innerHTML == "加入會員") {
                 $("#signup_overlay").removeClass("signup_overlay-none");
