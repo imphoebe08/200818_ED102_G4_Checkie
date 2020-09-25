@@ -28,7 +28,7 @@ try {
     $csInfo->bindValue(':cardTypeNo', $cardTypeNo);
     $csInfo->bindValue(':deckNo', $deckNo);
     $csInfo->execute();
-    echo "管理員新增成功";
+    echo "卡片新增成功";
 } catch (PDOException $e) {
     $errMsg .= "錯誤原因 : " . $e->getMessage() . "<br>";
     $errMsg .= "錯誤行號 : " . $e->getLine();
