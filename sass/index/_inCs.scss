@@ -246,7 +246,7 @@ div.inCs_group {
 
 div.inCs.swiper-container {
     padding: 10px;
-    max-height: 600px;
+    max-height: 650px;
     width: 250px;
     position: absolute;
     top: 50%;
@@ -268,10 +268,11 @@ div.inCs.swiper-container {
             img {
                 display: block;
                 margin: 0 10px;
-                width: calc(100% - 20px);
-                height: 50%;
+                width: 100%;
+                object-position: top;
                 object-fit: cover;
                 cursor: pointer;
+                height: 200px;
             }
 
             h3 {
