@@ -23,15 +23,6 @@ try{
                     join type e on e.typeNo = d.artTypeNo 
                     join testresult f on f.testResultTypeNo = d.artTypeNo 
                     join memtest a using(memTestNo)
-    where memNo= :memNo and testResultTypeNo =(select a.testResultTypeNo 
-                                    from testresult a
-                                    join memtest b using(memTestNo) 
-                                    where memNo= :memNo and memTestTime = (select max(memTestTime) 
-                                                                    from memtest where memNo= :memNo) 
-                                                    and testResultValue = (select min(testResultValue)
-                                                    from testresult a join memtest b 
-                                                    where memNo= :memNo)) and memTestTime = (select max(memTestTime) 
-                                                                                        from memtest where memNo= :memNo)
     order by artDate desc
     limit 5;
         ";
