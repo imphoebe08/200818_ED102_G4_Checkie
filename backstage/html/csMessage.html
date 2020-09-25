@@ -4,7 +4,36 @@
 <head>
     @@include('layout/bgHead.html')
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
     <script src="https://kit.fontawesome.com/3a9b8bb651.js" crossorigin="anonymous"></script>
+    <style>
+        @keyframes shake {
+            0% {
+                transform: rotateZ(0deg) translateX(0);
+            }
+            25% {
+                transform: rotateZ(10deg) translateX(2px);
+            }
+            50% {
+                transform: rotateZ(0deg) translateX(0);
+            }
+            75% {
+                transform: rotateZ(-10deg) translateX(-2px);
+            }
+            100% {
+                transform: rotateZ(0deg) translateX(0);
+            }
+        }
+        
+        .meChatPeople-each .meChatPeople .meChatOnline i.alert {
+            color: tomato;
+            animation-name: shake;
+            animation-duration: .3s;
+            animation-timing-function: ease-in;
+            animation-iteration-count: infinite;
+        }
+    </style>
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -24,7 +53,7 @@
                     <!-- 聊天室 -->
                     <div class="meChatMain" v-if="select" :key="1">
                         <!-- 對話內容匡 -->
-                        <div class="meChatMainRoom">
+                        <div class="meChatMainRoom" id="meChatMainRoom">
                             <div class="col-12 me-page-title ">
                                 <div class="selectIcon " @click="select=!select">
                                     <i class="fas fa-caret-left backToSelect "></i>
@@ -33,30 +62,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <me-chat-an v-for="each in meChatAn" :init="each"></me-chat-an> -->
-                            <div class="meChatAn meChatAnUser">
-                                <div class="meChatAn-pic"><img src="./img/acSelf/活動老師.jpg" alt=""></div>
-                                <div class="meChatAn-text meChatAnUser-text">醫生幫幫我。</div>
-                                <div class="meChatAn-other meChatAnUser">
-                                    <div class="meChatAn-time">07:20</div>
-                                    <div class="meChatAn-select"><i class="fas fa-ellipsis-h"></i></div>
-                                </div>
-                            </div>
-                            <div class="meChatAn meChatAnUser">
-                                <div class="meChatAn-pic"><img src="./img/acSelf/活動老師.jpg" alt=""></div>
-                                <div class="meChatAn-text meChatAnUser-text">醫生幫幫我。</div>
-                                <div class="meChatAn-other meChatAnUser">
-                                    <div class="meChatAn-time">07:20</div>
-                                    <div class="meChatAn-select"><i class="fas fa-ellipsis-h"></i></div>
-                                </div>
-                            </div>
+                            <me-chat-an v-for="each in meChatAn" :init="each"></me-chat-an>
+
 
                         </div>
                         <!-- 輸入內容input -->
                         <div class="memChatSend">
                             <form action="" @submit.prevent="submitMes">
-                                <!-- v-model="chatBox" -->
-                                <input name="moName" type="text" class="modifyForm chatInput" placeholder="">
+                                <input name="moName" type="text" class="modifyForm chatInput" v-model.trim="chatBox" autocomplete="off">
                                 <button class="memChatSend_button"><i class="fas fa-paper-plane"></i></button>
                             </form>
 
@@ -69,16 +82,18 @@
                     <!-- <transition name="coSlide" mode="out-in"> -->
                     <div class="meChatSelect" v-if="!select" :key="1">
                         <div class="meChatPeople-scroll">
+                            <chat-person-each @change="changeMem" v-for="each in chatPersonEach" :init="each" @click.native="backToSelect()"></chat-person-each>
+
                             <!-- <chat-person-each @change="changeCs" v-for="each in chatPersonEach" :init="each"></chat-person-each> -->
                             <!-- @click="sendCsNo" -->
-                            <div class="meChatPeople-each" @click="backToSelect() ;sendCsNo()">
+                            <!-- <div class="meChatPeople-each" @click="backToSelect() ;sendCsNo()">
                                 <div class="meChatPeople">
                                     <div class="meChatOnline"><i class="fas fa-bell"></i></div>
                                     <div class="meChatPeople-pic"><img src="../img/avatars/1.jpg" alt=""></div>
                                     <div class="meChatPeople-name">Name</div>
                                 </div>
                                 <div class="meChatDelete"><i class="fas fa-trash-alt"></i></div>
-                            </div>
+                            </div> -->
                             <!-- @click="sendCsNo" -->
 
                         </div>
@@ -163,11 +178,11 @@
                 }
             },
             template: `
-                        <div class="meChatPeople-each" @click="sendCsNo">
+                        <div class="meChatPeople-each" @click="sendMemNo">
                             <div class="meChatPeople">
-                                <div class="meChatOnline"><i class="fas fa-bell" ></i></div>
-                                <div class="meChatPeople-pic"><img :src="each.csPic" alt=""></div>
-                                <div class="meChatPeople-name">{{each.csName}}</div>
+                                <div class="meChatOnline"><i :class="bell" ></i></div>
+                                <div class="meChatPeople-pic"><img :src="each.memPic" alt=""></div>
+                                <div class="meChatPeople-name">{{each.memName}}</div>
                                 <!-- <div class="meChatPeople-title">諮商師</div> -->
                             </div>
                             <div class="meChatDelete"><i class="fas fa-trash-alt"></i></div>
@@ -175,11 +190,16 @@
 
                 `,
             methods: {
-                sendCsNo() {
-                    this.$emit("change", this.each.csNo)
-                }
+                sendMemNo() {
+                    this.$emit("change", this.each.memNo)
+                },
             },
-
+            computed: {
+                bell() {
+                    // 改 sass
+                    return (this.init.memRead == "0") ? "fas fa-bell" : "fas fa-bell alert";
+                },
+            },
         });
 
 
@@ -187,7 +207,6 @@
             props: ["init"],
             data() {
                 return {
-                    each: this.init,
                     text1: "meChatAn-text",
                     text2: "meChatAn-text meChatAnUser-text",
                     other1: "meChatAn-other",
@@ -195,11 +214,11 @@
                 }
             },
             template: `
-                <div :class="{meChatAn : true,meChatAnUser:each.mesFrom==0}">
-                    <div class="meChatAn-pic"><img :src="[each.mesFrom==0? each.memPic : each.csPic]" alt=""></div>
-                    <div :class="[each.mesFrom==0? text2 : text1]" >{{each.mesContent}}</div>
-                    <div :class="[each.mesFrom==0? other2 : other1]">
-                        <div class="meChatAn-time">{{each.mesTime}}</div>
+                <div :class="{meChatAn : true,meChatAnUser:init.mesFrom==1}">
+                    <div class="meChatAn-pic"><img :src="[init.mesFrom==1? init.csPic : init.memPic]" alt=""></div>
+                    <div :class="[init.mesFrom==1? text2 : text1]" >{{init.mesContent}}</div>
+                    <div :class="[init.mesFrom==1? other2 : other1]">
+                        <div class="meChatAn-time">{{init.mesTime.substring(0,5)}}</div>
                         <div class="meChatAn-select"><i class="fas fa-ellipsis-h"></i></div>
                     </div>
                 </div>
@@ -207,10 +226,18 @@
             methods: {},
         });
 
+
+
+
         let vm = new Vue({
             el: "#app ",
             data: {
                 select: false,
+                mesNo: "",
+                chatMemNo: "",
+                meChatAn: [],
+                chatPersonEach: "",
+                chatBox: "",
             },
             computed: {
 
@@ -223,8 +250,71 @@
                     console.log("a");
                 },
 
+                csMe() {
+                    // 聊天對象欄
+                    axios.post("./php/meCs.php").then(res => {
+                        this.chatPersonEach = res.data;
+                    })
+                },
+                changeMem(memNo) {
+                    let data_info = `memNo=${memNo}`;
+                    axios.post("./php/changeMem.php", data_info).then(res => {
+                        this.meChatAn = [];
+                        let data = res.data;
+                        this.mesNo = res.data[0].mesNo;
+                        this.chatMemNo = memNo;
+                        for (let i = data.length - 1; i >= 0; i--) {
+                            this.meChatAn.push(data[i]);
+                        }
+                        setTimeout(() => {
+                            var meChatMainRoom = document.getElementById("meChatMainRoom");
+                            meChatMainRoom.scrollTop = meChatMainRoom.scrollHeight;
+                        }, 1)
+
+                    })
+                },
+
+
+                submitMes() {
+                    if (this.chatBox != "") {
+                        let data_info = `chatBox=${this.chatBox}&memNo=${this.chatMemNo}`;
+                        axios.post("./php/sendMes2.php", data_info);
+                        this.chatBox = "";
+
+                    }
+
+                },
+
+
+
             },
             mounted() {
+                this.csMe();
+                setInterval(() => {
+                    axios.post("./php/meCs.php").then(res => {
+                        // console.log(res.data)
+                        this.chatPersonEach = res.data;
+                    });
+
+                    let data = `mesNo=${this.mesNo}&memNo=${this.chatMemNo}`;
+                    axios.post("./php/keepMes2.php", data).then(res => {
+                        // console.log(res.data);
+                        if (res.data != "0") {
+                            let data = res.data;
+                            this.mesNo = res.data[0].mesNo;
+                            for (let i = data.length - 1; i >= 0; i--) {
+                                this.meChatAn.push(data[i]);
+                                setTimeout(() => {
+                                    var meChatMainRoom = document.getElementById("meChatMainRoom");
+                                    meChatMainRoom.scrollTop = meChatMainRoom.scrollHeight;
+                                }, 0.1)
+                            }
+                        }
+                    });
+                }, 500)
+
+
+
 
                 // let actNo = location.href.split('?')[1].split('=')[1];
                 // var vm = this;

@@ -3,13 +3,13 @@ try{
     
     session_start();
     require_once("./connectBook.php");
-    $csNo = $_REQUEST["csNo"];
+    $memNo = $_REQUEST["memNo"];
     // 已讀
-    $sql2 = "UPDATE `message` SET `memRead` = 0  where memNo = :memNo and mesFrom=1 and csNo = :csNo;";
+    $sql2 = "UPDATE `message` SET `memRead` = 0  where memNo = :memNo and mesFrom=0 and csNo = :csNo;";
     $message2 = $pdo->prepare($sql2);
     // 正確做法
-    $memNo = $_SESSION["memNo"];
-    $message->bindValue(":memNo", $memNo);
+    $csNo = $_SESSION["csNo"];
+    $message2->bindValue(":memNo", $memNo);
 
     // $message2->bindValue(":memNo", 1);
     $message2->bindValue(":csNo", $csNo);
@@ -26,10 +26,10 @@ try{
     limit 0,20";
     $message = $pdo->prepare($sql);
     // 正確做法
-    // $memNo = $_SESSION["memNo"];
-    $message->bindValue(":memNo", $memNo);
-
+    // $memNo = $_SESSION["memNo"]
     // $message->bindValue(":memNo", 1);
+
+    $message->bindValue(":memNo", $memNo);
     $message->bindValue(":csNo", $csNo);
     $message->execute();
     if( $message->rowCount()==0){ 

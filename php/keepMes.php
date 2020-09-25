@@ -6,7 +6,7 @@ try{
     // 已讀
     $csNo = $_REQUEST["csNo"];
     $mesNo = $_REQUEST["mesNo"];
-    $sql2 = "UPDATE `message` SET `memRead` = 0  where memNo = :memNo and csNo = :csNo and mesNo > :mesNo";
+    $sql2 = "UPDATE `message` SET `memRead` = 0  where memNo = :memNo and csNo = :csNo and mesFrom=1 and mesNo > :mesNo";
     $message2 = $pdo->prepare($sql2);
     // 正確做法
     $memNo = $_SESSION["memNo"];

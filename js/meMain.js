@@ -366,7 +366,7 @@ Vue.component('chat-person-each', {
     <div class="meChatPeople-each" @click="sendCsNo">
         <div class="meChatPeople">
             <div class="meChatOnline"><i :class="bell" ></i></div>
-            <div class="meChatPeople-pic"><img :src="init.csPic" alt=""></div>
+            <div class="meChatPeople-pic"><img :src="init.csPic"></div>
             <div class="meChatPeople-name">{{init.csName}}</div>
             <!-- <div class="meChatPeople-title">諮商師</div> -->
         </div>
@@ -377,8 +377,8 @@ Vue.component('chat-person-each', {
     computed: {
         bell() {
             // 改 sass
-            return (this.init.memRead == "0") ? "fas fa-bell alert" : "fas fa-bell alert";
-        }
+            return (this.init.memRead == "0") ? "fas fa-bell" : "fas fa-bell alert";
+        },
     },
     methods: {
         // jiang start()
@@ -405,7 +405,7 @@ Vue.component('me-chat-an', {
     },
     template: `
     <div :class="{meChatAn : true,meChatAnUser:init.mesFrom==0}">
-        <div class="meChatAn-pic"><img :src="[init.mesFrom==0? init.memPic : init.csPic]" alt=""></div>
+        <div class="meChatAn-pic"><img :src="[init.mesFrom==0? vm.$data.member.memPic  : init.csPic]" alt=""></div>
         <div :class="[init.mesFrom==0? text2 : text1]" >{{init.mesContent}}</div>
         <div :class="[init.mesFrom==0? other2 : other1]">
             <div class="meChatAn-time">{{init.mesTime.substring(0,5)}}</div>
@@ -627,9 +627,13 @@ let vm = new Vue({
 
 
         submitMes() {
-            let data_info = `chatBox=${this.chatBox}&csNo=${this.meChatAn[0].csNo}`;
-            axios.post("./php/sendMes.php", data_info);
-            this.chatBox = "";
+            if (this.chatBox != "") {
+                let data_info = `chatBox=${this.chatBox}&csNo=${this.meChatAn[0].csNo}`;
+                axios.post("./php/sendMes.php", data_info);
+                this.chatBox = "";
+
+            }
+
         },
         changeCs(csNo) {
             let data_info = `csNo=${csNo}`;
@@ -641,9 +645,13 @@ let vm = new Vue({
                 for (let i = data.length - 1; i >= 0; i--) {
                     this.meChatAn.push(data[i]);
                 }
+                setTimeout(() => {
+                    var meChatMainRoom = document.getElementById("meChatMainRoom");
+                    meChatMainRoom.scrollTop = meChatMainRoom.scrollHeight;
+                }, 1)
+
             })
-            var meChatMainRoom = document.getElementById("meChatMainRoom");
-            meChatMainRoom.scrollTop = meChatMainRoom.scrollHeight;
+
 
         },
 
@@ -755,6 +763,7 @@ let vm = new Vue({
             let reader = new FileReader();
             reader.onload = function() {
                 vm.$data.member.memPic = reader.result;
+
                 // vm.$data.member.memPic = vm.$data.newPic;
                 var formData7 = new FormData();
                 formData7.append('memPic', pic);

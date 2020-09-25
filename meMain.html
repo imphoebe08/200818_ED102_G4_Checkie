@@ -15,7 +15,7 @@
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.js"></script>
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script> -->
@@ -1084,7 +1084,7 @@
                                                     <!-- 輸入內容input -->
                                                     <div class="memChatSend">
                                                         <form action="" @submit.prevent="submitMes">
-                                                            <input name="moName" type="text" class="modifyForm chatInput" v-model="chatBox" autocomplete="off">
+                                                            <input name="moName" type="text" class="modifyForm chatInput" v-model.trim="chatBox" autocomplete="off">
                                                             <button class="memChatSend_button"><i class="fas fa-paper-plane"></i></button>
                                                         </form>
 
