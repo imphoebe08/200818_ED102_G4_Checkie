@@ -205,7 +205,7 @@
             bottom: -10%;
         }
         .seTitle-content {
-            width: 100%;
+            width: 95%;
             .seTitle-content_title {
                 text-align: end;
             }
@@ -216,6 +216,9 @@
         }
         .seTitle-content_icon {
             text-align: start;
+            .fa-bookmark {
+                margin-left: 10%;
+            }
         }
     }
     .seContent_box {
