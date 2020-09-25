@@ -60,6 +60,9 @@ $space:300px;
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
+                >div.acSelect.container-sm.container-md.bgUnset {
+                    background-color: unset;
+                }
                 .inAct_item {
                     background: #fff;
                     display: inline-block;

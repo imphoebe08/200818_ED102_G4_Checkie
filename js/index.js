@@ -108,21 +108,34 @@ $(function() {
     // var parallax01 = TweenMax.to('.inArti-page-2>div', 1, { x: 0, y: 0, z: 0 });
     // var parallax02 = TweenMax.to('.inArti-page-3>div', 1, { x: 0, y: 0, z: 0 });
     // stickmove.add([parallax01, parallax02]);
-    stickmove.to('.inArti-page-2>div', 4, { x: 0, y: 0, z: 0 }).to('.inArti-page-3>div', 4, { x: 0, y: 0, z: 0 })
-        // inArti-page-2
+    // inArti-page-2
+    function abc() {
+        var controller = new ScrollMagic.Controller();
+        stickmove.to('.inArti-page-2>div', 4, { x: 0, y: 0, z: 0 }).to('.inArti-page-3>div', 4, { x: 0, y: 0, z: 0 })
 
-
+        var inArti = new ScrollMagic.Scene({
+                triggerElement: "#inArti",
+                offset: -130,
+                triggerHook: 0,
+                duration: '200%'
+            }).setPin('.inArti').setTween(stickmove)
+            // .addIndicators({
+            //     name: 'key_04'
+            // })
+            .addTo(controller);
+    }
     //固定住畫面
-    var inArti = new ScrollMagic.Scene({
-            triggerElement: "#inArti",
-            offset: -130,
-            triggerHook: 0,
-            duration: '200%'
-        }).setPin('.inArti').setTween(stickmove)
-        // .addIndicators({
-        //     name: 'key_04'
-        // })
-        .addTo(controller);
+    if (window.innerWidth > 768) {
+        abc();
+    }
+    $(window).resize(() => {
+        if (window.innerWidth > 768) {
+            abc();
+        }
+    })
+
+
+
 
     // 超級分隔線
 
