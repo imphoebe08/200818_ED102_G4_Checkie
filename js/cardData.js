@@ -37,23 +37,29 @@ Vue.component('reSelectCard', {
     </div>
 
     `,
+    
     methods: {
+        randArr(num, data) {
+            for (var i = 0; i < num; i++) {
+                var iRand = parseInt(num * Math.random());
+                var temp = data[i];
+                data[i] = data[iRand];
+                data[iRand] = temp;
+            }
+            return data;
+        },
+        aaa(data) {
+            return this.acContents.slice(0, data);
+        },
         openShareDialog(actNo) {
             console.log('hi');
             this.$emit('open-share-dialog', `actNo=${actNo}`);
         },
-        aaa(num,data) {
-            let rd = this.rand(0, this.acContents.length);
-            return this.acContents.slice(rd, data);
-        },
-        rand(min, max) {
-            min = Math.ceil(min);
-            max = Math.floor(max);
-            return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值 
-        },
-        randArr(num, data) {},
 
 
+    },
+    mounted(){
+        this.randArr(this.acContents.length,this.acContents)
     },
     computed: {
 
@@ -110,8 +116,6 @@ let vm = new Vue({
             Vue.nextTick().then(function() {
                 vm.installOwlCarousel();
             });
-            
-
         })
 
         axios.get('./json/acMain_comments.json').then((data) => {

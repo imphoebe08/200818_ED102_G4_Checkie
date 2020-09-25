@@ -1,1251 +1,1276 @@
-                            @import '../vender/reset';
-                            @import '../vender/var';
-                            @import '../vender/variable';
-                            h1 {
-                                @include h1;
+@import '../vender/reset';
+@import '../vender/var';
+@import '../vender/variable';
+h1 {
+    @include h1;
+}
+
+h2 {
+    @include h2;
+}
+
+h3 {
+    @include h3;
+}
+
+h4 {
+    @include h4;
+}
+
+h5 {
+    @include h5;
+}
+
+h6 {
+    @include h6;
+}
+
+p {
+    @include p;
+}
+
+#oracleCard {
+    .top {
+        .navbar {
+            .navbar__menu {
+                a:nth-child(5) {
+                    color: $color-pink;
+                }
+                a:nth-child(5)::after {
+                    transform: scaleX(1);
+                    visibility: visible;
+                }
+            }
+        }
+    }
+    .oracleCardInner {
+        width: 100%;
+        margin: auto;
+        position: relative;
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 15%;
+            top: 3%;
+            width: 300px;
+            height: 400px;
+            background-image: url(../img/oracleCard/cloud_d.png);
+            background-position: center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: backCloud 10s linear infinite;
+        }
+        @keyframes backCloud {
+            0% {
+                transform: translateX(0px);
+            }
+            25% {
+                transform: translateX(10px);
+            }
+            50% {
+                transform: translateX(0px);
+            }
+            75% {
+                transform: translateX(-10px);
+            }
+            100% {
+                transform: translateX(0px);
+            }
+        }
+        .oracleCardBanner {
+            display: block;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 100%;
+                height: 100vh;
+                position: absolute;
+                left: 0;
+                top: 0;
+                background-image: url(../img/oracleCard/inCardBanner.png);
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+            &::after {
+                position: absolute;
+                content: '';
+                bottom: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(50%);
+                width: 700px;
+                height: 700px;
+                display: inline-block;
+                background-image: url(../img/oracleCard/moon_b.png);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+            .oracleCardBox {
+                position: absolute;
+                bottom: 200px;
+                left: 50%;
+                transform: translateX(-50%);
+                margin: auto;
+                width: 800px;
+                background-color: rgba(255, 255, 255, 0.7);
+                z-index: 1;
+                border-radius: 30px;
+                .title {
+                    padding: 20px 60px 0px;
+                    margin-bottom: 20px;
+                    position: relative;
+                    h1 {
+                        text-align: center;
+                        position: relative;
+                        &::before {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            right: -28%;
+                            top: -190%;
+                            width: 50px;
+                            height: 100px;
+                            background-image: url(../img/oracleCard/cloud_d.png);
+                            background-position: center center;
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            animation: frontMoon 20s linear infinite;
+                            animation-delay: 1s;
+                        }
+                        &::after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            right: -40%;
+                            top: -150px;
+                            width: 100px;
+                            height: 100px;
+                            background-image: url(../img/oracleCard/moon_a.png);
+                            background-position: center center;
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                        }
+                    }
+                    #forCloud {
+                        display: block;
+                        width: 100%;
+                        height: 100px;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        &::before {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            left: -20%;
+                            top: 30px;
+                            width: 400px;
+                            height: 500px;
+                            background-image: url(../img/oracleCard/cloud_h.png);
+                            background-position: center center;
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            animation: backMoon 5s linear infinite;
+                            animation-delay: 1s;
+                        }
+                        @keyframes backMoon {
+                            0% {
+                                transform: translateX(0px);
                             }
-                            
-                            h2 {
-                                @include h2;
+                            25% {
+                                transform: translateX(10px);
                             }
-                            
-                            h3 {
-                                @include h3;
+                            50% {
+                                transform: translateX(0px);
                             }
-                            
-                            h4 {
-                                @include h4;
+                            75% {
+                                transform: translateX(-10px);
                             }
-                            
-                            h5 {
-                                @include h5;
+                            100% {
+                                transform: translateX(0px);
                             }
-                            
-                            h6 {
-                                @include h6;
+                        }
+                    }
+                    #forCloud1 {
+                        display: block;
+                        width: 100%;
+                        height: 100px;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        &::after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            right: -20%;
+                            top: 130px;
+                            width: 400px;
+                            height: 200px;
+                            background-image: url(../img/oracleCard/cloud_i.png);
+                            background-position: center center;
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            animation: backMoon 5s linear infinite;
+                        }
+                        @keyframes backMoon {
+                            0% {
+                                transform: translateX(0px);
                             }
-                            
-                            p {
-                                @include p;
+                            25% {
+                                transform: translateX(10px);
                             }
-                            
-                            #oracleCard {
-                                .top {
-                                    .navbar {
-                                        .navbar__menu {
-                                            a:nth-child(5) {
-                                                color: $color-pink;
-                                            }
-                                            a:nth-child(5)::after {
-                                                transform: scaleX(1);
-                                                visibility: visible;
-                                            }
-                                        }
-                                    }
+                            50% {
+                                transform: translateX(0px);
+                            }
+                            75% {
+                                transform: translateX(-10px);
+                            }
+                            100% {
+                                transform: translateX(0px);
+                            }
+                        }
+                    }
+                }
+                .txt {
+                    padding: 0px 100px 50px;
+                    letter-spacing: 2px;
+                    line-height: 20px;
+                    &::before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        right: -28%;
+                        top: -35%;
+                        width: 50px;
+                        height: 100px;
+                        background-image: url(../img/oracleCard/cloud_i.png);
+                        background-position: center center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        animation: frontMoon 15s linear infinite;
+                    }
+                    @keyframes frontMoon {
+                        0% {
+                            transform: translateX(0px);
+                        }
+                        25% {
+                            transform: translateX(8px);
+                        }
+                        50% {
+                            transform: translateX(0px);
+                        }
+                        75% {
+                            transform: translateX(-8px);
+                        }
+                        100% {
+                            transform: translateX(0px);
+                        }
+                    }
+                }
+            }
+            .cardBtn {
+                width: 100%;
+                margin: auto;
+                bottom: 85px;
+                text-align: center;
+                position: absolute;
+                z-index: 2;
+                &::before,
+                &::after {
+                    cursor: pointer;
+                    content: '';
+                    display: inline-block;
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    left: 50%;
+                    bottom: -50px;
+                    transform: translateX(-50%);
+                    background-image: url(../img/oracleCard/down_png.png);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center center;
+                    animation: downDown1 2s infinite ease-in-out;
+                }
+                &::after {
+                    bottom: -65px;
+                    animation: downDown2 2s infinite ease-in-out;
+                }
+                @keyframes downDown1 {
+                    0% {
+                        bottom: -50px;
+                    }
+                    50% {
+                        bottom: -65px;
+                    }
+                    100% {
+                        bottom: -50px;
+                    }
+                }
+                @keyframes downDown2 {
+                    0% {
+                        bottom: -65px;
+                    }
+                    50% {
+                        bottom: -85px;
+                    }
+                    100% {
+                        bottom: -65px;
+                    }
+                }
+                button {
+                    &:focus {
+                        display: none;
+                    }
+                    @include btn-modules($bw, $color-pink, 12px);
+                    @keyframes btnScale {
+                        0% {
+                            // font-size: 18px;
+                            transform: scale(1);
+                        }
+                        50% {
+                            // font-size: 22px;
+                            transform: scale(1.2);
+                        }
+                        100% {
+                            // font-size: 18px;
+                            transform: scale(1);
+                        }
+                    }
+                }
+            }
+        }
+        .oracleCardStep {
+            width: 100%;
+            margin: auto;
+            height: 100vh;
+            display: flex;
+            background-image: linear-gradient(to bottom, #eee2ef 0%, #d6ebfb 100%);
+            .stepBg {
+                display: flex;
+                flex-wrap: wrap;
+                margin: 50px auto 0;
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+                height: 100vh;
+                .stepNum {
+                    width: 50px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    li {
+                        width: 100%;
+                        margin-bottom: 30px;
+                        position: relative;
+                        &:not(:nth-child(1))::before {
+                            content: '';
+                            display: block;
+                            width: 2px;
+                            height: 30px;
+                            background: #000;
+                            position: absolute;
+                            z-index: 5;
+                            top: -30px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+                        input {
+                            opacity: 0;
+                            z-index: -10;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translateX(-50%) translateY(-50%);
+                        }
+                        label {
+                            position: relative;
+                            cursor: pointer;
+                            @include h3;
+                            width: 50px;
+                            height: 50px;
+                            line-height: 50px;
+                            background-color: rgb(255, 255, 255);
+                            // border: 1px solid #000;
+                            border-radius: 50%;
+                            color: #000000;
+                            text-align: center;
+                            transition: 0.5s;
+                            background-color: #000;
+                            color: #fff;
+                            &::before {
+                                display: none;
+                                z-index: -1;
+                                content: '';
+                                position: absolute;
+                                background: linear-gradient(45deg, #085ddd, transparent, transparent, transparent);
+                                width: calc(100% + 10px);
+                                height: calc(100% + 10px);
+                                top: -5px;
+                                left: -5px;
+                                border-radius: 50%;
+                                animation: rotate 2s linear infinite;
+                            }
+                            // &::after{
+                            //     filter: blur(30px);
+                            // }
+                            @keyframes line {
+                                0% {
+                                    background-position: 0 0;
                                 }
-                                .oracleCardInner {
+                                50% {
+                                    background-position: 300%;
+                                }
+                                100% {
+                                    background-position: 0 0;
+                                }
+                            }
+                            @keyframes rotate {
+                                0% {
+                                    transform: rotate(0deg);
+                                }
+                                50% {
+                                    transform: rotate(180deg);
+                                }
+                                100% {
+                                    transform: rotate(360deg);
+                                }
+                            }
+                            // &::before{
+                            //     opacity: 0;
+                            //     z-index: -1;
+                            //     content: '';
+                            //     position: absolute;
+                            //     background: linear-gradient(45deg,#085ddd,transparent,transparent,transparent);
+                            //     width: calc(100% + 10px);
+                            //     height: calc(100% + 10px);
+                            //     top: -5px;
+                            //     left: -5px;
+                            //     border-radius: 50%;
+                            //     animation: rotate 2s linear infinite;
+                            // }
+                        }
+                        .h3Color {
+                            background-color: #ffa492;
+                            color: #fff;
+                            transition: 0.5s;
+                        }
+                        #sp1:checked~label::before {
+                            display: block;
+                        }
+                        #sp2:checked~label::before {
+                            display: block;
+                        }
+                        #sp3:checked~label::before {
+                            display: block;
+                        }
+                    }
+                }
+                .showImg {
+                    position: relative;
+                    width: 500px;
+                    .showImgBg {
+                        width: 100%;
+                        transition: 1s;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    .mainImg {
+                        position: absolute;
+                        left: 50px;
+                        top: 50px;
+                        width: 100%;
+                        max-width: 400px;
+                        height: 100%;
+                        max-height: 400px;
+                        img {
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            opacity: 0;
+                            transform: scale(0.8);
+                            transition: 1s;
+                            transition-delay: opacity 1s;
+                        }
+                        .opacity1 {
+                            opacity: 1;
+                            transform: scale(0.9);
+                            transition-delay: opacity 1s;
+                        }
+                    }
+                }
+                .showTxt {
+                    width: 400px;
+                    position: relative;
+                    .txt {
+                        position: absolute;
+                        left: 0;
+                        top: -100px;
+                        width: 100%;
+                        opacity: 0;
+                        padding: 0 15px 0 0;
+                        h2 {
+                            @include h4;
+                            margin-bottom: 5px;
+                        }
+                        h3 {
+                            @include h3;
+                            margin-bottom: 10px;
+                            color: #e86659;
+                        }
+                        p {
+                            @include p;
+                            padding-right: 20px;
+                        }
+                    }
+                    .opacity2 {
+                        opacity: 1;
+                        transition: 2s;
+                    }
+                }
+                .cardBtn {
+                    width: 100%;
+                    margin: auto;
+                    margin-top: 0px;
+                    bottom: 20px;
+                    text-align: center;
+                    position: relative;
+                    &::before,
+                    &::after {
+                        cursor: pointer;
+                        content: '';
+                        display: inline-block;
+                        position: absolute;
+                        width: 30px;
+                        height: 30px;
+                        left: 50%;
+                        bottom: -50px;
+                        transform: translateX(-50%);
+                        background-image: url(../img/oracleCard/down_png.png);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center center;
+                        animation: downDown1 2s infinite ease-in-out;
+                    }
+                    &::after {
+                        bottom: -65px;
+                        animation: downDown2 2s infinite ease-in-out;
+                    }
+                    @keyframes downDown1 {
+                        0% {
+                            bottom: -50px;
+                        }
+                        50% {
+                            bottom: -65px;
+                        }
+                        100% {
+                            bottom: -50px;
+                        }
+                    }
+                    @keyframes downDown2 {
+                        0% {
+                            bottom: -65px;
+                        }
+                        50% {
+                            bottom: -85px;
+                        }
+                        100% {
+                            bottom: -65px;
+                        }
+                    }
+                    button {
+                        &:focus {
+                            display: none;
+                        }
+                        @include btn-modules($bw, $color-pink, 12px);
+                        @keyframes btnScale {
+                            0% {
+                                // font-size: 18px;
+                                transform: scale(1);
+                            }
+                            50% {
+                                // font-size: 22px;
+                                transform: scale(1.2);
+                            }
+                            100% {
+                                // font-size: 18px;
+                                transform: scale(1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .oracleCardStepOne {
+            width: 100%;
+            margin: auto;
+            height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            background-image: linear-gradient(to bottom, #d6ebfb 0%, #eddeff 100%);
+            .oracleCardStepOneBox {
+                width: 100%;
+                height: 100vh;
+                margin: auto;
+                text-align: center;
+                position: relative;
+                .title {
+                    width: 100%;
+                    padding: 150px 0;
+                    margin: 0px auto;
+                    h2 {
+                        @include h4;
+                        transition: .8s;
+                    }
+                }
+                .cards {
+                    margin: 0 auto;
+                    width: 100%;
+                    position: relative;
+                    backface-visibility: hidden;
+                    .item {
+                        width: 200px;
+                        perspective: 300px;
+                        transform-style: preserve-3d;
+                        transition: 2s;
+                        backface-visibility: hidden;
+                        .itemImg {
+                            cursor: pointer;
+                            perspective: 1500px;
+                            text-transform: uppercase;
+                            position: relative;
+                            width: 100%;
+                            opacity: 1;
+                            transition: all 1s;
+                            .card__side--back.backRotate {
+                                transform: rotateY(-540deg);
+                            }
+                            .card__side--front.frontRotate {
+                                transform: rotateY(-360deg);
+                            }
+                            .card__side {
+                                border-radius: 5px;
+                                position: absolute;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                top: 0;
+                                left: 0;
+                                transition: all .9s ease;
+                                backface-visibility: hidden;
+                                img {
                                     width: 100%;
-                                    margin: auto;
-                                    position: relative;
-                                    &::before {
-                                        content: '';
-                                        display: block;
-                                        position: absolute;
-                                        left: 15%;
-                                        top: 3%;
-                                        width: 300px;
-                                        height: 400px;
-                                        background-image: url(../img/oracleCard/cloud_d.png);
-                                        background-position: center center;
-                                        background-size: contain;
-                                        background-repeat: no-repeat;
-                                        animation: backCloud 10s linear infinite;
-                                    }
-                                    @keyframes backCloud {
-                                        0% {
-                                            transform: translateX(0px);
-                                        }
-                                        25% {
-                                            transform: translateX(10px);
-                                        }
-                                        50% {
-                                            transform: translateX(0px);
-                                        }
-                                        75% {
-                                            transform: translateX(-10px);
-                                        }
-                                        100% {
-                                            transform: translateX(0px);
-                                        }
-                                    }
-                                    .oracleCardBanner {
-                                        display: block;
-                                        width: 100%;
-                                        height: 100vh;
-                                        position: relative;
-                                        &::before {
-                                            content: '';
-                                            display: inline-block;
-                                            width: 100%;
-                                            height: 100vh;
-                                            position: absolute;
-                                            left: 0;
-                                            top: 0;
-                                            background-image: url(../img/oracleCard/inCardBanner.png);
-                                            background-size: cover;
-                                            background-position: center center;
-                                            background-repeat: no-repeat;
-                                            background-attachment: fixed;
-                                        }
-                                        &::after {
-                                            position: absolute;
-                                            content: '';
-                                            bottom: 50%;
-                                            left: 50%;
-                                            transform: translateX(-50%) translateY(50%);
-                                            width: 700px;
-                                            height: 700px;
-                                            display: inline-block;
-                                            background-image: url(../img/oracleCard/moon_b.png);
-                                            background-position: center center;
-                                            background-repeat: no-repeat;
-                                            background-size: contain;
-                                        }
-                                        .oracleCardBox {
-                                            position: absolute;
-                                            bottom: 200px;
-                                            left: 50%;
-                                            transform: translateX(-50%);
-                                            margin: auto;
-                                            width: 800px;
-                                            background-color: rgba(255, 255, 255, 0.7);
-                                            z-index: 1;
-                                            border-radius: 30px;
-                                            .title {
-                                                padding: 20px 60px 0px;
-                                                margin-bottom: 20px;
-                                                position: relative;
-                                                h1 {
-                                                    text-align: center;
-                                                    position: relative;
-                                                    &::before {
-                                                        content: '';
-                                                        display: block;
-                                                        position: absolute;
-                                                        right: -28%;
-                                                        top: -190%;
-                                                        width: 50px;
-                                                        height: 100px;
-                                                        background-image: url(../img/oracleCard/cloud_d.png);
-                                                        background-position: center center;
-                                                        background-size: contain;
-                                                        background-repeat: no-repeat;
-                                                        animation: frontMoon 20s linear infinite;
-                                                        animation-delay: 1s;
-                                                    }
-                                                    &::after {
-                                                        content: '';
-                                                        display: block;
-                                                        position: absolute;
-                                                        right: -40%;
-                                                        top: -150px;
-                                                        width: 100px;
-                                                        height: 100px;
-                                                        background-image: url(../img/oracleCard/moon_a.png);
-                                                        background-position: center center;
-                                                        background-size: contain;
-                                                        background-repeat: no-repeat;
-                                                    }
-                                                }
-                                                #forCloud {
-                                                    display: block;
-                                                    width: 100%;
-                                                    height: 100px;
-                                                    position: absolute;
-                                                    left: 0;
-                                                    top: 0;
-                                                    &::before {
-                                                        content: '';
-                                                        display: block;
-                                                        position: absolute;
-                                                        left: -20%;
-                                                        top: 30px;
-                                                        width: 400px;
-                                                        height: 500px;
-                                                        background-image: url(../img/oracleCard/cloud_h.png);
-                                                        background-position: center center;
-                                                        background-size: contain;
-                                                        background-repeat: no-repeat;
-                                                        animation: backMoon 5s linear infinite;
-                                                        animation-delay: 1s;
-                                                    }
-                                                    @keyframes backMoon {
-                                                        0% {
-                                                            transform: translateX(0px);
-                                                        }
-                                                        25% {
-                                                            transform: translateX(10px);
-                                                        }
-                                                        50% {
-                                                            transform: translateX(0px);
-                                                        }
-                                                        75% {
-                                                            transform: translateX(-10px);
-                                                        }
-                                                        100% {
-                                                            transform: translateX(0px);
-                                                        }
-                                                    }
-                                                }
-                                                #forCloud1 {
-                                                    display: block;
-                                                    width: 100%;
-                                                    height: 100px;
-                                                    position: absolute;
-                                                    left: 0;
-                                                    top: 0;
-                                                    &::after {
-                                                        content: '';
-                                                        display: block;
-                                                        position: absolute;
-                                                        right: -20%;
-                                                        top: 130px;
-                                                        width: 400px;
-                                                        height: 200px;
-                                                        background-image: url(../img/oracleCard/cloud_i.png);
-                                                        background-position: center center;
-                                                        background-size: contain;
-                                                        background-repeat: no-repeat;
-                                                        animation: backMoon 5s linear infinite;
-                                                    }
-                                                    @keyframes backMoon {
-                                                        0% {
-                                                            transform: translateX(0px);
-                                                        }
-                                                        25% {
-                                                            transform: translateX(10px);
-                                                        }
-                                                        50% {
-                                                            transform: translateX(0px);
-                                                        }
-                                                        75% {
-                                                            transform: translateX(-10px);
-                                                        }
-                                                        100% {
-                                                            transform: translateX(0px);
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                            .txt {
-                                                padding: 0px 100px 50px;
-                                                letter-spacing: 2px;
-                                                line-height: 20px;
-                                                &::before {
-                                                    content: '';
-                                                    display: block;
-                                                    position: absolute;
-                                                    right: -28%;
-                                                    top: -35%;
-                                                    width: 50px;
-                                                    height: 100px;
-                                                    background-image: url(../img/oracleCard/cloud_i.png);
-                                                    background-position: center center;
-                                                    background-size: contain;
-                                                    background-repeat: no-repeat;
-                                                    animation: frontMoon 15s linear infinite;
-                                                }
-                                                @keyframes frontMoon {
-                                                    0% {
-                                                        transform: translateX(0px);
-                                                    }
-                                                    25% {
-                                                        transform: translateX(8px);
-                                                    }
-                                                    50% {
-                                                        transform: translateX(0px);
-                                                    }
-                                                    75% {
-                                                        transform: translateX(-8px);
-                                                    }
-                                                    100% {
-                                                        transform: translateX(0px);
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        .cardBtn {
-                                            width: 100%;
-                                            margin: auto;
-                                            bottom: 85px;
-                                            text-align: center;
-                                            position: absolute;
-                                            z-index: 2;
-                                            &::before,
-                                            &::after {
-                                                cursor: pointer;
-                                                content: '';
-                                                display: inline-block;
-                                                position: absolute;
-                                                width: 30px;
-                                                height: 30px;
-                                                left: 50%;
-                                                bottom: -50px;
-                                                transform: translateX(-50%);
-                                                background-image: url(../img/oracleCard/down_png.png);
-                                                background-repeat: no-repeat;
-                                                background-size: contain;
-                                                background-position: center center;
-                                                animation: downDown1 2s infinite ease-in-out;
-                                            }
-                                            &::after {
-                                                bottom: -65px;
-                                                animation: downDown2 2s infinite ease-in-out;
-                                            }
-                                            @keyframes downDown1 {
-                                                0% {
-                                                    bottom: -50px;
-                                                }
-                                                50% {
-                                                    bottom: -65px;
-                                                }
-                                                100% {
-                                                    bottom: -50px;
-                                                }
-                                            }
-                                            @keyframes downDown2 {
-                                                0% {
-                                                    bottom: -65px;
-                                                }
-                                                50% {
-                                                    bottom: -85px;
-                                                }
-                                                100% {
-                                                    bottom: -65px;
-                                                }
-                                            }
-                                            button {
-                                                &:focus {
-                                                    display: none;
-                                                }
-                                                @include btn-modules($bw, $color-pink, 12px);
-                                                @keyframes btnScale {
-                                                    0% {
-                                                        // font-size: 18px;
-                                                        transform: scale(1);
-                                                    }
-                                                    50% {
-                                                        // font-size: 22px;
-                                                        transform: scale(1.2);
-                                                    }
-                                                    100% {
-                                                        // font-size: 18px;
-                                                        transform: scale(1);
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                    .oracleCardStep {
-                                        width: 100%;
-                                        margin: auto;
-                                        height: 100vh;
-                                        display: flex;
-                                        background-image: linear-gradient(to bottom, #eee2ef 0%, #d6ebfb 100%);
-                                        .stepBg {
-                                            display: flex;
-                                            flex-wrap: wrap;
-                                            margin: 50px auto 0;
-                                            justify-content: space-around;
-                                            align-items: center;
-                                            width: 100%;
-                                            height: 100vh;
-                                            .stepNum {
-                                                width: 50px;
-                                                display: flex;
-                                                flex-direction: column;
-                                                justify-content: center;
-                                                li {
-                                                    width: 100%;
-                                                    margin-bottom: 30px;
-                                                    position: relative;
-                                                    &:not(:nth-child(1))::before {
-                                                        content: '';
-                                                        display: block;
-                                                        width: 2px;
-                                                        height: 30px;
-                                                        background: #000;
-                                                        position: absolute;
-                                                        z-index: 5;
-                                                        top: -30px;
-                                                        left: 50%;
-                                                        transform: translateX(-50%);
-                                                    }
-                                                    input {
-                                                        opacity: 0;
-                                                        z-index: -10;
-                                                        position: absolute;
-                                                        top: 50%;
-                                                        left: 50%;
-                                                        transform: translateX(-50%) translateY(-50%);
-                                                    }
-                                                    label {
-                                                        position: relative;
-                                                        cursor: pointer;
-                                                        @include h3;
-                                                        width: 50px;
-                                                        height: 50px;
-                                                        line-height: 50px;
-                                                        background-color: rgb(255, 255, 255);
-                                                        // border: 1px solid #000;
-                                                        border-radius: 50%;
-                                                        color: #000000;
-                                                        text-align: center;
-                                                        transition: 0.5s;
-                                                        background-color: #000;
-                                                        color: #fff;
-                                                        &::before {
-                                                            display: none;
-                                                            z-index: -1;
-                                                            content: '';
-                                                            position: absolute;
-                                                            background: linear-gradient(45deg, #085ddd, transparent, transparent, transparent);
-                                                            width: calc(100% + 10px);
-                                                            height: calc(100% + 10px);
-                                                            top: -5px;
-                                                            left: -5px;
-                                                            border-radius: 50%;
-                                                            animation: rotate 2s linear infinite;
-                                                        }
-                                                        // &::after{
-                                                        //     filter: blur(30px);
-                                                        // }
-                                                        @keyframes line {
-                                                            0% {
-                                                                background-position: 0 0;
-                                                            }
-                                                            50% {
-                                                                background-position: 300%;
-                                                            }
-                                                            100% {
-                                                                background-position: 0 0;
-                                                            }
-                                                        }
-                                                        @keyframes rotate {
-                                                            0% {
-                                                                transform: rotate(0deg);
-                                                            }
-                                                            50% {
-                                                                transform: rotate(180deg);
-                                                            }
-                                                            100% {
-                                                                transform: rotate(360deg);
-                                                            }
-                                                        }
-                                                        // &::before{
-                                                        //     opacity: 0;
-                                                        //     z-index: -1;
-                                                        //     content: '';
-                                                        //     position: absolute;
-                                                        //     background: linear-gradient(45deg,#085ddd,transparent,transparent,transparent);
-                                                        //     width: calc(100% + 10px);
-                                                        //     height: calc(100% + 10px);
-                                                        //     top: -5px;
-                                                        //     left: -5px;
-                                                        //     border-radius: 50%;
-                                                        //     animation: rotate 2s linear infinite;
-                                                        // }
-                                                    }
-                                                    .h3Color {
-                                                        background-color: #ffa492;
-                                                        color: #fff;
-                                                        transition: 0.5s;
-                                                    }
-                                                    #sp1:checked~label::before {
-                                                        display: block;
-                                                    }
-                                                    #sp2:checked~label::before {
-                                                        display: block;
-                                                    }
-                                                    #sp3:checked~label::before {
-                                                        display: block;
-                                                    }
-                                                }
-                                            }
-                                            .showImg {
-                                                position: relative;
-                                                width: 500px;
-                                                .showImgBg {
-                                                    width: 100%;
-                                                    transition: 1s;
-                                                    img {
-                                                        width: 100%;
-                                                    }
-                                                }
-                                                .mainImg {
-                                                    position: absolute;
-                                                    left: 50px;
-                                                    top: 50px;
-                                                    width: 100%;
-                                                    max-width: 400px;
-                                                    height: 100%;
-                                                    max-height: 400px;
-                                                    img {
-                                                        position: absolute;
-                                                        width: 100%;
-                                                        height: 100%;
-                                                        opacity: 0;
-                                                        transform: scale(0.8);
-                                                        transition: 1s;
-                                                        transition-delay: opacity 1s;
-                                                    }
-                                                    .opacity1 {
-                                                        opacity: 1;
-                                                        transform: scale(0.9);
-                                                        transition-delay: opacity 1s;
-                                                    }
-                                                }
-                                            }
-                                            .showTxt {
-                                                width: 400px;
-                                                position: relative;
-                                                .txt {
-                                                    position: absolute;
-                                                    left: 0;
-                                                    top: -100px;
-                                                    width: 100%;
-                                                    opacity: 0;
-                                                    padding: 0 15px 0 0;
-                                                    h2 {
-                                                        @include h4;
-                                                        margin-bottom: 5px;
-                                                    }
-                                                    h3 {
-                                                        @include h3;
-                                                        margin-bottom: 10px;
-                                                        color: #e86659;
-                                                    }
-                                                    p {
-                                                        @include p;
-                                                        padding-right: 20px;
-                                                    }
-                                                }
-                                                .opacity2 {
-                                                    opacity: 1;
-                                                    transition: 2s;
-                                                }
-                                            }
-                                            .cardBtn {
-                                                width: 100%;
-                                                margin: auto;
-                                                margin-top: 0px;
-                                                bottom: 20px;
-                                                text-align: center;
-                                                position: relative;
-                                                &::before,
-                                                &::after {
-                                                    cursor: pointer;
-                                                    content: '';
-                                                    display: inline-block;
-                                                    position: absolute;
-                                                    width: 30px;
-                                                    height: 30px;
-                                                    left: 50%;
-                                                    bottom: -50px;
-                                                    transform: translateX(-50%);
-                                                    background-image: url(../img/oracleCard/down_png.png);
-                                                    background-repeat: no-repeat;
-                                                    background-size: contain;
-                                                    background-position: center center;
-                                                    animation: downDown1 2s infinite ease-in-out;
-                                                }
-                                                &::after {
-                                                    bottom: -65px;
-                                                    animation: downDown2 2s infinite ease-in-out;
-                                                }
-                                                @keyframes downDown1 {
-                                                    0% {
-                                                        bottom: -50px;
-                                                    }
-                                                    50% {
-                                                        bottom: -65px;
-                                                    }
-                                                    100% {
-                                                        bottom: -50px;
-                                                    }
-                                                }
-                                                @keyframes downDown2 {
-                                                    0% {
-                                                        bottom: -65px;
-                                                    }
-                                                    50% {
-                                                        bottom: -85px;
-                                                    }
-                                                    100% {
-                                                        bottom: -65px;
-                                                    }
-                                                }
-                                                button {
-                                                    &:focus {
-                                                        display: none;
-                                                    }
-                                                    @include btn-modules($bw, $color-pink, 12px);
-                                                    @keyframes btnScale {
-                                                        0% {
-                                                            // font-size: 18px;
-                                                            transform: scale(1);
-                                                        }
-                                                        50% {
-                                                            // font-size: 22px;
-                                                            transform: scale(1.2);
-                                                        }
-                                                        100% {
-                                                            // font-size: 18px;
-                                                            transform: scale(1);
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                    .oracleCardStepOne {
-                                        width: 100%;
-                                        margin: auto;
-                                        height: 100vh;
-                                        display: flex;
-                                        flex-wrap: wrap;
-                                        background-image: linear-gradient(to bottom, #d6ebfb 0%, #eddeff 100%);
-                                        .oracleCardStepOneBox {
-                                            width: 100%;
-                                            height: 100vh;
-                                            margin: auto;
-                                            text-align: center;
-                                            position: relative;
-                                            .title {
-                                                width: 100%;
-                                                padding: 150px 0;
-                                                margin: 0px auto;
-                                                h2 {
-                                                    @include h4;
-                                                    transition: .8s;
-                                                }
-                                            }
-                                            .cards {
-                                                margin: 0 auto;
-                                                width: 100%;
-                                                position: relative;
-                                                backface-visibility: hidden;
-                                                .item {
-                                                    width: 200px;
-                                                    perspective: 300px;
-                                                    transform-style: preserve-3d;
-                                                    transition: 2s;
-                                                    backface-visibility: hidden;
-                                                    .itemImg {
-                                                        cursor: pointer;
-                                                        perspective: 1500px;
-                                                        text-transform: uppercase;
-                                                        position: relative;
-                                                        width: 100%;
-                                                        opacity: 1;
-                                                        transition: all 1s;
-                                                        .card__side--back.backRotate {
-                                                            transform: rotateY(-540deg);
-                                                        }
-                                                        .card__side--front.frontRotate {
-                                                            transform: rotateY(-360deg);
-                                                        }
-                                                        .card__side {
-                                                            border-radius: 5px;
-                                                            position: absolute;
-                                                            display: flex;
-                                                            justify-content: center;
-                                                            align-items: center;
-                                                            top: 0;
-                                                            left: 0;
-                                                            transition: all .9s ease;
-                                                            backface-visibility: hidden;
-                                                            img {
-                                                                width: 100%;
-                                                                vertical-align: bottom;
-                                                                border-radius: 10px;
-                                                                transition: 2s;
-                                                                box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
-                                                                height: 100%;
-                                                            }
-                                                        }
-                                                        .card__side--front {
-                                                            transform: rotateY(180deg);
-                                                        }
-                                                        .card__side--back {
-                                                            transform: rotateY(0deg);
-                                                        }
-                                                        @keyframes cardShack {
-                                                            0% {
-                                                                transform: rotate(0deg);
-                                                            }
-                                                            25% {
-                                                                transform: rotate(-2deg);
-                                                            }
-                                                            50% {
-                                                                transform: rotate(0deg);
-                                                            }
-                                                            75% {
-                                                                transform: rotate(2deg);
-                                                            }
-                                                            100% {
-                                                                transform: rotate(0deg);
-                                                            }
-                                                        }
-                                                    }
-                                                    .itemTxt {
-                                                        position: absolute;
-                                                        left: 200%;
-                                                        top: 0;
-                                                        width: 300%;
-                                                        opacity: 1;
-                                                        z-index: 1;
-                                                        transition: opacity 1s 1.5s linear;
-                                                        fieldset {
-                                                            // width: 100%;
-                                                            border: 3px solid #ffa492;
-                                                            padding: 10px;
-                                                            margin-bottom: 10px;
-                                                            // opacity: 0;
-                                                            transition: 2s ease-in-out;
-                                                            position: relative;
-                                                            cursor: auto;
-                                                            legend {
-                                                                @include h4;
-                                                                margin-bottom: 10px;
-                                                                text-align: left;
-                                                                padding: 0 10px;
-                                                            }
-                                                            >p {
-                                                                @include p;
-                                                                letter-spacing: 0.8px;
-                                                                width: 100%;
-                                                                padding: 0 10px;
-                                                                transition: 2s ease-in-out;
-                                                                text-align: left;
-                                                                margin-bottom: 20px;
-                                                            }
-                                                            >img {
-                                                                width: 20px;
-                                                                height: 20px;
-                                                                position: absolute;
-                                                                right: 30px;
-                                                                bottom: 10px;
-                                                                cursor: pointer;
-                                                            }
-                                                        }
-                                                    }
-                                                    .itemTxt.txtOpacityOne {
-                                                        opacity: 0;
-                                                        left: 3000px;
-                                                    }
-                                                    .itemImg.animationShack {
-                                                        animation: cardShack 2s infinite linear;
-                                                    }
-                                                }
-                                                .item:nth-child(1) {
-                                                    position: absolute;
-                                                    left: (100/4)+0%;
-                                                    transform: translateX(-50%);
-                                                }
-                                                .item:nth-child(2) {
-                                                    position: absolute;
-                                                    left: (200/4)+0%;
-                                                    transform: translateX(-50%);
-                                                }
-                                                .item:nth-child(3) {
-                                                    position: absolute;
-                                                    left: (300/4)+0%;
-                                                    transform: translateX(-50%);
-                                                }
-                                                .item.middle {
-                                                    left: 50%;
-                                                }
-                                                .item.left {
-                                                    left: 30%;
-                                                }
-                                            }
-                                            .cardBtn {
-                                                opacity: 0;
-                                                width: 100%;
-                                                margin: auto;
-                                                bottom: 100px;
-                                                text-align: center;
-                                                position: absolute;
-                                                transition: 2s;
-                                                z-index: 2;
-                                                &::before,
-                                                &::after {
-                                                    cursor: pointer;
-                                                    content: '';
-                                                    display: inline-block;
-                                                    position: absolute;
-                                                    width: 30px;
-                                                    height: 30px;
-                                                    left: 50%;
-                                                    bottom: -50px;
-                                                    transform: translateX(-50%);
-                                                    background-image: url(../img/oracleCard/down_png.png);
-                                                    background-repeat: no-repeat;
-                                                    background-size: contain;
-                                                    background-position: center center;
-                                                    animation: downDown1 2s infinite ease-in-out;
-                                                }
-                                                &::after {
-                                                    bottom: -65px;
-                                                    animation: downDown2 2s infinite ease-in-out;
-                                                }
-                                                @keyframes downDown1 {
-                                                    0% {
-                                                        bottom: -50px;
-                                                    }
-                                                    50% {
-                                                        bottom: -65px;
-                                                    }
-                                                    100% {
-                                                        bottom: -50px;
-                                                    }
-                                                }
-                                                @keyframes downDown2 {
-                                                    0% {
-                                                        bottom: -65px;
-                                                    }
-                                                    50% {
-                                                        bottom: -85px;
-                                                    }
-                                                    100% {
-                                                        bottom: -65px;
-                                                    }
-                                                }
-                                                button {
-                                                    &:focus {
-                                                        display: none;
-                                                    }
-                                                    @include btn-modules($bw, $color-pink, 12px);
-                                                }
-                                            }
-                                            #mediaCardBtn {
-                                                cursor: pointer;
-                                                position: absolute;
-                                                bottom: 100px;
-                                                left: 50%;
-                                                bottom: 150px;
-                                                text-decoration: underline;
-                                                transform: translate(-50%, -50%);
-                                                width: 300px;
-                                                height: 35px;
-                                                text-align: center;
-                                                z-index: 3;
-                                                opacity: 0;
-                                            }
-                                            .mediaCardBtnNone {
-                                                display: none;
-                                                opacity: 0;
-                                                transition: opacity 1s;
-                                            }
-                                            .pAddOpacity {
-                                                opacity: 1;
-                                                transform: translateX(0);
-                                                transition-delay: 2.5s;
-                                            }
-                                            // #getPhoto {
-                                            //     width: 100%;
-                                            //     height: 100px;
-                                            //     color: #f0f;
-                                            //     position: absolute;
-                                            //     bottom: -50px;
-                                            //     left: 0;
-                                            // }
-                                            // #cutPhoto {
-                                            //     position: absolute;
-                                            //     left: 0;
-                                            //     top: 0;
-                                            //     width: 100%;
-                                            //     height: 100%;
-                                            //     max-width: 300px;
-                                            //     max-height: 300px;
-                                            //     canvas {
-                                            //         // background-color: rgba(190, 190, 190, 0.37);
-                                            //         width: 100%;
-                                            //         height: 100%;
-                                            //     }
-                                            // }
-                                        }
-                                    }
-                                    .oracleCardRecommend {
-                                        width: 100%;
-                                        margin: auto;
-                                        background-image: linear-gradient(to bottom, #eddeff 0%, #d6ebfb 100%);
-                                        >.fp-tableCell {
-                                            >fieldset {
-                                                width: 1200px;
-                                                margin: auto;
-                                                border: 3px solid #ffa492;
-                                                padding: 10px;
-                                                margin-bottom: 10px;
-                                                >legend {
-                                                    @include h4;
-                                                    margin-bottom: 10px;
-                                                    text-align: left;
-                                                    padding: 0 10px;
-                                                }
-                                            }
-                                        }
-                                        .share-dialog {
-                                            position: absolute;
-                                        }
+                                    vertical-align: bottom;
+                                    border-radius: 10px;
+                                    transition: 2s;
+                                    box-shadow: 2px 5px 10px 3px rgba(117, 117, 117, 0.2);
+                                    height: 100%;
+                                }
+                            }
+                            .card__side--front {
+                                transform: rotateY(180deg);
+                            }
+                            .card__side--back {
+                                transform: rotateY(0deg);
+                            }
+                            @keyframes cardShack {
+                                0% {
+                                    transform: rotate(0deg);
+                                }
+                                25% {
+                                    transform: rotate(-2deg);
+                                }
+                                50% {
+                                    transform: rotate(0deg);
+                                }
+                                75% {
+                                    transform: rotate(2deg);
+                                }
+                                100% {
+                                    transform: rotate(0deg);
+                                }
+                            }
+                        }
+                        .itemTxt {
+                            position: absolute;
+                            left: 200%;
+                            top: 0;
+                            width: 300%;
+                            opacity: 1;
+                            z-index: 1;
+                            transition: opacity 1s 1.5s linear;
+                            fieldset {
+                                // width: 100%;
+                                border: 3px solid #ffa492;
+                                padding: 10px;
+                                margin-bottom: 10px;
+                                // opacity: 0;
+                                transition: 2s ease-in-out;
+                                position: relative;
+                                cursor: auto;
+                                legend {
+                                    @include h4;
+                                    margin-bottom: 10px;
+                                    text-align: left;
+                                    padding: 0 10px;
+                                }
+                                >p {
+                                    @include p;
+                                    letter-spacing: 0.8px;
+                                    width: 100%;
+                                    padding: 0 10px;
+                                    transition: 2s ease-in-out;
+                                    text-align: left;
+                                    margin-bottom: 20px;
+                                }
+                                >img {
+                                    width: 20px;
+                                    height: 20px;
+                                    position: absolute;
+                                    right: 30px;
+                                    bottom: 10px;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                        .itemTxt.txtOpacityOne {
+                            opacity: 0;
+                            left: 3000px;
+                        }
+                        .itemImg.animationShack {
+                            animation: cardShack 2s infinite linear;
+                        }
+                    }
+                    .item:nth-child(1) {
+                        position: absolute;
+                        left: (100/4)+0%;
+                        transform: translateX(-50%);
+                    }
+                    .item:nth-child(2) {
+                        position: absolute;
+                        left: (200/4)+0%;
+                        transform: translateX(-50%);
+                    }
+                    .item:nth-child(3) {
+                        position: absolute;
+                        left: (300/4)+0%;
+                        transform: translateX(-50%);
+                    }
+                    .item.middle {
+                        left: 50%;
+                    }
+                    .item.left {
+                        left: 30%;
+                    }
+                }
+                .cardBtn {
+                    opacity: 0;
+                    width: 100%;
+                    margin: auto;
+                    bottom: 100px;
+                    text-align: center;
+                    position: absolute;
+                    transition: 2s;
+                    z-index: 2;
+                    &::before,
+                    &::after {
+                        cursor: pointer;
+                        content: '';
+                        display: inline-block;
+                        position: absolute;
+                        width: 30px;
+                        height: 30px;
+                        left: 50%;
+                        bottom: -50px;
+                        transform: translateX(-50%);
+                        background-image: url(../img/oracleCard/down_png.png);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center center;
+                        animation: downDown1 2s infinite ease-in-out;
+                    }
+                    &::after {
+                        bottom: -65px;
+                        animation: downDown2 2s infinite ease-in-out;
+                    }
+                    @keyframes downDown1 {
+                        0% {
+                            bottom: -50px;
+                        }
+                        50% {
+                            bottom: -65px;
+                        }
+                        100% {
+                            bottom: -50px;
+                        }
+                    }
+                    @keyframes downDown2 {
+                        0% {
+                            bottom: -65px;
+                        }
+                        50% {
+                            bottom: -85px;
+                        }
+                        100% {
+                            bottom: -65px;
+                        }
+                    }
+                    button {
+                        &:focus {
+                            display: none;
+                        }
+                        @include btn-modules($bw, $color-pink, 12px);
+                    }
+                }
+                #mediaCardBtn {
+                    cursor: pointer;
+                    position: absolute;
+                    bottom: 100px;
+                    left: 50%;
+                    bottom: 150px;
+                    text-decoration: underline;
+                    transform: translate(-50%, -50%);
+                    width: 300px;
+                    height: 35px;
+                    text-align: center;
+                    z-index: 3;
+                    opacity: 0;
+                }
+                .mediaCardBtnNone {
+                    display: none;
+                    opacity: 0;
+                    transition: opacity 1s;
+                }
+                .pAddOpacity {
+                    opacity: 1;
+                    transform: translateX(0);
+                    transition-delay: 2.5s;
+                }
+                // #getPhoto {
+                //     width: 100%;
+                //     height: 100px;
+                //     color: #f0f;
+                //     position: absolute;
+                //     bottom: -50px;
+                //     left: 0;
+                // }
+                // #cutPhoto {
+                //     position: absolute;
+                //     left: 0;
+                //     top: 0;
+                //     width: 100%;
+                //     height: 100%;
+                //     max-width: 300px;
+                //     max-height: 300px;
+                //     canvas {
+                //         // background-color: rgba(190, 190, 190, 0.37);
+                //         width: 100%;
+                //         height: 100%;
+                //     }
+                // }
+            }
+        }
+        .oracleCardRecommend {
+            width: 100%;
+            margin: auto;
+            background-image: linear-gradient(to bottom, #eddeff 0%, #d6ebfb 100%);
+            >.fp-tableCell {
+                >fieldset {
+                    width: 1200px;
+                    margin: auto;
+                    border: 3px solid #ffa492;
+                    padding: 10px;
+                    margin-bottom: 10px;
+                    >legend {
+                        @include h4;
+                        margin-bottom: 10px;
+                        text-align: left;
+                        padding: 0 10px;
+                    }
+                }
+            }
+            .share-dialog {
+                position: absolute;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 1440px) {
+    #oracleCard {
+        .oracleCardInner {
+            .oracleCardStepOne {
+                .oracleCardStepOneBox {
+                    .title {
+                        padding: 100px 0;
+                    }
+                    .cards {
+                        .item {
+                            .itemTxt {
+                                left: 150%;
+                                width: 300%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 1200px) {
+    #oracleCard {
+        .oracleCardInner {
+            .oracleCardBanner {
+                &::after {
+                    width: 500px;
+                    height: 500px;
+                }
+                .oracleCardBox {
+                    width: 700px;
+                    .title {
+                        &::before {
+                            left: -15%;
+                            top: 0px;
+                            width: 300px;
+                        }
+                        &::after {
+                            right: -17%;
+                            top: 115px;
+                            width: 300px;
+                            height: 205px;
+                        }
+                        h1 {
+                            &::before {
+                                right: -35%;
+                                top: -210%;
+                                opacity: 0;
+                            }
+                            &::after {
+                                width: 80px;
+                                height: 80px;
+                                right: -35%;
+                                opacity: 0;
+                            }
+                        }
+                    }
+                    .txt {
+                        &::before {
+                            top: -41%;
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .oracleCardInner {
+            .oracleCardStepOne {
+                .oracleCardStepOneBox {
+                    .cards {
+                        .item {
+                            .cardTxt {
+                                margin-left: 0;
+                            }
+                            .cardTxtLeft {
+                                left: 110%;
+                                top: 0;
+                            }
+                        }
+                        .item.left {
+                            left: 20%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title h1::after {
+        right: -42%;
+    }
+}
+
+@media screen and(max-width: 1000px) {
+    #oracleCard {
+        .oracleCardInner {
+            .oracleCardStep {
+                .stepBg {
+                    .showImg {
+                        width: 400px;
+                        .mainImg {
+                            left: 50px;
+                            top: 50px;
+                            max-width: 300px;
+                            max-height: 300px;
+                        }
+                    }
+                    .showTxt {
+                        width: 300px;
+                    }
+                }
+            }
+        }
+        .oracleCardInner {
+            .oracleCardStepOne {
+                .oracleCardStepOneBox {
+                    .cards {
+                        .item {
+                            width: 160px;
+                            .itemTxt {
+                                fieldset {
+                                    >p {
+                                        font-size: 14px;
                                     }
                                 }
                             }
-                            
-                            @media screen and(max-width: 1440px) {
-                                #oracleCard {
-                                    .oracleCardInner {
-                                        .oracleCardStepOne {
-                                            .oracleCardStepOneBox {
-                                                .title {
-                                                    padding: 100px 0;
-                                                }
-                                                .cards {
-                                                    .item {
-                                                        .itemTxt {
-                                                            left: 150%;
-                                                            width: 300%;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 900px) {
+    #oracleCard {
+        .oracleCardInner {
+            .oracleCardStepOne {
+                .oracleCardStepOneBox {
+                    .cards {
+                        .item {
+                            .itemTxt {
+                                left: 130%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 768px) {
+    #oracleCard {
+        .oracleCardInner {
+            .oracleCardBanner {
+                .oracleCardBox {
+                    bottom: 300px;
+                    width: 550px;
+                    .title {
+                        #forCloud::before {
+                            width: 400px;
+                            height: 400px;
+                            top: 150px;
+                        }
+                        #forCloud1::after {
+                            top: 220px;
+                            width: 350px;
+                            height: 150px;
+                        }
+                    }
+                    .txt {
+                        padding: 0px 130px 50px;
+                    }
+                }
+                .cardBtn {
+                    // display: none;
+                }
+            }
+            .oracleCardStepOne {
+                .oracleCardStepOneBox {
+                    .title {
+                        h2 {
+                            padding: 100px 0 100px;
+                        }
+                    }
+                    .cards {
+                        .item {
+                            .itemImg {
+                                top: 0px;
+                            }
+                            .itemTxt {
+                                top: 100px;
+                                opacity: 0;
+                                transition: opacity 1s;
+                                left: -50%;
+                                width: 540px;
+                                fieldset {
+                                    background: rgba(255, 255, 255, 0.8);
+                                    >p {
+                                        font-size: 12px;
                                     }
                                 }
                             }
-                            
-                            @media screen and(max-width: 1200px) {
-                                #oracleCard {
-                                    .oracleCardInner {
-                                        .oracleCardBanner {
-                                            &::after {
-                                                width: 500px;
-                                                height: 500px;
-                                            }
-                                            .oracleCardBox {
-                                                width: 700px;
-                                                .title {
-                                                    &::before {
-                                                        left: -15%;
-                                                        top: 0px;
-                                                        width: 300px;
-                                                    }
-                                                    &::after {
-                                                        right: -17%;
-                                                        top: 115px;
-                                                        width: 300px;
-                                                        height: 205px;
-                                                    }
-                                                    h1 {
-                                                        &::before {
-                                                            right: -35%;
-                                                            top: -210%;
-                                                            opacity: 0;
-                                                        }
-                                                        &::after {
-                                                            width: 80px;
-                                                            height: 80px;
-                                                            right: -35%;
-                                                            opacity: 0;
-                                                        }
-                                                    }
-                                                }
-                                                .txt {
-                                                    &::before {
-                                                        top: -41%;
-                                                        opacity: 0;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                    .oracleCardInner {
-                                        .oracleCardStepOne {
-                                            .oracleCardStepOneBox {
-                                                .cards {
-                                                    .item {
-                                                        .cardTxt {
-                                                            margin-left: 0;
-                                                        }
-                                                        .cardTxtLeft {
-                                                            left: 110%;
-                                                            top: 0;
-                                                        }
-                                                    }
-                                                    .item.left {
-                                                        left: 20%;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                #oracleCard .oracleCardInner .oracleCardBanner .oracleCardBox .title h1::after {
-                                    right: -42%;
-                                }
+                        }
+                        .item.left {
+                            left: 50%;
+                            width: 270px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #oracleCard {
+        .oracleCardInner {
+            .oracleCardStep {
+                .stepBg {
+                    display: flex;
+                    flex-direction: column-reverse;
+                    justify-content: flex-end;
+                    margin-top: 250px;
+                    align-items: center;
+                    padding-bottom: 100px;
+                    .showTxt {
+                        width: 500px;
+                        height: 12%;
+                        text-align: center;
+                        .txt {
+                            p {
+                                text-align: center;
                             }
-                            
-                            @media screen and(max-width: 1000px) {
-                                #oracleCard {
-                                    .oracleCardInner {
-                                        .oracleCardStep {
-                                            .stepBg {
-                                                .showImg {
-                                                    width: 400px;
-                                                    .mainImg {
-                                                        left: 50px;
-                                                        top: 50px;
-                                                        max-width: 300px;
-                                                        max-height: 300px;
-                                                    }
-                                                }
-                                                .showTxt {
-                                                    width: 300px;
-                                                }
-                                            }
-                                        }
-                                    }
-                                    .oracleCardInner {
-                                        .oracleCardStepOne {
-                                            .oracleCardStepOneBox {
-                                                .cards {
-                                                    .item {
-                                                        width: 160px;
-                                                        .itemTxt {
-                                                            fieldset {
-                                                                >p {
-                                                                    font-size: 14px;
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
+                        }
+                    }
+                    #mediaCardBtn {
+                        opacity: 1;
+                    }
+                    .cardBtn {
+                        // display: none;
+                        position: absolute;
+                        bottom: 85px;
+                    }
+                    .stepNum {
+                        flex-direction: row;
+                        width: 200px;
+                        margin-top: 50px;
+                        li {
+                            margin-bottom: 0;
+                            margin: 0 20px;
+                            &:not(:nth-child(1))::before {
+                                width: 85px;
+                                height: 2px;
+                                left: 0;
+                                top: 25px;
+                                opacity: 0;
                             }
-                            
-                            @media screen and(max-width: 900px) {
-                                #oracleCard {
-                                    .oracleCardInner {
-                                        .oracleCardStepOne {
-                                            .oracleCardStepOneBox {
-                                                .cards {
-                                                    .item {
-                                                        .itemTxt {
-                                                            left: 130%;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
+                        }
+                    }
+                }
+            }
+            .oracleCardStepOne {
+                .oracleCardStepOneBox {
+                    .cardBtn {
+                        bottom: 85px;
+                    }
+                }
+            }
+            .oracleCardRecommend{
+                .fp-tableCell>{
+                    fieldset{
+                        border:none;
+                    }
+                }
+            }
+        }
+    }
+}
+#oracleCard{
+   .owl-theme{
+        .owl-dots{
+            bottom:0px;
+        }
+    } 
+}
+
+
+@media screen and(max-width: 414px) {
+    #oracleCard {
+        .oracleCardInner {
+            .oracleCardBanner {
+                .oracleCardBox {
+                    bottom: 180px;
+                    width: 550px;
+                    .title {
+                        &::before {
+                            left: 10%;
+                            top: 200px;
+                        }
+                        &::after {
+                            right: -10%;
+                            top: 230px;
+                        }
+                    }
+                }
+            }
+            .oracleCardStep {
+                .stepBg {
+                    margin-top: 150px;
+                    .showImg {
+                        width: 250px;
+                        margin-bottom: 30px;
+                        .mainImg {
+                            left: 25px;
+                            top: 25px;
+                            max-width: 200px;
+                            max-height: 200px;
+                        }
+                    }
+                    .showTxt {
+                        .txt {
+                            p {
+                                margin: auto;
+                                width: 300px;
+                                padding: 0;
                             }
-                            
-                            @media screen and(max-width: 768px) {
-                                #oracleCard {
-                                    .oracleCardInner {
-                                        .oracleCardBanner {
-                                            .oracleCardBox {
-                                                bottom: 300px;
-                                                width: 550px;
-                                                .title {
-                                                    #forCloud::before {
-                                                        width: 400px;
-                                                        height: 400px;
-                                                        top: 150px;
-                                                    }
-                                                    #forCloud1::after {
-                                                        top: 220px;
-                                                        width: 350px;
-                                                        height: 150px;
-                                                    }
-                                                }
-                                                .txt {
-                                                    padding: 0px 130px 50px;
-                                                }
-                                            }
-                                            .cardBtn {
-                                                // display: none;
-                                            }
-                                        }
-                                        .oracleCardStepOne {
-                                            .oracleCardStepOneBox {
-                                                .title {
-                                                    h2 {
-                                                        padding: 100px 0 100px;
-                                                    }
-                                                }
-                                                .cards {
-                                                    .item {
-                                                        .itemImg {
-                                                            top: 0px;
-                                                        }
-                                                        .itemTxt {
-                                                            top: 100px;
-                                                            opacity: 0;
-                                                            transition: opacity 1s;
-                                                            left: -50%;
-                                                            width: 540px;
-                                                            fieldset {
-                                                                background: rgba(255, 255, 255, 0.8);
-                                                                >p {
-                                                                    font-size: 12px;
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                    .item.left {
-                                                        left: 50%;
-                                                        width: 270px;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                #oracleCard {
-                                    .oracleCardInner {
-                                        .oracleCardStep {
-                                            .stepBg {
-                                                display: flex;
-                                                flex-direction: column-reverse;
-                                                justify-content: flex-end;
-                                                margin-top: 250px;
-                                                align-items: center;
-                                                padding-bottom: 100px;
-                                                .showTxt {
-                                                    width: 500px;
-                                                    height: 12%;
-                                                    text-align: center;
-                                                    .txt {
-                                                        p {
-                                                            text-align: center;
-                                                        }
-                                                    }
-                                                }
-                                                #mediaCardBtn {
-                                                    opacity: 1;
-                                                }
-                                                .cardBtn {
-                                                    // display: none;
-                                                    position: absolute;
-                                                    bottom: 85px;
-                                                }
-                                                .stepNum {
-                                                    flex-direction: row;
-                                                    width: 200px;
-                                                    margin-top: 50px;
-                                                    li {
-                                                        margin-bottom: 0;
-                                                        margin: 0 20px;
-                                                        &:not(:nth-child(1))::before {
-                                                            width: 85px;
-                                                            height: 2px;
-                                                            left: 0;
-                                                            top: 25px;
-                                                            opacity: 0;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        .oracleCardStepOne {
-                                            .oracleCardStepOneBox {
-                                                .cardBtn {
-                                                    bottom: 85px;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
+                        }
+                    }
+                    .stepNum {
+                        margin-top: -10px;
+                    }
+                    .cardBtn {
+                        bottom: 10px;
+                    }
+                }
+            }
+            .oracleCardStepOne {
+                .oracleCardStepOneBox {
+                    .title {
+                        h2 {
+                            padding: 0;
+                            padding-bottom: 30px;
+                        }
+                    }
+                    .cards {
+                        .item {
+                            width: 100px;
+                            .itemImg {
+                                top: -85px;
                             }
-                            
-                            @media screen and(max-width: 414px) {
-                                #oracleCard {
-                                    .oracleCardInner {
-                                        .oracleCardBanner {
-                                            .oracleCardBox {
-                                                bottom: 180px;
-                                                width: 550px;
-                                                .title {
-                                                    &::before {
-                                                        left: 10%;
-                                                        top: 200px;
-                                                    }
-                                                    &::after {
-                                                        right: -10%;
-                                                        top: 230px;
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        .oracleCardStep {
-                                            .stepBg {
-                                                margin-top: 150px;
-                                                .showImg {
-                                                    width: 250px;
-                                                    margin-bottom: 30px;
-                                                    .mainImg {
-                                                        left: 25px;
-                                                        top: 25px;
-                                                        max-width: 200px;
-                                                        max-height: 200px;
-                                                    }
-                                                }
-                                                .showTxt {
-                                                    .txt {
-                                                        p {
-                                                            margin: auto;
-                                                            width: 300px;
-                                                            padding: 0;
-                                                        }
-                                                    }
-                                                }
-                                                .stepNum {
-                                                    margin-top: -10px;
-                                                }
-                                                .cardBtn {
-                                                    bottom: 10px;
-                                                }
-                                            }
-                                        }
-                                        .oracleCardStepOne {
-                                            .oracleCardStepOneBox {
-                                                .title {
-                                                    h2 {
-                                                        padding: 0;
-                                                        padding-bottom: 30px;
-                                                    }
-                                                }
-                                                .cards {
-                                                    .item {
-                                                        width: 100px;
-                                                        .itemImg {
-                                                            top: -85px;
-                                                        }
-                                                        .itemTxt {
-                                                            top: 10px;
-                                                            width: 360px;
-                                                            left: -17%;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
+                            .itemTxt {
+                                top: 10px;
+                                width: 360px;
+                                left: -17%;
                             }
+                        }
+                    }
+                }
+            }
+            .oracleCardRecommend{
+                .fp-tableCell>{
+                    fieldset{ 
+                        legend{
+                            margin-bottom:-20px
+                        }
+                        margin-bottom:-80px;
+                    }
+                }
+            }
+        }
+    }
+}
