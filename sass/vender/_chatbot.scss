@@ -39,12 +39,11 @@
     }
 }
 
-@media(max-width:500px) {
-    .icon-elements {
-        top: 0;
-    }
-}
-
+// @media(max-width:500px) {
+//     .icon-elements {
+//         top: 0;
+//     }
+// }
 .js-icon-active {
     background-color: white;
     width: 2px;
@@ -74,7 +73,7 @@
     border-radius: 15px;
     overflow: hidden;
     display: none;
-    z-index: 99;
+    z-index: 999;
 }
 
 .modal-header {
