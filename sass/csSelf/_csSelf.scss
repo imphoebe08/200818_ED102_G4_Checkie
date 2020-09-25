@@ -1,10 +1,12 @@
 @import '../csMain/style';
 @import './shareDialog';
+
 .csSelf {
     display: block;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+
     .csS-info {
         // border: 1px solid rgb(9, 11, 15);
         box-shadow: $boxshadow;
@@ -13,19 +15,22 @@
         display: flex;
         flex-flow: wrap row;
         align-items: center;
+
         .csS-info__image {
             flex: 0 0 300px;
             margin: 10px;
             border: 1px solid #ffa492;
             border-radius: 30px;
-            // overflow: hidden;
+            overflow: hidden;
             height: 416.74px;
+
             img {
                 width: 100%;
                 height: 80%;
                 object-position: top;
                 object-fit: cover;
             }
+
             h2 {
                 display: block;
                 margin: 0 auto;
@@ -33,6 +38,7 @@
                 padding: 10px 0;
             }
         }
+
         .csS-info__type {
             flex: 1 1 250px;
             height: 416.74px;
@@ -40,24 +46,29 @@
             border-radius: 30px;
             padding: 20px;
             margin: 0 10px;
+
             h3 {
                 display: block;
                 width: 100%;
                 text-align: center;
             }
+
             .csS-type__tag {
                 display: flex;
                 justify-content: center;
+
                 span {
                     flex: 0 0 100px;
                     text-align: center;
                     padding: 20px 0;
                 }
             }
+
             .inCs-chart {
                 width: 100%;
             }
         }
+
         .csS-info__hisEdu {
             border: 1px solid $color-pink;
             border-radius: 30px;
@@ -65,14 +76,17 @@
             height: 416.74px;
             margin: 10px;
             padding: 20px;
+
             ul {
                 padding: 0 0 10px;
                 overflow-y: auto;
                 max-height: 200px;
+
                 li {
                     text-indent: -8px;
                     padding-left: 15px;
                     line-height: 1.5rem;
+
                     i {
                         display: inline-block;
                         font-size: 10px;
@@ -84,11 +98,14 @@
                 }
             }
         }
+
         .csS-buttons {
             flex: 0 0 100%;
+
             .buttons {
                 display: flex;
                 justify-content: center;
+
                 button {
                     max-width: 120px;
                     height: 40px;
@@ -96,6 +113,7 @@
             }
         }
     }
+
     h2 {
         margin: 60px auto 10px;
     }
@@ -112,6 +130,7 @@
     flex-flow: nowrap row;
     justify-content: space-between;
     padding: 50px 0;
+
     .csS-art__card {
         overflow: hidden;
         flex: 1 1 300px;
@@ -121,18 +140,22 @@
         background: #fff;
         box-shadow: $boxshadow;
         height: 500px;
+
         a {
             display: block;
             color: black;
             cursor: pointer;
+
             img {
                 width: 100%;
                 height: 200px;
                 object-fit: cover;
             }
         }
+
         .card-Info {
             padding: 10px;
+
             .card-Info__times>img {
                 width: 14px;
                 height: 14px;
@@ -141,21 +164,25 @@
                 display: inline-block;
             }
         }
+
         p {
             line-height: 1.5em;
             padding: 5px 0;
             padding: 10px;
             cursor: pointer;
             height: 50px;
+
             &.small {
                 text-align: left;
                 height: 100px;
             }
         }
+
         .card-tag {
             flex-flow: nowrap row;
             margin: 20px 0;
             justify-content: flex-end;
+
             a {
                 flex: 1 0 80px;
                 max-width: 120px;
@@ -166,6 +193,7 @@
                 color: white;
             }
         }
+
         .card-share {
             display: flex;
             width: 100%;
@@ -174,8 +202,10 @@
             flex-flow: nowrap row;
             align-items: center;
             padding: 0 10px 10px 0;
+
             a {
                 margin: 5px;
+
                 img {
                     width: 20px;
                     height: 20px;
@@ -187,6 +217,7 @@
 
 .csS-act {
     margin: 10px 20px;
+
     img {
         width: 100%;
         border-radius: 20px;
@@ -205,10 +236,12 @@
 @media (max-width: 850px) {
     .csSelf {
         .csS-info {
+
             // flex-flow: nowrap column;
             .csS-info__type {
                 padding: 20px 5px;
             }
+
             .csS-buttons {
                 .buttons {
                     flex-flow: nowrap row;
@@ -224,21 +257,26 @@
             padding: 0px;
             margin: 0 10px;
             flex-flow: nowrap column;
+
             .csS-info__image {
                 margin: 0 auto;
                 order: 1;
             }
+
             .csS-info__type,
             .csS-info__hisEdu {
                 margin: 10px auto;
                 order: 3;
                 width: 100%;
             }
+
             .csS-info__hisEdu {
                 flex: 1 1 250px;
             }
+
             .csS-buttons {
                 order: 2;
+
                 .buttons {
                     flex-flow: wrap row;
                 }
@@ -262,6 +300,7 @@
                 flex: 0 1 auto;
             }
         }
+
         .csS-art>.csS-art__card {
             .card-tag>a {
                 font-size: 14px;
@@ -275,10 +314,12 @@
     max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
+
     .nonData {
         text-align: center;
         font-size: 1.5rem;
     }
+
     .csSelfAct-card {
         background: #fff;
         margin: 10px 0;
@@ -287,10 +328,12 @@
         overflow: hidden;
         position: relative;
         display: flex;
+
         .card-image {
             padding: 15.15% 0 0;
             position: relative;
             cursor: pointer;
+
             img {
                 position: absolute;
                 width: 100%;
@@ -300,21 +343,26 @@
                 object-fit: cover;
             }
         }
+
         .card-info {
             padding: 10px 10px 30px;
             position: relative;
+
             a {
                 color: black;
                 cursor: pointer;
+
                 h5 {
                     padding: 10px 0;
                 }
             }
+
             p {
                 margin: 10px 0;
                 padding: 10px 0;
                 line-height: 1.5rem;
             }
+
             .share-buttons {
                 display: flex;
                 width: 100%;
@@ -322,8 +370,10 @@
                 justify-content: flex-end;
                 flex-flow: nowrap row;
                 align-items: center;
+
                 a {
                     margin: 5px;
+
                     img {
                         width: 20px;
                         height: 20px;
@@ -331,6 +381,7 @@
                 }
             }
         }
+
         .joinBut {
             position: absolute;
             right: 1%;
@@ -339,10 +390,12 @@
             font-size: 18px;
             margin: 10px 0;
             @include btn-more($bw, $color-pink, $fontsize);
+
             a {
                 color: $color-pink;
                 cursor: pointer;
             }
+
             &:hover a {
                 color: white;
             }
@@ -354,9 +407,11 @@
     #csSelfAct {
         .slick-list {
             margin: 0 -10px;
+
             .slick-slide {
                 margin: 10px;
             }
+
             p {
                 display: block;
                 text-align: center;
@@ -370,14 +425,17 @@
     #csSelfAct {
         .csSelfAct-card {
             flex-flow: nowrap column;
+
             .card-image {
                 max-width: 100%;
                 padding: 60% 0 0;
+
                 img {
                     width: 100%;
                     height: 100%;
                 }
             }
+
             .card-info {
                 max-width: 100%;
             }
@@ -393,9 +451,11 @@
     justify-content: center;
     max-width: 1200px;
     margin: 0 auto 100px;
+
     .owl-stage {
         padding: 50px 0px;
     }
+
     .csSelfReco-card {
         margin: 0 10px;
         padding-bottom: 10px;
@@ -404,12 +464,14 @@
         border-radius: 20px;
         flex: 0 1 300px;
         overflow: hidden;
+
         .card__image {
             width: 100%;
             max-height: 250px;
             border-radius: 20px 20px 0 0;
             overflow: hidden;
             cursor: pointer;
+
             img {
                 width: 100%;
                 max-height: 250px;
@@ -417,23 +479,27 @@
                 object-fit: cover;
             }
         }
+
         .card__title {
             padding: 15px 10px;
             background: white;
             border-radius: 0 0 20px 20px;
             cursor: pointer;
+
             h5 {
                 a {
                     color: rgb(0, 0, 0);
                 }
             }
         }
+
         .card__info {
             padding: 5px 10px;
             background: white;
             border-radius: 20px 20px 20px 20px;
             height: 120px;
             overflow-y: auto;
+
             p {
                 line-height: 1.5rem;
             }
@@ -444,10 +510,12 @@
 @media (max-width: 800px) {
     #csSelfReco {
         height: 300px;
+
         .csSelfReco-card {
             .card__image {
                 cursor: pointer;
             }
+
             .card__info {
                 display: none;
                 border: 1px solid pink;
@@ -460,11 +528,13 @@
     #csSelfReco {
         height: auto;
         align-items: center;
+
         .csSelfReco-card {
             max-width: 300px;
             flex: 0 1 200px;
             margin: 0 auto;
             margin-top: 15px;
+
             .card__info {
                 border: none;
             }
