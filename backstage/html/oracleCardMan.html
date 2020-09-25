@@ -137,6 +137,7 @@
                 </div>
             </div>
         </div>
+        <!-- <img src="../img/oracleCard/photo.png" alt=""> -->
 
         <div class="container">
             <div class="col-md-12">
@@ -165,7 +166,7 @@
                         <div class="addPic">
                             <input type="file" ref="file" name="file" :id="file" @change="fileUpload($event,-1)" style="display:none;">
                             <label :for="file">神諭卡卡面
-                                <img :src="addCard.cardPic" alt="" style="width:200px; height:340px; display:block; border: 1px solid #333; cursor: pointer;" id="addCardBg">
+                                <img :src="addCard.cardPic || './img/oracleCard/photo.png'" alt="" style="width:200px; height:340px; display:block; border: 1px solid #333; cursor: pointer;" id="addCardBg">
                             </label>
                         </div>
 
