@@ -202,8 +202,8 @@ let vm = new Vue({
         csOCost: "",
         costEach: 1500,
         csOTime: {
-            date: "2020-09-28",
-            time: '09:00:00',
+            date: '',
+            time: '',
         },
         csHour: 1,
         csData: [],
@@ -234,299 +234,2064 @@ let vm = new Vue({
         ////////////
         today: new Date(),
         events: [{
-                title: "08:00-12:00",
-                date: "2020-09-20",
-                time1: "1",
-                time2: "1",
-                open: false
+                "title": "08:00-12:00",
+                "date": "2020-09-28",
+                "time1": "2",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "13:00-17:00",
-                date: "2020-09-20",
-                time1: "2",
-                time2: "2",
-                open: false
+                "title": "13:00-17:00",
+                "date": "2020-09-28",
+                "time1": "0",
+                "time2": "2",
+                "open": false
             },
             {
-                title: "18:00-22:00",
-                date: "2020-09-20",
-                time1: "0",
-                time2: "2",
-                open: false
+                "title": "18:00-22:00",
+                "date": "2020-09-28",
+                "time1": "0",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "08:00-12:00",
-                date: "2020-09-21",
-                time1: "0",
-                time2: "0",
-                open: false
+                "title": "08:00-12:00",
+                "date": "2020-09-29",
+                "time1": "0",
+                "time2": "2",
+                "open": false
             },
             {
-                title: "13:00-17:00",
-                date: "2020-09-21",
-                time1: "1",
-                time2: "0",
-                open: false
+                "title": "13:00-17:00",
+                "date": "2020-09-29",
+                "time1": "2",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "18:00-22:00",
-                date: "2020-09-21",
-                time1: "1",
-                time2: "1",
-                open: false
+                "title": "18:00-22:00",
+                "date": "2020-09-29",
+                "time1": "2",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "08:00-12:00",
-                date: "2020-09-22",
-                time1: "0",
-                time2: "1",
-                open: false
+                "title": "08:00-12:00",
+                "date": "2020-09-30",
+                "time1": "1",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "13:00-17:00",
-                date: "2020-09-22",
-                time1: "0",
-                time2: "0",
-                open: false
+                "title": "13:00-17:00",
+                "date": "2020-09-30",
+                "time1": "1",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "18:00-22:00",
-                date: "2020-09-22",
-                time1: "2",
-                time2: "2",
-                open: false
+                "title": "18:00-22:00",
+                "date": "2020-09-30",
+                "time1": "1",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "08:00-12:00",
-                date: "2020-09-23",
-                time1: "0",
-                time2: "2",
-                open: false
+                "title": "08:00-12:00",
+                "date": "2020-10-01",
+                "time1": "2",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "13:00-17:00",
-                date: "2020-09-23",
-                time1: "2",
-                time2: "1",
-                open: false
+                "title": "13:00-17:00",
+                "date": "2020-10-01",
+                "time1": "0",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "18:00-22:00",
-                date: "2020-09-23",
-                time1: "2",
-                time2: "2",
-                open: false
+                "title": "18:00-22:00",
+                "date": "2020-10-01",
+                "time1": "0",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "08:00-12:00",
-                date: "2020-09-24",
-                time1: "0",
-                time2: "2",
-                open: false
+                "title": "08:00-12:00",
+                "date": "2020-10-02",
+                "time1": "0",
+                "time2": "0",
+                "open": false
             },
             {
-                title: "13:00-17:00",
-                date: "2020-09-24",
-                time1: "0",
-                time2: "2",
-                open: false
+                "title": "13:00-17:00",
+                "date": "2020-10-02",
+                "time1": "2",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "18:00-22:00",
-                date: "2020-09-24",
-                time1: "2",
-                time2: "1",
-                open: false
+                "title": "18:00-22:00",
+                "date": "2020-10-02",
+                "time1": "1",
+                "time2": "0",
+                "open": false
             },
             {
-                title: "08:00-12:00",
-                date: "2020-09-25",
-                time1: "2",
-                time2: "0",
-                open: false
+                "title": "08:00-12:00",
+                "date": "2020-10-03",
+                "time1": "0",
+                "time2": "0",
+                "open": false
             },
             {
-                title: "13:00-17:00",
-                date: "2020-09-25",
-                time1: "0",
-                time2: "2",
-                open: false
+                "title": "13:00-17:00",
+                "date": "2020-10-03",
+                "time1": "1",
+                "time2": "0",
+                "open": false
             },
             {
-                title: "18:00-22:00",
-                date: "2020-09-25",
-                time1: "0",
-                time2: "2",
-                open: false
+                "title": "18:00-22:00",
+                "date": "2020-10-03",
+                "time1": "0",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "08:00-12:00",
-                date: "2020-09-26",
-                time1: "0",
-                time2: "0",
-                open: false
+                "title": "08:00-12:00",
+                "date": "2020-10-04",
+                "time1": "1",
+                "time2": "0",
+                "open": false
             },
             {
-                title: "13:00-17:00",
-                date: "2020-09-26",
-                time1: "2",
-                time2: "2",
-                open: false
+                "title": "13:00-17:00",
+                "date": "2020-10-04",
+                "time1": "0",
+                "time2": "2",
+                "open": false
             },
             {
-                title: "18:00-22:00",
-                date: "2020-09-26",
-                time1: "1",
-                time2: "2",
-                open: false
+                "title": "18:00-22:00",
+                "date": "2020-10-04",
+                "time1": "1",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "08:00-12:00",
-                date: "2020-09-27",
-                time1: "0",
-                time2: "0",
-                open: false
+                "title": "08:00-12:00",
+                "date": "2020-10-05",
+                "time1": "2",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "13:00-17:00",
-                date: "2020-09-27",
-                time1: "0",
-                time2: "2",
-                open: false
+                "title": "13:00-17:00",
+                "date": "2020-10-05",
+                "time1": "2",
+                "time2": "2",
+                "open": false
             },
             {
-                title: "18:00-22:00",
-                date: "2020-09-27",
-                time1: "1",
-                time2: "0",
-                open: false
+                "title": "18:00-22:00",
+                "date": "2020-10-05",
+                "time1": "0",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "08:00-12:00",
-                date: "2020-09-28",
-                time1: "2",
-                time2: "1",
-                open: false
+                "title": "08:00-12:00",
+                "date": "2020-10-06",
+                "time1": "0",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "13:00-17:00",
-                date: "2020-09-28",
-                time1: "0",
-                time2: "2",
-                open: false
+                "title": "13:00-17:00",
+                "date": "2020-10-06",
+                "time1": "2",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "18:00-22:00",
-                date: "2020-09-28",
-                time1: "0",
-                time2: "1",
-                open: false
+                "title": "18:00-22:00",
+                "date": "2020-10-06",
+                "time1": "0",
+                "time2": "0",
+                "open": false
             },
             {
-                title: "08:00-12:00",
-                date: "2020-09-29",
-                time1: "0",
-                time2: "2",
-                open: false
+                "title": "08:00-12:00",
+                "date": "2020-10-07",
+                "time1": "2",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "13:00-17:00",
-                date: "2020-09-29",
-                time1: "2",
-                time2: "1",
-                open: false
+                "title": "13:00-17:00",
+                "date": "2020-10-07",
+                "time1": "0",
+                "time2": "0",
+                "open": false
             },
             {
-                title: "18:00-22:00",
-                date: "2020-09-29",
-                time1: "2",
-                time2: "1",
-                open: false
+                "title": "18:00-22:00",
+                "date": "2020-10-07",
+                "time1": "1",
+                "time2": "0",
+                "open": false
             },
             {
-                title: "08:00-12:00",
-                date: "2020-09-30",
-                time1: "1",
-                time2: "1",
-                open: false
+                "title": "08:00-12:00",
+                "date": "2020-10-08",
+                "time1": "0",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "13:00-17:00",
-                date: "2020-09-30",
-                time1: "1",
-                time2: "1",
-                open: false
+                "title": "13:00-17:00",
+                "date": "2020-10-08",
+                "time1": "0",
+                "time2": "0",
+                "open": false
             },
             {
-                title: "18:00-22:00",
-                date: "2020-09-30",
-                time1: "1",
-                time2: "1",
-                open: false
+                "title": "18:00-22:00",
+                "date": "2020-10-08",
+                "time1": "2",
+                "time2": "0",
+                "open": false
             },
             {
-                title: "08:00-12:00",
-                date: "2020-10-01",
-                time1: "2",
-                time2: "1",
-                open: false
+                "title": "08:00-12:00",
+                "date": "2020-10-09",
+                "time1": "0",
+                "time2": "0",
+                "open": false
             },
             {
-                title: "13:00-17:00",
-                date: "2020-10-01",
-                time1: "0",
-                time2: "1",
-                open: false
+                "title": "13:00-17:00",
+                "date": "2020-10-09",
+                "time1": "2",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "18:00-22:00",
-                date: "2020-10-01",
-                time1: "0",
-                time2: "1",
-                open: false
+                "title": "18:00-22:00",
+                "date": "2020-10-09",
+                "time1": "0",
+                "time2": "1",
+                "open": false
             },
             {
-                title: "08:00-12:00",
-                date: "2020-10-02",
-                time1: "0",
-                time2: "0",
-                open: false
+                "title": "08:00-12:00",
+                "date": "2020-10-10",
+                "time1": "2",
+                "time2": "2",
+                "open": false
             },
             {
-                title: "13:00-17:00",
-                date: "2020-10-02",
-                time1: "2",
-                time2: "1",
-                open: false
+                "title": "13:00-17:00",
+                "date": "2020-10-10",
+                "time1": "0",
+                "time2": "2",
+                "open": false
             },
             {
-                title: "18:00-22:00",
-                date: "2020-10-02",
-                time1: "1",
-                time2: "0",
-                open: false
+                "title": "18:00-22:00",
+                "date": "2020-10-10",
+                "time1": "2",
+                "time2": "0",
+                "open": false
             },
             {
-                title: "08:00-12:00",
-                date: "2020-10-03",
-                time1: "0",
-                time2: "0",
-                open: false
+                "title": "08:00-12:00",
+                "date": "2020-10-11",
+                "time1": "1",
+                "time2": "2",
+                "open": false
             },
             {
-                title: "13:00-17:00",
-                date: "2020-10-03",
-                time1: "1",
-                time2: "0",
-                open: false
+                "title": "13:00-17:00",
+                "date": "2020-10-11",
+                "time1": "2",
+                "time2": "0",
+                "open": false
             },
             {
-                title: "18:00-22:00",
-                date: "2020-10-03",
-                time1: "0",
-                time2: "1",
-                open: false
+                "title": "18:00-22:00",
+                "date": "2020-10-11",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-12",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-12",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-12",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-13",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-13",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-13",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-14",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-14",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-14",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-15",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-15",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-15",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-16",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-16",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-16",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-17",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-17",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-17",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-18",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-18",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-18",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-19",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-19",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-19",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-20",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-20",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-20",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-21",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-21",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-21",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-22",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-22",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-22",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-23",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-23",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-23",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-24",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-24",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-24",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-25",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-25",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-25",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-26",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-26",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-26",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-27",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-27",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-27",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-28",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-28",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-28",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-29",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-29",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-29",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-30",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-30",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-30",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-10-31",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-10-31",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-10-31",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-01",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-01",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-01",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-02",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-02",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-02",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-03",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-03",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-03",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-04",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-04",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-04",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-05",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-05",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-05",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-06",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-06",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-06",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-07",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-07",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-07",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-08",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-08",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-08",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-09",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-09",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-09",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-10",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-10",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-10",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-11",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-11",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-11",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-12",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-12",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-12",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-13",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-13",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-13",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-14",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-14",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-14",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-15",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-15",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-15",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-16",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-16",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-16",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-17",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-17",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-17",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-18",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-18",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-18",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-19",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-19",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-19",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-20",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-20",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-20",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-21",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-21",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-21",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-22",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-22",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-22",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-23",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-23",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-23",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-24",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-24",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-24",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-25",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-25",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-25",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-26",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-26",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-26",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-27",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-27",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-27",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-28",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-28",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-28",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-29",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-29",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-29",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-11-30",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-11-30",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-11-30",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-01",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-01",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-01",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-02",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-02",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-02",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-03",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-03",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-03",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-04",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-04",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-04",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-05",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-05",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-05",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-06",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-06",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-06",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-07",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-07",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-07",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-08",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-08",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-08",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-09",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-09",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-09",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-10",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-10",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-10",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-11",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-11",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-11",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-12",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-12",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-12",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-13",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-13",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-13",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-14",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-14",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-14",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-15",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-15",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-15",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-16",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-16",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-16",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-17",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-17",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-17",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-18",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-18",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-18",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-19",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-19",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-19",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-20",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-20",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-20",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-21",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-21",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-21",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-22",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-22",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-22",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-23",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-23",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-23",
+                "time1": "2",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-24",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-24",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-24",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-25",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-25",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-25",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-26",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-26",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-26",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-27",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-27",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-27",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-28",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-28",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-28",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-29",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-29",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-29",
+                "time1": "0",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-30",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-30",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-30",
+                "time1": "2",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2020-12-31",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2020-12-31",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2020-12-31",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2021-01-01",
+                "time1": "0",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2021-01-01",
+                "time1": "0",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2021-01-01",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2021-01-02",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2021-01-02",
+                "time1": "1",
+                "time2": "1",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2021-01-02",
+                "time1": "1",
+                "time2": "2",
+                "open": false
+            },
+            {
+                "title": "08:00-12:00",
+                "date": "2021-01-03",
+                "time1": "1",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "13:00-17:00",
+                "date": "2021-01-03",
+                "time1": "2",
+                "time2": "0",
+                "open": false
+            },
+            {
+                "title": "18:00-22:00",
+                "date": "2021-01-03",
+                "time1": "1",
+                "time2": "2",
+                "open": false
             }
+
         ],
         tempTime: "",
 
@@ -542,13 +2307,13 @@ let vm = new Vue({
         axios.get('./php/coOrderModeType.php', { params: { 'coOrderModeType': coOrderModeType } })
             .then(res => {
                 this.coOrderModeType = res.data;
-                console.log(this.coOrderModeType);
+                //console.log(this.coOrderModeType);
             });
         //諮商師
         axios.get('./php/csCounselor.php', { params: { 'coOrderCsNo': coOrderCsNo } })
             .then(res => {
                 this.csData = res.data;
-                console.log(this.csData);
+                //console.log(this.csData);
             });
         //付費方式
         axios.get('./php/paymentMethod.php')
@@ -561,7 +2326,7 @@ let vm = new Vue({
             .then(res => {
                 if (res.data != "0") {
                     this.coMember = res.data;
-                    console.log(this.coMember);
+                    //console.log(this.coMember);
 
                     let telArray = res.data.memTel.split(',');
                     this.coMember.memTel = {
@@ -587,15 +2352,20 @@ let vm = new Vue({
         //月曆
         axios.get('./php/getCalender.php', { params: { 'csNo': coOrderCsNo } })
             .then(res => {
-                this.event = res.data;
-                // console.log(this.paymentMethod);
+                this.events = res.data;
+                //console.log(res.data);
+                //console.log(this.events);
             });
     },
     methods: {
-        // day(i) {
-
-        //     console.log(i);
-        // },
+        checkDay() {
+            //console.log(this.csOTime.date);
+            if (this.csOTime.date && this.csOTime.time) {
+                this.currentStep = 2;
+            } else {
+                alert('請選擇日期時段');
+            }
+        },
         memberCenter() {
             window.open('./meMain.html', "_self");
         },
@@ -681,6 +2451,9 @@ let vm = new Vue({
 
                     });
             });
+            this.csOTime.date = '';
+            this.csOTime.time = '';
+            console.log(this.csOTime.date);
 
         },
 
