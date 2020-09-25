@@ -1,6 +1,3 @@
-@import "../vender/reset";
-@import "../vender/var";
-@import "../vender/variable";
 @import "_ao_co_variable";
 @import "coCheck";
 @import "coCalender";
@@ -38,8 +35,6 @@ h6 {
 p {
     @include p;
 }
-
-
 
 .small {
     font-size: $fontsize - 2px;

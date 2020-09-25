@@ -1,6 +1,3 @@
-@import '../vender/reset';
-@import '../vender/var';
-@import '../vender/variable';
 h1 {
     @include h1;
 }
@@ -1170,24 +1167,24 @@ p {
                     }
                 }
             }
-            .oracleCardRecommend{
-                .fp-tableCell>{
-                    fieldset{
-                        border:none;
+            .oracleCardRecommend {
+                .fp-tableCell> {
+                    fieldset {
+                        border: none;
                     }
                 }
             }
         }
     }
 }
-#oracleCard{
-   .owl-theme{
-        .owl-dots{
-            bottom:0px;
-        }
-    } 
-}
 
+#oracleCard {
+    .owl-theme {
+        .owl-dots {
+            bottom: 0px;
+        }
+    }
+}
 
 @media screen and(max-width: 414px) {
     #oracleCard {
@@ -1261,11 +1258,11 @@ p {
                     }
                 }
             }
-            .oracleCardRecommend{
-                .fp-tableCell>{
-                    fieldset{ 
-                        legend{
-                            margin-bottom:-20px
+            .oracleCardRecommend {
+                .fp-tableCell> {
+                    fieldset {
+                        legend {
+                            margin-bottom: -20px
                         }
                         margin-bottom:-80px;
                     }

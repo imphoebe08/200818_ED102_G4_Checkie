@@ -1,5 +1,3 @@
-@import 'variable';
-@import 'var';
 @mixin circle($width, $hight, $left, $top, $deg) {
     width: $width;
     height: $hight;
