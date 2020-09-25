@@ -59,7 +59,7 @@
                             <c-stepper :step="1" v-if="currentStep==1" key="1">
                                 <div class="co-counselor co-counselor--style">
                                     <div class="co-counselor-pic ">
-                                        <img :src="csData.csPic" alt="John">
+                                        <img :src="csData.csPic" alt="">
                                     </div>
                                     <div class="co-counselor-text">
                                         <div>諮商心理師</div>
@@ -154,7 +154,7 @@
                                 <div class="row">
                                     <div class="col-12 co-button--style">
                                         <c-btn @click="update(currentStep-1)">prev</c-btn>
-                                        <c-btn @click="update(currentStep+1)">next</c-btn>
+                                        <c-btn @click="checkDay">next</c-btn>
                                     </div>
                                 </div>
 
@@ -173,7 +173,7 @@
                                         <div class="row">
                                             <div class=" col-md-12 col-4 co-counselor-pic">
                                                 <div class="co-counselor-content">
-                                                    <img :src="csData.csPic" alt="John">
+                                                    <img :src="csData.csPic" alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-12 col-8 co-counselor-text">
@@ -376,7 +376,7 @@
                                         <div class="row">
                                             <div class=" col-md-12 col-4 co-counselor-pic">
                                                 <div class="co-counselor-content">
-                                                    <img :src="csData.csPic" alt="John">
+                                                    <img :src="csData.csPic" alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-12 col-8 co-counselor-text">
@@ -528,7 +528,7 @@
                                         <div class="row">
                                             <div class=" col-md-12 col-4 co-counselor-pic">
                                                 <div class="co-counselor-content">
-                                                    <img :src="csData.csPic" alt="John">
+                                                    <img :src="csData.csPic" alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-12 col-8 co-counselor-text">
@@ -689,7 +689,7 @@
                                         <div class="row justify-content-center">
                                             <div class=" col-md-12 co-counselor-pic">
                                                 <div class="co-counselor-content">
-                                                    <img :src="csData.csPic" alt="John">
+                                                    <img :src="csData.csPic" alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-12 co-counselor-text">
