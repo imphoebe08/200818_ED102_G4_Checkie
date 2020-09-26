@@ -466,7 +466,7 @@ let login = new Vue({
                 }
                 xhr.open("get", "./php/logout.php", true);
                 xhr.send(null);
-                if (location.pathname == "/meMain.html") {
+                if (location.pathname == "/demo-projects/ED102/ED102G4/meMain.html") {
                     location.href = "./home.html";
 
                 }
@@ -475,7 +475,7 @@ let login = new Vue({
         nav_login2() {
             axios.get('./php/checkLogin.php')
                 .then((res) => {
-                    if (res.data) { 
+                    if (res.data) {
                         window.location.assign('./meMain.html');
                     } else {
                         $("#signup_overlay").removeClass("signup_overlay-none");
@@ -496,7 +496,7 @@ let login = new Vue({
         },
         getLoginInfo() {
             var infor = location.search;
-            if (infor.length > 20) {
+            if (infor.length > 30) {
                 $("#forgetForm").css("display", "block");
                 // infor.substring(1);
             } else {

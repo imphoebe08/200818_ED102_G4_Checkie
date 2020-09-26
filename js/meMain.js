@@ -1028,7 +1028,7 @@ let vm = new Vue({
             });
             axios.post("./php/bellAlert.php").then(res => {
                 this.bell = res.data;
-                console.log(this.bell)
+                //console.log(this.bell)
             })
             let data = `mesNo=${this.mesNo}&csNo=${this.chatCsNo}`;
             axios.post("./php/keepMes.php", data).then(res => {
