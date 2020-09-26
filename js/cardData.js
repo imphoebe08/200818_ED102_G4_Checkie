@@ -115,6 +115,8 @@ let vm = new Vue({
         axios.get('./php/acMain.php').then((res) => {
             this.contents = res.data
             console.log(res.data);
+            this.randArr(this.contents.length, this.contents)
+
             Vue.nextTick().then(function() {
                 vm.installOwlCarousel();
             });
