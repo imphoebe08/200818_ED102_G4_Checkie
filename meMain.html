@@ -905,7 +905,7 @@
                                             </div>
                                             <div class="mem-phy-go_button_contain">
                                                 <div class="col-12 col-md-6 offset-0 offset-md-6 mem-phy-go_button">
-                                                    <button class="button3">預約諮商</button>
+                                                    <a class="button3" href="./csMain.html">預約諮商</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -916,7 +916,7 @@
                                             <div class="row mem-inActCsSelfAct_block mem-csSelfAct_block--style">
                                                 <div class="mem-inActCsSelfAct--hide mem-inActCsSelfAct--hide--style">
                                                     <cssart-layout v-for="each in memArtRec" :love="each" @open-share-dialog="openShareDialog" v-if="memArtRec.length!=0"></cssart-layout>
-                                                    <div class="me_nothing_in_result me_no_rec" v-if="memArtRec.length==0">目前推薦文章，請先進行心理測驗</div>
+                                                    <div class="me_nothing_in_result me_no_rec" v-if="memArtRec.length==0">目前沒有推薦文章，請先進行心理測驗</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -929,7 +929,7 @@
                                                 <div class="mem-inActCsSelfAct--hide">
 
                                                     <inact-item v-for="each in memActRec" :love="each" @open-share-dialog="openShareDialog" v-if="memActRec.length!=0"></inact-item>
-                                                    <div class="me_nothing_in_result me_no_rec" v-if="memActRec.length==0">目前推薦活動，請先進行心理測驗</div>
+                                                    <div class="me_nothing_in_result me_no_rec" v-if="memActRec.length==0">目前沒有推薦活動，請先進行心理測驗</div>
                                                 </div>
                                             </div>
                                         </div>

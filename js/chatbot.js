@@ -21,6 +21,10 @@ $(function() {
             elementIcon.classList.add(CLASS_ICON_ACTIVE),
             elementModal.classList.add(CLASS_MODAL_ACTIVE)
         );
+        setTimeout(() => {
+            document.getElementById("modal-chatbox").scrollTop = document.getElementById("modal-chatbox").scrollHeight;
+
+        }, 1)
     }
 
     elementCircle.addEventListener('click', () => triggerAnimation());
@@ -86,6 +90,10 @@ new Vue({
                 .catch(error => {
                     console.log(error)
                 });
+            setTimeout(() => {
+                document.getElementById("modal-chatbox").scrollTop = document.getElementById("modal-chatbox").scrollHeight;
+
+            }, 1)
             this.serContent = "";
         },
         selectClass(data) {
@@ -93,9 +101,6 @@ new Vue({
         },
         time(data) {
             return data.substring(11, 16);
-        },
-        barDown() {
-            document.getElementById("modal-chatbox").scrollTop = document.getElementById("modal-chatbox").scrollHeight;
         },
     },
     computed: {
