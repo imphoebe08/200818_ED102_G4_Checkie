@@ -190,20 +190,22 @@ let acVue = new Vue({
     },
     mounted() {
         let actNo = location.href.split('?')[1].split('=')[1];
-        var vm = this;
+        // var vm = this;
         axios.get(`./php/acSelf.php?actNo=${actNo}`).then((res) => {
             this.contents = res.data
             console.log(this.contents)
+        }).then(() => {
+            axios.get('./php/acMain.php').then((res) => {
+                this.cards = res.data
+            }).then(() => {
+                Vue.nextTick().then(() => {
+                    this.installOwlCarousel();
+                });
+                this.checkMember();
+                this.firstChecked2();
+            })
         })
-        axios.get('./php/acMain.php').then((res) => {
-            this.cards = res.data
-                // console.log(res)
-            Vue.nextTick().then(function() {
-                vm.installOwlCarousel();
-            });
-            this.checkMember();
-            this.firstChecked2();
-        })
+
     },
     updated() {
         this.checkMember();
