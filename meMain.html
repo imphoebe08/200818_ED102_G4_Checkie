@@ -1096,7 +1096,7 @@
                                                 <div class="meChatSelect" v-if="windowSize>576 || !showChatRoom">
                                                     <div class="meChatPeople-scroll">
 
-                                                        <chat-person-each @change="changeCs" v-for="each in chatPersonEach" :init="each" @click.native="backToWho"></chat-person-each>
+                                                        <chat-person-each @change="changeCs" v-for="(each,index) in chatPersonEach" :init="each" :index="index" :bell="bell" @click.native="backToWho"></chat-person-each>
                                                     </div>
                                                 </div>
                                             </div>

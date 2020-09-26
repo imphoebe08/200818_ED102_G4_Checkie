@@ -21,8 +21,8 @@ try{
 
         //    setinterval 即時新增訊息
         $sql = "SET FOREIGN_KEY_CHECKS=0;
-        INSERT INTO `ed102g4`.`service` (`serFrom`, `serContent`, `serTime`, `memIP`, `admNo`) VALUES (0, :serContent, current_time(), 1, '0');
-        INSERT INTO `ed102g4`.`service` (`serFrom`, `serContent`, `serTime`, `memIP`, `admNo`) VALUES (1, :robContent, current_time(), 1, '0');
+        INSERT INTO `ed102g4`.`service` (`serFrom`, `serContent`, `serTime`, `memIP`, `admNo`) VALUES (0, :serContent, current_time(),$ip , '0');
+        INSERT INTO `ed02g4`.`service` (`serFrom`, `serContent`, `serTime`, `memIP`, `admNo`) VALUES (1, :robContent, current_time(), $ip, '0');
         SET FOREIGN_KEY_CHECKS=1;";
         // $sql = "INSERT INTO `ed102g4`.`service` (`serFrom`, `serContent`, `serTime`, `memIP`, `admNo`) VALUES (0, :serContent, current_time(), $ip, '0');";
         $serContent = $_REQUEST["serContent"];

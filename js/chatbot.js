@@ -76,7 +76,7 @@ new Vue({
         },
         submit() {
             var now = new Date().getHours(),
-                robContent = now > 18 ? "目前客服已下班" : "您好~歡迎";
+                robContent = now > 18 ? "目前客服已下班" : "您好~歡迎來到 Checkie";
 
             // if(now)
             axios.get(`./php/submitMes.php?serContent=${this.serContent}&robContent=${robContent}`)
