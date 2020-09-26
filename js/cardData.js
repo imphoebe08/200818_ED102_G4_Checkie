@@ -37,7 +37,7 @@ Vue.component('reSelectCard', {
     </div>
 
     `,
-    
+
     methods: {
         randArr(num, data) {
             for (var i = 0; i < num; i++) {
@@ -58,8 +58,8 @@ Vue.component('reSelectCard', {
 
 
     },
-    mounted(){
-        this.randArr(this.acContents.length,this.acContents)
+    mounted() {
+        this.randArr(this.acContents.length, this.acContents)
     },
     computed: {
 
@@ -84,6 +84,7 @@ let vm = new Vue({
             cardTitle: "",
             cardContent: ""
         }],
+        page4: false,
         // 打亂陣列
         cardsBack: ["./img/oracleCard/card_cover//cover_angel.png", "./img/oracleCard/card_cover/cover_heaven.png", "./img/oracleCard/card_cover/cover_illustration.png"],
         deckNo: "",
@@ -101,6 +102,7 @@ let vm = new Vue({
         this.randArr(this.cardsBack.length, this.cardsBack);
     },
     mounted() {
+        this.randArr(this.contents.length, this.contents);
         axios.get('./json/card.json')
             .then((res) => {
                 // this.cards = res.data;
@@ -113,6 +115,8 @@ let vm = new Vue({
         axios.get('./php/acMain.php').then((res) => {
             this.contents = res.data
             console.log(res.data);
+            this.randArr(this.contents.length, this.contents)
+
             Vue.nextTick().then(function() {
                 vm.installOwlCarousel();
             });
@@ -121,8 +125,18 @@ let vm = new Vue({
         axios.get('./json/acMain_comments.json').then((data) => {
             this.comments = data.data
         })
+        this.page4 = false;
     },
     methods: {
+        randArr(num, data) {
+            for (var i = 0; i < num; i++) {
+                var iRand = parseInt(num * Math.random());
+                var temp = data[i];
+                data[i] = data[iRand];
+                data[iRand] = temp;
+            }
+            return data;
+        },
         //截圖
         // getScreenshot() {
         //     // alert(123);
@@ -147,6 +161,7 @@ let vm = new Vue({
         cardChangeData(data) {
             //產生XMLHttpRequest物件
             // console.log(123)
+            this.page4 = true;
             let aaa = data;
             setTimeout(function() {
                 for (let index = 0; index < 3; index++) {
