@@ -150,3 +150,52 @@ $scrollTime: 1s;
         }
     }
 }
+
+@media screen and (max-width:1080px) {
+    .inArti-page__heading {
+        @include h5;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .inArti {
+        margin-top: 50px;
+        margin-bottom: 0;
+        h1 {
+            margin-bottom: 30px;
+        }
+    }
+    .owl-carousel {
+        .item {
+            .seRecommend-box_center {
+                margin: auto;
+                // width: 25%;
+                // padding: 0 45px;
+                display: inline-block;
+                .seRecommend-box-center_pic {
+                    width: 100%;
+                    >img {
+                        width: 80%;
+                        margin: auto;
+                    }
+                }
+                .seRecommend-box-center_name {
+                    // text-align: center;
+                    h2 {
+                        font-size: 24px;
+                        line-height: 2;
+                        color: black;
+                    }
+                }
+                .seRecommend-box-center_detail {
+                    width: 80%;
+                    font-size: 16px;
+                    font-weight: 300;
+                    color: black;
+                    line-height: 2;
+                    margin: auto;
+                }
+            }
+        }
+    }
+}

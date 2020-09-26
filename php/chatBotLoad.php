@@ -21,7 +21,7 @@ try{
 
            
         //    loadding內容
-        $sql = "select * from service  where memIp='1' order by serno desc limit 0,20;";
+        $sql = "select * from service  where memIp='$ip' order by serno desc limit 0,20;";
         // $sql = "select * from service  where memIp=$ip order by serno;";
 
         $message = $pdo->prepare($sql);

@@ -38,7 +38,7 @@ $space:300px;
 }
 
 .inAct {
-    padding-top: 100px;
+    padding-top: 0;
     .inAct_move {}
     .inAct_body {
         max-width: 100%;
@@ -53,6 +53,10 @@ $space:300px;
             justify-content: space-around;
             h1 {
                 @include title;
+                margin-bottom: -250px;
+                @media screen and (max-width: 500px) {
+                    margin-bottom: -50px;
+                }
             }
             .inAct_block {
                 padding-left: 20%;
@@ -60,6 +64,9 @@ $space:300px;
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
+                >div.acSelect.container-sm.container-md.bgUnset {
+                    background-color: unset;
+                }
                 .inAct_item {
                     background: #fff;
                     display: inline-block;
@@ -147,6 +154,7 @@ $space:300px;
             height: 100vh;
             .inAct-sticky_block {
                 position: static;
+                overflow: unset;
                 .inAct_block {
                     padding-left: 0;
                     width: 100%;

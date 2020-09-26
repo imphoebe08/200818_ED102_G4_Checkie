@@ -21,7 +21,7 @@ try{
 
         $serNo = $_REQUEST["serNo"];   
         //    setinterval 即時新增訊息
-        $sql = "select * from service  where memIp='1' and serNo >:serNo order by serno desc;";
+        $sql = "select * from service  where memIp='$ip' and serNo >:serNo order by serno desc;";
         // $sql = "select * from service  where memIp=$ip and serNo >:serNo order by serno desc;";
         
         $message = $pdo->prepare($sql);

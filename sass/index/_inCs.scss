@@ -1,19 +1,16 @@
 div.inCs_group {
     position: relative;
     height: 700px;
-    margin: 0 0 100px;
-
+    margin: 0;
     .inSc-h1 {
         @include title;
         display: block;
         margin: 0 auto;
         max-width: 208px;
-
-        @media screen and(max-width:768px) {
+        @media screen and(max-width: 768px) {
             max-width: 156px;
         }
     }
-
     div.inCs.inCs--large {
         width: 100%;
         max-width: 1200px;
@@ -22,7 +19,6 @@ div.inCs_group {
         left: 50%;
         transform: translate(-50%, -50%);
         border-radius: 1rem;
-
         ul.leftList {
             height: 500px;
             width: 45%;
@@ -35,7 +31,6 @@ div.inCs_group {
             overflow: hidden;
             border-radius: 1rem 0 0 1rem;
             box-shadow: -12px 0px 10px 3px rgba(117, 117, 117, 0.2);
-
             li {
                 padding: 20px 20px 0 30px;
                 width: 100%;
@@ -44,7 +39,6 @@ div.inCs_group {
                 left: -5%;
                 top: 0%;
                 background: white;
-
                 img {
                     display: block;
                     height: 70%;
@@ -52,17 +46,14 @@ div.inCs_group {
                     margin: 0 auto;
                     cursor: pointer;
                 }
-
                 &.move {
                     animation: leftToCenter 1s ease-in-out both;
                     z-index: 50;
                 }
-
                 h5 {
                     width: 100%;
                     @include h5;
                     padding: 0 10px;
-
                     &:after {
                         content: "";
                         display: block;
@@ -71,30 +62,25 @@ div.inCs_group {
                         background: $color-blue;
                     }
                 }
-
                 p {
                     @include p;
                     line-height: 1.5rem;
                     padding: 10px 10px 20px;
                 }
-
                 .inConselor__chart {
                     display: block;
                     margin: 0 auto;
                     width: 70%;
                 }
-
                 h1 {
                     padding: 0 10px;
                     @include h1;
                     display: block;
                     text-align: center;
-
                     a {
                         color: black;
                     }
                 }
-
                 button {
                     position: absolute;
                     bottom: 5%;
@@ -102,14 +88,12 @@ div.inCs_group {
                     transform: translate(-50%, 0);
                     margin: 10px;
                     @include btn-modules($bw, $color-pink, $fontsize);
-
                     a {
                         color: #fff;
                     }
                 }
             }
         }
-
         ul.rightList {
             height: 500px;
             width: 45%;
@@ -122,7 +106,6 @@ div.inCs_group {
             overflow: hidden;
             border-radius: 0 1rem 1rem 0;
             box-shadow: 12px 0px 10px 3px rgba(117, 117, 117, 0.2);
-
             li {
                 padding: 20px 30px 0 20px;
                 width: 100%;
@@ -131,24 +114,20 @@ div.inCs_group {
                 right: -5%;
                 top: 0%;
                 background: white;
-
                 img {
                     display: block;
                     height: 70%;
                     object-fit: cover;
                     margin: 0 auto;
                 }
-
                 &.move {
                     animation: rightToCenter 1s ease-in-out both;
                     z-index: 50;
                 }
-
                 h5 {
                     width: 100%;
                     @include h5;
                     padding: 0 20px;
-
                     &:after {
                         content: "";
                         display: block;
@@ -157,30 +136,25 @@ div.inCs_group {
                         background: $color-blue;
                     }
                 }
-
                 p {
                     @include p;
                     line-height: 1.5rem;
                     padding: 10px 20px 20px;
                 }
-
                 .inConselor__chart {
                     display: block;
                     margin: 0 auto;
                     width: 70%;
                 }
-
                 h1 {
                     padding: 0 10px;
                     @include h1;
                     display: block;
                     text-align: center;
-
                     a {
                         color: black;
                     }
                 }
-
                 button {
                     position: absolute;
                     bottom: 5%;
@@ -188,14 +162,12 @@ div.inCs_group {
                     transform: translate(-50%, 0);
                     margin: 10px;
                     @include btn-modules($bw, $color-pink, $fontsize);
-
                     a {
                         color: #fff;
                     }
                 }
             }
         }
-
         ul.slide-button {
             width: 100%;
             display: flex;
@@ -206,7 +178,6 @@ div.inCs_group {
             left: 50%;
             transform: translate(-50%, -50%);
             list-style: none;
-
             li.point {
                 width: 10px;
                 height: 10px;
@@ -215,7 +186,6 @@ div.inCs_group {
                 border-radius: 50%;
                 background: white;
                 cursor: pointer;
-
                 &.activeNow {
                     background: $color-pink;
                 }
@@ -228,7 +198,6 @@ div.inCs_group {
     from {
         left: -100%;
     }
-
     to {
         left: -5%;
     }
@@ -238,7 +207,6 @@ div.inCs_group {
     from {
         right: -100%;
     }
-
     to {
         right: -5%;
     }
@@ -246,7 +214,7 @@ div.inCs_group {
 
 div.inCs.swiper-container {
     padding: 10px;
-    max-height: 600px;
+    max-height: 650px;
     width: 250px;
     position: absolute;
     top: 50%;
@@ -254,46 +222,39 @@ div.inCs.swiper-container {
     transform: translate(-50%, -50%);
     border-radius: 1rem;
     margin: 50px auto;
-
     .inCs-under576 {
         display: flex;
         height: 100%;
         flex-flow: nowrap row;
-
         li.inCs-slide__item {
             background: white;
             border-radius: 30px;
             overflow: hidden;
-
             img {
                 display: block;
-                margin: 0 10px;
-                width: calc(100% - 20px);
-                height: 200px;
+                margin: 0 0px;
+                width: 100%;
                 object-position: top;
                 object-fit: cover;
+                cursor: pointer;
+                height: 200px;
                 padding-top: 10px;
                 border-radius: 30px 30px 0 0;
-                cursor: pointer;
             }
-
             h3 {
                 @include h3;
                 cursor: pointer;
                 text-align: center;
                 margin-top: 15px;
             }
-
             .inConselor__chart {
                 height: 200px;
                 width: 200px;
                 margin: 0 auto;
-
                 #chart {
                     bottom: 30px;
                     height: 200px !important;
                     min-height: 200px !important;
-
                     &>div,
                     &>div>div,
                     &>div>div>svg {
@@ -302,7 +263,6 @@ div.inCs.swiper-container {
                     }
                 }
             }
-
             button {
                 @include btn-more($bw, $color-pink, $fontsize);
                 display: block;

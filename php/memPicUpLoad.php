@@ -6,11 +6,13 @@
         } else {
             $from = $_FILES["memPic"]["tmp_name"];
             $to = "../img/user/" . $_FILES["memPic"]["name"];
-            $to2 = '../backstage/img/member/'.$_FILES["memPic"]["name"];
+            
+            $to2 = '../backstage/img/user/'.$_FILES["memPic"]["name"];
+            $to3 = "./img/user/" . $_FILES["memPic"]["name"];
             copy($from, $to);
             copy($from, $to2);
         
-            echo "$to";
+            
         }
     
         $sql = "UPDATE `member` SET `memPic` = :memPic 
@@ -19,9 +21,10 @@
         $memberOrder = $pdo->prepare($sql);
 
     
-        $memberOrder->bindValue(":memPic", $to);
+        $memberOrder->bindValue(":memPic", $to3);
         $memberOrder->bindValue(":memNo", $_POST["memNo"]);
         $memberOrder->execute();
+        echo 'aaaa';
     
         }catch(PDOException $e){
             echo $e->getMessage();

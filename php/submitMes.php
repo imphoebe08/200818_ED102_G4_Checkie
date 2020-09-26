@@ -18,11 +18,11 @@ try{
             return $cip;
            }
            $ip = GetIP();
-
+           echo $ip;
         //    setinterval 即時新增訊息
         $sql = "SET FOREIGN_KEY_CHECKS=0;
-        INSERT INTO `ed102g4`.`service` (`serFrom`, `serContent`, `serTime`, `memIP`, `admNo`) VALUES (0, :serContent, current_time(), 1, '0');
-        INSERT INTO `ed102g4`.`service` (`serFrom`, `serContent`, `serTime`, `memIP`, `admNo`) VALUES (1, :robContent, current_time(), 1, '0');
+        INSERT INTO `service` (`serFrom`, `serContent`, `serTime`, `memIP`, `admNo`) VALUES (0, :serContent, current_time(),'$ip' , '1');
+        INSERT INTO `service` (`serFrom`, `serContent`, `serTime`, `memIP`, `admNo`) VALUES (1, :robContent, current_time(), '$ip', '1');
         SET FOREIGN_KEY_CHECKS=1;";
         // $sql = "INSERT INTO `ed102g4`.`service` (`serFrom`, `serContent`, `serTime`, `memIP`, `admNo`) VALUES (0, :serContent, current_time(), $ip, '0');";
         $serContent = $_REQUEST["serContent"];

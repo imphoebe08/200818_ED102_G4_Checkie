@@ -11,38 +11,44 @@
      },
      components: {
          "inact-item": {
-             props: ["acContents"],
+             props: ["acContent"],
              template: `
-             <div id="acSelect" class="acSelect container-sm container-md">
-        <div class="acSelectCard" v-for="(acContent,index) in acContents">
-                <a :href="'./acSelf.html?actNo=' + acContent.actNo">
-                    <img :src="acContent.actpic1">
-                </a>
-            
-            <!-- 卡片文字 -->
-            <h6 class="acSelectCard_title"><a :href="'./acSelf.html?actNo=' + acContent.actNo">{{acContent.actName}}</a></h6>
-            
-            <!-- 卡片時間 -->
-            <div class="acSelectCard_icon">
-            </div>
-            <div class="acSelectCard_text">
-            <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
-            <p class="acSelectCard_time">活動日期：<br>{{acContent.actStart}} ~ <br>{{acContent.actEnd}}</p>
-            </div>
-            <div class="acSelectCard_text">
-                <img class="acSelectCard-time_icon"src="./img/icon/clock.png" alt="">
-                <p class="acSelectCard_time">報名截止日期：<br>{{acContent.actPend}}</p>
-            </div>
+                    <div class="acSelect container-sm container-md bgUnset">
+                        <div class="acSelectCard" >
+                            <a :href="'./acSelf.html?actNo=' + acContent.actNo">
+                                <img :src="acContent.actpic1">
+                            </a>
 
-            <div class="acSelectCard_bottomBlock">
-            <p class="acSelectCard_person"> 剩餘名額：{{acContent.actMax - acContent.actCount}}</p>
-            <a :href="'./aoCheck.html?actNo=' + acContent.actNo"><input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register"></a>
-            </div>
-        </div>
-        
-    </div>
+                            <!-- 卡片文字 -->
+                            <h6 class="acSelectCard_title"><a :href="'./acSelf.html?actNo=' + acContent.actNo">{{acContent.actName}}</a></h6>
+
+                            <!-- 卡片時間 -->
+                            <div class="acSelectCard_icon">
+                                <i class="fas fa-share-alt acSelectCard-share_icon share-button" style="font-size:20px" @click="openShareDialog(acContent.actNo)"></i>
+                                <i class="fas fa-bookmark acSelectCard-bookmark_icon" style="font-size:20px" :class="[{ colorful: acContent.isCollect }, 'icon']" @click="doCollected(index)"></i>
+                            </div>
+                            <div class="acSelectCard_text">
+                                <img class="acSelectCard-time_icon" src="./img/icon/clock.png" alt="">
+                                <p class="acSelectCard_time">活動日期：<br>{{acContent.actStart}} ~ <br>{{acContent.actEnd}}</p>
+                            </div>
+                            <div class="acSelectCard_text">
+                                <img class="acSelectCard-time_icon" src="./img/icon/clock.png" alt="">
+                                <p class="acSelectCard_time">報名截止日期：<br>{{acContent.actPend}}</p>
+                            </div>
+
+                            <div class="acSelectCard_bottomBlock">
+                                <p class="acSelectCard_person"> 剩餘名額：{{acContent.actMax - acContent.actCount}}</p>
+                                <a :href="'./aoCheck.html?actNo=' + acContent.actNo"><input id="acSelectCard_register" type="button" value="立即報名" class="acSelectCard_register"></a>
+                            </div>
+                        </div>
+                        
+                    </div>
                  `,
+             mounted() {
+
+             },
          },
+
      },
      //  rwd效果
      mounted() {
@@ -51,25 +57,28 @@
                  console.log(this.cards)
              })
              // 不要動
+
+         //  到這之後可以動
+     },
+     updated() {
          onWndLoad();
 
          function onWndLoad() {
 
-             var slider = document.querySelector('.inAct_block');
-             var sliders = slider.children;
+             var slider = document.querySelector('.inAct_block'),
+                 sliders = slider.children,
+                 initX = null,
+                 transX = 0,
+                 rotZ = 0,
+                 transY = 0,
+                 curSlide = null,
+                 Z_DIS = 50,
+                 Y_DIS = 10,
+                 images = document.querySelectorAll('inAct_item>a>img'),
+                 TRANS_DUR = 0.4;
              console.log(sliders)
-             var initX = null;
-             var transX = 0;
-             var rotZ = 0;
-             var transY = 0;
+                 // 關閉drag
 
-             var curSlide = null;
-
-             var Z_DIS = 50;
-             var Y_DIS = 10;
-             var TRANS_DUR = 0.4;
-             // 關閉drag
-             var images = document.querySelectorAll('inAct_item>a>img');
              for (var i = 0; i < images.length; i++) {
                  images[i].onmousemove = function(e) {
                      e.preventDefault()
@@ -145,7 +154,6 @@
                  var j = 1;
                  //remains elements
                  for (var i = sliders.length - 2; i >= 0; i--) {
-
                      sliders[i].style.webkitTransform = 'translateX(' + transX / (2 * j) + 'px)' +
                          ' rotateZ(' + rotZ / (2 * j) + 'deg)' + ' translateY(' + (Y_DIS * j) + 'px)' +
                          ' translateZ(' + (-Z_DIS * j) + 'px)';
@@ -222,6 +230,5 @@
 
 
          }
-         //  到這之後可以動
-     },
+     }
  })

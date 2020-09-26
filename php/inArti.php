@@ -1,7 +1,7 @@
 <?php  
 try{    
     require_once("./connectBook.php");//連結資料庫
-  $sql = " select artTitle,artPic2,concat(left(artContent,35*3),'...') 'artContent' from article where artBool=0 order by artDate desc limit 6,9";
+  $sql = " select  artTitle,artPic2,concat(left(artContent,35*3),'...') 'artContent',artNo from article where artBool=0  order by artNo limit 6,3 ;";
   $products = $pdo->query($sql);
   
   if( $products->rowCount()==0){ 

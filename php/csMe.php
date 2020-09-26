@@ -2,12 +2,13 @@
 try{
     session_start();
     require_once("./connectBook.php");
-    $sql = " select  b.csName ,b.csPic,b.csNo,max(a.memRead) 'memRead'
+    $sql = " select  b.csName ,b.csPic,b.csNo,max(a.mesNo) 'mesNo'
     from message a join counselor b 
     using(csNo)
-    where memNo=:memNo and mesFrom = 1
-    group by csNo
-    order by mesNo desc";
+    where memNo=:memNo
+    group by b.csName ,b.csPic,b.csNo
+    order by mesNo desc;
+";
     $message = $pdo->prepare($sql);
     // 正確做法
     $memNo = $_SESSION["memNo"];

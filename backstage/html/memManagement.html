@@ -74,7 +74,7 @@
                                     <td><input style="width: 60px;" type="text" placeholder="會員名稱"
                                             v-model.trim="value.memName" :class="'buttonGroup' + index" readonly></td>
                                     <td><input style="width: 60px;" type="text" placeholder="會員暱稱"
-                                            v-model.trim="value.memNickName" :class="'buttonGroup' + index" readonly></td>
+                                            v-model.trim="value.memNickname" :class="'buttonGroup' + index" readonly></td>
                                     <td><input style="width: 80px;" type="text" placeholder="會員生日"
                                             v-model.trim="value.memBD" :class="'buttonGroup' + index" readonly></td>
                                     <td><input style="width: 60px;" type="text" placeholder="會員職業"
@@ -90,7 +90,7 @@
                                     <td><input type="file" ref="file" name="file" :id="'file'+ index"
                                                 :class="'buttonGroup' + index" @change="fileUpload($event,index)"
                                                 style="display:none;" disabled>
-                                        <label :for="'file'+ index"><img :src="value.memPic" alt="照片"
+                                        <label :for="'file'+ index"><img :src="value.memPic || 'https://www.csmu.edu.tw/var/file/0/1000/plugin/mobile/pictures/linkdet_1567_64639_22966.jpg'" alt="照片"
                                                     style="object-fit: cover;width: 50px;height: 50px;"></label>
                                         </td>
                                     </td>

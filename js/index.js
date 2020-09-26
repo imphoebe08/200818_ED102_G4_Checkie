@@ -85,49 +85,31 @@ $(function() {
     }).to('.inBanner-fly_block:nth-child(2)', 0, {
         transition: "all 1s linear",
         clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
-
-
     });
-
     TweenMax.to('.inBanner-fix_img', 1, {
         delay: 2.2,
         opacity: 1,
     });
 });
-// 圈圈背景變化
 $(function() {
-    // 調圈圈顏色
-
-    // inAct
     var controller = new ScrollMagic.Controller();
-
-
     // 活動效果
     var stickmove = new TimelineMax();
-
-    // var parallax01 = TweenMax.to('.inArti-page-2>div', 1, { x: 0, y: 0, z: 0 });
-    // var parallax02 = TweenMax.to('.inArti-page-3>div', 1, { x: 0, y: 0, z: 0 });
-    // stickmove.add([parallax01, parallax02]);
     stickmove.to('.inArti-page-2>div', 4, { x: 0, y: 0, z: 0 }).to('.inArti-page-3>div', 4, { x: 0, y: 0, z: 0 })
-        // inArti-page-2
 
-
-    //固定住畫面
     var inArti = new ScrollMagic.Scene({
-            triggerElement: "#inArti",
+            triggerElement: "#trigger",
             offset: -130,
             triggerHook: 0,
-            duration: '200%'
-        }).setPin('.inArti').setTween(stickmove)
+            duration: '100%'
+        }).setPin('#inArti').setTween(stickmove)
         // .addIndicators({
         //     name: 'key_04'
         // })
         .addTo(controller);
-
-    // 超級分隔線
-
-
-
+})
+$(function() {
+    // 調圈圈顏色
     var t1 = TweenMax.to('.inBanner-circle', 2, { backgroundImage: "linear-gradient(135deg, #fddb92, #d1fdff)" });
     // 下面這個是大圈圈 因為有兩層 所以多寫一個css
     var t2 = TweenMax.to('.inBanner_bgImg>.inBanner-big_circle', 2, { backgroundImage: "linear-gradient(135deg, #fff, #fff), linear-gradient(135deg, #fddb92, #d1fdff)" });

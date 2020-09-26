@@ -9,7 +9,7 @@ try{
     $message2 = $pdo->prepare($sql2);
     // 正確做法
     $memNo = $_SESSION["memNo"];
-    $message->bindValue(":memNo", $memNo);
+    $message2->bindValue(":memNo", $memNo);
 
     // $message2->bindValue(":memNo", 1);
     $message2->bindValue(":csNo", $csNo);

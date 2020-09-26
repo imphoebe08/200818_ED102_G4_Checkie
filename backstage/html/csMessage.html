@@ -82,7 +82,8 @@
                     <!-- <transition name="coSlide" mode="out-in"> -->
                     <div class="meChatSelect" v-if="!select" :key="1">
                         <div class="meChatPeople-scroll">
-                            <chat-person-each @change="changeMem" v-for="each in chatPersonEach" :init="each" @click.native="backToSelect()"></chat-person-each>
+                            <!-- <chat-person-each @change="changeMem" v-for="each in chatPersonEach" :init="each" @click.native="backToSelect()"></chat-person-each> -->
+                            <chat-person-each @change="changeMem" v-for="(each,index) in chatPersonEach" :init="each" :index="index" :bell="bell" @click.native="backToSelect()"></chat-person-each>
 
                             <!-- <chat-person-each @change="changeCs" v-for="each in chatPersonEach" :init="each"></chat-person-each> -->
                             <!-- @click="sendCsNo" -->
@@ -171,33 +172,30 @@
     <script>
         //寫入資料庫
         Vue.component('chat-person-each', {
-            props: ["init"],
+            props: ["init", "index", "bell"],
             data() {
-                return {
-                    each: this.init,
-                }
+                return {}
             },
             template: `
                         <div class="meChatPeople-each" @click="sendMemNo">
                             <div class="meChatPeople">
-                                <div class="meChatOnline"><i :class="bell" ></i></div>
-                                <div class="meChatPeople-pic"><img :src="each.memPic" alt=""></div>
-                                <div class="meChatPeople-name">{{each.memName}}</div>
+                                <div class="meChatOnline"><i :class="bellF" ></i></div>
+                                <div class="meChatPeople-pic"><img :src="init.memPic" alt=""></div>
+                                <div class="meChatPeople-name">{{init.memName}}</div>
                                 <!-- <div class="meChatPeople-title">諮商師</div> -->
                             </div>
-                            <div class="meChatDelete"><i class="fas fa-trash-alt"></i></div>
                         </div>
 
                 `,
             methods: {
                 sendMemNo() {
-                    this.$emit("change", this.each.memNo)
+                    this.$emit("change", this.init.memNo)
                 },
             },
             computed: {
-                bell() {
+                bellF() {
                     // 改 sass
-                    return (this.init.memRead == "0") ? "fas fa-bell" : "fas fa-bell alert";
+                    return (this.bell[this.index].memRead == "0") ? "fas fa-bell" : "fas fa-bell alert";
                 },
             },
         });
@@ -232,6 +230,7 @@
         let vm = new Vue({
             el: "#app ",
             data: {
+                bell: "",
                 select: false,
                 mesNo: "",
                 chatMemNo: "",
@@ -243,6 +242,14 @@
 
             },
             methods: {
+                bellAlert() {
+                    // 聊天對象欄
+                    axios.post("./php/bellAlert2.php").then(res => {
+                        //console.log(res.data)
+                        this.bell = res.data;
+                        console.log(this.bell)
+                    })
+                },
                 backToSelect() {
                     this.select = true;
                 },
@@ -289,13 +296,18 @@
 
             },
             mounted() {
+                this.bellAlert();
                 this.csMe();
                 setInterval(() => {
                     axios.post("./php/meCs.php").then(res => {
                         // console.log(res.data)
                         this.chatPersonEach = res.data;
                     });
-
+                    axios.post("./php/bellAlert2.php").then(res => {
+                        //console.log(res.data)
+                        this.bell = res.data;
+                        console.log(this.bell)
+                    })
                     let data = `mesNo=${this.mesNo}&memNo=${this.chatMemNo}`;
                     axios.post("./php/keepMes2.php", data).then(res => {
                         // console.log(res.data);

@@ -358,26 +358,25 @@ Vue.component('cssart-layout', {
 
 // jiand start()
 Vue.component('chat-person-each', {
-    props: ["init"],
+    props: ["init", "index", "bell"],
     data() {
         return {}
     },
     template: `
     <div class="meChatPeople-each" @click="sendCsNo">
         <div class="meChatPeople">
-            <div class="meChatOnline"><i :class="bell" ></i></div>
+            <div class="meChatOnline"><i :class="bellF" ></i></div>
             <div class="meChatPeople-pic"><img :src="init.csPic"></div>
             <div class="meChatPeople-name">{{init.csName}}</div>
             <!-- <div class="meChatPeople-title">諮商師</div> -->
         </div>
-
     </div>
 
     `,
     computed: {
-        bell() {
+        bellF() {
             // 改 sass
-            return (this.init.memRead == "0") ? "fas fa-bell" : "fas fa-bell alert";
+            return (this.bell[this.index].memRead == "0") ? "fas fa-bell" : "fas fa-bell alert";
         },
     },
     methods: {
@@ -413,6 +412,9 @@ Vue.component('me-chat-an', {
         </div>
     </div>
     `,
+    computed: {
+
+    },
     methods: {},
 });
 //<div class="meChatAn-select"><i class="fas fa-ellipsis-h"></i></div>
@@ -433,6 +435,7 @@ let vm = new Vue({
         // jiang start()
         mesNo: "",
         chatCsNo: "",
+        bell: "",
         // jiang end()
         // 分享加這個
         shareUrl: "https://tw.yahoo.com/?", //傳送的文章或活動主連結
@@ -623,6 +626,14 @@ let vm = new Vue({
                 this.chatPersonEach = res.data;
             })
         },
+        bellAlert() {
+            // 聊天對象欄
+            axios.post("./php/bellAlert.php").then(res => {
+                //console.log(res.data)
+                this.bell = res.data;
+                console.log(this.bell)
+            })
+        },
 
 
 
@@ -636,6 +647,7 @@ let vm = new Vue({
 
         },
         changeCs(csNo) {
+            console.log(csNo)
             let data_info = `csNo=${csNo}`;
             axios.post("./php/changeCs.php", data_info).then(res => {
                 this.meChatAn = [];
@@ -1007,13 +1019,17 @@ let vm = new Vue({
         // jiang start()
         this.firstChat();
         this.csMe();
+        this.bellAlert()
         setInterval(() => {
             // 聊天欄
             axios.post("./php/csMe.php").then(res => {
                 // console.log(res.data)
                 this.chatPersonEach = res.data;
             });
-            // 聊天室窗
+            axios.post("./php/bellAlert.php").then(res => {
+                this.bell = res.data;
+                //console.log(this.bell)
+            })
             let data = `mesNo=${this.mesNo}&csNo=${this.chatCsNo}`;
             axios.post("./php/keepMes.php", data).then(res => {
                 // console.log(res.data);
