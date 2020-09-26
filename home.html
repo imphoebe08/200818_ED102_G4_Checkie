@@ -20,19 +20,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js "></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <!-- navbar js -->
     <!-- --------- -->
-    <script src="./js/index.js"></script>
     <title>index</title>
     <style type="text/css">
         .st0 {
             fill: url(#SVGID_1_);
         }
-
+        
         .st1 {
             fill: url(#SVGID_2_);
         }
-
+        
         .st2 {
             fill: url(#SVGID_3_);
         }
@@ -71,9 +73,7 @@
         <!-- logo 特校 -->
         <div class="inBanner-logo_block">
             <div class="inBanner-logo">
-                <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 259 210"
-                    style="enable-background:new 0 0 259 210;" xml:space="preserve" class="inBanner-hide_svg">
+                <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 259 210" style="enable-background:new 0 0 259 210;" xml:space="preserve" class="inBanner-hide_svg">
                     <g>
                         <!-- 漸層色 -->
                         <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="118.2956" y1="33.1352"
@@ -235,7 +235,12 @@
                 <h1>活動講座</h1>
                 <div class="inAct_block">
                     <!-- vue -->
-                    <inact-item :ac-contents="cards"></inact-item>
+                    <inact-item :ac-content="cards[0]"></inact-item>
+                    <inact-item :ac-content="cards[1]"></inact-item>
+                    <inact-item :ac-content="cards[2]"></inact-item>
+                    <inact-item :ac-content="cards[3]"></inact-item>
+                    <inact-item :ac-content="cards[4]"></inact-item>
+                    <inact-item :ac-content="cards[5]"></inact-item>
 
                 </div>
             </div>
@@ -243,24 +248,26 @@
     </div>
     <script src="./js/inAct.js"></script>
 
-
-    <div class="inArti" id="inArti">
+    <div id="trigger" style="background-color: aqua;"></div>
+    <div class="inArti" id="inArti" v-show="winWidth > 768">
         <h1>專欄文章</h1>
 
         <div class="inArti-pages" id="inArti-pages">
+
             <div class="inArti-page inArti-page-1 active">
                 <div class="inArti-page__half inArti-page__half--left">
                     <div class="inArti-page__skewed">
-                        <a href="javascript:void(0)" class="inArti-page__content">
+                        <a :href="artiUrl(Arti[0].artNo)" class="inArti-page__content">
                             <img :src="Arti[0].artPic2">
                         </a>
                     </div>
                 </div>
                 <div class="inArti-page__half inArti-page__half--right">
                     <div class="inArti-page__skewed">
-                        <a href="javascript:void(0)" class="inArti-page__content">
-                            <h2 class="inArti-page__heading">{{Arti[0].artTitle}}</h2>
-                            <p class="inArti-page__description">{{Arti[0].artContent}}</p>
+                        <a :href="artiUrl(Arti[0].artNo)" class="inArti-page__content">
+                            <h2 class="inArti-page__heading">{{Arti[0].artTitle.substring(0,12)}}</h2>
+                            <h2 class="inArti-page__heading">{{Arti[0].artTitle.substring(12)}}</h2>
+                            <p class="inArti-page__description" v-show="winWidth >= 1080">{{Arti[0].artContent}}</p>
                         </a>
                     </div>
                 </div>
@@ -268,15 +275,16 @@
             <div class="inArti-page inArti-page-2">
                 <div class="inArti-page__half inArti-page__half--left">
                     <div class="inArti-page__skewed">
-                        <a href="javascript:void(0)" class="inArti-page__content">
-                            <h2 class="inArti-page__heading">{{Arti[1].artTitle}}</h2>
-                            <p class="inArti-page__description">{{Arti[1].artContent}}</p>
+                        <a :href="artiUrl(Arti[1].artNo)" class="inArti-page__content">
+                            <h2 class="inArti-page__heading">{{Arti[1].artTitle.substring(0,12)}}</h2>
+                            <h2 class="inArti-page__heading">{{Arti[1].artTitle.substring(12)}}</h2>
+                            <p class="inArti-page__description" v-show="winWidth >= 1080">{{Arti[1].artContent}}</p>
                         </a>
                     </div>
                 </div>
                 <div class="inArti-page__half inArti-page__half--right">
                     <div class="inArti-page__skewed">
-                        <a href="javascript:void(0)" class="inArti-page__content">
+                        <a :href="artiUrl(Arti[1].artNo)" class="inArti-page__content">
                             <img :src="Arti[1].artPic2">
                         </a>
                     </div>
@@ -285,21 +293,28 @@
             <div class="inArti-page inArti-page-3">
                 <div class="inArti-page__half inArti-page__half--left">
                     <div class="inArti-page__skewed">
-                        <a href="javascript:void(0)" class="inArti-page__content">
+                        <a :href="artiUrl(Arti[2].artNo)" class="inArti-page__content">
                             <img :src="Arti[2].artPic2">
                         </a>
                     </div>
                 </div>
                 <div class="inArti-page__half inArti-page__half--right">
                     <div class="inArti-page__skewed">
-                        <a href="javascript:void(0)" class="inArti-page__content">
-                            <h2 class="inArti-page__heading">{{Arti[2].artTitle}}</h2>
-                            <p class="inArti-page__description">{{Arti[2].artContent}}</p>
+                        <a :href="artiUrl(Arti[2].artNo)" class="inArti-page__content">
+                            <h2 class="inArti-page__heading">{{Arti[2].artTitle.substring(0,12)}}</h2>
+                            <h2 class="inArti-page__heading">{{Arti[2].artTitle.substring(12)}}</h2>
+                            <p class="inArti-page__description" v-show="winWidth >= 1080">{{Arti[2].artContent}}</p>
                         </a>
                     </div>
                 </div>
             </div>
 
+        </div>
+    </div>
+    <div class="inArti" id="inArti2" v-show="winWidth <= 768">
+        <h1>專欄文章</h1>
+        <div class="owl-carousel owl-theme">
+            <boxcenter :pus="each" v-for="each in Arti"></boxcenter>
         </div>
     </div>
     <script src="./js/inArti.js"></script>
@@ -387,39 +402,49 @@
             <!-- 單圖 -->
             <div class="inAbout_block inAbout-show">
                 <a href="javascript:void(0)" class="inAbout-page_block">
-                    <img :src="imgUrl" class="inAbout-page_pic_1">
+                    <img :src="about[about_nowNum].imgUrl1" class="inAbout-page_pic_1">
                 </a>
             </div>
             <!-- 4圖 -->
             <div class="inAbout_block">
                 <div class="inAbout-slide_grid">
                     <a href="javascipr:void(0)" class="inAbout-grid_block">
-                        <img :src="imgUrl" class="inAbout-grid_pic_1">
+                        <img :src="about[about_nowNum].imgUrl2" class="inAbout-grid_pic_1">
                     </a>
                 </div>
                 <div class="inAbout-slide_grid">
                     <a href="javascipr:void(0)" class="inAbout-grid_mini_block">
-                        <img :src="imgUrl" class="inAbout-grid_pic_2">
+                        <img :src="about[about_nowNum].imgUrl3" class="inAbout-grid_pic_2">
                     </a>
                     <a href="javascipr:void(0)" class="inAbout-grid_mini_block">
-                        <img :src="imgUrl" class="inAbout-grid_pic_2">
+                        <img :src="about[about_nowNum].imgUrl4" class="inAbout-grid_pic_2">
                     </a>
                     <a href="javascipr:void(0)" class="inAbout-grid_mini_block">
-                        <img :src="imgUrl" class="inAbout-grid_pic_2">
+                        <img :src="about[about_nowNum].imgUrl5" class="inAbout-grid_pic_2">
                     </a>
                     <a href="javascipr:void(0)" class="inAbout-grid_mini_block">
-                        <img :src="imgUrl" class="inAbout-grid_pic_2">
+                        <img :src="about[about_nowNum].imgUrl6" class="inAbout-grid_pic_2">
                     </a>
                     <inabout-grid-line></inabout-grid-line>
                 </div>
-                <inabout-slide-grid></inabout-slide-grid>
-                <inabout-slide-grid></inabout-slide-grid>
+                <div class="inAbout-slide_grid">
+                    <a href="javascipr:void(0)" class="inAbout-grid_block">
+                        <img :src="about[about_nowNum].imgUrl7" class="inAbout-grid_pic_1">
+                    </a>
+                </div>
+                <div class="inAbout-slide_grid">
+                    <a href="javascipr:void(0)" class="inAbout-grid_block">
+                        <img :src="about[about_nowNum].imgUrl8" class="inAbout-grid_pic_1">
+                    </a>
+                </div>
                 <inabout-grid-line></inabout-grid-line>
             </div>
             <!-- 是否再做一組? -->
 
         </div>
     </div>
+    <script src="./js/index.js"></script>
+
     <script>
         // 關於我們
         new Vue({
@@ -436,19 +461,43 @@
                     place: '臺北市大安區忠孝東路三段5樓之2',
                     Weekdays: "星期一-星期五 10AM-10PM",
                     Weekend: "星期六-星期日 10AM-9PM",
-                    tel: "02-1109-8885"
+                    tel: "02-1109-8885",
+                    imgUrl1: "./img/index/inAbout/northenvir/nenvir01.jpg",
+                    imgUrl2: "./img/index/inAbout/northenvir/nenvir02.jpg",
+                    imgUrl3: "./img/index/inAbout/northenvir/nenvir03.jpg",
+                    imgUrl4: "./img/index/inAbout/northenvir/nenvir04.jpg",
+                    imgUrl5: "./img/index/inAbout/northenvir/nenvir05.jpg",
+                    imgUrl6: "./img/index/inAbout/northenvir/nenvir06.jpg",
+                    imgUrl7: "./img/index/inAbout/northenvir/nenvir07.jpg",
+                    imgUrl8: "./img/index/inAbout/northenvir/nenvir08.jpg",
                 }, {
                     area: '中',
                     place: '台中',
                     Weekdays: "星期二-星期五 11AM-10PM",
                     Weekend: "星期六 10AM-9PM",
-                    tel: "04-1109-8885"
+                    tel: "04-1109-8885",
+                    imgUrl1: "./img/index/inAbout/centerenvir/centerenvir01.jpg",
+                    imgUrl2: "./img/index/inAbout/centerenvir/centerenvir02.jpg",
+                    imgUrl3: "./img/index/inAbout/centerenvir/centerenvir03.jpg",
+                    imgUrl4: "./img/index/inAbout/centerenvir/centerenvir04.jpg",
+                    imgUrl5: "./img/index/inAbout/centerenvir/centerenvir05.jpg",
+                    imgUrl6: "./img/index/inAbout/centerenvir/centerenvir06.jpg",
+                    imgUrl7: "./img/index/inAbout/centerenvir/centerenvir07.jpg",
+                    imgUrl8: "./img/index/inAbout/centerenvir/centerenvir08.jpg",
                 }, {
                     area: '南',
                     place: '高雄',
                     Weekdays: "星期一-星期五 11AM-10PM",
                     Weekend: "星期六-星期日 10AM-9PM",
-                    tel: "07-1109-8885"
+                    tel: "07-1109-8885",
+                    imgUrl1: "./img/index/inAbout/southenvir/southenvir01.jpg",
+                    imgUrl2: "./img/index/inAbout/southenvir/southenvir02.jpg",
+                    imgUrl3: "./img/index/inAbout/southenvir/southenvir03.jpg",
+                    imgUrl4: "./img/index/inAbout/southenvir/southenvir04.jpg",
+                    imgUrl5: "./img/index/inAbout/southenvir/southenvir05.jpg",
+                    imgUrl6: "./img/index/inAbout/southenvir/southenvir06.jpg",
+                    imgUrl7: "./img/index/inAbout/southenvir/southenvir07.jpg",
+                    imgUrl8: "./img/index/inAbout/southenvir/southenvir08.jpg",
                 }, ],
 
 

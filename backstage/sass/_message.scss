@@ -278,6 +278,9 @@
 }
 
 .me-page-title {
+    position: sticky;
+    top: -5px;
+    background-color: #fff;
     margin-bottom: 5px;
     padding: 10px 0;
     border-bottom: 1px solid #f2eee7;

@@ -240,7 +240,7 @@
         }
     }
     .inCard {
-        overflow: hidden;
+        overflow-x: hidden;
         .inCard_block {
             .inCard_body {
                 >div.inCard_item {
@@ -296,7 +296,7 @@
 
 @media all and (max-width:768px) {
     .inCard {
-        margin: 0;
+        margin-top: 50px;
         .inCard_block {
             .inCard_body {
                 >div.inCard_item {

@@ -33,28 +33,44 @@ Vue.component("boxcenter", {
 new Vue({
     el: "#inArti",
     data: {
-        Arti: [{
-            author: "溫在涵",
-            date: "JUL 20,2020",
-            category: "人際關係",
-            title: "品格出眾的人，都懂得避開「巴納姆效應」",
-            content: "有一個朋友，什麼感情上的疑難雜症全都依賴星座命盤去分析，還常常對我們其他朋友說，「我以前也沒那麼信星座，但有時候真的很準。」The post 品格出眾的人，都懂得避開「巴納姆效應」心理陷阱 appeared first on A Day Magazine....",
+        Arti: "",
+        winWidth: "",
 
-        }, {
-            author: "溫在涵",
-            date: "JUL 20,2020",
-            category: "人際關係",
-            title: "品格出眾的人，都懂得避開「巴納姆效應」",
-            content: "有一個朋友，什麼感情上的疑難雜症全都依賴星座命盤去分析，還常常對我們其他朋友說，「我以前也沒那麼信星座，但有時候真的很準。」The post 品格出眾的人，都懂得避開「巴納姆效應」心理陷阱 appeared first on A Day Magazine....",
+    },
+    methods: {
+        getInArti() {
+            axios.post('./php/inArti.php').then(
+                res => {
+                    this.Arti = res.data
+                }
+            )
+        },
+        artiUrl(data) {
+            return `./atSelf.html?artNo=${data}`
+        },
+    },
 
-        }, {
-            author: "溫在涵",
-            date: "JUL 20,2020",
-            category: "人際關係",
-            title: "品格出眾的人，都懂得避開「巴納姆效應」",
-            content: "有一個朋友，什麼感情上的疑難雜症全都依賴星座命盤去分析，還常常對我們其他朋友說，「我以前也沒那麼信星座，但有時候真的很準。」The post 品格出眾的人，都懂得避開「巴納姆效應」心理陷阱 appeared first on A Day Magazine....",
+    mounted() {
+        this.getInArti();
+        this.winWidth = window.innerWidth;
+        $(window).resize(() => {
+            this.winWidth = window.innerWidth;
+            if (this.winWidth < 768 || this.winWidth == 768) {
+                $(".scrollmagic-pin-spacer").css("display", "none")
+            } else {
+                $(".scrollmagic-pin-spacer").css("display", "block")
 
-        }],
+            }
+        });
+
+    },
+
+
+})
+let vm2 = new Vue({
+    el: "#inArti2",
+    data: {
+        Arti: "",
         winWidth: "",
 
     },
@@ -70,26 +86,12 @@ new Vue({
                 }
             )
 
-
-        },
-        artiUrl(data) {
-            return `./atSelf.html?artNo=${data}`
-        },
-        onResize(data) {
-            if (data == "1") {
-                return (this.winWidth > 768) ? true : false;
-            } else if (data == "2") {
-                return (this.winWidth <= 768) ? true : false;
-            } else {
-                return (this.winWidth >= 1080) ? true : false;
-
-            }
         },
         indac() {
             $('.owl-carousel').owlCarousel({
                 // items: 3,
                 autoplay: true,
-                // loop: true,
+                loop: true,
                 margin: 100,
                 nav: true,
                 responsive: {
@@ -105,6 +107,7 @@ new Vue({
                 }
             });
         },
+
     },
 
     mounted() {
@@ -112,6 +115,12 @@ new Vue({
         this.winWidth = window.innerWidth;
         $(window).resize(() => {
             this.winWidth = window.innerWidth;
+            if (this.winWidth < 768 || this.winWidth == 768) {
+                $(".scrollmagic-pin-spacer").css("display", "none")
+            } else {
+                $(".scrollmagic-pin-spacer").css("display", "block")
+
+            }
         });
 
     },

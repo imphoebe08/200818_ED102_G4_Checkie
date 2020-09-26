@@ -2,17 +2,17 @@
 try{
     session_start();
     require_once("./connectBook.php");
-    $sql = " select  b.csName ,b.csPic,b.csNo,max(a.mesNo) 'mesNo'
-    from message a join counselor b 
-    using(csNo)
-    where memNo=:memNo
-    group by b.csName ,b.csPic,b.csNo
-    order by mesNo desc;
+    $sql = "  select  max(a.memRead) 'memRead', b.memNo,max(a.mesNo)
+    from message a join member b 
+    using(memNo)
+    where csNo=:csNo and mesFrom = 0
+    group by b.memNo
+    order by 3 desc;
 ";
     $message = $pdo->prepare($sql);
     // 正確做法
-    $memNo = $_SESSION["memNo"];
-    $message->bindValue(":memNo", $memNo);
+    $csNo = $_SESSION["csNo"];
+    $message->bindValue(":csNo", $csNo);
 
     // $message->bindValue(":memNo", 1);
     $message->execute();
