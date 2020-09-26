@@ -466,7 +466,7 @@ let login = new Vue({
                 }
                 xhr.open("get", "./php/logout.php", true);
                 xhr.send(null);
-                if (location.pathname == "/meMain.html") {
+                if (location.pathname == "/demo-projects/ED102/ED102G4/meMain.html") {
                     location.href = "./home.html";
 
                 }
