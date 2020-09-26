@@ -102,7 +102,6 @@ let vm = new Vue({
         this.randArr(this.cardsBack.length, this.cardsBack);
     },
     mounted() {
-        this.randArr(this.contents.length, this.contents);
         axios.get('./json/card.json')
             .then((res) => {
                 // this.cards = res.data;
@@ -148,15 +147,7 @@ let vm = new Vue({
 
         // },
         // 陣列亂數好用喔
-        randArr(num, data) {
-            for (var i = 0; i < num; i++) {
-                var iRand = parseInt(num * Math.random());
-                var temp = data[i];
-                data[i] = data[iRand];
-                data[iRand] = temp;
-            }
-            return data;
-        },
+
 
         cardChangeData(data) {
             //產生XMLHttpRequest物件
@@ -257,7 +248,9 @@ let vm = new Vue({
                 return this.contents;
             } else {
                 this.$children[0].$data.num = 3;
-                return this.contents.filter(item => item.actTypeNo == this.index || item.actTypeNo2 == this.index);
+                var a = this.contents.filter(item => item.actTypeNo == this.index || item.actTypeNo2 == this.index);
+
+                return this.randArr(a.length, a)
             }
         }
     },
