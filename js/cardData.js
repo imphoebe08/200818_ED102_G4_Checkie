@@ -37,7 +37,7 @@ Vue.component('reSelectCard', {
     </div>
 
     `,
-    
+
     methods: {
         randArr(num, data) {
             for (var i = 0; i < num; i++) {
@@ -58,8 +58,8 @@ Vue.component('reSelectCard', {
 
 
     },
-    mounted(){
-        this.randArr(this.acContents.length,this.acContents)
+    mounted() {
+        this.randArr(this.acContents.length, this.acContents)
     },
     computed: {
 
@@ -113,6 +113,8 @@ let vm = new Vue({
         axios.get('./php/acMain.php').then((res) => {
             this.contents = res.data
             console.log(res.data);
+            this.randArr(this.contents.length, this.contents)
+
             Vue.nextTick().then(function() {
                 vm.installOwlCarousel();
             });
