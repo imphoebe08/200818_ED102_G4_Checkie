@@ -50,7 +50,7 @@ let acVue = new Vue({
         contents: [],
         cards: [],
         index: location.href.split('?')[1].split('=')[1] - 1,
-        shareUrl: "https://tw.yahoo.com/?", //傳送的文章或活動主連結
+        shareUrl: "http://140.115.236.71/demo-projects/ED102/ED102G4/acSelf.html?", //傳送的文章或活動主連結
         shareNo: '',
         // 會員分享用
         memberData: [{

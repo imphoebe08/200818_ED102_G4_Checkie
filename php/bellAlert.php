@@ -5,7 +5,7 @@ try{
     $sql = "  select  max(a.memRead) 'memRead', b.csNo,max(a.mesNo)
     from message a join counselor b 
     using(csNo)
-    where memNo=1 and mesFrom = 1
+    where memNo = :memNo and mesFrom = 1
     group by b.csNo
     order by 3 desc;
 ";

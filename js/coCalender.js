@@ -2568,9 +2568,12 @@ let vm = new Vue({
             return this.csOCost;
         },
         when() {
-            var day = new Date(this.csOTime.date + " " + this.csOTime.time);
-            //console.log(day);
-            var hourNow = day.getHours();
+            //var day = new Date(this.csOTime.date + " " + this.csOTime.time);
+            //var day = this.csOTime.time;
+            console.log(day);
+            //day.split(' ')[1].split(':')[0])
+            //var hourNow = day.getHours();
+            var hourNow = parseInt(day.split(':')[0]);
             //console.log(hourNow);
             if (hourNow <= 12) {
                 return "上午";
@@ -2588,12 +2591,13 @@ let vm = new Vue({
             var h = Number(this.csHour);
             //console.log(h);
             //console.log(this.csOTime.date + " " + this.csOTime.time);
-            var k = new Date(this.csOTime.date + " " + this.csOTime.time);
-            var f = k.setHours(k.getHours() + h);
-            //console.log(f);
-            var d = new Date(f)
-                //console.log(d);
-            var hour = d.getHours() + ':00';
+            //var k = new Date(this.csOTime.date + " " + this.csOTime.time);
+            //var f = k.setHours(k.getHours() + h);
+            //var d = new Date(f);
+            var k = this.csOTime.time.split(':')[0];
+            console.log(k);
+            //var hour = d.getHours() + ':00';
+            var hour = k + ':00';
             //console.log(hour);
             return hour;
 
