@@ -360,7 +360,7 @@ let vm = new Vue({
             $("#signup_overlay").removeClass("signup_overlay-none");
             $("#signup_overlay").fadeIn(300);
             $("#container").removeClass("right-panel-active");
-        },
+        }
     },
     updated() {
 
@@ -385,7 +385,7 @@ let vm = new Vue({
                 return "上午";
             } else if (hourNow > 12 && hourNow <= 18) {
                 return "下午";
-            } else if (hourNow > 18) {
+            } else {
                 return "晚間";
             }
         },

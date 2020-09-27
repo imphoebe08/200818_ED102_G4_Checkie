@@ -2358,6 +2358,11 @@ let vm = new Vue({
             });
     },
     methods: {
+
+        backToPre() {
+            console.log('aaa');
+            window.history.back();
+        },
         checkDay() {
             //console.log(this.csOTime.date);
             if (this.csOTime.date && this.csOTime.time) {
@@ -2569,7 +2574,7 @@ let vm = new Vue({
         },
         when() {
             //var day = new Date(this.csOTime.date + " " + this.csOTime.time);
-            //var day = this.csOTime.time;
+            var day = this.csOTime.time;
             console.log(day);
             //day.split(' ')[1].split(':')[0])
             //var hourNow = day.getHours();

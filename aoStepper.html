@@ -210,7 +210,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-8 offset-md-4 cos-selfForm_item co-button--style">
-                                        <c-btn @click="update(currentStep-1)">prev</c-btn>
+                                        <c-btn @click="window.history.back();">prev</c-btn>
                                         <c-btn @click="checkForm()">next</c-btn>
                                     </div>
                                 </div>
@@ -520,7 +520,7 @@
                                                     <div class="col-md-12  ao-order_text--color">已將此QRcode寄至您的信箱</div>
                                                     <div class="col-md-12 ">
                                                         也可以在此進行儲存
-                                                        
+
                                                         <a href="dataURL" id="saveQrCode" target="_blank" download="image.jpg" @click="saveQrCode"><i class="fas fa-download" ></i></a>
                                                     </div>
                                                 </div>
@@ -573,7 +573,7 @@
 
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vuetify/2.3.10/vuetify.min.js"></script>
