@@ -135,12 +135,16 @@
                                 console.log(err)
                             })
                         alert("新增成功")
+                        location.href = "./atMain.html"
+
+
 
                     } else {
                         axios.post(`./php/atmain_up.php`, formData)
                             .then((res) => {
                                 console.log("============", res);
                                 alert("修改成功")
+                                location.href = "./atMain.html"
                                     // location.replace('http://localhost:8888/backstage/acManagement.html');
                             }).catch((err) => {
                                 console.log(err)
