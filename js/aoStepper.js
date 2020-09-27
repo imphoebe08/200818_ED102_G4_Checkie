@@ -375,13 +375,15 @@ let vm = new Vue({
         },
         when() {
             console.log(this.orderData.actStartAll);
-            var day = new Date(this.orderData.actStartAll);
-            console.log(day);
-            var hourNow = day.getHours();
+            //var day = new Date(this.orderData.actStartAll);
+            var day = this.orderData.actStartAll;
+            var hourNow = parseInt(day.split(' ')[1].split(':')[0])
             console.log(hourNow);
-            if (hourNow < 12) {
+            //var hourNow = day.getHours();
+            //sconsole.log(hourNow);
+            if (hourNow <= 12) {
                 return "上午";
-            } else if (hourNow > 12 && hourNow < 18) {
+            } else if (hourNow > 12 && hourNow <= 18) {
                 return "下午";
             } else if (hourNow > 18) {
                 return "晚間";

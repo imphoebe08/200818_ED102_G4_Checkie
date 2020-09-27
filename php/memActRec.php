@@ -8,35 +8,23 @@ try{
     $memNo = $_SESSION["memNo"];
 
     $sql = "
-    SELECT h.actName, 
-    date(h.actPstart) 'actPstart',
-    rpad(substr(h.actContent,1,16),20,'.') 'actContent',
-    date(h.actStart) 'actStart',   
-    d.actTypeNo 'actTypeNo',
-    h.actPic1,
-    f.testResultTypeNo,
-    f.testResultValue,
-    a.memTestTime,
-    h.actNo
-FROM activitytype d join activity h using(actno) 
-                join type e on e.typeNo = d.actTypeNo 
-                
-                join testresult f on f.testResultTypeNo = d.actTypeNo 
-                join memtest a using(memTestNo)
-where memNo= :memNo and testResultTypeNo =(select a.testResultTypeNo 
-                                from testresult a
-                                join memtest b using(memTestNo) 
-                                where memNo= :memNo 
-                                and memTestTime = (select max(memTestTime) 
-                                                   from memtest 
-                                                   where memNo= :memNo) 
-                               and testResultValue = (select min(testResultValue)
-                                                    from testresult a join 																	memtest b 
-                                                    where memNo= :memNo)) 
-           and memTestTime = (select max(memTestTime)
-                              from memtest where memNo= :memNo)
-order by actStart desc
-limit 5
+    select a.actName, 
+        b.actTypeNo , 
+        date(a.actPstart) 'actPstart',
+        rpad(substr(a.actContent,1,16),20,'.') 'actContent',
+        date(a.actStart) 'actStart',   
+            a.actPic1,
+            a.actNo
+    from activity a join activitytype b using(actno) 
+    where b.actTypeNo = (
+    SELECT t.testResultTypeNo FROM testresult t 
+                                join memtest mt on (t.memTestNo = mt.memTestNo 
+                                and mt.memTestNo = (SELECT memTestNo FROM memtest  
+                                                    where memNo = :memNo
+                                                    order by memTestTime desc limit 1))
+                                                        order by mt.memTestTime desc,t.testResultValue limit 1
+    ) and a.actStart > current_date() 
+    order by actStart limit 5;
 ";
 
     $memberArtRec = $pdo->prepare($sql);

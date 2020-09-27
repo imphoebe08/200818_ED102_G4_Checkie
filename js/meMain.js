@@ -210,7 +210,7 @@ Vue.component('inact-item', {
 
         openShareDialog(actNo) {
             console.log('hi');
-            this.$emit('open-share-dialog', `actNo=${actNo}`);
+            this.$emit('open-share-dialog', `acSelf.html?actNo=${actNo}`);
         }
 
     },
@@ -344,9 +344,9 @@ Vue.component('cssart-layout', {
         </div>`,
     methods: {
 
-        openShareDialog(actNo) {
+        openShareDialog(artNo) {
             console.log('hi');
-            this.$emit('open-share-dialog', `actNo=${actNo}`);
+            this.$emit('open-share-dialog', `atSelf.html?artNo=${artNo}`);
         }
 
     },
@@ -438,7 +438,7 @@ let vm = new Vue({
         bell: "",
         // jiang end()
         // 分享加這個
-        shareUrl: "https://tw.yahoo.com/?", //傳送的文章或活動主連結
+        shareUrl: `http://140.115.236.71/demo-projects/ED102/ED102G4/`, //傳送的文章或活動主連結
         shareNo: '', //傳送的文章或活動編號，我預設為0
         nothing: false,
         allData: [],

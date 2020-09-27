@@ -8,33 +8,22 @@ try{
     $memNo = $_SESSION["memNo"];
 
     $sql = " 
-
-    SELECT  h.artTitle, 
-        b.csName, 
-        rpad(substr(h.artContent,1,16),20,'.') 'artContent',
-        date(h.artDate) 'artDate',  
-        d.artTypeNo 'artTypeNo',
-        h.artPic1,
-        f.testResultTypeNo,
-        f.testResultValue,
-        a.memTestTime,
-        h.artNo
-    FROM articletype d join article h using(artno) 
-                    join counselor b using(csNo) 
-                    join type e on e.typeNo = d.artTypeNo 
-                    join testresult f on f.testResultTypeNo = d.artTypeNo 
-                    join memtest a using(memTestNo)
-    where memNo= :memNo and testResultTypeNo =(select a.testResultTypeNo 
-                                    from testresult a
-                                    join memtest b using(memTestNo) 
-                                    where memNo= :memNo and memTestTime = (select max(memTestTime) 
-                                                                    from memtest where memNo= :memNo) 
-                                                    and testResultValue = (select min(testResultValue)
-                                                    from testresult a join memtest b 
-                                                    where memNo= :memNo)) and memTestTime = (select max(memTestTime) 
-                                                                                        from memtest where memNo= :memNo)
-    order by artDate desc
-    limit 5;
+    select a.artTitle, 
+		b.artTypeNo , 
+		date(a.artDate) 'artDate',
+		rpad(substr(a.artContent,1,16),20,'.') 'artContent',
+		a.artPic1,
+		a.artNo
+from article a join articletype b using(artno)
+	where b.artTypeNo = (
+    SELECT t.testResultTypeNo FROM testresult t 
+								join memtest mt on (t.memTestNo = mt.memTestNo 
+								and mt.memTestNo = (SELECT memTestNo FROM memtest  
+													where memNo = :memNo
+                                                    order by memTestTime desc limit 1))
+														order by mt.memTestTime desc,t.testResultValue limit 1
+    ) 
+    order by a.artDate limit 5;
         ";
 
     $memberArtRec = $pdo->prepare($sql);

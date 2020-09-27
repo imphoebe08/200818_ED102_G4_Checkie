@@ -11,8 +11,6 @@
             $to3 = "./img/user/" . $_FILES["memPic"]["name"];
             copy($from, $to);
             copy($from, $to2);
-        
-            
         }
     
         $sql = "UPDATE `member` SET `memPic` = :memPic 
