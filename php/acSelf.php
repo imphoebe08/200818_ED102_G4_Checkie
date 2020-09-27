@@ -13,7 +13,8 @@ try{
             from activity a join actTypeNoCombo b on a.actno = b.actno
                             left join acttypeview c on b.acttypeno = c.acttypeno
                             left join acttypeview d on b.acttypeno2 = d.acttypeno2
-							left join counselor e on a.csNo = e.csNo 
+                            left join counselor e on a.csNo = e.csNo 
+            where a.actno = :actNo
 			group by actno
             order by actno;";
     $products = $pdo->prepare($sql);

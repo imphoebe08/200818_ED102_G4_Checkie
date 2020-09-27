@@ -26,59 +26,59 @@
         <div id="acSelf" class="acSelf fluid">
             <div class="acSelf-Banner">
 
-                <div class="acSelf-Banner_pic col-xl-7 col-sm-12"><img :src="contents[index].actpic1" alt=""></div>
+                <div class="acSelf-Banner_pic col-xl-7 col-sm-12"><img :src="contents[0].actpic1" alt=""></div>
                 <div class="acSelf-Banner_intro col-xl-5 col-sm-12">
-                    <h5>#{{contents[index].typename1}} <span v-if="contents[index].typename2">#{{contents[index].typename2}}</span></h5><br>
-                    <h5>{{contents[index].actName}}</h5>
+                    <h5>#{{contents[0].typename1}} <span v-if="contents[0].typename2">#{{contents[0].typename2}}</span></h5><br>
+                    <h5>{{contents[0].actName}}</h5>
                     <br>
                     <br>
                     <h6>活動時間：</h6>
-                    <p>{{contents[index].actStart}} ~ {{contents[index].actEnd}}</p><br>
+                    <p>{{contents[0].actStart}} ~ {{contents[0].actEnd}}</p><br>
                     <h6>活動地點：</h6>
-                    <p><a :href="'https://www.google.com/maps/place/' + contents[index].actAddress">{{contents[index].actAddress}}</a></p><br>
+                    <p><a :href="'https://www.google.com/maps/place/' + contents[0].actAddress">{{contents[0].actAddress}}</a></p><br>
                     <h6>費用：</h6><br>
-                    <p>{{contents[index].actCost}}/人</p>
+                    <p>{{contents[0].actCost}}/人</p>
 
 
                 </div>
             </div>
             <div class="acSelf-btns">
                 <div class="acSelf-btns-markshare">
-                    <i class="fas fa-share-alt acSelectCard-share_icon share-button2" name="acSelf-btns_share" id="acSelf-btns_save" style="font-size:20px" @click="openShareDialog2(contents[index].actNo)"></i>
+                    <i class="fas fa-share-alt acSelectCard-share_icon share-button2" name="acSelf-btns_share" id="acSelf-btns_save" style="font-size:20px" @click="openShareDialog2(contents[0].actNo)"></i>
                     <i class="fas fa-bookmark acSelectCard-bookmark_icon" name="acSelf-btns_save" id="acSelf-btns_share" style="font-size:20px"></i>
 
 
                 </div>
                 <label for="acSelf-btns_apply"></label>
-                <a :href="'./aoStepper.html?actNo=' + contents[index].actNo"><input type="button" name="acSelf-btns_apply" id="acSelf-btns_apply" class="acSelf-btns_apply" value="立即報名"></a>
+                <a :href="'./aoStepper.html?actNo=' + contents[0].actNo"><input type="button" name="acSelf-btns_apply" id="acSelf-btns_apply" class="acSelf-btns_apply" value="立即報名"></a>
             </div>
 
             <h4 class="acInfo-title">活動介紹</h4>
             <div class="acInfo">
                 <div class="acInfo_content col-12">
-                    <p v-html="contents[index].actContent"></p><br>
+                    <p v-html="contents[0].actContent"></p><br>
                 </div>
                 <div class="acInfo_pic col-12">
-                    <img class="acInfo_pic--1 col-xl-5 col-12" :src="contents[index].actpic2" alt="">
-                    <img class="acInfo_pic--2 col-xl-5 col-12" :src="contents[index].actpic3" alt="">
+                    <img class="acInfo_pic--1 col-xl-5 col-12" :src="contents[0].actpic2" alt="">
+                    <img class="acInfo_pic--2 col-xl-5 col-12" :src="contents[0].actpic3" alt="">
                 </div>
             </div>
             <h4 class="acTeacher-title">講師介紹</h4>
             <div class="acTeacher">
                 <div class="acTeacher_pic col-xl-4 col-12">
-                    <img v-if="contents[index].csName" :src="contents[index].csPic" alt="">
-                    <img v-else :src="contents[index].actHostPic" alt="">
-                    <h6 v-if="contents[index].csName" style="text-align: center;">諮商師｜{{contents[index].csName}}</h6>
-                    <h6 v-else style="text-align: center;">{{contents[index].actHostTitle}}｜{{contents[index].actHost}}</h6>
+                    <img v-if="contents[0].csName" :src="contents[0].csPic" alt="">
+                    <img v-else :src="contents[0].actHostPic" alt="">
+                    <h6 v-if="contents[0].csName" style="text-align: center;">諮商師｜{{contents[0].csName}}</h6>
+                    <h6 v-else style="text-align: center;">{{contents[0].actHostTitle}}｜{{contents[0].actHost}}</h6>
                 </div>
                 <div class="acTeacher_intro col-xl-7 col-12">
-                    <p v-if="contents[index].csName" v-html="contents[index].csHis"></p>
-                    <p v-else v-html="contents[index].actHostInfo"></p>
+                    <p v-if="contents[0].csName" v-html="contents[0].csHis"></p>
+                    <p v-else v-html="contents[0].actHostInfo"></p>
                 </div>
             </div>
             <h4 class="acLocation-title">活動地點</h4>
             <div class="acLocation">
-                <iframe :src="'https://maps.google.com?output=embed&q=' + contents[index].actAddress " width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <iframe :src="'https://maps.google.com?output=embed&q=' + contents[0].actAddress " width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
             <div class="acAttension">
                 <p class="acAttension-title">活動注意事項</p>

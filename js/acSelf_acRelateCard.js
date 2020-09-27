@@ -193,7 +193,7 @@ let acVue = new Vue({
         // var vm = this;
         axios.get(`./php/acSelf.php?actNo=${actNo}`).then((res) => {
             this.contents = res.data
-            console.log(this.contents)
+            console.log(res.data)
         }).then(() => {
             axios.get('./php/acMain.php').then((res) => {
                 this.cards = res.data
